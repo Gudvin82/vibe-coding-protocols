@@ -15,5 +15,8 @@ Tell me:
 4. Which risks I may be underestimating.
 5. Which smallest safe next step you recommend.
 
+If code discovery is needed, first produce a compact evidence map.
+Do not inspect or rewrite the whole repository without a reason.
+
 If you cannot open GitHub links, ask me to paste the relevant markdown files.
 ```

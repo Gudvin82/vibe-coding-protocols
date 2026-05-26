@@ -6,7 +6,7 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.5`  
+Repository package: `v0.1.6`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -57,6 +57,12 @@ Fast track for empty repositories. Review-first flow above is recommended.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Optional local guardrail:
+
+```bash
+bash scripts/install-hooks.sh
 ```
 
 ## 10-second overview
@@ -152,6 +158,9 @@ First tell me:
 If you cannot open GitHub links, ask me to paste README.md and prompts/use-this-repo-prompt.md.
 ```
 
+See the full file:
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+
 ## Why are there AI IDE files in the root?
 
 Root files are intentionally copy-ready entrypoints for AI IDEs:
@@ -219,6 +228,7 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --json
 bash scripts/vibe-check.sh --audit --scanners || true
 bash scripts/init-minimal.sh --dry-run
 ```
@@ -236,6 +246,15 @@ See:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
 - [scripts/init-minimal.sh](./scripts/init-minimal.sh)
+- [scripts/install-hooks.sh](./scripts/install-hooks.sh)
+
+## Token-aware discovery
+
+For larger projects, use discovery agents to map relevant files before implementation.
+
+See:
+- [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md)
+- [prompts/modules/token-aware-discovery.md](./prompts/modules/token-aware-discovery.md)
 
 ## Badges for your project
 
@@ -265,7 +284,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.5`
+- Repository package: `v0.1.6`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 A future repository `v1.0.0` release may be used after external feedback, real adoption signals and a stable toolkit interface.

@@ -2,23 +2,33 @@ name: vibe-check
 
 on:
   push:
-    branches: [main]
   pull_request:
 
 jobs:
-  vibe:
+  vibe-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Toolkit structure check
         run: bash scripts/check-toolkit.sh
+
       - name: Placeholder scan
         run: bash scripts/scan-placeholders.sh
+
       - name: Validate links
         run: python3 scripts/validate-links.sh
-      - name: Starter vibe check
-        run: bash scripts/vibe-check.sh --starter
-      - name: Hardening vibe check
-        run: bash scripts/vibe-check.sh --hardening
-      - name: Audit vibe check
+
+      - name: Vibe check
         run: bash scripts/vibe-check.sh --audit
+
+      - name: Diff size guardrail
+        if: github.event_name == 'pull_request'
+        run: |
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
+          if [ "$CHANGED" -gt 15 ]; then
+            echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs."
+            exit 1
+          fi

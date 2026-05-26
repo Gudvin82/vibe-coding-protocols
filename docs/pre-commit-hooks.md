@@ -1,34 +1,25 @@
-# Pre-commit hook examples
+# Pre-Commit Hooks
 
-Pre-commit hooks should stay fast.
+Use pre-commit hooks as local guardrails, not as a replacement for review.
 
-Heavy scanners are usually better in CI than in a local pre-commit step.
-
-## Simple git hook
+## Install the optional hook
 
 ```bash
-#!/usr/bin/env bash
-set -e
-npm test
-npm run lint
+bash scripts/install-hooks.sh
 ```
 
-## Husky example
+The installed hook:
+- blocks commits that stage `.env` or `.env.*` files;
+- warns when the staged diff touches many files;
+- runs `bash scripts/vibe-check.sh --starter`.
 
-```bash
-npx husky init
-echo "npm test && npm run lint" > .husky/pre-commit
-```
+It does not:
+- push;
+- create commits;
+- change production configs;
+- install dependencies.
 
-## Python project example
+## Why keep it optional?
 
-```bash
-python -m pytest
-ruff check .
-```
-
-## VCP hook idea
-
-```bash
-bash scripts/vibe-check.sh --starter
-```
+Some teams prefer only CI enforcement. Others want a local reminder before a risky commit.
+This repository keeps the hook optional so it does not force one workflow on every project.

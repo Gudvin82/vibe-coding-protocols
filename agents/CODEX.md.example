@@ -5,3 +5,17 @@ Defaults for Codex-style workflow:
 - work from `git diff`
 - do not run destructive commands without approval
 - report what changed, what was checked and what still needs follow-up
+
+## Codex token-aware discovery
+
+When code discovery is needed, keep the main process focused on decisions and implementation.
+
+If available, delegate broad repository search to a cheaper or faster read-only subagent such as Codex Spark.
+
+The subagent must return:
+- `path:line`
+- symbol / component / route
+- relevant snippet or signature
+- why it matters
+
+The main process should use that map for targeted reading and implementation, verifying critical findings before editing.

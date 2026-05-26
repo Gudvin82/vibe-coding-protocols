@@ -2,33 +2,34 @@
 
 ## Overview
 
-Small web application with one main task list flow.
+Small runnable todo service with one list/create/complete flow.
 
 ## Entrypoints
 
-- `app/page.tsx`
-- `app/api/tasks/route.ts`
+- `src/index.js`
+- `tests/smoke.test.js`
 
 ## Main routes
 
-- `/`
-- `/api/tasks`
+- `GET /health`
+- `GET /api/tasks`
+- `POST /api/tasks`
+- `POST /api/tasks/:id/complete`
 
-## Data model
+## Main components
 
-- `users`
-- `tasks`
-
-## Integrations
-
-- `postgresql` or `supabase-compatible database`
+- `createApp()` — creates the HTTP handler and in-memory store
+- `readJsonBody()` — minimal request parsing helper
+- `sendJson()` — consistent response helper
 
 ## Active / deferred surfaces
 
-- active: web, backend/API, database
-- deferred: mobile, payments, AI features, admin
+- active: backend/API, test, starter docs
+- deferred: auth, database, admin, background jobs, rate limiting
 
 ## Known risks
 
-- auth still basic
-- indexes for larger lists deferred until hardening
+- no persistence
+- no auth
+- basic input validation only
+- no rate limiting

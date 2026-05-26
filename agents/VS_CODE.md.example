@@ -1,17 +1,9 @@
-# VS Code example
+# VS_CODE.md example
 
-Use with VS Code plus GitHub Copilot or other AI extensions.
+Use the repository as a planning toolkit first:
+- read `README.md`, `AGENTS.md` and `PROJECT_MAP.md`;
+- keep changes reviewable;
+- document follow-up in `AUDIT_BACKLOG.md`.
 
-## Suggested setup
-
-- place `.github/copilot-instructions.md` in the project;
-- add `AGENTS.md`, `PROJECT_MAP.md` and `README.md`;
-- use `prompts/` and `templates/` as copyable building blocks;
-- run the helper scripts from `scripts/` after changes.
-
-## Rules
-
-- prefer small diffs;
-- do not activate deferred surfaces;
-- ask before dependencies, migrations, auth or payments;
-- report validation and changed files.
+Before broad edits, ask the AI to produce a compact evidence map first.
+Do not let it scan and rewrite the project in one step.

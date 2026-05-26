@@ -12,3 +12,13 @@ Start here.
 8. Do not run destructive commands.
 9. Do not access or expose secrets.
 10. Use independent diff review before important merge or deploy decisions.
+
+## Read-only discovery subagent
+
+For large repositories, use a read-only subagent to map relevant files before editing.
+
+The subagent should not modify files. It should return an evidence map only:
+- `path:line`
+- symbol / route / component
+- relevant snippet or signature
+- why it matters

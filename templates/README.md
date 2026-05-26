@@ -9,10 +9,17 @@ Included themes:
 - third-party registry;
 - security operations baseline.
 
+AI / IDE variants:
+- [`AGENTS.md`](./AGENTS.md)
+- [`AGENTS.claude.md`](./AGENTS.claude.md)
+- [`AGENTS.cursor.md`](./AGENTS.cursor.md)
+- [`AGENTS.windsurf.md`](./AGENTS.windsurf.md)
+
 Recommended companions:
 - [`../docs/template-style-guide.md`](../docs/template-style-guide.md)
 - [`../docs/hardening-thresholds.md`](../docs/hardening-thresholds.md)
 - [`../docs/scanner-integration.md`](../docs/scanner-integration.md)
+- [`../docs/migration/README.md`](../docs/migration/README.md)
 
 Important:
 - these are public templates;

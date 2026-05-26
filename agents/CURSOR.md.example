@@ -1,7 +1,9 @@
 # CURSOR.md example
 
-Defaults for Cursor-style workflow:
-- split large changes into smaller composer passes
-- preserve stop conditions
-- review the diff after each pass
-- do not rewrite the whole project when a smaller change is enough
+Defaults:
+- keep diffs small;
+- use file references and changed-files plans;
+- stop on risky auth, DB, dependency or workflow changes.
+
+Before broad edits, ask the AI to produce a compact evidence map first.
+Do not let it scan and rewrite the whole project in one step.

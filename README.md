@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.5-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.6-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -29,7 +29,7 @@
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.5`  
+Repository package: `v0.1.6`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
@@ -88,6 +88,12 @@ Fast track for empty repositories. Review-first flow above is recommended.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Optional local guardrail:
+
+```bash
+bash scripts/install-hooks.sh
 ```
 
 ## 10-second overview
@@ -246,6 +252,7 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --json
 bash scripts/vibe-check.sh --audit --scanners || true
 ```
 
@@ -274,6 +281,7 @@ See:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+- [scripts/install-hooks.sh](./scripts/install-hooks.sh)
 
 ## CI/CD integration
 
@@ -306,11 +314,16 @@ vibe-coding-protocols/
 │   └── ai-ide-compatibility.md             # Claude Code / Codex / Cursor / Windsurf
 ├── prompts/
 │   ├── master-prompt-short.md              # Route the project before coding
+│   ├── modules/                            # Smaller prompt modules by task
 │   ├── product-brief-prompt.md             # Product Brief / technical intake
 │   ├── starter-prompts.md                  # Starter prompt blocks
-│   └── hardening-prompts.md                # Hardening prompt blocks
+│   ├── hardening-prompts.md                # Hardening prompt blocks
+│   └── backlog-to-issues-prompt.md         # Turn backlog rows into reviewable issue drafts
 ├── templates/
 │   ├── AGENTS.md                           # Reusable AI agent policy template
+│   ├── AGENTS.claude.md                    # Claude-oriented adaptation
+│   ├── AGENTS.cursor.md                    # Cursor-oriented adaptation
+│   ├── AGENTS.windsurf.md                  # Windsurf-oriented adaptation
 │   ├── PROJECT_MAP.md                      # File map and system context
 │   ├── AUDIT_BACKLOG.md                    # Findings and follow-up backlog
 │   ├── ARCHITECTURE_SOURCE_OF_TRUTH.md     # Architecture reference template
@@ -329,6 +342,7 @@ vibe-coding-protocols/
 │   ├── ai-generated-test-strategy.md
 │   └── device-browser-qa-checklist.md
 ├── examples/
+│   ├── todo-app-starter/
 │   ├── todo-app-vibe/
 │   ├── telegram-bot-vibe/
 │   ├── landing-page-vibe/
@@ -342,7 +356,13 @@ vibe-coding-protocols/
 │   ├── security-operations.md
 │   ├── safe-update-workflow.md
 │   ├── token-aware-code-discovery.md
-│   └── secret-rotation-and-storage.md
+│   ├── secret-rotation-and-storage.md
+│   ├── guides/
+│   ├── reference/
+│   ├── community/
+│   ├── releases/
+│   ├── roadmap/
+│   └── migration/
 ├── case-studies/
 │   ├── README.md
 │   └── anonymized-case-template.md
@@ -358,6 +378,7 @@ vibe-coding-protocols/
 Start with [examples/README.md](./examples/README.md).
 
 Recommended walkthroughs:
+- [examples/todo-app-starter/](./examples/todo-app-starter/) — runnable synthetic starter example with `npm test` and `npm start`
 - [examples/todo-app-vibe/](./examples/todo-app-vibe/) — Starter to Hardening for a small app
 - [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/) — bot-specific abuse and hardening findings
 - [examples/landing-page-vibe/](./examples/landing-page-vibe/) — light route for a public landing page
@@ -450,8 +471,20 @@ Use this when the project is public, monetized, client-facing or production-boun
 - [Testing Cookbook](./docs/testing-cookbook.md)
 - [AI-Specific Threat Model](./docs/ai-specific-threat-model.md)
 - [Scanner Integration](./docs/scanner-integration.md)
+- [Runnable todo-app-starter](./examples/todo-app-starter/README.md)
+- [Modular prompts](./prompts/modules/)
+- [Backlog-to-Issues prompt](./prompts/backlog-to-issues-prompt.md)
+- [Migration notes](./docs/migration/README.md)
 - [Case Studies](./case-studies/README.md)
 - [Template Style Guide](./docs/template-style-guide.md)
+
+## Token-aware discovery
+
+For larger projects, use discovery agents to map relevant files before implementation.
+
+See:
+- [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md)
+- [prompts/modules/token-aware-discovery.md](./prompts/modules/token-aware-discovery.md)
 
 ## Workflow
 
@@ -574,7 +607,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.5`
+- Repository package: `v0.1.6`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 A future repository `v1.0.0` release may be used after external feedback,

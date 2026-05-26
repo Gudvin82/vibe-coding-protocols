@@ -19,6 +19,8 @@ or a security verdict.
 - `.env` / `.env.*` files in the repository;
 - whether `.env.example` or a documented baseline exists when env-like references appear;
 - suspicious secret-like assignments in a quick grep-style pass;
+- secret-like prefixes such as `sk-`, `ghp_`, `github_pat_`, `AKIA`, JWT-like tokens and password-bearing connection strings;
+- soft lockfile checks for JavaScript and Python dependency manifests;
 - public-safety warnings for root docs in webroot-style contexts;
 - optional scanners if `--scanners` is requested and tools are already installed.
 
@@ -40,8 +42,10 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --json
 bash scripts/vibe-check.sh --audit --scanners || true
 bash scripts/vibe-check.sh --scanners
+bash scripts/vibe-check.sh --help
 ```
 
 If `--scanners` is passed without a mode, audit mode is assumed.
@@ -57,14 +61,13 @@ PASS: SECURITY_OPERATIONS_BASELINE reference present
 WARN: Suspicious secret-like assignment detected; review and remove or mask it
 WARN: Gitleaks not found; see docs/scanner-integration.md
 
+SUMMARY: 4 pass, 2 warn, 0 fail
 VIBE CHECK SCORE: 82/100
 Breakdown:
 - Structure: 25/25
 - Safety files: 20/25
 - Secrets hygiene: 20/25
 - Optional scanners: 17/25
-Result: WARN
-Status: PASS=9 WARN=2 FAIL=0
 This is a readiness signal, not a security certification.
 ```
 
@@ -75,6 +78,7 @@ This is a readiness signal, not a security certification.
 3. Run `--hardening` before merge or pre-deploy review on existing code.
 4. Use the warnings to fill in missing project memory and audit files before the next AI iteration.
 5. Use `--strict` when you want warnings to block a local or CI pass.
+6. Use `--json` when another tool needs a machine-readable summary.
 
 ## How to use in CI
 

@@ -1,7 +1,9 @@
 # WINDSURF.md example
 
-Defaults for Windsurf/Cascade-style workflow:
-- define scope before execution
-- keep active/deferred surfaces explicit
-- validate after each iteration
-- stop when the task expands without new evidence
+Defaults for Cascade-style workflows:
+- define scope before implementation;
+- keep validation explicit;
+- stop for risky changes, dependencies and migrations.
+
+Before broad edits, ask the AI to produce a compact evidence map first.
+Do not let it scan and rewrite the project in one step.

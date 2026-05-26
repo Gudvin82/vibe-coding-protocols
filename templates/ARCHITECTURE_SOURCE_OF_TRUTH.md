@@ -4,6 +4,40 @@
 
 Этот документ не должен быть презентацией или marketing-summary. Это working engineering-control document: единый источник правды для разработки, безопасности, деплоя, rollback, передачи проекта другому инженеру и production readiness review.
 
+## Fill levels
+
+You do not need to fill the whole document on day one.
+
+### MVP
+
+Fill sections:
+- project purpose
+- active/deferred surfaces
+- main flows
+- key files
+- env/secrets policy
+- deploy path
+- known risks
+
+### Pre-production
+
+Also fill:
+- auth
+- data model
+- integrations
+- rollback
+- monitoring
+- testing
+
+### Production / client-facing
+
+Fill all sections, including:
+- security operations
+- incident recovery
+- third-party registry
+- compliance
+- accepted risks
+
 ## Как использовать
 
 - Заполняйте только то, что реально существует в проекте.

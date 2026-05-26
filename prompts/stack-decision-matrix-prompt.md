@@ -1,6 +1,6 @@
-Выбери стек и объясни, почему он подходит именно для этого проекта.
+Choose a stack and explain why it fits this project.
 
-Нужно дать:
+Return:
 - recommended stack;
 - simpler alternative;
 - safer production-ready alternative;
@@ -15,4 +15,12 @@
 - first likely bottleneck;
 - what is intentionally deferred.
 
-Не предлагай сложную архитектуру без причины. Но если выбранный путь создает архитектурный тупик при росте, укажи это явно и предложи более устойчивую альтернативу без overengineering.
+Consider modern 2025+ stack options where relevant:
+- Edge runtime: Cloudflare Workers, Vercel Edge
+- Serverless Postgres: Neon, Supabase, Turso
+- Auth: Clerk, Better Auth, Supabase Auth
+- Queues/jobs: Cloudflare Queues, BullMQ, Temporal
+- AI apps: rate limits, cost caps, prompt injection defense
+
+Mention these only when they fit the project constraints.
+Do not propose complexity without a reason. If the chosen path creates an architectural dead end at moderate growth, say so clearly and suggest a more durable alternative without overengineering.

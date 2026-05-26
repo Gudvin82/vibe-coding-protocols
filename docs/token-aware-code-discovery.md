@@ -30,6 +30,39 @@ Use an evidence map: path, symbol, snippet, why it matters.
 Delegate broad discovery to a cheaper or faster subagent if available,
 then return a compact evidence map.
 
+## Discovery-agent pattern
+
+When broad code discovery is needed, keep the main agent focused on decisions and implementation.
+
+Use a cheaper, faster or read-only discovery agent when available.
+
+The discovery agent must return only a compact evidence map:
+
+| path:line | symbol / route / component | snippet / signature | why it matters |
+|---|---|---|---|
+| `src/api/tasks.js:18` | `createTask()` | `createTask(input)` | writes user-controlled data |
+| `app/routes/admin.ts:4` | `/admin` | `router.get('/admin')` | sensitive route requires review |
+
+The main agent must:
+- use the evidence map for targeted reading;
+- verify critical findings before editing;
+- avoid reading the whole repo unless needed;
+- update `PROJECT_MAP.md` if discovery reveals outdated project memory.
+
+### Codex
+
+If available, delegate broad repository search to a cheaper or faster Codex subagent such as Codex Spark.
+If Spark is not available, use the least expensive capable read-only agent.
+
+### Claude Code
+
+Use a read-only subagent for repository discovery when available.
+The implementation agent should receive only the evidence map, not the whole search transcript.
+
+### Cursor / Windsurf / Copilot
+
+Use the same principle manually: first ask for a compact map of relevant files, then ask for targeted implementation.
+
 ## Stop reading when
 
 - the relevant entrypoint is found;

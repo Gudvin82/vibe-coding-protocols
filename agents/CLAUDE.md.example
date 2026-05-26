@@ -8,3 +8,9 @@ Defaults:
 - stop conditions
 - independent diff review for important changes
 - do not turn one request into a massive rewrite
+
+## Read-only discovery subagent
+
+For large repositories, use a read-only subagent to map relevant files before editing.
+
+The subagent should not modify files. It should return an evidence map only.

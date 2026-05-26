@@ -4,31 +4,49 @@ set -euo pipefail
 MODE=""
 STRICT=0
 RUN_SCANNERS=0
+JSON_MODE=0
 PASS=0
 WARN=0
 FAIL=0
 STRUCTURE_SCORE=0
 SAFETY_SCORE=0
 SECRETS_SCORE=0
-SCANNER_SCORE=10
-RECOMMENDED=()
+SCANNER_SCORE=0
 SCANNER_RELEVANT=0
 SCANNER_SUCCESS=0
 SCANNER_WARNINGS=0
+RECOMMENDED=()
+
+PLACEHOLDER_RX='example|placeholder|changeme|your_|dummy|test|\[FILL IN|<[^>]+>|masked-example-not-real|not-real|sample'
 
 usage() {
   cat <<'USAGE'
 Usage:
-  bash scripts/vibe-check.sh --starter [--strict] [--scanners]
-  bash scripts/vibe-check.sh --hardening [--strict] [--scanners]
-  bash scripts/vibe-check.sh --audit [--strict] [--scanners]
+  bash scripts/vibe-check.sh --starter
+  bash scripts/vibe-check.sh --hardening
+  bash scripts/vibe-check.sh --audit
+  bash scripts/vibe-check.sh --strict
   bash scripts/vibe-check.sh --scanners
+  bash scripts/vibe-check.sh --json
+  bash scripts/vibe-check.sh --help
 
-Notes:
-- --strict turns WARN into a non-zero exit code.
-- --scanners optionally runs external scanners if they are already installed.
-- If --scanners is passed without a mode, audit mode is assumed.
+Examples:
+  bash scripts/vibe-check.sh --starter
+  bash scripts/vibe-check.sh --hardening --json
+  bash scripts/vibe-check.sh --audit --strict
+  bash scripts/vibe-check.sh --audit --scanners
+
+Exit codes:
+  0  PASS or WARN in default mode
+  1  FAIL, or WARN in --strict mode
+  2  Script/runtime error
 USAGE
+}
+
+log_line() {
+  if (( JSON_MODE == 0 )); then
+    echo "$1"
+  fi
 }
 
 add_recommended() {
@@ -43,72 +61,47 @@ add_recommended() {
 }
 
 pass() {
-  echo "PASS: $1"
   PASS=$((PASS + 1))
+  log_line "PASS: $1"
 }
 
 warn() {
-  echo "WARN: $1"
   WARN=$((WARN + 1))
+  log_line "WARN: $1"
 }
 
 fail() {
-  echo "FAIL: $1"
   FAIL=$((FAIL + 1))
+  log_line "FAIL: $1"
 }
 
 run_check() {
   local level="$1"
   local message="$2"
   local points="$3"
-  if [[ "$level" == "pass" ]]; then
-    pass "$message"
-    case "$4" in
-      structure) STRUCTURE_SCORE=$((STRUCTURE_SCORE + points)) ;;
-      safety) SAFETY_SCORE=$((SAFETY_SCORE + points)) ;;
-      secrets) SECRETS_SCORE=$((SECRETS_SCORE + points)) ;;
-    esac
-  elif [[ "$level" == "warn" ]]; then
-    warn "$message"
-  else
-    fail "$message"
-  fi
-}
+  local bucket="${4:-}"
 
-for arg in "$@"; do
-  case "$arg" in
-    --starter|--hardening|--audit)
-      if [[ -n "$MODE" ]]; then
-        usage
-        exit 1
-      fi
-      MODE="$arg"
+  case "$level" in
+    pass)
+      pass "$message"
+      case "$bucket" in
+        structure) STRUCTURE_SCORE=$((STRUCTURE_SCORE + points)) ;;
+        safety) SAFETY_SCORE=$((SAFETY_SCORE + points)) ;;
+        secrets) SECRETS_SCORE=$((SECRETS_SCORE + points)) ;;
+      esac
       ;;
-    --strict)
-      STRICT=1
+    warn)
+      warn "$message"
       ;;
-    --scanners)
-      RUN_SCANNERS=1
-      ;;
-    -h|--help)
-      usage
-      exit 0
+    fail)
+      fail "$message"
       ;;
     *)
-      usage
-      exit 1
+      echo "Unknown check level: $level" >&2
+      exit 2
       ;;
   esac
-done
-
-if [[ -z "$MODE" ]]; then
-  if (( RUN_SCANNERS )); then
-    MODE="--audit"
-  else
-    usage
-    exit 1
-  fi
-fi
+}
 
 project_has_file() {
   local path="$1"
@@ -124,6 +117,115 @@ project_has_any_file() {
   done
   return 1
 }
+
+pattern_hit_count() {
+  local regex="$1"
+  local output
+  output=$(rg -n --hidden \
+    --glob '!.git/*' \
+    --glob '!node_modules/*' \
+    --glob '!dist/*' \
+    --glob '!build/*' \
+    --glob '!coverage/*' \
+    --glob '!scripts/vibe-check.sh' \
+    --glob '!examples/todo-app-starter/.env.example' \
+    "$regex" . 2>/dev/null \
+    | grep -viE "$PLACEHOLDER_RX" || true)
+  printf '%s\n' "$output" | sed '/^$/d' | wc -l | tr -d ' '
+}
+
+pattern_hit_files() {
+  local regex="$1"
+  local output
+  output=$(rg -n --hidden \
+    --glob '!.git/*' \
+    --glob '!node_modules/*' \
+    --glob '!dist/*' \
+    --glob '!build/*' \
+    --glob '!coverage/*' \
+    --glob '!scripts/vibe-check.sh' \
+    --glob '!examples/todo-app-starter/.env.example' \
+    "$regex" . 2>/dev/null \
+    | grep -viE "$PLACEHOLDER_RX" || true)
+  printf '%s\n' "$output" \
+    | sed '/^$/d' \
+    | cut -d: -f1 \
+    | sort -u \
+    | paste -sd ', ' -
+}
+
+scan_secret_pattern() {
+  local label="$1"
+  local regex="$2"
+  local hits
+  hits=$(pattern_hit_count "$regex")
+  if [[ "$hits" != "0" ]]; then
+    local files
+    files=$(pattern_hit_files "$regex")
+    if (( STRICT )); then
+      run_check fail "Suspicious $label pattern found in: $files" 0 secrets
+    else
+      run_check warn "Suspicious $label pattern found in: $files" 0 secrets
+    fi
+  fi
+}
+
+run_optional_scanner() {
+  local label="$1"
+  local install_hint="$2"
+  shift 2
+  SCANNER_RELEVANT=$((SCANNER_RELEVANT + 1))
+  if command -v "$1" >/dev/null 2>&1; then
+    if "$@" >/dev/null 2>&1; then
+      SCANNER_SUCCESS=$((SCANNER_SUCCESS + 1))
+      pass "$label completed"
+    else
+      SCANNER_WARNINGS=$((SCANNER_WARNINGS + 1))
+      warn "$label reported findings or returned a non-zero status"
+    fi
+  else
+    SCANNER_WARNINGS=$((SCANNER_WARNINGS + 1))
+    warn "$label not found. See docs/scanner-integration.md. Install hint: $install_hint"
+  fi
+}
+
+for arg in "$@"; do
+  case "$arg" in
+    --starter|--hardening|--audit)
+      if [[ -n "$MODE" ]]; then
+        usage
+        exit 2
+      fi
+      MODE="$arg"
+      ;;
+    --strict)
+      STRICT=1
+      ;;
+    --scanners)
+      RUN_SCANNERS=1
+      ;;
+    --json)
+      JSON_MODE=1
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      usage
+      exit 2
+      ;;
+  esac
+done
+
+if [[ -z "$MODE" ]]; then
+  if (( STRICT || RUN_SCANNERS || JSON_MODE )); then
+    MODE="--audit"
+  else
+    usage
+    exit 2
+  fi
+fi
 
 # Level 1: structure checks
 if project_has_file README.md; then
@@ -150,11 +252,7 @@ fi
 if project_has_any_file PROJECT_MAP.md templates/PROJECT_MAP.md; then
   run_check pass "PROJECT_MAP reference present" 5 structure
 else
-  if [[ "$MODE" == "--starter" ]]; then
-    run_check warn "PROJECT_MAP not found in current directory" 0 structure
-  else
-    run_check warn "PROJECT_MAP not found" 0 structure
-  fi
+  run_check warn "PROJECT_MAP not found" 0 structure
   add_recommended "PROJECT_MAP.md"
 fi
 
@@ -198,9 +296,9 @@ if project_has_file .gitignore; then
   fi
 fi
 
-env_ref_regex='process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|API_KEY|TOKEN|SECRET|PASSWORD'
+env_ref_regex='process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|API_KEY|TOKEN|SECRET|PASSWORD|OPENAI_API_KEY|ANTHROPIC_API_KEY|BOT_TOKEN|TELEGRAM_BOT_TOKEN'
 if rg -n --hidden --glob '!.git/*' --glob '!node_modules/*' --glob '!dist/*' --glob '!build/*' "$env_ref_regex" . >/dev/null 2>&1; then
-  if project_has_any_file .env.example .env.local.example .env.production.example; then
+  if project_has_any_file .env.example .env.local.example .env.production.example examples/todo-app-starter/.env.example; then
     run_check pass "Env-like references have a companion .env.example" 5 safety
   elif project_has_any_file templates/SECURITY_BASELINE.md templates/SECURITY_OPERATIONS_BASELINE.md; then
     run_check pass "Env-like references have a documented baseline" 5 safety
@@ -229,8 +327,24 @@ else
   fi
 fi
 
+if project_has_file package.json; then
+  if project_has_any_file package-lock.json pnpm-lock.yaml yarn.lock bun.lockb; then
+    run_check pass "JavaScript lockfile present" 5 safety
+  else
+    run_check warn "package.json present without package-lock.json, pnpm-lock.yaml, yarn.lock or bun.lockb" 0 safety
+  fi
+fi
+
+if project_has_any_file requirements.txt pyproject.toml; then
+  if project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
+    run_check pass "Python dependency lock or pinned export present" 5 safety
+  else
+    run_check warn "Python dependency manifest present without poetry.lock, uv.lock or requirements.lock.txt" 0 safety
+  fi
+fi
+
 # Level 2b: secrets hygiene
-real_env_files=$(find . -maxdepth 3 -type f \( -name '.env' -o -name '.env.*' \) ! -name '.env.example' ! -name '.env.*.example' | sed '/^$/d' || true)
+real_env_files=$(find . -maxdepth 4 -type f \( -name '.env' -o -name '.env.*' \) ! -name '.env.example' ! -name '.env.*.example' | sed '/^$/d' || true)
 if [[ -n "$real_env_files" ]]; then
   run_check fail "Real .env-like file found in repository" 0 secrets
 else
@@ -244,128 +358,109 @@ else
   run_check pass "No obvious backup/dump/log artifacts near repository root" 5 secrets
 fi
 
-secret_hits=$(rg -n --hidden --glob '!.git/*' --glob '!node_modules/*' --glob '!dist/*' --glob '!build/*' --glob '!coverage/*' '(API_KEY|TOKEN|SECRET|PASSWORD|PRIVATE_KEY|DATABASE_URL)\s*[:=]' . 2>/dev/null \
-  | grep -viE 'example|placeholder|changeme|your_|\[FILL IN|masked-example-not-real|not-real|sample|dummy|test-only' || true)
-if [[ -n "$secret_hits" ]]; then
-  if (( STRICT )); then
-    run_check fail "Suspicious secret-like assignment detected; review and remove or mask it" 0 secrets
-  else
-    run_check warn "Suspicious secret-like assignment detected; review and remove or mask it" 0 secrets
-  fi
-else
+scan_secret_pattern 'OpenAI key prefix' 'sk-[A-Za-z0-9]{12,}'
+scan_secret_pattern 'OpenAI project key prefix' 'sk-proj-[A-Za-z0-9_-]{12,}'
+scan_secret_pattern 'GitHub personal access token' 'ghp_[A-Za-z0-9]{20,}'
+scan_secret_pattern 'GitHub fine-grained token' 'github_pat_[A-Za-z0-9_]{20,}'
+scan_secret_pattern 'AWS access key' 'AKIA[0-9A-Z]{12,}'
+scan_secret_pattern 'JWT-like token' 'eyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9._-]{8,}\.[A-Za-z0-9._-]{8,}'
+scan_secret_pattern 'postgres connection string with password' 'postgres(ql)?://[^:@/[:space:]]+:[^@/[:space:]]+@'
+scan_secret_pattern 'mongodb connection string with password' 'mongodb\+srv://[^:@/[:space:]]+:[^@/[:space:]]+@'
+scan_secret_pattern 'redis connection string with password' 'redis://[^:@/[:space:]]+:[^@/[:space:]]+@'
+scan_secret_pattern 'private key block' 'BEGIN PRIVATE KEY'
+scan_secret_pattern 'OPENAI_API_KEY assignment' 'OPENAI_API_KEY\s*[:=]'
+scan_secret_pattern 'ANTHROPIC_API_KEY assignment' 'ANTHROPIC_API_KEY\s*[:=]'
+scan_secret_pattern 'BOT_TOKEN assignment' 'BOT_TOKEN\s*[:=]'
+scan_secret_pattern 'TELEGRAM_BOT_TOKEN assignment' 'TELEGRAM_BOT_TOKEN\s*[:=]'
+scan_secret_pattern 'generic secret-like assignment' '(API_KEY|TOKEN|SECRET|PASSWORD|PRIVATE_KEY|DATABASE_URL)\s*[:=]'
+
+if (( FAIL == 0 )) && (( WARN == 0 )); then
   run_check pass "No suspicious secret-like assignments detected in quick scan" 10 secrets
 fi
 
 for public_doc in ARCHITECTURE.md PROJECT_MAP.md AGENTS.md; do
   if [[ -f "$public_doc" ]]; then
-    warn "$public_doc exists at repository root; check whether this is appropriate for a public repo or webroot context"
+    warn "Public root $public_doc exists; make sure public docs are sanitized"
   fi
 done
 
-run_optional_scanner() {
-  local label="$1"
-  local binary="$2"
-  local install_hint="$3"
-  shift 3
-  local cmd=("$@")
-
-  SCANNER_RELEVANT=$((SCANNER_RELEVANT + 1))
-  if ! command -v "$binary" >/dev/null 2>&1; then
-    warn "$label not found; see docs/scanner-integration.md ($install_hint)"
-    SCANNER_WARNINGS=$((SCANNER_WARNINGS + 1))
-    return 0
-  fi
-
-  local log_file
-  log_file=$(mktemp)
-  if "${cmd[@]}" >"$log_file" 2>&1; then
-    pass "$label completed without blocking findings in this lightweight pass"
-    SCANNER_SUCCESS=$((SCANNER_SUCCESS + 1))
-  else
-    warn "$label reported findings or did not complete cleanly; review its output manually"
-    SCANNER_WARNINGS=$((SCANNER_WARNINGS + 1))
-  fi
-  rm -f "$log_file"
-}
-
+# Level 3: optional scanner integration
 if (( RUN_SCANNERS )); then
-  echo
-  echo "Optional scanner stage"
-  run_optional_scanner "Gitleaks" "gitleaks" "https://github.com/gitleaks/gitleaks" gitleaks detect --no-git --source . --redact
-  run_optional_scanner "Trivy" "trivy" "https://trivy.dev/" trivy fs .
-  run_optional_scanner "Semgrep" "semgrep" "https://semgrep.dev/" semgrep --config auto .
-
-  if [[ -f package-lock.json || -f package.json ]]; then
-    run_optional_scanner "npm audit" "npm" "https://docs.npmjs.com/cli/v10/commands/npm-audit" npm audit --audit-level=high
+  if project_has_any_file package.json package-lock.json; then
+    run_optional_scanner 'npm audit' 'npm audit --audit-level=high' npm audit --audit-level=high
   fi
 
-  if [[ -f pnpm-lock.yaml ]]; then
-    run_optional_scanner "pnpm audit" "pnpm" "https://pnpm.io/cli/audit" pnpm audit
+  if project_has_file pnpm-lock.yaml; then
+    run_optional_scanner 'pnpm audit' 'pnpm audit' pnpm audit
   fi
 
-  if [[ -f requirements.txt || -f pyproject.toml ]]; then
-    run_optional_scanner "pip-audit" "pip-audit" "https://pypi.org/project/pip-audit/" pip-audit
+  if project_has_any_file requirements.txt pyproject.toml; then
+    run_optional_scanner 'pip-audit' 'pip install pip-audit' pip-audit
   fi
 
-  if [[ -f Cargo.lock ]]; then
-    run_optional_scanner "cargo audit" "cargo-audit" "https://github.com/RustSec/rustsec/tree/main/cargo-audit" cargo audit
+  if project_has_file Cargo.lock; then
+    run_optional_scanner 'cargo audit' 'cargo install cargo-audit' cargo audit
   fi
 
+  run_optional_scanner 'gitleaks detect --no-git' 'brew install gitleaks or https://github.com/gitleaks/gitleaks' gitleaks detect --no-git
+  run_optional_scanner 'trivy fs .' 'brew install trivy or https://github.com/aquasecurity/trivy' trivy fs .
+  run_optional_scanner 'semgrep --config auto' 'brew install semgrep or https://semgrep.dev/docs/getting-started/' semgrep --config auto
+fi
+
+if (( RUN_SCANNERS == 0 )); then
+  SCANNER_SCORE=10
+else
   if (( SCANNER_RELEVANT == 0 )); then
-    warn "No optional scanner targets detected for this repository"
     SCANNER_SCORE=10
   else
-    SCANNER_SCORE=$((5 + (SCANNER_SUCCESS * 20 / SCANNER_RELEVANT)))
-    if (( SCANNER_SCORE > 25 )); then
-      SCANNER_SCORE=25
-    fi
+    SCANNER_SCORE=$(( (SCANNER_SUCCESS * 25) / SCANNER_RELEVANT ))
   fi
-else
-  SCANNER_SCORE=10
 fi
 
 TOTAL_SCORE=$((STRUCTURE_SCORE + SAFETY_SCORE + SECRETS_SCORE + SCANNER_SCORE))
+if (( TOTAL_SCORE > 100 )); then
+  TOTAL_SCORE=100
+fi
 
+STATUS="pass"
+EXIT_CODE=0
 if (( FAIL > 0 )); then
-  RESULT="FAIL"
+  STATUS="fail"
+  EXIT_CODE=1
 elif (( WARN > 0 )); then
-  RESULT="WARN"
-else
-  RESULT="PASS"
-fi
-
-echo
-printf 'VIBE CHECK SCORE: %d/100\n' "$TOTAL_SCORE"
-printf '%s\n' 'Breakdown:'
-printf -- '- Structure: %d/25\n' "$STRUCTURE_SCORE"
-printf -- '- Safety files: %d/25\n' "$SAFETY_SCORE"
-printf -- '- Secrets hygiene: %d/25\n' "$SECRETS_SCORE"
-printf -- '- Optional scanners: %d/25\n' "$SCANNER_SCORE"
-
-echo
-printf 'Result: %s\n' "$RESULT"
-printf 'Status: PASS=%d WARN=%d FAIL=%d\n' "$PASS" "$WARN" "$FAIL"
-printf '%s\n' 'This is a readiness signal, not a security certification.'
-
-echo "Next recommended files to add or review:"
-if (( ${#RECOMMENDED[@]} == 0 )); then
-  echo "- none"
-else
-  printf -- '- %s\n' "${RECOMMENDED[@]}"
-fi
-
-if (( STRICT )); then
-  if (( FAIL > 0 )); then
-    exit 2
+  STATUS="warn"
+  if (( STRICT )); then
+    EXIT_CODE=1
   fi
-  if (( WARN > 0 )); then
-    exit 1
+fi
+
+if (( JSON_MODE )); then
+  mode_name=${MODE#--}
+  strict_value=false
+  if (( STRICT )); then
+    strict_value=true
   fi
-  exit 0
+  printf '{\n'
+  printf '  "score": %s,\n' "$TOTAL_SCORE"
+  printf '  "status": "%s",\n' "$STATUS"
+  printf '  "pass": %s,\n' "$PASS"
+  printf '  "warn": %s,\n' "$WARN"
+  printf '  "fail": %s,\n' "$FAIL"
+  printf '  "mode": "%s",\n' "$mode_name"
+  printf '  "strict": %s\n' "$strict_value"
+  printf '}\n'
+else
+  log_line "SUMMARY: $PASS pass, $WARN warn, $FAIL fail"
+  log_line "VIBE CHECK SCORE: $TOTAL_SCORE/100"
+  log_line "Breakdown:"
+  log_line "- Structure: $STRUCTURE_SCORE/25"
+  log_line "- Safety files: $SAFETY_SCORE/25"
+  log_line "- Secrets hygiene: $SECRETS_SCORE/25"
+  log_line "- Optional scanners: $SCANNER_SCORE/25"
+  log_line "This is a readiness signal, not a security certification."
+  if (( ${#RECOMMENDED[@]} > 0 )); then
+    log_line "Recommended next artifacts: ${RECOMMENDED[*]}"
+  fi
 fi
 
-if (( FAIL > 0 )); then
-  exit 1
-fi
-
-exit 0
+exit "$EXIT_CODE"

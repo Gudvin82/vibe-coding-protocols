@@ -6,7 +6,7 @@
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
-Пакет репозитория: `v0.1.5`  
+Пакет репозитория: `v0.1.6`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -57,6 +57,12 @@ Fast track для пустых репозиториев. Выше — реком
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Optional local guardrail:
+
+```bash
+bash scripts/install-hooks.sh
 ```
 
 ## Кратко за 10 секунд
@@ -159,6 +165,9 @@ First tell me:
 If you cannot open GitHub links, ask me to paste README.md and prompts/use-this-repo-prompt.md.
 ```
 
+Полный файл:
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+
 ## Почему AI IDE files лежат в root?
 
 Root files специально сделаны как copy-ready entrypoints для AI IDE:
@@ -247,6 +256,7 @@ audit-файлы и явные workflow gaps.
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/vibe-check.sh --audit --json
 bash scripts/init-minimal.sh --dry-run
 ```
 
@@ -256,6 +266,15 @@ bash scripts/init-minimal.sh --dry-run
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
 - [scripts/init-minimal.sh](./scripts/init-minimal.sh)
+- [scripts/install-hooks.sh](./scripts/install-hooks.sh)
+
+## Token-aware discovery
+
+Для больших проектов сначала собирайте compact evidence map, а уже потом переходите к реализации.
+
+Смотрите:
+- [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md)
+- [prompts/modules/token-aware-discovery.md](./prompts/modules/token-aware-discovery.md)
 
 ## Бейджи для вашего проекта
 
@@ -298,7 +317,7 @@ bash scripts/init-minimal.sh --dry-run
 - **Версия веб-методологии** (`v1.4`) — отражает публичные страницы на `anmalishev.ru`.
 
 Текущее состояние:
-- Пакет репозитория: `v0.1.5`
+- Пакет репозитория: `v0.1.6`
 - Веб-методология: `Vibe Coding Protocols v1.4`
 
 Будущая версия репозитория `v1.0.0` возможна только после внешней обратной связи,

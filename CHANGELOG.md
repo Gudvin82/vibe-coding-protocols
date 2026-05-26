@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.6
+
+- Added stronger `vibe-check` help, JSON output, richer secret-pattern checks and lockfile warnings
+- Added `scripts/install-hooks.sh` for optional local pre-commit guardrails
+- Added runnable synthetic `examples/todo-app-starter/`
+- Added modular prompt files and `scripts/extract-prompt.sh`
+- Added `prompts/backlog-to-issues-prompt.md`
+- Added IDE-specific AGENTS templates for Claude, Cursor and Windsurf
+- Added docs navigation indexes and migration notes
+- Improved token-aware discovery guidance and operational Stop Conditions
+
 ## v0.1.5
 
 - Added START_HERE decision wizard
@@ -57,6 +68,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.5`.
+Repository version started at `v0.1.0` and now continues with `v0.1.6`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

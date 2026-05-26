@@ -19,3 +19,11 @@ Deferred surfaces: mobile, payments, admin.
 ### Notes / risks
 Payments mentioned in Product Brief but deferred until Hardening.
 Need to revisit legal/payment checks before production.
+
+## Failed / rejected attempts
+
+Use this section to record what was tried and rejected.
+
+| Date | Prompt / attempt | Why it failed | Decision | Follow-up |
+|---|---|---|---|---|
+| [FILL IN] | [FILL IN] | [FILL IN] | [FILL IN] | [FILL IN] |

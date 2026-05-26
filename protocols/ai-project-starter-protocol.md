@@ -130,6 +130,8 @@ Scalability-ready не значит enterprise.
 
 См. шаблон: [../templates/AGENTS.md](../templates/AGENTS.md)
 
+Для Claude Code проектов отдельно проверьте `.claude/settings.json` и tool permissions, если файл существует. Доступ к инструментам — это часть operational baseline.
+
 ## Stop conditions
 
 Stop and ask for approval when:

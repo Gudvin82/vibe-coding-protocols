@@ -16,6 +16,7 @@
 - no `.env`
 - no backups / dumps / logs in public root
 - no stack traces / debug routes in public mode
+- Content-Security-Policy / frame-ancestors / X-Frame-Options / Referrer-Policy / Permissions-Policy considered
 
 ## Supply chain
 - dependencies are reviewed
