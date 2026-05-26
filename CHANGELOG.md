@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.8
+
+- Simplified README for faster first-time onboarding
+- Made `START_HERE.md` the canonical route chooser from the main README
+- Added English Product Brief prompt and clarified prompt language entry points
+- Adjusted `vibe-check` scoring to separate core score from optional scanner bonus
+- Clarified root `AGENTS.md` versus copy-ready templates
+- Expanded `INCIDENT_RECOVERY_RUNBOOK.md` and added `docs/metrics-to-track.md`
+- Polished site GitHub toolkit blocks for onboarding and adoption
+
 ## v0.1.7
 
 - Added Agent Harness documentation and model routing guide
@@ -79,6 +89,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.7`.
+Repository version started at `v0.1.0` and now continues with `v0.1.8`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

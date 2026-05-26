@@ -6,7 +6,7 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.7`  
+Repository package: `v0.1.8`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -15,7 +15,7 @@ Decision wizard: [START_HERE.md](./START_HERE.md)
 
 | I have... | Start here | Copy first | Run |
 |---|---|---|---|
-| Only an idea | Product Brief | `prompts/product-brief-prompt.md` | — |
+| Only an idea | Product Brief | `prompts/product-brief-prompt_en.md` | — |
 | New AI project | Starter Protocol | `AGENTS.md` + `templates/PROJECT_MAP.md` | `bash scripts/vibe-check.sh --starter` |
 | Existing AI-generated code | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
 | Public / production project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
@@ -27,7 +27,7 @@ Decision wizard: [START_HERE.md](./START_HERE.md)
 
 1. Copy [AGENTS.md](./AGENTS.md) into your repo.
 2. Copy [templates/PROJECT_MAP.md](./templates/PROJECT_MAP.md) as `PROJECT_MAP.md`.
-3. Open [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md).
+3. Open [prompts/product-brief-prompt_en.md](./prompts/product-brief-prompt_en.md).
 4. Paste the Product Brief prompt into your AI IDE.
 5. Run:
 

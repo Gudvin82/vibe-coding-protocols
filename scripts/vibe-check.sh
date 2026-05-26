@@ -11,10 +11,12 @@ FAIL=0
 STRUCTURE_SCORE=0
 SAFETY_SCORE=0
 SECRETS_SCORE=0
-SCANNER_SCORE=0
+SCANNER_BONUS=0
 SCANNER_RELEVANT=0
 SCANNER_SUCCESS=0
 SCANNER_WARNINGS=0
+CORE_SCORE=0
+SCANNER_STATUS="not_requested"
 RECOMMENDED=()
 
 PLACEHOLDER_RX='example|placeholder|changeme|your_|dummy|test|\[FILL IN|<[^>]+>|masked-example-not-real|not-real|sample'
@@ -273,11 +275,14 @@ fi
 
 case "$MODE" in
   --starter)
-    if project_has_any_file prompts/product-brief-prompt.md docs/product-brief-prompt.md; then
+    if project_has_any_file \
+      prompts/product-brief-prompt.md \
+      prompts/product-brief-prompt_en.md \
+      docs/product-brief-prompt.md; then
       run_check pass "Starter prompt reference present" 5 structure
     else
       run_check warn "Starter prompt reference not found" 0 structure
-      add_recommended "prompts/product-brief-prompt.md"
+      add_recommended "prompts/product-brief-prompt_en.md"
     fi
     ;;
   --hardening|--audit)
@@ -459,19 +464,25 @@ if (( RUN_SCANNERS )); then
 fi
 
 if (( RUN_SCANNERS == 0 )); then
-  SCANNER_SCORE=10
+  SCANNER_STATUS="not_requested"
+  SCANNER_BONUS=0
 else
   if (( SCANNER_RELEVANT == 0 )); then
-    SCANNER_SCORE=10
+    SCANNER_STATUS="not_applicable"
+    SCANNER_BONUS=0
   else
-    SCANNER_SCORE=$(( (SCANNER_SUCCESS * 25) / SCANNER_RELEVANT ))
+    if (( SCANNER_SUCCESS == SCANNER_RELEVANT )); then
+      SCANNER_STATUS="available"
+    elif (( SCANNER_SUCCESS > 0 )); then
+      SCANNER_STATUS="partially_available"
+    else
+      SCANNER_STATUS="not_fully_available"
+    fi
+    SCANNER_BONUS=$(( (SCANNER_SUCCESS * 10) / SCANNER_RELEVANT ))
   fi
 fi
 
-TOTAL_SCORE=$((STRUCTURE_SCORE + SAFETY_SCORE + SECRETS_SCORE + SCANNER_SCORE))
-if (( TOTAL_SCORE > 100 )); then
-  TOTAL_SCORE=100
-fi
+CORE_SCORE=$(( ((STRUCTURE_SCORE + SAFETY_SCORE + SECRETS_SCORE) * 100) / 75 ))
 
 STATUS="pass"
 EXIT_CODE=0
@@ -492,7 +503,10 @@ if (( JSON_MODE )); then
     strict_value=true
   fi
   printf '{\n'
-  printf '  "score": %s,\n' "$TOTAL_SCORE"
+  printf '  "score": %s,\n' "$CORE_SCORE"
+  printf '  "core_score": %s,\n' "$CORE_SCORE"
+  printf '  "scanner_bonus": %s,\n' "$SCANNER_BONUS"
+  printf '  "scanner_status": "%s",\n' "$SCANNER_STATUS"
   printf '  "status": "%s",\n' "$STATUS"
   printf '  "pass": %s,\n' "$PASS"
   printf '  "warn": %s,\n' "$WARN"
@@ -502,12 +516,23 @@ if (( JSON_MODE )); then
   printf '}\n'
 else
   log_line "SUMMARY: $PASS pass, $WARN warn, $FAIL fail"
-  log_line "VIBE CHECK SCORE: $TOTAL_SCORE/100"
+  log_line "VIBE CHECK CORE SCORE: $CORE_SCORE/100"
+  if [[ "$SCANNER_STATUS" == "available" ]]; then
+    log_line "OPTIONAL SCANNERS: available"
+  elif [[ "$SCANNER_STATUS" == "partially_available" ]]; then
+    log_line "OPTIONAL SCANNERS: partially available"
+  elif [[ "$SCANNER_STATUS" == "not_applicable" ]]; then
+    log_line "OPTIONAL SCANNERS: not applicable"
+  elif [[ "$SCANNER_STATUS" == "not_requested" ]]; then
+    log_line "OPTIONAL SCANNERS: not requested"
+  else
+    log_line "OPTIONAL SCANNERS: not fully available"
+  fi
+  log_line "SCANNER BONUS: $SCANNER_BONUS/10"
   log_line "Breakdown:"
   log_line "- Structure: $STRUCTURE_SCORE/25"
   log_line "- Safety files: $SAFETY_SCORE/25"
   log_line "- Secrets hygiene: $SECRETS_SCORE/25"
-  log_line "- Optional scanners: $SCANNER_SCORE/25"
   log_line "This is a readiness signal, not a security certification."
   if (( ${#RECOMMENDED[@]} > 0 )); then
     log_line "Recommended next artifacts: ${RECOMMENDED[*]}"

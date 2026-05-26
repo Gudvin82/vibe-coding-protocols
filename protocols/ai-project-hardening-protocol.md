@@ -1,95 +1,102 @@
 # AI Project Hardening Protocol
 
-Markdown-версия `AI Project Hardening Protocol` для уже существующих AI-generated проектов.
+A markdown-first hardening protocol for existing AI-generated projects.
 
-## Режимы
+## Modes
 
 ### Light Hardening
 
-Подходит, если проект только что пришел из Starter и содержит 1–2 первые фичи.
+Use when the project has just come out of Starter and still contains only
+its first one or two features.
 
-Проверяем:
-- связку слоев;
+Check:
+- layer boundaries;
 - secrets hygiene;
-- active / deferred surfaces;
+- active and deferred surfaces;
 - buildability;
-- database / migrations тупики;
-- наличие README / AGENTS / PROJECT_MAP / ARCHITECTURE;
-- next backlog.
+- database or migration dead-ends;
+- whether README, AGENTS, PROJECT_MAP and architecture docs exist;
+- next backlog items.
 
 ### Standard Hardening
 
-Подходит для рабочего MVP перед staging / limited release.
+Use for a working MVP before staging or a limited release.
 
 ### Full Hardening
 
-Подходит перед production-ready claims, когда уже важны scanners, legal/payment, deeper self-protection и broad readiness.
+Use before production-like claims, when scanners, legal or payment review,
+deeper self-protection and broader readiness really matter.
 
-## Если вы пришли из Starter
+## If you came from Starter
 
-Используйте уже созданные артефакты:
+Reuse the artifacts you already created:
 - Product Brief;
-- README.md;
-- AGENTS.md;
-- PROJECT_MAP.md;
-- ARCHITECTURE.md / Architecture Source of Truth;
-- SECURITY.md;
-- docs/PROMPTS.md;
-- AUDIT_BACKLOG.md.
+- `README.md`;
+- `AGENTS.md`;
+- `PROJECT_MAP.md`;
+- `ARCHITECTURE.md` or Architecture Source of Truth;
+- `SECURITY.md`;
+- `docs/PROMPTS.md`;
+- `AUDIT_BACKLOG.md`.
 
-Если этих файлов нет, сначала создайте минимум `PROJECT_MAP.md` и `ARCHITECTURE.md`.
+If these files do not exist, create at least `PROJECT_MAP.md` and
+`ARCHITECTURE.md` first.
 
 ## Code discovery
 
-Начинайте audit с evidence map:
+Start the audit with an evidence map:
 - key entrypoints;
-- routes / endpoints;
+- routes and endpoints;
 - services;
 - data model;
 - auth;
 - integrations;
-- scripts / build / test commands;
-- active / deferred surfaces.
+- scripts, build and test commands;
+- active and deferred surfaces.
 
-## PROJECT_MAP / Architecture
+Use token-aware discovery. Return an evidence map first. Avoid reading
+the whole repository unless the project map is missing or unreliable.
 
-Обновите или создайте:
+## Project map and architecture
+
+Create or update:
 - `PROJECT_MAP.md`
-- `ARCHITECTURE.md` / `Architecture Source of Truth`
+- `ARCHITECTURE.md` or Architecture Source of Truth
 
-Архитектура должна описывать реальный проект, а не идеальную картинку после факта.
+Architecture should describe the real project, not an idealized diagram
+written after the fact.
 
 ## Security baseline
 
-Проверьте:
+Check:
 - secrets;
-- auth / session boundaries;
+- auth and session boundaries;
 - input validation;
 - logs;
 - uploads;
 - debug mode;
-- exposed docs / stack traces;
-- approval gates для risky changes.
+- exposed docs or stack traces;
+- approval gates for risky changes.
 
-## Self-Protection
+## Self-protection
 
-Проверьте, что проект защищает сам себя:
-- `.env`, `.git`, backups, logs, source maps не торчат наружу;
-- private docs не лежат в public webroot;
-- admin / internal endpoints не доступны снаружи без нужных ограничений;
-- scanner / worker / browser automation не работают с лишними правами.
+Confirm that the project protects itself:
+- `.env`, `.git`, backups, logs and source maps are not exposed;
+- private docs do not sit in a public webroot;
+- admin or internal endpoints are not publicly reachable without controls;
+- scanners, workers or browser automation do not run with excessive rights.
 
-## Supply-chain / Safe Integration
+## Supply chain and safe integration
 
-Любой внешний repo / package / action / image / dataset — это supply-chain risk.
+Every external repo, package, action, image or dataset is a supply-chain risk.
 
-Проверьте:
+Check:
 - origin;
 - maintainer;
 - license;
 - install scripts;
 - workflows;
-- binaries / obfuscation;
+- binaries or obfuscation;
 - secrets access;
 - quarantine process;
 - safe update path.
@@ -98,141 +105,142 @@ Markdown-версия `AI Project Hardening Protocol` для уже сущест
 
 ### Full path
 
-Если доступны, используйте реальные scanners:
+If available, use real scanners such as:
 - Trivy;
 - Gitleaks;
 - OSV-Scanner;
-- dependency audit tools.
+- package-manager audit tools.
 
 ### Light fallback
 
-Если полноценные scanners недоступны:
-- не имитируйте запуск;
-- пишите `not run`;
-- начните с package manager audit;
-- сделайте lockfile review;
-- grep по `SECRET/API_KEY/TOKEN/PASSWORD`;
-- проверьте `.env` / `.gitignore`;
-- зафиксируйте manual follow-up commands.
+If full scanners are unavailable:
+- do not pretend they ran;
+- write `not run` explicitly;
+- start with package-manager audit;
+- review lockfiles;
+- grep for `SECRET`, `API_KEY`, `TOKEN` and `PASSWORD`;
+- check `.env` and `.gitignore`;
+- record manual follow-up commands.
 
-## Database / Load / Scalability readiness
+## Database, load and scalability readiness
 
-Проверьте:
-- data model / ERD;
+Check:
+- data model or ERD;
 - migration history;
 - indexes;
-- unique constraints / FKs;
-- N+1;
-- pagination / limits;
-- sync vs async operations;
-- queue / worker model;
-- retries / backoff;
+- unique constraints and FKs;
+- N+1 risk;
+- pagination or limits;
+- sync versus async operations;
+- queue or worker model;
+- retries and backoff;
 - idempotency;
 - rate limits;
-- external API / LLM bottlenecks;
-- backup / restore;
+- external API or LLM bottlenecks;
+- backup and restore;
 - scalability backlog.
 
-## Legal / Payment checks
+## Legal and payment checks
 
-Если проекту это релевантно, проверьте:
-- PDn / privacy contour;
-- forms / consent;
+If relevant to the project, check:
+- privacy contour;
+- forms and consent;
 - cookies;
-- offer / terms;
-- payment / fiscalization;
-- refund / access wording.
+- offer or terms wording;
+- payment and fiscalization;
+- refund or access wording.
 
-## Device / Browser QA
+## Device and browser QA
 
-Для большинства публичных web/MVP:
-- Mobile viewport;
-- Safari / iOS WebView;
+For most public web or MVP projects:
+- mobile viewport;
+- Safari or iOS WebView;
 - Chrome Android;
-- Desktop Chrome / Firefox;
+- desktop Chrome or Firefox;
 - then edge cases.
 
-Для desktop/internal проектов приоритет может быть другим.
+For internal or desktop-first projects, the priority may differ.
 
 ## Independent diff review
 
-Отдельный reviewer смотрит только активный git diff.
+A separate reviewer should inspect only the active git diff.
 
-Правила:
-- reviewer не редактирует файлы;
-- reviewer не наследует аргументацию основной сессии;
-- reviewer смотрит `git status`, `git diff`, touched files и validation output;
-- reviewer возвращает only actionable findings.
+Rules:
+- the reviewer does not edit files;
+- the reviewer does not inherit the implementation session assumptions;
+- the reviewer looks at `git status`, `git diff`, touched files and validation output;
+- the reviewer returns only actionable findings.
 
-См. prompt: [../prompts/independent-diff-review-prompt.md](../prompts/independent-diff-review-prompt.md)
+See [../prompts/independent-diff-review-prompt.md](../prompts/independent-diff-review-prompt.md).
 
 ## Troubleshooting
 
-Если AI пошел не туда:
-- остановите задачу;
-- вернитесь к AGENTS / plan;
-- сравните diff;
-- разбейте изменения на smaller steps;
-- не имитируйте scanner results;
-- если нужно — отложите risky branch в backlog.
+If the AI goes in the wrong direction:
+- stop the task;
+- return to AGENTS or plan;
+- compare the diff;
+- break the change into smaller steps;
+- do not fake scanner results;
+- defer risky work into backlog if needed.
 
 ## Emergency recovery
 
-Если AI сломал working code:
-1. зафиксируйте `git status` и список touched files;
-2. соберите build/test/runtime error;
-3. вернитесь к last working state осознанно;
-4. не делайте destructive commands без approval;
-5. сделайте smaller recovery plan;
-6. добавьте incident note в `AUDIT_BACKLOG.md`.
+If the AI broke working code:
+1. capture `git status` and the list of touched files;
+2. capture build, test or runtime errors;
+3. return to the last known-good state deliberately;
+4. do not run destructive commands without approval;
+5. make a smaller recovery plan;
+6. add an incident note to `AUDIT_BACKLOG.md`.
 
 ## AI-generated migration rollback
 
-Перед миграциями:
-- backup;
-- staging / copy-of-data test;
-- down migration или rollback plan;
-- destructive ops review;
-- expand-and-contract для zero-downtime, если нужно;
-- smoke test и monitoring после применения.
+Before migrations:
+- take a backup;
+- test on staging or a copy of data;
+- prepare a down migration or rollback plan;
+- review destructive operations;
+- use expand-and-contract for zero-downtime where needed;
+- run smoke tests and monitor after applying.
 
 ## AI-generated test strategy
 
-Тесты должны покрывать:
+Tests should cover:
 - critical path;
-- найденные regressions;
-- auth / payment / webhook flows, если active;
-- mocked external APIs / LLM.
+- found regressions;
+- auth, payment or webhook flows when active;
+- mocked external APIs or LLMs.
 
-Не добавляйте новый test framework без approval и не генерируйте flaky tests.
+Do not add a new test framework without approval and do not generate
+flaky tests.
 
 ## Final report
 
-Финальный отчет должен содержать:
+The final report should include:
 - verdict;
 - blockers;
 - findings by severity;
 - scanner status;
 - self-protection status;
-- database/load status;
+- database and load status;
 - migration rollback status;
-- tests run / not run;
+- tests run and not run;
 - accepted risks;
 - next steps;
-- updated AUDIT_BACKLOG.
+- updated `AUDIT_BACKLOG.md`.
 
 ## Exit criteria
 
-Проект прошел выбранный режим hardening, когда:
-- режим выбран явно;
-- audit report сформирован;
-- blockers классифицированы;
-- critical/high findings исправлены или accepted with reason;
-- scanner status зафиксирован;
-- self-protection проверен;
-- database/load readiness оценены;
-- legal/payment зоны проверены по применимости;
-- independent diff review проведен или явно отложен;
-- `AUDIT_BACKLOG.md` обновлен.
+The project passed the selected hardening mode when:
+- the mode was chosen explicitly;
+- the audit report exists;
+- blockers are classified;
+- critical and high findings are fixed or accepted with reason;
+- scanner status is recorded;
+- self-protection was checked;
+- database and load readiness were assessed;
+- legal and payment areas were checked when relevant;
+- independent diff review was done or explicitly deferred;
+- `AUDIT_BACKLOG.md` was updated.
 
-Важно: `Passed Light Hardening` не означает `production-ready`.
+Important: `Passed Light Hardening` does not mean `production-ready`.

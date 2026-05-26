@@ -1,201 +1,208 @@
 # AI Project Starter Protocol
 
-Markdown-версия `AI Project Starter Protocol` для новых AI-проектов.
+A markdown-first starter protocol for new AI-assisted projects.
 
-## Цель
+## Goal
 
-Не дать AI сразу писать хаотичный код. Сначала — Product Brief, стек, active/deferred surfaces, Memory Bank, operational baseline и первый safe vertical slice.
+Do not let the AI jump straight into chaotic code generation.
+Start with a Product Brief, stack choice, active versus deferred surfaces,
+Memory Bank files, an operational baseline and the first safe vertical slice.
 
-## Шаг -1. Product Brief / ТЗ
+## Step -1. Product Brief
 
-Сначала зафиксируйте:
-- что это за продукт;
-- для кого он;
-- какой первый measurable outcome;
-- какие поверхности активны сейчас;
-- какие поверхности явно deferred.
+Capture first:
+- what the product is;
+- who it is for;
+- what the first measurable outcome is;
+- which surfaces are active now;
+- which surfaces are explicitly deferred.
 
-Используйте: [../prompts/product-brief-prompt.md](../prompts/product-brief-prompt.md)
+Use one of these prompts:
+- [English Product Brief prompt](../prompts/product-brief-prompt_en.md)
+- [Russian Product Brief prompt](../prompts/product-brief-prompt.md)
 
 ## Prompt 0. Technical intake
 
-До кода AI должен выяснить:
-- стек;
+Before code, the AI should clarify:
+- stack;
 - deployment target;
 - runtime boundaries;
-- active / deferred surfaces;
+- active and deferred surfaces;
 - integrations;
-- auth / payment / PДн / legal-risk зоны;
-- test / build / validation baseline.
+- auth, payment, legal or personal-data risk areas;
+- test, build and validation baseline.
 
-См. [../prompts/starter-prompts.md](../prompts/starter-prompts.md)
+See [../prompts/starter-prompts.md](../prompts/starter-prompts.md).
 
-## Stack Decision Framework
+## Stack decision framework
 
-При выборе стека AI должен ответить:
-- какая primary database нужна;
-- какие таблицы / сущности вырастут первыми;
-- нужна ли migration strategy;
-- нужны ли background jobs сейчас или позже;
-- нужен ли cache сейчас или позже;
-- где likely bottleneck;
-- что intentionally deferred.
+When choosing a stack, the AI should answer:
+- which primary database is needed;
+- which entities will matter first;
+- whether a migration strategy is needed;
+- whether background jobs are needed now or later;
+- whether cache is needed now or later;
+- where the likely bottleneck is;
+- what is intentionally deferred.
 
-Не добавляйте сложность без причины. Но если выбранный путь создает очевидный тупик при росте, AI должен это сказать.
+Do not add complexity without a reason.
+If the chosen path creates an obvious growth dead-end, the AI should say so.
 
-## Active / Deferred Surfaces
+## Active and deferred surfaces
 
-Явно разделите:
+Separate clearly:
 - active now;
 - deferred until later.
 
-Примеры surfaces:
+Example surfaces:
 - web frontend;
-- backend/API;
+- backend or API;
 - database;
-- bot / AI-agent;
-- mobile / mini app;
+- bot or AI-agent;
+- mobile or mini app;
 - payments;
 - admin;
-- workers / queues.
+- workers or queues.
 
 ## Operational baseline
 
-До production стоит решить:
-- где хранится Product Brief / ARCHITECTURE / PROJECT_MAP / AGENTS / SECURITY;
-- какие документы могут жить в repo, а какие только private;
-- где будут secrets;
-- кто имеет доступ к secrets;
-- нужны ли workers / scanners / browser automation;
-- нужны ли outbound restrictions;
-- где будут logs / alerts;
-- нужен ли staging.
+Before production, decide:
+- where Product Brief, Architecture, Project Map, AGENTS and Security docs live;
+- which docs may live in the repo and which should stay private;
+- where secrets live;
+- who has access to secrets;
+- whether workers, scanners or browser automation are needed;
+- whether outbound restrictions are needed;
+- where logs and alerts live;
+- whether staging is needed.
 
 ## Architecture docs storage policy
 
-Architecture Source of Truth полезен, но это чувствительный документ.
+Architecture Source of Truth is useful, but sensitive.
 
-Рекомендации:
-- не держать полную архитектурную справку в public webroot;
-- хранить local / private / sanitized / encrypted;
-- ограничивать доступ по ролям;
-- при публичной документации выпускать sanitized version без secrets, internal paths, IP, admin routes и private APIs.
+Recommendations:
+- do not keep a full architecture reference in a public webroot;
+- store it locally, privately, sanitized or encrypted;
+- limit access by role;
+- publish only a sanitized version without secrets, internal paths,
+  IPs, admin routes or private APIs.
 
 ## Safe third-party intake
 
-Перед подключением внешнего repo / template / package / API:
-- проверьте origin;
-- проверьте license;
-- проверьте активность проекта;
-- проверьте install scripts / postinstall / prepare;
-- проверьте workflows;
-- не давайте production secrets;
-- сначала запускайте в sandbox / staging;
-- зафиксируйте version / commit / risks.
+Before connecting an external repo, template, package or API:
+- verify origin;
+- verify license;
+- verify project activity;
+- review install scripts and workflows;
+- do not grant production secrets;
+- test in sandbox or staging first;
+- document version, commit and risks.
 
-## Database / Load readiness
+## Database and load readiness
 
-Scalability-ready не значит enterprise.
+Scalability-aware does not mean enterprise-heavy.
 
-Минимум на старте:
-- осознанно выбрать primary database;
-- определить ключевые сущности;
-- не смешивать доменные данные и временный мусор без причины;
-- предусмотреть migrations;
-- добавить индексы под ожидаемые query patterns;
-- не делать тяжелые synchronous operations без причины;
-- продумать rate limits, retries и idempotency, если есть API / payment / webhooks.
+At minimum:
+- choose the primary database consciously;
+- define key entities;
+- avoid mixing domain data and temporary data without a reason;
+- plan for migrations;
+- add indexes for expected query patterns;
+- avoid heavy synchronous operations without a reason;
+- think about rate limits, retries and idempotency if APIs,
+  payments or webhooks are involved.
 
 ## Memory Bank
 
-Минимальный Memory Bank:
+Minimum Memory Bank:
 - `README.md`
 - `AGENTS.md`
 - `PROJECT_MAP.md`
-- `ARCHITECTURE.md` или `Architecture Source of Truth`
+- `ARCHITECTURE.md` or Architecture Source of Truth
 - `SECURITY.md`
 - `AUDIT_BACKLOG.md`
 - `docs/PROMPTS.md`
 
 ## AGENTS.md
 
-`AGENTS.md` должен задавать:
+`AGENTS.md` should define:
 - role;
 - stop conditions;
 - approval gates;
 - code discovery first;
-- small / atomic diffs;
+- small or atomic diffs;
 - reporting after changes;
 - no destructive commands without approval.
 
-См. шаблон: [../templates/AGENTS.md](../templates/AGENTS.md)
+See the template: [../templates/AGENTS.md](../templates/AGENTS.md).
 
-Для Claude Code проектов отдельно проверьте `.claude/settings.json` и tool permissions, если файл существует. Доступ к инструментам — это часть operational baseline.
+For Claude Code projects, review `.claude/settings.json` and tool
+permissions if present. Tool access is part of the operational baseline.
 
 ## Stop conditions
 
 Stop and ask for approval when:
-- change touches more than 10 files;
-- change touches more than 2 layers at once;
-- change adds auth / payments / admin / worker / external API;
-- change requires new dependency;
-- change changes database schema;
-- change rewrites architecture instead of making a small vertical slice;
-- tests/build are red and the fix is not obvious.
+- the change touches more than 10 files;
+- the change touches more than 2 layers at once;
+- the change adds auth, payments, admin, workers or external APIs;
+- the change requires a new dependency;
+- the change changes database schema;
+- the change rewrites architecture instead of making a small slice;
+- tests or build are red and the fix is not obvious.
 
 ## AI cost awareness
 
-Не тратьте контекст впустую:
-- не читайте весь repo без причины;
-- начинайте с `PROJECT_MAP.md`;
-- не запускайте LLM/API loops без лимитов;
-- фиксируйте expensive loops в `AUDIT_BACKLOG.md` или `docs/PROMPTS.md`.
+Do not waste context:
+- do not read the whole repo without a reason;
+- start with `PROJECT_MAP.md`;
+- do not run LLM or API loops without limits;
+- record expensive loops in `AUDIT_BACKLOG.md` or `docs/PROMPTS.md`.
 
 ## Prompt versioning
 
-Если проект ведется через AI — сохраняйте адаптированные prompts в `docs/PROMPTS.md`.
+If the project is AI-assisted, keep adapted prompts in `docs/PROMPTS.md`.
 
-См. template: [../templates/PROMPTS.md](../templates/PROMPTS.md)
+See the template: [../templates/PROMPTS.md](../templates/PROMPTS.md).
 
 ## AI-generated test strategy
 
-AI не должен писать тесты на всё подряд.
+The AI should not generate every possible test first.
 
-Приоритет:
+Prioritize:
 - critical path;
 - regressions;
-- existing test framework;
-- mocked external APIs / LLM;
+- the existing test framework;
+- mocked external APIs or LLMs;
 - no new test framework without approval;
-- clearly deferred tests list.
+- a clearly deferred tests list.
 
 ## First safe iteration
 
-Перед первым vertical slice AI должен:
-- показать changed-files plan;
-- сказать, какие запросы к БД появятся;
-- указать, есть ли риск N+1;
-- сказать, sync это будет или async;
-- отметить внешний API / LLM в critical path;
-- предложить checkpoint, если изменение risky.
+Before the first vertical slice, the AI should:
+- show a changed-files plan;
+- say which database queries appear;
+- point out N+1 risk if relevant;
+- say whether the flow is sync or async;
+- mark external API or LLM use in the critical path;
+- propose a checkpoint if the change is risky.
 
-После реализации AI должен вывести:
-- какие таблицы / миграции появились;
-- какие query patterns добавлены;
-- какие индексы добавлены или отложены;
-- какие bottlenecks ожидаются;
-- что добавить в scalability backlog.
+After implementation, the AI should report:
+- which tables or migrations appeared;
+- which query patterns were added;
+- which indexes were added or deferred;
+- which bottlenecks are expected;
+- what belongs in the scalability backlog.
 
-## Starter → Hardening
+## Starter to Hardening
 
-После первой safe iteration не начинайте бесконечно докидывать фичи.
+After the first safe iteration, do not keep piling on features blindly.
 
-Сначала переходите в Hardening:
-- reuse Product Brief;
-- update PROJECT_MAP;
-- review ARCHITECTURE;
-- expand SECURITY baseline;
-- populate AUDIT_BACKLOG;
+Move into Hardening first:
+- reuse the Product Brief;
+- update `PROJECT_MAP.md`;
+- review architecture;
+- expand the security baseline;
+- populate `AUDIT_BACKLOG.md`;
 - run Light Hardening if this is still an early slice.
 
-См. bridge: [starter-to-hardening-bridge.md](./starter-to-hardening-bridge.md)
+See [starter-to-hardening-bridge.md](./starter-to-hardening-bridge.md).

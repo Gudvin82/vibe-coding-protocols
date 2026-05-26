@@ -10,10 +10,11 @@ Included themes:
 - security operations baseline.
 
 AI / IDE variants:
-- [`AGENTS.md`](./AGENTS.md)
-- [`AGENTS.claude.md`](./AGENTS.claude.md)
-- [`AGENTS.cursor.md`](./AGENTS.cursor.md)
-- [`AGENTS.windsurf.md`](./AGENTS.windsurf.md)
+- Root [`../AGENTS.md`](../AGENTS.md) configures this repository itself.
+- Copy-ready project template: [`AGENTS.md`](./AGENTS.md)
+- Claude variant: [`AGENTS.claude.md`](./AGENTS.claude.md)
+- Cursor variant: [`AGENTS.cursor.md`](./AGENTS.cursor.md)
+- Windsurf variant: [`AGENTS.windsurf.md`](./AGENTS.windsurf.md)
 
 Recommended companions:
 - [`../docs/template-style-guide.md`](../docs/template-style-guide.md)
