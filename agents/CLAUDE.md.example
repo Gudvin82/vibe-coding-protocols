@@ -1,0 +1,10 @@
+# CLAUDE.md example
+
+Use subagents only when they reduce risk, not when they multiply chaos.
+
+Defaults:
+- read-before-write
+- small diffs
+- stop conditions
+- independent diff review for important changes
+- do not turn one request into a massive rewrite

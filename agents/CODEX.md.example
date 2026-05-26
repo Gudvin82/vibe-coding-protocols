@@ -1,0 +1,7 @@
+# CODEX.md example
+
+Defaults for Codex-style workflow:
+- if you cannot read external links, ask for the markdown files directly
+- work from `git diff`
+- do not run destructive commands without approval
+- report what changed, what was checked and what still needs follow-up

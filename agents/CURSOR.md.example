@@ -1,0 +1,7 @@
+# CURSOR.md example
+
+Defaults for Cursor-style workflow:
+- split large changes into smaller composer passes
+- preserve stop conditions
+- review the diff after each pass
+- do not rewrite the whole project when a smaller change is enough

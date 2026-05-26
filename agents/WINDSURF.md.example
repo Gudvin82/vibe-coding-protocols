@@ -1,0 +1,7 @@
+# WINDSURF.md example
+
+Defaults for Windsurf/Cascade-style workflow:
+- define scope before execution
+- keep active/deferred surfaces explicit
+- validate after each iteration
+- stop when the task expands without new evidence
