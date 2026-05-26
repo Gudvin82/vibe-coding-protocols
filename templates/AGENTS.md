@@ -15,6 +15,14 @@ Before broad discovery, check whether the project has:
 - AUDIT_BACKLOG.md
 - docs/PROMPTS.md
 
+## Token-aware discovery
+
+- do not read the whole repository without a reason;
+- start with Memory Bank files;
+- return an evidence map before broad rewrites;
+- ask for `PROJECT_MAP.md` refresh when the map is outdated;
+- see `docs/token-aware-code-discovery.md`.
+
 ## Work rules
 
 - do code discovery before write-heavy changes;

@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.2 — Security operations and perimeter baseline
+
+- Expanded README structure for faster orientation and clearer path selection
+- Added perimeter security and external exposure checklists
+- Added `SECURITY_OPERATIONS_BASELINE.md` template
+- Added secret rotation, safe update workflow and security operations docs
+- Added token-aware code discovery guide and linked it from AGENTS templates
+- Expanded `vibe-check` with warnings for missing security operations artifacts
+- Prepared release notes for `v0.1.2`
+
 ## v0.1.1 — Growth, examples and automation
 
 - Added language/statistics tuning with `.gitattributes`
@@ -20,6 +30,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.1`.
+Repository version started at `v0.1.0` and now continues with `v0.1.2`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

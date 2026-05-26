@@ -1,9 +1,11 @@
 # Checklists
 
-Короткие чеклисты для быстрых проходов:
+Short checklists for fast, structured passes:
 - starter;
 - hardening;
 - self-protection;
+- perimeter security;
+- external exposure;
 - database/load/scalability;
 - safe integration;
 - migrations rollback;

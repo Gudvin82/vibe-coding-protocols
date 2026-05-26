@@ -13,6 +13,14 @@ Read and update the project context files when they exist:
 - `ARCHITECTURE.md`
 - `AUDIT_BACKLOG.md`
 
+## Token-aware discovery
+
+- Do not read the whole repository without a reason.
+- Start with the Memory Bank.
+- Return an evidence map before broad changes.
+- Ask for a `PROJECT_MAP.md` refresh when the map is outdated.
+- See [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md).
+
 ## Stop Conditions
 
 Stop and ask for approval when:
