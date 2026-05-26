@@ -6,9 +6,20 @@ PASS=0
 WARN=0
 FAIL=0
 
-pass() { echo "PASS: $1"; PASS=$((PASS+1)); }
-warn() { echo "WARN: $1"; WARN=$((WARN+1)); }
-fail() { echo "FAIL: $1"; FAIL=$((FAIL+1)); }
+pass() {
+  echo "PASS: $1"
+  PASS=$((PASS + 1))
+}
+
+warn() {
+  echo "WARN: $1"
+  WARN=$((WARN + 1))
+}
+
+fail() {
+  echo "FAIL: $1"
+  FAIL=$((FAIL + 1))
+}
 
 case "$MODE" in
   --starter|--hardening|--audit) ;;
@@ -18,8 +29,17 @@ case "$MODE" in
     ;;
 esac
 
-[[ -f README.md ]] && pass "README.md present" || fail "README.md missing"
-[[ -f .gitignore ]] && pass ".gitignore present" || fail ".gitignore missing"
+if [[ -f README.md ]]; then
+  pass "README.md present"
+else
+  fail "README.md missing"
+fi
+
+if [[ -f .gitignore ]]; then
+  pass ".gitignore present"
+else
+  fail ".gitignore missing"
+fi
 
 if [[ -f AGENTS.md || -f CLAUDE.md ]]; then
   pass "AI instructions file present"
@@ -27,14 +47,30 @@ else
   fail "Missing AGENTS.md or CLAUDE.md"
 fi
 
-[[ -f PROJECT_MAP.md || -f templates/PROJECT_MAP.md ]] && pass "PROJECT_MAP reference present" || warn "PROJECT_MAP not found in current directory"
-
-if [[ "$MODE" == "--hardening" || "$MODE" == "--audit" ]]; then
-  [[ -f AUDIT_BACKLOG.md || -f templates/AUDIT_BACKLOG.md ]] && pass "AUDIT_BACKLOG reference present" || warn "AUDIT_BACKLOG not found"
+if [[ -f PROJECT_MAP.md || -f templates/PROJECT_MAP.md ]]; then
+  pass "PROJECT_MAP reference present"
+else
+  warn "PROJECT_MAP not found in current directory"
 fi
 
-if rg -n --hidden --glob '!*.git/*' --glob '!.github/*' '(process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|API_KEY|TOKEN)' . >/dev/null 2>&1; then
-  [[ -f .env.example || -f templates/SECURITY_BASELINE.md ]] && pass "env-related reference has companion example or baseline" || warn "Env-like patterns found without .env.example"
+if [[ "$MODE" == "--hardening" || "$MODE" == "--audit" ]]; then
+  if [[ -f AUDIT_BACKLOG.md || -f templates/AUDIT_BACKLOG.md ]]; then
+    pass "AUDIT_BACKLOG reference present"
+  else
+    warn "AUDIT_BACKLOG not found"
+  fi
+fi
+
+if rg -n --hidden \
+  --glob '!*.git/*' \
+  --glob '!.github/*' \
+  '(process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|API_KEY|TOKEN)' \
+  . >/dev/null 2>&1; then
+  if [[ -f .env.example || -f templates/SECURITY_BASELINE.md ]]; then
+    pass "env-related reference has companion example or baseline"
+  else
+    warn "Env-like patterns found without .env.example"
+  fi
 else
   pass "No env-like patterns detected in quick scan"
 fi

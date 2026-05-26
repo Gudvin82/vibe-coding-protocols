@@ -19,8 +19,9 @@
 - Версия репозитория: `v0.1.1`
 - Версия web-методологии: `Vibe Coding Protocols v1.4`
 
-Версии репозитория (`v0.x`) описывают упаковку GitHub toolkit.  
-Версии методологии (`v1.x`) относятся к web-протоколам на `anmalishev.ru`.
+Версии репозитория (`v0.x`) описывают упаковку GitHub toolkit.
+Версии методологии (`v1.x`) относятся к web-протоколам на
+`anmalishev.ru`.
 
 ## Кратко за 10 секунд
 
@@ -57,7 +58,8 @@
 - Website: [https://anmalishev.ru/](https://anmalishev.ru/)
 - Hub: [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
 - Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
-- Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
+- Hardening:
+  [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
 - Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
 
 ## Примеры

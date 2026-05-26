@@ -20,8 +20,9 @@ It helps you:
 - Repository version: `v0.1.1`
 - Web methodology version: `Vibe Coding Protocols v1.4`
 
-Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.  
-Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
+Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.
+Methodology versioning (`v1.x`) tracks the web protocols at
+`anmalishev.ru`.
 
 ## 10-second overview
 
@@ -36,7 +37,8 @@ Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
 
 1. Start with [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
 2. Continue with [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
-3. Use [templates/AGENTS.md](./templates/AGENTS.md) and [templates/PROJECT_MAP.md](./templates/PROJECT_MAP.md)
+3. Use [templates/AGENTS.md](./templates/AGENTS.md) and
+   [templates/PROJECT_MAP.md](./templates/PROJECT_MAP.md)
 
 ### Existing AI-generated code
 
@@ -58,7 +60,8 @@ Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
 - Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
 - Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
 - Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
-- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
+- Architecture Source of Truth:
+  [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
 
 ## Examples
 

@@ -1,18 +1,28 @@
 # Vibe Coding Protocols
 
 [![Repo Version](https://img.shields.io/badge/repo-v0.1.1-blue)](./CHANGELOG.md)
-[![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
+[![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](
+  https://anmalishev.ru/expert/vibe-coding/
+)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
 [![Website](https://img.shields.io/badge/website-anmalishev.ru-black)](https://anmalishev.ru/)
-[![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
 [![Claude Code Ready](https://img.shields.io/badge/Claude%20Code-ready-blueviolet)](./CLAUDE.md)
 [![Codex Ready](https://img.shields.io/badge/Codex-ready-blue)](./AGENTS.md)
 [![Cursor Ready](https://img.shields.io/badge/Cursor-ready-black)](./.cursorrules)
 [![Windsurf Ready](https://img.shields.io/badge/Windsurf-ready-00A3FF)](./.windsurfrules)
-[![Copilot Ready](https://img.shields.io/badge/GitHub%20Copilot-ready-2ea44f)](./.github/copilot-instructions.md)
-[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
-[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
+[![Copilot Ready](https://img.shields.io/badge/GitHub%20Copilot-ready-2ea44f)](
+  ./.github/copilot-instructions.md
+)
+[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml
+)
+[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml
+)
 
 **Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.**
 
@@ -23,7 +33,8 @@ Languages:
 ## 10-second overview
 
 1. **Start** — turn an idea into a Product Brief and first safe vertical slice.
-2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
+2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to
+   keep scope controlled.
 3. **Harden** — audit AI-generated code before merge, deploy or production.
 4. **Reuse** — copy markdown templates, prompts and checklists into your project.
 
@@ -42,8 +53,12 @@ Official web version:
 ## What should I copy first?
 
 - New project: `prompts/product-brief-prompt.md` + `protocols/ai-project-starter-protocol.md`
-- Existing AI-generated project: `protocols/ai-project-hardening-protocol.md` + `templates/AUDIT_BACKLOG.md`
-- AI IDE setup: `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`
+- Existing AI-generated project:
+  `protocols/ai-project-hardening-protocol.md` +
+  `templates/AUDIT_BACKLOG.md`
+- AI IDE setup:
+  `AGENTS.md`, `CLAUDE.md`, `.cursorrules`,
+  `.github/copilot-instructions.md`
 - Architecture docs: `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
 
 ## Quick Start
@@ -102,28 +117,44 @@ flowchart TD
 ## Use with your AI IDE
 
 ### Claude Code
-Copy [CLAUDE.md](./CLAUDE.md) or [agents/CLAUDE.md.example](./agents/CLAUDE.md.example) into your project and start with [prompts/master-prompt-short.md](./prompts/master-prompt-short.md).
+Copy [CLAUDE.md](./CLAUDE.md) or
+[agents/CLAUDE.md.example](./agents/CLAUDE.md.example) into your
+project and start with
+[prompts/master-prompt-short.md](./prompts/master-prompt-short.md).
 
 ### Codex
-Use [AGENTS.md](./AGENTS.md) plus the relevant protocol and prompt files. If external links are unavailable, paste the needed markdown files directly into the task.
+Use [AGENTS.md](./AGENTS.md) plus the relevant protocol and prompt
+files. If external links are unavailable, paste the needed markdown
+files directly into the task.
 
 ### Cursor
-Use the protocols as planning documents, copy [.cursorrules](./.cursorrules) or [agents/CURSOR.md.example](./agents/CURSOR.md.example), and apply Stop Conditions before larger Composer edits.
+Use the protocols as planning documents, copy
+[.cursorrules](./.cursorrules) or
+[agents/CURSOR.md.example](./agents/CURSOR.md.example), and apply Stop
+Conditions before larger Composer edits.
 
 ### Windsurf
-Use [.windsurfrules](./.windsurfrules) or [agents/WINDSURF.md.example](./agents/WINDSURF.md.example) as a Cascade scope guard: active surfaces, deferred surfaces, approval gates and validation.
+Use [.windsurfrules](./.windsurfrules) or
+[agents/WINDSURF.md.example](./agents/WINDSURF.md.example) as a Cascade
+scope guard: active surfaces, deferred surfaces, approval gates and
+validation.
 
 ### GitHub Copilot / VS Code
-Place [.github/copilot-instructions.md](./.github/copilot-instructions.md) in your project, combine it with [AGENTS.md](./AGENTS.md), and use [scripts/init-project.example.sh](./scripts/init-project.example.sh) as a review-first helper.
+Place [.github/copilot-instructions.md](./.github/copilot-instructions.md)
+in your project, combine it with [AGENTS.md](./AGENTS.md), and use
+[scripts/init-project.example.sh](./scripts/init-project.example.sh)
+as a review-first helper.
 
 ### JetBrains / Junie / Antigravity
-Use the examples in [agents/](./agents/) to adapt the workflow for small diffs, stop conditions, Memory Bank updates and approval gates.
+Use the examples in [agents/](./agents/) to adapt the workflow for
+small diffs, stop conditions, Memory Bank updates and approval gates.
 
 ## Repository and methodology versions
 
 - Repository version: `v0.1.1`
 - Web methodology version: `Vibe Coding Protocols v1.4`
-- This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
+- This repository is a markdown/toolkit packaging of the public web
+  methodology from `anmalishev.ru`.
 
 Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.  
 Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
