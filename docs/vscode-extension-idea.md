@@ -9,6 +9,14 @@ Possible future extension for `Vibe Coding Protocols`.
 - Create `AGENTS.md`
 - Create `PROJECT_MAP.md`
 - Open Audit Backlog
+- Run `vibe-check`
+
+## Possible snippets
+
+- Product Brief starter
+- Starter Prompt 0
+- Hardening report section
+- Audit backlog row
 
 ## Status
 

@@ -1,16 +1,8 @@
-# Landing Page Light
+# Legacy example note
 
-Synthetic example of a small public landing page that should use the light route instead of overengineering.
+This older example folder is kept for continuity.
 
-## Stack
+Preferred walkthrough:
+- [`../landing-page-vibe/`](../landing-page-vibe/)
 
-- static HTML or Astro
-- optional lightweight form handler
-
-## Focus
-
-- forms
-- device/browser QA
-- public exposure check
-- SEO and GEO basics
-- no unnecessary backend complexity
+Use the newer `*-vibe` example for the richer synthetic walkthrough.

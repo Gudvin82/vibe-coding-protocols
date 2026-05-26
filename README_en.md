@@ -17,19 +17,18 @@ It helps you:
 
 ## Versions
 
-- Repository version: `v0.1.0`
+- Repository version: `v0.1.1`
 - Web methodology version: `Vibe Coding Protocols v1.4`
 
 Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.  
 Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
 
-## Official web version
+## 10-second overview
 
-- Hub: [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
-- Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
-- Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
-- Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
-- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
+1. Start with a Product Brief and Starter Protocol.
+2. Use AGENTS rules and Memory Bank files to keep scope under control.
+3. Run Hardening before merge, deploy or production.
+4. Reuse the templates, checklists and walkthrough examples in your own repository.
 
 ## Quick Start
 
@@ -53,7 +52,15 @@ Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
 - [.windsurfrules](./.windsurfrules)
 - [.github/copilot-instructions.md](./.github/copilot-instructions.md)
 
-## Walkthrough examples
+## Official web version
+
+- Hub: [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
+- Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
+- Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
+- Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
+- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
+
+## Examples
 
 - [examples/todo-app-vibe/](./examples/todo-app-vibe/)
 - [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/)
@@ -62,6 +69,16 @@ Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
 
 All examples are synthetic and sanitized.
 
+## More guides
+
+- [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
+- [docs/multi-agent-workflows.md](./docs/multi-agent-workflows.md)
+- [docs/vibe-metrics.md](./docs/vibe-metrics.md)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/pre-commit-hooks.md](./docs/pre-commit-hooks.md)
+- [docs/community-issues.md](./docs/community-issues.md)
+- [ROADMAP.md](./ROADMAP.md)
+
 ## Author
 
 Created by Анатолий Малышев.
@@ -69,11 +86,3 @@ Created by Анатолий Малышев.
 Website: [https://anmalishev.ru/](https://anmalishev.ru/)
 
 Анатолий Малышев works with practical AI solutions for business: AI agents, CRM/1C/BI integrations, end-to-end analytics, Telegram bots and mini apps.
-
-## Related docs
-
-- [README.md](./README.md)
-- [README_ru.md](./README_ru.md)
-- [ROADMAP.md](./ROADMAP.md)
-- [docs/community.md](./docs/community.md)
-- [docs/badges.md](./docs/badges.md)

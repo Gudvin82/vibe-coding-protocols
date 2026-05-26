@@ -9,17 +9,28 @@ required_files=(
   README_en.md
   README_ru.md
   ROADMAP.md
+  ANTI_PATTERNS.md
   LICENSE
   DISCLAIMER.md
   CHANGELOG.md
   CLAUDE.md
   AGENTS.md
+  .gitattributes
   .github/copilot-instructions.md
   docs/badges.md
   docs/community.md
+  docs/community-issues.md
   docs/awesome-vibe-coding-pr.md
+  docs/multi-agent-workflows.md
+  docs/vibe-metrics.md
+  docs/automated-vibe-check.md
+  docs/pre-commit-hooks.md
+  docs/cli-roadmap.md
+  docs/release-v0.1.1.md
   scripts/README.md
+  scripts/vibe-check.sh
   scripts/init-project.example.sh
+  assets/social-preview.svg
 )
 
 required_dirs=(

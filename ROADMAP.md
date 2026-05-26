@@ -2,31 +2,37 @@
 
 This is a new public toolkit. The roadmap is intentionally practical and may change based on feedback.
 
-## Near-term
+## v0.1.x — Public toolkit foundation
 
-- More synthetic walkthrough examples
-- `README_en.md` / `README_ru.md` improvements
-- Better AI IDE adaptation notes
-- GitHub social preview image
-- More checklists for common project types
+- README packaging
+- synthetic examples
+- AI IDE files
+- lightweight checks
 
-## Planned protocols
+## v0.2.0 — Better adoption
 
-- Bot / AI-agent project checklist
-- Mobile / Telegram Mini App route
-- Production operations checklist
-- Team adoption guide
+Near-term:
+- more examples
+- improved social preview
+- awesome-list PR
+- community feedback loop
 
-## Possible future tooling
+## v0.3.0 — Specialized routes
 
-- Lightweight CLI helper
-- VS Code extension prototype
+Later:
+- bot / AI-agent checklist
+- mobile / Telegram Mini App route
+- team adoption guide
+
+## v0.4.0 — Tooling experiments
+
+Experimental:
+- lightweight CLI prototype
 - GitHub Action wrapper
-- Website / GitHub Pages docs
+- VS Code extension prototype
 
-## Not planned right now
+## Not planned
 
-- Full framework
-- Paid SaaS
-- Heavy CLI that modifies projects without review
-- Production scanner replacement
+- fake security certification
+- full SaaS
+- heavy automation that modifies projects without review

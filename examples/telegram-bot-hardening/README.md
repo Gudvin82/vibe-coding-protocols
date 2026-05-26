@@ -1,19 +1,8 @@
-# Telegram Bot Hardening
+# Legacy example note
 
-Synthetic example of running Hardening on an existing bot-oriented project.
+This older example folder is kept for continuity.
 
-## Stack
+Preferred walkthrough:
+- [`../telegram-bot-vibe/`](../telegram-bot-vibe/)
 
-- Python
-- Redis
-- Telegram Bot API
-
-## Focus
-
-- bot token handling
-- webhook safety
-- rate limits
-- abuse cases
-- prompt injection if the bot uses AI
-
-No real bot token or live webhook URLs are included.
+Use the newer `*-vibe` example for the richer synthetic walkthrough.

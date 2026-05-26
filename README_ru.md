@@ -16,11 +16,18 @@
 
 ## Версии
 
-- Версия репозитория: `v0.1.0`
+- Версия репозитория: `v0.1.1`
 - Версия web-методологии: `Vibe Coding Protocols v1.4`
 
 Версии репозитория (`v0.x`) описывают упаковку GitHub toolkit.  
 Версии методологии (`v1.x`) относятся к web-протоколам на `anmalishev.ru`.
+
+## Кратко за 10 секунд
+
+1. Start: превратите идею в Product Brief и первый безопасный vertical slice.
+2. Build: используйте `AGENTS.md`, `PROJECT_MAP.md` и AI IDE rules, чтобы держать scope под контролем.
+3. Harden: проверяйте AI-generated код перед merge / deploy / production.
+4. Reuse: копируйте prompts, templates, checklists и examples в свой проект.
 
 ## Быстрый старт
 
@@ -53,14 +60,6 @@
 - Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
 - Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
 
-## Автор
-
-Автор: Анатолий Малышев
-
-Анатолий Малышев — специалист по AI-решениям для бизнеса, AI-агентам, CRM/1С/BI-интеграциям, сквозной аналитике, Telegram-ботам и мини-приложениям.
-
-География: Санкт-Петербург, Москва и РФ.
-
 ## Примеры
 
 Смотрите synthetic walkthroughs:
@@ -70,3 +69,21 @@
 - [examples/saas-backend-vibe/](./examples/saas-backend-vibe/)
 
 Все примеры synthetic / sanitized. Это не реальные клиентские проекты.
+
+## Полезные материалы
+
+- [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
+- [docs/multi-agent-workflows.md](./docs/multi-agent-workflows.md)
+- [docs/vibe-metrics.md](./docs/vibe-metrics.md)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/pre-commit-hooks.md](./docs/pre-commit-hooks.md)
+- [docs/community-issues.md](./docs/community-issues.md)
+- [ROADMAP.md](./ROADMAP.md)
+
+## Автор
+
+Автор: Анатолий Малышев
+
+Анатолий Малышев — специалист по AI-решениям для бизнеса, AI-агентам, CRM/1С/BI-интеграциям, сквозной аналитике, Telegram-ботам и мини-приложениям.
+
+География: Санкт-Петербург, Москва и РФ.

@@ -1,0 +1,8 @@
+# This is a markdown/toolkit repository.
+# Scripts and helper assets should not dominate GitHub language statistics.
+
+scripts/* linguist-detectable=false
+.github/workflows/* linguist-detectable=false
+assets/* linguist-detectable=false
+
+*.md linguist-detectable=true

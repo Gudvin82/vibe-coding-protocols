@@ -1,11 +1,16 @@
 # Vibe Coding Protocols
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.0-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.1-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
 [![Website](https://img.shields.io/badge/website-anmalishev.ru-black)](https://anmalishev.ru/)
 [![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Claude Code Ready](https://img.shields.io/badge/Claude%20Code-ready-blueviolet)](./CLAUDE.md)
+[![Codex Ready](https://img.shields.io/badge/Codex-ready-blue)](./AGENTS.md)
+[![Cursor Ready](https://img.shields.io/badge/Cursor-ready-black)](./.cursorrules)
+[![Windsurf Ready](https://img.shields.io/badge/Windsurf-ready-00A3FF)](./.windsurfrules)
+[![Copilot Ready](https://img.shields.io/badge/GitHub%20Copilot-ready-2ea44f)](./.github/copilot-instructions.md)
 [![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
 [![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
 
@@ -14,6 +19,13 @@
 Languages:
 - English: [README_en.md](./README_en.md)
 - Русский: [README_ru.md](./README_ru.md)
+
+## 10-second overview
+
+1. **Start** — turn an idea into a Product Brief and first safe vertical slice.
+2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
+3. **Harden** — audit AI-generated code before merge, deploy or production.
+4. **Reuse** — copy markdown templates, prompts and checklists into your project.
 
 Use this toolkit to:
 - start AI-generated projects without chaos;
@@ -26,6 +38,13 @@ Use this toolkit to:
 
 Official web version:
 [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
+
+## What should I copy first?
+
+- New project: `prompts/product-brief-prompt.md` + `protocols/ai-project-starter-protocol.md`
+- Existing AI-generated project: `protocols/ai-project-hardening-protocol.md` + `templates/AUDIT_BACKLOG.md`
+- AI IDE setup: `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`
+- Architecture docs: `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
 
 ## Quick Start
 
@@ -49,6 +68,37 @@ Use:
 
 If your AI cannot open links, paste the required markdown files from this repository directly.
 
+## Workflow
+
+```mermaid
+flowchart TD
+    A[Idea] --> B[Product Brief]
+    B --> C[Starter Protocol]
+    C --> D[First safe vertical slice]
+    D --> E{Existing code ready?}
+    E -->|No| C
+    E -->|Yes| F[Light Hardening]
+    F --> G[Audit Backlog]
+    G --> H[Fixes and validation]
+    H --> I[Independent diff review]
+    I --> J{Ready?}
+    J -->|No| G
+    J -->|Yes| K[Merge / staging / deploy]
+```
+
+## Stop conditions flow
+
+```mermaid
+flowchart TD
+    A[AI proposes change] --> B{Touches risky area?}
+    B -->|Auth / payments / DB / deps / more than 10 files| C[Stop and ask approval]
+    B -->|Small safe change| D[Implement smallest practical diff]
+    D --> E[Run validation]
+    E --> F{Validation green?}
+    F -->|No| G[Fix or rollback]
+    F -->|Yes| H[Report changed files and next steps]
+```
+
 ## Use with your AI IDE
 
 ### Claude Code
@@ -71,7 +121,7 @@ Use the examples in [agents/](./agents/) to adapt the workflow for small diffs, 
 
 ## Repository and methodology versions
 
-- Repository version: `v0.1.0`
+- Repository version: `v0.1.1`
 - Web methodology version: `Vibe Coding Protocols v1.4`
 - This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
 
@@ -102,16 +152,26 @@ vibe-coding-protocols/
 │   ├── CODEX.md.example                    # Codex adaptation
 │   ├── CURSOR.md.example                   # Cursor adaptation
 │   ├── JETBRAINS.md.example                # JetBrains / Junie adaptation
+│   ├── ANTIGRAVITY.md.example              # Antigravity adaptation
 │   └── VS_CODE.md.example                  # VS Code guidance
+├── checklists/
+│   ├── starter-checklist.md
+│   ├── hardening-checklist.md
+│   ├── self-protection-checklist.md
+│   ├── database-load-scalability-checklist.md
+│   ├── safe-integration-checklist.md
+│   ├── ai-generated-migrations-rollback.md
+│   ├── ai-generated-test-strategy.md
+│   └── device-browser-qa-checklist.md
 ├── examples/
 │   ├── todo-app-vibe/                      # Starter to Hardening walkthrough
 │   ├── telegram-bot-vibe/                  # Bot hardening walkthrough
 │   ├── landing-page-vibe/                  # Light hardening walkthrough
 │   └── saas-backend-vibe/                  # Full hardening walkthrough
-├── checklists/                             # Quick operational checklists
-├── docs/                                   # Attribution, badges, roadmap, community, notes
+├── docs/                                   # Attribution, roadmap, automation and community docs
 ├── scripts/                                # Lightweight helper checks and init example
 ├── .github/                                # Copilot instructions, issues, workflows
+├── ANTI_PATTERNS.md                        # Common AI-assisted failure modes
 └── ROADMAP.md                              # Practical near-term direction
 ```
 
@@ -141,6 +201,7 @@ This repository includes lightweight GitHub Actions and local scripts for the to
 - markdown and required file presence checks;
 - local markdown link validation;
 - placeholder scanning for secret-like examples;
+- `vibe-check` for starter / hardening / audit readiness hints;
 - a review-first init script example.
 
 These checks do not replace project hardening, security scanners, pentests or human review.
@@ -151,17 +212,27 @@ Content files in this repository are licensed under `CC BY 4.0`. Helper scripts 
 
 This is a new public toolkit. No usage numbers are claimed yet.
 
+Want to help? Open a feedback issue or request an example.
+
 If you use it:
 - star the repository;
 - open an issue using [Protocol Feedback](./.github/ISSUE_TEMPLATE/protocol_feedback.yml);
 - request a walkthrough with [Example request](./.github/ISSUE_TEMPLATE/example_request.yml);
 - suggest an AI IDE adaptation or wording improvement.
 
-Helpful docs:
+## More guides
+
+- [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
 - [ROADMAP.md](./ROADMAP.md)
+- [docs/multi-agent-workflows.md](./docs/multi-agent-workflows.md)
+- [docs/vibe-metrics.md](./docs/vibe-metrics.md)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/pre-commit-hooks.md](./docs/pre-commit-hooks.md)
 - [docs/badges.md](./docs/badges.md)
 - [docs/community.md](./docs/community.md)
+- [docs/community-issues.md](./docs/community-issues.md)
 - [docs/awesome-vibe-coding-pr.md](./docs/awesome-vibe-coding-pr.md)
+- [docs/cli-roadmap.md](./docs/cli-roadmap.md)
 - [docs/vscode-extension-idea.md](./docs/vscode-extension-idea.md)
 - [docs/social-preview.md](./docs/social-preview.md)
 

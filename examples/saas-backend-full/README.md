@@ -1,17 +1,8 @@
-# SaaS Backend Full
+# Legacy example note
 
-Synthetic example of a backend-heavy service that needs a fuller hardening route.
+This older example folder is kept for continuity.
 
-## Stack
+Preferred walkthrough:
+- [`../saas-backend-vibe/`](../saas-backend-vibe/)
 
-- FastAPI
-- PostgreSQL
-- background jobs
-
-## Focus
-
-- database/load readiness
-- migration rollback
-- API quotas and rate limits
-- scanner reporting
-- security backlog
+Use the newer `*-vibe` example for the richer synthetic walkthrough.

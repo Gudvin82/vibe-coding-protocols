@@ -7,6 +7,7 @@ These are lightweight helper scripts for the toolkit itself.
 - `check-toolkit.sh` — verifies required files and no empty markdown files
 - `scan-placeholders.sh` — lightweight scan for secret-like placeholders
 - `validate-links.sh` — validates local markdown links
+- `vibe-check.sh` — lightweight starter / hardening / audit readiness check
 - `init-project.example.sh` — review-first example for copying starter templates into a project
 
 ## Notes

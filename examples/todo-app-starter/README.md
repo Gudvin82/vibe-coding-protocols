@@ -1,23 +1,8 @@
-# Todo App Starter
+# Legacy example note
 
-Synthetic example of using the Starter Protocol for a small AI-generated web app.
+This older example folder is kept for continuity.
 
-## Stack
+Preferred walkthrough:
+- [`../todo-app-vibe/`](../todo-app-vibe/)
 
-- Next.js
-- PostgreSQL
-- optional Supabase-compatible workflow
-
-## Goal
-
-Show how a simple project moves from Product Brief to first safe vertical slice without pretending to be production-ready.
-
-## Files in this example
-
-- `PRODUCT_BRIEF.md`
-- `PROJECT_MAP.md`
-- `AGENTS.md`
-- `STARTER_PLAN.md`
-- `HARDENING_NOTES.md`
-
-All values are placeholders. No real keys or live environments are included.
+Use the newer `*-vibe` example for the richer synthetic walkthrough.
