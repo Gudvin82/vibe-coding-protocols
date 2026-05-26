@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.5
+
+- Added START_HERE decision wizard
+- Added hardening thresholds
+- Added AI-specific threat model
+- Added testing cookbook
+- Added scanner integration docs
+- Improved vibe-check with levels, optional scanners and scoring
+- Improved template consistency
+
 ## v0.1.4
 
 - Polished README first-screen onboarding and trust wording
@@ -47,6 +57,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.4`.
+Repository version started at `v0.1.0` and now continues with `v0.1.5`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

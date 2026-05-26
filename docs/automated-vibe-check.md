@@ -1,6 +1,6 @@
 # Automated Vibe Check
 
-`vibe-check` is a lightweight repository check.
+`vibe-check` is a lightweight repository check with layered signals.
 
 It does not replace the Hardening Protocol, human review, scanners or
 security work.
@@ -13,17 +13,14 @@ or a security verdict.
 
 ## What it checks
 
-- presence of baseline project files;
-- missing `README.md`, `AGENTS.md`, `PROJECT_MAP.md` or
-  `AUDIT_BACKLOG.md` depending on mode;
-- whether `.env.example` is expected;
-- whether `.env` appears in the repository;
-- whether `.gitignore` exists;
-- whether architecture or project-map docs may need review in a public
-  webroot context;
-- whether `SECURITY_OPERATIONS_BASELINE.md` is referenced for hardening/audit work;
-- whether `THIRD_PARTY_REGISTRY.md` is referenced for hardening/audit work;
-- whether obvious backup, dump or log artifacts exist near the repository root.
+- baseline project structure;
+- mode-specific starter / hardening / audit files;
+- `.gitignore` presence and a few high-value ignore patterns;
+- `.env` / `.env.*` files in the repository;
+- whether `.env.example` or a documented baseline exists when env-like references appear;
+- suspicious secret-like assignments in a quick grep-style pass;
+- public-safety warnings for root docs in webroot-style contexts;
+- optional scanners if `--scanners` is requested and tools are already installed.
 
 ## What it does not check
 
@@ -34,6 +31,7 @@ or a security verdict.
 - real production readiness;
 - legal, privacy or payment compliance;
 - real open ports, WAF, DDoS controls or infrastructure state.
+- it does not convert scanner output into a security certification.
 
 ## Modes
 
@@ -41,7 +39,12 @@ or a security verdict.
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --scanners || true
+bash scripts/vibe-check.sh --scanners
 ```
+
+If `--scanners` is passed without a mode, audit mode is assumed.
 
 ## Example output
 
@@ -51,13 +54,18 @@ PASS: README.md present
 PASS: .gitignore present
 PASS: AI instructions file present
 PASS: SECURITY_OPERATIONS_BASELINE reference present
-WARN: AUDIT_BACKLOG.md is missing for hardening mode
-WARN: public root AGENTS.md exists; make sure public docs are sanitized
+WARN: Suspicious secret-like assignment detected; review and remove or mask it
+WARN: Gitleaks not found; see docs/scanner-integration.md
 
+VIBE CHECK SCORE: 82/100
+Breakdown:
+- Structure: 25/25
+- Safety files: 20/25
+- Secrets hygiene: 20/25
+- Optional scanners: 17/25
 Result: WARN
-Summary: PASS=4 WARN=2 FAIL=0
-Next recommended files to add or review:
-- AUDIT_BACKLOG.md
+Status: PASS=9 WARN=2 FAIL=0
+This is a readiness signal, not a security certification.
 ```
 
 ## How to use locally before AI-generated changes
@@ -66,6 +74,7 @@ Next recommended files to add or review:
 2. Run `--starter` before the first AI-generated vertical slice.
 3. Run `--hardening` before merge or pre-deploy review on existing code.
 4. Use the warnings to fill in missing project memory and audit files before the next AI iteration.
+5. Use `--strict` when you want warnings to block a local or CI pass.
 
 ## How to use in CI
 
@@ -75,6 +84,7 @@ Add it as a lightweight workflow gate for structure and obvious workflow gaps:
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/vibe-check.sh --audit --scanners || true
 ```
 
 The GitHub workflow in this repository checks the toolkit itself, not
@@ -85,6 +95,22 @@ arbitrary target applications.
 - `PASS`: the basic file and workflow expectations are present.
 - `WARN`: the repository is usable, but there are missing artifacts or public-safety concerns to review. In CI, warnings should stay visible but not fail the workflow on their own.
 - `FAIL`: a baseline structural condition is missing, for example no `README.md`, no `.gitignore` or a real `.env` file is present. Fails should return a non-zero exit code.
+
+## Exit codes
+
+- default mode:
+  - `FAIL` -> exit `1`
+  - `WARN` -> exit `0`
+- strict mode:
+  - `WARN` -> exit `1`
+  - `FAIL` -> exit `2`
+
+## Optional scanner integration
+
+If external tools are already installed, `--scanners` can call them and fold the result into the score.
+
+See:
+- [scanner-integration.md](./scanner-integration.md)
 
 ## Where to start
 

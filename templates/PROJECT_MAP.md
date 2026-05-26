@@ -1,52 +1,56 @@
 # PROJECT_MAP.md
 
 ## Overview
-- Что это за проект
-- Какой у него основной сценарий
-- Какой текущий stage: idea / MVP / staging / production-like
+- [FILL IN: what this project does]
+- [FILL IN: main user or business flow]
+- Current stage: [FILL IN: idea / MVP / staging / production-like]
 
 ## Entrypoints
-- frontend entrypoints
-- backend entrypoints
-- CLI / workers / schedulers
+- frontend entrypoints: [FILL IN]
+- backend entrypoints: [FILL IN]
+- CLI / workers / schedulers: [FILL IN]
 
 ## Routes / Endpoints
-- public routes
-- API routes
-- admin routes
-- internal-only endpoints
+- public routes: [FILL IN]
+- API routes: [FILL IN]
+- admin routes: [FILL IN]
+- internal-only endpoints: [FILL IN]
 
 ## Components / Modules
-- key UI modules
-- domain services
-- integrations
-- workers / queues
+- key UI modules: [FILL IN]
+- domain services: [FILL IN]
+- integrations: [FILL IN]
+- workers / queues: [FILL IN]
 
 ## Data model
-- key entities
-- important relations
-- high-growth tables / collections
+- key entities: [FILL IN]
+- important relations: [FILL IN]
+- high-growth tables / collections: [FILL IN]
 
 ## Integrations
-- third-party APIs
-- webhooks
-- bot / Telegram / CRM / BI
+- third-party APIs: [FILL IN]
+- webhooks: [FILL IN]
+- bot / Telegram / CRM / BI: [FILL IN]
 
 ## Scripts / Commands
-- install
-- dev
-- build
-- test
-- lint
-- migrations
-- deploy
+- install: [FILL IN]
+- dev: [FILL IN]
+- build: [FILL IN]
+- test: [FILL IN]
+- lint: [FILL IN]
+- migrations: [FILL IN]
+- deploy: [FILL IN]
 
 ## Active / Deferred surfaces
-- active now
-- deferred until later
+- active now: [FILL IN]
+- deferred until later: [FILL IN]
 
 ## Known risks
-- technical debt
-- security gaps
-- scalability concerns
-- missing docs / tests / scanners
+- technical debt: [FILL IN]
+- security gaps: [FILL IN]
+- scalability concerns: [FILL IN]
+- missing docs / tests / scanners: [FILL IN]
+
+Example:
+- active now: public landing page, auth, billing callback
+- deferred until later: mobile app, admin analytics, partner API

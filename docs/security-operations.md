@@ -27,6 +27,11 @@ Typical recurring checks:
 - backup/restore drill;
 - third-party registry review.
 
+Related docs:
+- [hardening-thresholds.md](./hardening-thresholds.md)
+- [scanner-integration.md](./scanner-integration.md)
+- [ai-specific-threat-model.md](./ai-specific-threat-model.md)
+
 ## Evidence and backlog
 
 Do not rely on memory or chat history.

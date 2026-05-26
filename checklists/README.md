@@ -11,3 +11,8 @@ Short checklists for fast, structured passes:
 - migrations rollback;
 - AI-generated test strategy;
 - device/browser QA.
+
+Recommended companions:
+- [`../START_HERE.md`](../START_HERE.md)
+- [`../docs/hardening-thresholds.md`](../docs/hardening-thresholds.md)
+- [`../docs/testing-cookbook.md`](../docs/testing-cookbook.md)

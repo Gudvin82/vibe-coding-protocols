@@ -24,34 +24,34 @@
 
 | ID | Category | Task | Risk | Evidence | Status | Owner |
 |---|---|---|---|---|---|---|
-| SEC-001 | Security |  |  |  | Open |  |
-| PAY-001 | Payments |  |  |  | Open |  |
+| SEC-001 | Security | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
+| PAY-001 | Payments | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
 
 ## High
 
 | ID | Category | Task | Risk | Evidence | Status | Owner |
 |---|---|---|---|---|---|---|
-| DEP-001 | Supply Chain |  |  |  | Open |  |
-| LEGAL-001 | Legal |  |  |  | Open |  |
+| DEP-001 | Supply Chain | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
+| LEGAL-001 | Legal | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
 
 ## Medium
 
 | ID | Category | Task | Risk | Evidence | Status | Owner |
 |---|---|---|---|---|---|---|
-| QA-001 | Device QA |  |  |  | Open |  |
-| TEST-001 | Tests |  |  |  | Open |  |
+| QA-001 | Device QA | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
+| TEST-001 | Tests | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
 
 ## Low
 
 | ID | Category | Task | Risk | Evidence | Status | Owner |
 |---|---|---|---|---|---|---|
-| DOC-001 | Documentation |  |  |  | Open |  |
+| DOC-001 | Documentation | [FILL IN: short task] | [FILL IN: why it matters] | [FILL IN: file, command or screenshot] | Open | [FILL IN] |
 
 ## Accepted risks
 
 | ID | Risk | Why accepted | Review date | Owner |
 |---|---|---|---|---|
-| RISK-001 |  |  |  |  |
+| RISK-001 | [FILL IN: accepted risk] | [FILL IN: why accepted] | [FILL IN] | [FILL IN] |
 
 ## Категории
 

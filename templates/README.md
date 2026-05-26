@@ -9,6 +9,11 @@ Included themes:
 - third-party registry;
 - security operations baseline.
 
+Recommended companions:
+- [`../docs/template-style-guide.md`](../docs/template-style-guide.md)
+- [`../docs/hardening-thresholds.md`](../docs/hardening-thresholds.md)
+- [`../docs/scanner-integration.md`](../docs/scanner-integration.md)
+
 Important:
 - these are public templates;
 - these are not real private project docs;

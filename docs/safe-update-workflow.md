@@ -35,3 +35,7 @@ When a critical issue must be patched quickly:
 - risks accepted;
 - rollback owner;
 - next review date.
+
+Related docs:
+- [scanner-integration.md](./scanner-integration.md)
+- [hardening-thresholds.md](./hardening-thresholds.md)

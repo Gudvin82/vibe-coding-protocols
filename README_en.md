@@ -6,8 +6,10 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.4`  
+Repository package: `v0.1.5`  
 Web methodology: `Vibe Coding Protocols v1.4`
+
+Decision wizard: [START_HERE.md](./START_HERE.md)
 
 ## Start here
 
@@ -216,8 +218,17 @@ It does not replace tests, scanners, human review or the full Hardening Protocol
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --scanners || true
 bash scripts/init-minimal.sh --dry-run
 ```
+
+Deeper hardening links:
+- [START_HERE.md](./START_HERE.md)
+- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
+- [docs/testing-cookbook.md](./docs/testing-cookbook.md)
+- [docs/ai-specific-threat-model.md](./docs/ai-specific-threat-model.md)
+- [docs/scanner-integration.md](./docs/scanner-integration.md)
 
 ![Automated Vibe Check example output](./assets/vibe-check-output.png)
 
@@ -254,7 +265,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.4`
+- Repository package: `v0.1.5`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 A future repository `v1.0.0` release may be used after external feedback, real adoption signals and a stable toolkit interface.

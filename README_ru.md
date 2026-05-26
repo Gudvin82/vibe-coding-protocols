@@ -6,8 +6,10 @@
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
-Пакет репозитория: `v0.1.4`  
+Пакет репозитория: `v0.1.5`  
 Веб-методология: `Vibe Coding Protocols v1.4`
+
+Decision wizard: [START_HERE.md](./START_HERE.md)
 
 ## С чего начать
 
@@ -213,6 +215,13 @@ Root files специально сделаны как copy-ready entrypoints д�
 - [.github/workflows/vibe-check.yml](./.github/workflows/vibe-check.yml)
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 
+Более глубокие engineering links:
+- [START_HERE.md](./START_HERE.md)
+- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
+- [docs/testing-cookbook.md](./docs/testing-cookbook.md)
+- [docs/ai-specific-threat-model.md](./docs/ai-specific-threat-model.md)
+- [docs/scanner-integration.md](./docs/scanner-integration.md)
+
 ## Mermaid и fallback previews
 
 Mermaid-диаграммы остаются в основном [README.md](./README.md).
@@ -289,7 +298,7 @@ bash scripts/init-minimal.sh --dry-run
 - **Версия веб-методологии** (`v1.4`) — отражает публичные страницы на `anmalishev.ru`.
 
 Текущее состояние:
-- Пакет репозитория: `v0.1.4`
+- Пакет репозитория: `v0.1.5`
 - Веб-методология: `Vibe Coding Protocols v1.4`
 
 Будущая версия репозитория `v1.0.0` возможна только после внешней обратной связи,

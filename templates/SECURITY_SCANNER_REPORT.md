@@ -4,12 +4,12 @@
 
 ## Project
 
-- Name:
-- Repository:
-- Branch / commit:
-- Audit mode:
-- Auditor:
-- Date:
+- Name: [FILL IN]
+- Repository: [FILL IN]
+- Branch / commit: [FILL IN]
+- Audit mode: [FILL IN]
+- Auditor: [FILL IN]
+- Date: [FILL IN]
 
 ## Commands
 
@@ -21,44 +21,44 @@ gitleaks detect --source . --redact
 
 ## Environment
 
-- OS / runtime:
-- Package managers detected:
-- Lockfiles detected:
-- Docker / image scan used:
-- Server / rootfs scan used:
+- OS / runtime: [FILL IN]
+- Package managers detected: [FILL IN]
+- Lockfiles detected: [FILL IN]
+- Docker / image scan used: [FILL IN]
+- Server / rootfs scan used: [FILL IN]
 
 ## Files and targets scanned
 
-- Filesystem:
-- Lockfiles:
-- CI workflows:
-- Docker images:
-- Rootfs / server paths:
-- Git history:
+- Filesystem: [FILL IN]
+- Lockfiles: [FILL IN]
+- CI workflows: [FILL IN]
+- Docker images: [FILL IN]
+- Rootfs / server paths: [FILL IN]
+- Git history: [FILL IN]
 
 ## Summary
 
-- Critical vulnerabilities:
-- High vulnerabilities:
-- Secrets found:
-- Misconfigurations:
-- License issues:
-- False positives / noise:
-- Needs manual review:
+- Critical vulnerabilities: [FILL IN]
+- High vulnerabilities: [FILL IN]
+- Secrets found: [FILL IN]
+- Misconfigurations: [FILL IN]
+- License issues: [FILL IN]
+- False positives / noise: [FILL IN]
+- Needs manual review: [FILL IN]
 
 ## Top risks
 
-1. 
-2. 
-3. 
+1. [FILL IN: top risk]
+2. [FILL IN: second risk]
+3. [FILL IN: third risk]
 
 ## Triage
 
 | Finding ID | Type | Severity | Location | Why it matters | Action | Status |
 |---|---|---|---|---|---|---|
-| SCAN-001 | Secret | Critical |  |  | Rotate / remove / verify history | Open |
-| SCAN-002 | Vulnerability | High |  |  | Update package / document exception | Open |
-| SCAN-003 | Misconfiguration | High |  |  | Fix config / add CI check | Open |
+| SCAN-001 | Secret | Critical | [FILL IN] | [FILL IN] | Rotate / remove / verify history | Open |
+| SCAN-002 | Vulnerability | High | [FILL IN] | [FILL IN] | Update package / document exception | Open |
+| SCAN-003 | Misconfiguration | High | [FILL IN] | [FILL IN] | Fix config / add CI check | Open |
 
 ## Secrets handling
 
@@ -76,20 +76,20 @@ EXAMPLE_DATABASE_CONNECTION=[masked-example-not-real]
 
 ## Required actions
 
-- Rotate:
-- Update:
-- Remove / replace:
-- Add CI check:
-- Add alert:
-- Add documented exception:
+- Rotate: [FILL IN]
+- Update: [FILL IN]
+- Remove / replace: [FILL IN]
+- Add CI check: [FILL IN]
+- Add alert: [FILL IN]
+- Add documented exception: [FILL IN]
 
 ## CI / future checks
 
-- Secret scan on PR:
-- Dependency scan on PR:
-- Weekly scan:
-- Alert on critical finding:
-- Block merge rule:
+- Secret scan on PR: [FILL IN]
+- Dependency scan on PR: [FILL IN]
+- Weekly scan: [FILL IN]
+- Alert on critical finding: [FILL IN]
+- Block merge rule: [FILL IN]
 
 ## Final note
 

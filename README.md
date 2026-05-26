@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.4-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.5-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -29,12 +29,13 @@
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.4`  
+Repository package: `v0.1.5`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
 - English: [README_en.md](./README_en.md)
 - Русский: [README_ru.md](./README_ru.md)
+- Decision wizard: [START_HERE.md](./START_HERE.md)
 
 ## Start here
 
@@ -45,6 +46,9 @@ Languages:
 | Existing AI-generated code | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
 | Public / production project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
 | I want AI to apply this repo | AI entry prompt | `prompts/use-this-repo-prompt.md` | — |
+
+Need a route chooser with a little more context?
+- [START_HERE.md](./START_HERE.md)
 
 ## Start in 2 minutes
 
@@ -241,6 +245,8 @@ It helps you catch missing project memory, missing audit files and obvious workf
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/vibe-check.sh --audit --strict
+bash scripts/vibe-check.sh --audit --scanners || true
 ```
 
 Example output:
@@ -249,16 +255,24 @@ Example output:
 PASS: README.md present
 PASS: .gitignore present
 PASS: AI instructions file present
-WARN: AUDIT_BACKLOG.md is missing for hardening mode
-WARN: public root AGENTS.md exists; make sure public docs are sanitized
+WARN: Suspicious secret-like assignment detected; review and remove or mask it
+WARN: Gitleaks not found; see docs/scanner-integration.md
+VIBE CHECK SCORE: 82/100
+Breakdown:
+- Structure: 25/25
+- Safety files: 20/25
+- Secrets hygiene: 20/25
+- Optional scanners: 17/25
 Result: WARN
-Summary: PASS=3 WARN=2 FAIL=0
+Status: PASS=9 WARN=2 FAIL=0
+This is a readiness signal, not a security certification.
 ```
 
 ![Automated Vibe Check example output](./assets/vibe-check-output.png)
 
 See:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/scanner-integration.md](./docs/scanner-integration.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
 
 ## CI/CD integration
@@ -321,12 +335,20 @@ vibe-coding-protocols/
 │   └── saas-backend-vibe/
 ├── docs/
 │   ├── automated-vibe-check.md
+│   ├── hardening-thresholds.md
+│   ├── testing-cookbook.md
+│   ├── ai-specific-threat-model.md
+│   ├── scanner-integration.md
 │   ├── security-operations.md
 │   ├── safe-update-workflow.md
 │   ├── token-aware-code-discovery.md
 │   └── secret-rotation-and-storage.md
+├── case-studies/
+│   ├── README.md
+│   └── anonymized-case-template.md
 ├── scripts/
 ├── .github/
+├── START_HERE.md
 ├── ANTI_PATTERNS.md
 └── ROADMAP.md
 ```
@@ -420,6 +442,16 @@ Use this when the project is public, monetized, client-facing or production-boun
 - [Secret Rotation and Storage](./docs/secret-rotation-and-storage.md)
 - [Safe Update Workflow](./docs/safe-update-workflow.md)
 - [Token-Aware Code Discovery](./docs/token-aware-code-discovery.md)
+
+## New in engineering depth
+
+- [START_HERE.md](./START_HERE.md)
+- [Hardening Thresholds](./docs/hardening-thresholds.md)
+- [Testing Cookbook](./docs/testing-cookbook.md)
+- [AI-Specific Threat Model](./docs/ai-specific-threat-model.md)
+- [Scanner Integration](./docs/scanner-integration.md)
+- [Case Studies](./case-studies/README.md)
+- [Template Style Guide](./docs/template-style-guide.md)
 
 ## Workflow
 
@@ -542,7 +574,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.4`
+- Repository package: `v0.1.5`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 A future repository `v1.0.0` release may be used after external feedback,
