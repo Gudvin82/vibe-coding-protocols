@@ -31,7 +31,26 @@ Experimental:
 - GitHub Action wrapper
 - VS Code extension prototype
 
-## Not planned
+### VS Code Extension prototype
+
+Not planned for the current release.
+
+Possible future features:
+- insert Product Brief prompt;
+- create `AGENTS.md` / `PROJECT_MAP.md`;
+- run `vibe-check` from a VS Code task;
+- show Stop Conditions;
+- open Audit Backlog;
+- insert Hardening prompt;
+- link to Vibe Coding Protocols documentation.
+
+This should be explored only after the markdown toolkit, installer and vibe-check workflow get external feedback.
+
+### CLI note
+
+A future Node.js CLI may be explored later, but the current release intentionally keeps the setup lightweight: shell scripts, markdown templates and GitHub Actions.
+
+## Not planned right now
 
 - fake security certification
 - full SaaS

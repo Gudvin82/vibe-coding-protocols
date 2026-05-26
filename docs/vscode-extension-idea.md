@@ -22,6 +22,15 @@ Possible future extension for `Vibe Coding Protocols`.
 
 Not implemented yet.
 
+This is intentionally not part of the current release.
+
 ## Why document it now
 
 The repository already supports VS Code workflows via markdown files, Copilot instructions and templates. A future extension could make those entry points faster without changing the methodology.
+
+## What is not being done now
+
+- no extension scaffold or `package.json`;
+- no Marketplace publish;
+- no extension badges;
+- no claim that this already exists as a product.

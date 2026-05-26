@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.1.4
+
+- Polished README first-screen onboarding and trust wording
+- Added Start here decision table and copy-paste AI prompt in README
+- Moved installer guidance to review-first flow
+- Added root AI IDE files explanation and clearer versioning policy
+- Added VCP badges to example walkthrough READMEs
+- Polished site GitHub blocks to reflect the safer onboarding flow
+
 ## v0.1.3
 
 - Improved onboarding, CI visibility and minimal setup helper
@@ -38,6 +47,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.2`.
+Repository version started at `v0.1.0` and now continues with `v0.1.4`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

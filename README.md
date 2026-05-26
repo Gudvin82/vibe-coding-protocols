@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.3-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.4-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -29,16 +29,22 @@
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
+Repository package: `v0.1.4`  
+Web methodology: `Vibe Coding Protocols v1.4`
+
 Languages:
 - English: [README_en.md](./README_en.md)
 - Русский: [README_ru.md](./README_ru.md)
 
-## 10-second overview
+## Start here
 
-1. **Start** — turn an idea into a Product Brief and first safe vertical slice.
-2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
-3. **Harden** — audit AI-generated code before merge, deploy or production.
-4. **Reuse** — copy markdown templates, prompts and checklists into your project.
+| I have... | Start here | Copy first | Run |
+|---|---|---|---|
+| Only an idea | Product Brief | `prompts/product-brief-prompt.md` | — |
+| New AI project | Starter Protocol | `AGENTS.md` + `templates/PROJECT_MAP.md` | `bash scripts/vibe-check.sh --starter` |
+| Existing AI-generated code | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
+| Public / production project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
+| I want AI to apply this repo | AI entry prompt | `prompts/use-this-repo-prompt.md` | — |
 
 ## Start in 2 minutes
 
@@ -64,15 +70,9 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 ```
 
-### Want the fastest setup?
+### Review-first minimal setup
 
-Use the minimal installer:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
-```
-
-Safer review-first flow:
+Recommended flow:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
@@ -80,15 +80,18 @@ less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-Review what it does before running it in a real project.
+Fast track for empty repositories. Review-first flow above is recommended.
 
-## Start here
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
 
-- **I have only an idea** -> use [Product Brief prompt](./prompts/product-brief-prompt.md).
-- **I am creating a new project** -> use [Starter Protocol](./protocols/ai-project-starter-protocol.md).
-- **I already have AI-generated code** -> use [Hardening Protocol](./protocols/ai-project-hardening-protocol.md).
-- **I want to copy files into my repo** -> use [scripts/init-minimal.sh](./scripts/init-minimal.sh).
-- **I want a quick sanity check** -> run [vibe-check](./scripts/vibe-check.sh).
+## 10-second overview
+
+1. **Start** — turn an idea into a Product Brief and first safe vertical slice.
+2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
+3. **Harden** — audit AI-generated code before merge, deploy or production.
+4. **Reuse** — copy markdown templates, prompts and checklists into your project.
 
 ## Why this exists
 
@@ -124,34 +127,32 @@ Common AI-generated project problems:
 
 This toolkit turns those risks into checklists, prompts, templates and lightweight automation.
 
-## Quick start
-
-### If you only have an idea
-
-1. Open [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
-2. Create a Product Brief
-3. Continue with [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
-
-### If you already have AI-generated code
-
-1. Open [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
-2. Start with Light Hardening
-3. Create or update [templates/AUDIT_BACKLOG.md](./templates/AUDIT_BACKLOG.md)
-
-### If you want to give this repo to your AI
-
-Use:
-- [prompts/master-prompt-short.md](./prompts/master-prompt-short.md)
-- [prompts/master-prompt-full.md](./prompts/master-prompt-full.md)
-- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
-
-If your AI cannot open links, paste the required markdown files from this repository directly.
-
 ## Give this repository to your AI
 
 Use [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
 when you want an AI IDE to inspect this toolkit first, choose the right route,
 list the first files to copy and point out underestimated risks before writing code.
+
+## Paste this into your AI IDE
+
+```text
+Study this repository:
+https://github.com/Gudvin82/vibe-coding-protocols
+
+Do not write code yet.
+
+First tell me:
+1. Which route fits my project: Starter, Hardening, Templates, Architecture Source of Truth, or Security Operations?
+2. Which files I should copy first.
+3. Which questions are missing.
+4. Which risks I may be underestimating.
+5. What is the smallest safe next step?
+
+If you cannot open GitHub links, ask me to paste README.md and prompts/use-this-repo-prompt.md.
+```
+
+Full file:
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
 
 ## What should I copy first?
 
@@ -172,6 +173,19 @@ list the first files to copy and point out underestimated risks before writing c
 - Safe integrations:
   `templates/THIRD_PARTY_REGISTRY.md` +
   `docs/safe-update-workflow.md`
+
+## Why are there AI IDE files in the root?
+
+Root files are intentionally copy-ready entrypoints for AI IDEs:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursorrules`
+- `.windsurfrules`
+- `.github/copilot-instructions.md`
+
+They are not project clutter. They are meant to be copied into your own repository
+or used as examples for AI-assisted delivery rules.
 
 ## When to use which path?
 
@@ -520,14 +534,19 @@ Based in Saint Petersburg, working with clients and projects across Russia and r
 - English: [README_en.md](./README_en.md)
 - Русский: [README_ru.md](./README_ru.md)
 
-## Repository and methodology versions
+## Versioning
 
-- Repository version: `v0.1.3`
-- Web methodology version: `Vibe Coding Protocols v1.4`
-- This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
+This project has two related version lines:
 
-Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.  
-Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
+- **Repository package version** (`v0.1.x`) — tracks the GitHub toolkit packaging: README, scripts, examples, CI, installer, docs and release polish.
+- **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
+
+Current state:
+- Repository package: `v0.1.4`
+- Web methodology: `Vibe Coding Protocols v1.4`
+
+A future repository `v1.0.0` release may be used after external feedback,
+real adoption signals and a stable toolkit interface.
 
 ## Disclaimer
 

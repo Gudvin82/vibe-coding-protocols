@@ -1,5 +1,7 @@
 # Todo App Vibe
 
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+
 Synthetic walkthrough of a small AI-assisted todo app.
 
 ## What the user wanted

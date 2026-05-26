@@ -23,6 +23,7 @@ Possible future helper:
 
 ## Possible implementation later
 
+- A future Node.js CLI may be explored later, but the current release intentionally keeps the setup lightweight: shell scripts, markdown templates and GitHub Actions.
 - Node.js package
 - Python script
 - current shell helper remains intentionally small for now

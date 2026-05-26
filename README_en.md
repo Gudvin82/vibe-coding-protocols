@@ -6,8 +6,18 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Use [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
-when you want to hand this repository to an AI IDE before any coding starts.
+Repository package: `v0.1.4`  
+Web methodology: `Vibe Coding Protocols v1.4`
+
+## Start here
+
+| I have... | Start here | Copy first | Run |
+|---|---|---|---|
+| Only an idea | Product Brief | `prompts/product-brief-prompt.md` | — |
+| New AI project | Starter Protocol | `AGENTS.md` + `templates/PROJECT_MAP.md` | `bash scripts/vibe-check.sh --starter` |
+| Existing AI-generated code | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
+| Public / production project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
+| I want AI to apply this repo | AI entry prompt | `prompts/use-this-repo-prompt.md` | — |
 
 ## Start in 2 minutes
 
@@ -33,13 +43,7 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 ```
 
-### Fastest setup
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
-```
-
-Safer alternative:
+### Review-first minimal setup
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
@@ -47,13 +51,11 @@ less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-## Start here
+Fast track for empty repositories. Review-first flow above is recommended.
 
-- **I have only an idea** -> use [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
-- **I am creating a new project** -> use [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
-- **I already have AI-generated code** -> use [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
-- **I want to copy files into my repo** -> use [scripts/init-minimal.sh](./scripts/init-minimal.sh)
-- **I want a quick sanity check** -> use [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
 
 ## 10-second overview
 
@@ -124,6 +126,41 @@ See also:
 | SECURITY_OPERATIONS_BASELINE.md | Recurring security checks | Extended | Public/production projects |
 | THIRD_PARTY_REGISTRY.md | External packages/APIs/repos | Extended | Any integrations |
 | vibe-check.sh | Lightweight structure check | Optional but recommended | Local/CI sanity check |
+
+## Give this repository to your AI
+
+Use [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+when you want to hand this repository to an AI IDE before any coding starts.
+
+## Paste this into your AI IDE
+
+```text
+Study this repository:
+https://github.com/Gudvin82/vibe-coding-protocols
+
+Do not write code yet.
+
+First tell me:
+1. Which route fits my project: Starter, Hardening, Templates, Architecture Source of Truth, or Security Operations?
+2. Which files I should copy first.
+3. Which questions are missing.
+4. Which risks I may be underestimating.
+5. What is the smallest safe next step?
+
+If you cannot open GitHub links, ask me to paste README.md and prompts/use-this-repo-prompt.md.
+```
+
+## Why are there AI IDE files in the root?
+
+Root files are intentionally copy-ready entrypoints for AI IDEs:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursorrules`
+- `.windsurfrules`
+- `.github/copilot-instructions.md`
+
+They are meant to be copied into your own repository or used as examples for AI-assisted delivery rules.
 
 ## What not to do first
 
@@ -208,6 +245,19 @@ More badge options:
 - Agencies and client teams: use Architecture Source of Truth + AUDIT_BACKLOG + Security Operations Baseline for handoff.
 
 See the full onboarding in [README.md](./README.md).
+
+## Versioning
+
+This project has two related version lines:
+
+- **Repository package version** (`v0.1.x`) — tracks the GitHub toolkit packaging: README, scripts, examples, CI, installer, docs and release polish.
+- **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
+
+Current state:
+- Repository package: `v0.1.4`
+- Web methodology: `Vibe Coding Protocols v1.4`
+
+A future repository `v1.0.0` release may be used after external feedback, real adoption signals and a stable toolkit interface.
 
 ## Author
 

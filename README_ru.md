@@ -6,8 +6,18 @@
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
-Если хотите сначала “дать этот repo AI”, используйте
-[prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
+Пакет репозитория: `v0.1.4`  
+Веб-методология: `Vibe Coding Protocols v1.4`
+
+## С чего начать
+
+| У меня есть... | Куда идти | Что копировать первым | Что запустить |
+|---|---|---|---|
+| Только идея | Product Brief | `prompts/product-brief-prompt.md` | — |
+| Новый AI-проект | Starter Protocol | `AGENTS.md` + `templates/PROJECT_MAP.md` | `bash scripts/vibe-check.sh --starter` |
+| Уже есть AI-generated код | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
+| Публичный / production проект | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
+| Хочу дать repo своему AI | AI entry prompt | `prompts/use-this-repo-prompt.md` | — |
 
 ## Старт за 2 минуты
 
@@ -33,13 +43,7 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 ```
 
-### Самый быстрый bootstrap
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
-```
-
-Более безопасный путь:
+### Review-first minimal setup
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
@@ -47,15 +51,11 @@ less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-Перед запуском в реальном проекте скрипт лучше просмотреть.
+Fast track для пустых репозиториев. Выше — рекомендуемый review-first flow.
 
-## С чего начать
-
-- **Есть только идея** -> откройте [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
-- **Создаете новый проект** -> идите в [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
-- **Уже есть AI-generated код** -> идите в [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
-- **Хотите быстро скопировать файлы в repo** -> используйте [scripts/init-minimal.sh](./scripts/init-minimal.sh)
-- **Нужна быстрая sanity-check проверка** -> запустите [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
 
 ## Кратко за 10 секунд
 
@@ -132,6 +132,43 @@ Toolkit добавляет поверх AI-assisted разработки:
 | SECURITY_OPERATIONS_BASELINE.md | Recurring security checks | Extended | Public/production проекты |
 | THIRD_PARTY_REGISTRY.md | Внешние packages/APIs/repos | Extended | Любые integrations |
 | vibe-check.sh | Lightweight structural check | Optional but recommended | Local/CI sanity check |
+
+## Дайте этот repo своему AI
+
+Используйте [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md),
+если хотите, чтобы AI сначала выбрал маршрут, нужные файлы и риски,
+а уже потом предлагал код.
+
+## Вставьте это в свою AI IDE
+
+```text
+Study this repository:
+https://github.com/Gudvin82/vibe-coding-protocols
+
+Do not write code yet.
+
+First tell me:
+1. Which route fits my project: Starter, Hardening, Templates, Architecture Source of Truth, or Security Operations?
+2. Which files I should copy first.
+3. Which questions are missing.
+4. Which risks I may be underestimating.
+5. What is the smallest safe next step?
+
+If you cannot open GitHub links, ask me to paste README.md and prompts/use-this-repo-prompt.md.
+```
+
+## Почему AI IDE files лежат в root?
+
+Root files специально сделаны как copy-ready entrypoints для AI IDE:
+
+- `AGENTS.md`
+- `CLAUDE.md`
+- `.cursorrules`
+- `.windsurfrules`
+- `.github/copilot-instructions.md`
+
+Это не “мусор в корне”, а готовые файлы, которые можно копировать
+в свой repo или использовать как примеры правил для AI-assisted delivery.
 
 ## Чего не стоит делать вначале
 
@@ -243,6 +280,20 @@ bash scripts/init-minimal.sh --dry-run
 
 Используйте Architecture Source of Truth + AUDIT_BACKLOG + Security Operations Baseline,
 чтобы оставлять после себя понятную project memory и safer handoff materials.
+
+## Versioning
+
+У проекта есть две связанные линии версий:
+
+- **Версия пакета репозитория** (`v0.1.x`) — отражает упаковку GitHub toolkit: README, scripts, examples, CI, installer, docs и release polish.
+- **Версия веб-методологии** (`v1.4`) — отражает публичные страницы на `anmalishev.ru`.
+
+Текущее состояние:
+- Пакет репозитория: `v0.1.4`
+- Веб-методология: `Vibe Coding Protocols v1.4`
+
+Будущая версия репозитория `v1.0.0` возможна только после внешней обратной связи,
+реальных сигналов adoption и стабильного интерфейса toolkit.
 
 ## Автор
 

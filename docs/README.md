@@ -11,6 +11,7 @@ Repository support docs live here.
 - [`release-v0.1.0.md`](./release-v0.1.0.md) — release notes for the initial toolkit tag
 - [`release-v0.1.1.md`](./release-v0.1.1.md) — release notes for the growth/automation upgrade
 - [`release-v0.1.2.md`](./release-v0.1.2.md) — release notes for the security operations/perimeter upgrade
+- [`release-v0.1.4.md`](./release-v0.1.4.md) — release notes for the README/onboarding polish
 - [`badges.md`](./badges.md) — copyable badge snippets
 - [`community.md`](./community.md) — feedback and contribution expectations
 - [`community-issues.md`](./community-issues.md) — draft issue texts for feedback and examples

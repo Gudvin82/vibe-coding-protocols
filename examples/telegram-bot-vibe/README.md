@@ -1,5 +1,7 @@
 # Telegram Bot Vibe
 
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
+
 Synthetic walkthrough of hardening an AI-assisted Telegram bot project.
 
 ## Stack
