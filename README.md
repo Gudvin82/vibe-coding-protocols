@@ -19,15 +19,24 @@
 
 ### CI
 
-[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
-[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
-[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
+[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml
+)
+[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml
+)
+[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml
+)
 
 **An agent harness and operating layer for AI-assisted delivery — not just a prompt collection.**
 
 **Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.**
 
-Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations, model routing and audit backlog.
+Vibe Coding Protocols helps founders, solo builders and teams turn
+AI-assisted coding into a controlled delivery workflow: Product Brief,
+Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
+operations, model routing and audit backlog.
 
 Repository package: `v0.1.7`  
 Web methodology: `Vibe Coding Protocols v1.4`
@@ -44,7 +53,7 @@ Languages:
 | Only an idea | Product Brief | `prompts/product-brief-prompt.md` | — |
 | New AI project | Starter Protocol | `AGENTS.md` + `templates/PROJECT_MAP.md` | `bash scripts/vibe-check.sh --starter` |
 | Existing AI-generated code | Hardening Protocol | `templates/AUDIT_BACKLOG.md` | `bash scripts/vibe-check.sh --hardening` |
-| Public / production project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter checklist | `bash scripts/vibe-check.sh --audit` |
+| Public / prod project | Extended path | `SECURITY_OPERATIONS_BASELINE.md` + perimeter review | `bash scripts/vibe-check.sh --audit` |
 | I want AI to apply this repo | AI entry prompt | `prompts/use-this-repo-prompt.md` | — |
 
 Need a route chooser with a little more context?
@@ -566,17 +575,29 @@ If your viewer does not render Mermaid, see the preview:
 
 If you use the toolkit, you can add a badge to your project README:
 
-[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
-[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
-[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
 
 ```markdown
-[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
 ```
 
 ```markdown
-[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
-[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](
+  https://github.com/Gudvin82/vibe-coding-protocols
+)
 ```
 
 More badge options:
@@ -623,8 +644,10 @@ Website: [https://anmalishev.ru/](https://anmalishev.ru/)
 Anatoly Malyshev is an AI solutions and automation practitioner focused on practical AI agents,
 CRM/1C/BI integrations, analytics workflows, Telegram bots, mini apps and AI-assisted project hardening.
 
-This toolkit grew out of hands-on work with AI-generated projects: turning vague ideas into Product Briefs,
-keeping AI coding sessions scoped, documenting architecture, auditing generated code, and preparing projects for safer merge/deploy decisions.
+This toolkit grew out of hands-on work with AI-generated projects:
+turning vague ideas into Product Briefs, keeping AI coding sessions
+scoped, documenting architecture, auditing generated code, and
+preparing projects for safer merge/deploy decisions.
 
 The goal is practical: help founders, indie hackers, developers and teams use AI IDEs without losing architecture,
 security context or delivery control.
@@ -637,7 +660,8 @@ Based in Saint Petersburg, working with clients and projects across Russia and r
 - Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
 - Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
 - Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
-- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
+- Architecture Source of Truth:
+  [Website page](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
 - English: [README_en.md](./README_en.md)
 - Русский: [README_ru.md](./README_ru.md)
 
@@ -645,7 +669,9 @@ Based in Saint Petersburg, working with clients and projects across Russia and r
 
 This project has two related version lines:
 
-- **Repository package version** (`v0.1.x`) — tracks the GitHub toolkit packaging: README, scripts, examples, CI, installer, docs and release polish.
+- **Repository package version** (`v0.1.x`) — tracks the GitHub
+  toolkit packaging: README, scripts, examples, CI, installer, docs
+  and release polish.
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:

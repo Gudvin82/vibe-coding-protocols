@@ -62,7 +62,9 @@ The discovery subagent must stay read-only and return compact evidence only.
 
 Ask the AI:
 
-> Before editing, produce a compact evidence map: path:line, symbol, snippet/signature, why it matters. Do not read or rewrite the whole repository unless needed.
+> Before editing, produce a compact evidence map:
+> `path:line`, symbol, snippet or signature, why it matters.
+> Do not read or rewrite the whole repository unless needed.
 
 ## What good routing looks like
 

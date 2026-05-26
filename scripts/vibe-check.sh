@@ -311,7 +311,9 @@ if project_has_file .gitignore; then
   fi
 fi
 
-env_ref_regex='process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|API_KEY|TOKEN|SECRET|PASSWORD|OPENAI_API_KEY|ANTHROPIC_API_KEY|BOT_TOKEN|TELEGRAM_BOT_TOKEN'
+env_ref_regex='process\.env|ENV\[|os\.getenv|dotenv|DATABASE_URL|'\
+'API_KEY|TOKEN|SECRET|PASSWORD|OPENAI_API_KEY|'\
+'ANTHROPIC_API_KEY|BOT_TOKEN|TELEGRAM_BOT_TOKEN'
 if rg -n --hidden --glob '!.git/*' --glob '!node_modules/*' --glob '!dist/*' --glob '!build/*' "$env_ref_regex" . >/dev/null 2>&1; then
   if project_has_any_file .env.example .env.local.example .env.production.example examples/todo-app-starter/.env.example; then
     run_check pass "Env-like references have a companion .env.example" 5 safety
@@ -326,7 +328,12 @@ else
 fi
 
 if [[ "$MODE" == "--hardening" || "$MODE" == "--audit" ]]; then
-  if project_has_any_file SECURITY_OPERATIONS_BASELINE.md templates/SECURITY_OPERATIONS_BASELINE.md && project_has_any_file THIRD_PARTY_REGISTRY.md templates/THIRD_PARTY_REGISTRY.md; then
+  if project_has_any_file \
+    SECURITY_OPERATIONS_BASELINE.md \
+    templates/SECURITY_OPERATIONS_BASELINE.md \
+    && project_has_any_file \
+      THIRD_PARTY_REGISTRY.md \
+      templates/THIRD_PARTY_REGISTRY.md; then
     run_check pass "Security operations and third-party registry references present" 5 safety
   else
     run_check warn "Security operations or third-party registry reference missing" 0 safety
@@ -359,7 +366,13 @@ if project_has_any_file requirements.txt pyproject.toml; then
 fi
 
 # Level 2b: secrets hygiene
-real_env_files=$(find . -maxdepth 4 -type f \( -name '.env' -o -name '.env.*' \) ! -name '.env.example' ! -name '.env.*.example' | sed '/^$/d' || true)
+real_env_files=$(
+  find . -maxdepth 4 -type f \
+    \( -name '.env' -o -name '.env.*' \) \
+    ! -name '.env.example' \
+    ! -name '.env.*.example' \
+    | sed '/^$/d' || true
+)
 if [[ -n "$real_env_files" ]]; then
   run_check fail "Real .env-like file found in repository" 0 secrets
 else
@@ -427,10 +440,22 @@ if (( RUN_SCANNERS )); then
     run_optional_scanner 'cargo audit' 'cargo install cargo-audit' cargo audit
   fi
 
-  run_optional_scanner 'gitleaks detect --no-git' 'brew install gitleaks or https://github.com/gitleaks/gitleaks' gitleaks detect --no-git
-  run_optional_scanner 'trufflehog filesystem .' 'brew install trufflehog or https://github.com/trufflesecurity/trufflehog' trufflehog filesystem .
-  run_optional_scanner 'trivy fs .' 'brew install trivy or https://github.com/aquasecurity/trivy' trivy fs .
-  run_optional_scanner 'semgrep --config auto' 'brew install semgrep or https://semgrep.dev/docs/getting-started/' semgrep --config auto
+  run_optional_scanner \
+    'gitleaks detect --no-git' \
+    'brew install gitleaks or https://github.com/gitleaks/gitleaks' \
+    gitleaks detect --no-git
+  run_optional_scanner \
+    'trufflehog filesystem .' \
+    'brew install trufflehog or https://github.com/trufflesecurity/trufflehog' \
+    trufflehog filesystem .
+  run_optional_scanner \
+    'trivy fs .' \
+    'brew install trivy or https://github.com/aquasecurity/trivy' \
+    trivy fs .
+  run_optional_scanner \
+    'semgrep --config auto' \
+    'brew install semgrep or https://semgrep.dev/docs/getting-started/' \
+    semgrep --config auto
 fi
 
 if (( RUN_SCANNERS == 0 )); then
