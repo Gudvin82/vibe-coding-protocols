@@ -1,0 +1,12 @@
+# JetBrains / Junie example
+
+Use this when working with JetBrains AI Assistant or Junie-style workflows.
+
+## Rules
+
+- inspect project docs before editing;
+- keep diffs small and reviewable;
+- ask before changing more than 10 files;
+- stop on migrations, auth, payments or cross-layer rewrites;
+- do not run destructive commands;
+- report changed files, validation and risks.

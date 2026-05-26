@@ -1,0 +1,17 @@
+# VS Code example
+
+Use with VS Code plus GitHub Copilot or other AI extensions.
+
+## Suggested setup
+
+- place `.github/copilot-instructions.md` in the project;
+- add `AGENTS.md`, `PROJECT_MAP.md` and `README.md`;
+- use `prompts/` and `templates/` as copyable building blocks;
+- run the helper scripts from `scripts/` after changes.
+
+## Rules
+
+- prefer small diffs;
+- do not activate deferred surfaces;
+- ask before dependencies, migrations, auth or payments;
+- report validation and changed files.

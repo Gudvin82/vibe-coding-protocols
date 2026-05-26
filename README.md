@@ -1,13 +1,19 @@
 # Vibe Coding Protocols
 
-![Repo Version](https://img.shields.io/badge/repo-v0.1.0-blue)
-![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)
-![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)
-![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)
-![Website](https://img.shields.io/badge/website-anmalishev.ru-black)
-![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.0-blue)](./CHANGELOG.md)
+[![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
+[![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
+[![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
+[![Website](https://img.shields.io/badge/website-anmalishev.ru-black)](https://anmalishev.ru/)
+[![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
+[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
 
-**Practical protocols, prompts and markdown templates for safer AI-assisted / vibe coding projects.**
+**Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.**
+
+Languages:
+- English: [README_en.md](./README_en.md)
+- Русский: [README_ru.md](./README_ru.md)
 
 Use this toolkit to:
 - start AI-generated projects without chaos;
@@ -20,49 +26,6 @@ Use this toolkit to:
 
 Official web version:
 [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
-
-## Repository and methodology versions
-
-- Repository version: `v0.1.0`
-- Web methodology version: `Vibe Coding Protocols v1.4`
-- This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
-
-## What this is
-
-Vibe Coding Protocols is a practical methodology for building, auditing and hardening AI-generated projects.
-
-It helps you:
-- start an AI project without chaos;
-- create a Product Brief before coding;
-- choose a stack and starter path;
-- define active / deferred surfaces;
-- create `AGENTS.md`, `PROJECT_MAP.md` and `Architecture Source of Truth`;
-- audit AI-generated code before merge, deploy or production;
-- check security, supply-chain, self-protection, database/load readiness and production readiness;
-- maintain an audit backlog;
-- use Claude Code, Codex, Cursor, Windsurf and other AI IDEs more safely.
-
-## Use with your AI IDE
-
-### Claude Code
-Copy [CLAUDE.md](./CLAUDE.md) or [agents/CLAUDE.md.example](./agents/CLAUDE.md.example) into your project and start with [prompts/master-prompt-short.md](./prompts/master-prompt-short.md).
-
-### Codex
-Use [AGENTS.md](./AGENTS.md) plus the relevant protocol and prompt files. If external links are unavailable, paste the needed markdown files directly into the task.
-
-### Cursor
-Use the protocols as planning documents, copy [.cursorrules](./.cursorrules) or [agents/CURSOR.md.example](./agents/CURSOR.md.example), and apply Stop Conditions before larger Composer edits.
-
-### Windsurf
-Use [.windsurfrules](./.windsurfrules) or [agents/WINDSURF.md.example](./agents/WINDSURF.md.example) as a Cascade scope guard: active surfaces, deferred surfaces, approval gates and validation.
-
-## Official web version
-
-- Hub: [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
-- Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
-- Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
-- Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
-- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
 
 ## Quick Start
 
@@ -86,6 +49,35 @@ Use:
 
 If your AI cannot open links, paste the required markdown files from this repository directly.
 
+## Use with your AI IDE
+
+### Claude Code
+Copy [CLAUDE.md](./CLAUDE.md) or [agents/CLAUDE.md.example](./agents/CLAUDE.md.example) into your project and start with [prompts/master-prompt-short.md](./prompts/master-prompt-short.md).
+
+### Codex
+Use [AGENTS.md](./AGENTS.md) plus the relevant protocol and prompt files. If external links are unavailable, paste the needed markdown files directly into the task.
+
+### Cursor
+Use the protocols as planning documents, copy [.cursorrules](./.cursorrules) or [agents/CURSOR.md.example](./agents/CURSOR.md.example), and apply Stop Conditions before larger Composer edits.
+
+### Windsurf
+Use [.windsurfrules](./.windsurfrules) or [agents/WINDSURF.md.example](./agents/WINDSURF.md.example) as a Cascade scope guard: active surfaces, deferred surfaces, approval gates and validation.
+
+### GitHub Copilot / VS Code
+Place [.github/copilot-instructions.md](./.github/copilot-instructions.md) in your project, combine it with [AGENTS.md](./AGENTS.md), and use [scripts/init-project.example.sh](./scripts/init-project.example.sh) as a review-first helper.
+
+### JetBrains / Junie / Antigravity
+Use the examples in [agents/](./agents/) to adapt the workflow for small diffs, stop conditions, Memory Bank updates and approval gates.
+
+## Repository and methodology versions
+
+- Repository version: `v0.1.0`
+- Web methodology version: `Vibe Coding Protocols v1.4`
+- This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
+
+Repository versioning (`v0.x`) tracks the GitHub toolkit packaging.  
+Methodology versioning (`v1.x`) tracks the web protocols at `anmalishev.ru`.
+
 ## Repository tree
 
 ```text
@@ -106,27 +98,72 @@ vibe-coding-protocols/
 │   ├── AUDIT_BACKLOG.md                    # Findings and follow-up backlog
 │   └── ARCHITECTURE_SOURCE_OF_TRUTH.md     # Architecture reference template
 ├── agents/
-│   ├── CLAUDE.md.example                   # Detailed Claude Code adaptation
-│   ├── CODEX.md.example                    # Detailed Codex adaptation
-│   ├── CURSOR.md.example                   # Detailed Cursor adaptation
-│   └── WINDSURF.md.example                 # Detailed Windsurf adaptation
-├── examples/                               # Synthetic walkthroughs and mini playbooks
+│   ├── CLAUDE.md.example                   # Claude Code adaptation
+│   ├── CODEX.md.example                    # Codex adaptation
+│   ├── CURSOR.md.example                   # Cursor adaptation
+│   ├── JETBRAINS.md.example                # JetBrains / Junie adaptation
+│   └── VS_CODE.md.example                  # VS Code guidance
+├── examples/
+│   ├── todo-app-vibe/                      # Starter to Hardening walkthrough
+│   ├── telegram-bot-vibe/                  # Bot hardening walkthrough
+│   ├── landing-page-vibe/                  # Light hardening walkthrough
+│   └── saas-backend-vibe/                  # Full hardening walkthrough
 ├── checklists/                             # Quick operational checklists
-├── docs/                                   # Attribution, releases, versioning, notes
-├── scripts/                                # Lightweight MIT-licensed helper scripts
-└── .github/workflows/                      # Toolkit-only automation helpers
+├── docs/                                   # Attribution, badges, roadmap, community, notes
+├── scripts/                                # Lightweight helper checks and init example
+├── .github/                                # Copilot instructions, issues, workflows
+└── ROADMAP.md                              # Practical near-term direction
 ```
 
-## Repository structure
+## Official website links
 
-- [protocols/](./protocols/) — markdown versions of the hub, Starter, Hardening and bridge files
-- [prompts/](./prompts/) — short and full prompt blocks by stage
-- [templates/](./templates/) — Artifact Pack and reusable project templates
-- [agents/](./agents/) — AI IDE adaptation examples for Claude Code / Codex / Cursor / Windsurf
-- [examples/](./examples/) — synthetic walkthroughs and minimal file trees
-- [checklists/](./checklists/) — quick operational checklists
-- [docs/](./docs/) — versioning, attribution, releases, public vs private docs and maintenance notes
-- [scripts/](./scripts/) — lightweight repository checks for links, placeholders and required files
+- Hub: [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
+- Starter: [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
+- Hardening: [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
+- Templates: [https://anmalishev.ru/expert/templates/](https://anmalishev.ru/expert/templates/)
+- Architecture Source of Truth: [https://anmalishev.ru/expert/templates/architecture-source-of-truth.html](https://anmalishev.ru/expert/templates/architecture-source-of-truth.html)
+
+## Walkthrough examples
+
+Start with [examples/README.md](./examples/README.md).
+
+Recommended walkthroughs:
+- [examples/todo-app-vibe/](./examples/todo-app-vibe/) — full Starter-to-Hardening path for a small app
+- [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/) — bot-specific hardening findings
+- [examples/landing-page-vibe/](./examples/landing-page-vibe/) — light route for a public landing page
+- [examples/saas-backend-vibe/](./examples/saas-backend-vibe/) — backend-heavy audit with migrations and scanners
+
+All examples are synthetic / sanitized. They are walkthroughs, not production templates.
+
+## Optional automation
+
+This repository includes lightweight GitHub Actions and local scripts for the toolkit itself:
+- markdown and required file presence checks;
+- local markdown link validation;
+- placeholder scanning for secret-like examples;
+- a review-first init script example.
+
+These checks do not replace project hardening, security scanners, pentests or human review.
+
+Content files in this repository are licensed under `CC BY 4.0`. Helper scripts inside [scripts/](./scripts/) are provided under `MIT` via [scripts/LICENSE-MIT](./scripts/LICENSE-MIT).
+
+## Community and adoption
+
+This is a new public toolkit. No usage numbers are claimed yet.
+
+If you use it:
+- star the repository;
+- open an issue using [Protocol Feedback](./.github/ISSUE_TEMPLATE/protocol_feedback.yml);
+- request a walkthrough with [Example request](./.github/ISSUE_TEMPLATE/example_request.yml);
+- suggest an AI IDE adaptation or wording improvement.
+
+Helpful docs:
+- [ROADMAP.md](./ROADMAP.md)
+- [docs/badges.md](./docs/badges.md)
+- [docs/community.md](./docs/community.md)
+- [docs/awesome-vibe-coding-pr.md](./docs/awesome-vibe-coding-pr.md)
+- [docs/vscode-extension-idea.md](./docs/vscode-extension-idea.md)
+- [docs/social-preview.md](./docs/social-preview.md)
 
 ## Author
 
@@ -137,36 +174,6 @@ Website: [https://anmalishev.ru/](https://anmalishev.ru/)
 Анатолий Малышев works with practical AI solutions for business: AI agents, CRM/1C/BI integrations, end-to-end analytics, Telegram bots and mini apps.
 
 Geography: Saint Petersburg, Moscow and Russia.
-
-## Who this is for
-
-- solo founders;
-- indie hackers;
-- vibe coders;
-- developers using Claude Code / Codex / Cursor / Windsurf;
-- CTOs and teams adopting AI-assisted development;
-- people who already have an AI-generated MVP and want to harden it.
-
-## Optional automation
-
-This repository includes lightweight GitHub Actions and local scripts for the toolkit itself:
-- markdown and required file presence checks;
-- local markdown link validation;
-- placeholder scanning for secret-like examples.
-
-These checks do not replace project hardening, security scanners, pentests or human review.
-
-Content files in this repository are licensed under `CC BY 4.0`. Helper scripts inside [scripts/](./scripts/) are provided under `MIT` via [scripts/LICENSE-MIT](./scripts/LICENSE-MIT).
-
-## Adoption and feedback
-
-This is a new public toolkit. If you use it:
-- star the repository;
-- open an issue with feedback;
-- share what AI IDE you used;
-- suggest missing examples or playbooks.
-
-No usage numbers are claimed yet.
 
 ## What this is not
 
@@ -179,17 +186,9 @@ No usage numbers are claimed yet.
 
 ## Russian overview
 
-Этот репозиторий — markdown/toolkit-версия методологии `Vibe Coding Protocols` с сайта Анатолия Малышева.
+This repository also has a Russian entry point: [README_ru.md](./README_ru.md).
 
-Он помогает:
-- запускать AI-проекты без хаоса;
-- собирать Product Brief до генерации кода;
-- задавать active / deferred surfaces;
-- заводить `AGENTS.md`, `PROJECT_MAP.md` и `Architecture Source of Truth`;
-- делать hardening AI-generated проекта перед merge / deploy / production;
-- вести `AUDIT_BACKLOG.md` и безопаснее использовать AI IDE.
-
-В будущем можно добавить `README.en.md` и `README.ru.md`, если репозиторию понадобится раздельная локализация.
+В будущем можно отдельно развивать `README_en.md` и `README_ru.md`, если репозиторию понадобится более глубокая локализация.
 
 ## License
 

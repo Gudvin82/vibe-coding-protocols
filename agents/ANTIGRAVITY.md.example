@@ -1,0 +1,11 @@
+# Antigravity example
+
+Adapt the protocol for Google Antigravity-style agent workflows.
+
+## Rules
+
+- inspect the repository before making changes;
+- keep tasks explicit and scoped;
+- respect stop conditions and approval gates;
+- validate before reporting completion;
+- do not enable hidden auto-updates or silent production changes.

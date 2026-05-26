@@ -8,6 +8,12 @@ Recommended size:
 Suggested content:
 - Title: `Vibe Coding Protocols`
 - Subtitle: `Safer AI-assisted development toolkit`
-- Supporting line: `Protocols, prompts, templates and examples for AI-generated projects`
+- Supporting line: `Protocols, prompts, templates, examples and checklists for AI-generated projects`
+- Website: `anmalishev.ru`
+- GitHub URL: `github.com/Gudvin82/vibe-coding-protocols`
 
-Do not include fake metrics or unsupported security claims.
+Visual direction:
+- dark technical style;
+- no fake metrics;
+- no adoption claims;
+- no copyrighted third-party logos.

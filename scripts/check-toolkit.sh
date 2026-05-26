@@ -6,11 +6,20 @@ cd "$ROOT"
 
 required_files=(
   README.md
+  README_en.md
+  README_ru.md
+  ROADMAP.md
   LICENSE
   DISCLAIMER.md
   CHANGELOG.md
   CLAUDE.md
   AGENTS.md
+  .github/copilot-instructions.md
+  docs/badges.md
+  docs/community.md
+  docs/awesome-vibe-coding-pr.md
+  scripts/README.md
+  scripts/init-project.example.sh
 )
 
 required_dirs=(
@@ -22,7 +31,12 @@ required_dirs=(
   checklists
   docs
   scripts
+  assets
   .github/workflows
+  examples/todo-app-vibe
+  examples/telegram-bot-vibe
+  examples/landing-page-vibe
+  examples/saas-backend-vibe
 )
 
 for file in "${required_files[@]}"; do
