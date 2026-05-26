@@ -2,16 +2,34 @@
 
 `vibe-check` is a lightweight repository check.
 
-It does not replace the Hardening Protocol, human review, scanners or security work.
+It does not replace the Hardening Protocol, human review, scanners or
+security work.
+
+![Automated Vibe Check example output](../assets/vibe-check-output.png)
+
+This image is a demo-style terminal mockup that shows the kind of
+signal the check produces. It is not presented as a real project scan
+or a security verdict.
 
 ## What it checks
 
 - presence of baseline project files;
-- missing `README.md`, `AGENTS.md`, `PROJECT_MAP.md` or `AUDIT_BACKLOG.md` depending on mode;
+- missing `README.md`, `AGENTS.md`, `PROJECT_MAP.md` or
+  `AUDIT_BACKLOG.md` depending on mode;
 - whether `.env.example` is expected;
 - whether `.env` appears in the repository;
 - whether `.gitignore` exists;
-- whether architecture or project-map docs may need review in a public webroot context.
+- whether architecture or project-map docs may need review in a public
+  webroot context.
+
+## What it does not check
+
+- application correctness;
+- test quality;
+- dependency vulnerability status;
+- security scanner findings;
+- real production readiness;
+- legal, privacy or payment compliance.
 
 ## Modes
 
@@ -21,12 +39,60 @@ bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 ```
 
-## How to use in your own project
+## Example output
+
+```text
+$ bash scripts/vibe-check.sh --hardening
+PASS: README.md present
+PASS: .gitignore present
+PASS: AI instructions file present
+WARN: AUDIT_BACKLOG.md is missing for hardening mode
+WARN: public root AGENTS.md exists; make sure public docs are sanitized
+
+Result: WARN
+Summary: PASS=3 WARN=2 FAIL=0
+Next recommended files to add or review:
+- AUDIT_BACKLOG.md
+```
+
+## How to use locally before AI-generated changes
 
 1. Copy `scripts/vibe-check.sh` into your repository.
-2. Run it locally before merge or PR.
-3. Optionally add it to CI.
+2. Run `--starter` before the first AI-generated vertical slice.
+3. Run `--hardening` before merge or pre-deploy review on existing
+   code.
+4. Use the warnings to fill in missing project memory and audit files
+   before the next AI iteration.
 
-## CI note
+## How to use in CI
 
-The GitHub workflow in this repository checks the toolkit itself, not arbitrary target applications.
+Add it as a lightweight workflow gate for structure and obvious
+workflow gaps:
+
+```bash
+bash scripts/vibe-check.sh --starter
+bash scripts/vibe-check.sh --hardening
+```
+
+The GitHub workflow in this repository checks the toolkit itself, not
+arbitrary target applications.
+
+## How to interpret PASS / WARN / FAIL
+
+- `PASS`: the basic file and workflow expectations are present.
+- `WARN`: the repository is usable, but there are missing artifacts or
+  public-safety concerns to review.
+- `FAIL`: a baseline structural condition is missing, for example no
+  `README.md`, no `.gitignore` or a real `.env` file is present.
+
+## Where to start
+
+- New project: run `bash scripts/vibe-check.sh --starter`
+  after adding `README.md`, `AGENTS.md` or `CLAUDE.md`,
+  and `PROJECT_MAP.md`.
+- Existing AI-generated code: run
+  `bash scripts/vibe-check.sh --hardening`
+  before a wider audit or pre-merge review.
+- Audit-focused pass: run `bash scripts/vibe-check.sh --audit`
+  when you mainly want to confirm audit structure and missing baseline
+  docs.

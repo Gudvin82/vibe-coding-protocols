@@ -72,6 +72,57 @@ Methodology versioning (`v1.x`) tracks the web protocols at
 
 All examples are synthetic and sanitized.
 
+## Automated Vibe Check
+
+`vibe-check` is a lightweight structure and safety check for projects
+using the toolkit.
+
+It does not replace tests, scanners, human review or the full
+Hardening Protocol.
+
+```bash
+bash scripts/vibe-check.sh --starter
+bash scripts/vibe-check.sh --hardening
+bash scripts/vibe-check.sh --audit
+```
+
+Example output:
+
+```text
+PASS: README.md exists
+PASS: AGENTS.md or CLAUDE.md exists
+PASS: .gitignore exists
+WARN: AUDIT_BACKLOG.md is missing for hardening mode
+WARN: public root AGENTS.md exists; make sure public docs are sanitized
+SUMMARY: 3 pass, 2 warn, 0 fail
+```
+
+![Automated Vibe Check example output](./assets/vibe-check-output.png)
+
+See:
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+
+## Badges for your project
+
+If you use the toolkit, you can add a badge to your project README:
+
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+
+```markdown
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+```
+
+```markdown
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+```
+
+More badge options:
+- [docs/badges.md](./docs/badges.md)
+
 ## More guides
 
 - [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
@@ -84,8 +135,23 @@ All examples are synthetic and sanitized.
 
 ## Author
 
-Created by Анатолий Малышев.
+Created by **Anatoly Malyshev**.
 
 Website: [https://anmalishev.ru/](https://anmalishev.ru/)
 
-Анатолий Малышев works with practical AI solutions for business: AI agents, CRM/1C/BI integrations, end-to-end analytics, Telegram bots and mini apps.
+Anatoly Malyshev is an AI solutions and automation practitioner
+focused on practical AI agents, CRM/1C/BI integrations, analytics
+workflows, Telegram bots, mini apps and AI-assisted project
+hardening.
+
+This toolkit grew out of hands-on work with AI-generated projects:
+turning vague ideas into Product Briefs, keeping AI coding sessions
+scoped, documenting architecture, auditing generated code, and
+preparing projects for safer merge/deploy decisions.
+
+The goal is practical: help founders, indie hackers, developers and
+teams use AI IDEs without losing architecture, security context or
+delivery control.
+
+Based in Saint Petersburg, working with clients and projects across
+Russia and remote-first teams.

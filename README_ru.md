@@ -72,6 +72,59 @@
 
 Все примеры synthetic / sanitized. Это не реальные клиентские проекты.
 
+## Automated Vibe Check
+
+`vibe-check` — это lightweight-проверка структуры и базовых
+workflow-сигналов для проектов, которые используют toolkit.
+
+Она не заменяет тесты, сканеры, human review и полный Hardening
+Protocol, но помогает рано заметить отсутствующие memory files,
+audit-файлы и явные workflow gaps.
+
+```bash
+bash scripts/vibe-check.sh --starter
+bash scripts/vibe-check.sh --hardening
+bash scripts/vibe-check.sh --audit
+```
+
+Пример вывода:
+
+```text
+PASS: README.md exists
+PASS: AGENTS.md or CLAUDE.md exists
+PASS: .gitignore exists
+WARN: AUDIT_BACKLOG.md is missing for hardening mode
+WARN: public root AGENTS.md exists; make sure public docs are sanitized
+SUMMARY: 3 pass, 2 warn, 0 fail
+```
+
+![Automated Vibe Check example output](./assets/vibe-check-output.png)
+
+Смотрите:
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+
+## Бейджи для вашего проекта
+
+Если вы используете toolkit, можете добавить бейдж в README своего
+проекта:
+
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+
+```markdown
+[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
+```
+
+```markdown
+[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
+[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
+```
+
+Другие варианты:
+- [docs/badges.md](./docs/badges.md)
+
 ## Полезные материалы
 
 - [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
@@ -84,8 +137,18 @@
 
 ## Автор
 
-Автор: Анатолий Малышев
+Методологию собрал и поддерживает **Анатолий Малышев**.
 
-Анатолий Малышев — специалист по AI-решениям для бизнеса, AI-агентам, CRM/1С/BI-интеграциям, сквозной аналитике, Telegram-ботам и мини-приложениям.
+Сайт: [https://anmalishev.ru/](https://anmalishev.ru/)
+
+Анатолий Малышев занимается практическими AI-решениями для бизнеса:
+AI-агентами, CRM/1С/BI-интеграциями, сквозной аналитикой,
+Telegram-ботами, mini apps и инженерной доводкой AI-generated
+проектов.
+
+Этот toolkit вырос из практической работы с проектами, которые
+создаются через AI/IDE: от формулировки идеи и Product Brief до
+архитектурной справки, аудита сгенерированного кода,
+security/supply-chain проверок и подготовки проекта к merge/deploy.
 
 География: Санкт-Петербург, Москва и РФ.
