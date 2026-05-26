@@ -27,9 +27,31 @@ When broad discovery is needed:
    - symbol / component / route name
    - relevant snippet or signature
    - why it matters
+   - confidence
 5. The main agent must verify critical findings before editing.
 
 See [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md).
+
+## Model routing / token-aware discovery
+
+When broad code discovery is needed:
+
+1. Do not start by reading the whole repository.
+2. Read Memory Bank first:
+   - `README.md`
+   - `AGENTS.md` / `CLAUDE.md`
+   - `PROJECT_MAP.md`
+   - `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present
+3. Use a cheaper or faster read-only discovery agent when available.
+4. Discovery agent returns only:
+   - `path:line`
+   - symbol / component / route
+   - snippet or signature
+   - why it matters
+   - confidence
+5. Main agent verifies critical findings before editing.
+6. Main agent performs targeted implementation.
+7. Independent reviewer checks the diff before merge or deploy.
 
 ## Stop Conditions
 

@@ -31,6 +31,24 @@ Rotate or revoke secrets when:
 4. Update the security backlog.
 5. Document what happened and what evidence exists.
 
+## Git history check
+
+Before making a repository public, check whether secrets ever appeared in history.
+
+Example:
+
+```bash
+git log --all --full-history -- '*.env'
+git log --all --full-history -S 'API_KEY'
+git log --all --full-history -S 'SECRET'
+```
+
+If a real secret appeared in git history even once:
+- rotate it;
+- revoke the old token;
+- treat it as compromised;
+- do not just delete the file and move on.
+
 ## Scope and least privilege
 
 - Use the smallest possible scope for each token.

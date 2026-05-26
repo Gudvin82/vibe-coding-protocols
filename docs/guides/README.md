@@ -8,3 +8,5 @@ Start here when you need practical workflows.
 - [`../safe-update-workflow.md`](../safe-update-workflow.md) — safer dependency and integration updates
 - [`../multi-agent-workflows.md`](../multi-agent-workflows.md) — safe multi-agent usage notes
 - [`../token-aware-code-discovery.md`](../token-aware-code-discovery.md) — scoped discovery and evidence maps
+- [`../agent-harness.md`](../agent-harness.md) — harness layers for AI-assisted delivery
+- [`../auth-session-security.md`](../auth-session-security.md) — auth, cookies and credential stuffing baseline

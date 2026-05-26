@@ -1,12 +1,12 @@
 # Vibe Coding Protocols — русская версия
 
-**Операционный слой для AI-assisted разработки, а не просто коллекция prompt-ов.**
+**Agent harness и операционный слой для AI-assisted разработки, а не просто коллекция prompt-ов.**
 
 Этот репозиторий — markdown/toolkit-версия методологии `Vibe Coding Protocols` с сайта Анатолия Малышева.
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
-Пакет репозитория: `v0.1.6`  
+Пакет репозитория: `v0.1.7`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -86,6 +86,33 @@ Toolkit добавляет поверх AI-assisted разработки:
 - safe third-party intake;
 - token-aware code discovery;
 - validation и review gates.
+
+## Agent Harness
+
+Этот репозиторий можно использовать как agent harness для AI-assisted delivery.
+
+Он объединяет:
+- Memory Bank files;
+- AI IDE rules;
+- model routing;
+- token-aware discovery;
+- stop conditions;
+- validation checks;
+- security baselines;
+- review loops;
+- backlog и release handoff.
+
+Смотрите:
+- [docs/agent-harness.md](./docs/agent-harness.md)
+- [docs/model-routing.md](./docs/model-routing.md)
+- [commands/README.md](./commands/README.md)
+- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [checklists/auth-abuse-checklist.md](./checklists/auth-abuse-checklist.md)
+
+## Commands
+
+Переиспользуемые AI command patterns лежат в [commands/](./commands/README.md).
+Это не shell-команды, а copyable инструкции для AI IDE.
 
 ## Core vs Extended
 
@@ -230,6 +257,11 @@ Root files специально сделаны как copy-ready entrypoints д�
 - [docs/testing-cookbook.md](./docs/testing-cookbook.md)
 - [docs/ai-specific-threat-model.md](./docs/ai-specific-threat-model.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
+- [docs/agent-harness.md](./docs/agent-harness.md)
+- [docs/model-routing.md](./docs/model-routing.md)
+- [commands/README.md](./commands/README.md)
+- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [checklists/auth-abuse-checklist.md](./checklists/auth-abuse-checklist.md)
 
 ## Mermaid и fallback previews
 

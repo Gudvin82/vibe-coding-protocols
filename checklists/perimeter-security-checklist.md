@@ -57,6 +57,16 @@ Use this checklist when a project is exposed to the public internet.
 - [ ] File uploads are size/type limited
 - [ ] Bot/Telegram endpoints have abuse controls
 
+## Auth abuse and bot protection
+
+- [ ] Login endpoint rate-limited
+- [ ] Password reset endpoint rate-limited
+- [ ] Registration endpoint rate-limited
+- [ ] Turnstile / captcha / challenge considered where appropriate
+- [ ] Bot traffic monitored
+- [ ] WAF/CDN rules reviewed
+- [ ] Proof-of-work / challenge-based defense considered for high-abuse endpoints
+
 ## Evidence
 
 - Date checked:

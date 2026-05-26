@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.6-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.7-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -23,13 +23,13 @@
 [![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 
-**An operating layer for AI-assisted delivery — not just a prompt collection.**
+**An agent harness and operating layer for AI-assisted delivery — not just a prompt collection.**
 
 **Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.**
 
-Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
+Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations, model routing and audit backlog.
 
-Repository package: `v0.1.6`  
+Repository package: `v0.1.7`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
@@ -102,6 +102,33 @@ bash scripts/install-hooks.sh
 2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
 3. **Harden** — audit AI-generated code before merge, deploy or production.
 4. **Reuse** — copy markdown templates, prompts and checklists into your project.
+
+## Agent harness
+
+This repository is an agent harness for AI-assisted delivery.
+
+It combines:
+- Memory Bank files;
+- AI IDE rules;
+- model routing;
+- token-aware discovery;
+- stop conditions;
+- validation checks;
+- security baselines;
+- review loops;
+- backlog and release handoff.
+
+See:
+- [docs/agent-harness.md](./docs/agent-harness.md)
+- [docs/model-routing.md](./docs/model-routing.md)
+- [commands/README.md](./commands/README.md)
+- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [checklists/auth-abuse-checklist.md](./checklists/auth-abuse-checklist.md)
+
+## Commands
+
+Reusable AI command patterns live in [commands/](./commands/README.md).
+They are copyable instructions for AI IDEs, not executable shell commands.
 
 ## Why this exists
 
@@ -478,6 +505,16 @@ Use this when the project is public, monetized, client-facing or production-boun
 - [Case Studies](./case-studies/README.md)
 - [Template Style Guide](./docs/template-style-guide.md)
 
+## New in agent harness and security UX
+
+- [Agent Harness](./docs/agent-harness.md)
+- [Model Routing](./docs/model-routing.md)
+- [Commands layer](./commands/README.md)
+- [Auth and Session Security](./docs/auth-session-security.md)
+- [Auth Abuse Checklist](./checklists/auth-abuse-checklist.md)
+- [Secret Rotation and Storage](./docs/secret-rotation-and-storage.md)
+- [Scanner Integration](./docs/scanner-integration.md)
+
 ## Token-aware discovery
 
 For larger projects, use discovery agents to map relevant files before implementation.
@@ -485,6 +522,11 @@ For larger projects, use discovery agents to map relevant files before implement
 See:
 - [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md)
 - [prompts/modules/token-aware-discovery.md](./prompts/modules/token-aware-discovery.md)
+
+Model routing note:
+- use a discovery model or agent for search;
+- use an implementation model or agent for edits;
+- keep review independent when possible.
 
 ## Workflow
 
@@ -607,7 +649,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.6`
+- Repository package: `v0.1.7`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 A future repository `v1.0.0` release may be used after external feedback,

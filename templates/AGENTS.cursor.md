@@ -13,3 +13,13 @@ Use this variant when Cursor Composer or similar editor-driven AI is in charge.
 - keep implementation scoped to the named files;
 - run validation after each meaningful slice;
 - document deferred follow-up in `AUDIT_BACKLOG.md`.
+
+## Model routing / token-aware discovery
+
+When broad code discovery is needed:
+1. read Memory Bank first;
+2. do targeted search before broad search;
+3. if Cursor can simulate model routing, use a lighter read-only discovery pass first;
+4. require an evidence map with `path:line`, symbol, snippet, why it matters and confidence;
+5. keep the main implementation step focused on the touched files only;
+6. run an independent review pass before merge or deploy.

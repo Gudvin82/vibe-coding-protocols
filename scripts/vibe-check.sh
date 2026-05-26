@@ -189,6 +189,21 @@ run_optional_scanner() {
   fi
 }
 
+history_pattern_warning() {
+  local label="$1"
+  local needle="$2"
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    return 0
+  fi
+  if git log --all --full-history -S "$needle" --format='%H' -- . >/dev/null 2>&1; then
+    local count
+    count=$(git log --all --full-history -S "$needle" --format='%H' -- . 2>/dev/null | sed '/^$/d' | wc -l | tr -d ' ')
+    if [[ "$count" != "0" ]]; then
+      warn "$label appeared in git history. Review and rotate if the value was ever real."
+    fi
+  fi
+}
+
 for arg in "$@"; do
   case "$arg" in
     --starter|--hardening|--audit)
@@ -374,6 +389,16 @@ scan_secret_pattern 'BOT_TOKEN assignment' 'BOT_TOKEN\s*[:=]'
 scan_secret_pattern 'TELEGRAM_BOT_TOKEN assignment' 'TELEGRAM_BOT_TOKEN\s*[:=]'
 scan_secret_pattern 'generic secret-like assignment' '(API_KEY|TOKEN|SECRET|PASSWORD|PRIVATE_KEY|DATABASE_URL)\s*[:=]'
 
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  if git log --all --full-history --format='%H' -- '*.env' 2>/dev/null | sed '/^$/d' | head -1 >/dev/null; then
+    if [[ -n "$(git log --all --full-history --format='%H' -- '*.env' 2>/dev/null | sed '/^$/d' | head -1)" ]]; then
+      warn ".env appeared in git history. Review whether any historical secret needs rotation."
+    fi
+  fi
+  history_pattern_warning 'API_KEY marker' 'API_KEY'
+  history_pattern_warning 'SECRET marker' 'SECRET'
+fi
+
 if (( FAIL == 0 )) && (( WARN == 0 )); then
   run_check pass "No suspicious secret-like assignments detected in quick scan" 10 secrets
 fi
@@ -403,6 +428,7 @@ if (( RUN_SCANNERS )); then
   fi
 
   run_optional_scanner 'gitleaks detect --no-git' 'brew install gitleaks or https://github.com/gitleaks/gitleaks' gitleaks detect --no-git
+  run_optional_scanner 'trufflehog filesystem .' 'brew install trufflehog or https://github.com/trufflesecurity/trufflehog' trufflehog filesystem .
   run_optional_scanner 'trivy fs .' 'brew install trivy or https://github.com/aquasecurity/trivy' trivy fs .
   run_optional_scanner 'semgrep --config auto' 'brew install semgrep or https://semgrep.dev/docs/getting-started/' semgrep --config auto
 fi

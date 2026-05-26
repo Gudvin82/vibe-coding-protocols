@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.1.7
+
+- Added Agent Harness documentation and model routing guide
+- Added commands layer for reusable AI instruction patterns
+- Added auth/session security guide and auth abuse checklist
+- Improved token-aware discovery with model routing and evidence confidence
+- Improved AGENTS, Claude, Codex, Cursor, Windsurf and Copilot guidance
+- Improved secret rotation and scanner docs with git history checks
+- Improved perimeter and security baseline coverage for auth/session abuse
+- Polished live site GitHub toolkit blocks for agent harness and security UX
+
 ## v0.1.6
 
 - Added stronger `vibe-check` help, JSON output, richer secret-pattern checks and lockfile warnings
@@ -68,6 +79,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.6`.
+Repository version started at `v0.1.0` and now continues with `v0.1.7`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

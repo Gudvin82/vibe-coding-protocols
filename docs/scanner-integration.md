@@ -7,6 +7,7 @@ This is meant to improve engineering signal, not to create a heavy mandatory sta
 ## What vibe-check can run if installed
 
 - `gitleaks detect --no-git --source .`
+- `trufflehog filesystem .`
 - `trivy fs .`
 - `semgrep --config auto`
 - `npm audit --audit-level=high`
@@ -28,6 +29,9 @@ If a tool is missing:
 
 ### Gitleaks
 Use for secret-like tokens, keys and credentials in the working tree.
+
+### TruffleHog
+Use when you want an additional secret-focused pass over files or repository history.
 
 ### Trivy
 Use for filesystem vulnerability and misconfiguration checks, especially when Docker, lockfiles or deployment artifacts are present.
@@ -73,4 +77,6 @@ bash scripts/vibe-check.sh --hardening --scanners || true
 
 - Scanner output still needs triage.
 - Findings still need owners and evidence in `AUDIT_BACKLOG.md`.
+- Before a repository goes public, also check git history for past secret exposure.
+- GitHub Secret Scanning and GitGuardian can add additional detection coverage where available.
 - This is not a pentest.

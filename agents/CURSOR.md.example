@@ -7,3 +7,8 @@ Defaults:
 
 Before broad edits, ask the AI to produce a compact evidence map first.
 Do not let it scan and rewrite the whole project in one step.
+
+If the IDE supports multiple passes, prefer:
+- a lighter read-only discovery pass;
+- a focused implementation pass;
+- an independent review pass before merge or deploy.

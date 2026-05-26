@@ -11,6 +11,16 @@
 - internal endpoints are not exposed without reason
 - least privilege for workers and scanners
 
+## Auth/session baseline
+- [ ] Auth cookies use HttpOnly
+- [ ] Auth cookies use Secure in production
+- [ ] Auth cookies use SameSite=Lax/Strict
+- [ ] Password hashing uses argon2id, bcrypt or scrypt
+- [ ] Login/password reset endpoints are rate-limited
+- [ ] Credential stuffing protection considered
+- [ ] Admin auth has stronger controls
+- [ ] User enumeration risks reviewed
+
 ## Public exposure
 - no `.git/`
 - no `.env`

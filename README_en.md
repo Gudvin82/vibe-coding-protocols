@@ -1,12 +1,12 @@
 # Vibe Coding Protocols — English entry point
 
-**An operating layer for AI-assisted delivery — not just a prompt collection.**
+**An agent harness and operating layer for AI-assisted delivery — not just a prompt collection.**
 
 Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.6`  
+Repository package: `v0.1.7`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -85,6 +85,33 @@ This toolkit adds an operating layer around AI-assisted development:
 - safe third-party intake;
 - token-aware code discovery;
 - validation and review gates.
+
+## Agent harness
+
+This repository is an agent harness for AI-assisted delivery.
+
+It combines:
+- Memory Bank files;
+- AI IDE rules;
+- model routing;
+- token-aware discovery;
+- stop conditions;
+- validation checks;
+- security baselines;
+- review loops;
+- backlog and release handoff.
+
+See:
+- [docs/agent-harness.md](./docs/agent-harness.md)
+- [docs/model-routing.md](./docs/model-routing.md)
+- [commands/README.md](./commands/README.md)
+- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [checklists/auth-abuse-checklist.md](./checklists/auth-abuse-checklist.md)
+
+## Commands
+
+Reusable AI command patterns live in [commands/](./commands/README.md).
+They are copyable instructions for AI IDEs, not executable shell commands.
 
 ## Core vs Extended
 
@@ -238,6 +265,11 @@ Deeper hardening links:
 - [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
 - [docs/testing-cookbook.md](./docs/testing-cookbook.md)
 - [docs/ai-specific-threat-model.md](./docs/ai-specific-threat-model.md)
+- [docs/agent-harness.md](./docs/agent-harness.md)
+- [docs/model-routing.md](./docs/model-routing.md)
+- [commands/README.md](./commands/README.md)
+- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [checklists/auth-abuse-checklist.md](./checklists/auth-abuse-checklist.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 
 ![Automated Vibe Check example output](./assets/vibe-check-output.png)

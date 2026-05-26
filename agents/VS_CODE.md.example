@@ -7,3 +7,6 @@ Use the repository as a planning toolkit first:
 
 Before broad edits, ask the AI to produce a compact evidence map first.
 Do not let it scan and rewrite the project in one step.
+
+If the tool allows multiple agent passes, use a lighter read-only discovery pass first,
+then a separate implementation pass and finally an independent review pass.

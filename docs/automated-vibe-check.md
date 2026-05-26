@@ -20,9 +20,10 @@ or a security verdict.
 - whether `.env.example` or a documented baseline exists when env-like references appear;
 - suspicious secret-like assignments in a quick grep-style pass;
 - secret-like prefixes such as `sk-`, `ghp_`, `github_pat_`, `AKIA`, JWT-like tokens and password-bearing connection strings;
+- soft git-history warnings for `.env`, `API_KEY` and `SECRET` markers when the repository is a git repo;
 - soft lockfile checks for JavaScript and Python dependency manifests;
 - public-safety warnings for root docs in webroot-style contexts;
-- optional scanners if `--scanners` is requested and tools are already installed.
+- optional scanners if `--scanners` is requested and tools are already installed, including `gitleaks`, `trufflehog`, `trivy` and `semgrep`.
 
 ## What it does not check
 
@@ -103,11 +104,13 @@ arbitrary target applications.
 ## Exit codes
 
 - default mode:
+  - `PASS` or `WARN` -> exit `0`
   - `FAIL` -> exit `1`
-  - `WARN` -> exit `0`
 - strict mode:
   - `WARN` -> exit `1`
-  - `FAIL` -> exit `2`
+  - `FAIL` -> exit `1`
+- script/runtime error:
+  - usage/runtime issue -> exit `2`
 
 ## Optional scanner integration
 
@@ -115,6 +118,9 @@ If external tools are already installed, `--scanners` can call them and fold the
 
 See:
 - [scanner-integration.md](./scanner-integration.md)
+
+History checks are guidance signals, not proof of compromise by themselves.
+If a real secret ever appeared in git history, rotate and revoke it rather than only deleting the file.
 
 ## Where to start
 

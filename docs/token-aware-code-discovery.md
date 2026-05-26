@@ -49,6 +49,23 @@ The main agent must:
 - avoid reading the whole repo unless needed;
 - update `PROJECT_MAP.md` if discovery reveals outdated project memory.
 
+## Model routing
+
+For large repositories, use model routing:
+- discovery model for search;
+- implementation model for edits;
+- reviewer model for independent review.
+
+Never pass a huge search transcript to the implementation agent.
+Pass a compact evidence map.
+
+Evidence map format:
+
+| path:line | symbol / route / component | evidence | why it matters | confidence |
+|---|---|---|---|---|
+| `src/auth/session.ts:44` | `issueSessionCookie()` | `setCookie('session', ...)` | auth cookie policy matters | `medium` |
+| `app/routes/login.ts:19` | `POST /login` | `router.post('/login')` | brute-force protection surface | `high` |
+
 ### Codex
 
 If available, delegate broad repository search to a cheaper or faster Codex subagent such as Codex Spark.
@@ -62,6 +79,17 @@ The implementation agent should receive only the evidence map, not the whole sea
 ### Cursor / Windsurf / Copilot
 
 Use the same principle manually: first ask for a compact map of relevant files, then ask for targeted implementation.
+
+## Measurement note
+
+Do not claim token savings without measurement.
+
+If you want to measure savings, record:
+- model used;
+- number of files inspected;
+- approximate tokens or context used;
+- number of implementation iterations;
+- final validation result.
 
 ## Stop reading when
 

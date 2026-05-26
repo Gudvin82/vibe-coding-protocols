@@ -17,5 +17,11 @@ The subagent must return:
 - symbol / component / route
 - relevant snippet or signature
 - why it matters
+- confidence
 
 The main process should use that map for targeted reading and implementation, verifying critical findings before editing.
+
+Possible routing:
+- Spark or another cheaper read-only subagent for broad discovery;
+- the main model for decisions and implementation;
+- a separate reviewer for independent diff review.

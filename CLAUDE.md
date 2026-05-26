@@ -22,3 +22,17 @@ The subagent should not modify files. It should return an evidence map only:
 - symbol / route / component
 - relevant snippet or signature
 - why it matters
+
+## Model routing / token-aware discovery
+
+When broad code discovery is needed:
+1. read Memory Bank first;
+2. use a cheaper or faster read-only discovery agent when available;
+3. return only an evidence map with `path:line`, symbol, snippet, why it matters and confidence;
+4. let the main implementation pass verify critical findings before editing;
+5. run a separate review pass before important merge or deploy decisions.
+
+If Claude Code model routing is available:
+- use Haiku or a cheaper or faster model for read-only discovery;
+- use the main model for planning and implementation;
+- use a separate review pass for independent diff review.

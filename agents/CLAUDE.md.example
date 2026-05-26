@@ -13,4 +13,14 @@ Defaults:
 
 For large repositories, use a read-only subagent to map relevant files before editing.
 
-The subagent should not modify files. It should return an evidence map only.
+The subagent should not modify files. It should return an evidence map only:
+- `path:line`
+- symbol / route / component
+- relevant snippet or signature
+- why it matters
+- confidence
+
+If model routing is available:
+- use a cheaper or faster model for discovery;
+- use the main model for implementation;
+- use a separate review pass for independent diff review.
