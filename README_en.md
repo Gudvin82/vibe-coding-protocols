@@ -6,6 +6,9 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
+Use [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+when you want to hand this repository to an AI IDE before any coding starts.
+
 ## Start in 2 minutes
 
 ### New project
@@ -43,6 +46,14 @@ curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main
 less init-minimal.sh
 bash init-minimal.sh --starter
 ```
+
+## Start here
+
+- **I have only an idea** -> use [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
+- **I am creating a new project** -> use [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
+- **I already have AI-generated code** -> use [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
+- **I want to copy files into my repo** -> use [scripts/init-minimal.sh](./scripts/init-minimal.sh)
+- **I want a quick sanity check** -> use [scripts/vibe-check.sh](./scripts/vibe-check.sh)
 
 ## 10-second overview
 
@@ -114,6 +125,14 @@ See also:
 | THIRD_PARTY_REGISTRY.md | External packages/APIs/repos | Extended | Any integrations |
 | vibe-check.sh | Lightweight structure check | Optional but recommended | Local/CI sanity check |
 
+## What not to do first
+
+- Do not paste the whole repository into an AI chat.
+- Do not run the installer without reviewing it.
+- Do not treat `vibe-check` as a security scanner.
+- Do not expose real architecture docs, secrets or internal endpoints publicly.
+- Do not let AI rewrite many layers without approval.
+
 ## CI/CD integration
 
 This repository includes a lightweight GitHub Action for `vibe-check`.
@@ -183,10 +202,10 @@ More badge options:
 
 ## Who should use this?
 
-- Founders
-- Solo builders
-- Product teams
-- Agencies and client teams
+- Founders: start with Product Brief + Starter Protocol.
+- Solo builders: copy `AGENTS.md` + `PROJECT_MAP.md` and run `vibe-check`.
+- Product teams: use Core vs Extended as Definition of Ready / Definition of Done.
+- Agencies and client teams: use Architecture Source of Truth + AUDIT_BACKLOG + Security Operations Baseline for handoff.
 
 See the full onboarding in [README.md](./README.md).
 

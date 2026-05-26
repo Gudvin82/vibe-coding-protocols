@@ -1,16 +1,24 @@
 # Vibe Coding Protocols
 
+### Project status
+
 [![Repo Version](https://img.shields.io/badge/repo-v0.1.3-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
 [![Website](https://img.shields.io/badge/website-anmalishev.ru-black)](https://anmalishev.ru/)
 [![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](https://github.com/Gudvin82/vibe-coding-protocols)
+
+### AI IDE ready
+
 [![Claude Code Ready](https://img.shields.io/badge/Claude%20Code-ready-blueviolet)](./CLAUDE.md)
 [![Codex Ready](https://img.shields.io/badge/Codex-ready-blue)](./AGENTS.md)
 [![Cursor Ready](https://img.shields.io/badge/Cursor-ready-black)](./.cursorrules)
 [![Windsurf Ready](https://img.shields.io/badge/Windsurf-ready-00A3FF)](./.windsurfrules)
 [![Copilot Ready](https://img.shields.io/badge/GitHub%20Copilot-ready-2ea44f)](./.github/copilot-instructions.md)
+
+### CI
+
 [![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
 [![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -74,6 +82,14 @@ bash init-minimal.sh --starter
 
 Review what it does before running it in a real project.
 
+## Start here
+
+- **I have only an idea** -> use [Product Brief prompt](./prompts/product-brief-prompt.md).
+- **I am creating a new project** -> use [Starter Protocol](./protocols/ai-project-starter-protocol.md).
+- **I already have AI-generated code** -> use [Hardening Protocol](./protocols/ai-project-hardening-protocol.md).
+- **I want to copy files into my repo** -> use [scripts/init-minimal.sh](./scripts/init-minimal.sh).
+- **I want a quick sanity check** -> run [vibe-check](./scripts/vibe-check.sh).
+
 ## Why this exists
 
 AI IDEs can generate code quickly, but projects often fail because context,
@@ -127,8 +143,15 @@ This toolkit turns those risks into checklists, prompts, templates and lightweig
 Use:
 - [prompts/master-prompt-short.md](./prompts/master-prompt-short.md)
 - [prompts/master-prompt-full.md](./prompts/master-prompt-full.md)
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
 
 If your AI cannot open links, paste the required markdown files from this repository directly.
+
+## Give this repository to your AI
+
+Use [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+when you want an AI IDE to inspect this toolkit first, choose the right route,
+list the first files to copy and point out underestimated risks before writing code.
 
 ## What should I copy first?
 
@@ -367,6 +390,14 @@ Use this when the project is public, monetized, client-facing or production-boun
 | THIRD_PARTY_REGISTRY.md | External packages/APIs/repos | Extended | Any integrations |
 | vibe-check.sh | Lightweight structure check | Optional but recommended | Local/CI sanity check |
 
+## What not to do first
+
+- Do not paste the whole repository into an AI chat.
+- Do not run the installer without reviewing it.
+- Do not treat `vibe-check` as a security scanner.
+- Do not expose real architecture docs, secrets or internal endpoints publicly.
+- Do not let AI rewrite many layers without approval.
+
 ## New in security operations
 
 - [Perimeter Security Checklist](./checklists/perimeter-security-checklist.md)
@@ -434,19 +465,23 @@ More badge options:
 
 ### For founders
 
-Use VCP to turn an idea into a Product Brief, first safe slice and audit backlog before spending weeks on chaotic AI-generated code.
+Start with Product Brief + Starter Protocol to turn an idea into a first safe slice
+before spending weeks on chaotic AI-generated code.
 
 ### For solo builders
 
-Use VCP to keep Claude Code, Codex, Cursor or Windsurf scoped and avoid massive rewrites.
+Copy `AGENTS.md` + `PROJECT_MAP.md` and run `vibe-check` to keep Claude Code,
+Codex, Cursor or Windsurf scoped and avoid massive rewrites.
 
 ### For product teams
 
-Use VCP as a lightweight Definition of Ready / Definition of Done for AI-generated changes.
+Use Core vs Extended as a lightweight Definition of Ready / Definition of Done
+for AI-generated changes.
 
 ### For agencies and client work
 
-Use VCP to leave behind readable project memory, architecture docs, audit backlog and safer handoff materials.
+Use Architecture Source of Truth + AUDIT_BACKLOG + Security Operations Baseline
+to leave behind readable project memory and safer handoff materials.
 
 ## What this is not
 

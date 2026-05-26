@@ -6,6 +6,9 @@
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
+Если хотите сначала “дать этот repo AI”, используйте
+[prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
+
 ## Старт за 2 минуты
 
 ### Новый проект
@@ -45,6 +48,14 @@ bash init-minimal.sh --starter
 ```
 
 Перед запуском в реальном проекте скрипт лучше просмотреть.
+
+## С чего начать
+
+- **Есть только идея** -> откройте [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md)
+- **Создаете новый проект** -> идите в [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md)
+- **Уже есть AI-generated код** -> идите в [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
+- **Хотите быстро скопировать файлы в repo** -> используйте [scripts/init-minimal.sh](./scripts/init-minimal.sh)
+- **Нужна быстрая sanity-check проверка** -> запустите [scripts/vibe-check.sh](./scripts/vibe-check.sh)
 
 ## Кратко за 10 секунд
 
@@ -121,6 +132,14 @@ Toolkit добавляет поверх AI-assisted разработки:
 | SECURITY_OPERATIONS_BASELINE.md | Recurring security checks | Extended | Public/production проекты |
 | THIRD_PARTY_REGISTRY.md | Внешние packages/APIs/repos | Extended | Любые integrations |
 | vibe-check.sh | Lightweight structural check | Optional but recommended | Local/CI sanity check |
+
+## Чего не стоит делать вначале
+
+- Не вставляйте весь репозиторий целиком в AI-чат.
+- Не запускайте installer без просмотра скрипта.
+- Не воспринимайте `vibe-check` как security scanner.
+- Не публикуйте реальную архитектурную справку, secrets или internal endpoints.
+- Не позволяйте AI переписывать много слоев без approval.
 
 ## Что копировать первым
 
@@ -207,20 +226,23 @@ bash scripts/init-minimal.sh --dry-run
 
 ### Для founders
 
-Чтобы превратить идею в Product Brief, первый safe slice и audit backlog до того,
-как недели уйдут на хаотичный AI-generated код.
+Начните с Product Brief + Starter Protocol, чтобы превратить идею
+в первый safe slice до того, как недели уйдут на хаотичный AI-generated код.
 
 ### Для solo builders
 
-Чтобы держать Claude Code, Codex, Cursor или Windsurf в рамках scope и не получать massive rewrites.
+Скопируйте `AGENTS.md` + `PROJECT_MAP.md` и запустите `vibe-check`,
+чтобы держать Claude Code, Codex, Cursor или Windsurf в рамках scope.
 
 ### Для product teams
 
-Чтобы использовать VCP как lightweight Definition of Ready / Definition of Done для AI-generated изменений.
+Используйте Core vs Extended как lightweight Definition of Ready / Definition of Done
+для AI-generated изменений.
 
 ### Для agencies и client work
 
-Чтобы оставлять после себя понятную project memory, архитектурную справку, audit backlog и safer handoff materials.
+Используйте Architecture Source of Truth + AUDIT_BACKLOG + Security Operations Baseline,
+чтобы оставлять после себя понятную project memory и safer handoff materials.
 
 ## Автор
 
