@@ -126,3 +126,9 @@ if [[ "$MODE" == "--hardening" || "$MODE" == "--audit" ]]; then
   [[ ! -f SECURITY_OPERATIONS_BASELINE.md && ! -f templates/SECURITY_OPERATIONS_BASELINE.md ]] && echo "- SECURITY_OPERATIONS_BASELINE.md"
   [[ ! -f THIRD_PARTY_REGISTRY.md && ! -f templates/THIRD_PARTY_REGISTRY.md ]] && echo "- THIRD_PARTY_REGISTRY.md"
 fi
+
+if (( FAIL > 0 )); then
+  exit 1
+fi
+
+exit 0

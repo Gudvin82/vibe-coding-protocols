@@ -83,8 +83,8 @@ arbitrary target applications.
 ## How to interpret PASS / WARN / FAIL
 
 - `PASS`: the basic file and workflow expectations are present.
-- `WARN`: the repository is usable, but there are missing artifacts or public-safety concerns to review.
-- `FAIL`: a baseline structural condition is missing, for example no `README.md`, no `.gitignore` or a real `.env` file is present.
+- `WARN`: the repository is usable, but there are missing artifacts or public-safety concerns to review. In CI, warnings should stay visible but not fail the workflow on their own.
+- `FAIL`: a baseline structural condition is missing, for example no `README.md`, no `.gitignore` or a real `.env` file is present. Fails should return a non-zero exit code.
 
 ## Where to start
 
