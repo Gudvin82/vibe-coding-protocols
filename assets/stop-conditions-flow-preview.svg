@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <rect x="50" y="40" width="1180" height="640" rx="28" fill="#111827"/>
+  <text x="90" y="105" fill="#e5e7eb" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">Stop conditions flow</text>
+  <text x="90" y="145" fill="#93c5fd" font-family="Arial, Helvetica, sans-serif" font-size="18">Approval gates for risky AI-generated changes</text>
+  <defs>
+    <marker id="arrowB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="100" y="240" width="220" height="86" rx="18" fill="#1f2937" stroke="#60a5fa" stroke-width="2"/>
+    <text x="210" y="286" text-anchor="middle" fill="#f9fafb" font-size="23" font-weight="700">AI proposes change</text>
+
+    <polygon points="480,220 620,280 480,340 340,280" fill="#1f2937" stroke="#60a5fa" stroke-width="2"/>
+    <text x="480" y="275" text-anchor="middle" fill="#f9fafb" font-size="21" font-weight="700">Risky area?</text>
+    <text x="480" y="300" text-anchor="middle" fill="#cbd5e1" font-size="16">auth / payments / DB / deps</text>
+
+    <rect x="700" y="140" width="260" height="92" rx="18" fill="#3f1d2e" stroke="#f472b6" stroke-width="2"/>
+    <text x="830" y="184" text-anchor="middle" fill="#fdf2f8" font-size="22" font-weight="700">Stop and ask approval</text>
+    <text x="830" y="210" text-anchor="middle" fill="#f9a8d4" font-size="16">many files / risky surfaces</text>
+
+    <rect x="700" y="370" width="270" height="92" rx="18" fill="#082f49" stroke="#22c55e" stroke-width="2"/>
+    <text x="835" y="412" text-anchor="middle" fill="#f0fdf4" font-size="21" font-weight="700">Smallest practical diff</text>
+    <text x="835" y="438" text-anchor="middle" fill="#bbf7d0" font-size="16">implement and validate</text>
+
+    <rect x="1010" y="370" width="150" height="92" rx="18" fill="#1f2937" stroke="#60a5fa" stroke-width="2"/>
+    <text x="1085" y="410" text-anchor="middle" fill="#f9fafb" font-size="21" font-weight="700">Run</text>
+    <text x="1085" y="437" text-anchor="middle" fill="#f9fafb" font-size="21" font-weight="700">validation</text>
+
+    <polygon points="1085,520 1185,570 1085,620 985,570" fill="#1f2937" stroke="#60a5fa" stroke-width="2"/>
+    <text x="1085" y="565" text-anchor="middle" fill="#f9fafb" font-size="20" font-weight="700">Validation green?</text>
+
+    <rect x="830" y="560" width="120" height="72" rx="18" fill="#3f1d2e" stroke="#f472b6" stroke-width="2"/>
+    <text x="890" y="605" text-anchor="middle" fill="#fdf2f8" font-size="20" font-weight="700">Fix / rollback</text>
+
+    <rect x="1150" y="540" width="50" height="0" fill="none"/>
+    <rect x="1000" y="120" width="170" height="92" rx="18" fill="#0f3d2e" stroke="#22c55e" stroke-width="2"/>
+    <text x="1085" y="164" text-anchor="middle" fill="#f0fdf4" font-size="21" font-weight="700">Report changes</text>
+    <text x="1085" y="191" text-anchor="middle" fill="#bbf7d0" font-size="16">and next steps</text>
+
+    <line x1="320" y1="283" x2="340" y2="283" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="620" y1="250" x2="700" y2="190" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="620" y1="310" x2="700" y2="410" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="970" y1="416" x2="1010" y2="416" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="1085" y1="462" x2="1085" y2="520" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="985" y1="570" x2="950" y2="570" stroke="#f472b6" stroke-width="4" marker-end="url(#arrowB)"/>
+    <line x1="1085" y1="520" x2="1085" y2="212" stroke="#22c55e" stroke-width="4" marker-end="url(#arrowB)"/>
+    <text x="1015" y="507" fill="#bbf7d0" font-size="16">yes</text>
+    <text x="944" y="554" fill="#f9a8d4" font-size="16">no</text>
+  </g>
+</svg>

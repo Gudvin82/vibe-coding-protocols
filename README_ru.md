@@ -1,6 +1,50 @@
 # Vibe Coding Protocols — русская версия
 
+**Операционный слой для AI-assisted разработки, а не просто коллекция prompt-ов.**
+
 Этот репозиторий — markdown/toolkit-версия методологии `Vibe Coding Protocols` с сайта Анатолия Малышева.
+
+Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
+
+## Старт за 2 минуты
+
+### Новый проект
+
+1. Скопируйте [AGENTS.md](./AGENTS.md) в свой repo.
+2. Скопируйте [templates/PROJECT_MAP.md](./templates/PROJECT_MAP.md) как `PROJECT_MAP.md`.
+3. Откройте [prompts/product-brief-prompt.md](./prompts/product-brief-prompt.md).
+4. Вставьте Product Brief prompt в свою AI IDE.
+5. Запустите:
+
+```bash
+bash scripts/vibe-check.sh --starter
+```
+
+### Уже существующий AI-generated проект
+
+1. Скопируйте [templates/AUDIT_BACKLOG.md](./templates/AUDIT_BACKLOG.md).
+2. Откройте [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md).
+3. Запустите:
+
+```bash
+bash scripts/vibe-check.sh --hardening
+```
+
+### Самый быстрый bootstrap
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Более безопасный путь:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
+less init-minimal.sh
+bash init-minimal.sh --starter
+```
+
+Перед запуском в реальном проекте скрипт лучше просмотреть.
 
 ## Кратко за 10 секунд
 
@@ -24,19 +68,28 @@ Toolkit добавляет поверх AI-assisted разработки:
 - token-aware code discovery;
 - validation и review gates.
 
-## Какие проблемы это решает
+## Core vs Extended
 
-Частые проблемы AI-generated проекта:
-- AI начинает писать код до ясного product scope;
-- изменения расползаются по слишком многим файлам;
-- пакеты и внешние API подключаются без проверки;
-- архитектура существует только в истории чата;
-- security checks происходят слишком поздно;
-- secrets, logs или internal docs становятся публичными;
-- AI сжигает токены, читая весь repo подряд;
-- непонятно, готов ли проект к merge / deploy.
+### Core path — для 80% пользователей
 
-Этот toolkit превращает эти риски в prompts, templates, checklists и lightweight automation.
+- Product Brief
+- AGENTS.md
+- PROJECT_MAP.md
+- Starter Protocol
+- Hardening Protocol
+- AUDIT_BACKLOG.md
+- vibe-check
+
+### Extended path — для production / teams
+
+- Architecture Source of Truth
+- Security Operations Baseline
+- Perimeter Security Checklist
+- External Exposure Checklist
+- Third-Party Registry
+- Safe Update Workflow
+- Secret Rotation and Storage
+- Independent Diff Review
 
 ## Какие security layers покрываются
 
@@ -56,6 +109,19 @@ Toolkit добавляет поверх AI-assisted разработки:
 5. **Token-aware AI workflow**
    Memory Bank, read order, scoped code discovery и independent diff review.
 
+## Artifact map
+
+| Artifact | Purpose | Required? | Use when |
+|---|---|---|---|
+| Product Brief | Проясняет, что строить до кода | Core | Любой новый проект |
+| AGENTS.md | Правила для AI agents | Core | Любой AI IDE workflow |
+| PROJECT_MAP.md | Карта файлов и кодового контекста | Core | Любой repo с кодом |
+| AUDIT_BACKLOG.md | Findings и follow-up задачи | Core for hardening | Уже существующий AI-generated код |
+| ARCHITECTURE_SOURCE_OF_TRUTH.md | Архитектурная справка | Extended | Production, команда, handoff |
+| SECURITY_OPERATIONS_BASELINE.md | Recurring security checks | Extended | Public/production проекты |
+| THIRD_PARTY_REGISTRY.md | Внешние packages/APIs/repos | Extended | Любые integrations |
+| vibe-check.sh | Lightweight structural check | Optional but recommended | Local/CI sanity check |
+
 ## Что копировать первым
 
 - Новый проект:
@@ -71,17 +137,33 @@ Toolkit добавляет поверх AI-assisted разработки:
   [checklists/perimeter-security-checklist.md](./checklists/perimeter-security-checklist.md) +
   [templates/SECURITY_OPERATIONS_BASELINE.md](./templates/SECURITY_OPERATIONS_BASELINE.md)
 
-## Какой маршрут выбрать
+## CI/CD integration
 
-| Ситуация | С чего начать |
-|---|---|
-| Есть только идея | [Product Brief prompt](./prompts/product-brief-prompt.md) |
-| Хочу начать новый AI-проект | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
-| Уже есть AI-generated код | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| Нужны переиспользуемые файлы | [Templates](./templates/README.md) |
-| Нужна проектная документация | [Architecture Source of Truth](./templates/ARCHITECTURE_SOURCE_OF_TRUTH.md) |
-| Нужна быстрая структурная проверка | [Automated Vibe Check](./docs/automated-vibe-check.md) |
-| Нужны примеры | [examples/README.md](./examples/README.md) |
+В repo есть lightweight GitHub Action для `vibe-check`.
+
+Он запускается на:
+- `push`
+- `pull_request`
+
+Он проверяет:
+- структуру toolkit;
+- локальные markdown links;
+- placeholder / secrets-like examples;
+- сигналы starter / hardening / audit mode.
+
+Это не замена тестам, сканерам, pentest или human review.
+
+Смотрите:
+- [.github/workflows/vibe-check.yml](./.github/workflows/vibe-check.yml)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+
+## Mermaid и fallback previews
+
+Mermaid-диаграммы остаются в основном [README.md](./README.md).
+
+Fallback previews:
+- ![Workflow preview](./assets/workflow-mermaid-preview.png)
+- ![Stop conditions flow preview](./assets/stop-conditions-flow-preview.png)
 
 ## Что такое perimeter / self-protection / safe integration
 
@@ -100,6 +182,7 @@ audit-файлы и явные workflow gaps.
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
+bash scripts/init-minimal.sh --dry-run
 ```
 
 ![Automated Vibe Check example output](./assets/vibe-check-output.png)
@@ -107,6 +190,7 @@ bash scripts/vibe-check.sh --audit
 Смотрите:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+- [scripts/init-minimal.sh](./scripts/init-minimal.sh)
 
 ## Бейджи для вашего проекта
 
@@ -116,17 +200,27 @@ bash scripts/vibe-check.sh --audit
 [![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
 [![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
 
-```markdown
-[![Built with Vibe Coding Protocols](https://img.shields.io/badge/Built%20with-Vibe%20Coding%20Protocols-blue)](https://github.com/Gudvin82/vibe-coding-protocols)
-```
-
-```markdown
-[![Hardened with VCP](https://img.shields.io/badge/Hardened%20with-VCP-green)](https://github.com/Gudvin82/vibe-coding-protocols)
-[![Uses VCP Templates](https://img.shields.io/badge/Uses-VCP%20Templates-purple)](https://github.com/Gudvin82/vibe-coding-protocols)
-```
-
 Другие варианты:
 - [docs/badges.md](./docs/badges.md)
+
+## Для кого это
+
+### Для founders
+
+Чтобы превратить идею в Product Brief, первый safe slice и audit backlog до того,
+как недели уйдут на хаотичный AI-generated код.
+
+### Для solo builders
+
+Чтобы держать Claude Code, Codex, Cursor или Windsurf в рамках scope и не получать massive rewrites.
+
+### Для product teams
+
+Чтобы использовать VCP как lightweight Definition of Ready / Definition of Done для AI-generated изменений.
+
+### Для agencies и client work
+
+Чтобы оставлять после себя понятную project memory, архитектурную справку, audit backlog и safer handoff materials.
 
 ## Автор
 

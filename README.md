@@ -1,6 +1,6 @@
 # Vibe Coding Protocols
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.2-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.3-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -15,7 +15,11 @@
 [![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 
+**An operating layer for AI-assisted delivery — not just a prompt collection.**
+
 **Practical protocols, prompts, checklists and markdown templates for safer AI-assisted / vibe coding projects.**
+
+Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
 Languages:
 - English: [README_en.md](./README_en.md)
@@ -27,6 +31,48 @@ Languages:
 2. **Build** — use `AGENTS.md`, `PROJECT_MAP.md` and AI IDE rules to keep scope controlled.
 3. **Harden** — audit AI-generated code before merge, deploy or production.
 4. **Reuse** — copy markdown templates, prompts and checklists into your project.
+
+## Start in 2 minutes
+
+### New project
+
+1. Copy `AGENTS.md` into your repo.
+2. Copy `templates/PROJECT_MAP.md`.
+3. Open `prompts/product-brief-prompt.md`.
+4. Paste the Product Brief prompt into your AI IDE.
+5. Run:
+
+```bash
+bash scripts/vibe-check.sh --starter
+```
+
+### Existing AI-generated project
+
+1. Copy `templates/AUDIT_BACKLOG.md`.
+2. Open `protocols/ai-project-hardening-protocol.md`.
+3. Run:
+
+```bash
+bash scripts/vibe-check.sh --hardening
+```
+
+### Want the fastest setup?
+
+Use the minimal installer:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Safer review-first flow:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
+less init-minimal.sh
+bash init-minimal.sh --starter
+```
+
+Review what it does before running it in a real project.
 
 ## Why this exists
 
@@ -140,8 +186,8 @@ active surfaces, deferred surfaces, approval gates and validation.
 ### GitHub Copilot / VS Code
 Place [.github/copilot-instructions.md](./.github/copilot-instructions.md)
 in your project, combine it with [AGENTS.md](./AGENTS.md), and use
-[scripts/init-project.example.sh](./scripts/init-project.example.sh)
-as a review-first helper.
+[scripts/init-minimal.sh](./scripts/init-minimal.sh)
+as a review-first bootstrap helper.
 
 ### JetBrains / Junie / Antigravity
 Use the examples in [agents/](./agents/) to adapt the workflow for
@@ -168,7 +214,8 @@ PASS: .gitignore present
 PASS: AI instructions file present
 WARN: AUDIT_BACKLOG.md is missing for hardening mode
 WARN: public root AGENTS.md exists; make sure public docs are sanitized
-SUMMARY: PASS=3 WARN=2 FAIL=0
+Result: WARN
+Summary: PASS=3 WARN=2 FAIL=0
 ```
 
 ![Automated Vibe Check example output](./assets/vibe-check-output.png)
@@ -176,6 +223,26 @@ SUMMARY: PASS=3 WARN=2 FAIL=0
 See:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [scripts/vibe-check.sh](./scripts/vibe-check.sh)
+
+## CI/CD integration
+
+This repository includes a lightweight GitHub Action for `vibe-check`.
+
+It runs on:
+- `push`
+- `pull_request`
+
+It checks:
+- toolkit structure;
+- local links;
+- placeholder / secrets-like examples;
+- starter / hardening / audit mode signals.
+
+It does not replace tests, scanners, pentests or human review.
+
+See:
+- [.github/workflows/vibe-check.yml](./.github/workflows/vibe-check.yml)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 
 ## Repository map
 
@@ -197,6 +264,7 @@ vibe-coding-protocols/
 │   ├── AUDIT_BACKLOG.md                    # Findings and follow-up backlog
 │   ├── ARCHITECTURE_SOURCE_OF_TRUTH.md     # Architecture reference template
 │   ├── THIRD_PARTY_REGISTRY.md             # Safe integration registry
+│   ├── PROMPTS.md                          # Prompt memory/log template
 │   └── SECURITY_OPERATIONS_BASELINE.md     # Recurring security hygiene baseline
 ├── checklists/
 │   ├── starter-checklist.md
@@ -259,6 +327,46 @@ This toolkit is not a security product, but it helps you structure security work
 5. **Token-aware AI workflow**
    Memory Bank, read order, scoped code discovery and independent diff review.
 
+## Core vs Extended
+
+### Core path — for 80% of users
+
+Use this when you are starting or auditing a small AI-generated project:
+
+- Product Brief
+- AGENTS.md
+- PROJECT_MAP.md
+- Starter Protocol
+- Hardening Protocol
+- AUDIT_BACKLOG.md
+- vibe-check
+
+### Extended path — for production / teams
+
+Use this when the project is public, monetized, client-facing or production-bound:
+
+- Architecture Source of Truth
+- Security Operations Baseline
+- Perimeter Security Checklist
+- External Exposure Checklist
+- Third-Party Registry
+- Safe Update Workflow
+- Secret Rotation and Storage
+- Independent Diff Review
+
+## Artifact map
+
+| Artifact | Purpose | Required? | Use when |
+|---|---|---|---|
+| Product Brief | Clarifies what to build before coding | Core | Any new project |
+| AGENTS.md | Rules for AI agents | Core | Any AI IDE workflow |
+| PROJECT_MAP.md | File map and code context | Core | Any repo with code |
+| AUDIT_BACKLOG.md | Findings and follow-up tasks | Core for hardening | Existing AI-generated code |
+| ARCHITECTURE_SOURCE_OF_TRUTH.md | Architecture reference | Extended | Production, team, handoff |
+| SECURITY_OPERATIONS_BASELINE.md | Recurring security checks | Extended | Public/production projects |
+| THIRD_PARTY_REGISTRY.md | External packages/APIs/repos | Extended | Any integrations |
+| vibe-check.sh | Lightweight structure check | Optional but recommended | Local/CI sanity check |
+
 ## New in security operations
 
 - [Perimeter Security Checklist](./checklists/perimeter-security-checklist.md)
@@ -271,33 +379,36 @@ This toolkit is not a security product, but it helps you structure security work
 ## Workflow
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Idea] --> B[Product Brief]
     B --> C[Starter Protocol]
-    C --> D[First safe vertical slice]
-    D --> E{Existing code ready?}
-    E -->|No| C
-    E -->|Yes| F[Light Hardening]
-    F --> G[Audit Backlog]
-    G --> H[Fixes and validation]
-    H --> I[Independent diff review]
-    I --> J{Ready?}
-    J -->|No| G
-    J -->|Yes| K[Merge / staging / deploy]
+    C --> D[AI Generation]
+    D --> E{Stop Condition?}
+    E -->|Yes| F[Fix / Rollback]
+    E -->|No| G[Vibe Check PASS]
+    G --> H[Hardening Protocol]
 ```
+
+If your viewer does not render Mermaid, see the preview:
+
+![Workflow preview](./assets/workflow-mermaid-preview.png)
 
 ## Stop conditions flow
 
 ```mermaid
 flowchart TD
-    A[AI proposes change] --> B{Touches risky area?}
-    B -->|Auth / payments / DB / deps / more than 10 files| C[Stop and ask approval]
+    A[AI proposes change] --> B{Risky area?}
+    B -->|Auth / payments / DB / deps / many files| C[Stop and ask approval]
     B -->|Small safe change| D[Implement smallest practical diff]
     D --> E[Run validation]
     E --> F{Validation green?}
     F -->|No| G[Fix or rollback]
     F -->|Yes| H[Report changed files and next steps]
 ```
+
+If your viewer does not render Mermaid, see the preview:
+
+![Stop conditions flow preview](./assets/stop-conditions-flow-preview.png)
 
 ## Badges for your project
 
@@ -318,6 +429,24 @@ If you use the toolkit, you can add a badge to your project README:
 
 More badge options:
 - [docs/badges.md](./docs/badges.md)
+
+## Who should use this?
+
+### For founders
+
+Use VCP to turn an idea into a Product Brief, first safe slice and audit backlog before spending weeks on chaotic AI-generated code.
+
+### For solo builders
+
+Use VCP to keep Claude Code, Codex, Cursor or Windsurf scoped and avoid massive rewrites.
+
+### For product teams
+
+Use VCP as a lightweight Definition of Ready / Definition of Done for AI-generated changes.
+
+### For agencies and client work
+
+Use VCP to leave behind readable project memory, architecture docs, audit backlog and safer handoff materials.
 
 ## What this is not
 
@@ -358,7 +487,7 @@ Based in Saint Petersburg, working with clients and projects across Russia and r
 
 ## Repository and methodology versions
 
-- Repository version: `v0.1.2`
+- Repository version: `v0.1.3`
 - Web methodology version: `Vibe Coding Protocols v1.4`
 - This repository is a markdown/toolkit packaging of the public web methodology from `anmalishev.ru`.
 

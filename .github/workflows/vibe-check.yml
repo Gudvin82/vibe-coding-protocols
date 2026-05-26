@@ -10,11 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Toolkit structure check
+        run: bash scripts/check-toolkit.sh
+      - name: Placeholder scan
+        run: bash scripts/scan-placeholders.sh
+      - name: Validate links
+        run: python3 scripts/validate-links.sh
       - name: Starter vibe check
         run: bash scripts/vibe-check.sh --starter
       - name: Hardening vibe check
         run: bash scripts/vibe-check.sh --hardening
-      - name: Toolkit structure check
-        run: bash scripts/check-toolkit.sh
-      - name: Validate local links
-        run: python3 scripts/validate-links.sh
+      - name: Audit vibe check
+        run: bash scripts/vibe-check.sh --audit

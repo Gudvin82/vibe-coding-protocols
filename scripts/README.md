@@ -9,9 +9,12 @@ These are lightweight helper scripts for the toolkit itself.
 - `validate-links.sh` — validates local markdown links
 - `vibe-check.sh` — lightweight starter / hardening / audit readiness check
 - `init-project.example.sh` — review-first example for copying starter templates into a project
+- `init-minimal.sh` — minimal bootstrap helper for starter / hardening / audit packs
 
 ## Notes
 
 - these scripts do not replace hardening;
 - they do not scan a target application in depth;
-- `init-project.example.sh` is intentionally an example, not an auto-installer.
+- `init-project.example.sh` is intentionally an example, not an auto-installer;
+- `init-minimal.sh` is not a full CLI; it is a small bootstrap helper;
+- review `init-minimal.sh` before using it in a real project.

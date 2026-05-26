@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.3
+
+- Improved onboarding, CI visibility and minimal setup helper
+- Added `scripts/init-minimal.sh` review-first bootstrap helper
+- Added Mermaid PNG/SVG fallback previews
+- Expanded README onboarding, Core vs Extended and artifact map
+- Polished site GitHub blocks for CI/install flow
+
 ## v0.1.2 — Security operations and perimeter baseline
 
 - Expanded README structure for faster orientation and clearer path selection
