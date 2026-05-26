@@ -19,13 +19,22 @@
 
 ### CI
 
-[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml)
-[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml)
-[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
+[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml
+)
+[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml
+)
+[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
+  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml
+)
 
 **An agent harness and operating layer for AI-assisted delivery — not just a prompt collection.**
 
-Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a more controlled workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security baselines, model routing and audit backlog.
+Vibe Coding Protocols helps founders, solo builders and teams turn
+AI-assisted coding into a more controlled workflow: Product Brief,
+Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
+baselines, model routing and audit backlog.
 
 Repository package: `v0.1.8`  
 Web methodology: `Vibe Coding Protocols v1.4`
