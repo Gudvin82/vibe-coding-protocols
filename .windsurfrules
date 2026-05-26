@@ -1,0 +1,6 @@
+Keep Cascade scoped.
+Read README.md, PROJECT_MAP.md and AGENTS.md first.
+Stop on cross-layer changes.
+Ask before migrations, auth, payments, admin or new external APIs.
+Update the Memory Bank when architecture or routes change.
+Report validation, blockers and remaining risks.

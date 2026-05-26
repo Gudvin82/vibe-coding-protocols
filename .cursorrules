@@ -1,0 +1,6 @@
+Prefer small atomic changes.
+Read README.md, PROJECT_MAP.md and AGENTS.md before edits.
+Ask before changing more than 10 files.
+Do not activate deferred surfaces.
+Do not add dependencies without approval.
+Always report changed files and validation results.
