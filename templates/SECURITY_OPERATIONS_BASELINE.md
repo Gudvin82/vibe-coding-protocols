@@ -1,3 +1,7 @@
+<!-- vcp-artifact: SECURITY_OPERATIONS_BASELINE -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # Security Operations Baseline
 
 ## Ownership

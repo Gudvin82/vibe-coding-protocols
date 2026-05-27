@@ -17,6 +17,9 @@ It wraps AI coding agents with:
 The goal is not to replace developers, tests or security work.
 The goal is to make AI-assisted delivery more controlled, reviewable and repeatable.
 
+"Agent harness" here means a configuration and workflow layer around AI coding agents.
+It is not a runtime orchestration engine.
+
 ## Why agent harness matters
 
 AI output quality depends on more than a prompt.
@@ -63,110 +66,24 @@ The harness does not replace:
 7. Security layer
 8. Release / handoff layer
 
-### 1. Memory layer
-
-Use stable project memory before code generation or edits:
-- `README.md`
-- `AGENTS.md` / `CLAUDE.md`
-- `PROJECT_MAP.md`
-- architecture docs
-- `AUDIT_BACKLOG.md`
-- `docs/PROMPTS.md`
-
-### 2. Scope layer
-
-Control what is in scope now versus later:
-- active/deferred surfaces;
-- first safe vertical slice;
-- explicit non-goals;
-- risky areas requiring approval.
-
-### 3. Discovery layer
-
-Use token-aware discovery before broad edits:
-- targeted search;
-- evidence maps;
-- read-only discovery agents where available;
-- no whole-repo reading by default.
-
-### 4. Implementation layer
-
-Keep implementation narrow and reviewable:
-- smallest practical diff;
-- explicit changed-files plan;
-- dependency review before install;
-- rollback-aware changes for risky surfaces.
-
-### 5. Review layer
-
-Separate implementation from review when possible:
-- independent diff review;
-- backlog findings;
-- accepted risks documented;
-- unresolved decisions surfaced early.
-
-### 6. Validation layer
-
-Validate what changed:
-- `vibe-check`;
-- focused tests;
-- optional scanners;
-- release-readiness checks.
-
-### 7. Security layer
-
-Keep baseline operational controls visible:
-- secrets hygiene;
-- auth/session baseline;
-- perimeter review;
-- third-party intake;
-- security operations evidence.
-
-### 8. Release / handoff layer
-
-Make merge and deploy more repeatable:
-- release notes;
-- migration notes;
-- rollback notes;
-- handoff artifacts for the next human or agent.
-
 ## Minimal harness for solo builders
 
-A minimal harness can be enough when the project is small and private:
-- `README.md`
-- `AGENTS.md`
-- `PROJECT_MAP.md`
-- Starter or Hardening route
-- `vibe-check`
-- small focused tests
-- a lightweight backlog
+Start with:
+- `templates/AGENTS.md`
+- `templates/PROJECT_MAP.md`
+- `templates/AUDIT_BACKLOG.md`
+- `docs/lite-adoption-path.md`
+- `vibe-check --starter`
 
-## Extended harness for teams / production
+## Extended harness for teams or production
 
-Use the extended harness when the project is public, paid, client-facing or production-bound:
-- Architecture Source of Truth;
-- Security Operations Baseline;
-- Third-Party Registry;
-- perimeter and auth abuse checklists;
-- independent review;
-- migration and release notes;
-- scanner integration.
+Add:
+- architecture source of truth;
+- security operations baseline;
+- third-party registry;
+- incident recovery runbook;
+- independent review and release checks.
 
 ## AI IDE compatibility
 
-This harness is vendor-neutral.
-It can be applied with:
-- Claude Code;
-- Codex;
-- Cursor;
-- Windsurf;
-- GitHub Copilot;
-- JetBrains AI tools;
-- Antigravity;
-- or manual prompt-driven workflows.
-
-Use the same core idea everywhere:
-- stable memory;
-- controlled discovery;
-- scoped implementation;
-- validation before confidence.
+This repository stays vendor-neutral and can be adapted to Claude Code, Codex, Cursor, Windsurf, Copilot, JetBrains and similar tools.

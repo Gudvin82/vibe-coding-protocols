@@ -57,6 +57,9 @@ Use these files when you want to apply VCP to your own project:
 | Architecture source of truth | `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md` |
 | Incident recovery | `templates/INCIDENT_RECOVERY_RUNBOOK.md` |
 
+Copy-ready templates now include lightweight `vcp-version` markers so you can
+compare local copies with newer toolkit versions later.
+
 ## Repo-local reference files
 
 These files configure or document this repository itself.

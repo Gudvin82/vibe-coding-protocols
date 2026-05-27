@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  checks:
+    docker:
+      - image: cimg/python:3.12
+    steps:
+      - checkout
+      - run: sudo apt-get update && sudo apt-get install -y bash ripgrep nodejs npm
+      - run: bash scripts/vibe-check.sh --audit
+      - run: python3 scripts/validate-links.sh
+      - run: bash scripts/scan-placeholders.sh
+workflows:
+  version: 2
+  checks:
+    jobs:
+      - checks

@@ -16,6 +16,8 @@ They are:
 | Project type | Phase | Example | What it demonstrates |
 |---|---|---|---|
 | Todo app | Starter | [todo-app-starter](./todo-app-starter/) | runnable minimal project |
+| Python script | Lite | [python-script-vibe](./python-script-vibe/) | tiny script workflow |
+| React component | Lite | [react-component-vibe](./react-component-vibe/) | tiny UI workflow |
 | Todo app | Hardening | [todo-app-vibe](./todo-app-vibe/) | audit artifacts |
 | Telegram bot | Hardening | [telegram-bot-vibe](./telegram-bot-vibe/) | bot token and abuse risks |
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
@@ -23,6 +25,8 @@ They are:
 ## Start here
 
 - If you want a runnable starter example, start with [todo-app-starter](./todo-app-starter/)
+- If you want the smallest Python route, start with [python-script-vibe](./python-script-vibe/)
+- If you want the smallest React route, start with [react-component-vibe](./react-component-vibe/)
 - If you want the full Starter-to-Hardening path, start with [todo-app-vibe](./todo-app-vibe/)
 - If you want a bot scenario, start with [telegram-bot-vibe](./telegram-bot-vibe/)
 - If you want the light route, start with [landing-page-vibe](./landing-page-vibe/)

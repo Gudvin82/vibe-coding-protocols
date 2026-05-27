@@ -10,6 +10,9 @@ Extended path.
 3. `templates/AUDIT_BACKLOG.md`
 4. `prompts/product-brief-prompt_en.md` or `prompts/product-brief-prompt.md`
 
+These copy-ready templates include lightweight version markers so you can
+review them against newer toolkit releases later.
+
 ## Run
 
 ```bash

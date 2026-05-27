@@ -1,5 +1,5 @@
 name: Example request
-description: Request a new synthetic example or walkthrough.
+description: Request a new synthetic example, walkthrough or anonymized case-study direction.
 title: "[Example]: "
 labels: [examples]
 body:

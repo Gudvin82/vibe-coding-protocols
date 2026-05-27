@@ -1,3 +1,7 @@
+<!-- vcp-artifact: AGENTS_WINDSURF -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # AGENTS for Windsurf
 
 Use this variant when Windsurf Cascade or similar multi-file assistance is in play.

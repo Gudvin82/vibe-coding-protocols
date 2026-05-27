@@ -1,3 +1,7 @@
+<!-- vcp-artifact: AGENTS_CLAUDE -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # AGENTS for Claude Code
 
 Use this variant when Claude Code or similar tools can use subagents and explicit tool approvals.

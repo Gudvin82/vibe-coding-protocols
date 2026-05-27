@@ -1,11 +1,10 @@
 # Protocols
 
-Здесь лежат markdown-версии основных частей методологии:
-- hub / routing;
-- Starter Protocol;
-- Hardening Protocol;
-- Starter → Hardening bridge;
-- AI IDE compatibility notes.
+| Protocol | Use when | Start here |
+|---|---|---|
+| Starter | New AI-assisted project | [ai-project-starter-protocol.md](./ai-project-starter-protocol.md) |
+| Hardening | Existing AI-generated code | [ai-project-hardening-protocol.md](./ai-project-hardening-protocol.md) |
+| Starter to Hardening Bridge | Moving from MVP to audit | [starter-to-hardening-bridge.md](./starter-to-hardening-bridge.md) |
 
-Сайт остается основной публичной web-версией:
-[https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
+These are workflow routes.
+Templates, architecture docs and checklists support those routes, but they are not routes by themselves.

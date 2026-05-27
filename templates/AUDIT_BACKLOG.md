@@ -1,3 +1,7 @@
+<!-- vcp-artifact: AUDIT_BACKLOG -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # Audit Backlog
 
 Практический шаблон для фиксации находок после AI Project Hardening Protocol.

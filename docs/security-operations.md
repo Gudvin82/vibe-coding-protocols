@@ -10,10 +10,10 @@ Security operations is what keeps the project from drifting back into risk.
 - recurring checks instead of one-off cleanup;
 - clear owners;
 - evidence for scans and reviews;
-- patch/update policy;
+- patch and update policy;
 - alerting and escalation;
 - accepted risks review;
-- backup/restore discipline.
+- backup and restore discipline.
 
 ## Recurring security hygiene
 
@@ -21,16 +21,26 @@ Typical recurring checks:
 - secret scan;
 - dependency scan;
 - public exposure check;
-- open ports/service inventory;
+- open ports and service inventory;
 - security headers review;
 - admin access review;
-- backup/restore drill;
-- third-party registry review.
+- backup and restore drill;
+- third-party registry review;
+- checksum review for helper scripts you copy from public repositories.
 
 Related docs:
 - [hardening-thresholds.md](./hardening-thresholds.md)
 - [scanner-integration.md](./scanner-integration.md)
 - [ai-specific-threat-model.md](./ai-specific-threat-model.md)
+- [artifact-versioning.md](./artifact-versioning.md)
+
+## Review-first intake for public helper scripts
+
+If you copy a script from a public repository:
+- download it first;
+- verify the checksum when one is provided;
+- review the script before running it;
+- keep pipe-to-bash only for empty or test repositories.
 
 ## Evidence and backlog
 
@@ -53,6 +63,6 @@ Each accepted risk needs a date, reason and next review point.
 When something breaks or leaks:
 - capture the timeline;
 - classify blast radius;
-- rotate/revoke what is needed;
+- rotate or revoke what is needed;
 - update the backlog;
 - decide what recurring control was missing.

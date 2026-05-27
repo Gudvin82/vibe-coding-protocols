@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.1.11
+
+- Added `SHA256SUMS` and `scripts/update-checksums.sh`
+- Added artifact version markers for copy-ready templates
+- Added FAQ, troubleshooting, comparison and one-pager docs
+- Added `METRICS_BOARD` template, CI examples, Dev Container and Windows wrapper
+- Added lightweight `vibe-check` Bash tests
+- Improved trust and adoption guidance for public distribution
+
 ## v0.1.10
 
 - Clarified START_HERE copy-ready versus repo-local reference files
@@ -111,6 +120,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.10`.
+Repository version started at `v0.1.0` and now continues with `v0.1.11`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

@@ -3,6 +3,8 @@
 Track these if you want to evaluate whether the workflow is helping.
 Do not present them as guaranteed outcomes.
 
+Use [`templates/METRICS_BOARD.md`](../templates/METRICS_BOARD.md) if you want a small place to record them.
+
 ## Time to first safe slice
 
 Measure:
@@ -71,6 +73,6 @@ Track:
 
 ## Notes
 
-These metrics are for internal learning.
+Metrics require real project data.
 They do not prove that the toolkit automatically improves delivery,
 security or velocity.

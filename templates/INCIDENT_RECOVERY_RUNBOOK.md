@@ -1,3 +1,7 @@
+<!-- vcp-artifact: INCIDENT_RECOVERY_RUNBOOK -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # INCIDENT_RECOVERY_RUNBOOK.md
 
 Use this runbook when the project is already under stress and the team

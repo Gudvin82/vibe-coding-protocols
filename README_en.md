@@ -6,7 +6,7 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.9`  
+Repository package: `v0.1.11`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)

@@ -1,16 +1,20 @@
-## Summary
+## What changed
 
-Describe what changed and why.
+## Why
 
 ## Checklist
 
-- [ ] no real secrets
-- [ ] no client or customer data
-- [ ] examples are synthetic or sanitized
-- [ ] no dangerous automation was added
-- [ ] attribution added if the change was inspired by a third-party source
-- [ ] local toolkit checks were run
+- [ ] I did not add real secrets
+- [ ] I did not add fake metrics
+- [ ] I did not claim guaranteed security
+- [ ] I updated docs if needed
+- [ ] I ran checks
 
 ## Validation
 
-List commands, manual checks or review notes.
+```bash
+bash scripts/check-toolkit.sh
+bash scripts/scan-placeholders.sh
+python3 scripts/validate-links.sh
+bash scripts/vibe-check.sh --help
+```

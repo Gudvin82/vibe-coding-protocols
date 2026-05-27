@@ -11,6 +11,7 @@ If the AI IDE cannot open links, paste the required prompt blocks manually.
 ## Main prompts
 
 - `product-brief-prompt.md`
+- `product-brief-prompt_en.md`
 - `starter-prompts.md`
 - `hardening-prompts.md`
 - `master-prompt-short.md`
@@ -18,6 +19,7 @@ If the AI IDE cannot open links, paste the required prompt blocks manually.
 - `independent-diff-review-prompt.md`
 - `stack-decision-matrix-prompt.md`
 - `use-this-repo-prompt.md`
+- `use-this-repo-prompt_ru.md`
 - `backlog-to-issues-prompt.md`
 
 ## Modular prompts

@@ -7,7 +7,8 @@ Included themes:
 - architecture and project mapping;
 - audit backlog and scanner reporting;
 - third-party registry;
-- security operations baseline.
+- security operations baseline;
+- metrics tracking and incident recovery.
 
 AI / IDE variants:
 - Root [`../AGENTS.md`](../AGENTS.md) configures this repository itself.
@@ -25,7 +26,20 @@ AI / IDE variants:
 - Use `templates/AGENTS.claude.md` if you want Claude Code-specific rules.
 - Use `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md` for Cursor or Windsurf-specific workflows.
 
-Core memory files across the toolkit:
+## Version markers
+
+Copy-ready templates include lightweight markers such as:
+
+```html
+<!-- vcp-artifact: AGENTS -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+```
+
+These markers help you compare local copies with newer toolkit versions.
+
+## Core memory files across the toolkit
+
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
@@ -33,9 +47,12 @@ Core memory files across the toolkit:
 - `AUDIT_BACKLOG.md`, for hardening
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
 - `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
+- `METRICS_BOARD.md`, if you want to track adoption with real project data
 
-Recommended companions:
+## Recommended companions
+
 - [`../docs/template-style-guide.md`](../docs/template-style-guide.md)
+- [`../docs/artifact-versioning.md`](../docs/artifact-versioning.md)
 - [`../docs/hardening-thresholds.md`](../docs/hardening-thresholds.md)
 - [`../docs/scanner-integration.md`](../docs/scanner-integration.md)
 - [`../docs/migration/README.md`](../docs/migration/README.md)
@@ -43,4 +60,4 @@ Recommended companions:
 Important:
 - these are public templates;
 - these are not real private project docs;
-- real `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE.md`, incident docs and internal runbooks often contain sensitive details and should stay private / sanitized / encrypted.
+- real `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE.md`, incident docs and internal runbooks often contain sensitive details and should stay private, sanitized or encrypted.

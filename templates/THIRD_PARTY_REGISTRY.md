@@ -1,3 +1,7 @@
+<!-- vcp-artifact: THIRD_PARTY_REGISTRY -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # THIRD_PARTY_REGISTRY.md
 
 | Name | Type | Origin | Owner / Maintainer | Pinned version / commit | License | Install scripts / hooks | Permissions / secrets access | Checksum/signature available | Checksum/signature verified | SBOM available | Provenance / source verification | Last reviewed | Next review | Update cadence | Staging/canary required | Rollback owner | Emergency patch path | Scan result | Known risks | Accepted risk reason |

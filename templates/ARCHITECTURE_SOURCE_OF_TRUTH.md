@@ -1,3 +1,7 @@
+<!-- vcp-artifact: ARCHITECTURE_SOURCE_OF_TRUTH -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # Architecture Source of Truth
 
 Универсальный шаблон архитектурной справки проекта.

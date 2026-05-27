@@ -1,37 +1,8 @@
 # Automated Vibe Check
 
-`vibe-check` is a lightweight repository check with layered readiness signals.
+`vibe-check` is a lightweight readiness check for repository structure, project memory, env hygiene and obvious workflow gaps.
 
-It does not replace the Hardening Protocol, human review, real scanners or
-security work.
-
-![Automated Vibe Check example output](../assets/vibe-check-output.png)
-
-This image is a demo-style terminal mockup. It is not a real project scan
-and not a security verdict.
-
-## What it checks
-
-- baseline project structure;
-- starter, hardening and audit route coverage;
-- `.gitignore` presence and high-value ignore patterns;
-- `.env` or `.env.*` files in the repository;
-- whether `.env.example` or a documented baseline exists when env-like references appear;
-- suspicious secret-like assignments in a quick grep-style pass;
-- secret-like prefixes such as `sk-`, `ghp_`, `github_pat_`, `AKIA`, JWT-like tokens and password-bearing connection strings;
-- soft git-history warnings for `.env`, `API_KEY` and `SECRET` markers when the repository is a git repo;
-- soft lockfile checks for JavaScript and Python dependency manifests;
-- optional scanners if `--scanners` is requested and tools are already installed.
-
-## What it does not check
-
-- application correctness;
-- test quality;
-- real production readiness;
-- pentest depth;
-- legal, privacy or payment compliance;
-- infrastructure state;
-- full dependency vulnerability status unless external tools are installed.
+It is not a security certification.
 
 ## Modes
 
@@ -45,44 +16,25 @@ bash scripts/vibe-check.sh --audit --scanners
 bash scripts/vibe-check.sh --help
 ```
 
-If `--scanners` is passed without a mode, audit mode is assumed.
+## What it checks
 
-## Scoring model
+- route-specific structure files;
+- AI instruction files and Memory Bank references;
+- `.gitignore` and env baseline;
+- obvious secret-like patterns;
+- optional scanner availability;
+- checksum manifest coverage for public helper scripts when `SHA256SUMS` exists;
+- artifact version marker visibility for copy-ready templates.
 
-`vibe-check` now separates core readiness from optional scanners.
-
-- Core score: readiness checks for structure, safety files and secrets hygiene.
-- Scanner bonus: optional extra signal when tools such as `gitleaks`, `trufflehog`, `trivy` or `semgrep` are already installed.
-
-Missing scanners:
-- produce warnings;
-- do not fail default mode;
-- do not remove a large part of the core score.
-
-See [vibe-check-scoring.md](./vibe-check-scoring.md) for the category model.
-
-Example output:
-
-```text
-SUMMARY: 12 pass, 3 warn, 0 fail
-VIBE CHECK CORE SCORE: 92/100
-OPTIONAL SCANNERS: not fully available
-SCANNER BONUS: 0/10
-Breakdown:
-- Structure: 25/25
-- Safety files: 25/25
-- Secrets hygiene: 20/25
-This is a readiness signal, not a security certification.
-```
-
-Example JSON:
+## Example JSON
 
 ```json
 {
-  "score": 92,
-  "core_score": 92,
+  "score": 86,
+  "core_score": 86,
   "scanner_bonus": 0,
   "placeholder_excluded": 12,
+  "artifact_version_warnings": 2,
   "scanner_status": "not_fully_available",
   "status": "warn",
   "pass": 12,
@@ -93,16 +45,26 @@ Example JSON:
 }
 ```
 
-## How to use locally
+## How to read it
 
-1. Copy `scripts/vibe-check.sh` into your repository.
-2. Run `--starter` before the first AI-generated vertical slice.
-3. Run `--hardening` before merge or pre-deploy review on existing code.
-4. Use warnings to fill in missing project memory and audit files.
-5. Use `--strict` when you want warnings to block a local or CI pass.
-6. Use `--json` when another tool needs a machine-readable summary.
+- `core_score` is the readiness signal;
+- `scanner_bonus` is optional and separate;
+- `placeholder_excluded` helps you notice when the placeholder filter may be hiding noise;
+- `artifact_version_warnings` shows where copied artifacts may need review;
+- `WARN` means attention is needed but does not fail by default;
+- `FAIL` means the project should be fixed before merge or deploy;
+- `--strict` turns warnings into a failing exit code.
 
-## How to use in CI
+## Review-first install note
+
+If you use public helper scripts from this repository:
+- download them first;
+- verify `SHA256SUMS` when available;
+- review the file before running it.
+
+Keep pipe-to-bash only for empty or test repositories.
+
+## CI usage
 
 Add it as a lightweight workflow gate for structure and obvious workflow gaps:
 
@@ -112,8 +74,7 @@ bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 ```
 
-The GitHub workflow in this repository checks the toolkit itself, not an
-arbitrary target application.
+The GitHub workflow in this repository checks the toolkit itself, not an arbitrary target application.
 
 ## Changed files guardrail
 
@@ -124,32 +85,3 @@ For large planned PRs, set repository variable:
 `MAX_CHANGED_FILES=30`
 
 Docs-only PRs warn instead of failing.
-
-## PASS / WARN / FAIL
-
-- `PASS`: the basic file and workflow expectations are present.
-- `WARN`: the repository is usable, but there are missing artifacts or public-safety concerns to review.
-- `FAIL`: a baseline structural condition is missing or a real `.env`-like file exists in the repository.
-
-## Exit codes
-
-- default mode:
-  - `PASS` or `WARN` -> exit `0`
-  - `FAIL` -> exit `1`
-- strict mode:
-  - `WARN` -> exit `1`
-  - `FAIL` -> exit `1`
-- script or runtime error:
-  - usage or runtime issue -> exit `2`
-
-## Optional scanner integration
-
-If external tools are already installed, `--scanners` can call them and report
-an extra bonus signal.
-
-See:
-- [scanner-integration.md](./scanner-integration.md)
-
-History checks are guidance signals, not proof of compromise by themselves.
-If a real secret ever appeared in git history, rotate and revoke it rather than
-only deleting the file.

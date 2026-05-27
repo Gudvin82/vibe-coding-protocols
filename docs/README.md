@@ -20,14 +20,16 @@ Start here:
 | I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
 | I want security docs | [docs/security-operations.md](./security-operations.md) |
 
-Use this index to navigate the repository support docs without moving files and
-breaking links.
+Use this index to navigate the repository support docs without moving files and breaking links.
 
 ## User-facing docs
 
-- [docs/guides/README.md](./guides/README.md)
 - [agent-harness.md](./agent-harness.md)
 - [model-routing.md](./model-routing.md)
+- [one-pager.md](./one-pager.md)
+- [faq.md](./faq.md)
+- [troubleshooting.md](./troubleshooting.md)
+- [comparison.md](./comparison.md)
 - [public-vs-private-docs.md](./public-vs-private-docs.md)
 - [metrics-to-track.md](./metrics-to-track.md)
 
@@ -36,16 +38,19 @@ breaking links.
 - [auth-session-security.md](./auth-session-security.md)
 - [automated-vibe-check.md](./automated-vibe-check.md)
 - [vibe-check-scoring.md](./vibe-check-scoring.md)
+- [artifact-versioning.md](./artifact-versioning.md)
 - [scanner-integration.md](./scanner-integration.md)
 - [hardening-thresholds.md](./hardening-thresholds.md)
 - [secret-rotation-and-storage.md](./secret-rotation-and-storage.md)
 - [security-operations.md](./security-operations.md)
+- [windows.md](./windows.md)
 
 ## AI workflow docs
 
 - [token-aware-code-discovery.md](./token-aware-code-discovery.md)
 - [multi-agent-workflows.md](./multi-agent-workflows.md)
 - [template-style-guide.md](./template-style-guide.md)
+- [devcontainer.md](./devcontainer.md)
 
 ## Maintainer / distribution docs
 
@@ -53,6 +58,7 @@ breaking links.
 - [social-preview.md](./social-preview.md)
 - [awesome-vibe-coding-pr.md](./awesome-vibe-coding-pr.md)
 - [distribution-checklist.md](./distribution-checklist.md)
+- [github-security-settings.md](./github-security-settings.md)
 - [repo-maintenance.md](./repo-maintenance.md)
 
 ## Release notes

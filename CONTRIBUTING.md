@@ -23,14 +23,30 @@ Improvements are welcome.
 - better AI IDE guidance;
 - lightweight automation improvements for the toolkit itself.
 
-## Example contributions
+## Contributing examples
 
-When contributing examples:
-- make them synthetic or fully sanitized;
+When proposing examples:
+- keep them synthetic or fully sanitized;
 - remove client names and project identifiers;
-- use placeholders instead of live keys, tokens or URLs;
+- avoid real tokens, domains and customer data;
 - explain what is intentionally deferred;
 - do not present examples as proof of real production usage.
+
+## Contributing protocol changes
+
+When changing protocols or core routes:
+- explain the route impact clearly;
+- avoid turning artifacts into routes;
+- update related README/docs links if the route changed;
+- keep Lite / Starter / Hardening / Extended terminology consistent.
+
+## Contributing docs
+
+When changing docs:
+- preserve readable markdown formatting;
+- avoid flattened tables or broken code fences;
+- prefer navigation improvements over mass file moves;
+- keep README concise and push depth into docs where possible.
 
 ## Before opening a PR
 

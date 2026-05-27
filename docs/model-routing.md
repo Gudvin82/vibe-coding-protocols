@@ -2,6 +2,9 @@
 
 Use different AI models or agents for different work.
 
+"Model routing" here means a manual or adaptive workflow pattern for choosing models or agents.
+It is not an automatic router unless you build one.
+
 ## Default pattern
 
 1. Cheap or fast discovery agent:
@@ -82,10 +85,3 @@ Model routing does not automatically fix:
 - missing tests;
 - missing security review;
 - bad approval discipline.
-
-It works best when the project already uses:
-- `PROJECT_MAP.md`;
-- `AGENTS.md`;
-- token-aware discovery;
-- validation gates;
-- independent review.

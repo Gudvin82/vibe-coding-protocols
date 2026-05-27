@@ -1,3 +1,7 @@
+<!-- vcp-artifact: AGENTS_CURSOR -->
+<!-- vcp-version: v0.1.11 -->
+<!-- methodology-version: v1.4 -->
+
 # AGENTS for Cursor
 
 Use this variant when Cursor Composer or similar editor-driven AI is in charge.

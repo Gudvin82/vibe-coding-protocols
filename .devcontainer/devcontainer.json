@@ -1,0 +1,15 @@
+{
+  "name": "vibe-coding-protocols",
+  "build": {
+    "dockerfile": "../Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "timonwong.shellcheck"
+      ]
+    }
+  },
+  "postCreateCommand": "bash scripts/check-toolkit.sh",
+  "remoteUser": "root"
+}

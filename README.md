@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.10-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.11-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -36,7 +36,7 @@ AI-assisted coding into a more controlled workflow: Product Brief,
 Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
 baselines, model routing and audit backlog.
 
-Repository package: `v0.1.10`  
+Repository package: `v0.1.11`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
@@ -58,6 +58,14 @@ It gives you:
 Not sure where to start? Open [START_HERE.md](./START_HERE.md).
 If you want the smallest safe setup first, open
 [docs/lite-adoption-path.md](./docs/lite-adoption-path.md).
+
+```mermaid
+flowchart LR
+  A["Idea"] --> B["Lite"]
+  B --> C["Starter"]
+  C --> D["Hardening"]
+  D --> E["Extended"]
+```
 
 ## Versioning
 
@@ -109,11 +117,23 @@ bash scripts/vibe-check.sh --hardening
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/SHA256SUMS -o SHA256SUMS
+
+grep "scripts/init-minimal.sh" SHA256SUMS > init-minimal.sha256
+sha256sum -c init-minimal.sha256
+
 less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-Fast track is for empty or test repositories. For real projects, review the script first.
+For macOS:
+
+```bash
+shasum -a 256 init-minimal.sh
+```
+
+Fast track remains available only for empty or test repositories.
+Do not use pipe-to-bash for production projects.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
@@ -129,6 +149,8 @@ Default behavior:
 - installs a pre-commit hook in `starter` mode;
 - reminds you to use `--mode hardening` or `--mode audit` for existing or
   production-bound projects.
+- Windows is supported through Git Bash / WSL with
+  [scripts/vibe-check.ps1](./scripts/vibe-check.ps1).
 
 ## Core vs Extended
 
@@ -231,6 +253,15 @@ Start with:
 - [docs/model-routing.md](./docs/model-routing.md)
 - [docs/auth-session-security.md](./docs/auth-session-security.md)
 - [commands/README.md](./commands/README.md)
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
+
+Quick copy-paste prompt:
+
+```text
+Study this repository as a workflow toolkit. Do not write code yet.
+Read README.md, START_HERE.md and docs/lite-adoption-path.md first.
+Then tell me which route fits: Lite, Starter, Hardening or Extended.
+```
 
 ## Repository map
 
@@ -285,6 +316,8 @@ Recommended examples:
 - [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/) — bot token and abuse risks
 - [examples/landing-page-vibe/](./examples/landing-page-vibe/) — public site route
 - [examples/saas-backend-vibe/](./examples/saas-backend-vibe/) — backend-heavy hardening path
+- [examples/python-script-vibe/](./examples/python-script-vibe/) — tiny Python workflow example
+- [examples/react-component-vibe/](./examples/react-component-vibe/) — tiny React component workflow example
 
 Examples are synthetic or sanitized learning examples. They are not claimed as
 real-world case studies.
@@ -296,14 +329,26 @@ Case studies are template-only for now:
 
 Start here when you need more depth:
 - [START_HERE.md](./START_HERE.md)
+- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
 - [docs/agent-harness.md](./docs/agent-harness.md)
 - [docs/model-routing.md](./docs/model-routing.md)
+- [docs/one-pager.md](./docs/one-pager.md)
+- [docs/faq.md](./docs/faq.md)
+- [docs/troubleshooting.md](./docs/troubleshooting.md)
+- [docs/comparison.md](./docs/comparison.md)
 - [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [docs/artifact-versioning.md](./docs/artifact-versioning.md)
 - [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 - [docs/metrics-to-track.md](./docs/metrics-to-track.md)
+- [templates/METRICS_BOARD.md](./templates/METRICS_BOARD.md)
 - [templates/INCIDENT_RECOVERY_RUNBOOK.md](./templates/INCIDENT_RECOVERY_RUNBOOK.md)
 - [templates/README.md](./templates/README.md)
+- [protocols/README.md](./protocols/README.md)
+- [checklists/README.md](./checklists/README.md)
+- [docs/windows.md](./docs/windows.md)
+- [docs/devcontainer.md](./docs/devcontainer.md)
+- [docs/github-security-settings.md](./docs/github-security-settings.md)
 - [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
 
 ## Author

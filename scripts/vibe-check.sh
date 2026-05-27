@@ -19,6 +19,42 @@ CORE_SCORE=0
 SCANNER_STATUS="not_requested"
 RECOMMENDED=()
 PLACEHOLDER_EXCLUDED=0
+ARTIFACT_VERSION_WARNINGS=0
+REPO_VERSION="v0.1.11"
+
+CHECKSUM_FILES=(
+  "scripts/init-minimal.sh"
+  "scripts/vibe-check.sh"
+  "scripts/install-hooks.sh"
+  "scripts/extract-prompt.sh"
+)
+
+COPY_READY_TEMPLATE_FILES=(
+  "templates/AGENTS.md"
+  "templates/AGENTS.claude.md"
+  "templates/AGENTS.cursor.md"
+  "templates/AGENTS.windsurf.md"
+  "templates/PROJECT_MAP.md"
+  "templates/AUDIT_BACKLOG.md"
+  "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  "templates/INCIDENT_RECOVERY_RUNBOOK.md"
+  "templates/SECURITY_BASELINE.md"
+  "templates/SECURITY_OPERATIONS_BASELINE.md"
+  "templates/THIRD_PARTY_REGISTRY.md"
+  "templates/METRICS_BOARD.md"
+)
+
+COPIED_ARTIFACT_FILES=(
+  "AGENTS.md"
+  "PROJECT_MAP.md"
+  "AUDIT_BACKLOG.md"
+  "ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  "INCIDENT_RECOVERY_RUNBOOK.md"
+  "SECURITY_BASELINE.md"
+  "SECURITY_OPERATIONS_BASELINE.md"
+  "THIRD_PARTY_REGISTRY.md"
+  "METRICS_BOARD.md"
+)
 
 PLACEHOLDER_RX='example|placeholder|changeme|your_|dummy|test|\[FILL IN|<[^>]+>|masked-example-not-real|not-real|sample'
 
@@ -231,6 +267,102 @@ history_pattern_warning() {
   fi
 }
 
+version_to_number() {
+  local version="${1#v}"
+  IFS='.' read -r major minor patch <<<"$version"
+  major=${major:-0}
+  minor=${minor:-0}
+  patch=${patch:-0}
+  printf '%d%03d%03d\n' "$major" "$minor" "$patch"
+}
+
+check_checksum_manifest() {
+  if [[ ! -f SHA256SUMS ]]; then
+    return 0
+  fi
+
+  local file
+  local missing=0
+  for file in "${CHECKSUM_FILES[@]}"; do
+    if ! rg -n " ${file}$|\\*${file}$" SHA256SUMS >/dev/null 2>&1; then
+      warn "SHA256SUMS does not include $file"
+      missing=1
+    fi
+  done
+
+  if (( missing == 0 )); then
+    pass "SHA256SUMS covers the core helper scripts"
+  fi
+}
+
+check_artifact_markers() {
+  local file
+  local version
+  local repo_num
+  local file_num
+  local toolkit_repo=0
+
+  repo_num=$(version_to_number "$REPO_VERSION")
+  if [[ -d templates ]] && rg -n '^# Vibe Coding Protocols' README.md >/dev/null 2>&1; then
+    toolkit_repo=1
+  fi
+
+  if [[ -d templates ]]; then
+    for file in "${COPY_READY_TEMPLATE_FILES[@]}"; do
+      if [[ ! -f "$file" ]]; then
+        warn "Copy-ready template missing: $file"
+        ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+        continue
+      fi
+
+      if ! rg -n '^<!-- vcp-artifact:' "$file" >/dev/null 2>&1; then
+        warn "Copy-ready template missing vcp-artifact marker: $file"
+        ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+      fi
+
+      if ! rg -n '^<!-- vcp-version:' "$file" >/dev/null 2>&1; then
+        warn "Copy-ready template missing vcp-version marker: $file"
+        ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+        continue
+      fi
+
+      version=$(sed -n 's/^<!-- vcp-version: \(v[0-9.]*\) -->$/\1/p' "$file" | head -1)
+      if [[ -n "$version" ]]; then
+        file_num=$(version_to_number "$version")
+        if (( file_num < repo_num )); then
+          warn "Copy-ready template version marker is older than repo package in $file"
+          ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+        fi
+      fi
+    done
+  fi
+
+  for file in "${COPIED_ARTIFACT_FILES[@]}"; do
+    if [[ ! -f "$file" ]]; then
+      continue
+    fi
+
+    if (( toolkit_repo )) && [[ "$file" == "AGENTS.md" ]]; then
+      continue
+    fi
+
+    if ! rg -n '^<!-- vcp-version:' "$file" >/dev/null 2>&1; then
+      warn "Project artifact does not expose a vcp-version marker: $file"
+      ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+      continue
+    fi
+
+    version=$(sed -n 's/^<!-- vcp-version: \(v[0-9.]*\) -->$/\1/p' "$file" | head -1)
+    if [[ -n "$version" ]]; then
+      file_num=$(version_to_number "$version")
+      if (( file_num + 2 < repo_num )); then
+        warn "Project artifact marker looks older than the current toolkit in $file"
+        ARTIFACT_VERSION_WARNINGS=$((ARTIFACT_VERSION_WARNINGS + 1))
+      fi
+    fi
+  done
+}
+
 for arg in "$@"; do
   case "$arg" in
     --starter|--hardening|--audit)
@@ -387,6 +519,9 @@ if project_has_file package.json; then
   fi
 fi
 
+check_checksum_manifest
+check_artifact_markers
+
 if project_has_any_file requirements.txt pyproject.toml; then
   if project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
     run_check pass "Python dependency lock or pinned export present" 5 safety
@@ -446,11 +581,13 @@ if (( FAIL == 0 )) && (( WARN == 0 )); then
   run_check pass "No suspicious secret-like assignments detected in quick scan" 10 secrets
 fi
 
-for public_doc in ARCHITECTURE.md PROJECT_MAP.md AGENTS.md; do
-  if [[ -f "$public_doc" ]]; then
-    warn "Public root $public_doc exists; make sure public docs are sanitized"
-  fi
-done
+if project_has_any_file templates/AGENTS.md templates/PROJECT_MAP.md; then
+  for public_doc in ARCHITECTURE.md PROJECT_MAP.md AGENTS.md; do
+    if [[ -f "$public_doc" ]]; then
+      warn "Public root $public_doc exists; make sure public docs are sanitized"
+    fi
+  done
+fi
 
 # Level 3: optional scanner integration
 if (( RUN_SCANNERS )); then
@@ -532,6 +669,7 @@ if (( JSON_MODE )); then
   printf '  "core_score": %s,\n' "$CORE_SCORE"
   printf '  "scanner_bonus": %s,\n' "$SCANNER_BONUS"
   printf '  "placeholder_excluded": %s,\n' "$PLACEHOLDER_EXCLUDED"
+  printf '  "artifact_version_warnings": %s,\n' "$ARTIFACT_VERSION_WARNINGS"
   printf '  "scanner_status": "%s",\n' "$SCANNER_STATUS"
   printf '  "status": "%s",\n' "$STATUS"
   printf '  "pass": %s,\n' "$PASS"
@@ -559,6 +697,7 @@ else
   log_line "- excluded lines: $PLACEHOLDER_EXCLUDED"
   log_line "- placeholder terms: example, placeholder, changeme, your_, dummy, test, sample, [FILL IN]"
   log_line "- review excluded lines if you suspect a false negative"
+  log_line "ARTIFACT VERSION WARNINGS: $ARTIFACT_VERSION_WARNINGS"
   log_line "Breakdown:"
   log_line "- Structure: $STRUCTURE_SCORE/25"
   log_line "- Safety files: $SAFETY_SCORE/25"
