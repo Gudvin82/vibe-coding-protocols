@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.1.12 -->
+<!-- vcp-version: v0.2.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -45,6 +45,7 @@ These markers help you compare local copies with newer toolkit versions.
 - [../docs/artifact-versioning.md](../docs/artifact-versioning.md)
 - [../docs/ide-rules-dry-policy.md](../docs/ide-rules-dry-policy.md)
 - [../docs/hardening-thresholds.md](../docs/hardening-thresholds.md)
+- [../docs/release-readiness.md](../docs/release-readiness.md)
 - [../docs/scanner-integration.md](../docs/scanner-integration.md)
 - [../docs/migration/README.md](../docs/migration/README.md)
 

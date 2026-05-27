@@ -3,7 +3,7 @@
 > Synthetic examples — not real production projects.
 > Use them to understand the workflow, not as production templates.
 
-These examples are synthetic walkthroughs or synthetic runnable assets.
+These examples are synthetic walkthroughs or runnable learning assets.
 
 They are:
 - not real customer projects;
@@ -18,6 +18,7 @@ They are:
 | Todo app | Starter | [todo-app-starter](./todo-app-starter/) | runnable minimal project |
 | Python script | Lite | [python-script-vibe](./python-script-vibe/) | tiny script workflow |
 | React component | Lite | [react-component-vibe](./react-component-vibe/) | tiny UI workflow |
+| Legacy AI mess | Hardening | [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/) | realistic dirty hardening walkthrough |
 | Todo app | Hardening | [todo-app-vibe](./todo-app-vibe/) | audit artifacts |
 | Telegram bot | Hardening | [telegram-bot-vibe](./telegram-bot-vibe/) | bot token and abuse risks |
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
@@ -33,6 +34,7 @@ They are:
 - If you want a runnable starter example, start with [todo-app-starter](./todo-app-starter/)
 - If you want the smallest Python route, start with [python-script-vibe](./python-script-vibe/)
 - If you want the smallest React route, start with [react-component-vibe](./react-component-vibe/)
+- If you want a dirty hardening scenario, start with [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/)
 - If you want the full Starter-to-Hardening path, start with [todo-app-vibe](./todo-app-vibe/)
 - If you want a bot scenario, start with [telegram-bot-vibe](./telegram-bot-vibe/)
 - If you want the light route, start with [landing-page-vibe](./landing-page-vibe/)

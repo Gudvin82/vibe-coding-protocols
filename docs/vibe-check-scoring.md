@@ -22,3 +22,8 @@ It does not claim security certification.
 - `FAIL` means fix before merge or deploy.
 - `--strict` changes warning behavior.
 - score is not a security certification.
+
+## Extra modes
+
+- `--doctor` reports toolkit and environment readiness.
+- `--init-report` suggests a smallest safe route without changing files.

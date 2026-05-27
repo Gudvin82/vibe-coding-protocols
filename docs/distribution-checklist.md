@@ -11,6 +11,13 @@ Use this checklist before promoting the repository more broadly.
 - [ ] Enable Discussions if wanted
 - [ ] Confirm issue templates appear correctly
 
+## Release hygiene
+
+- [ ] `VERSION` matches the release tag
+- [ ] `docs/release-v0.2.0.md` exists
+- [ ] `SHA256SUMS` updated
+- [ ] self-dogfooding checks passed
+
 ## External
 
 - [ ] Submit PR to awesome-vibe-coding

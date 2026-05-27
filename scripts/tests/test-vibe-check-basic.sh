@@ -3,6 +3,8 @@ set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
 FIXTURES="$ROOT/scripts/tests/fixtures"
+TMP_PARENT=$(mktemp -d)
+trap 'rm -rf "$TMP_PARENT"' EXIT
 
 assert_contains() {
   local haystack="$1"
@@ -13,126 +15,116 @@ assert_contains() {
   fi
 }
 
+assert_json_key() {
+  local json_input="$1"
+  local expr="$2"
+  JSON_INPUT="$json_input" python3 - "$expr" <<'PY'
+import json
+import os
+import sys
+expr = sys.argv[1]
+data = json.loads(os.environ["JSON_INPUT"])
+value = eval(expr, {"__builtins__": {}}, {"data": data})
+if not value:
+    raise SystemExit(1)
+PY
+}
+
+make_temp_repo() {
+  local name="$1"
+  local source="$FIXTURES/$name"
+  local target="$TMP_PARENT/$name"
+  rm -rf "$target"
+  mkdir -p "$target"
+  if [[ -d "$source" ]]; then
+    cp -R "$source"/. "$target"/
+  fi
+  printf '%s\n' "$target"
+}
+
 help_output=$(bash "$ROOT/scripts/vibe-check.sh" --help)
 assert_contains "$help_output" "Usage:"
+assert_contains "$help_output" "--doctor"
+assert_contains "$help_output" "--init-report"
 
-json_output=$(cd "$ROOT" && bash scripts/vibe-check.sh --audit --json)
-assert_contains "$json_output" '"placeholder_excluded":'
-assert_contains "$json_output" '"artifact_version_warnings":'
-assert_contains "$json_output" '"content_quality_warnings":'
-python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$json_output" >/dev/null
+repo_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --audit --json)
+assert_contains "$repo_json" '"placeholder_excluded":'
+assert_contains "$repo_json" '"artifact_version_warnings":'
+assert_contains "$repo_json" '"content_quality_warnings":'
+python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$repo_json" >/dev/null
 
-starter_dir="$FIXTURES/starter-repo"
-rm -rf "$starter_dir"
-mkdir -p "$starter_dir"
-cat > "$starter_dir/README.md" <<'DOC'
-# Starter fixture
-DOC
-cat > "$starter_dir/.gitignore" <<'DOC'
-.env
-node_modules
-dist
-build
-*.log
-DOC
-cat > "$starter_dir/AGENTS.md" <<'DOC'
-<!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.1.12 -->
-<!-- methodology-version: v1.4 -->
+doctor_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --doctor --json)
+assert_contains "$doctor_json" '"mode": "doctor"'
+assert_contains "$doctor_json" '"recommended_route":'
+python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$doctor_json" >/dev/null
 
-# AGENTS
-DOC
-cat > "$starter_dir/PROJECT_MAP.md" <<'DOC'
-<!-- vcp-artifact: PROJECT_MAP -->
-<!-- vcp-version: v0.1.12 -->
-<!-- methodology-version: v1.4 -->
+init_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --init-report --json)
+assert_contains "$init_json" '"mode": "init-report"'
+assert_contains "$init_json" '"copy_first":'
+python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$init_json" >/dev/null
 
-# PROJECT_MAP
-
-## Routes / Endpoints
-- public routes: /
-- API routes: /api/tasks
-
-## Components / Modules
-- modules: tasks
-
-## Active / Deferred surfaces
-- active now: task list
-- deferred until later: auth
-DOC
-cat > "$starter_dir/SECURITY_BASELINE.md" <<'DOC'
-<!-- vcp-artifact: SECURITY_BASELINE -->
-<!-- vcp-version: v0.1.12 -->
-<!-- methodology-version: v1.4 -->
-
-# SECURITY_BASELINE
-
-- [ ] Auth cookies use HttpOnly
-- [ ] Auth cookies use Secure in production
-DOC
-cat > "$starter_dir/.env.example" <<'DOC'
-APP_TOKEN=[example-placeholder]
-DOC
-mkdir -p "$starter_dir/prompts"
-cat > "$starter_dir/prompts/product-brief-prompt_en.md" <<'DOC'
-# Product Brief
-DOC
-cat > "$starter_dir/package.json" <<'DOC'
-{
-  "name": "starter-fixture",
-  "version": "0.0.0"
-}
-DOC
-cat > "$starter_dir/package-lock.json" <<'DOC'
-{}
-DOC
+starter_dir=$(make_temp_repo starter-good)
 starter_json=$(cd "$starter_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)
-assert_contains "$starter_json" '"status": "pass"'
-python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$starter_json" >/dev/null
+assert_json_key "$starter_json" "data['fail'] == 0"
+assert_json_key "$starter_json" "data['status'] in ('pass', 'warn')"
 
-empty_dir="$FIXTURES/empty-repo"
-rm -rf "$empty_dir"
-mkdir -p "$empty_dir"
+hardening_dir=$(make_temp_repo hardening-good)
+hardening_json=$(cd "$hardening_dir" && bash "$ROOT/scripts/vibe-check.sh" --audit --json)
+assert_json_key "$hardening_json" "data['fail'] == 0"
+
+empty_dir=$(make_temp_repo empty-repo)
 set +e
-empty_output=$(cd "$empty_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)
+empty_json=$(cd "$empty_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)
 empty_code=$?
 set -e
-if [[ "$empty_code" -ne 1 && "$empty_code" -ne 0 ]]; then
+if [[ "$empty_code" -ne 0 && "$empty_code" -ne 1 ]]; then
   echo "Unexpected exit code for empty fixture: $empty_code" >&2
   exit 1
 fi
-assert_contains "$empty_output" '"status":'
-python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$empty_output" >/dev/null
+assert_contains "$empty_json" '"status":'
 
-env_dir="$FIXTURES/env-repo"
-rm -rf "$env_dir"
-mkdir -p "$env_dir"
-cat > "$env_dir/README.md" <<'DOC'
-# Env fixture
-DOC
-cat > "$env_dir/.gitignore" <<'DOC'
-.env
-node_modules
-dist
-build
-*.log
-DOC
-cat > "$env_dir/AGENTS.md" <<'DOC'
-# AGENTS
-DOC
-cat > "$env_dir/.env" <<'DOC'
-SECRET=real-looking-value
+leak_dir=$(make_temp_repo env-leak)
+cat <<'DOC' > "$leak_dir/.env"
+SECRET=synthetic-test-value
 DOC
 set +e
-env_json=$(cd "$env_dir" && bash "$ROOT/scripts/vibe-check.sh" --audit --json)
+env_json=$(cd "$leak_dir" && bash "$ROOT/scripts/vibe-check.sh" --audit --json)
 env_code=$?
 set -e
 if [[ "$env_code" -eq 2 ]]; then
-  echo "Unexpected runtime failure in env fixture" >&2
+  echo "Unexpected runtime failure in env-leak fixture" >&2
   exit 1
 fi
-assert_contains "$env_json" '"status":'
-assert_contains "$env_json" '"placeholder_excluded":'
-python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$env_json" >/dev/null
+assert_json_key "$env_json" "data['fail'] >= 1 or data['warn'] >= 1"
 
-echo "Basic vibe-check tests passed."
+empty_backlog_dir=$(make_temp_repo empty-audit-backlog)
+empty_backlog_json=$(cd "$empty_backlog_dir" && bash "$ROOT/scripts/vibe-check.sh" --audit --json)
+assert_json_key "$empty_backlog_json" "data['content_quality_warnings'] > 0"
+
+outdated_dir=$(make_temp_repo outdated-vcp-version)
+outdated_json=$(cd "$outdated_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)
+assert_json_key "$outdated_json" "data['artifact_version_warnings'] > 0"
+
+flattened_dir=$(make_temp_repo flattened-docs)
+python3 - <<'PY' "$flattened_dir"
+from pathlib import Path
+import sys
+root = Path(sys.argv[1])
+(root / "flattened.md").write_text("# Title " + ("x" * 700), encoding="utf-8")
+PY
+set +e
+flattened_output=$(cd "$flattened_dir" && python3 "$ROOT/scripts/check-newlines.py" "$flattened_dir" 2>&1)
+flattened_code=$?
+set -e
+if [[ "$flattened_code" -eq 0 ]]; then
+  echo "Expected check-newlines.py to fail for flattened docs fixture" >&2
+  exit 1
+fi
+assert_contains "$flattened_output" "flattened.md"
+
+missing_sha_dir=$(make_temp_repo missing-sha256sums)
+missing_sha_json=$(cd "$missing_sha_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)
+assert_json_key "$missing_sha_json" "data['status'] == 'warn'"
+assert_json_key "$missing_sha_json" "data['warn'] >= 1"
+
+printf '%s\n' 'Basic vibe-check tests passed.'

@@ -1,9 +1,9 @@
 # CI Examples
 
-These files are examples, not a promise of full product support
-for every CI platform.
+These CI examples are secondary.
+The canonical self-dogfooding workflow is GitHub Actions in `.github/workflows/vibe-check.yml`.
 
-Use them as a starting point and adapt them to your own:
+Use these files as examples and adapt them to your own:
 - repository layout;
 - shell image;
 - dependency setup;

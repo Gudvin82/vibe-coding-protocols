@@ -8,6 +8,8 @@ MODE=""
 STRICT=0
 RUN_SCANNERS=0
 JSON_MODE=0
+DOCTOR_MODE=0
+INIT_REPORT_MODE=0
 PASS=0
 WARN=0
 FAIL=0
@@ -26,7 +28,11 @@ ARTIFACT_VERSION_WARNINGS=0
 CONTENT_QUALITY_WARNINGS=0
 REPO_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/VERSION" 2>/dev/null || true)"
 if [[ -z "$REPO_VERSION" ]]; then
-  REPO_VERSION="v0.1.12"
+  REPO_VERSION="v0.2.0"
+fi
+METHODOLOGY_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/METHODOLOGY_VERSION" 2>/dev/null || true)"
+if [[ -z "$METHODOLOGY_VERSION" ]]; then
+  METHODOLOGY_VERSION="v1.4"
 fi
 
 CHECKSUM_FILES=(
@@ -71,6 +77,8 @@ Usage:
   bash scripts/vibe-check.sh --starter
   bash scripts/vibe-check.sh --hardening
   bash scripts/vibe-check.sh --audit
+  bash scripts/vibe-check.sh --doctor
+  bash scripts/vibe-check.sh --init-report
   bash scripts/vibe-check.sh --strict
   bash scripts/vibe-check.sh --scanners
   bash scripts/vibe-check.sh --json
@@ -81,6 +89,8 @@ Examples:
   bash scripts/vibe-check.sh --hardening --json
   bash scripts/vibe-check.sh --audit --strict
   bash scripts/vibe-check.sh --audit --scanners
+  bash scripts/vibe-check.sh --doctor --json
+  bash scripts/vibe-check.sh --init-report
 
 Exit codes:
   0  PASS or WARN in default mode
@@ -89,6 +99,8 @@ Exit codes:
 
 See:
   docs/vibe-check-scoring.md
+  docs/vibe-check-doctor.md
+  docs/vibe-check-init-report.md
 USAGE
 }
 
@@ -170,6 +182,216 @@ project_has_any_file() {
     fi
   done
   return 1
+}
+
+command_available() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+is_git_repo() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1
+}
+
+has_code_files() {
+  if project_has_any_file package.json pyproject.toml requirements.txt go.mod Cargo.toml composer.json Gemfile; then
+    return 0
+  fi
+  find . \
+    \( -path './.git' -o -path './node_modules' -o -path './dist' -o -path './build' -o -path './coverage' -o -path './docs' -o -path './templates' -o -path './scripts' -o -path './examples' -o -path './checklists' -o -path './case-studies' -o -path './commands' -o -path './protocols' -o -path './prompts' -o -path './assets' -o -path './.github' \) -prune \
+    -o -type f \( -name '*.js' -o -name '*.ts' -o -name '*.tsx' -o -name '*.jsx' -o -name '*.py' -o -name '*.go' -o -name '*.rb' -o -name '*.php' -o -name '*.java' \) -print -quit \
+    | grep -q .
+}
+
+suggest_route() {
+  local has_code=0
+  local has_agents=0
+  local has_project_map=0
+  local has_audit=0
+  local has_extended=0
+
+  has_code_files && has_code=1
+  project_has_any_file AGENTS.md CLAUDE.md && has_agents=1
+  project_has_file PROJECT_MAP.md && has_project_map=1
+  project_has_file AUDIT_BACKLOG.md && has_audit=1
+  project_has_any_file SECURITY_BASELINE.md SECURITY_OPERATIONS_BASELINE.md THIRD_PARTY_REGISTRY.md INCIDENT_RECOVERY_RUNBOOK.md && has_extended=1
+
+  if (( has_extended )); then
+    printf 'Extended\n'
+  elif (( has_code && (has_audit || has_project_map || has_agents) )); then
+    printf 'Hardening\n'
+  elif (( has_agents || has_project_map )); then
+    printf 'Starter\n'
+  else
+    printf 'Lite\n'
+  fi
+}
+
+doctor_report() {
+  local route
+  local bash_version
+  local git_repo=no
+  local sha_present=missing
+  local agents_present=missing
+  local template_agents_present=missing
+  local git_tool=missing
+  local python_tool=missing
+  local node_tool=missing
+  local npm_tool=missing
+  local gitleaks=missing
+  local trufflehog=missing
+  local trivy=missing
+  local semgrep=missing
+
+  route=$(suggest_route)
+  bash_version="${BASH_VERSION:-unknown}"
+  is_git_repo && git_repo=yes
+  [[ -f SHA256SUMS ]] && sha_present=present
+  [[ -f AGENTS.md ]] && agents_present=present
+  [[ -f templates/AGENTS.md ]] && template_agents_present=present
+  command_available git && git_tool=found
+  command_available python3 && python_tool=found
+  command_available node && node_tool=found
+  command_available npm && npm_tool=found
+  command_available gitleaks && gitleaks=found
+  command_available trufflehog && trufflehog=found
+  command_available trivy && trivy=found
+  command_available semgrep && semgrep=found
+
+  if (( JSON_MODE )); then
+    printf '{\n'
+    printf '  "mode": "doctor",\n'
+    printf '  "version": "%s",\n' "$REPO_VERSION"
+    printf '  "methodology_version": "%s",\n' "$METHODOLOGY_VERSION"
+    [[ "$git_repo" == "yes" ]] && printf '  "git_repo": true,\n' || printf '  "git_repo": false,\n'
+    [[ "$sha_present" == "present" ]] && printf '  "sha256sums": true,\n' || printf '  "sha256sums": false,\n'
+    printf '  "tools": {\n'
+    [[ "$git_tool" == "found" ]] && printf '    "git": true,\n' || printf '    "git": false,\n'
+    [[ "$python_tool" == "found" ]] && printf '    "python3": true,\n' || printf '    "python3": false,\n'
+    [[ "$node_tool" == "found" ]] && printf '    "node": true,\n' || printf '    "node": false,\n'
+    [[ "$npm_tool" == "found" ]] && printf '    "npm": true\n' || printf '    "npm": false\n'
+    printf '  },\n'
+    printf '  "optional_scanners": {\n'
+    [[ "$gitleaks" == "found" ]] && printf '    "gitleaks": true,\n' || printf '    "gitleaks": false,\n'
+    [[ "$trufflehog" == "found" ]] && printf '    "trufflehog": true,\n' || printf '    "trufflehog": false,\n'
+    [[ "$trivy" == "found" ]] && printf '    "trivy": true,\n' || printf '    "trivy": false,\n'
+    [[ "$semgrep" == "found" ]] && printf '    "semgrep": true\n' || printf '    "semgrep": false\n'
+    printf '  },\n'
+    printf '  "recommended_route": "%s"\n' "$route"
+    printf '}\n'
+    return 0
+  fi
+
+  cat <<EOF
+VCP Doctor
+
+Toolkit:
+- VERSION: $REPO_VERSION
+- Methodology: $METHODOLOGY_VERSION
+- Git repository: $git_repo
+- SHA256SUMS: $sha_present
+- AGENTS.md: $agents_present
+- templates/AGENTS.md: $template_agents_present
+
+Environment:
+- bash: $bash_version
+- git: $git_tool
+- python3: $python_tool
+- node: $node_tool
+- npm: $npm_tool
+
+Optional scanners:
+- gitleaks: $gitleaks
+- trufflehog: $trufflehog
+- trivy: $trivy
+- semgrep: $semgrep
+
+Recommended next step:
+- $route
+EOF
+}
+
+init_report() {
+  local route
+  local repo_type="directory"
+  local has_code=no
+  local has_agents=no
+  local has_project_map=no
+  local has_audit=no
+  local has_security=no
+  local stack_markers=()
+  local stack_summary
+
+  is_git_repo && repo_type="git repository"
+  has_code_files && has_code=yes
+  project_has_any_file AGENTS.md CLAUDE.md && has_agents=yes
+  project_has_file PROJECT_MAP.md && has_project_map=yes
+  project_has_file AUDIT_BACKLOG.md && has_audit=yes
+  project_has_any_file SECURITY_BASELINE.md SECURITY_OPERATIONS_BASELINE.md && has_security=yes
+  project_has_file package.json && stack_markers+=("package.json")
+  project_has_file pyproject.toml && stack_markers+=("pyproject.toml")
+  project_has_file requirements.txt && stack_markers+=("requirements.txt")
+  project_has_file go.mod && stack_markers+=("go.mod")
+  project_has_file Cargo.toml && stack_markers+=("Cargo.toml")
+  stack_summary=$(IFS=', '; printf '%s' "${stack_markers[*]:-none}")
+  route=$(suggest_route)
+
+  if (( JSON_MODE )); then
+    printf '{\n'
+    printf '  "mode": "init-report",\n'
+    printf '  "repo_type": "%s",\n' "$repo_type"
+    [[ "$has_code" == "yes" ]] && printf '  "has_code": true,\n' || printf '  "has_code": false,\n'
+    [[ "$has_agents" == "yes" ]] && printf '  "has_agents": true,\n' || printf '  "has_agents": false,\n'
+    [[ "$has_project_map" == "yes" ]] && printf '  "has_project_map": true,\n' || printf '  "has_project_map": false,\n'
+    [[ "$has_audit" == "yes" ]] && printf '  "has_audit_backlog": true,\n' || printf '  "has_audit_backlog": false,\n'
+    [[ "$has_security" == "yes" ]] && printf '  "has_security_baseline": true,\n' || printf '  "has_security_baseline": false,\n'
+    printf '  "stack_markers": [' 
+    if ((${#stack_markers[@]})); then
+      local i
+      for i in "${!stack_markers[@]}"; do
+        [[ "$i" -gt 0 ]] && printf ', '
+        printf '"%s"' "${stack_markers[$i]}"
+      done
+    fi
+    printf '],\n'
+    printf '  "suggested_route": "%s",\n' "$route"
+    printf '  "copy_first": [\n'
+    printf '    "templates/AGENTS.md -> AGENTS.md",\n'
+    printf '    "templates/PROJECT_MAP.md -> PROJECT_MAP.md",\n'
+    printf '    "templates/AUDIT_BACKLOG.md -> AUDIT_BACKLOG.md"\n'
+    printf '  ],\n'
+    printf '  "first_command": "bash scripts/vibe-check.sh --starter"\n'
+    printf '}\n'
+    return 0
+  fi
+
+  cat <<EOF
+VCP Init Report
+
+Detected:
+- repo type: $repo_type
+- has code: $has_code
+- has AGENTS: $has_agents
+- has PROJECT_MAP: $has_project_map
+- has AUDIT_BACKLOG: $has_audit
+- has SECURITY_BASELINE: $has_security
+- has package.json / pyproject / etc: $stack_summary
+
+Suggested route:
+- $route
+
+Copy first:
+1. templates/AGENTS.md -> AGENTS.md
+2. templates/PROJECT_MAP.md -> PROJECT_MAP.md
+3. templates/AUDIT_BACKLOG.md -> AUDIT_BACKLOG.md
+
+Do not copy yet:
+- full SecOps
+- legal or payment checklist
+- all commands
+
+First command:
+bash scripts/vibe-check.sh --starter
+EOF
 }
 
 pattern_hit_count() {
@@ -290,6 +512,7 @@ version_to_number() {
 
 check_checksum_manifest() {
   if [[ ! -f SHA256SUMS ]]; then
+    warn "SHA256SUMS not found. Review-first install is weaker without checksum guidance."
     return 0
   fi
 
@@ -419,7 +642,7 @@ check_content_quality() {
 
 for arg in "$@"; do
   case "$arg" in
-    --starter|--hardening|--audit)
+    --starter|--hardening|--audit|--doctor|--init-report)
       if [[ -n "$MODE" ]]; then
         usage
         exit 2
@@ -453,6 +676,16 @@ if [[ -z "$MODE" ]]; then
     usage
     exit 2
   fi
+fi
+
+if [[ "$MODE" == "--doctor" ]]; then
+  doctor_report
+  exit 0
+fi
+
+if [[ "$MODE" == "--init-report" ]]; then
+  init_report
+  exit 0
 fi
 
 # Level 1: structure checks

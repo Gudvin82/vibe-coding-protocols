@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.2.0
+
+- Added self-dogfooding workflow documentation
+- Strengthened GitHub Actions self-check and job summary
+- Expanded `vibe-check` fixture tests
+- Added `vibe-check --doctor`
+- Added `vibe-check --init-report`
+- Added realistic dirty hardening example
+- Added release readiness, adoption feedback and known limitations docs
+
 ## v0.1.12
 
 - Added `VERSION` and `METHODOLOGY_VERSION`
@@ -26,7 +36,6 @@
 - Added placeholder filter transparency to `vibe-check`
 - Improved docs canonical map and route guidance
 - Polished raw-facing markdown formatting for final distribution readiness
-- Updated site GitHub toolkit blocks for lite adoption and final UX polish
 
 ## v0.1.9
 
@@ -39,13 +48,3 @@
 - Converted `public-vs-private-docs.md` to English-first with a Russian companion
 - Made PR diff guardrails configurable and docs-aware
 - Added a distribution checklist and v0.1.9 release notes
-
-## v0.1.8
-
-- Simplified README for faster first-time onboarding
-- Made `START_HERE.md` the canonical route chooser from the main README
-- Added English Product Brief prompt and clarified prompt language entry points
-- Adjusted `vibe-check` scoring to separate core score from optional scanner bonus
-- Clarified root `AGENTS.md` versus copy-ready templates
-- Expanded `INCIDENT_RECOVERY_RUNBOOK.md` and added `docs/metrics-to-track.md`
-- Polished site GitHub toolkit blocks for onboarding and adoption

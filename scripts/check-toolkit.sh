@@ -26,7 +26,13 @@ required_files=(
   docs/vibe-metrics.md
   docs/automated-vibe-check.md
   docs/ide-rules-dry-policy.md
-  docs/release-v0.1.12.md
+  docs/self-dogfooding.md
+  docs/release-readiness.md
+  docs/adoption-feedback.md
+  docs/known-limitations.md
+  docs/vibe-check-doctor.md
+  docs/vibe-check-init-report.md
+  docs/release-v0.2.0.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
   docs/release-v0.1.1.md
@@ -54,6 +60,7 @@ required_dirs=(
   examples/telegram-bot-vibe
   examples/landing-page-vibe
   examples/saas-backend-vibe
+  examples/legacy-ai-mess-vibe
 )
 
 for file in "${required_files[@]}"; do

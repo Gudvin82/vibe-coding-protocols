@@ -1,6 +1,7 @@
 # Automated Vibe Check
 
-`vibe-check` is a lightweight readiness check for repository structure, project memory, env hygiene and obvious workflow gaps.
+`vibe-check` is a lightweight readiness check for repository structure, project memory,
+env hygiene and obvious workflow gaps.
 
 It is not a security certification.
 
@@ -13,6 +14,10 @@ bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --strict
 bash scripts/vibe-check.sh --audit --json
 bash scripts/vibe-check.sh --audit --scanners
+bash scripts/vibe-check.sh --doctor
+bash scripts/vibe-check.sh --doctor --json
+bash scripts/vibe-check.sh --init-report
+bash scripts/vibe-check.sh --init-report --json
 bash scripts/vibe-check.sh --help
 ```
 
@@ -27,7 +32,17 @@ bash scripts/vibe-check.sh --help
 - artifact version marker visibility for copy-ready templates;
 - content quality warnings for key files that exist but still look empty.
 
-## Example JSON
+## Doctor mode
+
+Use `--doctor` when you want a quick toolkit and environment diagnosis.
+It reports versions, key files, tool availability, optional scanner availability and a suggested route.
+
+## Init report mode
+
+Use `--init-report` when you want a route suggestion without changing files.
+It reports detected files, stack hints, copy-first suggestions and the first command to run.
+
+## Example audit JSON
 
 ```json
 {
@@ -67,17 +82,13 @@ If you use public helper scripts from this repository:
 
 Keep pipe-to-bash only for empty or test repositories.
 
-## CI usage
+## Self-dogfooding CI
 
-Add it as a lightweight workflow gate for structure and obvious workflow gaps:
+The canonical self-dogfooding workflow in this repository is:
+- `.github/workflows/vibe-check.yml`
 
-```bash
-bash scripts/vibe-check.sh --starter
-bash scripts/vibe-check.sh --hardening
-bash scripts/vibe-check.sh --audit
-```
-
-The GitHub workflow in this repository checks the toolkit itself, not an arbitrary target application.
+It runs toolkit checks, version consistency, newline validation,
+script tests and the runnable `todo-app-starter` test.
 
 ## Changed files guardrail
 

@@ -11,6 +11,11 @@ No public real-world case study is claimed yet.
 - SaaS backend
 - Internal tool
 
+## Privacy for case submissions
+
+Share only sanitized material.
+Do not include secrets, customer data, internal URLs or private architecture notes.
+
 ## If you want to contribute later
 
 - [anonymized-case-template.md](./anonymized-case-template.md)

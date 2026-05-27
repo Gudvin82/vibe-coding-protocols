@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import sys
 
-ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else DEFAULT_ROOT
 EXTS = {".md", ".yml", ".yaml", ".sh", ".ps1", ".py"}
 SKIP_PARTS = {
     ".git",

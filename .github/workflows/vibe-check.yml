@@ -15,8 +15,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Toolkit structure check
         run: bash scripts/check-toolkit.sh
+
+      - name: Version consistency check
+        run: bash scripts/check-version-consistency.sh
+
+      - name: IDE rules consistency check
+        run: bash scripts/check-ide-rules-consistency.sh
+
+      - name: Newline check
+        run: python3 scripts/check-newlines.py
 
       - name: Placeholder scan
         run: bash scripts/scan-placeholders.sh
@@ -24,11 +37,21 @@ jobs:
       - name: Validate links
         run: python3 scripts/validate-links.sh
 
-      - name: Vibe check
-        run: bash scripts/vibe-check.sh --audit
+      - name: Vibe check audit JSON
+        run: bash scripts/vibe-check.sh --audit --json
 
       - name: Script tests
         run: bash scripts/tests/test-vibe-check-basic.sh
+
+      - name: Todo app starter tests
+        run: npm test --prefix examples/todo-app-starter
+
+      - name: Job summary
+        run: |
+          echo "## VCP self-check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- VERSION: $(cat VERSION)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Methodology: $(cat METHODOLOGY_VERSION)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- vibe-check: completed" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Diff size guardrail
         if: github.event_name == 'pull_request'

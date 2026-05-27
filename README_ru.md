@@ -4,10 +4,10 @@
 
 **Не просто коллекция prompt-ов.**
 
-Vibe Coding Protocols — это легкий configuration/workflow layer для AI-assisted разработки:
+Vibe Coding Protocols — это легкий operating layer для AI-assisted разработки:
 маршруты, Memory Bank files, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.1.12`  
+Пакет репозитория: `v0.2.0`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 Если вы читаете с мобильного:
@@ -85,6 +85,11 @@ shasum -a 256 init-minimal.sh
 
 Pipe-to-bash оставляйте только для пустых или тестовых репозиториев.
 
+## Self-dogfooding
+
+Этот репозиторий гоняет VCP-проверки на самом себе.
+См. [docs/self-dogfooding.md](./docs/self-dogfooding.md).
+
 ## `vibe-check`
 
 `vibe-check` — это readiness signal, а не security certification.
@@ -97,6 +102,8 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --json
+bash scripts/vibe-check.sh --doctor
+bash scripts/vibe-check.sh --init-report
 ```
 
 Строгий gate:
@@ -113,6 +120,14 @@ bash scripts/vibe-check.sh --audit --scanners
 ```
 
 `|| true` не используйте в CI или release gates.
+
+## Примеры и ограничения
+
+- [examples/README.md](./examples/README.md)
+- [examples/legacy-ai-mess-vibe](./examples/legacy-ai-mess-vibe/)
+- [docs/known-limitations.md](./docs/known-limitations.md)
+- [docs/release-readiness.md](./docs/release-readiness.md)
+- [docs/adoption-feedback.md](./docs/adoption-feedback.md)
 
 ## Полезные ссылки
 

@@ -4,7 +4,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.12-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.2.0-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
@@ -13,10 +13,10 @@
 
 **Not a prompt collection.**
 
-Vibe Coding Protocols is a lightweight configuration and workflow layer for AI-assisted delivery:
+Vibe Coding Protocols is a lightweight operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.1.12`  
+Repository package: `v0.2.0`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 If you are on mobile, start with:
@@ -31,6 +31,7 @@ This repository gives you:
 - copy-ready AI IDE rules and Memory Bank files;
 - Lite, Starter, Hardening and Extended routes;
 - lightweight checks such as `vibe-check`;
+- self-dogfooding GitHub Actions and script tests;
 - synthetic examples, checklists and handoff docs.
 
 Not sure where to start? Open [START_HERE.md](./START_HERE.md).
@@ -146,6 +147,11 @@ Core memory files used across the toolkit:
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
 - `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 
+## Self-dogfooding
+
+This repository runs VCP checks on itself.
+See [docs/self-dogfooding.md](./docs/self-dogfooding.md).
+
 ## Vibe-check
 
 `vibe-check` is a lightweight readiness signal.
@@ -191,9 +197,20 @@ bash scripts/vibe-check.sh --audit --scanners || true
 
 Do not use `|| true` in CI or release gates.
 
+### Doctor and route suggestion
+
+```bash
+bash scripts/vibe-check.sh --doctor
+bash scripts/vibe-check.sh --doctor --json
+bash scripts/vibe-check.sh --init-report
+bash scripts/vibe-check.sh --init-report --json
+```
+
 See:
 - [docs/vibe-check-scoring.md](./docs/vibe-check-scoring.md)
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/vibe-check-doctor.md](./docs/vibe-check-doctor.md)
+- [docs/vibe-check-init-report.md](./docs/vibe-check-init-report.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 
 ## Routes
@@ -209,9 +226,28 @@ Examples are synthetic or sanitized learning examples.
 They are not claimed as real-world case studies.
 
 - [examples/README.md](./examples/README.md)
+- [examples/legacy-ai-mess-vibe](./examples/legacy-ai-mess-vibe/)
 - [templates/examples/AUDIT_BACKLOG.filled.example.md](./templates/examples/AUDIT_BACKLOG.filled.example.md)
 - [templates/examples/THIRD_PARTY_REGISTRY.filled.example.md](./templates/examples/THIRD_PARTY_REGISTRY.filled.example.md)
 - [templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](./templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
+
+## Release readiness
+
+Before tagging a release, use:
+- [docs/self-dogfooding.md](./docs/self-dogfooding.md)
+- [docs/release-readiness.md](./docs/release-readiness.md)
+- [docs/release-v0.2.0.md](./docs/release-v0.2.0.md)
+
+## Known limitations
+
+See [docs/known-limitations.md](./docs/known-limitations.md).
+
+Short version:
+- no guaranteed security;
+- no automatic model routing engine;
+- optional scanners are not bundled;
+- examples are synthetic;
+- bash-first toolkit.
 
 ## Docs
 
@@ -222,6 +258,8 @@ Start here when you need more depth:
 - [docs/troubleshooting.md](./docs/troubleshooting.md)
 - [docs/comparison.md](./docs/comparison.md)
 - [docs/versioning.md](./docs/versioning.md)
+- [docs/self-dogfooding.md](./docs/self-dogfooding.md)
+- [docs/adoption-feedback.md](./docs/adoption-feedback.md)
 - [docs/ide-rules-dry-policy.md](./docs/ide-rules-dry-policy.md)
 - [docs/artifact-versioning.md](./docs/artifact-versioning.md)
 - [protocols/README.md](./protocols/README.md)

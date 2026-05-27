@@ -20,6 +20,7 @@ Start here:
 | I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
 | I want security docs | [docs/security-operations.md](./security-operations.md) |
 | I need production route guidance | [protocols/ai-project-extended-protocol.md](../protocols/ai-project-extended-protocol.md) |
+| I need a route suggestion first | [docs/vibe-check-init-report.md](./vibe-check-init-report.md) |
 
 ## User-facing docs
 
@@ -31,17 +32,23 @@ Start here:
 - [comparison.md](./comparison.md)
 - [public-vs-private-docs.md](./public-vs-private-docs.md)
 - [metrics-to-track.md](./metrics-to-track.md)
+- [adoption-feedback.md](./adoption-feedback.md)
+- [known-limitations.md](./known-limitations.md)
 
 ## Security and hardening docs
 
 - [auth-session-security.md](./auth-session-security.md)
 - [automated-vibe-check.md](./automated-vibe-check.md)
 - [vibe-check-scoring.md](./vibe-check-scoring.md)
+- [vibe-check-doctor.md](./vibe-check-doctor.md)
+- [vibe-check-init-report.md](./vibe-check-init-report.md)
 - [artifact-versioning.md](./artifact-versioning.md)
 - [scanner-integration.md](./scanner-integration.md)
 - [hardening-thresholds.md](./hardening-thresholds.md)
 - [secret-rotation-and-storage.md](./secret-rotation-and-storage.md)
 - [security-operations.md](./security-operations.md)
+- [release-readiness.md](./release-readiness.md)
+- [self-dogfooding.md](./self-dogfooding.md)
 - [windows.md](./windows.md)
 
 ## AI workflow docs

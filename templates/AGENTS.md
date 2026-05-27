@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.1.12 -->
+<!-- vcp-version: v0.2.0 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS.md
