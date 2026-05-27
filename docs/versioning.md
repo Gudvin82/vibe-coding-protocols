@@ -6,15 +6,17 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.7`
+- Repository package: `v0.1.9`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 This split is intentional:
 - the website is the public reading / methodology surface;
 - the GitHub repository is the markdown / fork / copy / toolkit package.
 
-A future repository `v1.0.0` release may be used after external feedback,
-real adoption signals and a stable toolkit interface.
+A future repository `v1.0.0` release may be used after external feedback and a
+stable toolkit interface.
+
+They are related but not identical.
 
 ## What would make repository v1.0.0?
 
@@ -32,12 +34,13 @@ The repository should move to `v1.0.0` only after at least some of the following
 
 ## Prompt versioning inside real projects
 
-Если проект ведется через AI, полезно сохранять адаптированные prompt-блоки в `docs/PROMPTS.md`.
+If a project is run through AI-assisted delivery, it can help to keep adapted
+prompt blocks in `docs/PROMPTS.md`.
 
-Минимум:
-- дата;
-- версия протокола;
-- какой prompt использовался;
-- какой был результат;
-- какие файлы были изменены;
-- какие риски остались.
+Minimum fields:
+- date;
+- protocol version;
+- prompt used;
+- result;
+- changed files;
+- remaining risks.

@@ -59,6 +59,8 @@ Missing scanners:
 - do not fail default mode;
 - do not remove a large part of the core score.
 
+See [vibe-check-scoring.md](./vibe-check-scoring.md) for the category model.
+
 Example output:
 
 ```text

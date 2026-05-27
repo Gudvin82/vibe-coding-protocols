@@ -6,7 +6,7 @@ Practical protocols, prompts, checklists and markdown templates for safer AI-ass
 
 Vibe Coding Protocols helps founders, solo builders and teams turn AI-assisted coding into a controlled delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations and audit backlog.
 
-Repository package: `v0.1.8`  
+Repository package: `v0.1.9`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -62,7 +62,7 @@ curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main
 Optional local guardrail:
 
 ```bash
-bash scripts/install-hooks.sh
+bash scripts/install-hooks.sh --mode starter
 ```
 
 ## 10-second overview

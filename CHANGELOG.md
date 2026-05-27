@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.9
+
+- Clarified root `AGENTS.md`, root `CLAUDE.md` and copy-ready template roles
+- Synchronized Memory Bank naming across README, AGENTS and templates
+- Added `install-hooks.sh` modes and dry-run support
+- Added `docs/vibe-check-scoring.md`
+- Improved commands README and docs navigation for public distribution
+- Labeled examples more clearly as synthetic or sanitized learning material
+- Converted `public-vs-private-docs.md` to English-first with a Russian companion
+- Made PR diff guardrails configurable and docs-aware
+- Added a distribution checklist and v0.1.9 release notes
+
 ## v0.1.8
 
 - Simplified README for faster first-time onboarding
@@ -89,6 +101,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.8`.
+Repository version started at `v0.1.0` and now continues with `v0.1.9`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

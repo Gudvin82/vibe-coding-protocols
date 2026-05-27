@@ -8,11 +8,12 @@ Make atomic, safe, well-explained changes and keep the smallest practical diff p
 
 Read and update the project context files when they exist:
 - `README.md`
-- `AGENTS.md`
+- `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
-- `ARCHITECTURE.md`
-- `AUDIT_BACKLOG.md`
-- `docs/PROMPTS.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
+- `AUDIT_BACKLOG.md`, for hardening
+- `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
+- `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 
 ## Token-aware code discovery
 

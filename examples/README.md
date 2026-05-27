@@ -1,5 +1,8 @@
 # Examples
 
+> Synthetic examples — not real production projects.
+> Use them to understand the workflow, not as production templates.
+
 These examples are synthetic walkthroughs or synthetic runnable assets.
 
 They are:

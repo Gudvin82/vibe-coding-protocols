@@ -1,36 +1,67 @@
-# Public vs Private Docs
+# Public vs Private Documentation
 
-Этот репозиторий содержит публичные templates.
+Use this guide to decide what can live in a public repository and what should
+stay private, sanitized or access-controlled.
 
-## Что здесь можно хранить
+## Safe to publish
 
-- публичные markdown-шаблоны;
-- универсальные checklists;
+- public markdown templates;
+- reusable checklists;
 - vendor-neutral prompts;
 - sanitized examples;
-- общие architecture patterns без sensitive details.
+- high-level architecture patterns without sensitive operational details;
+- release notes and public onboarding docs.
 
-## Что не стоит выкладывать публично
+## Keep private
 
-Не публикуйте в открытом repo:
+Do not publish in an open repository:
 - secrets;
 - internal endpoints;
-- внутренние IP;
-- tokens;
+- internal IP ranges;
+- real tokens or credentials;
 - admin routes;
 - private APIs;
-- incident details;
+- incident details with operational specifics;
 - production configs;
 - customer data;
-- реальные on-call / escalation paths;
-- private architecture diagrams с operational specifics.
+- real on-call or escalation paths;
+- detailed architecture diagrams that reveal sensitive operations.
 
-## Real project docs
+## Sanitize before sharing with AI
 
-Реальные `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE.md`, incident runbooks, deployment notes и security docs проекта часто содержат sensitive details.
+Before pasting internal docs into an AI tool:
+- remove secrets and tokens;
+- replace real customer names and identifiers;
+- remove internal hostnames and IPs;
+- mask production-only routes and credentials;
+- keep only the minimum architecture detail needed for the task.
 
-Их лучше хранить:
-- private;
-- sanitized;
-- encrypted;
-- вне public webroot.
+## Encrypt or restrict access
+
+Real project `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md`,
+incident runbooks, deployment notes and security docs often contain sensitive
+details.
+
+Store them in a private repository, encrypted storage or another access-restricted
+system when they contain operational specifics.
+
+## Architecture Source of Truth policy
+
+The public template in this repository is safe to copy and adapt.
+
+Your real project version may need:
+- private deployment paths;
+- internal integration notes;
+- secret-handling details;
+- rollback contacts;
+- incident recovery procedures;
+- accepted risk ownership.
+
+That real version should usually stay private or be carefully sanitized.
+
+## Examples
+
+The examples in this repository are synthetic or sanitized learning material.
+
+They are not claimed as real production projects, and they should not be used
+as proof that a public project is safe to expose in the same way.

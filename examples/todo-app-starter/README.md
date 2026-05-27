@@ -2,6 +2,9 @@
 
 # todo-app-starter
 
+> Synthetic example — not a real production project.
+> Use it to understand the workflow, not as a production template.
+
 Synthetic runnable example for the Starter path.
 
 This is a learning example, not a production app.

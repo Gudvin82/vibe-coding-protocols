@@ -52,3 +52,4 @@ Answer 5 questions to choose your route.
 - Use the `Core` path when the project is still private, local or MVP-stage.
 - Use the `Extended` path when the project is public, monetized, client-facing or production-bound.
 - `vibe-check` is a readiness signal, not a security certification.
+- Versioning note: see [docs/versioning.md](./docs/versioning.md).

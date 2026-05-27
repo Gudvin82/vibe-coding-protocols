@@ -7,7 +7,7 @@ Start here.
 3. Use `protocols/ai-project-starter-protocol.md` if the project is new.
 4. Use `protocols/ai-project-hardening-protocol.md` if code already exists.
 5. Do not write code before the route is confirmed.
-6. Use the Memory Bank: `README.md`, `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE.md`, `AUDIT_BACKLOG.md`.
+6. Use the Memory Bank: `README.md`, `AGENTS.md` or `CLAUDE.md`, `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md` if needed, `AUDIT_BACKLOG.md` for hardening, `docs/PROMPTS.md` or `PROMPTS.md` if prompts are tracked, `SECURITY.md` or `SECURITY_BASELINE.md` for public or production projects.
 7. Respect Stop Conditions and approval gates.
 8. Do not run destructive commands.
 9. Do not access or expose secrets.

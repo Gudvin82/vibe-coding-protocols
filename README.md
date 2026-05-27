@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.8-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.9-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -36,7 +36,7 @@ AI-assisted coding into a more controlled workflow: Product Brief,
 Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
 baselines, model routing and audit backlog.
 
-Repository package: `v0.1.8`  
+Repository package: `v0.1.9`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
@@ -56,6 +56,16 @@ It gives you:
 - synthetic examples and reusable command patterns.
 
 Not sure where to start? Open [START_HERE.md](./START_HERE.md).
+
+## Versioning
+
+This project uses two version lines:
+
+- Repository package `v0.1.x` — GitHub toolkit packaging, scripts, examples, CI and docs.
+- Web methodology `v1.4` — public methodology pages on `anmalishev.ru`.
+
+They are related but not identical. The repository may move to `v1.0.0`
+after external feedback and stable toolkit adoption.
 
 ## Start here
 
@@ -110,8 +120,13 @@ curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main
 Optional local guardrail:
 
 ```bash
-bash scripts/install-hooks.sh
+bash scripts/install-hooks.sh --mode starter
 ```
+
+Default behavior:
+- installs a pre-commit hook in `starter` mode;
+- reminds you to use `--mode hardening` or `--mode audit` for existing or
+  production-bound projects.
 
 ## Core vs Extended
 
@@ -201,6 +216,23 @@ vibe-coding-protocols/
 
 Root `AGENTS.md` configures this repository.
 
+## Which agent file should I copy?
+
+- Root `AGENTS.md` configures this repository.
+- Root `CLAUDE.md` configures Claude Code for this repository.
+- Use `templates/AGENTS.md` as the generic copy-ready agent template for your project.
+- Use `templates/AGENTS.claude.md` if you want Claude Code-specific rules.
+- Use `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md` for Cursor or Windsurf-specific workflows.
+
+Core memory files used across this toolkit:
+- `README.md`
+- `AGENTS.md` or `CLAUDE.md`
+- `PROJECT_MAP.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
+- `AUDIT_BACKLOG.md`, for hardening
+- `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
+- `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
+
 If you want to copy agent rules into your own project, use:
 - [templates/AGENTS.md](./templates/AGENTS.md)
 - [templates/AGENTS.claude.md](./templates/AGENTS.claude.md)
@@ -217,6 +249,9 @@ Recommended examples:
 - [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/) — bot token and abuse risks
 - [examples/landing-page-vibe/](./examples/landing-page-vibe/) — public site route
 - [examples/saas-backend-vibe/](./examples/saas-backend-vibe/) — backend-heavy hardening path
+
+Examples are synthetic or sanitized learning examples. They are not claimed as
+real-world case studies.
 
 Case studies are template-only for now:
 - [case-studies/README.md](./case-studies/README.md)

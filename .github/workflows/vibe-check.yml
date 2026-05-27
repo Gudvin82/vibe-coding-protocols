@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+env:
+  MAX_CHANGED_FILES: 15
+
 jobs:
   vibe-check:
     runs-on: ubuntu-latest
@@ -28,7 +31,16 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
-          if [ "$CHANGED" -gt 15 ]; then
-            echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs."
-            exit 1
+          if [ "$CHANGED" -le "$MAX_CHANGED_FILES" ]; then
+            exit 0
           fi
+
+          NON_DOCS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -Ev '^(docs/|commands/|checklists/|templates/|protocols/|prompts/|case-studies/|examples/.+/README\.md$|README.*\.md$|START_HERE\.md$|CHANGELOG\.md$|ANTI_PATTERNS\.md$|CONTRIBUTING\.md$)' || true)
+
+          if [ -z "$NON_DOCS" ]; then
+            echo "::warning::Docs-heavy PR changes $CHANGED files. Consider splitting it, but it will not fail."
+            exit 0
+          fi
+
+          echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs."
+          exit 1

@@ -42,6 +42,9 @@ Exit codes:
   0  PASS or WARN in default mode
   1  FAIL, or WARN in --strict mode
   2  Script/runtime error
+
+See:
+  docs/vibe-check-scoring.md
 USAGE
 }
 

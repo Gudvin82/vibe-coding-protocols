@@ -6,7 +6,7 @@
 
 Toolkit помогает фаундерам, solo builders и командам превратить AI-assisted coding в контролируемый delivery workflow: Product Brief, Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security operations и audit backlog.
 
-Пакет репозитория: `v0.1.8`  
+Пакет репозитория: `v0.1.9`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 Decision wizard: [START_HERE.md](./START_HERE.md)
@@ -62,7 +62,7 @@ curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main
 Optional local guardrail:
 
 ```bash
-bash scripts/install-hooks.sh
+bash scripts/install-hooks.sh --mode starter
 ```
 
 ## Кратко за 10 секунд

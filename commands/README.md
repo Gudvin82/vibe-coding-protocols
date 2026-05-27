@@ -7,9 +7,11 @@ They are reusable AI instructions for Claude Code, Codex, Cursor, Windsurf and s
 
 ## Available command patterns
 
-- [code-discovery.md](./code-discovery.md)
-- [hardening-review.md](./hardening-review.md)
-- [security-triage.md](./security-triage.md)
-- [backlog-to-issues.md](./backlog-to-issues.md)
-- [release-check.md](./release-check.md)
-- [agent-harness-check.md](./agent-harness-check.md)
+| Command | Use when | What it returns |
+|---|---|---|
+| [code-discovery](./code-discovery.md) | AI needs to find relevant code | Evidence map |
+| [hardening-review](./hardening-review.md) | Existing project needs audit | Findings and backlog |
+| [security-triage](./security-triage.md) | Scanner output is noisy | Prioritized triage |
+| [backlog-to-issues](./backlog-to-issues.md) | Convert backlog to GitHub Issues | Reviewable issue drafts |
+| [release-check](./release-check.md) | Before merge or deploy | Release readiness notes |
+| [agent-harness-check](./agent-harness-check.md) | Check project AI workflow | Harness gaps |
