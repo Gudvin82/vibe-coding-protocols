@@ -1,4 +1,24 @@
-# Docs
+# Docs Map
+
+If you are new, do not start by opening all docs.
+
+Start here:
+1. [START_HERE.md](../START_HERE.md)
+2. [docs/lite-adoption-path.md](./lite-adoption-path.md)
+3. [README.md](../README.md)
+4. [docs/vibe-check-scoring.md](./vibe-check-scoring.md), only if you use `vibe-check`
+5. [docs/agent-harness.md](./agent-harness.md), only if you want the full methodology
+
+## Canonical route
+
+| Question | Go to |
+|---|---|
+| What should I do first? | [START_HERE.md](../START_HERE.md) |
+| I want minimum setup | [docs/lite-adoption-path.md](./lite-adoption-path.md) |
+| I need AI IDE rules | [templates/AGENTS.md](../templates/AGENTS.md) |
+| I already have code | [protocols/ai-project-hardening-protocol.md](../protocols/ai-project-hardening-protocol.md) |
+| I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
+| I want security docs | [docs/security-operations.md](./security-operations.md) |
 
 Use this index to navigate the repository support docs without moving files and
 breaking links.

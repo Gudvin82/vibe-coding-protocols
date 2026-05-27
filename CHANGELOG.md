@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.1.10
+
+- Clarified START_HERE copy-ready versus repo-local reference files
+- Added Lite Adoption Path for solo builders and MVP projects
+- Split README commands into CI/release and local scanner exploration usage
+- Added placeholder filter transparency to `vibe-check`
+- Improved docs canonical map and route guidance
+- Polished raw-facing markdown formatting for final distribution readiness
+- Updated site GitHub toolkit blocks for lite adoption and final UX polish
+
 ## v0.1.9
 
 - Clarified root `AGENTS.md`, root `CLAUDE.md` and copy-ready template roles
@@ -101,6 +111,6 @@
 - Added AI IDE compatibility notes
 - Added safety disclaimers
 
-Repository version started at `v0.1.0` and now continues with `v0.1.9`.
+Repository version started at `v0.1.0` and now continues with `v0.1.10`.
 
 Web methodology currently mirrors `Vibe Coding Protocols v1.4` on [anmalishev.ru](https://anmalishev.ru/expert/vibe-coding/).

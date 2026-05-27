@@ -41,7 +41,7 @@ bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --strict
 bash scripts/vibe-check.sh --audit --json
-bash scripts/vibe-check.sh --audit --scanners || true
+bash scripts/vibe-check.sh --audit --scanners
 bash scripts/vibe-check.sh --help
 ```
 
@@ -82,6 +82,7 @@ Example JSON:
   "score": 92,
   "core_score": 92,
   "scanner_bonus": 0,
+  "placeholder_excluded": 12,
   "scanner_status": "not_fully_available",
   "status": "warn",
   "pass": 12,
@@ -109,11 +110,20 @@ Add it as a lightweight workflow gate for structure and obvious workflow gaps:
 bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
-bash scripts/vibe-check.sh --audit --scanners || true
 ```
 
 The GitHub workflow in this repository checks the toolkit itself, not an
 arbitrary target application.
+
+## Changed files guardrail
+
+Default threshold: 15 files.
+
+For large planned PRs, set repository variable:
+
+`MAX_CHANGED_FILES=30`
+
+Docs-only PRs warn instead of failing.
 
 ## PASS / WARN / FAIL
 

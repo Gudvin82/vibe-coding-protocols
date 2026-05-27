@@ -18,6 +18,7 @@ SCANNER_WARNINGS=0
 CORE_SCORE=0
 SCANNER_STATUS="not_requested"
 RECOMMENDED=()
+PLACEHOLDER_EXCLUDED=0
 
 PLACEHOLDER_RX='example|placeholder|changeme|your_|dummy|test|\[FILL IN|<[^>]+>|masked-example-not-real|not-real|sample'
 
@@ -139,6 +140,22 @@ pattern_hit_count() {
   printf '%s\n' "$output" | sed '/^$/d' | wc -l | tr -d ' '
 }
 
+pattern_placeholder_excluded_count() {
+  local regex="$1"
+  local output
+  output=$(rg -n --hidden \
+    --glob '!.git/*' \
+    --glob '!node_modules/*' \
+    --glob '!dist/*' \
+    --glob '!build/*' \
+    --glob '!coverage/*' \
+    --glob '!scripts/vibe-check.sh' \
+    --glob '!examples/todo-app-starter/.env.example' \
+    "$regex" . 2>/dev/null \
+    | grep -iE "$PLACEHOLDER_RX" || true)
+  printf '%s\n' "$output" | sed '/^$/d' | wc -l | tr -d ' '
+}
+
 pattern_hit_files() {
   local regex="$1"
   local output
@@ -163,6 +180,11 @@ scan_secret_pattern() {
   local label="$1"
   local regex="$2"
   local hits
+  local excluded
+  excluded=$(pattern_placeholder_excluded_count "$regex")
+  if [[ -n "$excluded" && "$excluded" != "0" ]]; then
+    PLACEHOLDER_EXCLUDED=$((PLACEHOLDER_EXCLUDED + excluded))
+  fi
   hits=$(pattern_hit_count "$regex")
   if [[ "$hits" != "0" ]]; then
     local files
@@ -509,6 +531,7 @@ if (( JSON_MODE )); then
   printf '  "score": %s,\n' "$CORE_SCORE"
   printf '  "core_score": %s,\n' "$CORE_SCORE"
   printf '  "scanner_bonus": %s,\n' "$SCANNER_BONUS"
+  printf '  "placeholder_excluded": %s,\n' "$PLACEHOLDER_EXCLUDED"
   printf '  "scanner_status": "%s",\n' "$SCANNER_STATUS"
   printf '  "status": "%s",\n' "$STATUS"
   printf '  "pass": %s,\n' "$PASS"
@@ -532,6 +555,10 @@ else
     log_line "OPTIONAL SCANNERS: not fully available"
   fi
   log_line "SCANNER BONUS: $SCANNER_BONUS/10"
+  log_line "PLACEHOLDER FILTER:"
+  log_line "- excluded lines: $PLACEHOLDER_EXCLUDED"
+  log_line "- placeholder terms: example, placeholder, changeme, your_, dummy, test, sample, [FILL IN]"
+  log_line "- review excluded lines if you suspect a false negative"
   log_line "Breakdown:"
   log_line "- Structure: $STRUCTURE_SCORE/25"
   log_line "- Safety files: $SAFETY_SCORE/25"

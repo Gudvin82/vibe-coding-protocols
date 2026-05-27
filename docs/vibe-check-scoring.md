@@ -17,6 +17,8 @@ The score is a readiness signal, not a security certification.
 
 - `core_score` is the main readiness signal.
 - `scanner_bonus` is optional extra signal.
+- `placeholder_excluded` shows how many lines were filtered because they looked
+  like obvious placeholders such as `example`, `changeme` or `[FILL IN]`.
 - `WARN` means attention is required, but the default mode does not fail.
 - `FAIL` means a baseline condition must be fixed before merge or deploy.
 - `--strict` changes warning behavior and can turn warnings into a blocking exit.

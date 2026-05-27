@@ -28,7 +28,7 @@ Answer 5 questions to choose your route.
 
 ## 5. Are you working with an AI IDE?
 
-- Yes -> copy `templates/AGENTS.md`, `CLAUDE.md`, `.cursorrules` or `.github/copilot-instructions.md` as needed
+- Yes -> copy `templates/AGENTS.md` or an IDE-specific template such as `templates/AGENTS.claude.md`, `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md`
 - No -> use the protocols and checklists manually
 
 ## Output
@@ -41,6 +41,40 @@ Answer 5 questions to choose your route.
 | Integrations-heavy project | [Third-Party Registry + Safe Update](./templates/THIRD_PARTY_REGISTRY.md) | `THIRD_PARTY_REGISTRY.md` | `bash scripts/vibe-check.sh --hardening` |
 | Client-facing, production or paid project | [Hardening Thresholds + Security Ops](./docs/hardening-thresholds.md) | `AUDIT_BACKLOG.md` + `SECURITY_OPERATIONS_BASELINE.md` | `bash scripts/vibe-check.sh --audit --strict` |
 | You want AI to route the work first | [Use This Repository Prompt](./prompts/use-this-repo-prompt.md) | `prompts/use-this-repo-prompt.md` | Ask the AI to choose the smallest safe route |
+
+## Copy to your project
+
+Use these files when you want to apply VCP to your own project:
+
+| Need | Copy this |
+|---|---|
+| Generic AI agent rules | `templates/AGENTS.md` |
+| Claude Code rules | `templates/AGENTS.claude.md` |
+| Cursor rules | `templates/AGENTS.cursor.md` |
+| Windsurf rules | `templates/AGENTS.windsurf.md` |
+| Project map | `templates/PROJECT_MAP.md` |
+| Audit backlog | `templates/AUDIT_BACKLOG.md` |
+| Architecture source of truth | `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md` |
+| Incident recovery | `templates/INCIDENT_RECOVERY_RUNBOOK.md` |
+
+## Repo-local reference files
+
+These files configure or document this repository itself.
+Do not copy them blindly into your project:
+
+| File | Purpose |
+|---|---|
+| `AGENTS.md` | Rules for this repository |
+| `CLAUDE.md` | Claude Code rules for this repository |
+| `.github/copilot-instructions.md` | Copilot instructions for this repository |
+| `README.md` | Repository overview |
+| `docs/*` | Reference documentation |
+| `commands/*` | AI command patterns, not shell commands |
+
+## Lite adoption
+
+If you are a solo builder or MVP project and want the smallest safe setup,
+start with [docs/lite-adoption-path.md](./docs/lite-adoption-path.md).
 
 ## Prompt language
 

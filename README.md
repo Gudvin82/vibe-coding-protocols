@@ -2,7 +2,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.9-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.10-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
@@ -36,7 +36,7 @@ AI-assisted coding into a more controlled workflow: Product Brief,
 Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
 baselines, model routing and audit backlog.
 
-Repository package: `v0.1.9`  
+Repository package: `v0.1.10`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 Languages:
@@ -56,6 +56,8 @@ It gives you:
 - synthetic examples and reusable command patterns.
 
 Not sure where to start? Open [START_HERE.md](./START_HERE.md).
+If you want the smallest safe setup first, open
+[docs/lite-adoption-path.md](./docs/lite-adoption-path.md).
 
 ## Versioning
 
@@ -175,11 +177,43 @@ bash scripts/vibe-check.sh --starter
 bash scripts/vibe-check.sh --hardening
 bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --json
+```
+
+### CI / release check
+
+Use this when the result should matter:
+
+```bash
+bash scripts/vibe-check.sh --audit
+```
+
+For stricter behavior:
+
+```bash
+bash scripts/vibe-check.sh --audit --strict
+```
+
+### Local scanner exploration
+
+Optional scanners may be missing on your machine.
+Use this only when you want to see optional scanner availability:
+
+```bash
+bash scripts/vibe-check.sh --audit --scanners
+```
+
+If you intentionally do not want missing optional scanners to stop a local
+shell session, you may run:
+
+```bash
 bash scripts/vibe-check.sh --audit --scanners || true
 ```
 
+Do not use `|| true` in CI or release gates.
+
 See:
 - [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
+- [docs/vibe-check-scoring.md](./docs/vibe-check-scoring.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 - [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
 
@@ -215,6 +249,8 @@ vibe-coding-protocols/
 ```
 
 Root `AGENTS.md` configures this repository.
+See [START_HERE.md](./START_HERE.md) for the full copy-ready versus
+repo-local split.
 
 ## Which agent file should I copy?
 

@@ -5,7 +5,7 @@ on:
   pull_request:
 
 env:
-  MAX_CHANGED_FILES: 15
+  MAX_CHANGED_FILES: ${{ vars.MAX_CHANGED_FILES }}
 
 jobs:
   vibe-check:
@@ -30,6 +30,7 @@ jobs:
       - name: Diff size guardrail
         if: github.event_name == 'pull_request'
         run: |
+          MAX_CHANGED_FILES="${MAX_CHANGED_FILES:-15}"
           CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
           if [ "$CHANGED" -le "$MAX_CHANGED_FILES" ]; then
             exit 0
@@ -42,5 +43,5 @@ jobs:
             exit 0
           fi
 
-          echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs."
+          echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs or raise repository variable MAX_CHANGED_FILES for planned larger changes."
           exit 1

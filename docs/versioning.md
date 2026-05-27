@@ -6,7 +6,7 @@ This project has two related version lines:
 - **Web methodology version** (`v1.4`) — tracks the public methodology pages at `anmalishev.ru`.
 
 Current state:
-- Repository package: `v0.1.9`
+- Repository package: `v0.1.10`
 - Web methodology: `Vibe Coding Protocols v1.4`
 
 This split is intentional:
