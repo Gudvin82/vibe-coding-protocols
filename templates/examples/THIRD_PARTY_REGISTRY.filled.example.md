@@ -2,6 +2,11 @@
 
 > Synthetic filled example — not a real case study.
 
+## Why this exists
+
+Use this as a sample of the level of detail to track.
+Replace every row with your real project data.
+
 | Service | Purpose | Risk | Owner | Review cadence |
 |---|---|---|---|---|
 | Resend | Transactional email | Vendor outage impacts password reset | ops owner | monthly |

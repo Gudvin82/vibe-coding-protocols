@@ -2,6 +2,11 @@
 
 > Synthetic filled example — not a real case study.
 
+## Why this exists
+
+Use this only as a formatting and quality example.
+Do not treat the items below as production advice.
+
 ## Critical
 
 | ID | Category | Task | Risk | Evidence | Discovered by | Status | Owner |

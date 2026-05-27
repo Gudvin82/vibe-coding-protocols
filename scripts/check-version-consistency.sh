@@ -12,11 +12,13 @@ check_contains() {
   local file="$1"
   local needle="$2"
   local label="$3"
+
   if [[ ! -f "$file" ]]; then
     echo "Missing file: $file"
     problems=$((problems + 1))
     return
   fi
+
   if ! grep -F "$needle" "$file" >/dev/null 2>&1; then
     echo "Version mismatch in $file: missing $label -> $needle"
     problems=$((problems + 1))
@@ -35,10 +37,22 @@ if [[ -f README_en.md ]]; then
   check_contains README_en.md "$REPO_VERSION" "README_en repository package"
 fi
 
-while IFS= read -r file; do
+for file in templates/*.md; do
+  [[ -e "$file" ]] || continue
+  case "$file" in
+    templates/README.md|\
+    templates/*_ru.md|\
+    templates/LEGAL_CHECKLIST.md|\
+    templates/PAYMENT_FISCALIZATION_CHECKLIST.md|\
+    templates/PROMPTS.md|\
+    templates/SCALABILITY_BACKLOG.md|\
+    templates/SECURITY_SCANNER_REPORT.md)
+      continue
+      ;;
+  esac
   check_contains "$file" "<!-- vcp-version: $REPO_VERSION -->" "template marker"
   check_contains "$file" "<!-- methodology-version: $METHODOLOGY_VERSION -->" "methodology marker"
-done < <(find templates -maxdepth 1 -type f \( -name '*.md' ! -name '*_ru.md' ! -name 'README.md' ! -name 'LEGAL_CHECKLIST.md' ! -name 'PAYMENT_FISCALIZATION_CHECKLIST.md' ! -name 'PROMPTS.md' ! -name 'SCALABILITY_BACKLOG.md' ! -name 'SECURITY_SCANNER_REPORT.md' \) | sort)
+done
 
 if (( problems > 0 )); then
   exit 1

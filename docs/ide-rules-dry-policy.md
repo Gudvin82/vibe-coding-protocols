@@ -1,6 +1,7 @@
 # IDE Rules DRY Policy
 
-Use this file to keep AI IDE rules aligned without introducing a generator or symlink strategy yet.
+Use this file to keep AI IDE rules aligned
+without introducing a generator or symlink strategy yet.
 
 ## Repo-local files
 
@@ -22,7 +23,8 @@ These files are for user projects:
 
 ## What should stay synchronized
 
-The following ideas should stay aligned across repo-local and copy-ready AI IDE files:
+The following ideas should stay aligned across repo-local
+and copy-ready AI IDE files:
 - Stop Conditions
 - Memory Bank
 - token-aware discovery
@@ -39,7 +41,8 @@ The following differences are intentional:
 
 ## What `check-ide-rules-consistency.sh` checks
 
-The script confirms that the main repo-local and template files still contain the expected baseline phrases.
+The script confirms that the main repo-local
+and template files still contain the expected baseline phrases.
 
 It is not a semantic diff.
 It is a lightweight guard against drift.
