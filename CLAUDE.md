@@ -1,38 +1,37 @@
 # CLAUDE.md
 
-Start here.
+## Which agent file should I use?
 
-1. Read `README.md` first.
-2. Ask what stage the project is in.
-3. Use `protocols/ai-project-starter-protocol.md` if the project is new.
-4. Use `protocols/ai-project-hardening-protocol.md` if code already exists.
-5. Do not write code before the route is confirmed.
-6. Use the Memory Bank: `README.md`, `AGENTS.md` or `CLAUDE.md`, `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md` if needed, `AUDIT_BACKLOG.md` for hardening, `docs/PROMPTS.md` or `PROMPTS.md` if prompts are tracked, `SECURITY.md` or `SECURITY_BASELINE.md` for public or production projects.
-7. Respect Stop Conditions and approval gates.
-8. Do not run destructive commands.
-9. Do not access or expose secrets.
-10. Use independent diff review before important merge or deploy decisions.
+- Root `AGENTS.md` configures this repository.
+- Root `CLAUDE.md` configures Claude Code for this repository.
+- Do not copy root `AGENTS.md` blindly into your project.
+- For your own project, copy `templates/AGENTS.md` as `AGENTS.md`.
+- For Claude Code, use `templates/AGENTS.claude.md` or adapt it into your project's `CLAUDE.md`.
 
-## Read-only discovery subagent
+## Memory Bank
 
-For large repositories, use a read-only subagent to map relevant files before editing.
+Read first:
+- `README.md`
+- `AGENTS.md` or `CLAUDE.md`
+- `PROJECT_MAP.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
+- `AUDIT_BACKLOG.md`, for hardening
+- `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
+- `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 
-The subagent should not modify files. It should return an evidence map only:
-- `path:line`
-- symbol / route / component
-- relevant snippet or signature
-- why it matters
+## Token-aware discovery
 
-## Model routing / token-aware discovery
+Use token-aware discovery before broad edits.
+Return an evidence map, not a full search transcript.
 
-When broad code discovery is needed:
-1. read Memory Bank first;
-2. use a cheaper or faster read-only discovery agent when available;
-3. return only an evidence map with `path:line`, symbol, snippet, why it matters and confidence;
-4. let the main implementation pass verify critical findings before editing;
-5. run a separate review pass before important merge or deploy decisions.
+## Model routing
 
-If Claude Code model routing is available:
-- use Haiku or a cheaper or faster model for read-only discovery;
-- use the main model for planning and implementation;
-- use a separate review pass for independent diff review.
+When broad discovery is needed:
+- use a cheaper or faster read-only discovery pass when available;
+- keep the main implementation pass focused on decisions and edits;
+- use an independent review pass before risky merge or deploy work.
+
+## Stop Conditions
+
+Respect the repository Stop Conditions from `AGENTS.md`.
+Pause on auth, payments, migrations, CI/CD changes, large cross-layer diffs or unclear scope.

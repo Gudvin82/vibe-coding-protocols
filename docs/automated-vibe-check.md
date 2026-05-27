@@ -24,7 +24,8 @@ bash scripts/vibe-check.sh --help
 - obvious secret-like patterns;
 - optional scanner availability;
 - checksum manifest coverage for public helper scripts when `SHA256SUMS` exists;
-- artifact version marker visibility for copy-ready templates.
+- artifact version marker visibility for copy-ready templates;
+- content quality warnings for key files that exist but still look empty.
 
 ## Example JSON
 
@@ -35,6 +36,7 @@ bash scripts/vibe-check.sh --help
   "scanner_bonus": 0,
   "placeholder_excluded": 12,
   "artifact_version_warnings": 2,
+  "content_quality_warnings": 3,
   "scanner_status": "not_fully_available",
   "status": "warn",
   "pass": 12,
@@ -51,6 +53,7 @@ bash scripts/vibe-check.sh --help
 - `scanner_bonus` is optional and separate;
 - `placeholder_excluded` helps you notice when the placeholder filter may be hiding noise;
 - `artifact_version_warnings` shows where copied artifacts may need review;
+- `content_quality_warnings` shows where files exist but still need meaningful content;
 - `WARN` means attention is needed but does not fail by default;
 - `FAIL` means the project should be fixed before merge or deploy;
 - `--strict` turns warnings into a failing exit code.

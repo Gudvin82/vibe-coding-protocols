@@ -1,6 +1,6 @@
 # Docs Map
 
-If you are new, do not start by opening all docs.
+Do not start by opening everything.
 
 Start here:
 1. [START_HERE.md](../START_HERE.md)
@@ -19,8 +19,7 @@ Start here:
 | I already have code | [protocols/ai-project-hardening-protocol.md](../protocols/ai-project-hardening-protocol.md) |
 | I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
 | I want security docs | [docs/security-operations.md](./security-operations.md) |
-
-Use this index to navigate the repository support docs without moving files and breaking links.
+| I need production route guidance | [protocols/ai-project-extended-protocol.md](../protocols/ai-project-extended-protocol.md) |
 
 ## User-facing docs
 
@@ -50,6 +49,7 @@ Use this index to navigate the repository support docs without moving files and 
 - [token-aware-code-discovery.md](./token-aware-code-discovery.md)
 - [multi-agent-workflows.md](./multi-agent-workflows.md)
 - [template-style-guide.md](./template-style-guide.md)
+- [ide-rules-dry-policy.md](./ide-rules-dry-policy.md)
 - [devcontainer.md](./devcontainer.md)
 
 ## Maintainer / distribution docs

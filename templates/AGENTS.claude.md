@@ -1,10 +1,19 @@
 <!-- vcp-artifact: AGENTS_CLAUDE -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Claude Code
 
 Use this variant when Claude Code or similar tools can use subagents and explicit tool approvals.
+
+## Memory Bank
+
+Read first:
+- `README.md`
+- `AGENTS.md` or `CLAUDE.md`
+- `PROJECT_MAP.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
+- `AUDIT_BACKLOG.md`, for hardening
 
 ## Focus
 - keep discovery read-only first;
@@ -32,3 +41,9 @@ If Claude Code model routing is available:
 - use Haiku or another cheaper or faster model for read-only discovery;
 - use the main model for planning and implementation;
 - use a separate review pass for independent diff review.
+
+## Stop Conditions
+
+- stop on auth, payments, migrations or CI/CD changes without human review;
+- stop when the diff becomes cross-layer or too wide;
+- ask before new dependencies or destructive operations.

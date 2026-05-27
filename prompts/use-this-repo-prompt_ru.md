@@ -31,5 +31,8 @@
 - оценку fit по шкале 1–10;
 - следующий smallest safe step.
 
+Не называй templates или architecture docs маршрутами сами по себе.
+Если нужны agent rules, предпочитай `templates/AGENTS.md`, а не копирование root `AGENTS.md`.
+
 Если ты не можешь открыть GitHub links, попроси меня вставить README.md и START_HERE.md.
 ```

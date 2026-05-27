@@ -1,6 +1,13 @@
-Prefer small atomic changes.
-Read README.md, PROJECT_MAP.md and AGENTS.md before edits.
-Ask before changing more than 10 files.
-Do not activate deferred surfaces.
-Do not add dependencies without approval.
-Always report changed files and validation results.
+Which agent file should I use?
+- Root AGENTS.md configures this repository.
+- Do not copy root AGENTS.md blindly into your project.
+- Copy templates/AGENTS.md as AGENTS.md for your own project.
+
+Memory Bank:
+- Read README.md, AGENTS.md or CLAUDE.md, PROJECT_MAP.md and AUDIT_BACKLOG.md when relevant.
+
+Token-aware discovery:
+- Before broad edits, produce an evidence map first.
+
+Stop Conditions:
+- Ask before changing more than 10 files, touching auth, payments, migrations or CI/CD.

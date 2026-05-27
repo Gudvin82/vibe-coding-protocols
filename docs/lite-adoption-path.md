@@ -1,17 +1,16 @@
 # Lite Adoption Path
 
-Use this if you are a solo builder or MVP project and do not want the full
-Extended path.
+Use this if you are a solo builder or MVP project and do not want the full Extended path.
 
 ## Copy only these files first
 
-1. `templates/AGENTS.md`
+1. `templates/AGENTS.md` as `AGENTS.md`
 2. `templates/PROJECT_MAP.md`
 3. `templates/AUDIT_BACKLOG.md`
 4. `prompts/product-brief-prompt_en.md` or `prompts/product-brief-prompt.md`
 
-These copy-ready templates include lightweight version markers so you can
-review them against newer toolkit releases later.
+These copy-ready templates include lightweight version markers so you can review them against newer toolkit releases later.
+Do not copy root `AGENTS.md` blindly into your project.
 
 ## Run
 

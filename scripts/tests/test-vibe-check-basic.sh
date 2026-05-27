@@ -19,6 +19,7 @@ assert_contains "$help_output" "Usage:"
 json_output=$(cd "$ROOT" && bash scripts/vibe-check.sh --audit --json)
 assert_contains "$json_output" '"placeholder_excluded":'
 assert_contains "$json_output" '"artifact_version_warnings":'
+assert_contains "$json_output" '"content_quality_warnings":'
 python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$json_output" >/dev/null
 
 starter_dir="$FIXTURES/starter-repo"
@@ -36,24 +37,38 @@ build
 DOC
 cat > "$starter_dir/AGENTS.md" <<'DOC'
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS
 DOC
 cat > "$starter_dir/PROJECT_MAP.md" <<'DOC'
 <!-- vcp-artifact: PROJECT_MAP -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP
+
+## Routes / Endpoints
+- public routes: /
+- API routes: /api/tasks
+
+## Components / Modules
+- modules: tasks
+
+## Active / Deferred surfaces
+- active now: task list
+- deferred until later: auth
 DOC
 cat > "$starter_dir/SECURITY_BASELINE.md" <<'DOC'
 <!-- vcp-artifact: SECURITY_BASELINE -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 
 # SECURITY_BASELINE
+
+- [ ] Auth cookies use HttpOnly
+- [ ] Auth cookies use Secure in production
 DOC
 cat > "$starter_dir/.env.example" <<'DOC'
 APP_TOKEN=[example-placeholder]

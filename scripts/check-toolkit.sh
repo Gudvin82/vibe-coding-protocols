@@ -5,8 +5,9 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 required_files=(
+  VERSION
+  METHODOLOGY_VERSION
   README.md
-  README_en.md
   README_ru.md
   ROADMAP.md
   ANTI_PATTERNS.md
@@ -24,11 +25,16 @@ required_files=(
   docs/multi-agent-workflows.md
   docs/vibe-metrics.md
   docs/automated-vibe-check.md
+  docs/ide-rules-dry-policy.md
+  docs/release-v0.1.12.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
   docs/release-v0.1.1.md
   scripts/README.md
   scripts/vibe-check.sh
+  scripts/check-version-consistency.sh
+  scripts/check-ide-rules-consistency.sh
+  scripts/check-newlines.py
   scripts/init-project.example.sh
   assets/social-preview.svg
 )
@@ -64,5 +70,9 @@ if [[ -n "$empty_md" ]]; then
   echo "$empty_md"
   exit 1
 fi
+
+bash scripts/check-version-consistency.sh
+bash scripts/check-ide-rules-consistency.sh
+python3 scripts/check-newlines.py
 
 echo "Toolkit structure check passed."

@@ -1,13 +1,23 @@
 # GitHub Copilot instructions
 
-- Read `README.md`, `AGENTS.md` and `PROJECT_MAP.md` before edits.
-- Use Starter for new projects.
-- Use Hardening for existing code.
-- Use token-aware discovery before broad edits.
-- Do not activate deferred surfaces.
-- Ask before migrations, auth, payments or new dependencies.
-- Keep diffs atomic.
-- Report changed files and validation.
-- Do not expose secrets.
-- If broad discovery is needed, return an evidence map with `path:line`, symbol, snippet, why it matters and confidence before editing.
-- Use an independent review pass before risky merge or deploy work.
+## Which agent file should I use?
+
+- Root `AGENTS.md` configures this repository.
+- Root `CLAUDE.md` configures Claude Code for this repository.
+- Do not copy root `AGENTS.md` blindly into your project.
+- For your own project, copy `templates/AGENTS.md` as `AGENTS.md`.
+
+## Memory Bank
+
+Read `README.md`, `AGENTS.md` and `PROJECT_MAP.md` before edits.
+Use `AUDIT_BACKLOG.md` for hardening follow-up.
+
+## Token-aware discovery
+
+Use token-aware discovery before broad edits.
+Return an evidence map with `path:line`, symbol, snippet, why it matters and confidence.
+
+## Stop Conditions
+
+Ask before migrations, auth, payments, CI changes or new dependencies.
+Keep diffs atomic and report validation results.

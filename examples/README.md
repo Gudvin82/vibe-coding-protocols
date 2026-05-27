@@ -22,6 +22,12 @@ They are:
 | Telegram bot | Hardening | [telegram-bot-vibe](./telegram-bot-vibe/) | bot token and abuse risks |
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
 
+## Filled synthetic template examples
+
+- [../templates/examples/AUDIT_BACKLOG.filled.example.md](../templates/examples/AUDIT_BACKLOG.filled.example.md)
+- [../templates/examples/THIRD_PARTY_REGISTRY.filled.example.md](../templates/examples/THIRD_PARTY_REGISTRY.filled.example.md)
+- [../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
+
 ## Start here
 
 - If you want a runnable starter example, start with [todo-app-starter](./todo-app-starter/)
@@ -31,7 +37,3 @@ They are:
 - If you want a bot scenario, start with [telegram-bot-vibe](./telegram-bot-vibe/)
 - If you want the light route, start with [landing-page-vibe](./landing-page-vibe/)
 - If you want the fuller backend route, start with [saas-backend-vibe](./saas-backend-vibe/)
-
-## Legacy folders
-
-Older example folders remain in the repository for continuity, but the `*-vibe/` folders and `todo-app-starter/` are the preferred starting points going forward.

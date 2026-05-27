@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TOOLKIT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 MODE=""
 STRICT=0
 RUN_SCANNERS=0
@@ -20,7 +23,11 @@ SCANNER_STATUS="not_requested"
 RECOMMENDED=()
 PLACEHOLDER_EXCLUDED=0
 ARTIFACT_VERSION_WARNINGS=0
-REPO_VERSION="v0.1.11"
+CONTENT_QUALITY_WARNINGS=0
+REPO_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/VERSION" 2>/dev/null || true)"
+if [[ -z "$REPO_VERSION" ]]; then
+  REPO_VERSION="v0.1.12"
+fi
 
 CHECKSUM_FILES=(
   "scripts/init-minimal.sh"
@@ -110,6 +117,11 @@ pass() {
 warn() {
   WARN=$((WARN + 1))
   log_line "WARN: $1"
+}
+
+warn_content() {
+  CONTENT_QUALITY_WARNINGS=$((CONTENT_QUALITY_WARNINGS + 1))
+  warn "$1"
 }
 
 fail() {
@@ -363,6 +375,48 @@ check_artifact_markers() {
   done
 }
 
+file_line_count() {
+  local file="$1"
+  wc -l < "$file" | tr -d ' '
+}
+
+check_content_quality() {
+  local file="$1"
+  local lines
+
+  [[ -f "$file" ]] || return 0
+  lines=$(file_line_count "$file")
+
+  case "$file" in
+    AUDIT_BACKLOG.md|templates/AUDIT_BACKLOG.md)
+      if (( lines < 15 )) \
+        || ! rg -i 'Open|In progress|Verified|Accepted risk|Status' "$file" >/dev/null 2>&1 \
+        || ! rg -i 'SEC-|RISK-|Task|Risk|Evidence|Owner' "$file" >/dev/null 2>&1; then
+        warn_content "AUDIT_BACKLOG.md exists but looks empty or not actionable."
+      fi
+      ;;
+    PROJECT_MAP.md|templates/PROJECT_MAP.md)
+      if (( lines < 15 )) \
+        || ! rg -i 'Active / Deferred surfaces|active now|deferred until later' "$file" >/dev/null 2>&1 \
+        || ! rg -i 'Routes / Endpoints|Components / Modules|key files|modules' "$file" >/dev/null 2>&1; then
+        warn_content "PROJECT_MAP.md exists but looks too short or missing key routing context."
+      fi
+      ;;
+    ARCHITECTURE_SOURCE_OF_TRUTH.md|templates/ARCHITECTURE_SOURCE_OF_TRUTH.md)
+      if (( lines < 40 )) \
+        || ! rg -i 'main flows|integrations|storage|deploy|security' "$file" >/dev/null 2>&1; then
+        warn_content "ARCHITECTURE_SOURCE_OF_TRUTH.md exists but looks incomplete for real review."
+      fi
+      ;;
+    SECURITY_BASELINE.md|templates/SECURITY_BASELINE.md|SECURITY_OPERATIONS_BASELINE.md|templates/SECURITY_OPERATIONS_BASELINE.md)
+      if [[ "$MODE" == "--audit" || "$MODE" == "--hardening" ]] \
+        && { ! rg -i '\[ \]|Owner|Cadence|Recurring checks|Next run' "$file" >/dev/null 2>&1; }; then
+        warn_content "$(basename "$file") exists but looks too empty for recurring review."
+      fi
+      ;;
+  esac
+}
+
 for arg in "$@"; do
   case "$arg" in
     --starter|--hardening|--audit)
@@ -521,6 +575,16 @@ fi
 
 check_checksum_manifest
 check_artifact_markers
+check_content_quality "AUDIT_BACKLOG.md"
+check_content_quality "templates/AUDIT_BACKLOG.md"
+check_content_quality "PROJECT_MAP.md"
+check_content_quality "templates/PROJECT_MAP.md"
+check_content_quality "ARCHITECTURE_SOURCE_OF_TRUTH.md"
+check_content_quality "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+check_content_quality "SECURITY_BASELINE.md"
+check_content_quality "templates/SECURITY_BASELINE.md"
+check_content_quality "SECURITY_OPERATIONS_BASELINE.md"
+check_content_quality "templates/SECURITY_OPERATIONS_BASELINE.md"
 
 if project_has_any_file requirements.txt pyproject.toml; then
   if project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
@@ -670,6 +734,7 @@ if (( JSON_MODE )); then
   printf '  "scanner_bonus": %s,\n' "$SCANNER_BONUS"
   printf '  "placeholder_excluded": %s,\n' "$PLACEHOLDER_EXCLUDED"
   printf '  "artifact_version_warnings": %s,\n' "$ARTIFACT_VERSION_WARNINGS"
+  printf '  "content_quality_warnings": %s,\n' "$CONTENT_QUALITY_WARNINGS"
   printf '  "scanner_status": "%s",\n' "$SCANNER_STATUS"
   printf '  "status": "%s",\n' "$STATUS"
   printf '  "pass": %s,\n' "$PASS"
@@ -698,6 +763,7 @@ else
   log_line "- placeholder terms: example, placeholder, changeme, your_, dummy, test, sample, [FILL IN]"
   log_line "- review excluded lines if you suspect a false negative"
   log_line "ARTIFACT VERSION WARNINGS: $ARTIFACT_VERSION_WARNINGS"
+  log_line "CONTENT QUALITY WARNINGS: $CONTENT_QUALITY_WARNINGS"
   log_line "Breakdown:"
   log_line "- Structure: $STRUCTURE_SCORE/25"
   log_line "- Safety files: $SAFETY_SCORE/25"

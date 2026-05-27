@@ -27,6 +27,9 @@ jobs:
       - name: Vibe check
         run: bash scripts/vibe-check.sh --audit
 
+      - name: Script tests
+        run: bash scripts/tests/test-vibe-check-basic.sh
+
       - name: Diff size guardrail
         if: github.event_name == 'pull_request'
         run: |

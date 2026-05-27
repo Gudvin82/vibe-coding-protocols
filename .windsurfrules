@@ -1,6 +1,13 @@
-Keep Cascade scoped.
-Read README.md, PROJECT_MAP.md and AGENTS.md first.
-Stop on cross-layer changes.
-Ask before migrations, auth, payments, admin or new external APIs.
-Update the Memory Bank when architecture or routes change.
-Report validation, blockers and remaining risks.
+Which agent file should I use?
+- Root AGENTS.md configures this repository.
+- Do not copy root AGENTS.md blindly into your project.
+- Copy templates/AGENTS.md as AGENTS.md for your own project.
+
+Memory Bank:
+- Read README.md, AGENTS.md or CLAUDE.md, PROJECT_MAP.md and AUDIT_BACKLOG.md when relevant.
+
+Token-aware discovery:
+- Before broad edits, produce an evidence map first.
+
+Stop Conditions:
+- Pause on cross-layer changes, auth, payments, migrations, CI/CD edits or wide diffs.

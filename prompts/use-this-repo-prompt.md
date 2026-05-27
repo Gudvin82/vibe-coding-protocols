@@ -19,8 +19,8 @@ Then ask me:
 1. Is this a new project or existing AI-generated code?
 2. Is it private MVP, public product, client work, or production?
 3. Which AI IDE am I using?
-4. What stack, language or framework is used?
-5. Do I have auth, payments, personal data, external APIs or deployments?
+4. What stack, language, or framework is used?
+5. Do I have auth, payments, personal data, external APIs, or deployments?
 
 Then return:
 - route: Lite / Starter / Hardening / Extended;
@@ -30,6 +30,9 @@ Then return:
 - risks I may be underestimating;
 - score 1–10 for fit;
 - next smallest safe step.
+
+Do not treat templates or architecture docs as routes by themselves.
+If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENTS.md`.
 
 If you cannot open GitHub links, ask me to paste README.md and START_HERE.md.
 ```

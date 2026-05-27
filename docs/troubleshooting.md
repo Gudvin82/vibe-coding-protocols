@@ -18,6 +18,11 @@ Read the warnings before deciding whether the route is still acceptable.
 That is allowed.
 Use `--scanners` for local exploration and install scanners only when they fit your workflow.
 
+## Content quality warnings appear
+
+A file can exist and still be too empty to count as actionable project memory.
+Add real findings, routes, owners, integrations or recurring checks before treating the artifact as complete.
+
 ## PowerShell or Windows shell issues
 
 Use Git Bash or WSL, or run the wrapper in `scripts/vibe-check.ps1`.

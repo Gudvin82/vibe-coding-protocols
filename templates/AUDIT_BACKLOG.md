@@ -1,20 +1,20 @@
 <!-- vcp-artifact: AUDIT_BACKLOG -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 
 # Audit Backlog
 
-Практический шаблон для фиксации находок после AI Project Hardening Protocol.
+Use this backlog to record findings after Hardening or Extended review.
 
-## Как использовать
+## How to use
 
-- Не просите AI "починить все" сразу.
-- Сначала перенесите все находки в backlog.
-- Отдельно выделите Critical и High.
-- У каждой задачи должен быть владелец, статус, evidence и источник находки.
-- Accepted risks фиксируйте явно, а не в переписке.
+- Do not ask AI to fix everything at once.
+- Move findings into a backlog before implementation starts.
+- Separate Critical and High from the rest.
+- Every item should have an owner, status, evidence and discovery source.
+- Record accepted risks explicitly, not in chat history.
 
-## Статусы
+## Statuses
 
 - Open
 - In progress
@@ -57,7 +57,7 @@
 |---|---|---|---|---|
 | RISK-001 | [FILL IN: accepted risk] | [FILL IN: why accepted] | [FILL IN] | [FILL IN] |
 
-## Категории
+## Categories
 
 - Security
 - Supply Chain
@@ -80,9 +80,9 @@
 - Analytics / Cookies
 - Marketing consent
 
-## Мини-правила
+## Mini-rules
 
-- Critical блокируют merge или deploy до явного решения.
-- High должны иметь план исправления до production.
-- Medium и Low можно планировать, но не терять.
-- Если риск принят, это должно быть осознанное решение с датой пересмотра.
+- Critical items block merge or deploy until there is an explicit decision.
+- High items should have a fix plan before production.
+- Medium and Low can be planned, but should not disappear.
+- If a risk is accepted, it should be an explicit decision with a review date.

@@ -1,63 +1,39 @@
 # Vibe Coding Protocols
 
+[Русская версия](./README_ru.md)
+
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.1.11-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.1.12-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
-[![Updated](https://img.shields.io/badge/updated-May%202026-brightgreen)](./CHANGELOG.md)
-[![Website](https://img.shields.io/badge/website-anmalishev.ru-black)](https://anmalishev.ru/)
-[![Toolkit](https://img.shields.io/badge/type-markdown%20toolkit-informational)](https://github.com/Gudvin82/vibe-coding-protocols)
-
-### AI IDE ready
-
-[![Claude Code Ready](https://img.shields.io/badge/Claude%20Code-ready-blueviolet)](./CLAUDE.md)
-[![Codex Ready](https://img.shields.io/badge/Codex-ready-blue)](./AGENTS.md)
-[![Cursor Ready](https://img.shields.io/badge/Cursor-ready-black)](./.cursorrules)
-[![Windsurf Ready](https://img.shields.io/badge/Windsurf-ready-00A3FF)](./.windsurfrules)
-[![Copilot Ready](https://img.shields.io/badge/GitHub%20Copilot-ready-2ea44f)](./.github/copilot-instructions.md)
-
-### CI
-
-[![Toolkit Smoke](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml/badge.svg)](
-  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/toolkit-smoke.yml
-)
-[![Link Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml/badge.svg)](
-  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/link-check.yml
-)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
   https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml
 )
 
-**An agent harness and operating layer for AI-assisted delivery — not just a prompt collection.**
+**Not a prompt collection.**
 
-Vibe Coding Protocols helps founders, solo builders and teams turn
-AI-assisted coding into a more controlled workflow: Product Brief,
-Memory Bank, AI IDE rules, Starter, Hardening, vibe-check, security
-baselines, model routing and audit backlog.
+Vibe Coding Protocols is a lightweight configuration and workflow layer for AI-assisted delivery:
+routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.1.11`  
+Repository package: `v0.1.12`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
-Languages:
-- English: [README_en.md](./README_en.md)
-- Русский: [README_ru.md](./README_ru.md)
+If you are on mobile, start with:
+1. [START_HERE.md](./START_HERE.md)
+2. [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
+3. [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
 
 ## What this is
 
-This repository is a lightweight GitHub toolkit for AI-assisted delivery.
-
-It gives you:
+This repository gives you:
 - route selection before coding;
 - copy-ready AI IDE rules and Memory Bank files;
-- starter and hardening workflows;
-- a lightweight `vibe-check` for readiness signals;
-- agent harness and model routing guidance;
-- synthetic examples and reusable command patterns.
+- Lite, Starter, Hardening and Extended routes;
+- lightweight checks such as `vibe-check`;
+- synthetic examples, checklists and handoff docs.
 
 Not sure where to start? Open [START_HERE.md](./START_HERE.md).
-If you want the smallest safe setup first, open
-[docs/lite-adoption-path.md](./docs/lite-adoption-path.md).
 
 ```mermaid
 flowchart LR
@@ -67,53 +43,60 @@ flowchart LR
   D --> E["Extended"]
 ```
 
-## Versioning
+<details>
+<summary>Why this is different from a prompt collection</summary>
 
-This project uses two version lines:
+| Typical prompt collection | VCP |
+|---|---|
+| Prompts only | Prompts + templates + checks |
+| IDE-specific | AI IDE compatible |
+| No hardening path | Lite -> Starter -> Hardening -> Extended |
+| No validation | `vibe-check` + CI examples |
+| No handoff | `AUDIT_BACKLOG` + Architecture SoT |
 
-- Repository package `v0.1.x` — GitHub toolkit packaging, scripts, examples, CI and docs.
-- Web methodology `v1.4` — public methodology pages on `anmalishev.ru`.
-
-They are related but not identical. The repository may move to `v1.0.0`
-after external feedback and stable toolkit adoption.
+</details>
 
 ## Start here
 
 | Situation | Start here |
 |---|---|
 | Only an idea | [English Product Brief prompt](./prompts/product-brief-prompt_en.md) |
-| New project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
+| New AI-assisted project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
 | Existing AI-generated code | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| Public / production | [Extended path](#core-vs-extended) |
-| AI IDE setup | [AGENTS / CLAUDE / Cursor rules](#repository-map) |
+| Public, client-facing or production-bound | [Extended Protocol](./protocols/ai-project-extended-protocol.md) |
+| AI IDE setup | [START_HERE.md](./START_HERE.md) |
 
-## Start in 2 minutes
+## If you only copy one thing
 
-### New project
+### Solo / MVP
 
-1. Copy `templates/AGENTS.md` into your repo.
+1. Copy `templates/AGENTS.md` as `AGENTS.md`.
 2. Copy `templates/PROJECT_MAP.md`.
-3. Open one Product Brief prompt:
-   - [English Product Brief prompt](./prompts/product-brief-prompt_en.md)
-   - [Russian Product Brief prompt](./prompts/product-brief-prompt.md)
-4. Paste the prompt into your AI IDE.
-5. Run:
+3. Use `prompts/product-brief-prompt_en.md`.
+4. Run `bash scripts/vibe-check.sh --starter`.
 
-```bash
-bash scripts/vibe-check.sh --starter
-```
+<details>
+<summary>Small team and production additions</summary>
 
-### Existing AI-generated project
+### Small team
 
-1. Copy `templates/AUDIT_BACKLOG.md`.
-2. Open [Hardening Protocol](./protocols/ai-project-hardening-protocol.md).
-3. Run:
+Add:
+- `templates/AUDIT_BACKLOG.md`
+- `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
+- CI with `bash scripts/vibe-check.sh --audit`
 
-```bash
-bash scripts/vibe-check.sh --hardening
-```
+### Production / client-facing
 
-### Review-first minimal setup
+Add:
+- `templates/SECURITY_BASELINE.md`
+- `templates/SECURITY_OPERATIONS_BASELINE.md`
+- `templates/THIRD_PARTY_REGISTRY.md`
+- `templates/INCIDENT_RECOVERY_RUNBOOK.md`
+- `templates/METRICS_BOARD.md`
+
+</details>
+
+## Review-first install
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
@@ -145,52 +128,27 @@ Optional local guardrail:
 bash scripts/install-hooks.sh --mode starter
 ```
 
-Default behavior:
-- installs a pre-commit hook in `starter` mode;
-- reminds you to use `--mode hardening` or `--mode audit` for existing or
-  production-bound projects.
-- Windows is supported through Git Bash / WSL with
-  [scripts/vibe-check.ps1](./scripts/vibe-check.ps1).
+## Which agent file should I use?
 
-## Core vs Extended
+- Root `AGENTS.md` configures this repository.
+- Root `CLAUDE.md` configures Claude Code for this repository.
+- Do not copy root `AGENTS.md` blindly into your project.
+- For your own project, copy `templates/AGENTS.md` as `AGENTS.md`.
+- For Claude Code, use `templates/AGENTS.claude.md` or adapt it into your project's `CLAUDE.md`.
+- For Cursor or Windsurf, use `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md`.
 
-### Core path
-
-Use Core when the project is still private, local, early-stage or MVP-bound.
-
-Core artifacts:
-- Product Brief
-- `templates/AGENTS.md`
-- `templates/PROJECT_MAP.md`
-- Starter Protocol
-- Hardening Protocol
-- `templates/AUDIT_BACKLOG.md`
-- `vibe-check`
-
-### Extended path
-
-Use Extended when the project is public, monetized, client-facing or production-bound.
-
-Extended artifacts:
-- `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
-- `templates/SECURITY_OPERATIONS_BASELINE.md`
-- `templates/THIRD_PARTY_REGISTRY.md`
-- [perimeter checklist](./checklists/perimeter-security-checklist.md)
-- [auth abuse checklist](./checklists/auth-abuse-checklist.md)
-- [hardening thresholds](./docs/hardening-thresholds.md)
-- [incident recovery runbook](./templates/INCIDENT_RECOVERY_RUNBOOK.md)
+Core memory files used across the toolkit:
+- `README.md`
+- `AGENTS.md` or `CLAUDE.md`
+- `PROJECT_MAP.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
+- `AUDIT_BACKLOG.md`, for hardening
+- `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
+- `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 
 ## Vibe-check
 
-`vibe-check` is a lightweight readiness check.
-
-It helps confirm:
-- project memory and baseline files;
-- `.gitignore` and env hygiene;
-- obvious secret-like patterns;
-- starter / hardening / audit route coverage;
-- optional scanner integration when tools are already installed.
-
+`vibe-check` is a lightweight readiness signal.
 It is not a security scanner and not a security certification.
 
 ```bash
@@ -224,8 +182,8 @@ Use this only when you want to see optional scanner availability:
 bash scripts/vibe-check.sh --audit --scanners
 ```
 
-If you intentionally do not want missing optional scanners to stop a local
-shell session, you may run:
+If you intentionally do not want missing optional scanners to stop a local shell session,
+you may run:
 
 ```bash
 bash scripts/vibe-check.sh --audit --scanners || true
@@ -234,122 +192,40 @@ bash scripts/vibe-check.sh --audit --scanners || true
 Do not use `|| true` in CI or release gates.
 
 See:
-- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [docs/vibe-check-scoring.md](./docs/vibe-check-scoring.md)
+- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
-- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
 
-## Agent harness and model routing
+## Routes
 
-This repository treats AI-assisted delivery as an agent harness problem:
-- stable memory before edits;
-- scoped discovery instead of whole-repo scanning;
-- model routing when available;
-- validation before confidence;
-- backlog and release handoff after changes.
-
-Start with:
-- [docs/agent-harness.md](./docs/agent-harness.md)
-- [docs/model-routing.md](./docs/model-routing.md)
-- [docs/auth-session-security.md](./docs/auth-session-security.md)
-- [commands/README.md](./commands/README.md)
-- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
-
-Quick copy-paste prompt:
-
-```text
-Study this repository as a workflow toolkit. Do not write code yet.
-Read README.md, START_HERE.md and docs/lite-adoption-path.md first.
-Then tell me which route fits: Lite, Starter, Hardening or Extended.
-```
-
-## Repository map
-
-```text
-vibe-coding-protocols/
-├── START_HERE.md
-├── protocols/                # Starter and Hardening routes
-├── prompts/                  # Product Brief, AI entry, modular prompts
-├── templates/                # Copy-ready project artifacts
-├── checklists/               # Security, QA and rollout checklists
-├── commands/                 # Reusable AI command patterns
-├── docs/                     # Guides, reference and releases
-├── examples/                 # Synthetic starter and hardening walkthroughs
-├── scripts/                  # vibe-check, installers, hooks
-└── case-studies/             # Template-only for now
-```
-
-Root `AGENTS.md` configures this repository.
-See [START_HERE.md](./START_HERE.md) for the full copy-ready versus
-repo-local split.
-
-## Which agent file should I copy?
-
-- Root `AGENTS.md` configures this repository.
-- Root `CLAUDE.md` configures Claude Code for this repository.
-- Use `templates/AGENTS.md` as the generic copy-ready agent template for your project.
-- Use `templates/AGENTS.claude.md` if you want Claude Code-specific rules.
-- Use `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md` for Cursor or Windsurf-specific workflows.
-
-Core memory files used across this toolkit:
-- `README.md`
-- `AGENTS.md` or `CLAUDE.md`
-- `PROJECT_MAP.md`
-- `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
-- `AUDIT_BACKLOG.md`, for hardening
-- `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
-- `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
-
-If you want to copy agent rules into your own project, use:
-- [templates/AGENTS.md](./templates/AGENTS.md)
-- [templates/AGENTS.claude.md](./templates/AGENTS.claude.md)
-- [templates/AGENTS.cursor.md](./templates/AGENTS.cursor.md)
-- [templates/AGENTS.windsurf.md](./templates/AGENTS.windsurf.md)
+- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md) — solo builder or MVP route
+- [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md) — new AI-assisted project
+- [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md) — existing AI-generated code
+- [protocols/ai-project-extended-protocol.md](./protocols/ai-project-extended-protocol.md) — public, client-facing or production-bound project
 
 ## Examples
 
-Start with [examples/README.md](./examples/README.md).
+Examples are synthetic or sanitized learning examples.
+They are not claimed as real-world case studies.
 
-Recommended examples:
-- [examples/todo-app-starter/](./examples/todo-app-starter/) — runnable synthetic starter project
-- [examples/todo-app-vibe/](./examples/todo-app-vibe/) — starter to hardening walkthrough
-- [examples/telegram-bot-vibe/](./examples/telegram-bot-vibe/) — bot token and abuse risks
-- [examples/landing-page-vibe/](./examples/landing-page-vibe/) — public site route
-- [examples/saas-backend-vibe/](./examples/saas-backend-vibe/) — backend-heavy hardening path
-- [examples/python-script-vibe/](./examples/python-script-vibe/) — tiny Python workflow example
-- [examples/react-component-vibe/](./examples/react-component-vibe/) — tiny React component workflow example
-
-Examples are synthetic or sanitized learning examples. They are not claimed as
-real-world case studies.
-
-Case studies are template-only for now:
-- [case-studies/README.md](./case-studies/README.md)
+- [examples/README.md](./examples/README.md)
+- [templates/examples/AUDIT_BACKLOG.filled.example.md](./templates/examples/AUDIT_BACKLOG.filled.example.md)
+- [templates/examples/THIRD_PARTY_REGISTRY.filled.example.md](./templates/examples/THIRD_PARTY_REGISTRY.filled.example.md)
+- [templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](./templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
 
 ## Docs
 
 Start here when you need more depth:
-- [START_HERE.md](./START_HERE.md)
-- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
-- [docs/agent-harness.md](./docs/agent-harness.md)
-- [docs/model-routing.md](./docs/model-routing.md)
+- [docs/README.md](./docs/README.md)
 - [docs/one-pager.md](./docs/one-pager.md)
 - [docs/faq.md](./docs/faq.md)
 - [docs/troubleshooting.md](./docs/troubleshooting.md)
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/auth-session-security.md](./docs/auth-session-security.md)
+- [docs/versioning.md](./docs/versioning.md)
+- [docs/ide-rules-dry-policy.md](./docs/ide-rules-dry-policy.md)
 - [docs/artifact-versioning.md](./docs/artifact-versioning.md)
-- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
-- [docs/scanner-integration.md](./docs/scanner-integration.md)
-- [docs/metrics-to-track.md](./docs/metrics-to-track.md)
-- [templates/METRICS_BOARD.md](./templates/METRICS_BOARD.md)
-- [templates/INCIDENT_RECOVERY_RUNBOOK.md](./templates/INCIDENT_RECOVERY_RUNBOOK.md)
-- [templates/README.md](./templates/README.md)
 - [protocols/README.md](./protocols/README.md)
 - [checklists/README.md](./checklists/README.md)
-- [docs/windows.md](./docs/windows.md)
-- [docs/devcontainer.md](./docs/devcontainer.md)
-- [docs/github-security-settings.md](./docs/github-security-settings.md)
-- [ANTI_PATTERNS.md](./ANTI_PATTERNS.md)
 
 ## Author
 
@@ -367,25 +243,3 @@ Hub:
 The repository is primarily published under `CC BY 4.0`.
 
 Standalone executable scripts in [scripts/](./scripts/) are licensed separately under `MIT`.
-
-## Distribution notes
-
-Suggested GitHub topics for manual setup:
-- `vibe-coding`
-- `ai-coding`
-- `ai-assisted-development`
-- `ai-agents`
-- `claude-code`
-- `codex`
-- `cursor`
-- `windsurf`
-- `github-copilot`
-- `prompt-engineering`
-- `developer-tools`
-- `software-architecture`
-- `security-checklist`
-- `production-readiness`
-
-Social preview:
-- asset: [assets/social-preview.png](./assets/social-preview.png)
-- guide: [docs/social-preview.md](./docs/social-preview.md)

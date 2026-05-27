@@ -4,6 +4,14 @@
 
 Use VCP for 30 days on a real project and record what changed.
 
+## Planned case study types
+
+- Solo MVP
+- Telegram bot
+- Landing page
+- SaaS backend
+- Internal tool
+
 ## How to participate
 
 1. Start from a real project.
@@ -11,7 +19,7 @@ Use VCP for 30 days on a real project and record what changed.
 3. Sanitize everything before sharing.
 4. Track only real evidence.
 
-## What data to collect
+## What evidence to include
 
 - starting route: Lite, Starter, Hardening or Extended;
 - which templates were copied;
@@ -21,21 +29,15 @@ Use VCP for 30 days on a real project and record what changed.
 - rollback events, if any;
 - what remained accepted risk.
 
-## Before / after template
+## What to redact
 
-- Before:
-  - project state
-  - biggest risks
-  - missing docs
-- After:
-  - files adopted
-  - checks adopted
-  - findings caught
-  - what still needs work
+- secrets and tokens;
+- customer data;
+- private endpoints and internal IPs;
+- internal repo URLs;
+- company and product names if needed.
 
-## Privacy and sanitization rules
+## Privacy policy for case submissions
 
-- do not publish secrets;
-- do not publish customer data;
-- remove private endpoints and internal IPs;
-- anonymize company and product names if needed.
+Share only sanitized material.
+If a detail would not be safe in a public GitHub issue, it should not go into a public case submission.

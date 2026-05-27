@@ -1,55 +1,41 @@
 # Artifact Versioning
 
-Copy-ready templates in this repository include lightweight version markers.
+Copy-ready templates include lightweight version markers so you can tell whether a copied file may be stale.
 
-Example:
+## Marker format
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.1.11 -->
+<!-- vcp-version: v0.1.12 -->
 <!-- methodology-version: v1.4 -->
 ```
 
 ## Why these markers exist
 
-They help answer simple maintenance questions:
-- Was this file copied from VCP at all?
-- Which repository package version did it come from?
-- Was it aligned with methodology `v1.4` at the time?
+- copied files drift over time;
+- local project customizations are normal;
+- users still need a low-friction way to compare old copies with newer toolkit releases.
 
 ## How to update local artifacts
 
-1. Compare your local file with the current template.
-2. Copy only the parts you still want.
-3. Keep your project-specific rules and ownership notes.
-4. Update the `vcp-version` marker after review.
-
-Do not overwrite a heavily customized project file blindly.
+1. Compare your local file with the latest template.
+2. Keep project-specific edits that still matter.
+3. Bring over workflow, wording or structure updates that improve clarity.
+4. Update the marker only after review.
 
 ## If the file is heavily customized
 
-That is normal.
-
-Treat the VCP template as a reference baseline:
-- compare structure;
-- compare missing safeguards;
-- copy only useful improvements;
-- keep project-specific operational details private.
+Do not overwrite it blindly.
+Treat the template as a reference and port only the changes that still fit your project.
 
 ## Comparing `templates/AGENTS.md` with a local `AGENTS.md`
 
-A practical workflow:
-- open `templates/AGENTS.md` from this repository;
-- open your project's `AGENTS.md`;
-- diff stop conditions, Memory Bank files and approval gates;
-- keep local ownership, deploy and security details;
-- update the marker only after the review is complete.
+Start with:
+- Stop Conditions
+- Memory Bank read order
+- token-aware discovery guidance
+- approval gates
+- reporting expectations
 
-## How `vibe-check` uses markers
-
-`vibe-check` treats missing or older markers as a warning, not a failure.
-
-That is intentional:
-- projects may customize artifacts deeply;
-- version drift does not always mean the file is wrong;
-- the goal is review visibility, not forced replacement.
+The goal is not to make every copied file identical.
+The goal is to make drift visible and reviewable.

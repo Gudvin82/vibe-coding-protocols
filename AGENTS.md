@@ -4,6 +4,15 @@
 
 Make atomic, safe, well-explained changes and keep the smallest practical diff per iteration.
 
+## Which agent file should I use?
+
+- Root `AGENTS.md` configures this repository.
+- Root `CLAUDE.md` configures Claude Code for this repository.
+- Do not copy root `AGENTS.md` blindly into your project.
+- For your own project, copy `templates/AGENTS.md` as `AGENTS.md`.
+- For Claude Code, use `templates/AGENTS.claude.md` or adapt it into your project's `CLAUDE.md`.
+- For Cursor or Windsurf, use `templates/AGENTS.cursor.md` or `templates/AGENTS.windsurf.md`.
+
 ## Memory Bank
 
 Read and update the project context files when they exist:
@@ -31,25 +40,13 @@ When broad discovery is needed:
    - confidence
 5. The main agent must verify critical findings before editing.
 
-See [docs/token-aware-code-discovery.md](./docs/token-aware-code-discovery.md).
-
 ## Model routing / token-aware discovery
 
 When broad code discovery is needed:
-
 1. Do not start by reading the whole repository.
-2. Read Memory Bank first:
-   - `README.md`
-   - `AGENTS.md` / `CLAUDE.md`
-   - `PROJECT_MAP.md`
-   - `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present
+2. Read Memory Bank first.
 3. Use a cheaper or faster read-only discovery agent when available.
-4. Discovery agent returns only:
-   - `path:line`
-   - symbol / component / route
-   - snippet or signature
-   - why it matters
-   - confidence
+4. Discovery agent returns only an evidence map.
 5. Main agent verifies critical findings before editing.
 6. Main agent performs targeted implementation.
 7. Independent reviewer checks the diff before merge or deploy.
@@ -68,7 +65,7 @@ When broad code discovery is needed:
 
 Also stop when:
 - the change touches more than 2 layers at once;
-- the active / deferred surface is unclear;
+- the active or deferred surface is unclear;
 - a request would expose secrets, private docs or internal routes.
 
 ## When unsure
