@@ -42,8 +42,8 @@ Real project `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md`,
 incident runbooks, deployment notes and security docs often contain sensitive
 details.
 
-Store them in a private repository, encrypted storage or another access-restricted
-system when they contain operational specifics.
+Store them in a private repository, encrypted storage or another
+access-restricted system when they contain operational specifics.
 
 ## Architecture Source of Truth policy
 
@@ -63,5 +63,7 @@ That real version should usually stay private or be carefully sanitized.
 
 The examples in this repository are synthetic or sanitized learning material.
 
-They are not claimed as real production projects, and they should not be used
-as proof that a public project is safe to expose in the same way.
+They are not claimed as real production projects.
+
+They should not be used as proof that a public project is safe to expose in the
+same way.

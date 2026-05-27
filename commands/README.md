@@ -3,7 +3,8 @@
 Copyable command patterns for AI IDEs.
 
 These are not executable shell commands.
-They are reusable AI instructions for Claude Code, Codex, Cursor, Windsurf and similar tools.
+They are reusable AI instructions for Claude Code, Codex, Cursor, Windsurf
+and similar tools.
 
 ## Available command patterns
 

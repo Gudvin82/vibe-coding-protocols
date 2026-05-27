@@ -30,4 +30,6 @@ The score does not mean:
 - all secrets and dependency issues are covered.
 
 Use the score to spot missing structure, memory, env hygiene and validation
-signals early. Use hardening docs, review and scanners for deeper work.
+signals early.
+
+Use hardening docs, review and scanners for deeper work.
