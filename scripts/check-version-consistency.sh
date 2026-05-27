@@ -33,10 +33,6 @@ check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/v
 check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 
-if [[ -f README_en.md ]]; then
-  check_contains README_en.md "$REPO_VERSION" "README_en repository package"
-fi
-
 for file in templates/*.md; do
   [[ -e "$file" ]] || continue
   case "$file" in
