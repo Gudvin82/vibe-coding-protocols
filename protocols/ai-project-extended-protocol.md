@@ -6,7 +6,8 @@ or handles auth, payments or personal data.
 ## Step 1. Architecture Source of Truth
 
 Create or update `ARCHITECTURE_SOURCE_OF_TRUTH.md`.
-Make sure the document covers:
+If the project has multiple surfaces, also create `ARCHITECTURE_MAP.md` first.
+Make sure the detailed document covers:
 - main flows;
 - integrations;
 - storage and deploy path;
@@ -21,6 +22,7 @@ public exposure and supply-chain notes are explicit.
 
 Track external APIs, repositories, packages and hosted services
 in `THIRD_PARTY_REGISTRY.md`.
+Prefer current official docs over model memory when dependencies are updated.
 
 ## Step 4. Perimeter / Auth Abuse checklist
 
@@ -52,6 +54,7 @@ or in an accepted-risks section before deploy.
 ## Exit criteria
 
 - Architecture Source of Truth exists and is actionable.
+- Architecture Map exists when multiple surfaces or stack choices need quick orientation.
 - Security baseline exists and is not empty.
 - Third-party registry is present.
 - Incident runbook exists.

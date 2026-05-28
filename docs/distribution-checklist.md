@@ -14,7 +14,7 @@ Use this checklist before promoting the repository more broadly.
 ## Release hygiene
 
 - [ ] `VERSION` matches the release tag
-- [ ] `docs/release-v0.2.0.md` exists
+- [ ] `docs/release-v0.2.1.md` exists
 - [ ] `SHA256SUMS` updated
 - [ ] self-dogfooding checks passed
 
@@ -25,3 +25,7 @@ Use this checklist before promoting the repository more broadly.
 - [ ] Share one `vibe-check` screenshot
 - [ ] Ask for feedback on onboarding clarity
 - [ ] Publish a first public post when the latest release is stable
+- [ ] Create GitVerse mirror
+- [ ] Create GitFlic mirror
+- [ ] Create SourceCraft mirror
+- [ ] Add mirror links after they exist

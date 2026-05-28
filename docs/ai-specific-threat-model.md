@@ -55,7 +55,8 @@ Detection:
 Mitigation:
 - `THIRD_PARTY_REGISTRY.md`;
 - safe update / intake workflow;
-- official docs before install.
+- official docs before install;
+- live docs via Context7 or MCP, if available.
 
 Relevant VCP artifact:
 - `THIRD_PARTY_REGISTRY.md`
@@ -218,36 +219,3 @@ Mitigation:
 - secret scanning;
 - placeholder policy;
 - git history checks;
-- secret rotation;
-- private versus sanitized docs policy.
-
-Relevant VCP artifact:
-- `secret-rotation-and-storage.md`
-- `scanner-integration.md`
-- `public-vs-private-docs.md`
-
-## AI-assisted auth mistakes
-
-Risk:
-- tokens stored in `localStorage` by default;
-- missing `HttpOnly`, `Secure` or `SameSite`;
-- no login rate limit;
-- weak password hashing;
-- exposed admin routes.
-
-Detection:
-- auth/session code defaults to frontend-stored tokens;
-- cookie flags are absent;
-- auth endpoints lack abuse controls;
-- admin paths are reachable without stronger auth.
-
-Mitigation:
-- auth/session baseline;
-- auth abuse checklist;
-- independent review for auth changes;
-- auth-focused tests.
-
-Relevant VCP artifact:
-- `auth-session-security.md`
-- `auth-abuse-checklist.md`
-- `SECURITY_BASELINE.md`

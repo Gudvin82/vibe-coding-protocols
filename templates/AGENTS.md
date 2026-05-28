@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS.md
@@ -15,6 +15,7 @@ Read and update the project context files when they exist:
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces need a compact plan
 - `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
 - `AUDIT_BACKLOG.md`, for hardening
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
@@ -47,6 +48,7 @@ When broad code discovery is needed:
    - `README.md`
    - `AGENTS.md` / `CLAUDE.md`
    - `PROJECT_MAP.md`
+   - `ARCHITECTURE_MAP.md` when multiple surfaces exist
    - `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present
 3. Use a cheaper or faster read-only discovery agent when available.
 4. Discovery agent returns only:
@@ -93,6 +95,15 @@ Do not:
 ## Safe Integration
 
 Treat third-party repos, packages, actions and APIs as untrusted until reviewed.
+
+## Remote safety
+
+Before setup, template installation, push, PR, release or deploy:
+1. Run or inspect `git remote -v`.
+2. Confirm this is your project repository, not the source template or toolkit repository.
+3. Do not push to a template or source repository.
+4. Do not open PRs against the source template or toolkit repository unless explicitly asked.
+5. If remote origin is unclear, stop and ask.
 
 ## Testing and reporting
 

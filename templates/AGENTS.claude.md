@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS_CLAUDE -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Claude Code
@@ -12,6 +12,7 @@ Read first:
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces need a compact plan
 - `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
 - `AUDIT_BACKLOG.md`, for hardening
 
@@ -47,3 +48,11 @@ If Claude Code model routing is available:
 - stop on auth, payments, migrations or CI/CD changes without human review;
 - stop when the diff becomes cross-layer or too wide;
 - ask before new dependencies or destructive operations.
+
+## Remote safety
+
+Before setup, template installation, push, PR, release or deploy:
+- inspect `git remote -v`;
+- confirm this is your project repository, not the source toolkit repository;
+- do not push to the source toolkit repository by mistake;
+- stop and ask when remote origin is unclear.

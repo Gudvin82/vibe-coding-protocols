@@ -19,6 +19,7 @@ Read and update the project context files when they exist:
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces need a compact plan
 - `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
 - `AUDIT_BACKLOG.md`, for hardening
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
@@ -85,6 +86,15 @@ Do not:
 ## Safe Integration
 
 Treat third-party repos, packages, actions and APIs as untrusted until reviewed.
+
+## Remote safety
+
+Before setup, template installation, push, PR, release or deploy:
+1. Run or inspect `git remote -v`.
+2. Confirm this is the user's project repository, not the source template or toolkit repository.
+3. Do not push to a template or source repository.
+4. Do not open PRs against the source template or toolkit repository unless explicitly asked.
+5. If remote origin is unclear, stop and ask.
 
 ## Testing and reporting
 

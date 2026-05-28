@@ -6,7 +6,7 @@ Copy-ready templates include lightweight version markers so you can tell whether
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 ```
 

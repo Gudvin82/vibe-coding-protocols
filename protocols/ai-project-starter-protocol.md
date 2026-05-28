@@ -21,6 +21,23 @@ Use one of these prompts:
 - [English Product Brief prompt](../prompts/product-brief-prompt_en.md)
 - [Russian Product Brief prompt](../prompts/product-brief-prompt.md)
 
+## Step 0. Architecture Map
+
+Before implementation, ask AI to produce Architecture Map:
+- active surfaces;
+- deferred surfaces;
+- not-in-scope;
+- contracts;
+- backend or API;
+- data;
+- integrations;
+- deploy.
+
+Use:
+- [../docs/architecture-map.md](../docs/architecture-map.md)
+- [../templates/ARCHITECTURE_MAP.md](../templates/ARCHITECTURE_MAP.md)
+- [../prompts/architecture-map-prompt.md](../prompts/architecture-map-prompt.md)
+
 ## Prompt 0. Technical intake
 
 Before code, the AI should clarify:
@@ -52,7 +69,8 @@ If the chosen path creates an obvious growth dead-end, the AI should say so.
 
 Separate clearly:
 - active now;
-- deferred until later.
+- deferred until later;
+- not in scope.
 
 Example surfaces:
 - web frontend;
@@ -96,7 +114,18 @@ Before connecting an external repo, template, package or API:
 - review install scripts and workflows;
 - do not grant production secrets;
 - test in sandbox or staging first;
-- document version, commit and risks.
+- document version, commit and risks;
+- prefer current official docs over model memory.
+
+## Local-first and cloud-later
+
+Before cloud deploy:
+- run locally first;
+- document env vars, database and storage;
+- name the deployment owner;
+- document rollback path.
+
+Do not pick a cloud target just because a starter template assumes one.
 
 ## Database and load readiness
 
@@ -118,6 +147,7 @@ Minimum Memory Bank:
 - `README.md`
 - `AGENTS.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces exist
 - `ARCHITECTURE.md` or Architecture Source of Truth
 - `SECURITY.md`
 - `AUDIT_BACKLOG.md`
@@ -154,7 +184,7 @@ Stop and ask for approval when:
 
 Do not waste context:
 - do not read the whole repo without a reason;
-- start with `PROJECT_MAP.md`;
+- start with `PROJECT_MAP.md` and `ARCHITECTURE_MAP.md` if present;
 - do not run LLM or API loops without limits;
 - record expensive loops in `AUDIT_BACKLOG.md` or `docs/PROMPTS.md`.
 
@@ -200,6 +230,7 @@ After the first safe iteration, do not keep piling on features blindly.
 Move into Hardening first:
 - reuse the Product Brief;
 - update `PROJECT_MAP.md`;
+- update `ARCHITECTURE_MAP.md` if surfaces changed;
 - review architecture;
 - expand the security baseline;
 - populate `AUDIT_BACKLOG.md`;

@@ -2,7 +2,7 @@
 
 This project uses two version lines:
 
-- Repository package `v0.2.0` — GitHub toolkit packaging, scripts, examples, CI and docs.
+- Repository package `v0.2.1` — GitHub toolkit packaging, scripts, examples, CI and docs.
 - Web methodology `v1.4` — public methodology pages on `anmalishev.ru`.
 
 They are related but not identical.

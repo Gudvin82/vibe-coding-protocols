@@ -9,7 +9,7 @@
 
 ## Memory Bank
 
-Read `README.md`, `AGENTS.md` and `PROJECT_MAP.md` before edits.
+Read `README.md`, `AGENTS.md`, `PROJECT_MAP.md` and `ARCHITECTURE_MAP.md` when present before edits.
 Use `AUDIT_BACKLOG.md` for hardening follow-up.
 
 ## Token-aware discovery
@@ -21,3 +21,10 @@ Return an evidence map with `path:line`, symbol, snippet, why it matters and con
 
 Ask before migrations, auth, payments, CI changes or new dependencies.
 Keep diffs atomic and report validation results.
+
+## Remote safety
+
+Before push, PR, release or deploy:
+- inspect `git remote -v`;
+- confirm the current repository is the user's target project;
+- do not push to the source toolkit or template repository by mistake.

@@ -11,11 +11,17 @@ bash scripts/vibe-check.sh --doctor --json
 
 - toolkit version and methodology version;
 - whether this is a git repository;
+- remote origin for safety review;
 - whether `SHA256SUMS` exists;
 - whether key onboarding files exist;
 - whether `bash`, `git`, `python3`, `node` and `npm` are available;
 - whether optional scanners are available;
 - a recommended route based on the current files.
+
+## Remote safety note
+
+If `remote origin` still points to the source toolkit or template repository,
+confirm that you are not editing the wrong repository before setup, push, PR or deploy.
 
 ## What it does not do
 

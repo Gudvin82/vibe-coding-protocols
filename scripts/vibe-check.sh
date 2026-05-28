@@ -28,7 +28,7 @@ ARTIFACT_VERSION_WARNINGS=0
 CONTENT_QUALITY_WARNINGS=0
 REPO_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/VERSION" 2>/dev/null || true)"
 if [[ -z "$REPO_VERSION" ]]; then
-  REPO_VERSION="v0.2.0"
+  REPO_VERSION="v0.2.1"
 fi
 METHODOLOGY_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/METHODOLOGY_VERSION" 2>/dev/null || true)"
 if [[ -z "$METHODOLOGY_VERSION" ]]; then
@@ -48,6 +48,7 @@ COPY_READY_TEMPLATE_FILES=(
   "templates/AGENTS.cursor.md"
   "templates/AGENTS.windsurf.md"
   "templates/PROJECT_MAP.md"
+  "templates/ARCHITECTURE_MAP.md"
   "templates/AUDIT_BACKLOG.md"
   "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
   "templates/INCIDENT_RECOVERY_RUNBOOK.md"
@@ -60,6 +61,7 @@ COPY_READY_TEMPLATE_FILES=(
 COPIED_ARTIFACT_FILES=(
   "AGENTS.md"
   "PROJECT_MAP.md"
+  "ARCHITECTURE_MAP.md"
   "AUDIT_BACKLOG.md"
   "ARCHITECTURE_SOURCE_OF_TRUTH.md"
   "INCIDENT_RECOVERY_RUNBOOK.md"
@@ -230,6 +232,8 @@ doctor_report() {
   local route
   local bash_version
   local git_repo=no
+  local remote_origin="not_available"
+  local remote_warning=0
   local sha_present=missing
   local agents_present=missing
   local template_agents_present=missing
@@ -245,6 +249,12 @@ doctor_report() {
   route=$(suggest_route)
   bash_version="${BASH_VERSION:-unknown}"
   is_git_repo && git_repo=yes
+  if [[ "$git_repo" == "yes" ]]; then
+    remote_origin="$(git remote get-url origin 2>/dev/null || printf 'missing')"
+    if [[ "$remote_origin" == *"vibe-coding-protocols"* ]] && [[ "$(basename "$PWD")" != "vibe-coding-protocols" ]]; then
+      remote_warning=1
+    fi
+  fi
   [[ -f SHA256SUMS ]] && sha_present=present
   [[ -f AGENTS.md ]] && agents_present=present
   [[ -f templates/AGENTS.md ]] && template_agents_present=present
@@ -263,6 +273,8 @@ doctor_report() {
     printf '  "version": "%s",\n' "$REPO_VERSION"
     printf '  "methodology_version": "%s",\n' "$METHODOLOGY_VERSION"
     [[ "$git_repo" == "yes" ]] && printf '  "git_repo": true,\n' || printf '  "git_repo": false,\n'
+    printf '  "remote_origin": "%s",\n' "$remote_origin"
+    [[ "$remote_warning" -eq 1 ]] && printf '  "remote_safety_warning": true,\n' || printf '  "remote_safety_warning": false,\n'
     [[ "$sha_present" == "present" ]] && printf '  "sha256sums": true,\n' || printf '  "sha256sums": false,\n'
     printf '  "tools": {\n'
     [[ "$git_tool" == "found" ]] && printf '    "git": true,\n' || printf '    "git": false,\n'
@@ -288,6 +300,7 @@ Toolkit:
 - VERSION: $REPO_VERSION
 - Methodology: $METHODOLOGY_VERSION
 - Git repository: $git_repo
+- Remote origin: $remote_origin
 - SHA256SUMS: $sha_present
 - AGENTS.md: $agents_present
 - templates/AGENTS.md: $template_agents_present
@@ -308,6 +321,11 @@ Optional scanners:
 Recommended next step:
 - $route
 EOF
+  if (( remote_warning )); then
+    printf '%s\n' ""
+    printf '%s\n' "Remote safety warning:"
+    printf '%s\n' "- Confirm you are not editing the source toolkit or template repository by mistake."
+  fi
 }
 
 init_report() {
@@ -316,6 +334,7 @@ init_report() {
   local has_code=no
   local has_agents=no
   local has_project_map=no
+  local has_architecture_map=no
   local has_audit=no
   local has_security=no
   local stack_markers=()
@@ -325,6 +344,7 @@ init_report() {
   has_code_files && has_code=yes
   project_has_any_file AGENTS.md CLAUDE.md && has_agents=yes
   project_has_file PROJECT_MAP.md && has_project_map=yes
+  project_has_file ARCHITECTURE_MAP.md && has_architecture_map=yes
   project_has_file AUDIT_BACKLOG.md && has_audit=yes
   project_has_any_file SECURITY_BASELINE.md SECURITY_OPERATIONS_BASELINE.md && has_security=yes
   project_has_file package.json && stack_markers+=("package.json")
@@ -342,6 +362,7 @@ init_report() {
     [[ "$has_code" == "yes" ]] && printf '  "has_code": true,\n' || printf '  "has_code": false,\n'
     [[ "$has_agents" == "yes" ]] && printf '  "has_agents": true,\n' || printf '  "has_agents": false,\n'
     [[ "$has_project_map" == "yes" ]] && printf '  "has_project_map": true,\n' || printf '  "has_project_map": false,\n'
+    [[ "$has_architecture_map" == "yes" ]] && printf '  "has_architecture_map": true,\n' || printf '  "has_architecture_map": false,\n'
     [[ "$has_audit" == "yes" ]] && printf '  "has_audit_backlog": true,\n' || printf '  "has_audit_backlog": false,\n'
     [[ "$has_security" == "yes" ]] && printf '  "has_security_baseline": true,\n' || printf '  "has_security_baseline": false,\n'
     printf '  "stack_markers": [' 
@@ -372,6 +393,7 @@ Detected:
 - has code: $has_code
 - has AGENTS: $has_agents
 - has PROJECT_MAP: $has_project_map
+- has ARCHITECTURE_MAP: $has_architecture_map
 - has AUDIT_BACKLOG: $has_audit
 - has SECURITY_BASELINE: $has_security
 - has package.json / pyproject / etc: $stack_summary
@@ -388,6 +410,11 @@ Do not copy yet:
 - full SecOps
 - legal or payment checklist
 - all commands
+
+Add Architecture Map before code when:
+- the project has multiple surfaces;
+- stack choices are still open;
+- active, deferred and not-in-scope boundaries are unclear.
 
 First command:
 bash scripts/vibe-check.sh --starter
@@ -625,6 +652,12 @@ check_content_quality() {
         warn_content "PROJECT_MAP.md exists but looks too short or missing key routing context."
       fi
       ;;
+    ARCHITECTURE_MAP.md|templates/ARCHITECTURE_MAP.md)
+      if (( lines < 20 )) \
+        || ! rg -i 'Active surfaces|Deferred surfaces|Not in scope|Architecture map|Stack decisions' "$file" >/dev/null 2>&1; then
+        warn_content "ARCHITECTURE_MAP.md exists but looks too short or missing planning boundaries."
+      fi
+      ;;
     ARCHITECTURE_SOURCE_OF_TRUTH.md|templates/ARCHITECTURE_SOURCE_OF_TRUTH.md)
       if (( lines < 40 )) \
         || ! rg -i 'main flows|integrations|storage|deploy|security' "$file" >/dev/null 2>&1; then
@@ -812,6 +845,8 @@ check_content_quality "AUDIT_BACKLOG.md"
 check_content_quality "templates/AUDIT_BACKLOG.md"
 check_content_quality "PROJECT_MAP.md"
 check_content_quality "templates/PROJECT_MAP.md"
+check_content_quality "ARCHITECTURE_MAP.md"
+check_content_quality "templates/ARCHITECTURE_MAP.md"
 check_content_quality "ARCHITECTURE_SOURCE_OF_TRUTH.md"
 check_content_quality "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
 check_content_quality "SECURITY_BASELINE.md"

@@ -6,6 +6,7 @@ Use these thresholds as readiness hints, not as guarantees.
 
 - `AUDIT_BACKLOG.md` exists if AI-generated code already exists.
 - `PROJECT_MAP.md` exists and names the active/deferred surface.
+- `ARCHITECTURE_MAP.md` exists when the project has multiple surfaces or unclear boundaries.
 - `vibe-check --hardening` or `--audit` runs without FAIL.
 - major auth, payments, deploy or public-exposure risks are explicit.
 

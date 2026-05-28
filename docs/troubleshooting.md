@@ -46,3 +46,12 @@ Split the PR if possible, or raise repository variable `MAX_CHANGED_FILES` for a
 ## `vibe-check` JSON is not what you expected
 
 Use `bash scripts/vibe-check.sh --audit --json` and confirm that your shell is not mixing other output into stdout.
+
+## I am not sure which repository I am editing
+
+Run `git remote -v` and confirm whether you are inside:
+- your project repository;
+- a copied starter template;
+- or the source toolkit repository itself.
+
+Do not push to the source toolkit or template repository by mistake.

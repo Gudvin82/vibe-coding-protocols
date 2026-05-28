@@ -34,6 +34,7 @@ Reuse the artifacts you already created:
 - `README.md`;
 - `AGENTS.md`;
 - `PROJECT_MAP.md`;
+- `ARCHITECTURE_MAP.md`, if the project has multiple surfaces;
 - `ARCHITECTURE.md` or Architecture Source of Truth;
 - `SECURITY.md`;
 - `docs/PROMPTS.md`;
@@ -41,6 +42,8 @@ Reuse the artifacts you already created:
 
 If these files do not exist, create at least `PROJECT_MAP.md` and
 `ARCHITECTURE.md` first.
+
+If the existing project is chaotic, reconstruct Architecture Map before editing.
 
 ## Code discovery
 
@@ -61,6 +64,7 @@ the whole repository unless the project map is missing or unreliable.
 
 Create or update:
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when a compact surfaces map is missing
 - `ARCHITECTURE.md` or Architecture Source of Truth
 
 Architecture should describe the real project, not an idealized diagram
@@ -99,7 +103,19 @@ Check:
 - binaries or obfuscation;
 - secrets access;
 - quarantine process;
-- safe update path.
+- safe update path;
+- docs freshness for third-party libraries.
+
+## Starter template intake
+
+If the project came from a public starter template, review:
+- what stack it enforced;
+- which surfaces it turned on by default;
+- which cloud assumptions it made;
+- which credentials it expected;
+- what should be removed for this project.
+
+See [../docs/starter-template-intake.md](../docs/starter-template-intake.md).
 
 ## Scanners
 

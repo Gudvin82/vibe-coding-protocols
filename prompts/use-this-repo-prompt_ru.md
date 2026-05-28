@@ -1,38 +1,41 @@
-# Use This Repository Prompt (RU)
+# Use This Repository Prompt — RU
 
-Используйте этот prompt, если хотите дать AI этот репозиторий как workflow toolkit.
+Используйте это, когда хотите дать AI этот репозиторий как workflow toolkit.
 
 ```text
-Изучи этот репозиторий как workflow toolkit.
+Study this repository as a workflow toolkit.
 
-Пока не пиши код.
+Do not write code yet.
 
-Сначала посмотри:
+First inspect:
 1. README.md
 2. START_HERE.md
 3. docs/lite-adoption-path.md
 4. docs/README.md
-5. templates/README.md
-6. commands/README.md
+5. docs/architecture-map.md
+6. templates/README.md
+7. commands/README.md
 
-Потом задай мне вопросы:
-1. Это новый проект или уже существующий AI-generated код?
-2. Это private MVP, public product, client work или production?
-3. Какую AI IDE я использую?
-4. Какой стек, язык или фреймворк используется?
-5. Есть ли auth, payments, personal data, external APIs или deploy?
+Then ask me:
+1. Is this a new project or existing AI-generated code?
+2. Is it private MVP, public product, client work, or production?
+3. Which AI IDE am I using?
+4. What stack, language, or framework is used?
+5. Do I have auth, payments, personal data, external APIs, or deployments?
 
-После этого верни:
+Then return:
 - route: Lite / Starter / Hardening / Extended;
-- какие файлы копировать первыми;
-- какие файлы пока не нужны;
-- первую validation command;
-- какие риски я могу недооценивать;
-- оценку fit по шкале 1–10;
-- следующий smallest safe step.
+- files to copy first;
+- files not needed yet;
+- whether Architecture Map is needed before code;
+- first validation command;
+- risks I may be underestimating;
+- score 1–10 for fit;
+- next smallest safe step.
 
-Не называй templates или architecture docs маршрутами сами по себе.
-Если нужны agent rules, предпочитай `templates/AGENTS.md`, а не копирование root `AGENTS.md`.
+Do not treat templates or architecture docs as routes by themselves.
+If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENTS.md`.
+Before any setup, push or PR suggestion, inspect `git remote -v` and confirm the user is not editing the source toolkit repository by mistake.
 
-Если ты не можешь открыть GitHub links, попроси меня вставить README.md и START_HERE.md.
+If you cannot open GitHub links, ask me to paste README.md and START_HERE.md.
 ```

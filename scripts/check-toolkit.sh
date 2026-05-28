@@ -32,7 +32,13 @@ required_files=(
   docs/known-limitations.md
   docs/vibe-check-doctor.md
   docs/vibe-check-init-report.md
-  docs/release-v0.2.0.md
+  docs/architecture-map.md
+  docs/deploy-path.md
+  docs/up-to-date-docs-policy.md
+  docs/ecosystem.md
+  docs/mirrors.md
+  docs/starter-template-intake.md
+  docs/release-v0.2.1.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
   docs/release-v0.1.1.md
@@ -43,6 +49,8 @@ required_files=(
   scripts/check-newlines.py
   scripts/init-project.example.sh
   assets/social-preview.svg
+  templates/ARCHITECTURE_MAP.md
+  examples/architecture-map-example.md
 )
 
 required_dirs=(

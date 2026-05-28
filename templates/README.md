@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -28,11 +28,18 @@ These markers help you compare local copies with newer toolkit versions.
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces need a compact plan
 - `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
 - `AUDIT_BACKLOG.md`, for hardening
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
 - `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 - `METRICS_BOARD.md`, if you want to track adoption with real project data
+
+## Planning artifacts
+
+- [ARCHITECTURE_MAP.md](./ARCHITECTURE_MAP.md)
+- [PROJECT_MAP.md](./PROJECT_MAP.md)
+- [ARCHITECTURE_SOURCE_OF_TRUTH.md](./ARCHITECTURE_SOURCE_OF_TRUTH.md)
 
 ## Filled synthetic examples
 
@@ -42,6 +49,7 @@ These markers help you compare local copies with newer toolkit versions.
 
 ## Recommended companions
 
+- [../docs/architecture-map.md](../docs/architecture-map.md)
 - [../docs/artifact-versioning.md](../docs/artifact-versioning.md)
 - [../docs/ide-rules-dry-policy.md](../docs/ide-rules-dry-policy.md)
 - [../docs/hardening-thresholds.md](../docs/hardening-thresholds.md)

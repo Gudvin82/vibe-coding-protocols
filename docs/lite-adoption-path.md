@@ -12,6 +12,11 @@ Use this if you are a solo builder or MVP project and do not want the full Exten
 These copy-ready templates include lightweight version markers so you can review them against newer toolkit releases later.
 Do not copy root `AGENTS.md` blindly into your project.
 
+If the project has multiple surfaces, also create `ARCHITECTURE_MAP.md` before asking AI to generate code.
+Use:
+- `templates/ARCHITECTURE_MAP.md`
+- `prompts/architecture-map-prompt.md`
+
 ## Run
 
 ```bash

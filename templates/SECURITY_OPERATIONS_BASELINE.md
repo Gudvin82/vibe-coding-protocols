@@ -1,5 +1,5 @@
 <!-- vcp-artifact: SECURITY_OPERATIONS_BASELINE -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Security Operations Baseline

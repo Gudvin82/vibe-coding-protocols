@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.2.1
+
+- Added Architecture Map docs, template and synthetic example
+- Added Architecture Map prompts in English and Russian
+- Added remote and template safety guidance
+- Added local-first, cloud-later deploy path guidance
+- Added up-to-date docs policy for third-party intake
+- Added ecosystem map, mirrors prep and starter template intake docs
+- Updated routes, templates and site content for architecture planning before code
+
 ## v0.2.0
 
 - Added self-dogfooding workflow documentation

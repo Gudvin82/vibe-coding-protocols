@@ -40,7 +40,7 @@ The toolkit can support production-bound work, but it does not make a project sa
 
 Compare your local artifact with the current template, copy only useful changes and keep project-specific rules intact.
 
-## Why are there two versions: repo `v0.1.x` and methodology `v1.4`?
+## Why are there two versions: repo `v0.2.x` and methodology `v1.4`?
 
 The repository package version tracks GitHub toolkit packaging.
 The methodology version tracks the public web methodology.

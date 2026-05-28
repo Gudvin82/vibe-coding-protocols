@@ -16,6 +16,7 @@ They are:
 | Project type | Phase | Example | What it demonstrates |
 |---|---|---|---|
 | Todo app | Starter | [todo-app-starter](./todo-app-starter/) | runnable minimal project |
+| Architecture planning | Starter | [architecture-map-example.md](./architecture-map-example.md) | compact planning before code |
 | Python script | Lite | [python-script-vibe](./python-script-vibe/) | tiny script workflow |
 | React component | Lite | [react-component-vibe](./react-component-vibe/) | tiny UI workflow |
 | Legacy AI mess | Hardening | [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/) | realistic dirty hardening walkthrough |
@@ -32,6 +33,7 @@ They are:
 ## Start here
 
 - If you want a runnable starter example, start with [todo-app-starter](./todo-app-starter/)
+- If you want a compact planning example, start with [architecture-map-example.md](./architecture-map-example.md)
 - If you want the smallest Python route, start with [python-script-vibe](./python-script-vibe/)
 - If you want the smallest React route, start with [react-component-vibe](./react-component-vibe/)
 - If you want a dirty hardening scenario, start with [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/)

@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
@@ -8,6 +8,10 @@
 - [FILL IN: what this project does]
 - [FILL IN: main user or business flow]
 - Current stage: [FILL IN: idea / MVP / staging / production-like]
+
+## Compact planning references
+- Architecture Map: `ARCHITECTURE_MAP.md`, if the project has multiple surfaces
+- Architecture Source of Truth: `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if a detailed architecture document exists
 
 ## Entrypoints
 - frontend entrypoints: [FILL IN]
@@ -48,6 +52,7 @@
 ## Active / Deferred surfaces
 - active now: [FILL IN]
 - deferred until later: [FILL IN]
+- not in scope: [FILL IN]
 
 ## Known risks
 - technical debt: [FILL IN]

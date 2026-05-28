@@ -56,11 +56,13 @@ python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$repo_json" >/dev
 doctor_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --doctor --json)
 assert_contains "$doctor_json" '"mode": "doctor"'
 assert_contains "$doctor_json" '"recommended_route":'
+assert_contains "$doctor_json" '"remote_origin":'
 python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$doctor_json" >/dev/null
 
 init_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --init-report --json)
 assert_contains "$init_json" '"mode": "init-report"'
 assert_contains "$init_json" '"copy_first":'
+assert_contains "$init_json" '"has_architecture_map":'
 python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$init_json" >/dev/null
 
 starter_dir=$(make_temp_repo starter-good)

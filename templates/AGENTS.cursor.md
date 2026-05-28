@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS_CURSOR -->
-<!-- vcp-version: v0.2.0 -->
+<!-- vcp-version: v0.2.1 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Cursor
@@ -27,3 +27,11 @@ When broad code discovery is needed:
 4. require an evidence map with `path:line`, symbol, snippet, why it matters and confidence;
 5. keep the main implementation step focused on the touched files only;
 6. run an independent review pass before merge or deploy.
+
+## Remote safety
+
+Before setup, template installation, push, PR, release or deploy:
+- inspect `git remote -v`;
+- confirm this is your project repository, not the source toolkit repository;
+- do not push to the source toolkit repository by mistake;
+- stop and ask when remote origin is unclear.

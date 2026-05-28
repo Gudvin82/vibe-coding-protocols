@@ -60,6 +60,7 @@ Use these files when you want to apply VCP to your own project:
 | Cursor rules | `templates/AGENTS.cursor.md` |
 | Windsurf rules | `templates/AGENTS.windsurf.md` |
 | Project map | `templates/PROJECT_MAP.md` |
+| Compact architecture plan | `templates/ARCHITECTURE_MAP.md` |
 | Audit backlog | `templates/AUDIT_BACKLOG.md` |
 | Architecture source of truth | `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md` |
 | Incident recovery | `templates/INCIDENT_RECOVERY_RUNBOOK.md` |
@@ -84,5 +85,7 @@ Do not copy them blindly into your project:
 ## Notes
 
 - If you want the smallest safe setup, open [docs/lite-adoption-path.md](./docs/lite-adoption-path.md).
+- If your project has multiple surfaces, create `ARCHITECTURE_MAP.md` before asking AI to generate code.
+- Use [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md) or [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md) for that first planning pass.
 - If you are on mobile, read [START_HERE.md](./START_HERE.md), then [docs/lite-adoption-path.md](./docs/lite-adoption-path.md), then [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
 - Versioning note: see [docs/versioning.md](./docs/versioning.md).

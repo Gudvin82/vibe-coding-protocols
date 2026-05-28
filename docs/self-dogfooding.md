@@ -42,3 +42,4 @@ Before every release:
 5. Confirm no fake metrics, fake case study or guaranteed security claims.
 6. Confirm release notes exist.
 7. Confirm the tag points to the final commit.
+8. Inspect `git remote -v` and confirm you are releasing from the toolkit repository intentionally.

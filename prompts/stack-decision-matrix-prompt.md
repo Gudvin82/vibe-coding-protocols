@@ -24,3 +24,4 @@ Consider modern 2025+ stack options where relevant:
 
 Mention these only when they fit the project constraints.
 Do not propose complexity without a reason. If the chosen path creates an architectural dead end at moderate growth, say so clearly and suggest a more durable alternative without overengineering.
+If live docs such as Context7 or MCP docs are available, use them for package-specific details before finalizing recommendations.

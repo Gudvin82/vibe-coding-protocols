@@ -77,6 +77,12 @@ A good routing workflow:
 - preserves a separate review step;
 - makes large repositories less chaotic.
 
+## Live docs when available
+
+If your AI IDE supports Context7, MCP docs or another live-docs provider,
+use it for package-specific implementation details and migration notes.
+If live docs are unavailable, prefer official docs over memory and record assumptions in `AUDIT_BACKLOG.md`.
+
 ## What routing does not solve
 
 Model routing does not automatically fix:

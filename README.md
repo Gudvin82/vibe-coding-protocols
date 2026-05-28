@@ -4,7 +4,7 @@
 
 ### Project status
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.2.0-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.2.1-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
@@ -16,7 +16,7 @@
 Vibe Coding Protocols is a lightweight operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.2.0`  
+Repository package: `v0.2.1`  
 Web methodology: `Vibe Coding Protocols v1.4`
 
 If you are on mobile, start with:
@@ -30,6 +30,7 @@ This repository gives you:
 - route selection before coding;
 - copy-ready AI IDE rules and Memory Bank files;
 - Lite, Starter, Hardening and Extended routes;
+- Architecture Map before implementation when the project has multiple surfaces;
 - lightweight checks such as `vibe-check`;
 - self-dogfooding GitHub Actions and script tests;
 - synthetic examples, checklists and handoff docs.
@@ -75,6 +76,11 @@ flowchart LR
 2. Copy `templates/PROJECT_MAP.md`.
 3. Use `prompts/product-brief-prompt_en.md`.
 4. Run `bash scripts/vibe-check.sh --starter`.
+
+If the project has multiple surfaces, create `ARCHITECTURE_MAP.md` before asking AI to generate code.
+Use:
+- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
+- [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md)
 
 <details>
 <summary>Small team and production additions</summary>
@@ -142,6 +148,7 @@ Core memory files used across the toolkit:
 - `README.md`
 - `AGENTS.md` or `CLAUDE.md`
 - `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`, when multiple surfaces or stack choices need a compact visual map
 - `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if needed
 - `AUDIT_BACKLOG.md`, for hardening
 - `docs/PROMPTS.md` or `PROMPTS.md`, if prompts are tracked
@@ -213,6 +220,14 @@ See:
 - [docs/vibe-check-init-report.md](./docs/vibe-check-init-report.md)
 - [docs/scanner-integration.md](./docs/scanner-integration.md)
 
+## Architecture planning
+
+Use Architecture Map when you need a 30-second project map before code:
+- [docs/architecture-map.md](./docs/architecture-map.md)
+- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
+- [examples/architecture-map-example.md](./examples/architecture-map-example.md)
+- [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md)
+
 ## Routes
 
 - [docs/lite-adoption-path.md](./docs/lite-adoption-path.md) — solo builder or MVP route
@@ -236,7 +251,7 @@ They are not claimed as real-world case studies.
 Before tagging a release, use:
 - [docs/self-dogfooding.md](./docs/self-dogfooding.md)
 - [docs/release-readiness.md](./docs/release-readiness.md)
-- [docs/release-v0.2.0.md](./docs/release-v0.2.0.md)
+- [docs/release-v0.2.1.md](./docs/release-v0.2.1.md)
 
 ## Known limitations
 
@@ -258,26 +273,26 @@ Start here when you need more depth:
 - [docs/troubleshooting.md](./docs/troubleshooting.md)
 - [docs/comparison.md](./docs/comparison.md)
 - [docs/versioning.md](./docs/versioning.md)
-- [docs/self-dogfooding.md](./docs/self-dogfooding.md)
-- [docs/adoption-feedback.md](./docs/adoption-feedback.md)
-- [docs/ide-rules-dry-policy.md](./docs/ide-rules-dry-policy.md)
-- [docs/artifact-versioning.md](./docs/artifact-versioning.md)
+- [docs/ecosystem.md](./docs/ecosystem.md)
+- [docs/mirrors.md](./docs/mirrors.md)
+- [docs/starter-template-intake.md](./docs/starter-template-intake.md)
+- [docs/deploy-path.md](./docs/deploy-path.md)
+- [docs/up-to-date-docs-policy.md](./docs/up-to-date-docs-policy.md)
+
+## Links
+
+- [START_HERE.md](./START_HERE.md)
+- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
+- [templates/README.md](./templates/README.md)
 - [protocols/README.md](./protocols/README.md)
 - [checklists/README.md](./checklists/README.md)
+- [commands/README.md](./commands/README.md)
+- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
 
-## Author
+## Author / License
 
-Created by **Anatoly Malyshev**.
+Author: [Anatoliy Malishev](https://anmalishev.ru/)
 
-Website: [https://anmalishev.ru/](https://anmalishev.ru/)
-
-Hub:
-- [https://anmalishev.ru/expert/vibe-coding/](https://anmalishev.ru/expert/vibe-coding/)
-- [https://anmalishev.ru/expert/vibe-coding-starter.html](https://anmalishev.ru/expert/vibe-coding-starter.html)
-- [https://anmalishev.ru/expert/ai-project-hardening.html](https://anmalishev.ru/expert/ai-project-hardening.html)
-
-## License
-
-The repository is primarily published under `CC BY 4.0`.
-
-Standalone executable scripts in [scripts/](./scripts/) are licensed separately under `MIT`.
+License:
+- repository content: [CC BY 4.0](./LICENSE)
+- code examples: see file-level or directory-level notes where present

@@ -10,3 +10,5 @@
 
 These are workflow routes.
 Templates, architecture docs and checklists support those routes, but they are not routes by themselves.
+
+Use [../docs/architecture-map.md](../docs/architecture-map.md) when you need a compact visual planning artifact before implementation.

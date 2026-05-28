@@ -7,7 +7,7 @@
 Vibe Coding Protocols — это легкий operating layer для AI-assisted разработки:
 маршруты, Memory Bank files, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.2.0`  
+Пакет репозитория: `v0.2.1`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 Если вы читаете с мобильного:
@@ -42,6 +42,11 @@ Vibe Coding Protocols — это легкий operating layer для AI-assisted
 2. Скопируйте `templates/PROJECT_MAP.md`.
 3. Используйте `prompts/product-brief-prompt_en.md` или RU-версию.
 4. Запустите `bash scripts/vibe-check.sh --starter`.
+
+Если у проекта несколько поверхностей, создайте `ARCHITECTURE_MAP.md` до генерации кода AI.
+Используйте:
+- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
+- [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md)
 
 <details>
 <summary>Дальше для команды и production</summary>
@@ -121,6 +126,13 @@ bash scripts/vibe-check.sh --audit --scanners
 
 `|| true` не используйте в CI или release gates.
 
+## Architecture Map
+
+- [docs/architecture-map.md](./docs/architecture-map.md)
+- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
+- [examples/architecture-map-example.md](./examples/architecture-map-example.md)
+- [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md)
+
 ## Примеры и ограничения
 
 - [examples/README.md](./examples/README.md)
@@ -128,6 +140,8 @@ bash scripts/vibe-check.sh --audit --scanners
 - [docs/known-limitations.md](./docs/known-limitations.md)
 - [docs/release-readiness.md](./docs/release-readiness.md)
 - [docs/adoption-feedback.md](./docs/adoption-feedback.md)
+- [docs/ecosystem.md](./docs/ecosystem.md)
+- [docs/mirrors.md](./docs/mirrors.md)
 
 ## Полезные ссылки
 
@@ -144,3 +158,6 @@ bash scripts/vibe-check.sh --audit --scanners
 - [docs/faq.md](./docs/faq.md)
 - [docs/troubleshooting.md](./docs/troubleshooting.md)
 - [docs/comparison.md](./docs/comparison.md)
+- [docs/deploy-path.md](./docs/deploy-path.md)
+- [docs/up-to-date-docs-policy.md](./docs/up-to-date-docs-policy.md)
+- [docs/release-v0.2.1.md](./docs/release-v0.2.1.md)

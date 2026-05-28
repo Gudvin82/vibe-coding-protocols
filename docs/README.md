@@ -6,8 +6,9 @@ Start here:
 1. [START_HERE.md](../START_HERE.md)
 2. [docs/lite-adoption-path.md](./lite-adoption-path.md)
 3. [README.md](../README.md)
-4. [docs/vibe-check-scoring.md](./vibe-check-scoring.md), only if you use `vibe-check`
-5. [docs/agent-harness.md](./agent-harness.md), only if you want the full methodology
+4. [docs/architecture-map.md](./architecture-map.md), if the project has multiple surfaces
+5. [docs/vibe-check-scoring.md](./vibe-check-scoring.md), only if you use `vibe-check`
+6. [docs/agent-harness.md](./agent-harness.md), only if you want the full methodology
 
 ## Canonical route
 
@@ -15,6 +16,7 @@ Start here:
 |---|---|
 | What should I do first? | [START_HERE.md](../START_HERE.md) |
 | I want minimum setup | [docs/lite-adoption-path.md](./lite-adoption-path.md) |
+| I need a compact planning map before code | [docs/architecture-map.md](./architecture-map.md) |
 | I need AI IDE rules | [templates/AGENTS.md](../templates/AGENTS.md) |
 | I already have code | [protocols/ai-project-hardening-protocol.md](../protocols/ai-project-hardening-protocol.md) |
 | I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
@@ -24,6 +26,7 @@ Start here:
 
 ## User-facing docs
 
+- [architecture-map.md](./architecture-map.md)
 - [agent-harness.md](./agent-harness.md)
 - [model-routing.md](./model-routing.md)
 - [one-pager.md](./one-pager.md)
@@ -34,6 +37,9 @@ Start here:
 - [metrics-to-track.md](./metrics-to-track.md)
 - [adoption-feedback.md](./adoption-feedback.md)
 - [known-limitations.md](./known-limitations.md)
+- [ecosystem.md](./ecosystem.md)
+- [mirrors.md](./mirrors.md)
+- [starter-template-intake.md](./starter-template-intake.md)
 
 ## Security and hardening docs
 
@@ -49,6 +55,8 @@ Start here:
 - [security-operations.md](./security-operations.md)
 - [release-readiness.md](./release-readiness.md)
 - [self-dogfooding.md](./self-dogfooding.md)
+- [deploy-path.md](./deploy-path.md)
+- [up-to-date-docs-policy.md](./up-to-date-docs-policy.md)
 - [windows.md](./windows.md)
 
 ## AI workflow docs
@@ -67,6 +75,7 @@ Start here:
 - [distribution-checklist.md](./distribution-checklist.md)
 - [github-security-settings.md](./github-security-settings.md)
 - [repo-maintenance.md](./repo-maintenance.md)
+- [attribution.md](./attribution.md)
 
 ## Release notes
 

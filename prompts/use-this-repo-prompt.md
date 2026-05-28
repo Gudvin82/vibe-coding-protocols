@@ -12,8 +12,9 @@ First inspect:
 2. START_HERE.md
 3. docs/lite-adoption-path.md
 4. docs/README.md
-5. templates/README.md
-6. commands/README.md
+5. docs/architecture-map.md
+6. templates/README.md
+7. commands/README.md
 
 Then ask me:
 1. Is this a new project or existing AI-generated code?
@@ -26,6 +27,7 @@ Then return:
 - route: Lite / Starter / Hardening / Extended;
 - files to copy first;
 - files not needed yet;
+- whether Architecture Map is needed before code;
 - first validation command;
 - risks I may be underestimating;
 - score 1–10 for fit;
@@ -33,6 +35,7 @@ Then return:
 
 Do not treat templates or architecture docs as routes by themselves.
 If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENTS.md`.
+Before any setup, push or PR suggestion, inspect `git remote -v` and confirm the user is not editing the source toolkit repository by mistake.
 
 If you cannot open GitHub links, ask me to paste README.md and START_HERE.md.
 ```
