@@ -65,6 +65,7 @@ stale_versions=(
   "v0.2.2"
 )
 
+# Entry files should not carry older repository version markers.
 entry_files=(
   README.md
   README_ru.md

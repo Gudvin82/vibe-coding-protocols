@@ -13,7 +13,8 @@
 VCP — это operating layer для AI-assisted разработки:
 маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.3.0`  
+Пакет репозитория: `v0.3.0`
+
 Веб-методология: `Vibe Coding Protocols v1.4`
 
 ## Отдай этот repo своей AI IDE

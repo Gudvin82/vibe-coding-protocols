@@ -1,6 +1,7 @@
 # Docs Map
 
 Do not start by opening everything.
+These docs are kept raw-readable for AI consumption and review.
 
 Start here:
 1. [START_HERE.md](../START_HERE.md)

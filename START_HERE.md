@@ -89,3 +89,4 @@ Do not copy them blindly into your project:
 - Use [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md) or [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md) for that first planning pass.
 - If you are on mobile, read [START_HERE.md](./START_HERE.md), then [docs/lite-adoption-path.md](./docs/lite-adoption-path.md), then [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
 - Versioning note: see [docs/versioning.md](./docs/versioning.md).
+- Case studies note: see [case-studies/README.md](./case-studies/README.md).

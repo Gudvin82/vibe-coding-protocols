@@ -1,3 +1,6 @@
+# Normalize text files to LF for raw readability and stable diffs.
+* text=auto eol=lf
+
 # This is a markdown/toolkit repository.
 # Scripts and helper assets should not dominate GitHub language statistics.
 
@@ -6,3 +9,8 @@ scripts/* linguist-detectable=false
 assets/* linguist-detectable=false
 
 *.md linguist-detectable=true
+*.sh text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

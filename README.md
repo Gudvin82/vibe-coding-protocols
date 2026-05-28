@@ -14,7 +14,8 @@
 VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.3.0`  
+Repository package: `v0.3.0`
+
 Web methodology: `Vibe Coding Protocols v1.4`
 
 ## Give this repo to your AI

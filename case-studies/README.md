@@ -6,6 +6,9 @@ No public real-world case study is claimed yet.
 ## Synthetic learning material
 
 - [synthetic-before-after/README.md](./synthetic-before-after/README.md)
+- [synthetic-before-after/BEFORE.md](./synthetic-before-after/BEFORE.md)
+- [synthetic-before-after/AFTER.md](./synthetic-before-after/AFTER.md)
+- [synthetic-before-after/FINDINGS.md](./synthetic-before-after/FINDINGS.md)
 - [VCP_CHALLENGE.md](./VCP_CHALLENGE.md)
 
 ## Real case pipeline
