@@ -6,7 +6,7 @@ Included in `v0.3.0`:
 - README first-screen AI prompt;
 - release gates and stronger hardening thresholds;
 - safer install wording with review-first setup;
-- synthetic before/after case materials;
+- case-study submission and redaction pipeline;
 - copied-artifact update guidance and `--update-advice`;
 - prompt drift control guidance;
 - parsing fragility notes;

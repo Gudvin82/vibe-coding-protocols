@@ -5,11 +5,10 @@ No public real-world case study is claimed yet.
 
 ## Synthetic learning material
 
-- [synthetic-before-after/README.md](./synthetic-before-after/README.md)
-- [synthetic-before-after/BEFORE.md](./synthetic-before-after/BEFORE.md)
-- [synthetic-before-after/AFTER.md](./synthetic-before-after/AFTER.md)
-- [synthetic-before-after/FINDINGS.md](./synthetic-before-after/FINDINGS.md)
 - [VCP_CHALLENGE.md](./VCP_CHALLENGE.md)
+
+Synthetic before/after materials remain internal learning artifacts for now.
+They are not used as a public proof point in this repository index.
 
 ## Real case pipeline
 
