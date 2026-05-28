@@ -33,6 +33,7 @@ Start here:
 - [faq.md](./faq.md)
 - [troubleshooting.md](./troubleshooting.md)
 - [comparison.md](./comparison.md)
+- [advanced-install.md](./advanced-install.md)
 - [public-vs-private-docs.md](./public-vs-private-docs.md)
 - [metrics-to-track.md](./metrics-to-track.md)
 - [adoption-feedback.md](./adoption-feedback.md)

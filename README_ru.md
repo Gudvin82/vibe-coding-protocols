@@ -62,6 +62,8 @@ bash init-minimal.sh --starter
 
 `curl | bash` не показывается как основной путь.
 Для real projects используй review-first setup.
+Дополнительные варианты установки и checksum notes:
+[docs/advanced-install.md](./docs/advanced-install.md).
 
 ## Что важно помнить
 

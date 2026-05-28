@@ -138,16 +138,9 @@ Optional local guardrail:
 bash scripts/install-hooks.sh --mode starter
 ```
 
-<details>
-<summary>Fast track for empty or test repositories only</summary>
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
-```
-
-Do not use this path for production or client projects.
-
-</details>
+For advanced install notes, checksum workflow details and the optional fast track
+for empty or test repositories only, see
+[docs/advanced-install.md](./docs/advanced-install.md).
 
 ## Which agent file should I use?
 
@@ -253,7 +246,7 @@ They are not claimed as real-world case studies.
 
 - [examples/README.md](./examples/README.md)
 - [examples/legacy-ai-mess-vibe](./examples/legacy-ai-mess-vibe/)
-- [case-studies/synthetic-before-after/README.md](./case-studies/synthetic-before-after/README.md)
+- [case-studies/README.md](./case-studies/README.md)
 - [case-studies/real-case-submission-template.md](./case-studies/real-case-submission-template.md)
 - [case-studies/redaction-guide.md](./case-studies/redaction-guide.md)
 
