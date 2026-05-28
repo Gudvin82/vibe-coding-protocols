@@ -1,6 +1,6 @@
 # Vibe-Check Init Report
 
-Use `--init-report` when you want a route suggestion without changing files.
+Use init-report when you want a smallest safe route suggestion without changing files.
 
 ```bash
 bash scripts/vibe-check.sh --init-report
@@ -9,16 +9,20 @@ bash scripts/vibe-check.sh --init-report --json
 
 ## What it reports
 
-- whether the repository already has code;
-- whether `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE_MAP.md`, `AUDIT_BACKLOG.md` and security files exist;
-- whether common stack markers such as `package.json` or `pyproject.toml` exist;
-- which route looks most appropriate next;
-- which files to copy first;
-- which larger artifacts to defer.
+- whether the current directory looks like a repository;
+- whether code already exists;
+- whether `AGENTS.md`, `PROJECT_MAP.md`, `ARCHITECTURE_MAP.md` and `AUDIT_BACKLOG.md` exist;
+- a suggested route;
+- first files to copy;
+- a first validation command.
 
-## Good use cases
+## Route logic
 
-- first contact with an unfamiliar repository;
-- deciding between Lite, Starter, Hardening or Extended;
-- deciding whether Architecture Map should be created before code;
-- explaining the smallest safe next step to a teammate.
+- Lite: almost no structure yet
+- Starter: first rails and planning
+- Hardening: existing code plus review artifacts
+- Extended: public or production-facing route
+
+## Reminder
+
+If stack choices or multiple surfaces are still unclear, create `ARCHITECTURE_MAP.md` before implementation.

@@ -1,36 +1,26 @@
-# Community issue drafts
+# Community Issue Drafts
 
-## Issue 1: Share your feedback
+## Share your AGENTS
 
-Title:
-`Share your feedback: what worked, what was confusing?`
+Suggested title:
+`Share your AGENTS.md: what helped, what failed?`
 
-Body:
-- Which AI IDE did you use?
-- New project or existing code?
-- Which protocol?
-- What was useful?
-- What was confusing?
-- What example is missing?
-- Do not paste secrets or private project data.
+Prompt:
+- project type;
+- AI IDE;
+- sanitized excerpt;
+- what worked;
+- what failed;
+- no secrets confirmation.
 
-## Issue 2: Which AI IDE do you use?
+## Adoption feedback
 
-Checkboxes:
-- Claude Code
-- Codex
-- Cursor
-- Windsurf
-- GitHub Copilot
-- JetBrains / Junie
-- Antigravity
-- Other
+Suggested title:
+`How did VCP fit your project?`
 
-## Issue 3: Request an example
-
-Body:
-- Stack
-- Project type
-- Starter or Hardening
-- What you want to see
-- No client data or secrets
+Prompt:
+- Lite / Starter / Hardening / Extended;
+- what artifact helped first;
+- what felt heavy;
+- what warning was noisy;
+- what example is missing.

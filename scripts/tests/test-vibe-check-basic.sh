@@ -46,6 +46,7 @@ help_output=$(bash "$ROOT/scripts/vibe-check.sh" --help)
 assert_contains "$help_output" "Usage:"
 assert_contains "$help_output" "--doctor"
 assert_contains "$help_output" "--init-report"
+assert_contains "$help_output" "--update-advice"
 
 repo_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --audit --json)
 assert_contains "$repo_json" '"placeholder_excluded":'
@@ -64,6 +65,12 @@ assert_contains "$init_json" '"mode": "init-report"'
 assert_contains "$init_json" '"copy_first":'
 assert_contains "$init_json" '"has_architecture_map":'
 python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$init_json" >/dev/null
+
+update_json=$(cd "$ROOT" && bash scripts/vibe-check.sh --update-advice --json)
+assert_contains "$update_json" '"mode": "update-advice"'
+assert_contains "$update_json" '"manual_review_required": true'
+assert_contains "$update_json" '"outdated_artifacts":'
+python3 -c 'import json,sys; json.loads(sys.stdin.read())' <<<"$update_json" >/dev/null
 
 starter_dir=$(make_temp_repo starter-good)
 starter_json=$(cd "$starter_dir" && bash "$ROOT/scripts/vibe-check.sh" --starter --json)

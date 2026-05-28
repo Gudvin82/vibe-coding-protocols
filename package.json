@@ -1,0 +1,14 @@
+{
+  "name": "@gudvin/vibe-check",
+  "version": "0.3.0",
+  "description": "Experimental wrapper metadata for Vibe Coding Protocols",
+  "license": "CC-BY-4.0",
+  "private": false,
+  "bin": {
+    "vibe-check": "bin/vibe-check.js"
+  },
+  "scripts": {
+    "doctor": "node bin/vibe-check.js --doctor",
+    "init-report": "node bin/vibe-check.js --init-report"
+  }
+}

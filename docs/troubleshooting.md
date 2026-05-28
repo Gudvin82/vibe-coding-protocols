@@ -11,7 +11,7 @@ Use the commit-specific raw URL instead of `main` when you need proof right afte
 ## `vibe-check` shows WARN
 
 WARN means attention is needed, not automatic failure by default.
-Read the warnings before deciding whether the route is still acceptable.
+Read the warning before deciding whether the route is still acceptable.
 
 ## Optional scanners are missing
 
@@ -22,6 +22,12 @@ Use `--scanners` for local exploration and install scanners only when they fit y
 
 A file can exist and still be too empty to count as actionable project memory.
 Add real findings, routes, owners, integrations or recurring checks before treating the artifact as complete.
+
+## Content validation seems wrong
+
+The parser is heuristic.
+Headings such as `## Audit Backlog`, `### Audit Backlog`, `Findings`, `Risks` and `Tasks` are tolerated, but false positives or false negatives are still possible.
+If you intentionally keep a non-standard structure, record the warning in `AUDIT_BACKLOG.md`.
 
 ## PowerShell or Windows shell issues
 

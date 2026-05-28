@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS_CLAUDE -->
-<!-- vcp-version: v0.2.1 -->
+<!-- vcp-version: v0.3.0 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Claude Code
@@ -56,3 +56,8 @@ Before setup, template installation, push, PR, release or deploy:
 - confirm this is your project repository, not the source toolkit repository;
 - do not push to the source toolkit repository by mistake;
 - stop and ask when remote origin is unclear.
+
+## Prompt drift control
+
+Keep this file short.
+If the rules become too long, move details into `PROJECT_MAP.md`, `ARCHITECTURE_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md` and `AUDIT_BACKLOG.md` instead of endlessly appending one file.

@@ -1,0 +1,2 @@
+# No third-party Python dependencies are locked yet.
+# This file exists to keep wrapper packaging expectations explicit.

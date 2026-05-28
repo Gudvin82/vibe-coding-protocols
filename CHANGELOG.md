@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.3.0
+
+- Sharpened README first screen with AI handoff prompt and outcome-based entry points
+- Reframed safe install wording around review-first setup and hid pipe-to-bash behind a warning
+- Expanded hardening thresholds into release-gate language
+- Added synthetic before/after case materials and real-case redaction guidance
+- Added copied-artifact update guidance and `vibe-check --update-advice`
+- Added prompt drift control guidance and root `comparison.md` stub
+- Added experimental npm wrapper, Python wrapper and VS Code extension skeletons
+- Added community entry points, mirror sync notes and stronger distribution checklist
+- Expanded tests, docs references and Windows clarity for productization
+
 ## v0.2.1
 
 - Added Architecture Map docs, template and synthetic example

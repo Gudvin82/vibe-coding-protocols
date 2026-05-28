@@ -1,7 +1,6 @@
 # IDE Rules DRY Policy
 
-Use this file to keep AI IDE rules aligned
-without introducing a generator or symlink strategy yet.
+Use this file to keep AI IDE rules aligned without introducing a generator or symlink strategy yet.
 
 ## Repo-local files
 
@@ -23,13 +22,14 @@ These files are for user projects:
 
 ## What should stay synchronized
 
-The following ideas should stay aligned across repo-local
-and copy-ready AI IDE files:
+The following ideas should stay aligned across repo-local and copy-ready AI IDE files:
 - Stop Conditions
 - Memory Bank
 - token-aware discovery
 - evidence map workflow
 - approval gates for risky changes
+- remote safety
+- prompt drift control principles
 
 ## Allowed differences
 
@@ -39,10 +39,14 @@ The following differences are intentional:
 - Claude, Cursor, Windsurf and Copilot files can mention tool-specific behavior;
 - Cursor and Windsurf files may be shorter if the IDE format is constrained.
 
+## Prompt drift note
+
+Do not treat AGENTS files as infinite append-only documents.
+Core instructions should stay short.
+Extended security or architecture detail belongs in dedicated artifacts.
+
 ## What `check-ide-rules-consistency.sh` checks
 
-The script confirms that the main repo-local
-and template files still contain the expected baseline phrases.
-
+The script confirms that the main repo-local and template files still contain the expected baseline phrases.
 It is not a semantic diff.
 It is a lightweight guard against drift.

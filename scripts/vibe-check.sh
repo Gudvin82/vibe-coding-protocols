@@ -10,6 +10,7 @@ RUN_SCANNERS=0
 JSON_MODE=0
 DOCTOR_MODE=0
 INIT_REPORT_MODE=0
+UPDATE_ADVICE_MODE=0
 PASS=0
 WARN=0
 FAIL=0
@@ -28,7 +29,7 @@ ARTIFACT_VERSION_WARNINGS=0
 CONTENT_QUALITY_WARNINGS=0
 REPO_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/VERSION" 2>/dev/null || true)"
 if [[ -z "$REPO_VERSION" ]]; then
-  REPO_VERSION="v0.2.1"
+  REPO_VERSION="v0.3.0"
 fi
 METHODOLOGY_VERSION="$(tr -d '[:space:]' < "$TOOLKIT_ROOT/METHODOLOGY_VERSION" 2>/dev/null || true)"
 if [[ -z "$METHODOLOGY_VERSION" ]]; then
@@ -81,6 +82,7 @@ Usage:
   bash scripts/vibe-check.sh --audit
   bash scripts/vibe-check.sh --doctor
   bash scripts/vibe-check.sh --init-report
+  bash scripts/vibe-check.sh --update-advice
   bash scripts/vibe-check.sh --strict
   bash scripts/vibe-check.sh --scanners
   bash scripts/vibe-check.sh --json
@@ -93,6 +95,7 @@ Examples:
   bash scripts/vibe-check.sh --audit --scanners
   bash scripts/vibe-check.sh --doctor --json
   bash scripts/vibe-check.sh --init-report
+  bash scripts/vibe-check.sh --update-advice --json
 
 Exit codes:
   0  PASS or WARN in default mode
@@ -103,6 +106,7 @@ See:
   docs/vibe-check-scoring.md
   docs/vibe-check-doctor.md
   docs/vibe-check-init-report.md
+  docs/update-copied-artifacts.md
 USAGE
 }
 
@@ -245,9 +249,19 @@ doctor_report() {
   local trufflehog=missing
   local trivy=missing
   local semgrep=missing
+  local outdated_count=0
+  local artifact_file
+  local artifact_version
+  local repo_num
+  local artifact_num
+  local toolkit_repo=0
 
   route=$(suggest_route)
   bash_version="${BASH_VERSION:-unknown}"
+  repo_num=$(version_to_number "$REPO_VERSION")
+  if [[ -d templates ]] && rg -n '^# Vibe Coding Protocols' README.md >/dev/null 2>&1; then
+    toolkit_repo=1
+  fi
   is_git_repo && git_repo=yes
   if [[ "$git_repo" == "yes" ]]; then
     remote_origin="$(git remote get-url origin 2>/dev/null || printf 'missing')"
@@ -266,6 +280,22 @@ doctor_report() {
   command_available trufflehog && trufflehog=found
   command_available trivy && trivy=found
   command_available semgrep && semgrep=found
+
+  for artifact_file in "${COPIED_ARTIFACT_FILES[@]}"; do
+    [[ -f "$artifact_file" ]] || continue
+    if (( toolkit_repo )) && [[ "$artifact_file" == "AGENTS.md" ]]; then
+      continue
+    fi
+    artifact_version=$(artifact_version_for_file "$artifact_file" || true)
+    if [[ -z "$artifact_version" ]]; then
+      outdated_count=$((outdated_count + 1))
+      continue
+    fi
+    artifact_num=$(version_to_number "$artifact_version")
+    if (( artifact_num < repo_num )); then
+      outdated_count=$((outdated_count + 1))
+    fi
+  done
 
   if (( JSON_MODE )); then
     printf '{\n'
@@ -288,6 +318,7 @@ doctor_report() {
     [[ "$trivy" == "found" ]] && printf '    "trivy": true,\n' || printf '    "trivy": false,\n'
     [[ "$semgrep" == "found" ]] && printf '    "semgrep": true\n' || printf '    "semgrep": false\n'
     printf '  },\n'
+    printf '  "outdated_artifacts": %s,\n' "$outdated_count"
     printf '  "recommended_route": "%s"\n' "$route"
     printf '}\n'
     return 0
@@ -318,6 +349,9 @@ Optional scanners:
 - trivy: $trivy
 - semgrep: $semgrep
 
+Artifact updates:
+- outdated or missing markers: $outdated_count
+
 Recommended next step:
 - $route
 EOF
@@ -325,6 +359,11 @@ EOF
     printf '%s\n' ""
     printf '%s\n' "Remote safety warning:"
     printf '%s\n' "- Confirm you are not editing the source toolkit or template repository by mistake."
+  fi
+  if (( outdated_count > 0 )); then
+    printf '%s\n' ""
+    printf '%s\n' "Artifact update advice:"
+    printf '%s\n' "- Review updates manually; do not overwrite customized files blindly."
   fi
 }
 
@@ -419,6 +458,99 @@ Add Architecture Map before code when:
 First command:
 bash scripts/vibe-check.sh --starter
 EOF
+}
+
+artifact_version_for_file() {
+  local file="$1"
+  if [[ ! -f "$file" ]]; then
+    return 1
+  fi
+  sed -n 's/^<!-- vcp-version: \(v[0-9.]*\) -->$/\1/p' "$file" | head -1
+}
+
+update_advice_report() {
+  local repo_num
+  local file
+  local version
+  local file_num
+  local outdated=()
+  local detected=()
+  local toolkit_repo=0
+
+  repo_num=$(version_to_number "$REPO_VERSION")
+  if [[ -d templates ]] && rg -n '^# Vibe Coding Protocols' README.md >/dev/null 2>&1; then
+    toolkit_repo=1
+  fi
+
+  for file in "${COPIED_ARTIFACT_FILES[@]}"; do
+    [[ -f "$file" ]] || continue
+    if (( toolkit_repo )) && [[ "$file" == "AGENTS.md" ]]; then
+      continue
+    fi
+    version=$(artifact_version_for_file "$file" || true)
+    if [[ -n "$version" ]]; then
+      detected+=("$file:$version")
+      file_num=$(version_to_number "$version")
+      if (( file_num < repo_num )); then
+        outdated+=("$file:$version")
+      fi
+    else
+      detected+=("$file:missing-marker")
+      outdated+=("$file:missing-marker")
+    fi
+  done
+
+  if (( JSON_MODE )); then
+    local i
+    printf '{\n'
+    printf '  "mode": "update-advice",\n'
+    printf '  "version": "%s",\n' "$REPO_VERSION"
+    printf '  "methodology_version": "%s",\n' "$METHODOLOGY_VERSION"
+    printf '  "detected_artifacts": ['
+    for i in "${!detected[@]}"; do
+      [[ "$i" -gt 0 ]] && printf ', '
+      printf '"%s"' "${detected[$i]}"
+    done
+    printf '],\n'
+    printf '  "outdated_artifacts": ['
+    for i in "${!outdated[@]}"; do
+      [[ "$i" -gt 0 ]] && printf ', '
+      printf '"%s"' "${outdated[$i]}"
+    done
+    printf '],\n'
+    printf '  "manual_review_required": true,\n'
+    printf '  "message": "Review updates manually; do not overwrite customized files blindly."\n'
+    printf '}\n'
+    return 0
+  fi
+
+  printf '%s\n' "VCP Update Advice"
+  printf '\n'
+  printf 'Current repo VERSION: %s\n' "$REPO_VERSION"
+  printf 'Methodology version: %s\n' "$METHODOLOGY_VERSION"
+  printf '\n'
+  printf '%s\n' "Detected artifact versions:"
+  if ((${#detected[@]} == 0)); then
+    printf '%s\n' "- no copied artifacts detected in the current directory"
+  else
+    for file in "${detected[@]}"; do
+      printf -- '- %s\n' "$file"
+    done
+  fi
+  printf '\n'
+  printf '%s\n' "Outdated or missing markers:"
+  if ((${#outdated[@]} == 0)); then
+    printf '%s\n' "- none detected"
+  else
+    for file in "${outdated[@]}"; do
+      printf -- '- %s\n' "$file"
+    done
+  fi
+  printf '\n'
+  printf '%s\n' "Recommended action:"
+  printf '%s\n' "- Review updates manually; do not overwrite customized files blindly."
+  printf '%s\n' "- Compare local files against templates/ and keep project-specific changes."
+  printf '%s\n' "- Re-run doctor, update-advice and your normal route check after review."
 }
 
 pattern_hit_count() {
@@ -640,15 +772,15 @@ check_content_quality() {
   case "$file" in
     AUDIT_BACKLOG.md|templates/AUDIT_BACKLOG.md)
       if (( lines < 15 )) \
-        || ! rg -i 'Open|In progress|Verified|Accepted risk|Status' "$file" >/dev/null 2>&1 \
-        || ! rg -i 'SEC-|RISK-|Task|Risk|Evidence|Owner' "$file" >/dev/null 2>&1; then
+        || ! rg -i 'Open|In progress|Verified|Accepted risk|Status|Findings|Risks|Tasks' "$file" >/dev/null 2>&1 \
+        || ! rg -i 'SEC-|RISK-|Task|Risk|Evidence|Owner|Finding' "$file" >/dev/null 2>&1; then
         warn_content "AUDIT_BACKLOG.md exists but looks empty or not actionable."
       fi
       ;;
     PROJECT_MAP.md|templates/PROJECT_MAP.md)
       if (( lines < 15 )) \
-        || ! rg -i 'Active / Deferred surfaces|active now|deferred until later' "$file" >/dev/null 2>&1 \
-        || ! rg -i 'Routes / Endpoints|Components / Modules|key files|modules' "$file" >/dev/null 2>&1; then
+        || ! rg -i 'Active / Deferred surfaces|active now|deferred until later|surface' "$file" >/dev/null 2>&1 \
+        || ! rg -i 'Routes / Endpoints|Components / Modules|key files|modules|routes|files' "$file" >/dev/null 2>&1; then
         warn_content "PROJECT_MAP.md exists but looks too short or missing key routing context."
       fi
       ;;
@@ -675,7 +807,7 @@ check_content_quality() {
 
 for arg in "$@"; do
   case "$arg" in
-    --starter|--hardening|--audit|--doctor|--init-report)
+    --starter|--hardening|--audit|--doctor|--init-report|--update-advice)
       if [[ -n "$MODE" ]]; then
         usage
         exit 2
@@ -718,6 +850,11 @@ fi
 
 if [[ "$MODE" == "--init-report" ]]; then
   init_report
+  exit 0
+fi
+
+if [[ "$MODE" == "--update-advice" ]]; then
+  update_advice_report
   exit 0
 fi
 
@@ -832,7 +969,9 @@ else
 fi
 
 if project_has_file package.json; then
-  if project_has_any_file package-lock.json pnpm-lock.yaml yarn.lock bun.lockb; then
+  if ! rg -n '"(dependencies|devDependencies|peerDependencies|optionalDependencies)"\s*:\s*\{' package.json >/dev/null 2>&1; then
+    run_check pass "JavaScript package metadata present without runtime dependencies" 5 safety
+  elif project_has_any_file package-lock.json pnpm-lock.yaml yarn.lock bun.lockb; then
     run_check pass "JavaScript lockfile present" 5 safety
   else
     run_check warn "package.json present without package-lock.json, pnpm-lock.yaml, yarn.lock or bun.lockb" 0 safety
@@ -855,7 +994,16 @@ check_content_quality "SECURITY_OPERATIONS_BASELINE.md"
 check_content_quality "templates/SECURITY_OPERATIONS_BASELINE.md"
 
 if project_has_any_file requirements.txt pyproject.toml; then
-  if project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
+  if project_has_file requirements.txt; then
+    if project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
+      run_check pass "Python dependency lock or pinned export present" 5 safety
+    else
+      run_check warn "Python dependency manifest present without poetry.lock, uv.lock or requirements.lock.txt" 0 safety
+    fi
+  elif project_has_file pyproject.toml \
+    && ! rg -n 'dependencies\s*=\s*\[|\[tool\.poetry\.dependencies\]|\[project\.optional-dependencies\]' pyproject.toml >/dev/null 2>&1; then
+    run_check pass "Python wrapper metadata present without third-party dependencies" 5 safety
+  elif project_has_any_file poetry.lock uv.lock requirements.lock.txt; then
     run_check pass "Python dependency lock or pinned export present" 5 safety
   else
     run_check warn "Python dependency manifest present without poetry.lock, uv.lock or requirements.lock.txt" 0 safety
@@ -974,6 +1122,16 @@ else
     fi
     SCANNER_BONUS=$(( (SCANNER_SUCCESS * 10) / SCANNER_RELEVANT ))
   fi
+fi
+
+if (( STRUCTURE_SCORE > 25 )); then
+  STRUCTURE_SCORE=25
+fi
+if (( SAFETY_SCORE > 25 )); then
+  SAFETY_SCORE=25
+fi
+if (( SECRETS_SCORE > 25 )); then
+  SECRETS_SCORE=25
 fi
 
 CORE_SCORE=$(( ((STRUCTURE_SCORE + SAFETY_SCORE + SECRETS_SCORE) * 100) / 75 ))

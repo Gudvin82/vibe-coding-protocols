@@ -1,163 +1,87 @@
-# Vibe Coding Protocols — русская версия
+# Vibe Coding Protocols
 
 [English version](./README.md)
 
-**Не просто коллекция prompt-ов.**
+[![Версия repo](https://img.shields.io/badge/repo-v0.3.0-blue)](./CHANGELOG.md)
+[![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
+[![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
+[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
+[![Latest Release](https://img.shields.io/github/v/release/Gudvin82/vibe-coding-protocols)](https://github.com/Gudvin82/vibe-coding-protocols/releases)
 
-Vibe Coding Protocols — это легкий operating layer для AI-assisted разработки:
-маршруты, Memory Bank files, stop conditions, checks, hardening, incident recovery и release gates.
+**Это не коллекция промптов.**
 
-Пакет репозитория: `v0.2.1`  
+VCP — это operating layer для AI-assisted разработки:
+маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
+
+Пакет репозитория: `v0.3.0`  
 Веб-методология: `Vibe Coding Protocols v1.4`
 
-Если вы читаете с мобильного:
-1. [START_HERE.md](./START_HERE.md)
-2. [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
-3. [prompts/use-this-repo-prompt_ru.md](./prompts/use-this-repo-prompt_ru.md)
+## Отдай этот repo своей AI IDE
 
-## С чего начать
+Вставь это в Claude Code, Codex, Cursor, Windsurf или Copilot:
 
-| Ситуация | Куда идти |
-|---|---|
-| Только идея | [English Product Brief](./prompts/product-brief-prompt_en.md) или [Russian Product Brief](./prompts/product-brief-prompt.md) |
-| Новый AI-assisted проект | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
-| Уже есть AI-generated код | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| Публичный / client-facing / production | [Extended Protocol](./protocols/ai-project-extended-protocol.md) |
-| Нужны AI IDE rules | [START_HERE.md](./START_HERE.md) |
+```text
+Study this repository as a workflow toolkit.
 
-## Какой agent file использовать?
+Do not write code yet.
 
-- Root `AGENTS.md` настраивает этот репозиторий.
-- Root `CLAUDE.md` настраивает Claude Code для этого репозитория.
-- Не копируйте root `AGENTS.md` blindly в свой проект.
-- Для своего проекта копируйте `templates/AGENTS.md` как `AGENTS.md`.
-- Для Claude Code используйте `templates/AGENTS.claude.md` или адаптируйте его в свой `CLAUDE.md`.
-- Для Cursor / Windsurf используйте `templates/AGENTS.cursor.md` и `templates/AGENTS.windsurf.md`.
+First choose my route:
+Lite, Starter, Hardening or Extended.
 
-## Если копировать только один набор
+Then return:
+1. files to copy first;
+2. files not to copy;
+3. first validation command;
+4. underestimated risks;
+5. next smallest safe step.
+```
 
-### Solo / MVP
+## Когда это использовать
 
-1. Скопируйте `templates/AGENTS.md` как `AGENTS.md`.
-2. Скопируйте `templates/PROJECT_MAP.md`.
-3. Используйте `prompts/product-brief-prompt_en.md` или RU-версию.
-4. Запустите `bash scripts/vibe-check.sh --starter`.
+- когда у тебя уже есть AI-generated code и нужно понять, что небезопасно до показа клиенту;
+- когда ты стартуешь новый vibe-coded проект и хочешь минимальные rails для архитектуры, безопасности и релиза;
+- когда ты solo builder и хочешь легкий процесс, а не корпоративную бюрократию;
+- когда ты small team / CTO и задаешь правила, как AI может безопасно менять код.
 
-Если у проекта несколько поверхностей, создайте `ARCHITECTURE_MAP.md` до генерации кода AI.
-Используйте:
-- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
-- [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md)
+## Быстрый старт
 
-<details>
-<summary>Дальше для команды и production</summary>
+1. Открой [START_HERE.md](./START_HERE.md).
+2. Выбери маршрут: Lite, Starter, Hardening или Extended.
+3. Для нового проекта скопируй `templates/AGENTS.md` как `AGENTS.md` и `templates/PROJECT_MAP.md`.
+4. Если поверхностей несколько, добавь `ARCHITECTURE_MAP.md` до генерации кода.
+5. Запусти `bash scripts/vibe-check.sh --starter` или `--audit`.
 
-### Small team
-
-Добавьте:
-- `templates/AUDIT_BACKLOG.md`
-- `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
-- CI с `bash scripts/vibe-check.sh --audit`
-
-### Production / client-facing
-
-Добавьте:
-- `templates/SECURITY_BASELINE.md`
-- `templates/SECURITY_OPERATIONS_BASELINE.md`
-- `templates/THIRD_PARTY_REGISTRY.md`
-- `templates/INCIDENT_RECOVERY_RUNBOOK.md`
-- `templates/METRICS_BOARD.md`
-
-</details>
-
-## Review-first install
+## Рекомендуемая установка: review-first
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/SHA256SUMS -o SHA256SUMS
-
-grep "scripts/init-minimal.sh" SHA256SUMS > init-minimal.sha256
-sha256sum -c init-minimal.sha256
-
 less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-Для macOS:
+`curl | bash` не показывается как основной путь.
+Для real projects используй review-first setup.
 
-```bash
-shasum -a 256 init-minimal.sh
-```
+## Что важно помнить
 
-Pipe-to-bash оставляйте только для пустых или тестовых репозиториев.
-
-## Self-dogfooding
-
-Этот репозиторий гоняет VCP-проверки на самом себе.
-См. [docs/self-dogfooding.md](./docs/self-dogfooding.md).
-
-## `vibe-check`
-
-`vibe-check` — это readiness signal, а не security certification.
-
-Основные команды:
-
-```bash
-bash scripts/vibe-check.sh --help
-bash scripts/vibe-check.sh --starter
-bash scripts/vibe-check.sh --hardening
-bash scripts/vibe-check.sh --audit
-bash scripts/vibe-check.sh --audit --json
-bash scripts/vibe-check.sh --doctor
-bash scripts/vibe-check.sh --init-report
-```
-
-Строгий gate:
-
-```bash
-bash scripts/vibe-check.sh --audit
-bash scripts/vibe-check.sh --audit --strict
-```
-
-Локальная диагностика optional scanners:
-
-```bash
-bash scripts/vibe-check.sh --audit --scanners
-```
-
-`|| true` не используйте в CI или release gates.
-
-## Architecture Map
-
-- [docs/architecture-map.md](./docs/architecture-map.md)
-- [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
-- [examples/architecture-map-example.md](./examples/architecture-map-example.md)
-- [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md)
-
-## Примеры и ограничения
-
-- [examples/README.md](./examples/README.md)
-- [examples/legacy-ai-mess-vibe](./examples/legacy-ai-mess-vibe/)
-- [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/release-readiness.md](./docs/release-readiness.md)
-- [docs/adoption-feedback.md](./docs/adoption-feedback.md)
-- [docs/ecosystem.md](./docs/ecosystem.md)
-- [docs/mirrors.md](./docs/mirrors.md)
+- root `AGENTS.md` настраивает этот репозиторий;
+- в свой проект копируй `templates/AGENTS.md` как `AGENTS.md`;
+- `vibe-check` — это readiness signal, а не security certification;
+- `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
+- GitHub остается canonical source;
+- wrappers и VS Code extension в `v0.3.0` пока только experimental skeletons.
 
 ## Полезные ссылки
 
-- [START_HERE.md](./START_HERE.md)
 - [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
-- [docs/README.md](./docs/README.md)
-- [protocols/README.md](./protocols/README.md)
-- [checklists/README.md](./checklists/README.md)
-- [templates/README.md](./templates/README.md)
-- [templates/AUDIT_BACKLOG_ru.md](./templates/AUDIT_BACKLOG_ru.md)
-- [docs/versioning.md](./docs/versioning.md)
-- [docs/ide-rules-dry-policy.md](./docs/ide-rules-dry-policy.md)
-- [docs/artifact-versioning.md](./docs/artifact-versioning.md)
-- [docs/faq.md](./docs/faq.md)
-- [docs/troubleshooting.md](./docs/troubleshooting.md)
+- [docs/architecture-map.md](./docs/architecture-map.md)
+- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
+- [docs/update-copied-artifacts.md](./docs/update-copied-artifacts.md)
+- [docs/prompt-drift-control.md](./docs/prompt-drift-control.md)
+- [docs/windows.md](./docs/windows.md)
+- [docs/community.md](./docs/community.md)
+- [docs/mirrors.md](./docs/mirrors.md)
+- GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/deploy-path.md](./docs/deploy-path.md)
-- [docs/up-to-date-docs-policy.md](./docs/up-to-date-docs-policy.md)
-- [docs/release-v0.2.1.md](./docs/release-v0.2.1.md)
+- [docs/release-v0.3.0.md](./docs/release-v0.3.0.md)

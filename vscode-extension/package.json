@@ -1,0 +1,46 @@
+{
+  "name": "vcp-extension-skeleton",
+  "displayName": "VCP Extension Skeleton",
+  "description": "Experimental contributor skeleton for Vibe Coding Protocols",
+  "version": "0.3.0",
+  "publisher": "gudvin",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:vcp.initializeLite",
+    "onCommand:vcp.runDoctor",
+    "onCommand:vcp.openStartHere",
+    "onCommand:vcp.openArchitectureMapTemplate"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vcp.initializeLite",
+        "title": "VCP: Initialize Lite"
+      },
+      {
+        "command": "vcp.runDoctor",
+        "title": "VCP: Run Doctor"
+      },
+      {
+        "command": "vcp.openStartHere",
+        "title": "VCP: Open START_HERE"
+      },
+      {
+        "command": "vcp.openArchitectureMapTemplate",
+        "title": "VCP: Open Architecture Map Template"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ."
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.10.5",
+    "@types/vscode": "^1.90.0"
+  }
+}

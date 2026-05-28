@@ -37,8 +37,15 @@ required_files=(
   docs/up-to-date-docs-policy.md
   docs/ecosystem.md
   docs/mirrors.md
+  docs/mirror-sync.md
   docs/starter-template-intake.md
-  docs/release-v0.2.1.md
+  docs/update-copied-artifacts.md
+  docs/prompt-drift-control.md
+  docs/vibe-check-reference.md
+  docs/npm-wrapper.md
+  docs/python-wrapper.md
+  docs/vscode-extension.md
+  docs/release-v0.3.0.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
   docs/release-v0.1.1.md
@@ -48,9 +55,20 @@ required_files=(
   scripts/check-ide-rules-consistency.sh
   scripts/check-newlines.py
   scripts/init-project.example.sh
+  package.json
+  pyproject.toml
+  comparison.md
+  bin/vibe-check.js
+  vcp_cli/__main__.py
+  vscode-extension/package.json
+  vscode-extension/README.md
+  vscode-extension/src/extension.ts
   assets/social-preview.svg
   templates/ARCHITECTURE_MAP.md
   examples/architecture-map-example.md
+  case-studies/synthetic-before-after/README.md
+  case-studies/redaction-guide.md
+  .github/ISSUE_TEMPLATE/share-your-agents.yml
 )
 
 required_dirs=(

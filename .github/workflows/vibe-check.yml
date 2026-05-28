@@ -40,9 +40,6 @@ jobs:
       - name: Vibe check audit JSON
         run: bash scripts/vibe-check.sh --audit --json
 
-      - name: Script tests
-        run: bash scripts/tests/test-vibe-check-basic.sh
-
       - name: Todo app starter tests
         run: npm test --prefix examples/todo-app-starter
 
@@ -71,3 +68,13 @@ jobs:
 
           echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs or raise repository variable MAX_CHANGED_FILES for planned larger changes."
           exit 1
+
+  vibe-check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Script tests
+        run: bash scripts/tests/test-vibe-check-basic.sh

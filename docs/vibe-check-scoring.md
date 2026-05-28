@@ -23,7 +23,16 @@ It does not claim security certification.
 - `--strict` changes warning behavior.
 - score is not a security certification.
 
+## Heuristic limits
+
+Content validation is heuristic.
+Markdown headings and section names may differ.
+False positives and false negatives are possible.
+Do not fight the script blindly.
+If you intentionally accept a warning, record the rationale in `AUDIT_BACKLOG.md`.
+
 ## Extra modes
 
 - `--doctor` reports toolkit and environment readiness.
 - `--init-report` suggests a smallest safe route without changing files.
+- `--update-advice` summarizes copied artifact versions and manual review advice.

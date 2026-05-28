@@ -39,9 +39,11 @@ Useful evidence can include:
 
 If you want to share a case study later, sanitize it first and use:
 - [../case-studies/real-case-submission-template.md](../case-studies/real-case-submission-template.md)
+- [../case-studies/redaction-guide.md](../case-studies/redaction-guide.md)
 - [../case-studies/VCP_CHALLENGE.md](../case-studies/VCP_CHALLENGE.md)
 
 ## Issue templates
 
 Open feedback through the GitHub issue templates when possible.
 Use the security template for sensitive concerns.
+Use `Share your AGENTS` for sanitized rule excerpts.

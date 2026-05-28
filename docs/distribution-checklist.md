@@ -11,12 +11,29 @@ Use this checklist before promoting the repository more broadly.
 - [ ] Enable Discussions if wanted
 - [ ] Confirm issue templates appear correctly
 
+Suggested topics:
+- `vibe-coding`
+- `ai-coding`
+- `ai-assisted-development`
+- `ai-agents`
+- `claude-code`
+- `codex`
+- `cursor`
+- `windsurf`
+- `github-copilot`
+- `prompt-engineering`
+- `developer-tools`
+- `software-architecture`
+- `security-checklist`
+- `production-readiness`
+
 ## Release hygiene
 
 - [ ] `VERSION` matches the release tag
-- [ ] `docs/release-v0.2.1.md` exists
+- [ ] `docs/release-v0.3.0.md` exists
 - [ ] `SHA256SUMS` updated
 - [ ] self-dogfooding checks passed
+- [ ] release gates reviewed
 
 ## External
 
@@ -25,7 +42,11 @@ Use this checklist before promoting the repository more broadly.
 - [ ] Share one `vibe-check` screenshot
 - [ ] Ask for feedback on onboarding clarity
 - [ ] Publish a first public post when the latest release is stable
-- [ ] Create GitVerse mirror
+- [ ] Add TrueProjects entry if relevant
+
+## Mirrors
+
+- [ ] Confirm GitVerse mirror sync: `https://gitverse.ru/GudWin82/vibe-coding-protocols`
 - [ ] Create GitFlic mirror
 - [ ] Create SourceCraft mirror
 - [ ] Add mirror links after they exist

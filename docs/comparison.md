@@ -9,6 +9,7 @@ It is a simple positioning guide for what VCP tries to cover.
 | `CLAUDE.md` only | Good Claude Code context | Not a full delivery workflow |
 | Generic prompts | Fast start | No Memory Bank or review gates |
 | Security scanner only | Finds technical issues | Does not structure AI delivery |
+| Starter template | Fast bootstrap | Can lock you into a stack or deploy path |
 | VCP | Agent harness, docs and checks | Requires adoption discipline |
 
 ## What VCP adds

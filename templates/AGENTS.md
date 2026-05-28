@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.1 -->
+<!-- vcp-version: v0.3.0 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS.md
@@ -104,6 +104,16 @@ Before setup, template installation, push, PR, release or deploy:
 3. Do not push to a template or source repository.
 4. Do not open PRs against the source template or toolkit repository unless explicitly asked.
 5. If remote origin is unclear, stop and ask.
+
+## Prompt drift control
+
+Keep this file compact.
+Do not turn `AGENTS.md` into one giant prompt that carries every architecture, security and delivery detail forever.
+Move project specifics into:
+- `PROJECT_MAP.md`
+- `ARCHITECTURE_MAP.md`
+- `ARCHITECTURE_SOURCE_OF_TRUTH.md`
+- `AUDIT_BACKLOG.md`
 
 ## Testing and reporting
 

@@ -6,7 +6,7 @@ Copy-ready templates include lightweight version markers so you can tell whether
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.1 -->
+<!-- vcp-version: v0.3.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -22,6 +22,7 @@ Copy-ready templates include lightweight version markers so you can tell whether
 2. Keep project-specific edits that still matter.
 3. Bring over workflow, wording or structure updates that improve clarity.
 4. Update the marker only after review.
+5. Re-run `bash scripts/vibe-check.sh --update-advice`.
 
 ## If the file is heavily customized
 

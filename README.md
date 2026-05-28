@@ -2,61 +2,65 @@
 
 [Русская версия](./README_ru.md)
 
-### Project status
-
-[![Repo Version](https://img.shields.io/badge/repo-v0.2.1-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.3.0-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
-[![License](https://img.shields.io/badge/license-CC%20BY%204.0-green)](./LICENSE)
-[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](
-  https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml
-)
+[![License](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
+[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
+[![Latest Release](https://img.shields.io/github/v/release/Gudvin82/vibe-coding-protocols)](https://github.com/Gudvin82/vibe-coding-protocols/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/Gudvin82/vibe-coding-protocols)](https://github.com/Gudvin82/vibe-coding-protocols/commits/main)
 
 **Not a prompt collection.**
 
-Vibe Coding Protocols is a lightweight operating layer for AI-assisted delivery:
+VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.2.1`  
+Repository package: `v0.3.0`  
 Web methodology: `Vibe Coding Protocols v1.4`
+
+## Give this repo to your AI
+
+Paste this into Claude Code, Codex, Cursor, Windsurf or Copilot:
+
+```text
+Study this repository as a workflow toolkit.
+
+Do not write code yet.
+
+First choose my route:
+Lite, Starter, Hardening or Extended.
+
+Then return:
+1. files to copy first;
+2. files not to copy;
+3. first validation command;
+4. underestimated risks;
+5. next smallest safe step.
+```
+
+## Use this when
+
+- You already have AI-generated code and need to know what is unsafe before showing it to a client.
+- You are starting a new vibe-coded project and want minimal rails for architecture, security and release.
+- You are a founder or solo builder who wants a lightweight process, not enterprise bureaucracy.
+- You are a small team or CTO defining how AI can safely touch code.
+
+<details>
+<summary>How VCP is different</summary>
+
+| Approach | What you get | What is missing |
+|---|---|---|
+| Prompt collection | Prompts | No gates, checks or handoff |
+| IDE rules only | Better agent behavior | No release readiness |
+| Security scanner | Technical findings | No project workflow |
+| Starter template | Fast bootstrap | Stack lock-in |
+| VCP | Routes, artifacts, checks and handoff | Requires adoption discipline |
+
+</details>
 
 If you are on mobile, start with:
 1. [START_HERE.md](./START_HERE.md)
 2. [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
 3. [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
-
-## What this is
-
-This repository gives you:
-- route selection before coding;
-- copy-ready AI IDE rules and Memory Bank files;
-- Lite, Starter, Hardening and Extended routes;
-- Architecture Map before implementation when the project has multiple surfaces;
-- lightweight checks such as `vibe-check`;
-- self-dogfooding GitHub Actions and script tests;
-- synthetic examples, checklists and handoff docs.
-
-Not sure where to start? Open [START_HERE.md](./START_HERE.md).
-
-```mermaid
-flowchart LR
-  A["Idea"] --> B["Lite"]
-  B --> C["Starter"]
-  C --> D["Hardening"]
-  D --> E["Extended"]
-```
-
-<details>
-<summary>Why this is different from a prompt collection</summary>
-
-| Typical prompt collection | VCP |
-|---|---|
-| Prompts only | Prompts + templates + checks |
-| IDE-specific | AI IDE compatible |
-| No hardening path | Lite -> Starter -> Hardening -> Extended |
-| No validation | `vibe-check` + CI examples |
-| No handoff | `AUDIT_BACKLOG` + Architecture SoT |
-
-</details>
 
 ## Start here
 
@@ -65,7 +69,7 @@ flowchart LR
 | Only an idea | [English Product Brief prompt](./prompts/product-brief-prompt_en.md) |
 | New AI-assisted project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
 | Existing AI-generated code | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| Public, client-facing or production-bound | [Extended Protocol](./protocols/ai-project-extended-protocol.md) |
+| Public, client-facing or production-bound project | [Extended Protocol](./protocols/ai-project-extended-protocol.md) |
 | AI IDE setup | [START_HERE.md](./START_HERE.md) |
 
 ## If you only copy one thing
@@ -77,7 +81,7 @@ flowchart LR
 3. Use `prompts/product-brief-prompt_en.md`.
 4. Run `bash scripts/vibe-check.sh --starter`.
 
-If the project has multiple surfaces, create `ARCHITECTURE_MAP.md` before asking AI to generate code.
+If the project has multiple surfaces, add `ARCHITECTURE_MAP.md` before asking AI to generate code.
 Use:
 - [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
 - [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md)
@@ -103,30 +107,29 @@ Add:
 
 </details>
 
-## Review-first install
+## Recommended: review-first setup
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
 curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/SHA256SUMS -o SHA256SUMS
-
-grep "scripts/init-minimal.sh" SHA256SUMS > init-minimal.sha256
-sha256sum -c init-minimal.sha256
-
 less init-minimal.sh
 bash init-minimal.sh --starter
 ```
 
-For macOS:
+If you want checksum verification:
+
+Linux:
 
 ```bash
-shasum -a 256 init-minimal.sh
+grep "scripts/init-minimal.sh" SHA256SUMS > init-minimal.sha256
+sha256sum -c init-minimal.sha256
 ```
 
-Fast track remains available only for empty or test repositories.
-Do not use pipe-to-bash for production projects.
+macOS:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+grep "scripts/init-minimal.sh" SHA256SUMS > init-minimal.sha256
+shasum -a 256 init-minimal.sh
 ```
 
 Optional local guardrail:
@@ -134,6 +137,17 @@ Optional local guardrail:
 ```bash
 bash scripts/install-hooks.sh --mode starter
 ```
+
+<details>
+<summary>Fast track for empty or test repositories only</summary>
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh | bash -s -- --starter
+```
+
+Do not use this path for production or client projects.
+
+</details>
 
 ## Which agent file should I use?
 
@@ -161,7 +175,7 @@ See [docs/self-dogfooding.md](./docs/self-dogfooding.md).
 
 ## Vibe-check
 
-`vibe-check` is a lightweight readiness signal.
+`vibe-check` is a readiness signal.
 It is not a security scanner and not a security certification.
 
 ```bash
@@ -172,55 +186,40 @@ bash scripts/vibe-check.sh --audit
 bash scripts/vibe-check.sh --audit --json
 ```
 
-### CI / release check
-
-Use this when the result should matter:
-
-```bash
-bash scripts/vibe-check.sh --audit
-```
-
-For stricter behavior:
-
-```bash
-bash scripts/vibe-check.sh --audit --strict
-```
-
-### Local scanner exploration
-
-Optional scanners may be missing on your machine.
-Use this only when you want to see optional scanner availability:
-
-```bash
-bash scripts/vibe-check.sh --audit --scanners
-```
-
-If you intentionally do not want missing optional scanners to stop a local shell session,
-you may run:
-
-```bash
-bash scripts/vibe-check.sh --audit --scanners || true
-```
-
-Do not use `|| true` in CI or release gates.
-
-### Doctor and route suggestion
+### Doctor, route suggestion and update advice
 
 ```bash
 bash scripts/vibe-check.sh --doctor
 bash scripts/vibe-check.sh --doctor --json
 bash scripts/vibe-check.sh --init-report
 bash scripts/vibe-check.sh --init-report --json
+bash scripts/vibe-check.sh --update-advice
+bash scripts/vibe-check.sh --update-advice --json
 ```
 
 See:
 - [docs/vibe-check-scoring.md](./docs/vibe-check-scoring.md)
-- [docs/automated-vibe-check.md](./docs/automated-vibe-check.md)
 - [docs/vibe-check-doctor.md](./docs/vibe-check-doctor.md)
 - [docs/vibe-check-init-report.md](./docs/vibe-check-init-report.md)
-- [docs/scanner-integration.md](./docs/scanner-integration.md)
+- [docs/update-copied-artifacts.md](./docs/update-copied-artifacts.md)
+- [docs/vibe-check-reference.md](./docs/vibe-check-reference.md)
 
-## Architecture planning
+## Release gates
+
+See:
+- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
+- [docs/release-readiness.md](./docs/release-readiness.md)
+
+Short version:
+- Lite -> local MVP only
+- Starter -> first vertical slice
+- Hardening -> staging candidate
+- Extended -> production candidate review
+- Release -> deploy gate with explicit blockers and evidence
+
+If auth, payments, personal data or public exposure are involved, do not claim production readiness without Extended review.
+
+## Architecture and planning
 
 Use Architecture Map when you need a 30-second project map before code:
 - [docs/architecture-map.md](./docs/architecture-map.md)
@@ -228,71 +227,52 @@ Use Architecture Map when you need a 30-second project map before code:
 - [examples/architecture-map-example.md](./examples/architecture-map-example.md)
 - [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md)
 
-## Routes
+## Wrappers and productization skeletons
 
-- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md) — solo builder or MVP route
-- [protocols/ai-project-starter-protocol.md](./protocols/ai-project-starter-protocol.md) — new AI-assisted project
-- [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md) — existing AI-generated code
-- [protocols/ai-project-extended-protocol.md](./protocols/ai-project-extended-protocol.md) — public, client-facing or production-bound project
+These are prepared, not published product surfaces:
+- experimental npm wrapper: [docs/npm-wrapper.md](./docs/npm-wrapper.md)
+- experimental Python wrapper: [docs/python-wrapper.md](./docs/python-wrapper.md)
+- experimental VS Code extension skeleton: [docs/vscode-extension.md](./docs/vscode-extension.md)
 
-## Examples
+## Windows
+
+VCP is bash-first.
+
+Recommended Windows options:
+- Git Bash
+- WSL
+- PowerShell wrapper: `scripts/vibe-check.ps1`
+
+Native Windows CLI is not available yet.
+See [docs/windows.md](./docs/windows.md).
+
+## Examples and case studies
 
 Examples are synthetic or sanitized learning examples.
 They are not claimed as real-world case studies.
 
 - [examples/README.md](./examples/README.md)
 - [examples/legacy-ai-mess-vibe](./examples/legacy-ai-mess-vibe/)
-- [templates/examples/AUDIT_BACKLOG.filled.example.md](./templates/examples/AUDIT_BACKLOG.filled.example.md)
-- [templates/examples/THIRD_PARTY_REGISTRY.filled.example.md](./templates/examples/THIRD_PARTY_REGISTRY.filled.example.md)
-- [templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](./templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
+- [case-studies/synthetic-before-after/README.md](./case-studies/synthetic-before-after/README.md)
+- [case-studies/real-case-submission-template.md](./case-studies/real-case-submission-template.md)
+- [case-studies/redaction-guide.md](./case-studies/redaction-guide.md)
 
-## Release readiness
+## Community and distribution
 
-Before tagging a release, use:
-- [docs/self-dogfooding.md](./docs/self-dogfooding.md)
-- [docs/release-readiness.md](./docs/release-readiness.md)
-- [docs/release-v0.2.1.md](./docs/release-v0.2.1.md)
+- [docs/community.md](./docs/community.md)
+- [docs/distribution-checklist.md](./docs/distribution-checklist.md)
+- [docs/mirrors.md](./docs/mirrors.md)
+- [docs/mirror-sync.md](./docs/mirror-sync.md)
+- [docs/adoption-feedback.md](./docs/adoption-feedback.md)
 
 ## Known limitations
 
-See [docs/known-limitations.md](./docs/known-limitations.md).
-
-Short version:
-- no guaranteed security;
-- no automatic model routing engine;
-- optional scanners are not bundled;
-- examples are synthetic;
-- bash-first toolkit.
-
-## Docs
-
-Start here when you need more depth:
-- [docs/README.md](./docs/README.md)
-- [docs/one-pager.md](./docs/one-pager.md)
-- [docs/faq.md](./docs/faq.md)
-- [docs/troubleshooting.md](./docs/troubleshooting.md)
+See:
+- [docs/known-limitations.md](./docs/known-limitations.md)
+- [docs/prompt-drift-control.md](./docs/prompt-drift-control.md)
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/versioning.md](./docs/versioning.md)
-- [docs/ecosystem.md](./docs/ecosystem.md)
-- [docs/mirrors.md](./docs/mirrors.md)
-- [docs/starter-template-intake.md](./docs/starter-template-intake.md)
-- [docs/deploy-path.md](./docs/deploy-path.md)
-- [docs/up-to-date-docs-policy.md](./docs/up-to-date-docs-policy.md)
+- [comparison.md](./comparison.md)
 
-## Links
+## Current release notes
 
-- [START_HERE.md](./START_HERE.md)
-- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
-- [templates/README.md](./templates/README.md)
-- [protocols/README.md](./protocols/README.md)
-- [checklists/README.md](./checklists/README.md)
-- [commands/README.md](./commands/README.md)
-- [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md)
-
-## Author / License
-
-Author: [Anatoliy Malishev](https://anmalishev.ru/)
-
-License:
-- repository content: [CC BY 4.0](./LICENSE)
-- code examples: see file-level or directory-level notes where present
+- [docs/release-v0.3.0.md](./docs/release-v0.3.0.md)

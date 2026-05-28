@@ -1,27 +1,31 @@
-# Community and feedback
+# Community
 
-This is a new public toolkit. Feedback is welcome.
+VCP is still early and feedback-driven.
 
-## Good ways to contribute feedback
+## Main entry points
 
-- Open a `Protocol Feedback` issue
-- Open an `Example request` issue
-- Suggest an AI IDE adaptation
-- Report broken links, unclear instructions or risky wording
+- GitHub Issues for bugs, docs problems and protocol feedback;
+- GitHub Discussions, if they are enabled later;
+- optional direct contact routes outside the repository, if shared explicitly.
 
-## What examples are welcome
+## Good community contributions
 
-- synthetic walkthroughs
-- sanitized project structures
-- neutral prompts and AGENTS policies
-- checklists for common project types
+- sanitized AGENTS rules;
+- onboarding pain points;
+- route feedback;
+- synthetic examples;
+- mirror setup notes;
+- wrapper usability feedback.
 
-## What not to submit
+## Do not share
 
-- real secrets
-- client names or customer data
-- private architecture docs
-- production configs
-- real logs or incident dumps
+- secrets;
+- private code dumps;
+- customer data;
+- internal URLs;
+- production credentials;
+- unredacted incident material.
 
-Synthetic or sanitized examples are strongly preferred.
+## Useful future thread idea
+
+A pinned issue such as `Share your AGENTS.md` can work well if contributors only post sanitized excerpts.

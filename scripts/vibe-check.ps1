@@ -9,7 +9,9 @@ param(
 if ($Help) {
   Write-Host "This is a lightweight PowerShell wrapper around scripts/vibe-check.sh."
   Write-Host "Recommended environments: Git Bash or WSL."
-  Write-Host "Example: pwsh -File scripts/vibe-check.ps1 -Mode starter"
+  Write-Host "Examples:"
+  Write-Host "  pwsh -File scripts/vibe-check.ps1 -Mode doctor"
+  Write-Host "  pwsh -File scripts/vibe-check.ps1 -Mode init-report -Json"
   exit 0
 }
 

@@ -17,11 +17,13 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.2.1 -->
+<!-- vcp-version: v0.3.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 
 These markers help you compare local copies with newer toolkit versions.
+Review changes manually.
+Do not overwrite customized local files blindly.
 
 ## Core memory files across the toolkit
 
@@ -51,6 +53,7 @@ These markers help you compare local copies with newer toolkit versions.
 
 - [../docs/architecture-map.md](../docs/architecture-map.md)
 - [../docs/artifact-versioning.md](../docs/artifact-versioning.md)
+- [../docs/update-copied-artifacts.md](../docs/update-copied-artifacts.md)
 - [../docs/ide-rules-dry-policy.md](../docs/ide-rules-dry-policy.md)
 - [../docs/hardening-thresholds.md](../docs/hardening-thresholds.md)
 - [../docs/release-readiness.md](../docs/release-readiness.md)

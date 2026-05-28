@@ -1,6 +1,6 @@
 # Vibe-Check Doctor
 
-Use `--doctor` when you want a quick toolkit and environment diagnosis.
+Use doctor mode when you want a quick toolkit and environment summary.
 
 ```bash
 bash scripts/vibe-check.sh --doctor
@@ -9,22 +9,21 @@ bash scripts/vibe-check.sh --doctor --json
 
 ## What it reports
 
-- toolkit version and methodology version;
-- whether this is a git repository;
-- remote origin for safety review;
-- whether `SHA256SUMS` exists;
-- whether key onboarding files exist;
-- whether `bash`, `git`, `python3`, `node` and `npm` are available;
-- whether optional scanners are available;
-- a recommended route based on the current files.
+- toolkit `VERSION`;
+- methodology version;
+- git repository presence;
+- remote origin;
+- checksum manifest presence;
+- core tooling availability;
+- optional scanner availability;
+- recommended route.
 
-## Remote safety note
+## Remote safety
 
-If `remote origin` still points to the source toolkit or template repository,
-confirm that you are not editing the wrong repository before setup, push, PR or deploy.
+Doctor mode can warn when the remote looks like the source toolkit repository.
+That is a reminder to confirm you are not editing or pushing to the template or source repo by mistake.
 
-## What it does not do
+## Related docs
 
-- it does not change files;
-- it does not run optional scanners;
-- it does not certify security or production readiness.
+- [docs/update-copied-artifacts.md](./update-copied-artifacts.md)
+- [docs/troubleshooting.md](./troubleshooting.md)

@@ -1,8 +1,8 @@
 # Windows
 
-Windows support in this repository is lightweight.
+VCP is bash-first.
 
-## Recommended paths
+## Recommended Windows options
 
 Use one of these:
 - Git Bash;
@@ -14,12 +14,16 @@ Use one of these:
 The wrapper does not reimplement `vibe-check`.
 It checks for Bash, Git Bash or WSL and then calls the main shell script.
 
-## If Bash is missing
+## Current limits
 
-Install Git for Windows or use WSL.
-The wrapper will print a friendly message instead of silently failing.
+- native Windows CLI is not available yet;
+- some scripts still assume a Bash-style environment;
+- optional PowerShell smoke testing depends on `pwsh` being installed.
 
-## Notes
+## Suggested commands
 
-- some shell-focused scripts are still Bash-first;
-- Windows support here is pragmatic, not a separate product surface.
+```powershell
+pwsh -File scripts/vibe-check.ps1 -Help
+pwsh -File scripts/vibe-check.ps1 -Mode doctor
+pwsh -File scripts/vibe-check.ps1 -Mode init-report
+```

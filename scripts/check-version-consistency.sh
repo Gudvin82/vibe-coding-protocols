@@ -33,6 +33,14 @@ check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/v
 check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 
+if [[ -f package.json ]]; then
+  check_contains package.json "\"version\": \"${REPO_VERSION#v}\"" "package.json version"
+fi
+
+if [[ -f pyproject.toml ]]; then
+  check_contains pyproject.toml "version = \"${REPO_VERSION#v}\"" "pyproject.toml version"
+fi
+
 for file in templates/*.md; do
   [[ -e "$file" ]] || continue
   case "$file" in
@@ -48,6 +56,35 @@ for file in templates/*.md; do
   esac
   check_contains "$file" "<!-- vcp-version: $REPO_VERSION -->" "template marker"
   check_contains "$file" "<!-- methodology-version: $METHODOLOGY_VERSION -->" "methodology marker"
+done
+
+stale_versions=(
+  "v0.1.11"
+  "v0.2.0"
+  "v0.2.1"
+  "v0.2.2"
+)
+
+entry_files=(
+  README.md
+  README_ru.md
+  docs/versioning.md
+  docs/release-v0.3.0.md
+  package.json
+  pyproject.toml
+)
+
+for file in "${entry_files[@]}"; do
+  [[ -f "$file" ]] || continue
+  for stale in "${stale_versions[@]}"; do
+    if [[ "$stale" == "$REPO_VERSION" ]]; then
+      continue
+    fi
+    if grep -F "$stale" "$file" >/dev/null 2>&1; then
+      echo "Stale version marker in $file: $stale"
+      problems=$((problems + 1))
+    fi
+  done
 done
 
 if (( problems > 0 )); then
