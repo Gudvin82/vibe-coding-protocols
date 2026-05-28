@@ -19,7 +19,7 @@ Suggested title:
 `How did VCP fit your project?`
 
 Prompt:
-- Lite / Starter / Hardening / Extended;
+- Lite / Starter / Hardening / Maintenance Refactoring / Extended;
 - what artifact helped first;
 - what felt heavy;
 - what warning was noisy;

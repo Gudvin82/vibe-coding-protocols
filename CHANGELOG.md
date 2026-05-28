@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.4.0
+
+- Added a first-class maintenance route for existing working projects
+- Added Maintenance Refactoring and UI Component Ownership protocols
+- Added `/care-refactoring` and `/ui-refactoring` command patterns
+- Added scoped refactoring report templates
+- Updated route selection docs, protocol indexes and repository guidance
+- Added repository `PROJECT_MAP.md` for the toolkit itself
+
 ## v0.3.0
 
 - Sharpened README first screen with AI handoff prompt and outcome-based entry points

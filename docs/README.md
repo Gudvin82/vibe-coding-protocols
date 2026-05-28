@@ -20,6 +20,8 @@ Start here:
 | I need a compact planning map before code | [docs/architecture-map.md](./architecture-map.md) |
 | I need AI IDE rules | [templates/AGENTS.md](../templates/AGENTS.md) |
 | I already have code | [protocols/ai-project-hardening-protocol.md](../protocols/ai-project-hardening-protocol.md) |
+| I already have a working project that is hard to maintain | [../protocols/maintenance/care-refactoring.md](../protocols/maintenance/care-refactoring.md) |
+| My frontend styling ownership is drifting | [../protocols/maintenance/ui-refactoring.md](../protocols/maintenance/ui-refactoring.md) |
 | I want scoring details | [docs/vibe-check-scoring.md](./vibe-check-scoring.md) |
 | I want security docs | [docs/security-operations.md](./security-operations.md) |
 | I need production route guidance | [protocols/ai-project-extended-protocol.md](../protocols/ai-project-extended-protocol.md) |
@@ -68,6 +70,17 @@ Start here:
 - [template-style-guide.md](./template-style-guide.md)
 - [ide-rules-dry-policy.md](./ide-rules-dry-policy.md)
 - [devcontainer.md](./devcontainer.md)
+
+## Maintenance and refactoring docs
+
+- [../protocols/maintenance/README.md](../protocols/maintenance/README.md)
+- [../protocols/maintenance/care-refactoring.md](../protocols/maintenance/care-refactoring.md)
+- [../protocols/maintenance/ui-refactoring.md](../protocols/maintenance/ui-refactoring.md)
+- [../commands/care-refactoring.md](../commands/care-refactoring.md)
+- [../commands/ui-refactoring.md](../commands/ui-refactoring.md)
+- [../templates/reports/refactoring-report.md](../templates/reports/refactoring-report.md)
+- [../templates/reports/ui-refactoring-report.md](../templates/reports/ui-refactoring-report.md)
+- [release-v0.4.0.md](./release-v0.4.0.md)
 
 ## Maintainer / distribution docs
 

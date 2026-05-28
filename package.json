@@ -1,6 +1,6 @@
 {
   "name": "@gudvin/vibe-check",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Experimental wrapper metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,

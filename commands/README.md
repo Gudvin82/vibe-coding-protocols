@@ -16,3 +16,5 @@ and similar tools.
 | [backlog-to-issues](./backlog-to-issues.md) | Convert backlog to GitHub Issues | Reviewable issue drafts |
 | [release-check](./release-check.md) | Before merge or deploy | Release readiness notes |
 | [agent-harness-check](./agent-harness-check.md) | Check project AI workflow | Harness gaps |
+| [care-refactoring](./care-refactoring.md) | Existing project works but is risky to change | Scoped maintenance refactoring plan |
+| [ui-refactoring](./ui-refactoring.md) | Frontend styling ownership is drifting | UI component ownership cleanup plan |

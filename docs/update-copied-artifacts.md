@@ -19,7 +19,7 @@ Most copy-ready templates include markers such as:
 
 ```md
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.3.0 -->
+<!-- vcp-version: v0.4.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 

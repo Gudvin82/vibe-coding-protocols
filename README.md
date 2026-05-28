@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.3.0-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.4.0-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -14,7 +14,7 @@
 VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.3.0`
+Repository package: `v0.4.0`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -28,7 +28,7 @@ Study this repository as a workflow toolkit.
 Do not write code yet.
 
 First choose my route:
-Lite, Starter, Hardening or Extended.
+Lite, Starter, Hardening, Maintenance Refactoring, UI Component Ownership or Extended.
 
 Then return:
 1. files to copy first;
@@ -42,6 +42,8 @@ Then return:
 
 - You already have AI-generated code and need to know what is unsafe before showing it to a client.
 - You are starting a new vibe-coded project and want minimal rails for architecture, security and release.
+- You already have a working project and want scoped refactoring before the next feature locks in bad patterns.
+- Your frontend works but pages own visual styling that should belong inside components.
 - You are a founder or solo builder who wants a lightweight process, not enterprise bureaucracy.
 - You are a small team or CTO defining how AI can safely touch code.
 
@@ -69,7 +71,9 @@ If you are on mobile, start with:
 |---|---|
 | Only an idea | [English Product Brief prompt](./prompts/product-brief-prompt_en.md) |
 | New AI-assisted project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
-| Existing AI-generated code | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
+| Existing AI-generated code that needs production or security readiness | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
+| Existing project that works but is getting risky to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
+| Existing frontend with styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
 | Public, client-facing or production-bound project | [Extended Protocol](./protocols/ai-project-extended-protocol.md) |
 | AI IDE setup | [START_HERE.md](./START_HERE.md) |
 
@@ -213,6 +217,20 @@ Short version:
 
 If auth, payments, personal data or public exposure are involved, do not claim production readiness without Extended review.
 
+## New in v0.4.0: Maintenance Refactoring
+
+`v0.4.0` adds a post-MVP maintenance lane for working projects:
+- behavior-preserving refactoring for risky or inconsistent existing code;
+- a challenge checkpoint before code changes;
+- characterization tests before risky moves when proportional;
+- a UI component ownership cleanup route for frontend drift;
+- a valid result can still be: no changes needed.
+
+See:
+- [protocols/maintenance/README.md](./protocols/maintenance/README.md)
+- [commands/care-refactoring.md](./commands/care-refactoring.md)
+- [commands/ui-refactoring.md](./commands/ui-refactoring.md)
+
 ## Architecture and planning
 
 Use Architecture Map when you need a 30-second project map before code:
@@ -269,4 +287,4 @@ See:
 
 ## Current release notes
 
-- [docs/release-v0.3.0.md](./docs/release-v0.3.0.md)
+- [docs/release-v0.4.0.md](./docs/release-v0.4.0.md)

@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.3.0-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.4.0-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -13,7 +13,7 @@
 VCP — это operating layer для AI-assisted разработки:
 маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.3.0`
+Пакет репозитория: `v0.4.0`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -27,7 +27,7 @@ Study this repository as a workflow toolkit.
 Do not write code yet.
 
 First choose my route:
-Lite, Starter, Hardening or Extended.
+Lite, Starter, Hardening, Maintenance Refactoring, UI Component Ownership or Extended.
 
 Then return:
 1. files to copy first;
@@ -41,16 +41,23 @@ Then return:
 
 - когда у тебя уже есть AI-generated code и нужно понять, что небезопасно до показа клиенту;
 - когда ты стартуешь новый vibe-coded проект и хочешь минимальные rails для архитектуры, безопасности и релиза;
+- когда проект уже работает, но нужен узкий refactoring pass до следующей большой фичи;
+- когда frontend работает, но styling ownership и component boundaries начали расползаться;
 - когда ты solo builder и хочешь легкий процесс, а не корпоративную бюрократию;
 - когда ты small team / CTO и задаешь правила, как AI может безопасно менять код.
 
 ## Быстрый старт
 
 1. Открой [START_HERE.md](./START_HERE.md).
-2. Выбери маршрут: Lite, Starter, Hardening или Extended.
+2. Выбери маршрут: Lite, Starter, Hardening, Maintenance Refactoring, UI Component Ownership или Extended.
 3. Для нового проекта скопируй `templates/AGENTS.md` как `AGENTS.md` и `templates/PROJECT_MAP.md`.
 4. Если поверхностей несколько, добавь `ARCHITECTURE_MAP.md` до генерации кода.
 5. Запусти `bash scripts/vibe-check.sh --starter` или `--audit`.
+
+Для уже работающего проекта:
+- если нужна production или security readiness проверка, используй Hardening;
+- если код работает, но становится сложным для поддержки, используй Maintenance Refactoring;
+- если главная проблема во frontend styling ownership и component chaos, используй UI Component Ownership.
 
 ## Рекомендуемая установка: review-first
 
@@ -73,7 +80,8 @@ bash init-minimal.sh --starter
 - `vibe-check` — это readiness signal, а не security certification;
 - `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
 - GitHub остается canonical source;
-- wrappers и VS Code extension в `v0.3.0` пока только experimental skeletons.
+- wrappers и VS Code extension в `v0.4.0` пока только experimental skeletons;
+- maintenance refactoring не обязателен на старте MVP и нужен как post-MVP или recurring pass.
 
 ## Полезные ссылки
 
@@ -85,6 +93,9 @@ bash init-minimal.sh --starter
 - [docs/windows.md](./docs/windows.md)
 - [docs/community.md](./docs/community.md)
 - [docs/mirrors.md](./docs/mirrors.md)
+- [protocols/maintenance/README.md](./protocols/maintenance/README.md)
+- [commands/care-refactoring.md](./commands/care-refactoring.md)
+- [commands/ui-refactoring.md](./commands/ui-refactoring.md)
 - GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/release-v0.3.0.md](./docs/release-v0.3.0.md)
+- [docs/release-v0.4.0.md](./docs/release-v0.4.0.md)

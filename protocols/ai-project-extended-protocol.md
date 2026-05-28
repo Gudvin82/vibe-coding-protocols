@@ -3,6 +3,11 @@
 Use this route when the project is public, client-facing, production-bound,
 or handles auth, payments or personal data.
 
+If the project already works but the main problem is safe extensibility or UI ownership drift,
+run the maintenance lane first and then come back to Extended review:
+- [maintenance/care-refactoring.md](./maintenance/care-refactoring.md)
+- [maintenance/ui-refactoring.md](./maintenance/ui-refactoring.md)
+
 ## Step 1. Architecture Source of Truth
 
 Create or update `ARCHITECTURE_SOURCE_OF_TRUTH.md`.

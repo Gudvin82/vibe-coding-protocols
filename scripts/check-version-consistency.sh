@@ -41,8 +41,7 @@ if [[ -f pyproject.toml ]]; then
   check_contains pyproject.toml "version = \"${REPO_VERSION#v}\"" "pyproject.toml version"
 fi
 
-for file in templates/*.md; do
-  [[ -e "$file" ]] || continue
+while IFS= read -r file; do
   case "$file" in
     templates/README.md|\
     templates/*_ru.md|\
@@ -56,13 +55,14 @@ for file in templates/*.md; do
   esac
   check_contains "$file" "<!-- vcp-version: $REPO_VERSION -->" "template marker"
   check_contains "$file" "<!-- methodology-version: $METHODOLOGY_VERSION -->" "methodology marker"
-done
+done < <(find templates -name '*.md' | sort)
 
 stale_versions=(
   "v0.1.11"
   "v0.2.0"
   "v0.2.1"
   "v0.2.2"
+  "v0.3.0"
 )
 
 # Entry files should not carry older repository version markers.
@@ -70,7 +70,8 @@ entry_files=(
   README.md
   README_ru.md
   docs/versioning.md
-  docs/release-v0.3.0.md
+  "docs/release-${REPO_VERSION}.md"
+  PROJECT_MAP.md
   package.json
   pyproject.toml
 )

@@ -1,5 +1,5 @@
 <!-- vcp-artifact: ARCHITECTURE_SOURCE_OF_TRUTH -->
-<!-- vcp-version: v0.3.0 -->
+<!-- vcp-version: v0.4.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Architecture Source of Truth

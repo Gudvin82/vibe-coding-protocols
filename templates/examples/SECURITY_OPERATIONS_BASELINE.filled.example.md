@@ -1,3 +1,7 @@
+<!-- vcp-artifact: SECURITY_OPERATIONS_BASELINE_FILLED_EXAMPLE -->
+<!-- vcp-version: v0.4.0 -->
+<!-- methodology-version: v1.4 -->
+
 # Filled Security Operations Baseline Example
 
 > Synthetic filled example — not a real case study.

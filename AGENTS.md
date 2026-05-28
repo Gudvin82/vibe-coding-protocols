@@ -67,7 +67,18 @@ When broad code discovery is needed:
 Also stop when:
 - the change touches more than 2 layers at once;
 - the active or deferred surface is unclear;
-- a request would expose secrets, private docs or internal routes.
+- a request would expose secrets, private docs or internal routes;
+- the task is framed as broad cleanup instead of a narrow scoped refactor.
+
+## Maintenance refactoring guidance
+
+When asked to refactor:
+- do not run broad cleanup by default;
+- propose scope first;
+- run a challenge checkpoint before editing production code;
+- preserve behavior and public contracts;
+- use characterization tests when proportional;
+- report `NO_CHANGES_NEEDED` when that is the honest outcome.
 
 ## When unsure
 

@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.3.0 -->
+<!-- vcp-version: v0.4.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -42,6 +42,8 @@ Do not overwrite customized local files blindly.
 - [ARCHITECTURE_MAP.md](./ARCHITECTURE_MAP.md)
 - [PROJECT_MAP.md](./PROJECT_MAP.md)
 - [ARCHITECTURE_SOURCE_OF_TRUTH.md](./ARCHITECTURE_SOURCE_OF_TRUTH.md)
+- [reports/refactoring-report.md](./reports/refactoring-report.md)
+- [reports/ui-refactoring-report.md](./reports/ui-refactoring-report.md)
 
 ## Filled synthetic examples
 

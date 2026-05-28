@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP -->
-<!-- vcp-version: v0.3.0 -->
+<!-- vcp-version: v0.4.0 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
@@ -48,6 +48,8 @@
 - lint: [FILL IN]
 - migrations: [FILL IN]
 - deploy: [FILL IN]
+- maintenance refactoring command, if used: `/care-refactoring`
+- UI ownership command, if used: `/ui-refactoring`
 
 ## Active / Deferred surfaces
 - active now: [FILL IN]
@@ -59,6 +61,7 @@
 - security gaps: [FILL IN]
 - scalability concerns: [FILL IN]
 - missing docs / tests / scanners: [FILL IN]
+- maintainability hotspots worth a future refactoring pass: [FILL IN]
 
 Example:
 - active now: public landing page, auth, billing callback

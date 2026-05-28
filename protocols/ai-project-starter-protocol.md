@@ -237,3 +237,10 @@ Move into Hardening first:
 - run Light Hardening if this is still an early slice.
 
 See [starter-to-hardening-bridge.md](./starter-to-hardening-bridge.md).
+
+After MVP, or before the next large feature, consider a separate maintenance pass:
+- [maintenance/care-refactoring.md](./maintenance/care-refactoring.md)
+- [maintenance/ui-refactoring.md](./maintenance/ui-refactoring.md)
+
+This is not a startup requirement.
+Use it only when the existing project already works and maintainability is becoming the bottleneck.

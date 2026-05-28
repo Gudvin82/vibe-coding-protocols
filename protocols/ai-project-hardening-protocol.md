@@ -60,6 +60,11 @@ Start the audit with an evidence map:
 Use token-aware discovery. Return an evidence map first. Avoid reading
 the whole repository unless the project map is missing or unreliable.
 
+If the project already works and the main problem is maintainability rather than readiness,
+switch to:
+- [maintenance/care-refactoring.md](./maintenance/care-refactoring.md)
+- [maintenance/ui-refactoring.md](./maintenance/ui-refactoring.md)
+
 ## Project map and architecture
 
 Create or update:

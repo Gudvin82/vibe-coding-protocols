@@ -12,11 +12,13 @@ No. `vibe-check` is a lightweight readiness signal, not a security scanner.
 
 No. Start with the smallest route that fits your project.
 
-## What is the difference between Lite, Starter, Hardening and Extended?
+## What is the difference between Lite, Starter, Hardening, Maintenance Refactoring and Extended?
 
 - Lite: smallest safe onboarding path for solo or MVP work
 - Starter: new project with explicit setup
-- Hardening: existing AI-generated code needs review
+- Hardening: existing AI-generated code needs readiness and security review
+- Maintenance Refactoring: existing working project needs scoped behavior-preserving cleanup
+- UI Component Ownership: existing frontend needs styling and component ownership cleanup
 - Extended: public, client-facing or production-bound path
 
 ## What should I copy first?
