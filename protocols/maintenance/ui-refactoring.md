@@ -55,6 +55,25 @@ Layout wrappers may own:
 - responsive placement;
 - positioning.
 
+## Allowed exceptions
+
+Allowed exceptions may include:
+- low-level design primitives;
+- headless UI components;
+- documented slot APIs;
+- polymorphic components;
+- theme providers and design tokens;
+- migration layers with an explicit removal plan;
+- one-off third-party integration wrappers where the external API requires `className` or `style`.
+
+Rules for exceptions:
+- exceptions must be documented near the component or in design-system docs;
+- exceptions must not become arbitrary page-level styling;
+- page or route code still should not assemble final component appearance ad hoc;
+- prefer semantic props and tokens over raw cosmetic overrides;
+- any retained `className` or `style` escape hatch must explain why it exists
+  and when it should be removed or constrained.
+
 ## Workflow
 
 Work slice by slice:
@@ -107,6 +126,7 @@ Include:
 - what stayed outside as layout;
 - props added, simplified or removed;
 - local components moved into `components/` or shared UI layers;
+- exceptions retained and why they are safe;
 - why the result is cleaner;
 - validation run;
 - remaining risks.

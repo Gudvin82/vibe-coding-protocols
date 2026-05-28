@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.4.1
+
+- Rewrote `SECURITY.md` into a clearer repository security policy
+- Added `docs/security-methodology-scope.md`
+- Added maintenance refactoring risk classification and escalation rules
+- Added allowed exceptions for mature design-system and headless UI cases
+- Improved maintenance report templates with practical placeholder guidance
+- Added filled synthetic maintenance report examples
+- Added `docs/migration/v0.3.0-to-v0.4.0.md`
+- Added `docs/tooling-roadmap.md`
+- Polished README maintenance visibility and adoption guidance
+
 ## v0.4.0
 
 - Added a first-class maintenance route for existing working projects

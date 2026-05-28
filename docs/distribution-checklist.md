@@ -30,7 +30,7 @@ Suggested topics:
 ## Release hygiene
 
 - [ ] `VERSION` matches the release tag
-- [ ] `docs/release-v0.4.0.md` exists
+- [ ] `docs/release-v0.4.1.md` exists
 - [ ] `SHA256SUMS` updated
 - [ ] self-dogfooding checks passed
 - [ ] release gates reviewed

@@ -44,6 +44,7 @@ Start here:
 - [ecosystem.md](./ecosystem.md)
 - [mirrors.md](./mirrors.md)
 - [starter-template-intake.md](./starter-template-intake.md)
+- [tooling-roadmap.md](./tooling-roadmap.md)
 
 ## Security and hardening docs
 
@@ -57,6 +58,7 @@ Start here:
 - [hardening-thresholds.md](./hardening-thresholds.md)
 - [secret-rotation-and-storage.md](./secret-rotation-and-storage.md)
 - [security-operations.md](./security-operations.md)
+- [security-methodology-scope.md](./security-methodology-scope.md)
 - [release-readiness.md](./release-readiness.md)
 - [self-dogfooding.md](./self-dogfooding.md)
 - [deploy-path.md](./deploy-path.md)
@@ -80,7 +82,9 @@ Start here:
 - [../commands/ui-refactoring.md](../commands/ui-refactoring.md)
 - [../templates/reports/refactoring-report.md](../templates/reports/refactoring-report.md)
 - [../templates/reports/ui-refactoring-report.md](../templates/reports/ui-refactoring-report.md)
-- [release-v0.4.0.md](./release-v0.4.0.md)
+- [../templates/examples/refactoring-report.filled.example.md](../templates/examples/refactoring-report.filled.example.md)
+- [../templates/examples/ui-refactoring-report.filled.example.md](../templates/examples/ui-refactoring-report.filled.example.md)
+- [release-v0.4.1.md](./release-v0.4.1.md)
 
 ## Maintainer / distribution docs
 
@@ -92,7 +96,7 @@ Start here:
 - [repo-maintenance.md](./repo-maintenance.md)
 - [attribution.md](./attribution.md)
 
-## Release notes
+## Release notes and migration
 
 - [docs/releases/README.md](./releases/README.md)
 - [docs/migration/README.md](./migration/README.md)

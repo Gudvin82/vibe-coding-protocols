@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.4.0 -->
+<!-- vcp-version: v0.4.1 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -50,6 +50,8 @@ Do not overwrite customized local files blindly.
 - [examples/AUDIT_BACKLOG.filled.example.md](./examples/AUDIT_BACKLOG.filled.example.md)
 - [examples/THIRD_PARTY_REGISTRY.filled.example.md](./examples/THIRD_PARTY_REGISTRY.filled.example.md)
 - [examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](./examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
+- [examples/refactoring-report.filled.example.md](./examples/refactoring-report.filled.example.md)
+- [examples/ui-refactoring-report.filled.example.md](./examples/ui-refactoring-report.filled.example.md)
 
 ## Recommended companions
 

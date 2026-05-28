@@ -1,5 +1,5 @@
 <!-- vcp-artifact: THIRD_PARTY_REGISTRY_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.4.0 -->
+<!-- vcp-version: v0.4.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled Third-Party Registry Example

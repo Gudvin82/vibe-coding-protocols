@@ -19,3 +19,4 @@ Release notes stay at the top level for stable links. Use this index as a naviga
 - [`../release-v0.2.1.md`](../release-v0.2.1.md)
 - [`../release-v0.3.0.md`](../release-v0.3.0.md)
 - [`../release-v0.4.0.md`](../release-v0.4.0.md)
+- [`../release-v0.4.1.md`](../release-v0.4.1.md)

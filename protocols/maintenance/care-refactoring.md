@@ -87,6 +87,48 @@ For each scope include:
 - validation signal;
 - whether characterization test is needed, already exists or is disproportionate.
 
+## Risk classification
+
+### Low risk
+
+- pure extraction within one file;
+- renaming local helper variables;
+- moving formatting or presentation helpers without changing behavior;
+- removing dead code with evidence;
+- improving names in private or internal scope.
+
+### Medium risk
+
+- moving logic across internal modules with tests;
+- extracting use-case or application services;
+- consolidating duplicated business rules;
+- changing dependency injection or wiring inside one bounded area;
+- moving code between UI and application layers while preserving contracts.
+
+### High risk
+
+- auth or session behavior;
+- permissions;
+- payments or billing;
+- persistence or database writes;
+- migrations;
+- API contracts;
+- error shapes;
+- data deletion;
+- personal data handling;
+- external integrations;
+- security-sensitive behavior.
+
+## Escalation rule
+
+High-risk changes must not proceed as routine maintenance refactoring.
+Route them to Hardening or Extended Protocol unless the user explicitly approves
+a narrow, tested scope.
+
+If the proposed refactor touches auth, payments, permissions, persistence
+or public API contracts, the challenge checkpoint should default to
+`NARROW_SCOPE` or `SEPARATE_PRODUCT_TASK`.
+
 ## Challenge checkpoint
 
 Before implementation, run a challenge checkpoint.
@@ -147,6 +189,8 @@ For each accepted scope:
 
 The final report must include:
 - overall result;
+- risk level;
+- escalation decision;
 - scopes inspected;
 - challenge checkpoint decision;
 - scopes changed;

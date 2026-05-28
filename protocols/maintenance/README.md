@@ -45,3 +45,8 @@ Run this lane:
 
 - [care-refactoring.md](./care-refactoring.md)
 - [ui-refactoring.md](./ui-refactoring.md)
+
+## Filled synthetic report examples
+
+- [../../templates/examples/refactoring-report.filled.example.md](../../templates/examples/refactoring-report.filled.example.md)
+- [../../templates/examples/ui-refactoring-report.filled.example.md](../../templates/examples/ui-refactoring-report.filled.example.md)

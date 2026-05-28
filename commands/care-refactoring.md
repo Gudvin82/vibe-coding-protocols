@@ -15,18 +15,25 @@ Agent behavior:
 2. Check git status before editing.
 3. Do discovery first.
 4. Propose at most 1 to 3 small scopes.
-5. Run the challenge checkpoint before production edits.
-6. Add or reuse characterization coverage when proportional.
-7. Make the smallest useful behavior-preserving change.
-8. Run the smallest meaningful validation.
-9. Return a scoped final report.
+5. Classify proposed work as low, medium or high risk.
+6. Run the challenge checkpoint before production edits.
+7. Add or reuse characterization coverage when proportional.
+8. Make the smallest useful behavior-preserving change.
+9. Run the smallest meaningful validation.
+10. Return a scoped final report.
 
 Challenge checkpoint is required.
 Characterization tests are required before risky behavior-preserving moves
 when they are proportional.
 
+High-risk maintenance changes should default to narrow scope,
+separate product task,
+or escalation into Hardening or Extended review.
+
 Final report format:
 - overall result;
+- risk level;
+- escalation decision;
 - scopes inspected;
 - challenge decision;
 - scope changed;

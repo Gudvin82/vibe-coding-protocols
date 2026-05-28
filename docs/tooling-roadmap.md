@@ -1,0 +1,42 @@
+# Tooling Roadmap
+
+VCP is intentionally markdown-first,
+with lightweight validation and workflow tooling around it.
+
+## Current tooling
+
+Current repository tooling includes:
+- `scripts/vibe-check.sh`;
+- `scripts/check-newlines.py`;
+- `scripts/validate-links.sh`;
+- `scripts/check-version-consistency.sh`;
+- `scripts/check-toolkit.sh`;
+- experimental wrappers and skeletons for npm, Python and VS Code.
+
+## Not yet available
+
+VCP does not currently provide:
+- a deep AST boundary linter;
+- a full CLI product;
+- a mature IDE extension product;
+- a real security scanner;
+- domain-specific rule packs.
+
+## Possible future tooling
+
+Potential future tooling may include:
+- artifact validator;
+- route completeness checker;
+- maintenance report validator;
+- AI boundary linting;
+- design-system ownership checker;
+- migration assistant.
+
+## Why markdown-first is intentional
+
+Markdown protocols are intentional.
+They keep decisions visible,
+reviewable and adaptable across tools.
+
+Automation will be added only where it improves safety
+without hiding judgment.

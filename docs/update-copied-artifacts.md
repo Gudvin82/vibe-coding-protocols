@@ -19,7 +19,7 @@ Most copy-ready templates include markers such as:
 
 ```md
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.4.0 -->
+<!-- vcp-version: v0.4.1 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -44,6 +44,7 @@ Review these sections first:
 - Remote safety
 - token-aware discovery
 - approval gates
+- maintenance routing and challenge checkpoint rules
 
 Project-specific instructions should usually stay local.
 Toolkit-wide safety improvements should usually be merged in.
@@ -55,6 +56,7 @@ Be especially careful with:
 - `CLAUDE.md`
 - `PROJECT_MAP.md`
 - `ARCHITECTURE_MAP.md`
+- `SECURITY.md`
 - `SECURITY_BASELINE.md`
 - `SECURITY_OPERATIONS_BASELINE.md`
 
@@ -66,7 +68,8 @@ If the toolkit update touches security-related templates:
 - compare your local baselines against the new template;
 - note accepted differences in `AUDIT_BACKLOG.md`;
 - confirm owners, cadence and rollback notes still make sense;
-- re-run your preferred review route.
+- re-run your preferred review route;
+- review [migration/v0.3.0-to-v0.4.0.md](./migration/v0.3.0-to-v0.4.0.md) if you are adopting maintenance artifacts after an older copy.
 
 ## If you are unsure
 

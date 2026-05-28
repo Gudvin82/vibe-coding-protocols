@@ -29,6 +29,8 @@ They are:
 - [../templates/examples/AUDIT_BACKLOG.filled.example.md](../templates/examples/AUDIT_BACKLOG.filled.example.md)
 - [../templates/examples/THIRD_PARTY_REGISTRY.filled.example.md](../templates/examples/THIRD_PARTY_REGISTRY.filled.example.md)
 - [../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
+- [../templates/examples/refactoring-report.filled.example.md](../templates/examples/refactoring-report.filled.example.md)
+- [../templates/examples/ui-refactoring-report.filled.example.md](../templates/examples/ui-refactoring-report.filled.example.md)
 
 ## Start here
 

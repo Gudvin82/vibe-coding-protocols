@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.4.0-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.4.1-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -13,7 +13,7 @@
 VCP — это operating layer для AI-assisted разработки:
 маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.4.0`
+Пакет репозитория: `v0.4.1`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -59,6 +59,10 @@ Then return:
 - если код работает, но становится сложным для поддержки, используй Maintenance Refactoring;
 - если главная проблема во frontend styling ownership и component chaos, используй UI Component Ownership.
 
+Уже работает, но становится трудно менять?
+- Maintenance Refactoring: `/care-refactoring`
+- UI drift или styling chaos: `/ui-refactoring`
+
 ## Рекомендуемая установка: review-first
 
 ```bash
@@ -80,7 +84,7 @@ bash init-minimal.sh --starter
 - `vibe-check` — это readiness signal, а не security certification;
 - `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
 - GitHub остается canonical source;
-- wrappers и VS Code extension в `v0.4.0` пока только experimental skeletons;
+- wrappers и VS Code extension в `v0.4.1` пока только experimental skeletons;
 - maintenance refactoring не обязателен на старте MVP и нужен как post-MVP или recurring pass.
 
 ## Полезные ссылки
@@ -91,6 +95,9 @@ bash init-minimal.sh --starter
 - [docs/update-copied-artifacts.md](./docs/update-copied-artifacts.md)
 - [docs/prompt-drift-control.md](./docs/prompt-drift-control.md)
 - [docs/windows.md](./docs/windows.md)
+- [SECURITY.md](./SECURITY.md)
+- [docs/security-methodology-scope.md](./docs/security-methodology-scope.md)
+- [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/community.md](./docs/community.md)
 - [docs/mirrors.md](./docs/mirrors.md)
 - [protocols/maintenance/README.md](./protocols/maintenance/README.md)
@@ -98,4 +105,4 @@ bash init-minimal.sh --starter
 - [commands/ui-refactoring.md](./commands/ui-refactoring.md)
 - GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/release-v0.4.0.md](./docs/release-v0.4.0.md)
+- [docs/release-v0.4.1.md](./docs/release-v0.4.1.md)
