@@ -1,8 +1,9 @@
 # UI Component Ownership Protocol
 
 Use when frontend or UI code works but styling ownership is unclear,
-pages or routes are full of visual hardcoding, components rely on caller
-overrides, or design consistency is degrading.
+pages or routes are full of visual hardcoding,
+components rely on caller overrides,
+or design consistency is degrading.
 
 ## Core principle
 
@@ -68,24 +69,58 @@ Allowed exceptions may include:
 
 Rules for exceptions:
 - exceptions must be documented near the component or in design-system docs;
+- exceptions must stay local to the design-system or primitives layer,
+  not random page code;
 - exceptions must not become arbitrary page-level styling;
 - page or route code still should not assemble final component appearance ad hoc;
 - prefer semantic props and tokens over raw cosmetic overrides;
-- any retained `className` or `style` escape hatch must explain why it exists
+- any retained `className` or `style` escape hatch must explain why it exists,
   and when it should be removed or constrained.
+
+## Component ownership risk levels
+
+### Low risk
+
+- move a repeated visual fragment into an existing component;
+- replace repeated page-level button or card styling with existing semantic props.
+
+### Medium risk
+
+- extract a new shared component and update several call sites;
+- remove several cosmetic pass-through props while keeping behavior stable.
+
+### High risk
+
+- redesign shared primitives;
+- change the global theme system;
+- rewrite routing layouts;
+- alter accessibility behavior.
 
 ## Workflow
 
 Work slice by slice:
 - inspect the current UI system and conventions;
 - check existing components before creating new ones;
-- identify style overrides, inline styles, class assembly,
-  repeated visual fragments and local page components;
+- align with the existing design system;
+- if the repository already uses Tailwind,
+  shadcn,
+  headless primitives,
+  CSS modules
+  or styled components,
+  stay within that system;
+- do not introduce a new styling architecture as part of routine UI refactoring;
+- identify style overrides,
+  inline styles,
+  class assembly,
+  repeated visual fragments
+  and local page components;
 - split styling into visual ownership vs layout composition;
 - move visual styling into components;
 - keep layout outside;
 - simplify APIs;
-- remove harmful style, className or cosmetic pass-through props where safe;
+- remove harmful style,
+  className
+  or cosmetic pass-through props where safe;
 - preserve behavior;
 - validate after each file or coherent slice.
 
@@ -105,6 +140,18 @@ Do not change:
 - error states;
 - responsive behavior.
 
+## Accessibility preservation checklist
+
+Preserve and re-check:
+- focus states;
+- labels;
+- keyboard behavior;
+- ARIA only when needed;
+- loading,
+  empty
+  and error states;
+- responsive behavior.
+
 ## Validation
 
 Run the smallest meaningful validation:
@@ -114,9 +161,27 @@ Run the smallest meaningful validation:
 - unit test;
 - component test;
 - build;
-- browser, screenshot or manual check when appropriate.
+- browser,
+  screenshot
+  or manual check when appropriate.
 
 If validation fails, fix it before moving on.
+
+## Synthetic before/after shape
+
+Before:
+- page-level hardcoded card and button styling;
+- repeated overrides for padding,
+  background,
+  radius
+  and tone.
+
+After:
+- semantic `Card` and `Button` props own final appearance;
+- page wrapper keeps grid,
+  spacing
+  and placement only;
+- one documented primitive or third-party slot API may retain a constrained exception.
 
 ## Per-file or per-slice report
 
@@ -124,7 +189,9 @@ Include:
 - what was wrong before;
 - what visual styling moved inside components;
 - what stayed outside as layout;
-- props added, simplified or removed;
+- props added,
+  simplified
+  or removed;
 - local components moved into `components/` or shared UI layers;
 - exceptions retained and why they are safe;
 - why the result is cleaner;

@@ -4,6 +4,7 @@
 
 # Filled UI Refactoring Report Example
 
+> Synthetic example. Not a real project claim.
 > Synthetic example — not a real client or production project.
 
 ## Overall result
@@ -19,20 +20,27 @@ and one low-level slot-based third-party wrapper.
 
 ## Component ownership problems found
 
-The page assembled final card and button appearance through repeated class overrides,
-while the same visual rules already existed in similar components elsewhere.
+Before:
+- the page assembled final card and button appearance through repeated class overrides;
+- visual ownership for padding,
+  background,
+  radius
+  and tone was split across page and component code.
 
 ## Visual styling moved into components
 
-Moved card background,
-padding,
-border radius,
-shadow and button tone styling into `FeatureCard` and `PrimaryButton`.
+After:
+- card background,
+  padding,
+  border radius,
+  shadow
+  and button tone styling moved into `FeatureCard` and `PrimaryButton`;
+- semantic props now express the supported visual variants.
 
 ## Layout styling kept outside
 
 Kept page grid layout,
-responsive column placement,
+responsive column placement
 and external spacing rhythm in the dashboard wrapper.
 
 ## Props added/simplified/removed
@@ -43,7 +51,8 @@ Added semantic props:
 - `fullWidth`
 
 Removed direct cosmetic page-level overrides for padding,
-background and border styling.
+background
+and border styling.
 
 ## Components extracted/reused
 
@@ -60,13 +69,16 @@ used by a third-party slot API.
 The exception stays at the primitive layer,
 is documented near the component,
 and is not exposed as arbitrary page-level visual composition.
+A future cleanup can constrain or remove it without redesigning the page.
 
 ## Behavior/accessibility preserved
 
 Preserved keyboard focus,
 button semantics,
+labels,
 loading state,
-empty state and responsive layout behavior.
+empty state
+and responsive layout behavior.
 
 ## Validation run
 

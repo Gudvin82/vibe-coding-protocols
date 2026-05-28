@@ -11,7 +11,28 @@ Current repository tooling includes:
 - `scripts/validate-links.sh`;
 - `scripts/check-version-consistency.sh`;
 - `scripts/check-toolkit.sh`;
-- experimental wrappers and skeletons for npm, Python and VS Code.
+- experimental wrappers and skeletons for npm,
+  Python
+  and VS Code.
+
+## What tooling can catch today
+
+Current scripts can catch or highlight:
+- missing structure;
+- version drift;
+- broken local markdown links;
+- newline-poor docs;
+- basic toolkit consistency.
+
+## What still requires human review
+
+Human review is still required for:
+- architecture quality;
+- security posture;
+- business logic correctness;
+- legal or compliance needs;
+- UI design quality;
+- whether a refactor is worth doing.
 
 ## Not yet available
 
@@ -36,7 +57,9 @@ Potential future tooling may include:
 
 Markdown protocols are intentional.
 They keep decisions visible,
-reviewable and adaptable across tools.
+reviewable
+and adaptable across tools.
 
 Automation will be added only where it improves safety
 without hiding judgment.
+Do not treat current wrappers or skeletons as a mature CLI product.

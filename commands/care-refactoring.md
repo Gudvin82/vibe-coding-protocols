@@ -3,7 +3,10 @@
 Invocation: `/care-refactoring`
 
 Use when an existing project works but is becoming hard to maintain,
-risky to extend, duplicated, inconsistent or difficult to reason about.
+risky to extend,
+duplicated,
+inconsistent
+or difficult to reason about.
 
 Required inputs:
 - target area, module, route or file set;
@@ -16,15 +19,21 @@ Agent behavior:
 3. Do discovery first.
 4. Propose at most 1 to 3 small scopes.
 5. Classify proposed work as low, medium or high risk.
-6. Run the challenge checkpoint before production edits.
-7. Add or reuse characterization coverage when proportional.
-8. Make the smallest useful behavior-preserving change.
-9. Run the smallest meaningful validation.
-10. Return a scoped final report.
+6. Stop or escalate if behavior change, contract change, auth, payments,
+   persistence, deletion or broad architecture change is involved.
+7. Run the challenge checkpoint before production edits.
+8. Add or reuse characterization coverage when proportional.
+9. Make the smallest useful behavior-preserving change.
+10. Run the smallest meaningful validation.
+11. Return a scoped final report.
 
 Challenge checkpoint is required.
 Characterization tests are required before risky behavior-preserving moves
 when they are proportional.
+
+If no safe high-value change exists,
+report `NO_CHANGES_NEEDED`.
+That is a valid successful outcome.
 
 High-risk maintenance changes should default to narrow scope,
 separate product task,

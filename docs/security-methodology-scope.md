@@ -20,6 +20,7 @@ This covers what VCP encourages teams to document and review:
 - readiness signals;
 - project memory files;
 - security baselines;
+- incident recovery preparation;
 - third-party intake discipline;
 - hardening routes;
 - release gates.
@@ -31,6 +32,7 @@ Use:
 - [../templates/SECURITY_BASELINE.md](../templates/SECURITY_BASELINE.md)
 - [../templates/SECURITY_OPERATIONS_BASELINE.md](../templates/SECURITY_OPERATIONS_BASELINE.md)
 - [../templates/THIRD_PARTY_REGISTRY.md](../templates/THIRD_PARTY_REGISTRY.md)
+- [../templates/INCIDENT_RECOVERY_RUNBOOK.md](../templates/INCIDENT_RECOVERY_RUNBOOK.md)
 
 ### Production security audit
 
@@ -60,7 +62,9 @@ VCP cannot guarantee:
 - production safety;
 - absence of vulnerabilities;
 - legal compliance;
+- dependency or supply-chain safety;
 - correct cloud or infrastructure configuration;
+- that AI-generated code is safe without review;
 - real-world runtime security.
 
 ## When to use each artifact
@@ -69,21 +73,36 @@ Use `SECURITY_BASELINE.md` when a project needs an explicit security posture
 for the current stage.
 
 Use `SECURITY_OPERATIONS_BASELINE.md` when the project has recurring checks,
-owners, cadence and operational evidence.
+owners,
+cadence
+and operational evidence.
 
 Use `THIRD_PARTY_REGISTRY.md` when the project depends on external packages,
-services, APIs, repositories or hosted platforms.
+services,
+APIs,
+repositories
+or hosted platforms.
+
+Use `INCIDENT_RECOVERY_RUNBOOK.md` when the project needs clear rollback,
+triage,
+owner
+and communication guidance.
 
 ## When to escalate routes
 
 Escalate to Hardening when:
 - the project already exists;
 - AI-generated code is accumulating;
-- secrets, auth or deploy risk are unclear;
+- secrets,
+auth
+or deploy risk are unclear;
 - you need a structured readiness review.
 
 Escalate to Extended when:
 - the project is public;
 - it is client-facing or production-bound;
-- it handles auth, payments or personal data;
+- it handles auth,
+payments
+or personal data;
+- incident readiness or operational accountability matter;
 - a normal maintenance pass is no longer enough.

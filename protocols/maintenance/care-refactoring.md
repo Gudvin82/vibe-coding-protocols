@@ -1,8 +1,9 @@
 # Maintenance Refactoring Protocol
 
 Use when a working project is becoming hard to maintain or risky to extend.
-This route is for existing projects, post-MVP cleanup and periodic repository
-health passes.
+This route is for existing projects,
+post-MVP cleanup
+and periodic repository health passes.
 
 ## Non-goals
 
@@ -10,9 +11,14 @@ health passes.
 - not rewriting from scratch;
 - not imposing a new architecture unless the current one is clearly failing;
 - not broad cleanup across the whole repository;
-- not changing behavior, public contracts, security behavior, permissions,
-  data formats, database or schema contracts, error shapes or business rules
-  unless explicitly requested.
+- not changing behavior,
+  public contracts,
+  security behavior,
+  permissions,
+  data formats,
+  database or schema contracts,
+  error shapes
+  or business rules unless explicitly requested.
 
 ## Valid outcomes
 
@@ -21,6 +27,10 @@ Allowed outcomes:
 - separate product task;
 - narrow scope;
 - proceed with one small high-value refactor.
+
+`NO_CHANGES_NEEDED` is a successful outcome when no safe,
+high-value,
+behavior-preserving refactor exists.
 
 ## Operating rules
 
@@ -119,14 +129,38 @@ For each scope include:
 - external integrations;
 - security-sensitive behavior.
 
+## Stop conditions
+
+Stop or escalate when:
+- behavior change is required;
+- public contract change is required;
+- auth, session or permissions are touched;
+- payments or billing are touched;
+- data deletion or migration is involved;
+- no validation path exists for the proposed change;
+- the refactor would require broad architecture changes;
+- the agent cannot explain preserved behavior.
+
+## Maintenance vs Hardening vs Product Task
+
+- Maintainability-only improvement -> Maintenance Refactoring.
+- Security or production readiness -> Hardening.
+- New behavior, feature or product decision -> product task or Extended.
+- Broad architecture change -> Extended.
+
 ## Escalation rule
 
 High-risk changes must not proceed as routine maintenance refactoring.
 Route them to Hardening or Extended Protocol unless the user explicitly approves
-a narrow, tested scope.
+a narrow,
+tested scope.
 
-If the proposed refactor touches auth, payments, permissions, persistence
-or public API contracts, the challenge checkpoint should default to
+If the proposed refactor touches auth,
+payments,
+permissions,
+persistence
+or public API contracts,
+the challenge checkpoint should default to
 `NARROW_SCOPE` or `SEPARATE_PRODUCT_TASK`.
 
 ## Challenge checkpoint
@@ -162,6 +196,23 @@ Before behavior-preserving production edits:
 - run the test before production edits when added;
 - do not encode known bugs as desired behavior unless explicitly asked.
 
+Good characterization tests often include:
+- one request/response assertion for an existing handler;
+- one public method call that preserves return shape;
+- one regression test for an invariant already relied on by callers.
+
+Disproportionate tests often include:
+- building a full integration harness for a two-line extraction;
+- snapshotting a huge surface just to rename one helper;
+- introducing a new test framework only for a tiny internal cleanup.
+
+If the repository has no test layer,
+use the smallest observable validation path available,
+such as a focused script,
+existing build/lint command,
+manual route reproduction
+or a clearly documented dry-run check.
+
 ## Implementation loop
 
 For each accepted scope:
@@ -184,6 +235,16 @@ For each accepted scope:
 - TODOs instead of finishing;
 - architecture that makes code harder to read;
 - moving business scenarios into infrastructure, query or client code.
+
+## Example decision shape
+
+- risk level: Medium
+- challenge decision: `NARROW_SCOPE`
+- characterization coverage: reused one regression test and added one focused boundary test
+- validation signal: targeted test command plus lint
+- preserved contracts: response shape,
+  status handling
+  and existing caller-visible error wording
 
 ## Final report
 

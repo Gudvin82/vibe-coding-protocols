@@ -11,9 +11,16 @@ Choose one:
 - Changes made
 - Partial validation
 
+State that `NO_CHANGES_NEEDED` is acceptable when no safe,
+high-value,
+behavior-preserving refactor exists.
+
 ## Scope inspected
 
-List the files, modules, routes or bounded area reviewed.
+List the files,
+modules,
+routes
+or bounded area reviewed.
 Explain why this scope was chosen.
 
 ## Risk level
@@ -27,6 +34,7 @@ Choose one:
 
 State whether the work stayed in maintenance refactoring,
 was narrowed,
+was deferred to a product task,
 or should move to Hardening or Extended review.
 
 ## Challenge decision
@@ -40,11 +48,14 @@ Choose one:
 ## Scope changed
 
 Describe the smallest useful diff that was actually implemented.
+If nothing changed,
+state why that was the safest outcome.
 
 ## Behavior/contracts preserved
 
 State which observable behaviors,
-public contracts and invariants were preserved.
+public contracts
+and invariants were preserved.
 
 ## Characterization coverage
 
@@ -53,9 +64,19 @@ Say whether characterization coverage was:
 - reused;
 - intentionally skipped with reason.
 
+If no test layer exists,
+state what narrower validation path was used instead.
+
 ## Implementation summary
 
 Summarize what changed and why it improves maintainability.
+
+Bad report: "refactored code, tests pass"
+Good report: concrete scope,
+preserved contracts,
+risk level,
+validation signal
+and remaining cleanup.
 
 ## Validation run
 
@@ -63,7 +84,10 @@ List validation commands and short results.
 
 ## Docs status
 
-State whether docs, project map or backlog notes were updated.
+State whether docs,
+project map,
+backlog
+or migration notes were updated.
 
 ## Remaining risks
 
@@ -73,4 +97,5 @@ or reasons the area still needs wider review.
 
 ## Suggested commit message
 
-Provide a narrow, behavior-preserving commit message.
+Provide a narrow,
+behavior-preserving commit message.

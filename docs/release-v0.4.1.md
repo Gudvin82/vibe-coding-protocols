@@ -10,8 +10,13 @@ and makes maintenance-lane adoption easier for existing users.
 
 - rewrote the public repository security policy;
 - added a methodology-scope explainer for security-related expectations;
-- added maintenance risk classification and escalation rules;
-- added allowed exceptions for mature design-system and headless UI cases;
+- added severity examples,
+  disclosure clarity
+  and explicit non-guarantees;
+- added maintenance risk classification,
+  stop conditions
+  and escalation rules;
+- added allowed exceptions and maturity guidance for design-system-aware UI cleanup;
 - improved maintenance report templates with practical guidance;
 - added filled synthetic maintenance report examples;
 - added a migration guide for existing users adopting maintenance artifacts;
@@ -28,6 +33,12 @@ especially for post-MVP projects that already work.
 See:
 - [../SECURITY.md](../SECURITY.md)
 - [security-methodology-scope.md](./security-methodology-scope.md)
+
+## Tooling honesty
+
+See:
+- [tooling-roadmap.md](./tooling-roadmap.md)
+- [known-limitations.md](./known-limitations.md)
 
 ## Validation
 

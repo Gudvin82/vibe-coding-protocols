@@ -2,8 +2,12 @@
 
 This is the post-MVP and existing-project lane for Vibe Coding Protocols.
 
-Use it when a project already works, but is becoming harder to maintain,
-riskier to extend, more duplicated, more inconsistent or harder to reason about.
+Use it when a project already works,
+but is becoming harder to maintain,
+riskier to extend,
+more duplicated,
+more inconsistent
+or harder to reason about.
 
 Valid outcomes include:
 - no changes needed;
@@ -14,14 +18,19 @@ Valid outcomes include:
 ## How this differs from Hardening
 
 Use maintenance refactoring when the main problem is maintainability,
-clarity, boundaries or safe extensibility.
+clarity,
+boundaries
+or safe extensibility.
 
 Use hardening when the main problem is production readiness,
-security posture, secrets, deploy risk or public exposure.
+security posture,
+secrets,
+deploy risk
+or public exposure.
 
 Use UI refactoring when the main problem is frontend styling ownership,
-component inconsistency, or pages doing visual work that belongs inside
-components.
+component inconsistency,
+or pages doing visual work that belongs inside components.
 
 ## Recommended cadence
 
@@ -40,6 +49,24 @@ Run this lane:
 | UI is inconsistent or pages contain hardcoded styling | [`/ui-refactoring`](../../commands/ui-refactoring.md) |
 | Need production or security readiness | [Hardening Protocol](../ai-project-hardening-protocol.md) |
 | Starting from idea | [Starter Protocol](../ai-project-starter-protocol.md) |
+
+## Existing-user adoption path
+
+Minimal copy set for an existing project:
+- `protocols/maintenance/`
+- `commands/care-refactoring.md`
+- `commands/ui-refactoring.md`
+- `templates/reports/refactoring-report.md`
+- `templates/reports/ui-refactoring-report.md`
+- `templates/examples/refactoring-report.filled.example.md`
+- `templates/examples/ui-refactoring-report.filled.example.md`
+- `docs/security-methodology-scope.md`
+- `docs/tooling-roadmap.md`
+
+Do not overwrite local `AGENTS.md`,
+`PROJECT_MAP.md`
+or `SECURITY.md` blindly.
+Merge route guidance into your local project docs.
 
 ## Included protocols
 
