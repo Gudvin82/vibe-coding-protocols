@@ -20,6 +20,7 @@ required_files=(
   .github/copilot-instructions.md
   docs/badges.md
   docs/community.md
+  docs/community-feedback.md
   docs/community-issues.md
   docs/awesome-vibe-coding-pr.md
   docs/multi-agent-workflows.md
@@ -30,6 +31,22 @@ required_files=(
   docs/release-readiness.md
   docs/adoption-feedback.md
   docs/known-limitations.md
+  docs/cli.md
+  docs/integrations/README.md
+  docs/integrations/claude-code.md
+  docs/integrations/codex.md
+  docs/integrations/cursor.md
+  docs/integrations/windsurf.md
+  docs/integrations/github-copilot.md
+  docs/integrations/jetbrains-junie.md
+  docs/ide-plugins.md
+  docs/boundary-linting.md
+  docs/markdown-style.md
+  docs/ecosystem-references.md
+  docs/security-tooling-landscape.md
+  docs/protocol-index.md
+  docs/public-site-readiness.md
+  docs/seo-ai-crawler-readiness.md
   docs/vibe-check-doctor.md
   docs/vibe-check-init-report.md
   docs/architecture-map.md
@@ -45,6 +62,7 @@ required_files=(
   docs/npm-wrapper.md
   docs/python-wrapper.md
   docs/vscode-extension.md
+  docs/release-v0.4.2.md
   docs/release-v0.3.0.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
@@ -58,6 +76,7 @@ required_files=(
   package.json
   pyproject.toml
   comparison.md
+  llms.txt
   bin/vibe-check.js
   vcp_cli/__main__.py
   vscode-extension/package.json
@@ -65,7 +84,24 @@ required_files=(
   vscode-extension/src/extension.ts
   assets/social-preview.svg
   templates/ARCHITECTURE_MAP.md
+  templates/protocol-pack-metadata.yml
+  templates/reports/security-review-scope.md
+  templates/public-site/README.md
+  templates/public-site/llms.txt
+  templates/public-site/robots.txt
+  templates/public-site/schema-org.organization.jsonld
+  templates/public-site/schema-org.website.jsonld
+  templates/public-site/schema-org.software-source-code.jsonld
+  templates/public-site/schema-org.breadcrumb-list.jsonld
+  templates/public-site/schema-org.faq-page.jsonld
   examples/architecture-map-example.md
+  examples/bad-to-good/README.md
+  examples/bad-to-good/maintenance-refactor-before.md
+  examples/bad-to-good/maintenance-refactor-after.md
+  examples/bad-to-good/ui-ownership-before.md
+  examples/bad-to-good/ui-ownership-after.md
+  examples/bad-to-good/hardening-before.md
+  examples/bad-to-good/hardening-after.md
   case-studies/synthetic-before-after/README.md
   case-studies/redaction-guide.md
   .github/ISSUE_TEMPLATE/share-your-agents.yml
@@ -79,6 +115,7 @@ required_dirs=(
   examples
   checklists
   docs
+  docs/integrations
   scripts
   assets
   .github/workflows
@@ -87,7 +124,8 @@ required_dirs=(
   examples/landing-page-vibe
   examples/saas-backend-vibe
   examples/legacy-ai-mess-vibe
-)
+  examples/bad-to-good
+  )
 
 for file in "${required_files[@]}"; do
   [[ -f "$file" ]] || { echo "Missing required file: $file"; exit 1; }

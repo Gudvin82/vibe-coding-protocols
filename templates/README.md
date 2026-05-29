@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.4.1 -->
+<!-- vcp-version: v0.4.2 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -37,13 +37,22 @@ Do not overwrite customized local files blindly.
 - `SECURITY.md` or `SECURITY_BASELINE.md`, for public or production projects
 - `METRICS_BOARD.md`, if you want to track adoption with real project data
 
-## Planning artifacts
+## Planning and route artifacts
 
 - [ARCHITECTURE_MAP.md](./ARCHITECTURE_MAP.md)
 - [PROJECT_MAP.md](./PROJECT_MAP.md)
 - [ARCHITECTURE_SOURCE_OF_TRUTH.md](./ARCHITECTURE_SOURCE_OF_TRUTH.md)
 - [reports/refactoring-report.md](./reports/refactoring-report.md)
 - [reports/ui-refactoring-report.md](./reports/ui-refactoring-report.md)
+- [reports/security-review-scope.md](./reports/security-review-scope.md)
+- [protocol-pack-metadata.yml](./protocol-pack-metadata.yml)
+
+## Public-site templates
+
+- [public-site/README.md](./public-site/README.md)
+- [public-site/llms.txt](./public-site/llms.txt)
+- [public-site/robots.txt](./public-site/robots.txt)
+- schema placeholders in `templates/public-site/`
 
 ## Filled synthetic examples
 
@@ -56,12 +65,14 @@ Do not overwrite customized local files blindly.
 ## Recommended companions
 
 - [../docs/architecture-map.md](../docs/architecture-map.md)
+- [../docs/protocol-index.md](../docs/protocol-index.md)
 - [../docs/artifact-versioning.md](../docs/artifact-versioning.md)
 - [../docs/update-copied-artifacts.md](../docs/update-copied-artifacts.md)
 - [../docs/ide-rules-dry-policy.md](../docs/ide-rules-dry-policy.md)
 - [../docs/hardening-thresholds.md](../docs/hardening-thresholds.md)
 - [../docs/release-readiness.md](../docs/release-readiness.md)
-- [../docs/scanner-integration.md](../docs/scanner-integration.md)
+- [../docs/security-tooling-landscape.md](../docs/security-tooling-landscape.md)
+- [../docs/public-site-readiness.md](../docs/public-site-readiness.md)
 - [../docs/migration/README.md](../docs/migration/README.md)
 
 Important:

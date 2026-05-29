@@ -69,6 +69,7 @@ Dry run only. The hook would:
 - allow .env.example
 - warn on large staged diffs
 - run: bash scripts/vibe-check.sh $VIBE_FLAG
+- conditionally run: check-version-consistency, validate-links and check-newlines if those scripts exist
 DRYRUN
   exit 0
 fi
@@ -98,8 +99,20 @@ if [[ -x scripts/vibe-check.sh || -f scripts/vibe-check.sh ]]; then
 else
   echo "pre-commit: scripts/vibe-check.sh not found, skipping vibe-check"
 fi
+
+if [[ -f VERSION && -f scripts/check-version-consistency.sh ]]; then
+  bash scripts/check-version-consistency.sh
+fi
+
+if [[ -f scripts/validate-links.sh ]] && command -v python3 >/dev/null 2>&1; then
+  python3 scripts/validate-links.sh
+fi
+
+if [[ -f scripts/check-newlines.py ]] && command -v python3 >/dev/null 2>&1; then
+  python3 scripts/check-newlines.py
+fi
 HOOK
 
 chmod +x "$HOOK_PATH"
 echo "Installed pre-commit hook at $HOOK_PATH"
-echo "It blocks staged .env files, warns on large staged diffs and runs bash scripts/vibe-check.sh $VIBE_FLAG."
+echo "It blocks staged .env files, warns on large staged diffs, runs bash scripts/vibe-check.sh $VIBE_FLAG and conditionally runs link/newline/version checks when present."

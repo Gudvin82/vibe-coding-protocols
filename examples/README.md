@@ -23,6 +23,7 @@ They are:
 | Todo app | Hardening | [todo-app-vibe](./todo-app-vibe/) | audit artifacts |
 | Telegram bot | Hardening | [telegram-bot-vibe](./telegram-bot-vibe/) | bot token and abuse risks |
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
+| Report quality | Cross-route | [bad-to-good](./bad-to-good/) | route-shaped before/after examples |
 
 ## Filled synthetic template examples
 
@@ -34,12 +35,13 @@ They are:
 
 ## Start here
 
-- If you want a runnable starter example, start with [todo-app-starter](./todo-app-starter/)
-- If you want a compact planning example, start with [architecture-map-example.md](./architecture-map-example.md)
-- If you want the smallest Python route, start with [python-script-vibe](./python-script-vibe/)
-- If you want the smallest React route, start with [react-component-vibe](./react-component-vibe/)
-- If you want a dirty hardening scenario, start with [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/)
-- If you want the full Starter-to-Hardening path, start with [todo-app-vibe](./todo-app-vibe/)
-- If you want a bot scenario, start with [telegram-bot-vibe](./telegram-bot-vibe/)
-- If you want the light route, start with [landing-page-vibe](./landing-page-vibe/)
-- If you want the fuller backend route, start with [saas-backend-vibe](./saas-backend-vibe/)
+- runnable starter example: [todo-app-starter](./todo-app-starter/)
+- compact planning example: [architecture-map-example.md](./architecture-map-example.md)
+- smallest Python route: [python-script-vibe](./python-script-vibe/)
+- smallest React route: [react-component-vibe](./react-component-vibe/)
+- dirty hardening scenario: [legacy-ai-mess-vibe](./legacy-ai-mess-vibe/)
+- full Starter-to-Hardening path: [todo-app-vibe](./todo-app-vibe/)
+- bot scenario: [telegram-bot-vibe](./telegram-bot-vibe/)
+- light route: [landing-page-vibe](./landing-page-vibe/)
+- fuller backend route: [saas-backend-vibe](./saas-backend-vibe/)
+- route-shaped before/after docs: [bad-to-good](./bad-to-good/)

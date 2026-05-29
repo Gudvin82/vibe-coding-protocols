@@ -16,15 +16,29 @@ These are lightweight helper scripts for the toolkit itself.
 - `init-project.example.sh` — review-first example for copying starter templates into a project
 - `init-minimal.sh` — minimal bootstrap helper for starter / hardening / audit packs
 
+## Script-first CLI status
+
+VCP is currently script-first.
+See [../docs/cli.md](../docs/cli.md) for the stable entrypoints and wrapper status.
+
 ## Notes
 
 - these scripts do not replace hardening;
 - they do not scan a target application in depth;
-- external scanner integration in `vibe-check.sh` is optional, not mandatory;
-- `install-hooks.sh` installs a local pre-commit hook only; it does not commit, push or modify production configs;
-- `extract-prompt.sh` is a helper, not a package manager or CLI framework;
-- `update-checksums.sh` helps a review-first install flow and does not publish or sign releases;
-- `vibe-check.ps1` forwards to Bash, it does not reimplement the whole scanner in PowerShell;
-- `init-project.example.sh` is intentionally an example, not an auto-installer;
-- `init-minimal.sh` is not a full CLI; it is a small bootstrap helper;
+- external scanner integration in `vibe-check.sh` is optional,
+  not mandatory;
+- `install-hooks.sh` installs a local pre-commit hook only;
+  it does not commit,
+  push
+  or modify production configs;
+- `extract-prompt.sh` is a helper,
+  not a package manager or CLI framework;
+- `update-checksums.sh` helps a review-first install flow
+  and does not publish or sign releases;
+- `vibe-check.ps1` forwards to Bash,
+  it does not reimplement the whole scanner in PowerShell;
+- `init-project.example.sh` is intentionally an example,
+  not an auto-installer;
+- `init-minimal.sh` is not a full CLI;
+  it is a small bootstrap helper;
 - review `init-minimal.sh` before using it in a real project.

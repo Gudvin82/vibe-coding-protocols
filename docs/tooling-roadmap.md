@@ -11,6 +11,7 @@ Current repository tooling includes:
 - `scripts/validate-links.sh`;
 - `scripts/check-version-consistency.sh`;
 - `scripts/check-toolkit.sh`;
+- `scripts/install-hooks.sh`;
 - experimental wrappers and skeletons for npm,
   Python
   and VS Code.
@@ -21,7 +22,7 @@ Current scripts can catch or highlight:
 - missing structure;
 - version drift;
 - broken local markdown links;
-- newline-poor docs;
+- newline-poor or collapsed docs;
 - basic toolkit consistency.
 
 ## What still requires human review
@@ -51,7 +52,17 @@ Potential future tooling may include:
 - maintenance report validator;
 - AI boundary linting;
 - design-system ownership checker;
-- migration assistant.
+- migration assistant;
+- a unified `vcp` command surface.
+
+## Related docs
+
+- [cli.md](./cli.md)
+- [ide-plugins.md](./ide-plugins.md)
+- [boundary-linting.md](./boundary-linting.md)
+- [integrations/README.md](./integrations/README.md)
+- [public-site-readiness.md](./public-site-readiness.md)
+- [security-tooling-landscape.md](./security-tooling-landscape.md)
 
 ## Why markdown-first is intentional
 

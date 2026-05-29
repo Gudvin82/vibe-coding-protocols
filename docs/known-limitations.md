@@ -12,27 +12,38 @@ Vibe Coding Protocols is intentionally lightweight.
 - no public real-world case study is claimed yet;
 - bash-first toolkit;
 - content validation is heuristic;
-- wrappers and VS Code extension are experimental skeletons.
+- wrappers and VS Code extension are experimental skeletons;
+- no deep AST or boundary linter yet;
+- no mature plugin product yet.
 
 ## What this means in practice
 
 Use VCP as a workflow and repository toolkit.
-Do not treat it as a substitute for testing, security review, legal review or production operations.
+Do not treat it as a substitute for testing,
+security review,
+legal review
+or production operations.
 
 See also:
 - [tooling-roadmap.md](./tooling-roadmap.md)
+- [cli.md](./cli.md)
+- [boundary-linting.md](./boundary-linting.md)
 - [security-methodology-scope.md](./security-methodology-scope.md)
+- [security-tooling-landscape.md](./security-tooling-landscape.md)
 
 ## Parsing and markdown limits
 
 `vibe-check` relies on lightweight heuristics.
 False positives and false negatives are possible.
-If a warning is accepted intentionally, record that in `AUDIT_BACKLOG.md` instead of fighting the script blindly.
+If a warning is accepted intentionally,
+record that in `AUDIT_BACKLOG.md` instead of fighting the script blindly.
 
 ## Prompt drift risk
 
 A giant `AGENTS.md` can become less reliable over time.
-Use `PROJECT_MAP.md`, `ARCHITECTURE_MAP.md` and `AUDIT_BACKLOG.md` to carry project context instead of endlessly appending one massive prompt.
+Use `PROJECT_MAP.md`,
+`ARCHITECTURE_MAP.md`
+and `AUDIT_BACKLOG.md` to carry project context instead of endlessly appending one massive prompt.
 
 ## Historical docs
 

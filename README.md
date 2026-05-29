@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.4.1-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.4.2-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -14,7 +14,7 @@
 VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.4.1`
+Repository package: `v0.4.2`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -221,23 +221,15 @@ Short version:
 
 If auth, payments, personal data or public exposure are involved, do not claim production readiness without Extended review.
 
-## New in v0.4.1: Maintenance Adoption Polish
+## New in v0.4.2: Developer Experience and Public Site Readiness
 
-`v0.4.1` sharpens the maintenance lane added in the previous release:
-- behavior-preserving refactoring for risky or inconsistent existing code;
-- a challenge checkpoint before code changes;
-- characterization tests before risky moves when proportional;
-- a UI component ownership cleanup route for frontend drift;
-- clearer security-policy boundaries and maintenance adoption guidance;
-- a valid result can still be: no changes needed.
-
-See:
-- [protocols/maintenance/README.md](./protocols/maintenance/README.md)
-- [commands/care-refactoring.md](./commands/care-refactoring.md)
-- [commands/ui-refactoring.md](./commands/ui-refactoring.md)
-- [docs/security-methodology-scope.md](./docs/security-methodology-scope.md)
-- [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
-- [docs/migration/README.md](./docs/migration/README.md)
+`v0.4.2` improves discoverability and honesty around the toolkit itself:
+- current script-first CLI status in [docs/cli.md](./docs/cli.md);
+- per-IDE integration guides in [docs/integrations/README.md](./docs/integrations/README.md);
+- defensive-only security positioning in [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md);
+- public-site and AI-crawler readiness docs in [docs/public-site-readiness.md](./docs/public-site-readiness.md);
+- a compact [docs/protocol-index.md](./docs/protocol-index.md);
+- stricter markdown/raw readability checks.
 
 ## Architecture and planning
 
@@ -246,6 +238,16 @@ Use Architecture Map when you need a 30-second project map before code:
 - [templates/ARCHITECTURE_MAP.md](./templates/ARCHITECTURE_MAP.md)
 - [examples/architecture-map-example.md](./examples/architecture-map-example.md)
 - [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md)
+
+## CLI and integrations
+
+CLI status: VCP is currently script-first.
+A unified `vcp` CLI is planned; see [docs/cli.md](./docs/cli.md) for current stable entrypoints and experimental wrapper status.
+
+Integration and plugin status:
+- [docs/integrations/README.md](./docs/integrations/README.md)
+- [docs/ide-plugins.md](./docs/ide-plugins.md)
+- [docs/boundary-linting.md](./docs/boundary-linting.md)
 
 ## Wrappers and productization skeletons
 
@@ -266,6 +268,13 @@ Recommended Windows options:
 Native Windows CLI is not available yet.
 See [docs/windows.md](./docs/windows.md).
 
+## Public site and ecosystem
+
+- [docs/public-site-readiness.md](./docs/public-site-readiness.md)
+- [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
+- [docs/ecosystem-references.md](./docs/ecosystem-references.md)
+- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
+
 ## Examples and case studies
 
 Examples are synthetic or sanitized learning examples.
@@ -277,6 +286,13 @@ They are not claimed as real-world case studies.
 - [case-studies/real-case-submission-template.md](./case-studies/real-case-submission-template.md)
 - [case-studies/redaction-guide.md](./case-studies/redaction-guide.md)
 
+## What VCP is not
+
+- not a security scanner;
+- not a pentest suite;
+- not a plugin marketplace;
+- not a replacement for developer, security or legal review.
+
 ## Community and distribution
 
 - [docs/community.md](./docs/community.md)
@@ -284,6 +300,7 @@ They are not claimed as real-world case studies.
 - [docs/mirrors.md](./docs/mirrors.md)
 - [docs/mirror-sync.md](./docs/mirror-sync.md)
 - [docs/adoption-feedback.md](./docs/adoption-feedback.md)
+- [docs/community-feedback.md](./docs/community-feedback.md)
 
 ## Known limitations
 
@@ -296,4 +313,4 @@ See:
 
 ## Current release notes
 
-- [docs/release-v0.4.1.md](./docs/release-v0.4.1.md)
+- [docs/release-v0.4.2.md](./docs/release-v0.4.2.md)

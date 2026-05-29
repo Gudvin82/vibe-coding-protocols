@@ -97,4 +97,7 @@ Do not copy them blindly into your project:
 - Use [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md) or [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md) for that first planning pass.
 - If you are on mobile, read [START_HERE.md](./START_HERE.md), then [docs/lite-adoption-path.md](./docs/lite-adoption-path.md), then [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
 - Versioning note: see [docs/versioning.md](./docs/versioning.md).
+- Current CLI status: see [docs/cli.md](./docs/cli.md).
+- AI IDE onboarding: see [docs/integrations/README.md](./docs/integrations/README.md).
+- Public documentation/site checklist: see [docs/public-site-readiness.md](./docs/public-site-readiness.md).
 - Case studies note: see [case-studies/README.md](./case-studies/README.md).

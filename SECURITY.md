@@ -3,7 +3,10 @@
 ## Scope
 
 This repository is a public methodology and toolkit repository.
-It contains markdown templates, scripts, examples and workflow guidance.
+It contains markdown templates,
+scripts,
+examples
+and workflow guidance.
 
 It is not a production security certification for projects using the methodology.
 Using Vibe Coding Protocols can improve delivery and security discipline,
@@ -132,5 +135,7 @@ Use these when the project itself needs security discipline:
 - [templates/SECURITY_OPERATIONS_BASELINE.md](./templates/SECURITY_OPERATIONS_BASELINE.md)
 - [templates/THIRD_PARTY_REGISTRY.md](./templates/THIRD_PARTY_REGISTRY.md)
 - [templates/INCIDENT_RECOVERY_RUNBOOK.md](./templates/INCIDENT_RECOVERY_RUNBOOK.md)
+- [templates/reports/security-review-scope.md](./templates/reports/security-review-scope.md)
+- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [protocols/ai-project-hardening-protocol.md](./protocols/ai-project-hardening-protocol.md)
 - [protocols/ai-project-extended-protocol.md](./protocols/ai-project-extended-protocol.md)

@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AUDIT_BACKLOG -->
-<!-- vcp-version: v0.4.1 -->
+<!-- vcp-version: v0.4.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Audit Backlog

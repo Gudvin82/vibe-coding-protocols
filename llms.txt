@@ -1,0 +1,14 @@
+# Vibe Coding Protocols curated map for AI assistants
+# This does not guarantee indexing or ranking.
+
+- README.md: primary repository overview
+- START_HERE.md: route chooser
+- docs/README.md: docs index
+- docs/protocol-index.md: compact route catalog
+- docs/security-methodology-scope.md: scope and limits of security guidance
+- docs/security-tooling-landscape.md: defensive-only security positioning
+- docs/tooling-roadmap.md: current tooling and future direction
+- docs/cli.md: script-first CLI status
+- docs/integrations/README.md: per-IDE integration guides
+- docs/public-site-readiness.md: public docs/site checklist
+- docs/release-v0.4.2.md: current release notes

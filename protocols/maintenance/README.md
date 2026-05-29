@@ -77,3 +77,5 @@ Merge route guidance into your local project docs.
 
 - [../../templates/examples/refactoring-report.filled.example.md](../../templates/examples/refactoring-report.filled.example.md)
 - [../../templates/examples/ui-refactoring-report.filled.example.md](../../templates/examples/ui-refactoring-report.filled.example.md)
+- [../../examples/bad-to-good/maintenance-refactor-before.md](../../examples/bad-to-good/maintenance-refactor-before.md)
+- [../../examples/bad-to-good/ui-ownership-before.md](../../examples/bad-to-good/ui-ownership-before.md)

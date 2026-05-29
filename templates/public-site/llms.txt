@@ -1,0 +1,11 @@
+# Placeholder llms.txt
+# Keep this short and current.
+# Do not claim guaranteed indexing or ranking.
+
+User-agent: *
+Allow: /
+
+# Canonical docs for AI crawlers
+# - https://example.com/README
+# - https://example.com/START_HERE
+# - https://example.com/docs/README

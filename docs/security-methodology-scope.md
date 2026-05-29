@@ -10,7 +10,9 @@ This covers the public `vibe-coding-protocols` repository itself:
 - public markdown guidance;
 - scripts shipped in the repository;
 - public examples;
-- issue, PR and disclosure hygiene.
+- issue,
+  PR
+  and disclosure hygiene.
 
 See [../SECURITY.md](../SECURITY.md).
 
@@ -33,6 +35,7 @@ Use:
 - [../templates/SECURITY_OPERATIONS_BASELINE.md](../templates/SECURITY_OPERATIONS_BASELINE.md)
 - [../templates/THIRD_PARTY_REGISTRY.md](../templates/THIRD_PARTY_REGISTRY.md)
 - [../templates/INCIDENT_RECOVERY_RUNBOOK.md](../templates/INCIDENT_RECOVERY_RUNBOOK.md)
+- [../templates/reports/security-review-scope.md](../templates/reports/security-review-scope.md)
 
 ### Production security audit
 
@@ -67,6 +70,8 @@ VCP cannot guarantee:
 - that AI-generated code is safe without review;
 - real-world runtime security.
 
+See also [security-tooling-landscape.md](./security-tooling-landscape.md).
+
 ## When to use each artifact
 
 Use `SECURITY_BASELINE.md` when a project needs an explicit security posture
@@ -87,6 +92,8 @@ Use `INCIDENT_RECOVERY_RUNBOOK.md` when the project needs clear rollback,
 triage,
 owner
 and communication guidance.
+
+Use `security-review-scope.md` before any defensive security review that needs explicit authorization and stop conditions.
 
 ## When to escalate routes
 

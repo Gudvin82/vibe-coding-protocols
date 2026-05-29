@@ -1,0 +1,6 @@
+# Placeholder robots.txt
+# Replace with your real sitemap and crawl policy.
+
+User-agent: *
+Allow: /
+Sitemap: https://example.com/sitemap.xml

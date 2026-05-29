@@ -2,7 +2,11 @@
 
 This project uses two version lines:
 
-- Repository package `v0.4.1` — GitHub toolkit packaging, scripts, examples, CI and docs.
+- Repository package `v0.4.2` — GitHub toolkit packaging,
+  scripts,
+  examples,
+  CI
+  and docs.
 - Web methodology `v1.4` — public methodology pages on `anmalishev.ru`.
 
 They are related but not identical.
@@ -10,13 +14,13 @@ They are related but not identical.
 Repository package versions track the GitHub-distributed toolkit.
 Methodology version tracks the public web methodology.
 
-Current repository package: `v0.4.1`.
+Current repository package: `v0.4.2`.
 Current web methodology: `v1.4`.
 
-Experimental wrappers and extension skeletons in `v0.4.1` do not mean those surfaces are published.
-They only mean packaging metadata and contributor-ready skeletons exist.
-
-Maintenance refactoring protocols extend the repository package only.
-They do not change the public methodology version line.
+Experimental wrappers,
+integration docs,
+public-site templates
+and extension skeletons in `v0.4.2` do not mean those surfaces are mature products.
+They mean documented and contributor-ready surfaces exist.
 
 The repository may move to `v1.0.0` after external feedback and stable toolkit adoption.
