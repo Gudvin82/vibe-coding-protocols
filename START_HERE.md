@@ -2,6 +2,9 @@
 
 Not sure where to start? Use this file as the canonical route chooser.
 
+If you are evaluating VCP for an existing production repository, read
+[AI_INTAKE.md](./AI_INTAKE.md) first.
+
 ## Route levels
 
 - Lite — solo MVP or pet project
@@ -17,6 +20,7 @@ Answer 5 questions to choose your route.
 
 - No, only an idea -> Product Brief + Starter Protocol
 - Yes, AI-generated code exists and needs production/security review -> Hardening
+- Yes, AI-generated production code with users, payments, personal data or compliance exists -> Full Hardening
 - Yes, the project works but is getting hard to maintain -> Maintenance Refactoring
 - Yes, the main problem is frontend component or styling chaos -> UI Component Ownership
 - Yes, public or client-facing code exists -> Extended Protocol
@@ -53,6 +57,8 @@ Answer 5 questions to choose your route.
 | Existing UI with hardcoded page styling or override-heavy components | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) | `PROJECT_MAP.md` + UI conventions | `/ui-refactoring` |
 | Public internet project | [Extended Protocol](./protocols/ai-project-extended-protocol.md) | `templates/SECURITY_OPERATIONS_BASELINE.md` + `templates/THIRD_PARTY_REGISTRY.md` | `bash scripts/vibe-check.sh --audit` |
 | Client-facing, production or paid project | [Extended Protocol](./protocols/ai-project-extended-protocol.md) | `templates/AUDIT_BACKLOG.md` + `templates/SECURITY_OPERATIONS_BASELINE.md` | `bash scripts/vibe-check.sh --audit --strict` |
+| Existing production repo being evaluated for VCP adoption | [AI_INTAKE.md](./AI_INTAKE.md) | intake docs + adoption pack | `bash scripts/vibe-check.sh --audit --json` |
+| Shared engine or multi-product production repo | [docs/adoption-packs.md](./docs/adoption-packs.md) | `PROJECT_MAP.md` + `ARCHITECTURE_SOURCE_OF_TRUTH.md` | route before edits |
 | You want AI to route the work first | [Use This Repository Prompt](./prompts/use-this-repo-prompt.md) | `prompts/use-this-repo-prompt.md` | Ask the AI to choose the smallest safe route |
 
 ## Copy to your project
@@ -94,6 +100,10 @@ Do not copy them blindly into your project:
 - If your project has multiple surfaces, create `ARCHITECTURE_MAP.md` before asking AI to generate code.
 - Maintenance refactoring is not part of initial MVP setup unless the project already exists or the MVP is complete.
 - It is recommended after MVP or before the next major feature when the same area keeps getting harder to change.
+- If the target repository is already in production, do not start with Starter.
+- Production plus users, payments, personal data or compliance defaults to Full Hardening.
+- Shared engine or multi-product repositories should use an adoption pack plus architecture map and release gate guidance.
+- If uncertain, read [AI_INTAKE.md](./AI_INTAKE.md) before choosing a route.
 - Use [prompts/architecture-map-prompt.md](./prompts/architecture-map-prompt.md) or [prompts/architecture-map-prompt_ru.md](./prompts/architecture-map-prompt_ru.md) for that first planning pass.
 - If you are on mobile, read [START_HERE.md](./START_HERE.md), then [docs/lite-adoption-path.md](./docs/lite-adoption-path.md), then [prompts/use-this-repo-prompt.md](./prompts/use-this-repo-prompt.md).
 - Versioning note: see [docs/versioning.md](./docs/versioning.md).

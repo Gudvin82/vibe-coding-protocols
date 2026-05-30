@@ -4,18 +4,21 @@ Do not start by opening everything.
 These docs are kept raw-readable for AI consumption and review.
 
 Start here:
-1. [START_HERE.md](../START_HERE.md)
-2. [docs/lite-adoption-path.md](./lite-adoption-path.md)
-3. [README.md](../README.md)
-4. [docs/protocol-index.md](./protocol-index.md)
-5. [docs/cli.md](./cli.md), if you need the current script/CLI surface
-6. [docs/integrations/README.md](./integrations/README.md), if you are onboarding an AI IDE
+1. [AI_INTAKE.md](../AI_INTAKE.md), if an AI agent is evaluating the toolkit for a target repo
+2. [START_HERE.md](../START_HERE.md)
+3. [docs/lite-adoption-path.md](./lite-adoption-path.md)
+4. [README.md](../README.md)
+5. [docs/protocol-index.md](./protocol-index.md)
+6. [docs/adoption-packs.md](./adoption-packs.md)
+7. [docs/cli.md](./cli.md), if you need the current script/CLI surface
+8. [docs/integrations/README.md](./integrations/README.md), if you are onboarding an AI IDE
 
 ## Canonical route
 
 | Question | Go to |
 |---|---|
 | What should I do first? | [START_HERE.md](../START_HERE.md) |
+| An AI agent is evaluating VCP for my repo | [../AI_INTAKE.md](../AI_INTAKE.md) |
 | I want minimum setup | [docs/lite-adoption-path.md](./lite-adoption-path.md) |
 | I need a compact planning map before code | [docs/architecture-map.md](./architecture-map.md) |
 | I need AI IDE rules | [templates/AGENTS.md](../templates/AGENTS.md) |
@@ -29,6 +32,8 @@ Start here:
 ## Core navigation
 
 - [protocol-index.md](./protocol-index.md)
+- [target-project-classifier.md](./target-project-classifier.md)
+- [adoption-packs.md](./adoption-packs.md)
 - [cli.md](./cli.md)
 - [integrations/README.md](./integrations/README.md)
 - [ide-plugins.md](./ide-plugins.md)
@@ -51,6 +56,15 @@ Start here:
 - [ecosystem.md](./ecosystem.md)
 - [ecosystem-references.md](./ecosystem-references.md)
 - [community-feedback.md](./community-feedback.md)
+
+## Intake and adoption docs
+
+- [../AI_INTAKE.md](../AI_INTAKE.md)
+- [target-project-classifier.md](./target-project-classifier.md)
+- [adoption-packs.md](./adoption-packs.md)
+- [../templates/prompts/evaluate-vcp-for-my-repo.md](../templates/prompts/evaluate-vcp-for-my-repo.md)
+- [../templates/reports/vcp-adoption-assessment.md](../templates/reports/vcp-adoption-assessment.md)
+- [../examples/adoption/dual-production-engine/README.md](../examples/adoption/dual-production-engine/README.md)
 
 ## Security and hardening docs
 
@@ -75,6 +89,7 @@ Start here:
 - [../commands/ui-refactoring.md](../commands/ui-refactoring.md)
 - [../templates/reports/refactoring-report.md](../templates/reports/refactoring-report.md)
 - [../templates/reports/ui-refactoring-report.md](../templates/reports/ui-refactoring-report.md)
+- [../templates/reports/vcp-adoption-assessment.md](../templates/reports/vcp-adoption-assessment.md)
 - [../templates/examples/refactoring-report.filled.example.md](../templates/examples/refactoring-report.filled.example.md)
 - [../templates/examples/ui-refactoring-report.filled.example.md](../templates/examples/ui-refactoring-report.filled.example.md)
 
@@ -103,5 +118,6 @@ Start here:
 
 - [releases/README.md](./releases/README.md)
 - [migration/README.md](./migration/README.md)
+- [release-v0.4.3.md](./release-v0.4.3.md)
 - [release-v0.4.2.md](./release-v0.4.2.md)
 - [release-v0.4.1.md](./release-v0.4.1.md)

@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.4.2-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.4.3-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -13,7 +13,7 @@
 VCP — это operating layer для AI-assisted разработки:
 маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.4.2`
+Пакет репозитория: `v0.4.3`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -63,6 +63,20 @@ Then return:
 - Maintenance Refactoring: `/care-refactoring`
 - UI drift или styling chaos: `/ui-refactoring`
 
+## Отдаешь VCP AI-агенту?
+
+Попроси его сначала прочитать [AI_INTAKE.md](./AI_INTAKE.md).
+
+Не проси агента просто оценить repo только по `README.md`.
+Пусть он сначала:
+- классифицирует проект;
+- выбирает маршрут;
+- выбирает adoption pack;
+- перечисляет, что копировать и что сознательно пропустить.
+
+Готовый prompt:
+- [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
+
 ## Рекомендуемая установка: review-first
 
 ```bash
@@ -84,7 +98,8 @@ bash init-minimal.sh --starter
 - `vibe-check` — это readiness signal, а не security certification;
 - `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
 - GitHub остается canonical source;
-- wrappers и VS Code extension в `v0.4.2` пока только experimental skeletons;
+- wrappers и VS Code extension пока только experimental skeletons;
+- AI intake слой в `v0.4.3` помогает не перепутать Starter, Hardening и Maintenance на существующих проектах;
 - maintenance refactoring не обязателен на старте MVP и нужен как post-MVP или recurring pass.
 
 ## CLI, integrations и public site
@@ -92,6 +107,9 @@ bash init-minimal.sh --starter
 - [docs/cli.md](./docs/cli.md)
 - [docs/integrations/README.md](./docs/integrations/README.md)
 - [docs/ide-plugins.md](./docs/ide-plugins.md)
+- [AI_INTAKE.md](./AI_INTAKE.md)
+- [docs/target-project-classifier.md](./docs/target-project-classifier.md)
+- [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/public-site-readiness.md](./docs/public-site-readiness.md)
 - [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
 - [docs/ecosystem-references.md](./docs/ecosystem-references.md)
@@ -123,4 +141,4 @@ bash init-minimal.sh --starter
 - [commands/ui-refactoring.md](./commands/ui-refactoring.md)
 - GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/release-v0.4.2.md](./docs/release-v0.4.2.md)
+- [docs/release-v0.4.3.md](./docs/release-v0.4.3.md)

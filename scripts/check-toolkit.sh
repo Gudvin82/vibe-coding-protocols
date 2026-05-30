@@ -15,12 +15,15 @@ required_files=(
   DISCLAIMER.md
   CHANGELOG.md
   CLAUDE.md
+  AI_INTAKE.md
   AGENTS.md
   .gitattributes
   .github/copilot-instructions.md
   docs/badges.md
   docs/community.md
   docs/community-feedback.md
+  docs/target-project-classifier.md
+  docs/adoption-packs.md
   docs/community-issues.md
   docs/awesome-vibe-coding-pr.md
   docs/multi-agent-workflows.md
@@ -63,6 +66,7 @@ required_files=(
   docs/python-wrapper.md
   docs/vscode-extension.md
   docs/release-v0.4.2.md
+  docs/release-v0.4.3.md
   docs/release-v0.3.0.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
@@ -84,6 +88,8 @@ required_files=(
   vscode-extension/src/extension.ts
   assets/social-preview.svg
   templates/ARCHITECTURE_MAP.md
+  templates/prompts/evaluate-vcp-for-my-repo.md
+  templates/reports/vcp-adoption-assessment.md
   templates/protocol-pack-metadata.yml
   templates/reports/security-review-scope.md
   templates/public-site/README.md
@@ -95,6 +101,10 @@ required_files=(
   templates/public-site/schema-org.breadcrumb-list.jsonld
   templates/public-site/schema-org.faq-page.jsonld
   examples/architecture-map-example.md
+  examples/adoption/dual-production-engine/README.md
+  examples/adoption/dual-production-engine/target-profile.md
+  examples/adoption/dual-production-engine/recommended-pack.md
+  examples/adoption/dual-production-engine/adoption-assessment.example.md
   examples/bad-to-good/README.md
   examples/bad-to-good/maintenance-refactor-before.md
   examples/bad-to-good/maintenance-refactor-after.md
@@ -111,8 +121,10 @@ required_dirs=(
   protocols
   prompts
   templates
+  templates/prompts
   agents
   examples
+  examples/adoption
   checklists
   docs
   docs/integrations

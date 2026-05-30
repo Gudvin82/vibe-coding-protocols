@@ -17,7 +17,7 @@ Copy-ready templates include lightweight markers such as:
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.4.2 -->
+<!-- vcp-version: v0.4.3 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -42,8 +42,10 @@ Do not overwrite customized local files blindly.
 - [ARCHITECTURE_MAP.md](./ARCHITECTURE_MAP.md)
 - [PROJECT_MAP.md](./PROJECT_MAP.md)
 - [ARCHITECTURE_SOURCE_OF_TRUTH.md](./ARCHITECTURE_SOURCE_OF_TRUTH.md)
+- [prompts/evaluate-vcp-for-my-repo.md](./prompts/evaluate-vcp-for-my-repo.md)
 - [reports/refactoring-report.md](./reports/refactoring-report.md)
 - [reports/ui-refactoring-report.md](./reports/ui-refactoring-report.md)
+- [reports/vcp-adoption-assessment.md](./reports/vcp-adoption-assessment.md)
 - [reports/security-review-scope.md](./reports/security-review-scope.md)
 - [protocol-pack-metadata.yml](./protocol-pack-metadata.yml)
 
@@ -61,6 +63,7 @@ Do not overwrite customized local files blindly.
 - [examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](./examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
 - [examples/refactoring-report.filled.example.md](./examples/refactoring-report.filled.example.md)
 - [examples/ui-refactoring-report.filled.example.md](./examples/ui-refactoring-report.filled.example.md)
+- [../examples/adoption/dual-production-engine/README.md](../examples/adoption/dual-production-engine/README.md)
 
 ## Recommended companions
 

@@ -23,7 +23,8 @@ Current scripts can catch or highlight:
 - version drift;
 - broken local markdown links;
 - newline-poor or collapsed docs;
-- basic toolkit consistency.
+- basic toolkit consistency;
+- missing AI intake and adoption scaffolding.
 
 ## What still requires human review
 
@@ -49,6 +50,8 @@ VCP does not currently provide:
 Potential future tooling may include:
 - artifact validator;
 - route completeness checker;
+- adoption-pack selector;
+- adoption assessment validator;
 - maintenance report validator;
 - AI boundary linting;
 - design-system ownership checker;
@@ -58,6 +61,8 @@ Potential future tooling may include:
 ## Related docs
 
 - [cli.md](./cli.md)
+- [target-project-classifier.md](./target-project-classifier.md)
+- [adoption-packs.md](./adoption-packs.md)
 - [ide-plugins.md](./ide-plugins.md)
 - [boundary-linting.md](./boundary-linting.md)
 - [integrations/README.md](./integrations/README.md)

@@ -14,3 +14,7 @@ These are workflow routes.
 Templates, architecture docs and checklists support those routes, but they are not routes by themselves.
 
 Use [../docs/architecture-map.md](../docs/architecture-map.md) when you need a compact visual planning artifact before implementation.
+If an AI agent is evaluating which route to use, start with
+[../AI_INTAKE.md](../AI_INTAKE.md),
+[../docs/target-project-classifier.md](../docs/target-project-classifier.md)
+and [../docs/adoption-packs.md](../docs/adoption-packs.md).

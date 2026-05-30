@@ -1,0 +1,94 @@
+# AI Intake
+
+Read this file before evaluating or applying Vibe Coding Protocols to a target repository.
+
+## Do not do this
+
+- Do not judge VCP from `README.md` alone.
+- Do not do a shallow top-level skim and pretend it is a full evaluation.
+- Do not default to Starter just because the toolkit has templates.
+- Do not recommend copying everything blindly.
+- Do not claim confidence if the target repository classification is unclear.
+
+## What to do first
+
+1. Classify the target project.
+2. Choose the correct VCP route.
+3. Choose the correct adoption pack.
+4. Select only relevant artifacts.
+5. Report what you inspected and what you intentionally skipped.
+6. Ask for missing context if the route is still unclear.
+
+## Route defaults
+
+- If the target project is already in production, do not default to Starter.
+- If the target has users, payments, personal data, compliance obligations, legal or security claims, public APIs, or shared engine risk, default to Hardening or Full Hardening unless evidence says otherwise.
+- If the project works but is hard to change, consider Maintenance Refactoring.
+- If the main issue is frontend styling or component drift, consider UI Component Ownership.
+- If public website, docs, trust, search, or AI crawler readiness is involved, include Public Site Readiness.
+
+## Required AI workflow
+
+```text
+1. Read AI_INTAKE.md.
+2. Read START_HERE.md.
+3. Read docs/protocol-index.md.
+4. Read protocols/README.md.
+5. Classify the target project.
+6. Select route.
+7. Select adoption pack.
+8. List files to copy.
+9. List files not to copy.
+10. Produce VCP adoption assessment.
+```
+
+## Minimum inspection before judgment
+
+Do not say “I evaluated VCP” unless you inspected at least:
+
+- `README.md`
+- `START_HERE.md`
+- `AI_INTAKE.md`
+- `docs/protocol-index.md`
+- `protocols/README.md`
+- `docs/adoption-packs.md`
+- the relevant route protocol
+- the relevant command docs
+- the relevant report templates
+- `docs/security-tooling-landscape.md` if security or production is involved
+- `docs/public-site-readiness.md` if public website or docs are involved
+
+Relevant route protocols may include:
+
+- Starter Protocol
+- Hardening Protocol
+- Maintenance Refactoring
+- UI Component Ownership
+- Extended Protocol
+
+## If uncertain
+
+- Ask for missing context instead of pretending confidence.
+- State the uncertainty explicitly.
+- Use `Low` or `Medium` confidence when route selection depends on missing facts.
+
+## Required final statement format
+
+```text
+Route selected:
+Adoption pack selected:
+Files inspected:
+Files recommended:
+Files intentionally skipped:
+Missing context:
+Confidence:
+Next action:
+```
+
+## Companion files
+
+- [START_HERE.md](./START_HERE.md)
+- [docs/target-project-classifier.md](./docs/target-project-classifier.md)
+- [docs/adoption-packs.md](./docs/adoption-packs.md)
+- [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
+- [templates/reports/vcp-adoption-assessment.md](./templates/reports/vcp-adoption-assessment.md)

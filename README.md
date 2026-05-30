@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.4.2-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.4.3-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -14,7 +14,7 @@
 VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.4.2`
+Repository package: `v0.4.3`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -37,6 +37,22 @@ Then return:
 4. underestimated risks;
 5. next smallest safe step.
 ```
+
+## Giving VCP to an AI agent?
+
+Ask it to read [AI_INTAKE.md](./AI_INTAKE.md) first.
+
+Do not ask an agent to just evaluate the repo from `README.md` alone.
+VCP has multiple routes:
+- new project;
+- existing MVP;
+- production hardening;
+- maintenance refactoring;
+- UI ownership;
+- public site readiness.
+
+Use [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
+when asking Claude Code, Codex, Cursor, Windsurf or Copilot to adopt VCP.
 
 ## Use this when
 
@@ -80,6 +96,11 @@ If you are on mobile, start with:
 Already works but hard to change?
 - Use Maintenance Refactoring: `/care-refactoring`
 - UI drift or styling chaos? Use UI Component Ownership: `/ui-refactoring`
+
+Existing production repo, shared engine, payments or personal data?
+- Read [AI_INTAKE.md](./AI_INTAKE.md)
+- Use [docs/adoption-packs.md](./docs/adoption-packs.md)
+- Default to Hardening or Full Hardening unless evidence says otherwise
 
 ## If you only copy one thing
 
@@ -221,15 +242,15 @@ Short version:
 
 If auth, payments, personal data or public exposure are involved, do not claim production readiness without Extended review.
 
-## New in v0.4.2: Developer Experience and Public Site Readiness
+## New in v0.4.3: AI Intake and Adoption Accuracy
 
-`v0.4.2` improves discoverability and honesty around the toolkit itself:
-- current script-first CLI status in [docs/cli.md](./docs/cli.md);
-- per-IDE integration guides in [docs/integrations/README.md](./docs/integrations/README.md);
-- defensive-only security positioning in [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md);
-- public-site and AI-crawler readiness docs in [docs/public-site-readiness.md](./docs/public-site-readiness.md);
-- a compact [docs/protocol-index.md](./docs/protocol-index.md);
-- stricter markdown/raw readability checks.
+`v0.4.3` adds an explicit AI intake and adoption layer so agents classify the target project before judging or applying VCP:
+- a first-read [AI_INTAKE.md](./AI_INTAKE.md);
+- target routing in [docs/target-project-classifier.md](./docs/target-project-classifier.md);
+- adoption packs in [docs/adoption-packs.md](./docs/adoption-packs.md);
+- a copy-paste intake prompt in [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md);
+- a structured adoption report in [templates/reports/vcp-adoption-assessment.md](./templates/reports/vcp-adoption-assessment.md);
+- a synthetic shared-engine production example in [examples/adoption/dual-production-engine/README.md](./examples/adoption/dual-production-engine/README.md).
 
 ## Architecture and planning
 
@@ -248,6 +269,12 @@ Integration and plugin status:
 - [docs/integrations/README.md](./docs/integrations/README.md)
 - [docs/ide-plugins.md](./docs/ide-plugins.md)
 - [docs/boundary-linting.md](./docs/boundary-linting.md)
+
+AI intake and adoption guides:
+- [AI_INTAKE.md](./AI_INTAKE.md)
+- [docs/target-project-classifier.md](./docs/target-project-classifier.md)
+- [docs/adoption-packs.md](./docs/adoption-packs.md)
+- [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
 
 ## Wrappers and productization skeletons
 
@@ -313,4 +340,4 @@ See:
 
 ## Current release notes
 
-- [docs/release-v0.4.2.md](./docs/release-v0.4.2.md)
+- [docs/release-v0.4.3.md](./docs/release-v0.4.3.md)

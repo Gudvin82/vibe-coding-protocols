@@ -24,6 +24,7 @@ They are:
 | Telegram bot | Hardening | [telegram-bot-vibe](./telegram-bot-vibe/) | bot token and abuse risks |
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
 | Report quality | Cross-route | [bad-to-good](./bad-to-good/) | route-shaped before/after examples |
+| Adoption routing | Cross-route | [adoption/dual-production-engine](./adoption/dual-production-engine/) | AI intake and shared-production classification |
 
 ## Filled synthetic template examples
 
@@ -45,3 +46,4 @@ They are:
 - light route: [landing-page-vibe](./landing-page-vibe/)
 - fuller backend route: [saas-backend-vibe](./saas-backend-vibe/)
 - route-shaped before/after docs: [bad-to-good](./bad-to-good/)
+- adoption routing example: [adoption/dual-production-engine](./adoption/dual-production-engine/)

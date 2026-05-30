@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP_REPOSITORY -->
-<!-- vcp-version: v0.4.2 -->
+<!-- vcp-version: v0.4.3 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
@@ -49,7 +49,12 @@
 ## Docs and references
 
 - versioning: `docs/versioning.md`
-- release notes: `docs/release-v0.4.2.md`
+- AI intake first read: `AI_INTAKE.md`
+- target project classifier: `docs/target-project-classifier.md`
+- adoption packs: `docs/adoption-packs.md`
+- adoption prompt: `templates/prompts/evaluate-vcp-for-my-repo.md`
+- adoption assessment report: `templates/reports/vcp-adoption-assessment.md`
+- release notes: `docs/release-v0.4.3.md`
 - release readiness: `docs/release-readiness.md`
 - hardening thresholds: `docs/hardening-thresholds.md`
 - architecture planning: `docs/architecture-map.md`

@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.4.3
+
+- Added `AI_INTAKE.md` as the first-read file for agent evaluation and adoption
+- Added target project classification and adoption packs for route selection
+- Added a copy-paste evaluation prompt and structured adoption assessment report
+- Added a synthetic shared-engine production adoption example
+- Updated README, START_HERE, docs maps and toolkit checks for AI intake accuracy
+
 ## v0.4.2
 
 - Added `docs/cli.md` for the current script-first CLI story
@@ -15,7 +23,7 @@
   hooks/CI documentation
   and release-facing README links
 
-## v0.4.2
+## v0.4.1
 
 - Rewrote `SECURITY.md` into a clearer repository security policy
 - Added `docs/security-methodology-scope.md`
