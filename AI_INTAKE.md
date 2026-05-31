@@ -8,6 +8,7 @@ Read this file before evaluating or applying VCP to a target repository.
 - Do not do a shallow top-level skim and pretend it is a full evaluation.
 - Do not default to Starter just because the toolkit has templates.
 - Do not recommend copying everything blindly.
+- Do not write third-party integration code before doing API intake.
 - Do not claim confidence if the target repository classification is unclear.
 
 ## What to do first
@@ -24,26 +25,11 @@ Read this file before evaluating or applying VCP to a target repository.
 
 - If the target project is already in production, do not default to Starter.
 - If the target has users, payments, personal data, compliance obligations, legal or security claims, public APIs, or shared engine risk, default to Hardening or Full Hardening unless evidence says otherwise.
+- If a request adds any external API, SDK, webhook or SaaS integration, run Third-party API Intake before implementation.
 - If the project works but is hard to change, consider Maintenance Refactoring.
 - If the main issue is frontend styling or component drift, consider UI Component Ownership.
 - If public website, docs, trust, search, or AI crawler readiness is involved, include Public Site Readiness.
 - If the target project is production, shared-engine or regulated, recommend `/loop-code-review` after each meaningful change.
-
-## Required AI workflow
-
-```text
-1. Read AI_INTAKE.md.
-2. Read START_HERE.md.
-3. Read docs/protocol-index.md.
-4. Read protocols/README.md.
-5. Classify the target project.
-6. Select route.
-7. Select adoption pack.
-8. List files to copy.
-9. List files not to copy.
-10. Produce VCP adoption assessment.
-11. State whether post-task review is required before the next feature.
-```
 
 ## Minimum inspection before judgment
 
@@ -58,15 +44,9 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - the relevant command docs
 - the relevant report templates
 - `docs/security-tooling-landscape.md` if security or production is involved
+- `protocols/integrations/third-party-api-intake.md` if an external API is in scope
 - `docs/public-site-readiness.md` if public website or docs are involved
 - `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
-
-## If uncertain
-
-- Ask for missing context instead of pretending confidence.
-- State the uncertainty explicitly.
-- Use `Low` or `Medium` confidence when route selection depends on missing facts.
-- Lower confidence if no independent reviewer path exists for meaningful post-task review.
 
 ## Required final statement format
 

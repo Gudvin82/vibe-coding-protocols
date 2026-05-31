@@ -1,5 +1,5 @@
 <!-- vcp-artifact: SECURITY_REVIEW_SCOPE -->
-<!-- vcp-version: v0.5.0 -->
+<!-- vcp-version: v0.5.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Security Review Scope

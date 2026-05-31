@@ -1,24 +1,25 @@
 # Community Feedback
 
-## Current channels
+Use GitHub Issues for reproducible bugs, broken docs, unsafe guidance, integration problems or manifest drift.
+Use Discussions if enabled for adoption questions, protocol feedback and ecosystem ideas.
 
-- GitHub Issues for bugs, broken links, unsafe docs and script failures
-- Pull Requests for concrete improvements
-- GitHub Discussions for ideas, Q&A and Show and Tell if enabled
-- SECURITY.md for sensitive reports
+## Catalog contribution discipline
 
-## Good first issues
+For protocols, packs and integrations:
+- one protocol, pack or integration per PR;
+- short description required;
+- category and metadata required;
+- related docs required;
+- validation must pass;
+- no duplicate entries;
+- no unsupported claims;
+- no offensive tooling;
+- no secret-looking examples;
+- no real customer data.
 
-- clarify a route decision
-- improve one benchmark scenario
-- tighten one example or report template
-- improve one docs index page
-- add one safer validation note
-
-## Safety note
-
-Do not post secrets,
-customer data,
-private architecture,
-internal endpoints
-or exploit-ready details publicly.
+For third-party API examples:
+- synthetic or placeholder-only;
+- no API keys;
+- no endorsement;
+- no production-safety claim;
+- no hidden terms assumptions.

@@ -11,4 +11,5 @@ Use:
 python3 -m vcp_cli benchmark list
 python3 -m vcp_cli benchmark run
 python3 -m vcp_cli benchmark run --scenario shared-engine-production
+python3 -m vcp_cli benchmark run --scenario third-party-api-intake
 ```

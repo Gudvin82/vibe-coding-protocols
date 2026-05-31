@@ -11,4 +11,5 @@ They are reusable AI instructions for Claude Code, Codex, Cursor, Windsurf and s
 |---|---|---|
 | [care-refactoring](./care-refactoring.md) | working project is risky to change | scoped maintenance plan |
 | [ui-refactoring](./ui-refactoring.md) | UI ownership is drifting | UI ownership cleanup plan |
+| [third-party-api-intake](./third-party-api-intake.md) | an external API or SDK is being proposed | intake report and registry decision |
 | [loop-code-review](./loop-code-review.md) | meaningful AI-generated changes need acceptance | review findings, fixes and acceptance signal |

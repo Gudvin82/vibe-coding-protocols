@@ -1,24 +1,15 @@
 # Known Limitations
 
-VCP is intentionally controlled and conservative.
+## Improved in v0.5.1
 
-## Current limitations
+- Windows PowerShell plus Python CLI path for core workflows;
+- Bash is no longer required for `vcp check --fast`;
+- Third-party API intake and registry fields are first-class VCP artifacts.
 
-- no guaranteed security
-- no legal compliance guarantee
-- no mature IDE plugin product
-- no AST boundary linter yet
-- no external AI reviewer orchestration
-- no hosted docs site publishing in this release
-- no real scanner integrations bundled
-- no automatic apply mode for adoption
-- examples and case studies remain synthetic or sanitized
+## Still limited
 
-## What this means
-
-Use VCP as a delivery framework and local toolkit.
-Do not treat it as a replacement for testing,
-security review,
-legal review,
-operations
-or human judgment.
+- legacy Bash script parity on native Windows is not complete;
+- VCP does not automatically review vendor terms or legal compatibility;
+- VCP does not auto-connect or test external APIs;
+- VCP does not provide real API monitoring integration;
+- authenticated GitHub Release creation still depends on external auth tooling.

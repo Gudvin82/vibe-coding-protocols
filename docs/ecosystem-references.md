@@ -1,28 +1,22 @@
 # Ecosystem References
 
-Use ecosystem references as inspiration and positioning only.
-Do not copy names,
-branding,
-marketing claims
-or offensive tooling categories.
+These references are for positioning and contribution discipline, not copied content.
 
-## Relevant references
+## public-apis/public-apis
 
-- agent harness and installer ecosystems
-- large protocol and skill catalogs
-- project-map or knowledge-graph style discovery UX
-- defensive-only security workflow bundles
-- menu-driven route chooser UX as contrast
+Use as a reference for:
+- catalog contribution discipline;
+- one-entry-per-change expectations;
+- metadata and review hygiene.
 
-## Not to copy
+Do not copy:
+- the public API list;
+- categories verbatim;
+- claims that public or free means production-safe.
 
-- offensive hacking suites
-- exploit tooling
-- phishing or payload categories
-- autonomous red-team positioning
-
-## Related internal docs
-
-- [public-site-readiness.md](./public-site-readiness.md)
-- [security-tooling-landscape.md](./security-tooling-landscape.md)
-- [../case-studies/sanitized/README.md](../case-studies/sanitized/README.md)
+VCP uses its own Third-party API Intake discipline instead:
+classify the dependency,
+review auth and data,
+review terms and fallback,
+update `THIRD_PARTY_REGISTRY`,
+and require review before production use.

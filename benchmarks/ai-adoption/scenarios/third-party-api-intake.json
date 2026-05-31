@@ -1,0 +1,28 @@
+{
+  "scenario_id": "third-party-api-intake",
+  "target_profile": "third-party-api",
+  "target_signals": [
+    "feature request depends on public API",
+    "auth, data or fallback not reviewed yet"
+  ],
+  "expected_route": "third-party-api-intake",
+  "expected_adoption_pack": "third-party-api",
+  "required_files_to_inspect": [
+    "protocols/integrations/third-party-api-intake.md",
+    "templates/THIRD_PARTY_REGISTRY.md",
+    "templates/reports/third-party-api-intake-report.md",
+    "commands/third-party-api-intake.md"
+  ],
+  "files_not_to_copy": [
+    ".env"
+  ],
+  "expected_stop_conditions": [
+    "terms, quota, data flow or fallback are still unknown"
+  ],
+  "expected_review_gate": "Required before production integration merge or release.",
+  "expected_first_safe_action": "Classify auth, data flow, terms, fallback and owner before implementation.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli check --fast --json",
+    "python3 -m vcp_cli review plan --json"
+  ]
+}

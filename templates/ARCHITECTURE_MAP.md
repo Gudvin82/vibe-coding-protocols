@@ -1,7 +1,7 @@
 # Architecture Map
 
 <!-- vcp-artifact: ARCHITECTURE_MAP -->
-<!-- vcp-version: v0.5.0 -->
+<!-- vcp-version: v0.5.1 -->
 <!-- methodology-version: v1.4 -->
 
 Use this file to give humans and AI a compact project map before implementation.

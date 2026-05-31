@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vcp-cli"
-version = "0.5.0"
-description = "Experimental Python wrapper skeleton for Vibe Coding Protocols"
+version = "0.5.1"
+description = "Local Python CLI for Vibe Coding Protocols"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "CC-BY-4.0" }

@@ -205,6 +205,38 @@
       ]
     },
     {
+      "id": "third-party-api-intake",
+      "name": "Third-party API Intake",
+      "route": "integrations",
+      "domain": "third-party-dependencies",
+      "file": "protocols/integrations/third-party-api-intake.md",
+      "command": "commands/third-party-api-intake.md",
+      "use_when": [
+        "an external API, SDK or webhook is proposed"
+      ],
+      "do_not_use_when": [
+        "no third-party system is involved"
+      ],
+      "risk_level": "medium-to-high",
+      "required_inputs": [
+        "provider name",
+        "feature purpose",
+        "data flow",
+        "validation path"
+      ],
+      "validation": [
+        "python3 -m vcp_cli check --fast --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/third-party-api-intake-report.md"
+      ],
+      "related_docs": [
+        "protocols/integrations/README.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
+      ]
+    },
+    {
       "id": "public-site-readiness",
       "name": "Public Site Readiness",
       "route": "public-site",

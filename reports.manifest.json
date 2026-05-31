@@ -64,6 +64,18 @@
         "owners",
         "priorities"
       ]
+    },
+    {
+      "id": "third-party-api-intake-report",
+      "file": "templates/reports/third-party-api-intake-report.md",
+      "intended_route": "integrations",
+      "required_sections": [
+        "Overall result",
+        "Classification",
+        "Auth and secrets",
+        "Data handling",
+        "Implementation decision"
+      ]
     }
   ]
 }

@@ -12,6 +12,7 @@ If agent rules are needed, prefer [templates/AGENTS.md](./templates/AGENTS.md) o
 - Hardening — existing AI-generated code
 - Maintenance Refactoring — working code that is hard to change
 - UI Component Ownership — frontend ownership cleanup
+- Third-party API Intake — external API or SDK dependency review before implementation
 - Post-Task Code Review — acceptance gate for active changes
 - Extended / Full Hardening — production, regulated or shared-engine risk
 - Public Site Readiness — public docs, trust and crawler readiness
@@ -26,6 +27,7 @@ If agent rules are needed, prefer [templates/AGENTS.md](./templates/AGENTS.md) o
 | Shared engine across products | Shared Engine Pack + Full Hardening | Create PROJECT_MAP and Architecture Source of Truth |
 | Code works but is messy | Maintenance Refactoring | Narrow one safe refactor slice |
 | UI styling drift | UI Ownership | Pick one component ownership slice |
+| New external API, SDK or webhook | Third-party API Intake | Classify auth, data flow, terms and fallback before code |
 | Active diff needs acceptance | Post-Task Code Review | Inspect git status, diff and validation |
 | Public docs/site work | Public Site Readiness | Check publishing and trust checklist |
 
@@ -43,6 +45,7 @@ or handoff.
 
 ```bash
 python3 -m vcp_cli route --profile shared-engine
-python3 -m vcp_cli adopt --pack shared-engine --dry-run
+python3 -m vcp_cli route --profile third-party-api
+python3 -m vcp_cli adopt --pack third-party-api --dry-run
 python3 -m vcp_cli review plan
 ```

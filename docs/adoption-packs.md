@@ -13,15 +13,22 @@ Adoption packs help humans and AI agents choose the right VCP file set for a tar
 | `shared-engine` | one engine powers multiple products | required for cross-product regression risk |
 | `maintenance` | working code is hard to change | required after refactoring slice |
 | `ui-ownership` | pages own final component appearance | required after ownership cleanup |
+| `third-party-api` | an external API, SDK or webhook is being proposed | required before production integration merge or release |
 | `public-site` | public docs or marketing surfaces | lighter review for meaningful changes |
 | `post-task-review` | active diff needs acceptance | this pack is the gate itself |
+
+## Third-party API safety
+
+Use `third-party-api` when a feature proposal depends on an external API.
+Do not write integration code first.
+Classify the provider, auth, data flow, terms, rate limits and fallback before implementation.
 
 ## Use the CLI
 
 ```bash
 python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli adopt --pack shared-engine --dry-run --json
-python3 -m vcp_cli adopt --pack public-site --dry-run --output adoption-plan.md
+python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
+python3 -m vcp_cli route --profile third-party-api --json
 ```
 
 ## Protected files

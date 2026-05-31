@@ -6,7 +6,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-from . import __version__
 from . import adopt as adopt_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
@@ -26,7 +25,7 @@ def run_vibe_check(args: list[str]) -> int:
     root = repo_root()
     script = root / "scripts" / "vibe-check.sh"
     if shutil.which("bash") is None:
-        print("bash was not found. Use Git Bash, WSL or another Bash-capable environment.", file=sys.stderr)
+        print("bash was not found. Use Git Bash, WSL or another Bash-capable environment for legacy vibe-check wrappers.", file=sys.stderr)
         return 1
     normalized = [f"--{arg}" if not arg.startswith("-") else arg for arg in args]
     return subprocess.run(["bash", str(script), *normalized], cwd=Path.cwd()).returncode
@@ -136,7 +135,7 @@ def main(argv: list[str] | None = None) -> int:
             return benchmark_cmd.run(args.scenario, args.json)
     if args.command == "review":
         if args.review_command in {None, "plan"}:
-            return review_cmd.plan(getattr(args, 'json', False))
+            return review_cmd.plan(getattr(args, "json", False))
         if args.review_command == "prompt":
             return review_cmd.prompt()
         if args.review_command == "report-template":

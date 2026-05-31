@@ -1,9 +1,9 @@
 {
-  "package_version": "v0.5.0",
+  "package_version": "v0.5.1",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
-  "description": "Controlled AI delivery framework for route selection, adoption, validation, review gates and project memory.",
+  "description": "Controlled AI delivery framework for route selection, adoption, validation, review gates, Windows-first CLI parity and safe third-party API intake.",
   "entrypoints": [
     "README.md",
     "START_HERE.md",
@@ -14,14 +14,16 @@
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/route-map.md",
-    "docs/demo.md"
+    "docs/demo.md",
+    "docs/windows.md"
   ],
   "route_docs": [
     "protocols/ai-project-starter-protocol.md",
     "protocols/ai-project-hardening-protocol.md",
     "protocols/maintenance/care-refactoring.md",
     "protocols/maintenance/ui-refactoring.md",
-    "protocols/review/post-task-code-review.md"
+    "protocols/review/post-task-code-review.md",
+    "protocols/integrations/third-party-api-intake.md"
   ],
   "cli_commands": [
     "version",
@@ -51,7 +53,8 @@
     "Not a bug bounty automation suite",
     "Not a production security certification",
     "Does not call external AI APIs",
-    "Dry-run by default for adoption"
+    "Dry-run by default for adoption",
+    "Does not auto-connect third-party APIs"
   ],
   "what_vcp_is_not": [
     "offensive_security_tooling",

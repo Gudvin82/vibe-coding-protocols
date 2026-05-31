@@ -1,46 +1,45 @@
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
-from .utils import repo_root, run_command
-
-CHECKS = {
-    "newline": ["python3", "scripts/check-newlines.py"],
-    "links": ["python3", "scripts/validate-links.sh"],
-    "version": ["bash", "scripts/check-version-consistency.sh"],
-    "toolkit": ["bash", "scripts/check-toolkit.sh"],
-    "audit": ["bash", "scripts/vibe-check.sh", "--audit", "--json"],
-}
+from .fast_checks import repo_root, run_fast_checks, run_full_bash_checks, summarize_results
+from .utils import print_output
 
 
 def run(fast: bool = False, full: bool = False, no_audit: bool = False, json_mode: bool = False) -> int:
     root = repo_root()
-    selected = ["newline", "links", "version"] if fast else ["newline", "links", "version", "toolkit"]
-    if full and "toolkit" not in selected:
-        selected.append("toolkit")
-    if not no_audit:
-        selected.append("audit")
-    results = []
-    rc = 0
-    for name in selected:
-        proc = run_command(CHECKS[name], root)
-        results.append({
-            "name": name,
-            "returncode": proc.returncode,
-            "stdout": proc.stdout.strip(),
-            "stderr": proc.stderr.strip(),
-        })
-        if proc.returncode != 0:
-            rc = proc.returncode
-    payload = {"ok": rc == 0, "checks": results}
+    mode = "full" if full else "fast"
+    results = run_fast_checks(root)
+    if full:
+        results.extend(run_full_bash_checks(root, include_audit=not no_audit))
+    ok, passed, failed, skipped = summarize_results(results)
+    payload = {
+        "ok": ok,
+        "mode": mode,
+        "checks": results,
+        "summary": {
+            "passed": passed,
+            "failed": failed,
+            "skipped": skipped,
+        },
+        "notes": [
+            "Fast mode is Python-native and intended to work on PowerShell without Bash.",
+            "Full mode may call legacy Bash scripts when Bash is available.",
+        ],
+    }
     if json_mode:
-        print(json.dumps(payload, indent=2, ensure_ascii=False))
+        print_output(payload, True)
     else:
+        print(f"Mode: {mode}")
         for item in results:
-            print(f"[{item['returncode']}] {item['name']}")
-            if item['stdout']:
-                print(item['stdout'])
-            if item['stderr']:
-                print(item['stderr'])
-    return rc
+            print(f"[{item.get('status')}] {item.get('name')} ({item.get('runner')})")
+            if item.get("reason"):
+                print(item["reason"])
+            if item.get("note"):
+                print(item["note"])
+            if item.get("stdout"):
+                print(item["stdout"])
+            for error in item.get("errors", []):
+                print(f"- {error}")
+            if item.get("stderr"):
+                print(item["stderr"])
+        print(f"Summary: {passed} passed, {failed} failed, {skipped} skipped")
+    return 0 if ok else 1

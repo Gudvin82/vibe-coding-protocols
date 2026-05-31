@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from .route import ROUTES
-
 DEMOS = {
     "shared-engine": {
         "route": "Full Hardening",
@@ -16,6 +14,13 @@ DEMOS = {
         "gate": "Post-Task Code Review before merge/release",
         "action": "Confirm release gate, security scope and validation path",
         "score": "88/100 local framework readiness",
+    },
+    "third-party-api": {
+        "route": "Third-party API Intake / Integrations",
+        "pack": "Third-party API Intake Pack",
+        "gate": "Required before production integration merge or release.",
+        "action": "Classify auth, data flow, terms, fallback and owner before implementation.",
+        "score": "90/100 local framework readiness",
     },
     "public-site": {
         "route": "Public Site Readiness",

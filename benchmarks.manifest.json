@@ -131,6 +131,24 @@
         "validation red blocks acceptance"
       ],
       "expected_first_action": "Inspect git status, diff and validation output."
+    },
+    {
+      "id": "third-party-api-intake",
+      "profile": "third-party-api",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
+      "expected_route": "third-party-api-intake",
+      "expected_pack": "third-party-api",
+      "required_inspected_files": [
+        "protocols/integrations/third-party-api-intake.md",
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "templates/reports/third-party-api-intake-report.md",
+        "commands/third-party-api-intake.md"
+      ],
+      "expected_warnings": [
+        "do not add API key to code",
+        "do not assume public or free means production-safe"
+      ],
+      "expected_first_action": "Classify auth, data flow, terms, fallback and owner before implementation."
     }
   ]
 }

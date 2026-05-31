@@ -18,14 +18,16 @@
       ],
       "optional_files": [
         "docs/lite-adoption-path.md",
-        "templates/ARCHITECTURE_MAP.md"
+        "templates/ARCHITECTURE_MAP.md",
+        "protocols/integrations/third-party-api-intake.md"
       ],
       "merge_only_files": [],
       "skip_files": [
         "root AGENTS.md"
       ],
       "skip_conditions": [
-        "Production users already exist"
+        "Production users already exist",
+        "Review external APIs before implementation."
       ],
       "validation_commands": [
         "bash scripts/vibe-check.sh --starter"
@@ -50,7 +52,8 @@
       ],
       "optional_files": [
         "protocols/maintenance/care-refactoring.md",
-        "protocols/review/post-task-code-review.md"
+        "protocols/review/post-task-code-review.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
       ],
       "merge_only_files": [
         "PROJECT_MAP.md"
@@ -90,7 +93,8 @@
       ],
       "optional_files": [
         "templates/INCIDENT_RECOVERY_RUNBOOK.md",
-        "templates/THIRD_PARTY_REGISTRY.md"
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "protocols/integrations/third-party-api-intake.md"
       ],
       "merge_only_files": [
         "PROJECT_MAP.md",
@@ -133,7 +137,9 @@
         "templates/reports/security-review-scope.md",
         "protocols/review/post-task-code-review.md",
         "templates/reports/code-review-report.md",
-        "templates/SECURITY_OPERATIONS_BASELINE.md"
+        "templates/SECURITY_OPERATIONS_BASELINE.md",
+        "protocols/integrations/third-party-api-intake.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
       ],
       "optional_files": [
         "templates/INCIDENT_RECOVERY_RUNBOOK.md"
@@ -179,7 +185,8 @@
       ],
       "optional_files": [
         "templates/AUDIT_BACKLOG.md",
-        "templates/THIRD_PARTY_REGISTRY.md"
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "protocols/integrations/third-party-api-intake.md"
       ],
       "merge_only_files": [
         "PROJECT_MAP.md",
@@ -297,7 +304,9 @@
       ],
       "optional_files": [
         "docs/site/publishing-checklist.md",
-        "docs/community-feedback.md"
+        "docs/community-feedback.md",
+        "protocols/integrations/third-party-api-intake.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
       ],
       "merge_only_files": [
         "templates/public-site/robots.txt",
@@ -355,6 +364,48 @@
       ],
       "review_gate_requirement": "This pack is the review gate itself.",
       "next_safe_step": "Inspect git status, diff and validation output."
+    },
+    {
+      "id": "third-party-api",
+      "name": "Third-party API Intake Pack",
+      "use_when": [
+        "an external API, SDK, SaaS integration or webhook is being proposed"
+      ],
+      "do_not_use_when": [
+        "no third-party system is involved"
+      ],
+      "recommended_files": [
+        "protocols/integrations/third-party-api-intake.md",
+        "commands/third-party-api-intake.md",
+        "templates/prompts/third-party-api-intake.md",
+        "templates/reports/third-party-api-intake-report.md",
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "protocols/review/post-task-code-review.md"
+      ],
+      "optional_files": [
+        "templates/examples/THIRD_PARTY_REGISTRY.filled.example.md",
+        "docs/security-methodology-scope.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        ".env",
+        "SECURITY.md"
+      ],
+      "skip_conditions": [
+        "Terms, quota, data flow or fallback are still unknown",
+        "A secret would be committed to code or prompts"
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli check --fast --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/third-party-api-intake-report.md"
+      ],
+      "review_gate_requirement": "Required before production integration merge or release.",
+      "next_safe_step": "Classify auth, data flow, terms, fallback and owner before implementation."
     }
   ]
 }

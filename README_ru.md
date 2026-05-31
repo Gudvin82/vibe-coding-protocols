@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.0-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.1-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
@@ -12,17 +12,9 @@
 **Это не коллекция промптов.**
 
 VCP — это controlled AI delivery framework для AI-assisted разработки.
-Он дает маршруты,
-protocols,
-adoption packs,
-validation,
-review gates,
-manifests,
-benchmarks
-и project memory,
-чтобы AI не менял код хаотично.
+Он дает маршруты, protocols, adoption packs, validation, review gates, manifests, benchmarks и project memory, чтобы AI не менял код хаотично.
 
-Пакет репозитория: `v0.5.0`
+Пакет репозитория: `v0.5.1`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -36,15 +28,12 @@ If agent rules are needed, prefer [templates/AGENTS.md](./templates/AGENTS.md) o
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
 
-## Попробуй product layer
+## Windows и безопасность внешних API
 
-```bash
-python3 -m vcp_cli route --profile shared-engine
-python3 -m vcp_cli adopt --pack shared-engine --dry-run
-python3 -m vcp_cli review plan
-python3 -m vcp_cli score
-python3 -m vcp_cli benchmark run
-```
+Пользователи Windows могут идти по основному VCP-маршруту через Python CLI из PowerShell.
+Bash-скрипты остаются поддержанными для legacy parity.
+Если добавляется любой внешний API, сначала запускай Third-party API Intake, а уже потом пиши интеграционный код.
+Public или free API не означает production-safe по умолчанию.
 
 ## С чего начать
 
@@ -55,29 +44,30 @@ python3 -m vcp_cli benchmark run
 | Production, regulated или shared-engine repo | [AI_INTAKE.md](./AI_INTAKE.md) + [adoption packs](./docs/adoption-packs.md) |
 | Код работает, но его трудно менять | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
 | Расползся UI styling ownership | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
+| Появился внешний API, SDK или webhook | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
 | Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | Публичный сайт или docs | [Public Site Readiness](./docs/public-site-readiness.md) |
 
-## Что стало product-grade в v0.5.0
+## Текущий CLI surface
 
-- единый локальный CLI surface
-- machine-readable manifests
-- route chooser
-- adoption dry-run planner
-- helper для post-task review gate
-- heuristic score report
-- AI adoption benchmark scenarios
-- demo output
-- sanitized case-study structure
+```bash
+python3 -m vcp_cli doctor
+python3 -m vcp_cli check --fast
+python3 -m vcp_cli route --profile production --json
+python3 -m vcp_cli route --profile third-party-api --json
+python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
+python3 -m vcp_cli manifest validate
+python3 -m vcp_cli benchmark run
+python3 -m vcp_cli score --json
+```
 
-## Новое: Post-Task Code Review Gate
+PowerShell:
 
-После значимых AI-generated изменений не начинай сразу следующую фичу.
-Запусти `/loop-code-review` или используй Post-Task Code Review Protocol:
-посмотри активный diff,
-исправь actionable findings,
-прогони validation
-и принимай состояние только после green review плюс validation.
+```powershell
+py -m vcp_cli doctor
+py -m vcp_cli check --fast
+py -m vcp_cli route --profile production --json
+```
 
 ## Что VCP не делает
 
@@ -85,8 +75,8 @@ python3 -m vcp_cli benchmark run
 - не exploit framework;
 - не pentest suite;
 - не bug bounty automation suite;
-- не red-team operator;
-- не DDoS, RAT, phishing или payload toolkit;
+- не public API directory;
+- не public API recommendation engine;
 - не production security certification;
 - не legal compliance certification;
 - не замена developers, tests, security review, legal review или human judgment.
@@ -95,12 +85,10 @@ python3 -m vcp_cli benchmark run
 
 - [AI_INTAKE.md](./AI_INTAKE.md)
 - [docs/cli.md](./docs/cli.md)
-- [docs/route-map.md](./docs/route-map.md)
+- [docs/windows.md](./docs/windows.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
-- [docs/public-site-readiness.md](./docs/public-site-readiness.md)
-- [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
-- [docs/community-feedback.md](./docs/community-feedback.md)
-- [docs/release-v0.5.0.md](./docs/release-v0.5.0.md)
+- [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
+- [docs/release-v0.5.1.md](./docs/release-v0.5.1.md)

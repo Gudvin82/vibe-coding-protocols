@@ -44,6 +44,23 @@
       "validation": [
         "review plus validation green"
       ]
+    },
+    {
+      "id": "third-party-api-intake",
+      "command_name": "/third-party-api-intake",
+      "file": "commands/third-party-api-intake.md",
+      "route": "integrations",
+      "inputs": [
+        "feature purpose",
+        "provider",
+        "data flow",
+        "validation path"
+      ],
+      "output": "third-party API intake report and registry decision",
+      "validation": [
+        "registry update",
+        "review gate"
+      ]
     }
   ]
 }

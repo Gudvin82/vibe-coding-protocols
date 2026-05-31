@@ -1,36 +1,33 @@
 # Contributing
 
-Improvements are welcome.
+Keep contributions narrow, reviewable and evidence-based.
 
-## Principles
+## General rules
 
-- do not add real secrets
-- do not add private project data
-- keep examples synthetic or sanitized
-- do not copy third-party prompts or skills verbatim
-- do not overclaim product maturity
-- preserve script-first compatibility
+- one focused change per PR where practical;
+- include related docs and metadata;
+- run validation before asking for merge;
+- no unsupported maturity claims;
+- no offensive tooling;
+- no real secrets or customer data;
+- no real production endpoints unless intentionally public and safe.
 
-## Good first issues
+## Protocol, pack and integration catalog discipline
 
-- docs clarity improvements
-- manifest consistency fixes
-- benchmark scenario tuning
-- route map improvements
-- safer wording for adoption or review gates
-- additional CLI smoke coverage
+- one protocol, pack or integration entry per PR;
+- short description required;
+- category required;
+- related docs required;
+- manifests must validate;
+- benchmark or example updates should be included when relevant.
 
-## Feedback channels
+## Third-party API examples
 
-- Issues for reproducible bugs, broken links, unsafe docs and script failures
-- Discussions, if enabled, for ideas and adoption questions
-- PRs for concrete improvements
-- SECURITY.md for sensitive disclosures
+- synthetic or placeholder only;
+- no API keys;
+- no endorsement;
+- no production-safety claim;
+- no hidden assumptions about terms, quotas or fallback.
 
-## Before opening a PR
-
-- remove machine-specific paths
-- remove customer names and private URLs
-- do not include secret-looking strings
-- update manifests if references changed
-- run local checks and CLI smoke
+`public-apis/public-apis` is an ecosystem reference for contribution discipline only.
+VCP does not copy its API list.

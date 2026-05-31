@@ -1,73 +1,57 @@
 # Windows
 
-VCP is bash-first.
+VCP is now Python-CLI-first for the core workflow on Windows.
+Bash is still supported for legacy parity, but it is no longer required for the main fast path.
 
 ## Support matrix
 
-| Path | Status | Recommended for |
+| Path | Status | Notes |
 |---|---|---|
-| WSL | Recommended | Full script compatibility |
-| Git Bash | Supported for most workflows | Users who want Bash scripts on Windows |
-| PowerShell wrappers | Beta / limited | Smoke checks and basic validation |
-| Native Windows CLI | Not mature yet | Future work |
+| PowerShell + Python CLI | Recommended | Core route, check, adopt, score, manifest and benchmark flow |
+| Git Bash | Supported | Full legacy script compatibility |
+| WSL | Supported | Linux-like environment |
+| Native installed `vcp` package | Future | Not published yet |
 
-## Recommended paths
-
-### WSL
-
-Best option if you want the closest behavior to Linux/macOS docs.
-Use the same Bash commands shown in README and docs.
-
-### Git Bash
-
-Good option if you want to stay on Windows but still run Bash-first scripts.
-Typical commands:
-
-```bash
-bash scripts/vibe-check.sh --doctor
-python3 scripts/check-newlines.py
-python3 scripts/validate-links.sh
-```
-
-### PowerShell wrapper
-
-If `scripts/vibe-check.ps1` is present,
-you can use it for basic forwarding:
+## Recommended Windows path
 
 ```powershell
-pwsh -File scripts/vibe-check.ps1 -Help
-pwsh -File scripts/vibe-check.ps1 -Mode doctor
-pwsh -File scripts/vibe-check.ps1 -Mode init-report
+py -m vcp_cli doctor
+py -m vcp_cli check --fast
+py -m vcp_cli route --profile production
+py -m vcp_cli adopt --pack production --dry-run
+py -m vcp_cli score
 ```
 
-The wrapper does not reimplement the full toolkit.
-It forwards to Bash-capable execution paths.
-
-## Running Python checks on Windows
-
-If Python is installed and available as `python` instead of `python3`,
-use:
+Optional local launchers:
 
 ```powershell
-python scripts/check-newlines.py
-python scripts/validate-links.sh
+bin\vcp.cmd doctor
+pwsh -File .\bin\vcp.ps1 check --fast
 ```
 
-If `python3` is available,
-you may use the same commands as the README.
+## Optional full Bash compatibility
 
-## What to do when shell scripts fail
+If you want full legacy script parity:
+- Git Bash;
+- WSL;
+- MSYS2.
 
-Try this order:
-1. switch to WSL;
-2. use Git Bash;
-3. use the PowerShell wrapper if the task is limited to basic vibe-check flows;
-4. run Python-based checks directly where possible.
+Bash is optional for core CLI usage, but it may still be needed for full legacy script parity.
+
+## What works without Bash
+
+The Python CLI fast path is intended to work without Bash for:
+- `doctor`;
+- `check --fast`;
+- `route`;
+- `adopt --dry-run`;
+- `manifest validate`;
+- `benchmark run`;
+- `score`.
 
 ## Known limitations
 
-- path handling differences;
-- executable bit differences;
-- Bash-specific assumptions in several scripts;
-- the PowerShell wrapper may not cover all checks;
-- CI remains Bash-first today.
+- full legacy Bash parity is not complete on native Windows;
+- authenticated GitHub release publishing is still external to the CLI;
+- PowerShell launchers are local wrappers, not a published installer;
+- Windows CI covers Python CLI parity, not every Bash legacy script.

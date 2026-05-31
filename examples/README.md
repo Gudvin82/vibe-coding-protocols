@@ -1,11 +1,19 @@
 # Examples
 
 Synthetic examples only.
-No real production claims are made here.
+No real secrets, no real customer data and no fake production claims.
 
-## Highlights
+## Review and adoption
 
-- [review](./review/) — post-task review examples
-- [adoption/dual-production-engine](./adoption/dual-production-engine/) — intake and adoption routing
-- [bad-to-good](./bad-to-good/) — before/after route-shaped examples
-- [todo-app-vibe](./todo-app-vibe/) — full starter to hardening learning path
+- [review/README.md](./review/README.md)
+- [adoption/dual-production-engine/README.md](./adoption/dual-production-engine/README.md)
+
+## Integrations
+
+- [integrations/README.md](./integrations/README.md)
+- [integrations/public-api-intake.example.md](./integrations/public-api-intake.example.md)
+- [integrations/third-party-registry-entry.example.md](./integrations/third-party-registry-entry.example.md)
+
+## Bad to good
+
+- [bad-to-good/README.md](./bad-to-good/README.md)

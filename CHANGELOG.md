@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.1
+
+- Added Windows-first Python CLI parity for the core fast path, including `doctor`, `check --fast`, `route`, `adopt`, `manifest`, `benchmark` and `score`
+- Added PowerShell-friendly launchers in `bin/vcp.cmd` and `bin/vcp.ps1`
+- Added Windows CI coverage for Python CLI parity without requiring Bash
+- Added Third-party API Intake as a first-class protocol, command, report template, adoption pack and benchmark scenario
+- Improved `THIRD_PARTY_REGISTRY` with compact and extended intake fields for safer external dependency review
+- Added synthetic integration examples and contribution discipline for catalog-style integration entries
+
 ## v0.5.0
 
 - Added a product-grade local `vcp_cli` surface with route, adopt, check, doctor, manifest, benchmark, review and demo commands

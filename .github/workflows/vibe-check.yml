@@ -50,11 +50,23 @@ jobs:
       - name: CLI version
         run: python3 -m vcp_cli version
 
+      - name: CLI doctor
+        run: python3 -m vcp_cli doctor
+
+      - name: CLI fast check
+        run: python3 -m vcp_cli check --fast --json
+
       - name: CLI route smoke
         run: python3 -m vcp_cli route --profile production --json
 
+      - name: CLI third-party API route smoke
+        run: python3 -m vcp_cli route --profile third-party-api --json
+
       - name: CLI adopt smoke
         run: python3 -m vcp_cli adopt --pack production --dry-run --json
+
+      - name: CLI third-party API adopt smoke
+        run: python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
 
       - name: CLI review smoke
         run: python3 -m vcp_cli review plan --json
@@ -111,3 +123,45 @@ jobs:
         run: |
           bash scripts/tests/test-vibe-check-basic.sh
           bash scripts/tests/test-vcp-cli.sh
+          python3 scripts/tests/test-vcp-cli-windows-parity.py
+
+  windows-cli-parity:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: CLI help
+        shell: pwsh
+        run: py -m vcp_cli --help
+      - name: CLI version
+        shell: pwsh
+        run: py -m vcp_cli version
+      - name: CLI doctor
+        shell: pwsh
+        run: py -m vcp_cli doctor
+      - name: CLI fast check
+        shell: pwsh
+        run: py -m vcp_cli check --fast --json
+      - name: CLI production route
+        shell: pwsh
+        run: py -m vcp_cli route --profile production --json
+      - name: CLI third-party API route
+        shell: pwsh
+        run: py -m vcp_cli route --profile third-party-api --json
+      - name: CLI adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack production --dry-run --json
+      - name: CLI third-party API adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack third-party-api --dry-run --json
+      - name: Manifest validation
+        shell: pwsh
+        run: py -m vcp_cli manifest validate
+      - name: Benchmark validation
+        shell: pwsh
+        run: py -m vcp_cli benchmark run
+      - name: Score JSON
+        shell: pwsh
+        run: py -m vcp_cli score --json

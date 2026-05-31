@@ -39,6 +39,7 @@ required_files=(
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/cli.md
+  docs/windows.md
   docs/integrations/README.md
   docs/integrations/claude-code.md
   docs/integrations/codex.md
@@ -78,6 +79,10 @@ required_files=(
   docs/release-v0.4.3.md
   docs/release-v0.4.4.md
   docs/release-v0.5.0.md
+  docs/release-v0.5.1.md
+  protocols/integrations/README.md
+  protocols/integrations/third-party-api-intake.md
+  commands/third-party-api-intake.md
   protocols/review/README.md
   protocols/review/post-task-code-review.md
   commands/loop-code-review.md
@@ -97,6 +102,7 @@ required_files=(
   scripts/check-ide-rules-consistency.sh
   scripts/check-newlines.py
   scripts/tests/test-vcp-cli.sh
+  scripts/tests/test-vcp-cli-windows-parity.py
   scripts/init-project.example.sh
   package.json
   pyproject.toml
@@ -109,6 +115,8 @@ required_files=(
   reports.manifest.json
   benchmarks.manifest.json
   bin/vcp
+  bin/vcp.cmd
+  bin/vcp.ps1
   bin/vibe-check.js
   vcp_cli/__main__.py
   vcp_cli/cli.py
@@ -129,8 +137,11 @@ required_files=(
   assets/social-preview.svg
   assets/demo/README.md
   templates/ARCHITECTURE_MAP.md
+  templates/THIRD_PARTY_REGISTRY.md
   templates/prompts/evaluate-vcp-for-my-repo.md
+  templates/prompts/third-party-api-intake.md
   templates/reports/vcp-adoption-assessment.md
+  templates/reports/third-party-api-intake-report.md
   templates/protocol-pack-metadata.yml
   templates/reports/security-review-scope.md
   templates/public-site/README.md
@@ -146,6 +157,9 @@ required_files=(
   examples/adoption/dual-production-engine/target-profile.md
   examples/adoption/dual-production-engine/recommended-pack.md
   examples/adoption/dual-production-engine/adoption-assessment.example.md
+  examples/integrations/README.md
+  examples/integrations/public-api-intake.example.md
+  examples/integrations/third-party-registry-entry.example.md
   benchmarks/ai-adoption/README.md
   benchmarks/ai-adoption/expected/README.md
   benchmarks/ai-adoption/scenarios/new-project.json
@@ -153,6 +167,7 @@ required_files=(
   benchmarks/ai-adoption/scenarios/production-saas.json
   benchmarks/ai-adoption/scenarios/regulated-payments-data.json
   benchmarks/ai-adoption/scenarios/shared-engine-production.json
+  benchmarks/ai-adoption/scenarios/third-party-api-intake.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -182,12 +197,14 @@ required_files=(
 
 required_dirs=(
   protocols
+  protocols/integrations
   prompts
   templates
   templates/prompts
   agents
   examples
   examples/adoption
+  examples/integrations
   benchmarks
   benchmarks/ai-adoption
   benchmarks/ai-adoption/scenarios
