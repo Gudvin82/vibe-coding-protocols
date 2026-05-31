@@ -2,13 +2,19 @@
 # This does not guarantee indexing or ranking.
 
 - README.md: primary repository overview
+- AI_INTAKE.md: first-read intake workflow for AI agents
 - START_HERE.md: route chooser
-- docs/README.md: docs index
 - docs/protocol-index.md: compact route catalog
+- docs/adoption-packs.md: adoption pack matrix
+- docs/cli.md: local product-grade CLI surface
+- docs/route-map.md: visual route map
+- docs/demo.md: demo commands
+- docs/demo-output.md: sample CLI output
 - docs/security-methodology-scope.md: scope and limits of security guidance
 - docs/security-tooling-landscape.md: defensive-only security positioning
 - docs/tooling-roadmap.md: current tooling and future direction
-- docs/cli.md: script-first CLI status
-- docs/integrations/README.md: per-IDE integration guides
 - docs/public-site-readiness.md: public docs/site checklist
-- docs/release-v0.4.2.md: current release notes
+- docs/seo-ai-crawler-readiness.md: AI crawler and search readiness
+- docs/release-v0.5.0.md: current release notes
+- benchmarks/ai-adoption/README.md: local benchmark scenarios
+- case-studies/sanitized/README.md: sanitized case-study structure

@@ -1,0 +1,25 @@
+{
+  "scenario_id": "new-project",
+  "target_profile": "new-project",
+  "target_signals": [
+    "idea stage",
+    "no existing code"
+  ],
+  "expected_route": "starter",
+  "expected_adoption_pack": "new-project",
+  "required_files_to_inspect": [
+    "START_HERE.md",
+    "protocols/ai-project-starter-protocol.md"
+  ],
+  "files_not_to_copy": [
+    "root AGENTS.md"
+  ],
+  "expected_stop_conditions": [
+    "production repo already exists"
+  ],
+  "expected_review_gate": "Recommended for meaningful changes before merge.",
+  "expected_first_safe_action": "Create product brief and project map.",
+  "expected_validation_commands": [
+    "bash scripts/vibe-check.sh --starter"
+  ]
+}

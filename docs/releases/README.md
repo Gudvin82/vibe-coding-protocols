@@ -24,3 +24,4 @@ Use this index as a navigator.
 - [`../release-v0.4.2.md`](../release-v0.4.2.md)
 - [`../release-v0.4.3.md`](../release-v0.4.3.md)
 - [`../release-v0.4.4.md`](../release-v0.4.4.md)
+- [`../release-v0.5.0.md`](../release-v0.5.0.md)

@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "care-refactoring",
+      "command_name": "/care-refactoring",
+      "file": "commands/care-refactoring.md",
+      "route": "maintenance",
+      "inputs": [
+        "scope",
+        "validation path"
+      ],
+      "output": "maintenance refactoring plan",
+      "validation": [
+        "focused tests",
+        "review gate"
+      ]
+    },
+    {
+      "id": "ui-refactoring",
+      "command_name": "/ui-refactoring",
+      "file": "commands/ui-refactoring.md",
+      "route": "ui-ownership",
+      "inputs": [
+        "target slice",
+        "current behavior"
+      ],
+      "output": "ui ownership cleanup plan",
+      "validation": [
+        "typecheck",
+        "review gate"
+      ]
+    },
+    {
+      "id": "loop-code-review",
+      "command_name": "/loop-code-review",
+      "file": "commands/loop-code-review.md",
+      "route": "review",
+      "inputs": [
+        "active diff",
+        "validation output",
+        "reviewer path"
+      ],
+      "output": "review findings and acceptance signal",
+      "validation": [
+        "review plus validation green"
+      ]
+    }
+  ]
+}

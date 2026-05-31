@@ -1,0 +1,63 @@
+{
+  "package_version": "v0.5.0",
+  "methodology_version": "v1.4",
+  "manifest_schema_version": "v1",
+  "repo_name": "vibe-coding-protocols",
+  "description": "Controlled AI delivery framework for route selection, adoption, validation, review gates and project memory.",
+  "entrypoints": [
+    "README.md",
+    "START_HERE.md",
+    "AI_INTAKE.md",
+    "docs/cli.md"
+  ],
+  "core_docs": [
+    "docs/protocol-index.md",
+    "docs/adoption-packs.md",
+    "docs/route-map.md",
+    "docs/demo.md"
+  ],
+  "route_docs": [
+    "protocols/ai-project-starter-protocol.md",
+    "protocols/ai-project-hardening-protocol.md",
+    "protocols/maintenance/care-refactoring.md",
+    "protocols/maintenance/ui-refactoring.md",
+    "protocols/review/post-task-code-review.md"
+  ],
+  "cli_commands": [
+    "version",
+    "doctor",
+    "check",
+    "route",
+    "adopt",
+    "score",
+    "manifest",
+    "benchmark",
+    "review",
+    "demo"
+  ],
+  "validation_scripts": [
+    "scripts/check-newlines.py",
+    "scripts/validate-links.sh",
+    "scripts/check-version-consistency.sh",
+    "scripts/check-toolkit.sh",
+    "scripts/vibe-check.sh"
+  ],
+  "known_limitations": [
+    "docs/known-limitations.md"
+  ],
+  "safety_boundaries": [
+    "Not a hacking toolkit",
+    "Not a pentest suite",
+    "Not a bug bounty automation suite",
+    "Not a production security certification",
+    "Does not call external AI APIs",
+    "Dry-run by default for adoption"
+  ],
+  "what_vcp_is_not": [
+    "offensive_security_tooling",
+    "exploit_framework",
+    "red_team_operator",
+    "legal_compliance_certification",
+    "replacement_for_human_judgment"
+  ]
+}

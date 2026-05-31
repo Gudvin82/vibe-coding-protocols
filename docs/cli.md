@@ -1,71 +1,71 @@
-# CLI Status
+# CLI
 
-VCP is currently script-first.
-A unified `vcp` CLI is planned,
-but the stable workflow today is built around documented scripts.
+VCP is now script-first plus a real local CLI surface.
+Existing scripts remain canonical and supported.
+The local `vcp_cli` product layer wraps and organizes those workflows without requiring network or external AI APIs.
 
-## Current stable entrypoints
+## Stable local entrypoint
 
-Use these directly:
-- `scripts/vibe-check.sh`
-- `scripts/init-minimal.sh`
-- `scripts/install-hooks.sh`
-- `scripts/check-version-consistency.sh`
-- `scripts/validate-links.sh`
-- `scripts/check-newlines.py`
-- `scripts/check-toolkit.sh`
+```bash
+python3 -m vcp_cli --help
+python3 -m vcp_cli version
+python3 -m vcp_cli doctor
+python3 -m vcp_cli check --fast
+python3 -m vcp_cli route --profile production --json
+python3 -m vcp_cli adopt --pack shared-engine --dry-run
+python3 -m vcp_cli review plan
+python3 -m vcp_cli manifest validate
+python3 -m vcp_cli benchmark run
+python3 -m vcp_cli score --json
+python3 -m vcp_cli demo shared-engine
+```
 
-## Experimental CLI and wrapper status
+Optional convenience wrapper:
 
-VCP also includes an early Python wrapper:
-- `python -m vcp_cli doctor`
-- `python -m vcp_cli audit`
-- `python -m vcp_cli starter`
-- `python -m vcp_cli route production`
-- `python -m vcp_cli adopt --pack production --dry-run`
-- `python -m vcp_cli score --json`
-- `python -m vcp_cli manifest validate`
+```bash
+bin/vcp --help
+```
 
-Current wrapper status:
-- `route`, `adopt`, `score` and `manifest validate` are lightweight helper commands, not a mature autonomous CLI;
-- thin wrapper around `scripts/vibe-check.sh`;
-- small helper surface for route, adoption-pack and review-gate guidance;
-- useful for users who prefer a Python entrypoint;
-- not a mature standalone CLI product yet;
-- not a replacement for the documented scripts.
+## Commands
 
-Do not assume package-manager installation support unless it is explicitly documented.
+- `version` — print package, methodology, manifest schema and git info
+- `doctor` — local repository health and discoverability checks
+- `check` — safe wrapper around existing validation scripts
+- `route` — route selector for target profiles
+- `adopt` — adoption dry-run planner
+- `score` — heuristic readiness summary
+- `manifest` — show and validate machine-readable manifests
+- `benchmark` — validate local benchmark scenarios
+- `review` — helper for the Post-Task Code Review Gate
+- `demo` — print route/adoption demo journeys
 
-## Recommended user path
+## Backward compatibility
 
-Today the most reliable path is:
-1. use the documented scripts directly;
-2. use `scripts/install-hooks.sh` for local hooks when appropriate;
-3. use the Python wrapper only for commands that are already documented and tested.
+Legacy wrapper aliases still delegate to `scripts/vibe-check.sh`:
+- `python3 -m vcp_cli audit`
+- `python3 -m vcp_cli starter`
+- `python3 -m vcp_cli hardening`
+- `python3 -m vcp_cli init-report`
+- `python3 -m vcp_cli update-advice`
 
-## Local hooks and CI
+## Safety boundaries
 
-See:
-- [pre-commit-hooks.md](./pre-commit-hooks.md)
+The CLI:
+- does not require network;
+- does not require GitHub auth;
+- does not call external AI APIs;
+- does not run offensive tools;
+- does not scan third-party targets;
+- does not overwrite project files by default.
+
+`adopt` is dry-run by default.
+No destructive apply mode is enabled in `v0.5.0`.
+
+## Related docs
+
+- [route-map.md](./route-map.md)
+- [protocol-index.md](./protocol-index.md)
+- [adoption-packs.md](./adoption-packs.md)
+- [demo.md](./demo.md)
 - [tooling-roadmap.md](./tooling-roadmap.md)
-
-## Windows note
-
-VCP is still Bash-first.
-If you are on Windows, start with [windows.md](./windows.md) to choose WSL, Git Bash or the limited PowerShell wrapper path.
-
-## Future unified `vcp` command roadmap
-
-Planned future surfaces may include:
-- `vcp doctor`
-- `vcp check`
-- `vcp init`
-- `vcp install-hooks`
-- `vcp validate-links`
-- `vcp version`
-- `vcp route`
-- `vcp protocol-index`
-- `vcp public-site-check`
-
-These are roadmap items,
-not promises about current shipped functionality.
+- [known-limitations.md](./known-limitations.md)

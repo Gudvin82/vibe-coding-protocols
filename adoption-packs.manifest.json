@@ -1,0 +1,360 @@
+{
+  "items": [
+    {
+      "id": "new-project",
+      "name": "New Project Pack",
+      "use_when": [
+        "idea stage",
+        "new MVP"
+      ],
+      "do_not_use_when": [
+        "production repo already exists"
+      ],
+      "recommended_files": [
+        "START_HERE.md",
+        "templates/AGENTS.md",
+        "templates/PROJECT_MAP.md",
+        "protocols/ai-project-starter-protocol.md"
+      ],
+      "optional_files": [
+        "docs/lite-adoption-path.md",
+        "templates/ARCHITECTURE_MAP.md"
+      ],
+      "merge_only_files": [],
+      "skip_files": [
+        "root AGENTS.md"
+      ],
+      "skip_conditions": [
+        "Production users already exist"
+      ],
+      "validation_commands": [
+        "bash scripts/vibe-check.sh --starter"
+      ],
+      "expected_report_template": [],
+      "review_gate_requirement": "Recommended for meaningful changes before merge.",
+      "next_safe_step": "Create product brief and project map."
+    },
+    {
+      "id": "existing-mvp",
+      "name": "Existing MVP Pack",
+      "use_when": [
+        "working app before production"
+      ],
+      "do_not_use_when": [
+        "payments or personal data already exist"
+      ],
+      "recommended_files": [
+        "docs/adoption-packs.md",
+        "templates/AUDIT_BACKLOG.md",
+        "templates/SECURITY_BASELINE.md"
+      ],
+      "optional_files": [
+        "protocols/maintenance/care-refactoring.md",
+        "protocols/review/post-task-code-review.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        "SECURITY.md"
+      ],
+      "skip_conditions": [
+        "No validation path exists"
+      ],
+      "validation_commands": [
+        "bash scripts/vibe-check.sh --hardening",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/vcp-adoption-assessment.md"
+      ],
+      "review_gate_requirement": "Run post-task review before merge.",
+      "next_safe_step": "Map dependencies and current validation path."
+    },
+    {
+      "id": "production",
+      "name": "Production Pack",
+      "use_when": [
+        "real users",
+        "public product"
+      ],
+      "do_not_use_when": [
+        "there is no running product yet"
+      ],
+      "recommended_files": [
+        "AI_INTAKE.md",
+        "templates/reports/security-review-scope.md",
+        "protocols/review/post-task-code-review.md",
+        "templates/reports/code-review-report.md",
+        "templates/SECURITY_OPERATIONS_BASELINE.md"
+      ],
+      "optional_files": [
+        "templates/INCIDENT_RECOVERY_RUNBOOK.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "skip_files": [
+        "SECURITY.md",
+        ".env",
+        "package.json",
+        "pyproject.toml",
+        ".github/workflows"
+      ],
+      "skip_conditions": [
+        "No release gate evidence exists",
+        "Independent review path is unavailable"
+      ],
+      "validation_commands": [
+        "bash scripts/vibe-check.sh --audit --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/vcp-adoption-assessment.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "Required before merge/release.",
+      "next_safe_step": "Lock review scope and release gate before modifications."
+    },
+    {
+      "id": "regulated",
+      "name": "Regulated / Payments / Personal Data Pack",
+      "use_when": [
+        "payments",
+        "personal data",
+        "compliance claims"
+      ],
+      "do_not_use_when": [
+        "toy demo only"
+      ],
+      "recommended_files": [
+        "templates/reports/security-review-scope.md",
+        "protocols/review/post-task-code-review.md",
+        "templates/reports/code-review-report.md",
+        "templates/SECURITY_OPERATIONS_BASELINE.md"
+      ],
+      "optional_files": [
+        "templates/INCIDENT_RECOVERY_RUNBOOK.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "skip_files": [
+        "SECURITY.md",
+        ".env"
+      ],
+      "skip_conditions": [
+        "Human review unavailable",
+        "Sensitive flow change lacks validation"
+      ],
+      "validation_commands": [
+        "bash scripts/vibe-check.sh --audit --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/security-review-scope.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "Required with independent review plus validation.",
+      "next_safe_step": "Document sensitive flows and stop conditions first."
+    },
+    {
+      "id": "shared-engine",
+      "name": "Shared Engine / Multi-product Pack",
+      "use_when": [
+        "shared engine across multiple products"
+      ],
+      "do_not_use_when": [
+        "disposable single product"
+      ],
+      "recommended_files": [
+        "AI_INTAKE.md",
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md",
+        "protocols/review/post-task-code-review.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "optional_files": [
+        "templates/AUDIT_BACKLOG.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "skip_files": [
+        "SECURITY.md",
+        ".env",
+        "package.json",
+        ".github/workflows"
+      ],
+      "skip_conditions": [
+        "Both product validation paths are not identified",
+        "Shared engine ownership is unclear"
+      ],
+      "validation_commands": [
+        "bash scripts/vibe-check.sh --audit --json",
+        "python3 -m vcp_cli benchmark run --scenario shared-engine-production"
+      ],
+      "expected_report_template": [
+        "templates/reports/vcp-adoption-assessment.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "Required for cross-product regression risk.",
+      "next_safe_step": "Create engine map and identify product-specific modules."
+    },
+    {
+      "id": "maintenance",
+      "name": "Maintenance Pack",
+      "use_when": [
+        "working code is hard to change"
+      ],
+      "do_not_use_when": [
+        "behavior change is required"
+      ],
+      "recommended_files": [
+        "protocols/maintenance/care-refactoring.md",
+        "templates/reports/refactoring-report.md",
+        "protocols/review/post-task-code-review.md"
+      ],
+      "optional_files": [
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        "SECURITY.md",
+        ".env"
+      ],
+      "skip_conditions": [
+        "No focused validation exists"
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/refactoring-report.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "Required after the refactoring slice.",
+      "next_safe_step": "Choose one small behavior-preserving refactor."
+    },
+    {
+      "id": "ui-ownership",
+      "name": "UI Ownership Pack",
+      "use_when": [
+        "pages own final component appearance"
+      ],
+      "do_not_use_when": [
+        "full redesign"
+      ],
+      "recommended_files": [
+        "protocols/maintenance/ui-refactoring.md",
+        "templates/reports/ui-refactoring-report.md",
+        "protocols/review/post-task-code-review.md"
+      ],
+      "optional_files": [
+        "docs/public-site-readiness.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        "SECURITY.md"
+      ],
+      "skip_conditions": [
+        "Accessibility behavior would change without validation"
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/ui-refactoring-report.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "Required after component extraction or ownership cleanup.",
+      "next_safe_step": "Pick one coherent UI ownership slice."
+    },
+    {
+      "id": "public-site",
+      "name": "Public Site Pack",
+      "use_when": [
+        "public docs or marketing pages"
+      ],
+      "do_not_use_when": [
+        "no public site exists"
+      ],
+      "recommended_files": [
+        "docs/public-site-readiness.md",
+        "docs/seo-ai-crawler-readiness.md",
+        "templates/public-site/README.md",
+        "llms.txt"
+      ],
+      "optional_files": [
+        "docs/site/publishing-checklist.md",
+        "docs/community-feedback.md"
+      ],
+      "merge_only_files": [
+        "templates/public-site/robots.txt",
+        "llms.txt"
+      ],
+      "skip_files": [
+        "SECURITY.md",
+        "package.json"
+      ],
+      "skip_conditions": [
+        "Visible content and structured data do not match"
+      ],
+      "validation_commands": [
+        "python3 scripts/check-newlines.py",
+        "python3 scripts/validate-links.sh"
+      ],
+      "expected_report_template": [
+        "templates/reports/vcp-adoption-assessment.md"
+      ],
+      "review_gate_requirement": "Use lighter review for meaningful docs/config changes.",
+      "next_safe_step": "Check trust links, canonical docs and publish checklist."
+    },
+    {
+      "id": "post-task-review",
+      "name": "Post-task Review Pack",
+      "use_when": [
+        "active diff needs acceptance"
+      ],
+      "do_not_use_when": [
+        "full hardening scope is still unresolved"
+      ],
+      "recommended_files": [
+        "protocols/review/post-task-code-review.md",
+        "commands/loop-code-review.md",
+        "templates/prompts/loop-code-review.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "optional_files": [
+        "AI_INTAKE.md"
+      ],
+      "merge_only_files": [],
+      "skip_files": [
+        "AGENTS.md",
+        "PROJECT_MAP.md"
+      ],
+      "skip_conditions": [
+        "Validation is red"
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli review plan --json",
+        "python3 -m vcp_cli check --fast"
+      ],
+      "expected_report_template": [
+        "templates/reports/code-review-report.md"
+      ],
+      "review_gate_requirement": "This pack is the review gate itself.",
+      "next_safe_step": "Inspect git status, diff and validation output."
+    }
+  ]
+}

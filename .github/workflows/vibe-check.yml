@@ -15,6 +15,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -39,6 +43,30 @@ jobs:
 
       - name: Vibe check audit JSON
         run: bash scripts/vibe-check.sh --audit --json
+
+      - name: CLI help
+        run: python3 -m vcp_cli --help
+
+      - name: CLI version
+        run: python3 -m vcp_cli version
+
+      - name: CLI route smoke
+        run: python3 -m vcp_cli route --profile production --json
+
+      - name: CLI adopt smoke
+        run: python3 -m vcp_cli adopt --pack production --dry-run --json
+
+      - name: CLI review smoke
+        run: python3 -m vcp_cli review plan --json
+
+      - name: Manifest validation
+        run: python3 -m vcp_cli manifest validate
+
+      - name: Benchmark validation
+        run: python3 -m vcp_cli benchmark run
+
+      - name: Score JSON
+        run: python3 -m vcp_cli score --json
 
       - name: Todo app starter tests
         run: npm test --prefix examples/todo-app-starter
@@ -73,8 +101,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Script tests
-        run: bash scripts/tests/test-vibe-check-basic.sh
+        run: |
+          bash scripts/tests/test-vibe-check-basic.sh
+          bash scripts/tests/test-vcp-cli.sh

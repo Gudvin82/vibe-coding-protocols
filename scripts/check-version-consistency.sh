@@ -32,6 +32,8 @@ check_contains CHANGELOG.md "$REPO_VERSION" "CHANGELOG entry"
 check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/versioning repo version"
 check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
+check_contains vcp.manifest.json "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
+check_contains vcp.manifest.json "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
 
 if [[ -f package.json ]]; then
   check_contains package.json "\"version\": \"${REPO_VERSION#v}\"" "package.json version"
@@ -71,6 +73,7 @@ stale_versions=(
   "v0.4.1"
   "v0.4.2"
   "v0.4.3"
+  "v0.4.4"
 )
 
 entry_files=(

@@ -1,6 +1,6 @@
 # AI Intake
 
-Read this file before evaluating or applying Vibe Coding Protocols to a target repository.
+Read this file before evaluating or applying VCP to a target repository.
 
 ## Do not do this
 
@@ -48,7 +48,6 @@ Read this file before evaluating or applying Vibe Coding Protocols to a target r
 ## Minimum inspection before judgment
 
 Do not say “I evaluated VCP” unless you inspected at least:
-
 - `README.md`
 - `START_HERE.md`
 - `AI_INTAKE.md`
@@ -61,14 +60,6 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - `docs/security-tooling-landscape.md` if security or production is involved
 - `docs/public-site-readiness.md` if public website or docs are involved
 - `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
-
-Relevant route protocols may include:
-
-- Starter Protocol
-- Hardening Protocol
-- Maintenance Refactoring
-- UI Component Ownership
-- Extended Protocol
 
 ## If uncertain
 
@@ -90,11 +81,3 @@ Confidence:
 Next action:
 Post-task review requirement:
 ```
-
-## Companion files
-
-- [START_HERE.md](./START_HERE.md)
-- [docs/target-project-classifier.md](./docs/target-project-classifier.md)
-- [docs/adoption-packs.md](./docs/adoption-packs.md)
-- [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
-- [templates/reports/vcp-adoption-assessment.md](./templates/reports/vcp-adoption-assessment.md)

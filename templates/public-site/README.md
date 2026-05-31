@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_SITE_TEMPLATE_PACK -->
-<!-- vcp-version: v0.4.4 -->
+<!-- vcp-version: v0.5.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Site Templates
@@ -19,3 +19,9 @@ Included templates:
 - `schema-org.software-source-code.jsonld`
 - `schema-org.breadcrumb-list.jsonld`
 - `schema-org.faq-page.jsonld`
+
+Related docs:
+- [../../docs/public-site-readiness.md](../../docs/public-site-readiness.md)
+- [../../docs/seo-ai-crawler-readiness.md](../../docs/seo-ai-crawler-readiness.md)
+- [../../docs/route-map.md](../../docs/route-map.md)
+- [../../docs/demo.md](../../docs/demo.md)

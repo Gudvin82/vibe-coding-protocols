@@ -1,36 +1,19 @@
 # Community Feedback
 
-## Current feedback channels
+## Current channels
 
-- GitHub Issues for bugs, docs problems and script failures;
-- Pull Requests for improvements;
-- GitHub Discussions if enabled;
-- if Discussions are not enabled yet, maintainers should enable them in repository settings.
+- GitHub Issues for bugs, broken links, unsafe docs and script failures
+- Pull Requests for concrete improvements
+- GitHub Discussions for ideas, Q&A and Show and Tell if enabled
+- SECURITY.md for sensitive reports
 
-## Suggested Discussions categories
+## Good first issues
 
-- Show and Tell
-- Q&A
-- Ideas
-- Protocol Feedback
-- Integrations
-- Case Studies
-
-## Issues vs Discussions
-
-Use Issues for:
-- reproducible bugs;
-- broken links;
-- script failures;
-- unsafe docs;
-- version drift.
-
-Use Discussions for:
-- use cases;
-- proposals;
-- community examples;
-- adoption questions;
-- integration feedback.
+- clarify a route decision
+- improve one benchmark scenario
+- tighten one example or report template
+- improve one docs index page
+- add one safer validation note
 
 ## Safety note
 

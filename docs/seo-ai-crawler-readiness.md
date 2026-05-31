@@ -1,38 +1,14 @@
 # SEO and AI Crawler Readiness
 
-This document is about readiness,
-not guaranteed ranking.
-
-## AI crawler readiness
-
-A small `llms.txt` file can help point LLM/AI crawlers to authoritative entrypoints.
-It should:
-- stay short;
-- list canonical docs;
-- avoid stale or hidden content;
-- be updated when routes change.
-
-Do not claim guaranteed indexing,
+This route prepares public docs and product pages for search and AI crawlers.
+It does not guarantee indexing,
 ranking
-or AI ingestion.
+or AI visibility.
 
-## Search readiness
+## v0.5.0 focus
 
-Recommended checks:
-- canonical URLs are correct;
-- sitemap includes public docs;
-- structured data matches visible content;
-- page titles and descriptions are current;
-- FAQ or HowTo schema is only used when the visible page actually contains that content.
-
-## Public docs trust
-
-For AI-assisted delivery docs,
-trust matters more than hype.
-Make sure public docs expose:
-- version;
-- release notes;
-- security scope;
-- limitations;
-- source repository;
-- contact or disclosure path.
+- keep `llms.txt` current
+- link CLI docs and route map
+- link manifests and benchmark docs where useful
+- keep visible content aligned with schema and trust claims
+- keep release notes current

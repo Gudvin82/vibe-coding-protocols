@@ -1,33 +1,43 @@
-# Python Wrapper Skeleton
+# Python CLI Surface
 
-VCP also includes an experimental Python entrypoint skeleton.
+VCP now includes a real local Python CLI surface.
 
 Files:
 - `pyproject.toml`
-- `vcp_cli/__main__.py`
+- `vcp_cli/`
+- `bin/vcp`
 
 ## Purpose
 
-This is preparation for a future Python-friendly entrypoint.
-It currently delegates to `scripts/vibe-check.sh`.
+This is the local product layer for VCP.
+It keeps script-first workflows intact while adding:
+- route selection;
+- adoption dry-run;
+- review helper output;
+- score output;
+- manifest validation;
+- benchmark validation.
 
 Examples:
 
 ```bash
-python -m vcp_cli doctor
-python -m vcp_cli init-report
-python -m vcp_cli starter
-python -m vcp_cli route production
-python -m vcp_cli score --json
-python -m vcp_cli manifest validate
+python3 -m vcp_cli version
+python3 -m vcp_cli doctor
+python3 -m vcp_cli route --profile production
+python3 -m vcp_cli adopt --pack shared-engine --dry-run
+python3 -m vcp_cli review plan
+python3 -m vcp_cli score --json
+python3 -m vcp_cli manifest validate
+python3 -m vcp_cli benchmark run
 ```
 
 ## Scope
 
-`route`, `adopt`, `score` and `manifest validate` are lightweight convenience commands. They do not spawn or run external AI reviewers.
+- local and repo-first;
+- no external AI API calls;
+- no destructive apply mode by default;
+- not published to PyPI yet;
+- no promise of Windows-native parity yet.
 
-
-- experimental;
-- not published to PyPI;
-- no promise of Windows-native parity yet;
-- intended as a lightweight wrapper, not a second implementation.
+The CLI is real in `v0.5.0`,
+but it is still intentionally conservative.

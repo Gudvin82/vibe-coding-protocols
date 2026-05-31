@@ -24,6 +24,10 @@ required_files=(
   docs/community-feedback.md
   docs/target-project-classifier.md
   docs/adoption-packs.md
+  docs/route-map.md
+  docs/demo.md
+  docs/demo-output.md
+  docs/release-checklist.md
   docs/community-issues.md
   docs/awesome-vibe-coding-pr.md
   docs/multi-agent-workflows.md
@@ -50,6 +54,11 @@ required_files=(
   docs/protocol-index.md
   docs/public-site-readiness.md
   docs/seo-ai-crawler-readiness.md
+  docs/site/README.md
+  docs/site/navigation.md
+  docs/site/github-pages.md
+  docs/site/information-architecture.md
+  docs/site/publishing-checklist.md
   docs/vibe-check-doctor.md
   docs/vibe-check-init-report.md
   docs/architecture-map.md
@@ -68,6 +77,7 @@ required_files=(
   docs/release-v0.4.2.md
   docs/release-v0.4.3.md
   docs/release-v0.4.4.md
+  docs/release-v0.5.0.md
   protocols/review/README.md
   protocols/review/post-task-code-review.md
   commands/loop-code-review.md
@@ -86,17 +96,38 @@ required_files=(
   scripts/check-version-consistency.sh
   scripts/check-ide-rules-consistency.sh
   scripts/check-newlines.py
+  scripts/tests/test-vcp-cli.sh
   scripts/init-project.example.sh
   package.json
   pyproject.toml
   comparison.md
   llms.txt
+  vcp.manifest.json
+  protocols.manifest.json
+  adoption-packs.manifest.json
+  commands.manifest.json
+  reports.manifest.json
+  benchmarks.manifest.json
+  bin/vcp
   bin/vibe-check.js
   vcp_cli/__main__.py
+  vcp_cli/cli.py
+  vcp_cli/version.py
+  vcp_cli/doctor.py
+  vcp_cli/check.py
+  vcp_cli/route.py
+  vcp_cli/adopt.py
+  vcp_cli/score.py
+  vcp_cli/manifest.py
+  vcp_cli/benchmark.py
+  vcp_cli/review.py
+  vcp_cli/demo.py
+  vcp_cli/utils.py
   vscode-extension/package.json
   vscode-extension/README.md
   vscode-extension/src/extension.ts
   assets/social-preview.svg
+  assets/demo/README.md
   templates/ARCHITECTURE_MAP.md
   templates/prompts/evaluate-vcp-for-my-repo.md
   templates/reports/vcp-adoption-assessment.md
@@ -115,6 +146,17 @@ required_files=(
   examples/adoption/dual-production-engine/target-profile.md
   examples/adoption/dual-production-engine/recommended-pack.md
   examples/adoption/dual-production-engine/adoption-assessment.example.md
+  benchmarks/ai-adoption/README.md
+  benchmarks/ai-adoption/expected/README.md
+  benchmarks/ai-adoption/scenarios/new-project.json
+  benchmarks/ai-adoption/scenarios/existing-mvp.json
+  benchmarks/ai-adoption/scenarios/production-saas.json
+  benchmarks/ai-adoption/scenarios/regulated-payments-data.json
+  benchmarks/ai-adoption/scenarios/shared-engine-production.json
+  benchmarks/ai-adoption/scenarios/maintenance-refactor.json
+  benchmarks/ai-adoption/scenarios/ui-ownership.json
+  benchmarks/ai-adoption/scenarios/public-site.json
+  benchmarks/ai-adoption/scenarios/post-task-review.json
   examples/bad-to-good/README.md
   examples/bad-to-good/maintenance-refactor-before.md
   examples/bad-to-good/maintenance-refactor-after.md
@@ -123,7 +165,18 @@ required_files=(
   examples/bad-to-good/hardening-before.md
   examples/bad-to-good/hardening-after.md
   case-studies/synthetic-before-after/README.md
+  case-studies/sanitized/README.md
+  case-studies/sanitized/redaction-checklist.md
+  case-studies/sanitized/case-study-template.md
+  case-studies/sanitized/ai-skim-failure-to-full-hardening/README.md
+  case-studies/sanitized/shared-engine-production/README.md
+  case-studies/sanitized/post-task-review-found-critical/README.md
   case-studies/redaction-guide.md
+  .github/ISSUE_TEMPLATE/bug_report.md
+  .github/ISSUE_TEMPLATE/docs_feedback.md
+  .github/ISSUE_TEMPLATE/unsafe_guidance.md
+  .github/ISSUE_TEMPLATE/integration_request.md
+  .github/ISSUE_TEMPLATE/case_study_submission.md
   .github/ISSUE_TEMPLATE/share-your-agents.yml
 )
 
@@ -135,9 +188,13 @@ required_dirs=(
   agents
   examples
   examples/adoption
+  benchmarks
+  benchmarks/ai-adoption
+  benchmarks/ai-adoption/scenarios
   checklists
   docs
   docs/integrations
+  docs/site
   protocols/review
   scripts
   assets
@@ -149,6 +206,7 @@ required_dirs=(
   examples/legacy-ai-mess-vibe
   examples/bad-to-good
   examples/review
+  case-studies/sanitized
   )
 
 for file in "${required_files[@]}"; do
@@ -169,5 +227,7 @@ fi
 bash scripts/check-version-consistency.sh
 bash scripts/check-ide-rules-consistency.sh
 python3 scripts/check-newlines.py
+python3 -m vcp_cli manifest validate
+python3 -m vcp_cli benchmark run
 
 echo "Toolkit structure check passed."

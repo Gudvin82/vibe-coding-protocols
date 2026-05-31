@@ -2,160 +2,105 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.4.4-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.0-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
-[![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
-[![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
-[![Latest Release](https://img.shields.io/github/v/release/Gudvin82/vibe-coding-protocols)](https://github.com/Gudvin82/vibe-coding-protocols/releases)
+[![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
+[![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
+[![Manifests](https://img.shields.io/badge/manifests-v1-blue)](./vcp.manifest.json)
+[![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
 
 **Это не коллекция промптов.**
 
-VCP — это operating layer для AI-assisted разработки:
-маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
+VCP — это controlled AI delivery framework для AI-assisted разработки.
+Он дает маршруты,
+protocols,
+adoption packs,
+validation,
+review gates,
+manifests,
+benchmarks
+и project memory,
+чтобы AI не менял код хаотично.
 
-Пакет репозитория: `v0.4.4`
+Пакет репозитория: `v0.5.0`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
-## Отдай этот repo своей AI IDE
+## Отдаешь репозиторий AI-агенту?
 
-Вставь это в Claude Code, Codex, Cursor, Windsurf или Copilot:
-
-```text
-Study this repository as a workflow toolkit.
-
-Do not write code yet.
-
-First choose my route:
-Lite, Starter, Hardening, Maintenance Refactoring, UI Component Ownership or Extended.
-
-Then return:
-1. files to copy first;
-2. files not to copy;
-3. first validation command;
-4. underestimated risks;
-5. next smallest safe step.
-```
-
-## Когда это использовать
-
-- когда у тебя уже есть AI-generated code и нужно понять, что небезопасно до показа клиенту;
-- когда ты стартуешь новый vibe-coded проект и хочешь минимальные rails для архитектуры, безопасности и релиза;
-- когда проект уже работает, но нужен узкий refactoring pass до следующей большой фичи;
-- когда frontend работает, но styling ownership и component boundaries начали расползаться;
-- когда ты solo builder и хочешь легкий процесс, а не корпоративную бюрократию;
-- когда ты small team / CTO и задаешь правила, как AI может безопасно менять код.
-
-## Быстрый старт
-
-1. Открой [START_HERE.md](./START_HERE.md).
-2. Выбери маршрут: Lite, Starter, Hardening, Maintenance Refactoring, UI Component Ownership или Extended.
-3. Для нового проекта скопируй `templates/AGENTS.md` как `AGENTS.md` и `templates/PROJECT_MAP.md`.
-4. Если поверхностей несколько, добавь `ARCHITECTURE_MAP.md` до генерации кода.
-5. Запусти `bash scripts/vibe-check.sh --starter` или `--audit`.
-
-Для уже работающего проекта:
-- если нужна production или security readiness проверка, используй Hardening;
-- если код работает, но становится сложным для поддержки, используй Maintenance Refactoring;
-- если главная проблема во frontend styling ownership и component chaos, используй UI Component Ownership.
-
-Уже работает, но становится трудно менять?
-- Maintenance Refactoring: `/care-refactoring`
-- UI drift или styling chaos: `/ui-refactoring`
-
-## Отдаешь VCP AI-агенту?
-
-Попроси его сначала прочитать [AI_INTAKE.md](./AI_INTAKE.md).
-
-Не проси агента просто оценить repo только по `README.md`.
-Пусть он сначала:
-- классифицирует проект;
-- выбирает маршрут;
-- выбирает adoption pack;
-- перечисляет, что копировать и что сознательно пропустить.
-
-Готовый prompt:
+Начинай с [AI_INTAKE.md](./AI_INTAKE.md), а не с поверхностного чтения `README.md`.
+If agent rules are needed, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
+Потом смотри:
+- [START_HERE.md](./START_HERE.md)
+- [docs/protocol-index.md](./docs/protocol-index.md)
+- [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
 
-## Рекомендуемая установка: review-first
+## Попробуй product layer
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/scripts/init-minimal.sh -o init-minimal.sh
-curl -fsSL https://raw.githubusercontent.com/Gudvin82/vibe-coding-protocols/main/SHA256SUMS -o SHA256SUMS
-less init-minimal.sh
-bash init-minimal.sh --starter
+python3 -m vcp_cli route --profile shared-engine
+python3 -m vcp_cli adopt --pack shared-engine --dry-run
+python3 -m vcp_cli review plan
+python3 -m vcp_cli score
+python3 -m vcp_cli benchmark run
 ```
 
-`curl | bash` не показывается как основной путь.
-Для real projects используй review-first setup.
-Дополнительные варианты установки и checksum notes:
-[docs/advanced-install.md](./docs/advanced-install.md).
+## С чего начать
 
-## Что важно помнить
+| Ситуация | Куда идти |
+|---|---|
+| Новый проект или идея | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
+| Уже есть AI-generated MVP | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
+| Production, regulated или shared-engine repo | [AI_INTAKE.md](./AI_INTAKE.md) + [adoption packs](./docs/adoption-packs.md) |
+| Код работает, но его трудно менять | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
+| Расползся UI styling ownership | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
+| Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
+| Публичный сайт или docs | [Public Site Readiness](./docs/public-site-readiness.md) |
 
-- root `AGENTS.md` настраивает этот репозиторий;
-- в свой проект копируй `templates/AGENTS.md` как `AGENTS.md`;
-- `vibe-check` — это readiness signal, а не security certification;
-- `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
-- GitHub остается canonical source;
-- wrappers и VS Code extension пока только experimental skeletons;
-- AI intake слой в `v0.4.4` помогает не перепутать Starter, Hardening и Maintenance на существующих проектах;
-- после значимых AI-изменений запускай Post-Task Code Review Gate перед следующей задачей;
-- maintenance refactoring не обязателен на старте MVP и нужен как post-MVP или recurring pass.
+## Что стало product-grade в v0.5.0
 
-## CLI, integrations и public site
-
-- [docs/cli.md](./docs/cli.md)
-- [docs/integrations/README.md](./docs/integrations/README.md)
-- [docs/ide-plugins.md](./docs/ide-plugins.md)
-- [AI_INTAKE.md](./AI_INTAKE.md)
-- [docs/target-project-classifier.md](./docs/target-project-classifier.md)
-- [docs/adoption-packs.md](./docs/adoption-packs.md)
-- [docs/public-site-readiness.md](./docs/public-site-readiness.md)
-- [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
-- [docs/ecosystem-references.md](./docs/ecosystem-references.md)
-- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
-- [docs/protocol-index.md](./docs/protocol-index.md)
-- [protocols/review/README.md](./protocols/review/README.md)
-- [commands/loop-code-review.md](./commands/loop-code-review.md)
-- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)
+- единый локальный CLI surface
+- machine-readable manifests
+- route chooser
+- adoption dry-run planner
+- helper для post-task review gate
+- heuristic score report
+- AI adoption benchmark scenarios
+- demo output
+- sanitized case-study structure
 
 ## Новое: Post-Task Code Review Gate
 
 После значимых AI-generated изменений не начинай сразу следующую фичу.
 Запусти `/loop-code-review` или используй Post-Task Code Review Protocol:
-проверь активный diff,
+посмотри активный diff,
 исправь actionable findings,
-перезапусти validation
+прогони validation
 и принимай состояние только после green review плюс validation.
-
-## CLI status
-
-Сейчас VCP в первую очередь script-first. Единый `vcp` CLI планируется; см. [docs/cli.md](./docs/cli.md) для текущих стабильных entrypoints и статуса wrapper.
 
 ## Что VCP не делает
 
-- не security scanner;
+- не hacking toolkit;
+- не exploit framework;
 - не pentest suite;
-- не plugin marketplace;
-- не замена developer, security или legal review.
+- не bug bounty automation suite;
+- не red-team operator;
+- не DDoS, RAT, phishing или payload toolkit;
+- не production security certification;
+- не legal compliance certification;
+- не замена developers, tests, security review, legal review или human judgment.
 
-## Полезные ссылки
+## Ключевые ссылки
 
-- [docs/lite-adoption-path.md](./docs/lite-adoption-path.md)
-- [docs/architecture-map.md](./docs/architecture-map.md)
-- [docs/hardening-thresholds.md](./docs/hardening-thresholds.md)
-- [docs/update-copied-artifacts.md](./docs/update-copied-artifacts.md)
-- [docs/prompt-drift-control.md](./docs/prompt-drift-control.md)
-- [docs/windows.md](./docs/windows.md)
-- [SECURITY.md](./SECURITY.md)
-- [docs/security-methodology-scope.md](./docs/security-methodology-scope.md)
-- [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
-- [docs/community.md](./docs/community.md)
-- [docs/mirrors.md](./docs/mirrors.md)
-- [protocols/maintenance/README.md](./protocols/maintenance/README.md)
-- [commands/care-refactoring.md](./commands/care-refactoring.md)
-- [commands/ui-refactoring.md](./commands/ui-refactoring.md)
-- GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
-- [docs/comparison.md](./docs/comparison.md)
-- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)
+- [AI_INTAKE.md](./AI_INTAKE.md)
+- [docs/cli.md](./docs/cli.md)
+- [docs/route-map.md](./docs/route-map.md)
+- [docs/protocol-index.md](./docs/protocol-index.md)
+- [docs/adoption-packs.md](./docs/adoption-packs.md)
+- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
+- [docs/public-site-readiness.md](./docs/public-site-readiness.md)
+- [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
+- [docs/community-feedback.md](./docs/community-feedback.md)
+- [docs/release-v0.5.0.md](./docs/release-v0.5.0.md)
+- [docs/known-limitations.md](./docs/known-limitations.md)

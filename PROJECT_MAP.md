@@ -1,109 +1,50 @@
 <!-- vcp-artifact: PROJECT_MAP_REPOSITORY -->
-<!-- vcp-version: v0.4.4 -->
+<!-- vcp-version: v0.5.0 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
 
 ## Overview
 
-- Vibe Coding Protocols is a markdown-first toolkit for AI-assisted delivery.
+- Vibe Coding Protocols is a controlled AI delivery framework.
 - Main outcome: safer routing,
-  planning,
-  hardening,
-  maintenance refactoring,
-  public-site readiness
-  and release discipline.
-- Current stage: public toolkit,
-  active maintenance,
-  review-gate expansion
-  and protocol expansion.
+adoption,
+hardening,
+maintenance,
+review gates,
+public-site readiness
+and release discipline.
 
 ## Entrypoints
 
 - README: `README.md`
+- intake: `AI_INTAKE.md`
 - route chooser: `START_HERE.md`
 - docs map: `docs/README.md`
 - protocol index: `docs/protocol-index.md`
-- command index: `commands/README.md`
-- main validation script: `scripts/vibe-check.sh`
-- current CLI story: `docs/cli.md`
+- CLI docs: `docs/cli.md`
+- local CLI: `python3 -m vcp_cli`
+
+## Product layer
+
+- CLI modules: `vcp_cli/`
+- manifests: `*.manifest.json`
+- benchmarks: `benchmarks/ai-adoption/`
+- demo docs: `docs/demo.md`, `docs/demo-output.md`
+- route map: `docs/route-map.md`
 
 ## Main routes
 
-- Lite: `docs/lite-adoption-path.md`
-- Starter: `protocols/ai-project-starter-protocol.md`
-- Hardening: `protocols/ai-project-hardening-protocol.md`
-- Extended: `protocols/ai-project-extended-protocol.md`
-- Maintenance refactoring: `protocols/maintenance/care-refactoring.md`
-- UI component ownership: `protocols/maintenance/ui-refactoring.md`
-- post-task review: `protocols/review/post-task-code-review.md`
-
-## Protocol support files
-
-- maintenance route index: `protocols/maintenance/README.md`
-- care command: `commands/care-refactoring.md`
-- UI command: `commands/ui-refactoring.md`
-- refactoring report template: `templates/reports/refactoring-report.md`
-- UI refactoring report template: `templates/reports/ui-refactoring-report.md`
-- code review report template: `templates/reports/code-review-report.md`
-- review prompt template: `templates/prompts/loop-code-review.md`
-- security review scope template: `templates/reports/security-review-scope.md`
-- protocol metadata template: `templates/protocol-pack-metadata.yml`
-
-## Docs and references
-
-- versioning: `docs/versioning.md`
-- AI intake first read: `AI_INTAKE.md`
-- target project classifier: `docs/target-project-classifier.md`
-- adoption packs: `docs/adoption-packs.md`
-- adoption prompt: `templates/prompts/evaluate-vcp-for-my-repo.md`
-- adoption assessment report: `templates/reports/vcp-adoption-assessment.md`
-- release notes: `docs/release-v0.4.4.md`
-- release readiness: `docs/release-readiness.md`
-- hardening thresholds: `docs/hardening-thresholds.md`
-- architecture planning: `docs/architecture-map.md`
-- CLI and wrappers: `docs/cli.md`, `docs/npm-wrapper.md`, `docs/python-wrapper.md`
-- integrations: `docs/integrations/README.md`
-- plugin honesty: `docs/ide-plugins.md`
-- boundary honesty: `docs/boundary-linting.md`
-- public-site readiness: `docs/public-site-readiness.md`, `docs/seo-ai-crawler-readiness.md`
-- ecosystem references: `docs/ecosystem-references.md`
-- defensive security positioning: `docs/security-tooling-landscape.md`
-
-## Scripts and checks
-
-- version consistency: `scripts/check-version-consistency.sh`
-- newline guard: `scripts/check-newlines.py`
-- toolkit structure: `scripts/check-toolkit.sh`
-- links: `scripts/validate-links.sh`
-- audit signal: `bash scripts/vibe-check.sh --audit --json`
-- local hooks: `scripts/install-hooks.sh`
-
-## Active / deferred surfaces
-
-- active now: starter,
-  hardening,
-  extended,
-  maintenance,
-  integration docs,
-  public-site docs,
-  templates,
-  scripts
-  and CI;
-- deferred until later: mature unified CLI,
-  mature IDE plugins,
-  AST boundary linting,
-  published wrappers;
-- not in scope: GUI,
-  stack lock-in,
-  offensive security tooling,
-  guaranteed security claims.
+- Starter
+- Hardening
+- Maintenance Refactoring
+- UI Component Ownership
+- Post-Task Code Review
+- Public Site Readiness
 
 ## Known risks
 
-- public docs must stay sanitized and trust-disciplined;
-- protocol sprawl must stay indexed and route-driven;
-- current tooling is intentionally lightweight and must not be overclaimed;
-- post-task review quality depends on independent reviewer quality and validation coverage;
-- external reviewers may judge raw readability as a trust signal,
-  so markdown formatting must stay disciplined.
+- no external AI reviewer orchestration in this release
+- no mature IDE plugin product yet
+- no hosted docs publishing by default
+- public docs must stay sanitized and trust-disciplined
