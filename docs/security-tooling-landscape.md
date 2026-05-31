@@ -8,7 +8,8 @@
 - incident recovery templates;
 - security baseline templates;
 - responsible disclosure and scope discipline;
-- route escalation into Hardening or Extended protocols.
+- route escalation into Hardening or Extended protocols;
+- post-task review as a defensive acceptance gate for meaningful AI-generated changes.
 
 ## VCP does not
 
@@ -19,9 +20,14 @@
 - malware analysis;
 - DDoS, RAT or phishing tooling;
 - production security certification;
-- legal compliance certification.
+- legal compliance certification;
+- automatic independent AI reviewer execution.
 
 ## When to use external tools
+
+Use external tools for:
+
+Post-task review should complement these tools, not pretend to replace them.
 
 Use external tools for:
 - SAST or DAST;

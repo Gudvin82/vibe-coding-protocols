@@ -7,6 +7,7 @@
 | Hardening | Existing AI-generated code | [ai-project-hardening-protocol.md](./ai-project-hardening-protocol.md) |
 | Maintenance Refactoring | Existing project works but is becoming risky to extend | [maintenance/care-refactoring.md](./maintenance/care-refactoring.md) |
 | UI Component Ownership | Existing frontend needs styling ownership cleanup | [maintenance/ui-refactoring.md](./maintenance/ui-refactoring.md) |
+| Post-Task Code Review | Active changes need acceptance before moving on | [review/post-task-code-review.md](./review/post-task-code-review.md) |
 | Extended | Public, client-facing or production-bound work | [ai-project-extended-protocol.md](./ai-project-extended-protocol.md) |
 | Starter to Hardening Bridge | Moving from MVP to audit | [starter-to-hardening-bridge.md](./starter-to-hardening-bridge.md) |
 
@@ -18,3 +19,5 @@ If an AI agent is evaluating which route to use, start with
 [../AI_INTAKE.md](../AI_INTAKE.md),
 [../docs/target-project-classifier.md](../docs/target-project-classifier.md)
 and [../docs/adoption-packs.md](../docs/adoption-packs.md).
+
+Use Post-Task Code Review after meaningful AI-generated changes before the next feature, merge or release.

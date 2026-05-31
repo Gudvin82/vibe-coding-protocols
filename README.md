@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.4.3-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.4.4-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![License](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -14,7 +14,7 @@
 VCP is an operating layer for AI-assisted delivery:
 routes, Memory Bank files, stop conditions, checks, hardening, incident recovery and release gates.
 
-Repository package: `v0.4.3`
+Repository package: `v0.4.4`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -196,6 +196,15 @@ Core memory files used across the toolkit:
 This repository runs VCP checks on itself.
 See [docs/self-dogfooding.md](./docs/self-dogfooding.md).
 
+## New: Post-Task Code Review Gate
+
+After meaningful AI-generated changes, do not immediately start the next feature.
+Run `/loop-code-review` or use the Post-Task Code Review Protocol: review active git changes, fix actionable findings, run validation, and accept only after review plus validation are green.
+
+## CLI status
+
+VCP is currently script-first. A unified `vcp` CLI is planned; see [docs/cli.md](./docs/cli.md) for current stable entrypoints and experimental wrapper status.
+
 ## Vibe-check
 
 `vibe-check` is a readiness signal.
@@ -242,15 +251,15 @@ Short version:
 
 If auth, payments, personal data or public exposure are involved, do not claim production readiness without Extended review.
 
-## New in v0.4.3: AI Intake and Adoption Accuracy
+## New in v0.4.4: Post-Task Code Review Gate
 
-`v0.4.3` adds an explicit AI intake and adoption layer so agents classify the target project before judging or applying VCP:
-- a first-read [AI_INTAKE.md](./AI_INTAKE.md);
-- target routing in [docs/target-project-classifier.md](./docs/target-project-classifier.md);
-- adoption packs in [docs/adoption-packs.md](./docs/adoption-packs.md);
-- a copy-paste intake prompt in [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md);
-- a structured adoption report in [templates/reports/vcp-adoption-assessment.md](./templates/reports/vcp-adoption-assessment.md);
-- a synthetic shared-engine production example in [examples/adoption/dual-production-engine/README.md](./examples/adoption/dual-production-engine/README.md).
+`v0.4.4` adds a first-class post-task review gate so meaningful AI-generated changes are reviewed before the next feature, merge or release:
+- a dedicated review family in [protocols/review/README.md](./protocols/review/README.md);
+- the core [Post-Task Code Review Protocol](./protocols/review/post-task-code-review.md);
+- the operational command doc [commands/loop-code-review.md](./commands/loop-code-review.md);
+- the reusable prompt in [templates/prompts/loop-code-review.md](./templates/prompts/loop-code-review.md);
+- the structured report in [templates/reports/code-review-report.md](./templates/reports/code-review-report.md);
+- synthetic review examples in [examples/review/README.md](./examples/review/README.md).
 
 ## Architecture and planning
 
@@ -301,6 +310,9 @@ See [docs/windows.md](./docs/windows.md).
 - [docs/seo-ai-crawler-readiness.md](./docs/seo-ai-crawler-readiness.md)
 - [docs/ecosystem-references.md](./docs/ecosystem-references.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
+- [protocols/review/README.md](./protocols/review/README.md)
+- [commands/loop-code-review.md](./commands/loop-code-review.md)
+- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)
 
 ## Examples and case studies
 
@@ -340,4 +352,4 @@ See:
 
 ## Current release notes
 
-- [docs/release-v0.4.3.md](./docs/release-v0.4.3.md)
+- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)

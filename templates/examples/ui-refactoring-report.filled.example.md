@@ -1,5 +1,5 @@
 <!-- vcp-artifact: UI_REFACTORING_REPORT_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.4.3 -->
+<!-- vcp-version: v0.4.4 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled UI Refactoring Report Example

@@ -14,7 +14,8 @@ Vibe Coding Protocols is intentionally lightweight.
 - content validation is heuristic;
 - wrappers and VS Code extension are experimental skeletons;
 - no deep AST or boundary linter yet;
-- no mature plugin product yet.
+- no mature plugin product yet;
+- AI post-task review is still only as strong as reviewer independence and validation coverage.
 
 ## What this means in practice
 

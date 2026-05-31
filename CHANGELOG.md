@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.4.4
+
+- Added a first-class Post-Task Code Review protocol family and `/loop-code-review`
+- Added independent-review prompt and code-review report templates
+- Added synthetic review examples for acceptance, no-actionable-findings and rejected-finding cases
+- Integrated post-task review into AI intake, adoption packs, protocol indexes and route guidance
+- Added lightweight `vcp_cli` route, adopt, score and manifest review-gate surfaces
+
 ## v0.4.3
 
 - Added `AI_INTAKE.md` as the first-read file for agent evaluation and adoption

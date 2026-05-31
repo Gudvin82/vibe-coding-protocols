@@ -61,6 +61,7 @@ Optional files:
 
 - `ARCHITECTURE_MAP.md`
 - Maintenance Refactoring if the code is already hard to change
+- Post-Task Code Review before merge
 
 Validation:
 
@@ -104,6 +105,7 @@ Optional files:
 Validation:
 
 - `bash scripts/vibe-check.sh --audit --json`
+- `protocols/review/post-task-code-review.md` before merge or release
 - targeted tests and release gate evidence
 
 Final report expectation:
@@ -141,6 +143,7 @@ Warnings:
 Validation:
 
 - hardening checks plus explicit human review
+- independent post-task review plus validation before release
 
 Final report expectation:
 
@@ -172,6 +175,7 @@ Recommended files:
 
 Special requirements:
 
+- require post-task review for cross-product regression risk;
 - identify the common engine;
 - identify product-specific modules;
 - identify shared data model;
@@ -216,7 +220,8 @@ Optional files:
 Validation:
 
 - focused tests;
-- build, lint or route-specific checks
+- build, lint or route-specific checks;
+- post-task review after refactoring
 
 Final report expectation:
 
@@ -252,7 +257,8 @@ Validation:
 
 - typecheck;
 - lint;
-- component or browser checks as appropriate
+- component or browser checks as appropriate;
+- post-task review after component extraction
 
 Final report expectation:
 

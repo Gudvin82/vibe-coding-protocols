@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP_REPOSITORY -->
-<!-- vcp-version: v0.4.3 -->
+<!-- vcp-version: v0.4.4 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
@@ -14,7 +14,8 @@
   public-site readiness
   and release discipline.
 - Current stage: public toolkit,
-  active maintenance
+  active maintenance,
+  review-gate expansion
   and protocol expansion.
 
 ## Entrypoints
@@ -35,6 +36,7 @@
 - Extended: `protocols/ai-project-extended-protocol.md`
 - Maintenance refactoring: `protocols/maintenance/care-refactoring.md`
 - UI component ownership: `protocols/maintenance/ui-refactoring.md`
+- post-task review: `protocols/review/post-task-code-review.md`
 
 ## Protocol support files
 
@@ -43,6 +45,8 @@
 - UI command: `commands/ui-refactoring.md`
 - refactoring report template: `templates/reports/refactoring-report.md`
 - UI refactoring report template: `templates/reports/ui-refactoring-report.md`
+- code review report template: `templates/reports/code-review-report.md`
+- review prompt template: `templates/prompts/loop-code-review.md`
 - security review scope template: `templates/reports/security-review-scope.md`
 - protocol metadata template: `templates/protocol-pack-metadata.yml`
 
@@ -54,7 +58,7 @@
 - adoption packs: `docs/adoption-packs.md`
 - adoption prompt: `templates/prompts/evaluate-vcp-for-my-repo.md`
 - adoption assessment report: `templates/reports/vcp-adoption-assessment.md`
-- release notes: `docs/release-v0.4.3.md`
+- release notes: `docs/release-v0.4.4.md`
 - release readiness: `docs/release-readiness.md`
 - hardening thresholds: `docs/hardening-thresholds.md`
 - architecture planning: `docs/architecture-map.md`
@@ -100,5 +104,6 @@
 - public docs must stay sanitized and trust-disciplined;
 - protocol sprawl must stay indexed and route-driven;
 - current tooling is intentionally lightweight and must not be overclaimed;
+- post-task review quality depends on independent reviewer quality and validation coverage;
 - external reviewers may judge raw readability as a trust signal,
   so markdown formatting must stay disciplined.

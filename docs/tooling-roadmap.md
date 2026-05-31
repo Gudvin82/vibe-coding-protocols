@@ -5,6 +5,9 @@ with lightweight validation and workflow tooling around it.
 
 ## Current tooling
 
+Review-gate docs are first-class, but reviewer execution is still manual or agent-driven rather than automated by the wrapper.
+
+
 Current repository tooling includes:
 - `scripts/vibe-check.sh`;
 - `scripts/check-newlines.py`;
@@ -34,7 +37,8 @@ Human review is still required for:
 - business logic correctness;
 - legal or compliance needs;
 - UI design quality;
-- whether a refactor is worth doing.
+- whether a refactor is worth doing;
+- whether a post-task review is strong enough without human oversight.
 
 ## Not yet available
 
@@ -56,9 +60,13 @@ Potential future tooling may include:
 - AI boundary linting;
 - design-system ownership checker;
 - migration assistant;
-- a unified `vcp` command surface.
+- a unified `vcp` command surface;
+- a reviewer-orchestration surface that keeps the actual reviewer independent.
 
 ## Related docs
+
+Post-task review is documented, but reviewer orchestration remains manual by design.
+
 
 - [cli.md](./cli.md)
 - [target-project-classifier.md](./target-project-classifier.md)

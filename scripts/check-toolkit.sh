@@ -67,6 +67,16 @@ required_files=(
   docs/vscode-extension.md
   docs/release-v0.4.2.md
   docs/release-v0.4.3.md
+  docs/release-v0.4.4.md
+  protocols/review/README.md
+  protocols/review/post-task-code-review.md
+  commands/loop-code-review.md
+  templates/prompts/loop-code-review.md
+  templates/reports/code-review-report.md
+  examples/review/README.md
+  examples/review/loop-code-review.example.md
+  examples/review/no-actionable-findings.example.md
+  examples/review/rejected-finding.example.md
   docs/release-v0.3.0.md
   docs/pre-commit-hooks.md
   docs/cli-roadmap.md
@@ -128,6 +138,7 @@ required_dirs=(
   checklists
   docs
   docs/integrations
+  protocols/review
   scripts
   assets
   .github/workflows
@@ -137,6 +148,7 @@ required_dirs=(
   examples/saas-backend-vibe
   examples/legacy-ai-mess-vibe
   examples/bad-to-good
+  examples/review
   )
 
 for file in "${required_files[@]}"; do

@@ -24,6 +24,7 @@ Start here:
 | I need AI IDE rules | [templates/AGENTS.md](../templates/AGENTS.md) |
 | I already have code | [protocols/ai-project-hardening-protocol.md](../protocols/ai-project-hardening-protocol.md) |
 | I already have a working project that is hard to maintain | [../protocols/maintenance/care-refactoring.md](../protocols/maintenance/care-refactoring.md) |
+| I changed meaningful code and need acceptance before moving on | [../protocols/review/post-task-code-review.md](../protocols/review/post-task-code-review.md) |
 | My frontend styling ownership is drifting | [../protocols/maintenance/ui-refactoring.md](../protocols/maintenance/ui-refactoring.md) |
 | I need defensive security positioning | [security-tooling-landscape.md](./security-tooling-landscape.md) |
 | I need public-site docs readiness | [public-site-readiness.md](./public-site-readiness.md) |
@@ -93,6 +94,15 @@ Start here:
 - [../templates/examples/refactoring-report.filled.example.md](../templates/examples/refactoring-report.filled.example.md)
 - [../templates/examples/ui-refactoring-report.filled.example.md](../templates/examples/ui-refactoring-report.filled.example.md)
 
+## Review gate docs
+
+- [../protocols/review/README.md](../protocols/review/README.md)
+- [../protocols/review/post-task-code-review.md](../protocols/review/post-task-code-review.md)
+- [../commands/loop-code-review.md](../commands/loop-code-review.md)
+- [../templates/prompts/loop-code-review.md](../templates/prompts/loop-code-review.md)
+- [../templates/reports/code-review-report.md](../templates/reports/code-review-report.md)
+- [../examples/review/README.md](../examples/review/README.md)
+
 ## Integrations and workflow
 
 - [cli.md](./cli.md)
@@ -118,6 +128,7 @@ Start here:
 
 - [releases/README.md](./releases/README.md)
 - [migration/README.md](./migration/README.md)
+- [release-v0.4.4.md](./release-v0.4.4.md)
 - [release-v0.4.3.md](./release-v0.4.3.md)
 - [release-v0.4.2.md](./release-v0.4.2.md)
 - [release-v0.4.1.md](./release-v0.4.1.md)

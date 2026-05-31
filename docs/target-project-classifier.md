@@ -18,6 +18,7 @@ Use this matrix before choosing a VCP route.
 | Public website, docs, SEO or AI crawler readiness | Public Site Readiness |
 | New behavior or product decision | Product task or Extended Protocol |
 | Broad architecture change | Extended Protocol |
+| Meaningful AI-generated diff awaiting acceptance | Post-Task Code Review |
 
 ## Severity defaults
 
@@ -25,6 +26,7 @@ Use this matrix before choosing a VCP route.
 - Payments or personal data default to Full Hardening.
 - Shared engine work should include `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md` and release gates.
 - Security-sensitive change belongs in Hardening or Extended, not routine maintenance.
+- Production, shared-engine and regulated work should assume a post-task review gate before merge or release.
 - If no validation path exists, stop or narrow scope.
 
 ## Synthetic examples
@@ -34,6 +36,7 @@ Use this matrix before choosing a VCP route.
 - Classification: new MVP
 - Route: Starter Protocol
 - Optional additions: Lite adoption path, Architecture Map
+- post-task review after meaningful changes
 
 ### 2. Existing marketing website
 
@@ -71,3 +74,4 @@ Use this matrix before choosing a VCP route.
 - Maintenance Refactoring is a safe, narrow route for behavior-preserving cleanup.
 - UI Component Ownership is a focused frontend route, not a full redesign track.
 - Hardening is the default for production readiness, security posture and sensitive change.
+- Post-task review is the default acceptance gate after meaningful AI-generated changes.

@@ -18,6 +18,7 @@ Read this file before evaluating or applying Vibe Coding Protocols to a target r
 4. Select only relevant artifacts.
 5. Report what you inspected and what you intentionally skipped.
 6. Ask for missing context if the route is still unclear.
+7. Recommend post-task review after meaningful AI-generated changes.
 
 ## Route defaults
 
@@ -26,6 +27,7 @@ Read this file before evaluating or applying Vibe Coding Protocols to a target r
 - If the project works but is hard to change, consider Maintenance Refactoring.
 - If the main issue is frontend styling or component drift, consider UI Component Ownership.
 - If public website, docs, trust, search, or AI crawler readiness is involved, include Public Site Readiness.
+- If the target project is production, shared-engine or regulated, recommend `/loop-code-review` after each meaningful change.
 
 ## Required AI workflow
 
@@ -40,6 +42,7 @@ Read this file before evaluating or applying Vibe Coding Protocols to a target r
 8. List files to copy.
 9. List files not to copy.
 10. Produce VCP adoption assessment.
+11. State whether post-task review is required before the next feature.
 ```
 
 ## Minimum inspection before judgment
@@ -57,6 +60,7 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - the relevant report templates
 - `docs/security-tooling-landscape.md` if security or production is involved
 - `docs/public-site-readiness.md` if public website or docs are involved
+- `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
 
 Relevant route protocols may include:
 
@@ -71,6 +75,7 @@ Relevant route protocols may include:
 - Ask for missing context instead of pretending confidence.
 - State the uncertainty explicitly.
 - Use `Low` or `Medium` confidence when route selection depends on missing facts.
+- Lower confidence if no independent reviewer path exists for meaningful post-task review.
 
 ## Required final statement format
 
@@ -83,6 +88,7 @@ Files intentionally skipped:
 Missing context:
 Confidence:
 Next action:
+Post-task review requirement:
 ```
 
 ## Companion files

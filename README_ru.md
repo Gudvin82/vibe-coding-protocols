@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.4.3-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.4.4-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Лицензия](https://img.shields.io/github/license/Gudvin82/vibe-coding-protocols)](./LICENSE)
 [![Vibe Check](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
@@ -13,7 +13,7 @@
 VCP — это operating layer для AI-assisted разработки:
 маршруты, Memory Bank артефакты, stop conditions, checks, hardening, incident recovery и release gates.
 
-Пакет репозитория: `v0.4.3`
+Пакет репозитория: `v0.4.4`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -99,7 +99,8 @@ bash init-minimal.sh --starter
 - `--doctor`, `--init-report` и `--update-advice` помогают с онбордингом и обновлением артефактов;
 - GitHub остается canonical source;
 - wrappers и VS Code extension пока только experimental skeletons;
-- AI intake слой в `v0.4.3` помогает не перепутать Starter, Hardening и Maintenance на существующих проектах;
+- AI intake слой в `v0.4.4` помогает не перепутать Starter, Hardening и Maintenance на существующих проектах;
+- после значимых AI-изменений запускай Post-Task Code Review Gate перед следующей задачей;
 - maintenance refactoring не обязателен на старте MVP и нужен как post-MVP или recurring pass.
 
 ## CLI, integrations и public site
@@ -115,6 +116,22 @@ bash init-minimal.sh --starter
 - [docs/ecosystem-references.md](./docs/ecosystem-references.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
+- [protocols/review/README.md](./protocols/review/README.md)
+- [commands/loop-code-review.md](./commands/loop-code-review.md)
+- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)
+
+## Новое: Post-Task Code Review Gate
+
+После значимых AI-generated изменений не начинай сразу следующую фичу.
+Запусти `/loop-code-review` или используй Post-Task Code Review Protocol:
+проверь активный diff,
+исправь actionable findings,
+перезапусти validation
+и принимай состояние только после green review плюс validation.
+
+## CLI status
+
+Сейчас VCP в первую очередь script-first. Единый `vcp` CLI планируется; см. [docs/cli.md](./docs/cli.md) для текущих стабильных entrypoints и статуса wrapper.
 
 ## Что VCP не делает
 
@@ -141,4 +158,4 @@ bash init-minimal.sh --starter
 - [commands/ui-refactoring.md](./commands/ui-refactoring.md)
 - GitVerse mirror: <https://gitverse.ru/GudWin82/vibe-coding-protocols>
 - [docs/comparison.md](./docs/comparison.md)
-- [docs/release-v0.4.3.md](./docs/release-v0.4.3.md)
+- [docs/release-v0.4.4.md](./docs/release-v0.4.4.md)

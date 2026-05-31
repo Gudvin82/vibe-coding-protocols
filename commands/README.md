@@ -6,6 +6,8 @@ These are not executable shell commands.
 They are reusable AI instructions for Claude Code, Codex, Cursor, Windsurf
 and similar tools.
 
+After meaningful AI-generated code changes, run post-task review before starting the next feature.
+
 ## Available command patterns
 
 | Command | Use when | What it returns |
@@ -18,3 +20,4 @@ and similar tools.
 | [agent-harness-check](./agent-harness-check.md) | Check project AI workflow | Harness gaps |
 | [care-refactoring](./care-refactoring.md) | Existing project works but is risky to change | Scoped maintenance refactoring plan |
 | [ui-refactoring](./ui-refactoring.md) | Frontend styling ownership is drifting | UI component ownership cleanup plan |
+| [loop-code-review](./loop-code-review.md) | Meaningful AI-generated changes need acceptance before the next task | Review findings, fixes and acceptance signal |

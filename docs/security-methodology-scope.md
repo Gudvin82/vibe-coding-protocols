@@ -57,7 +57,8 @@ VCP can help teams:
 - avoid unsafe AI-generated shortcuts;
 - track third-party integrations and update discipline;
 - route projects toward Hardening or Extended review;
-- preserve a written audit trail of risks and accepted constraints.
+- preserve a written audit trail of risks and accepted constraints;
+- require post-task review before sensitive changes are accepted.
 
 ## What VCP cannot guarantee
 

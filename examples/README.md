@@ -25,6 +25,7 @@ They are:
 | SaaS backend | Full | [saas-backend-vibe](./saas-backend-vibe/) | security ops and database readiness |
 | Report quality | Cross-route | [bad-to-good](./bad-to-good/) | route-shaped before/after examples |
 | Adoption routing | Cross-route | [adoption/dual-production-engine](./adoption/dual-production-engine/) | AI intake and shared-production classification |
+| Post-task review | Cross-route | [review](./review/) | review findings, fixes and acceptance discipline |
 
 ## Filled synthetic template examples
 
@@ -33,6 +34,7 @@ They are:
 - [../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md](../templates/examples/SECURITY_OPERATIONS_BASELINE.filled.example.md)
 - [../templates/examples/refactoring-report.filled.example.md](../templates/examples/refactoring-report.filled.example.md)
 - [../templates/examples/ui-refactoring-report.filled.example.md](../templates/examples/ui-refactoring-report.filled.example.md)
+- [review/README.md](./review/README.md)
 
 ## Start here
 
@@ -47,3 +49,4 @@ They are:
 - fuller backend route: [saas-backend-vibe](./saas-backend-vibe/)
 - route-shaped before/after docs: [bad-to-good](./bad-to-good/)
 - adoption routing example: [adoption/dual-production-engine](./adoption/dual-production-engine/)
+- post-task review examples: [review](./review/)

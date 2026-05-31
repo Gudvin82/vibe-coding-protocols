@@ -41,6 +41,10 @@ if [[ -f pyproject.toml ]]; then
   check_contains pyproject.toml "version = \"${REPO_VERSION#v}\"" "pyproject.toml version"
 fi
 
+if [[ -f vcp_cli/__init__.py ]]; then
+  check_contains vcp_cli/__init__.py "__version__ = \"${REPO_VERSION#v}\"" "vcp_cli version"
+fi
+
 while IFS= read -r file; do
   case "$file" in
     templates/README.md|\
@@ -66,6 +70,7 @@ stale_versions=(
   "v0.4.0"
   "v0.4.1"
   "v0.4.2"
+  "v0.4.3"
 )
 
 entry_files=(

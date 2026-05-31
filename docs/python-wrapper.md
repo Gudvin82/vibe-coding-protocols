@@ -17,9 +17,15 @@ Examples:
 python -m vcp_cli doctor
 python -m vcp_cli init-report
 python -m vcp_cli starter
+python -m vcp_cli route production
+python -m vcp_cli score --json
+python -m vcp_cli manifest validate
 ```
 
 ## Scope
+
+`route`, `adopt`, `score` and `manifest validate` are lightweight convenience commands. They do not spawn or run external AI reviewers.
+
 
 - experimental;
 - not published to PyPI;

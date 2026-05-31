@@ -21,9 +21,15 @@ VCP also includes an early Python wrapper:
 - `python -m vcp_cli doctor`
 - `python -m vcp_cli audit`
 - `python -m vcp_cli starter`
+- `python -m vcp_cli route production`
+- `python -m vcp_cli adopt --pack production --dry-run`
+- `python -m vcp_cli score --json`
+- `python -m vcp_cli manifest validate`
 
 Current wrapper status:
+- `route`, `adopt`, `score` and `manifest validate` are lightweight helper commands, not a mature autonomous CLI;
 - thin wrapper around `scripts/vibe-check.sh`;
+- small helper surface for route, adoption-pack and review-gate guidance;
 - useful for users who prefer a Python entrypoint;
 - not a mature standalone CLI product yet;
 - not a replacement for the documented scripts.
