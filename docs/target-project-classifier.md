@@ -17,6 +17,7 @@ Use this matrix before choosing a VCP route or CLI profile.
 | `operations` | production errors or log evidence must be observed without mutation | Operations Feedback Loop |
 | `backlog` | tasks, follow-up work, and implementation state need one shared kanban | Project Backlog Workflow |
 | `public-site` | public docs, trust or crawler readiness | Public Site Readiness |
+| `public-growth` | service pages, public content, GEO, schema, or AI visibility need structured work | Public Growth Playbook |
 | `post-task-review` | meaningful diff needs acceptance | Post-Task Code Review |
 
 ## Defaults
@@ -28,6 +29,7 @@ Use this matrix before choosing a VCP route or CLI profile.
 - External API requests should go through Third-party API Intake before implementation.
 - Production observation work should stay read-only until triage and backlog state are written down.
 - Backlog state should be updated before implementation starts, not after code is already merged.
+- Public growth work should start from one audience intent, one page goal, and one proof boundary, not from keyword stuffing.
 - Production, shared-engine and regulated work should assume a post-task review gate before merge or release.
 - If no validation path exists, stop or narrow scope.
 
@@ -36,6 +38,7 @@ Use this matrix before choosing a VCP route or CLI profile.
 ```bash
 python3 -m vcp_cli route --profile production --json
 python3 -m vcp_cli route --profile shared-engine --json
+python3 -m vcp_cli route --profile public-growth --json
 python3 -m vcp_cli route --profile operations --json
 python3 -m vcp_cli route --profile backlog --json
 python3 -m vcp_cli route --profile third-party-api --json
@@ -46,6 +49,7 @@ python3 -m vcp_cli route --profile post-task-review --json
 
 - New SaaS MVP with no production users -> `new-project`
 - Existing marketing website -> `public-site`
+- Existing service site that needs stronger commercial/service pages -> `public-growth`
 - Existing production app with payments -> `regulated`
 - Two products on one shared engine -> `shared-engine`
 - Working app with messy code -> `maintenance`

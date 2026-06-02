@@ -18,6 +18,10 @@ No real secrets, no real customer data and no fake production claims.
 - [integrations/public-api-intake.example.md](./integrations/public-api-intake.example.md)
 - [integrations/third-party-registry-entry.example.md](./integrations/third-party-registry-entry.example.md)
 
+## Public growth
+
+- [public-growth/README.md](./public-growth/README.md)
+
 ## Bad to good
 
 - [bad-to-good/README.md](./bad-to-good/README.md)

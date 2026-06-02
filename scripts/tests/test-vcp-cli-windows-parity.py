@@ -34,8 +34,12 @@ def main() -> int:
     assert evaluate['evaluation_guide_present'] is True
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
     assert route['adoption_pack'] == 'third-party-api'
+    public_growth_route = json.loads(run('route', '--profile', 'public-growth', '--json'))
+    assert public_growth_route['adoption_pack'] == 'public-growth'
     adopt = json.loads(run('adopt', '--pack', 'third-party-api', '--dry-run', '--json'))
     assert adopt['pack'] == 'third-party-api'
+    public_growth_adopt = json.loads(run('adopt', '--pack', 'public-growth', '--dry-run', '--json'))
+    assert public_growth_adopt['pack'] == 'public-growth'
     manifest = json.loads(run('manifest', 'validate', '--json'))
     assert manifest['ok'] is True
     benchmark = json.loads(run('benchmark', 'run', '--scenario', 'third-party-api-intake', '--json'))

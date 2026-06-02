@@ -25,6 +25,10 @@ CORE_FILES = [
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
     "docs/scoring.md",
+    "docs/install.md",
+    "docs/glossary.md",
+    "docs/geo-ai-visibility.md",
+    "docs/page-templates.md",
     "docs/npm-publishing-checklist.md",
     "docs/public-proof-roadmap.md",
     "docs/project-backlog.md",
@@ -37,9 +41,12 @@ CORE_FILES = [
     "protocols/integrations/third-party-api-intake.md",
     "protocols/operations/production-error-capture.md",
     "protocols/operations/daily-error-triage.md",
+    "protocols/public-growth/public-growth-playbook.md",
+    "protocols/public-growth/seo-geo-ai-visibility.md",
     "templates/THIRD_PARTY_REGISTRY.md",
     "templates/PROJECT_BACKLOG.md",
     "templates/reports/error-inbox-entry.md",
+    "templates/public-growth/public-growth-checklist.md",
     "docs/public-site-readiness.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
@@ -101,6 +108,8 @@ def run(json_mode: bool = False) -> int:
         "third_party_registry_template_exists": (root / "templates/THIRD_PARTY_REGISTRY.md").exists(),
         "third_party_api_intake_protocol_exists": (root / "protocols/integrations/third-party-api-intake.md").exists(),
         "operations_protocol_exists": (root / "protocols/operations/production-error-capture.md").exists(),
+        "public_growth_protocol_exists": (root / "protocols/public-growth/public-growth-playbook.md").exists(),
+        "public_growth_templates_exist": (root / "templates/public-growth/public-growth-checklist.md").exists(),
         "project_backlog_exists": (root / "PROJECT_BACKLOG.md").exists(),
         "runtime_error_inbox_gitignored": runtime_error_inbox_gitignored(root),
         "runtime_backups_gitignored": runtime_backups_gitignored(root),
@@ -132,6 +141,8 @@ def run(json_mode: bool = False) -> int:
         print(f"THIRD_PARTY_REGISTRY template: {'yes' if payload['third_party_registry_template_exists'] else 'no'}")
         print(f"Third-party API intake protocol: {'yes' if payload['third_party_api_intake_protocol_exists'] else 'no'}")
         print(f"Operations protocol: {'yes' if payload['operations_protocol_exists'] else 'no'}")
+        print(f"Public growth protocol: {'yes' if payload['public_growth_protocol_exists'] else 'no'}")
+        print(f"Public growth templates: {'yes' if payload['public_growth_templates_exist'] else 'no'}")
         print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_exists'] else 'no'}")
         print(f"Runtime error inbox gitignored: {'yes' if payload['runtime_error_inbox_gitignored'] else 'no'}")
         print(f"Runtime backups gitignored: {'yes' if payload['runtime_backups_gitignored'] else 'no'}")

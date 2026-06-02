@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .utils import dump_json, load_json, manifest_dir, manifest_paths, print_output, repo_root, repo_version
+from .utils import load_json, manifest_dir, manifest_paths, print_output, repo_root, repo_version
 
 KEY_FILES = [
     "AI_EVALUATION_GUIDE.md",
@@ -12,6 +12,10 @@ KEY_FILES = [
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/cli.md",
+    "docs/install.md",
+    "docs/glossary.md",
+    "docs/geo-ai-visibility.md",
+    "docs/page-templates.md",
     "docs/project-backlog.md",
     "docs/production-observability.md",
     "docs/known-limitations.md",
@@ -67,6 +71,16 @@ def evaluate_payload() -> dict[str, object]:
             "PROJECT_BACKLOG.md",
         ]
     )
+    public_growth_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "protocols/public-growth/public-growth-playbook.md",
+            "protocols/public-growth/seo-geo-ai-visibility.md",
+            "docs/geo-ai-visibility.md",
+            "docs/page-templates.md",
+            "templates/public-growth/public-growth-checklist.md",
+        ]
+    )
 
     payload = {
         "repository_package": repo_version(root),
@@ -82,6 +96,9 @@ def evaluate_payload() -> dict[str, object]:
         "cli_commands": CLI_COMMANDS,
         "project_backlog_present": (root / "PROJECT_BACKLOG.md").exists(),
         "operations_workflow_present": operations_ready,
+        "public_growth_layer_present": public_growth_ready,
+        "glossary_present": (root / "docs/glossary.md").exists(),
+        "install_doc_present": (root / "docs/install.md").exists(),
         "known_limitations": KNOWN_LIMITATIONS_PATH,
         "suggested_evaluation_prompt": PROMPT_PATH,
         "note": "This helper supports external evaluation. It is not a market-maturity score.",
@@ -109,6 +126,9 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Report templates in manifest: {payload['report_template_count']}")
     print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_present'] else 'no'}")
     print(f"Operations workflow present: {'yes' if payload['operations_workflow_present'] else 'no'}")
+    print(f"Public growth layer present: {'yes' if payload['public_growth_layer_present'] else 'no'}")
+    print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")
+    print(f"Install doc present: {'yes' if payload['install_doc_present'] else 'no'}")
     print(f"Known limitations: {payload['known_limitations']}")
     print(f"Suggested evaluation prompt: {payload['suggested_evaluation_prompt']}")
     print("Key files:")

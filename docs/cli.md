@@ -4,7 +4,7 @@ VCP has two honest local entrypaths:
 - the Python CLI, which remains the primary implementation;
 - a thin local npm wrapper for Node-first users.
 
-The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.5`.
+The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.6`.
 
 ## Start here
 
@@ -13,6 +13,7 @@ Linux and macOS:
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile production
+python3 -m vcp_cli route --profile public-growth
 python3 -m vcp_cli adopt --pack production --dry-run
 python3 -m vcp_cli evaluate --json
 ```
@@ -23,6 +24,7 @@ Local npm wrapper:
 npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- route --profile public-growth
 npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
@@ -32,6 +34,7 @@ Windows PowerShell:
 ```powershell
 py -m vcp_cli doctor
 py -m vcp_cli init --print-prompt
+py -m vcp_cli route --profile public-growth --json
 py -m vcp_cli evaluate --json
 npm run vcp -- doctor
 ```
@@ -52,6 +55,22 @@ npm run vcp -- doctor
 - `review` — helper for the Post-Task Code Review Gate
 - `demo` — print small route/adoption demos
 
+## Public growth helper
+
+Use `public-growth` when public-facing pages, SEO/GEO, schema, AI visibility, or commercial page templates need structure.
+
+```bash
+python3 -m vcp_cli route --profile public-growth --json
+python3 -m vcp_cli adopt --pack public-growth --dry-run --json
+npm run vcp -- route --profile public-growth
+```
+
+This route is intentionally defensive:
+- no claim of guaranteed indexing or rankings;
+- no hidden FAQ content;
+- no doorway pages or spam-link tactics;
+- no fake reviews, ratings, or fabricated case proof.
+
 ## Evaluation helper
 
 Use `evaluate` when a human or external AI agent needs a fair repository-level picture.
@@ -70,6 +89,7 @@ npm run vcp -- evaluate
 - benchmark count;
 - command and protocol counts;
 - backlog and operations workflow status;
+- public-growth and glossary layer status;
 - known limitations link;
 - prompt template path.
 
@@ -83,6 +103,7 @@ Local options that work inside this repository:
 npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- route --profile public-growth
 npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
@@ -107,7 +128,7 @@ Current npm support is local wrapper only.
 
 ## Init behavior
 
-`vcp init` is guidance-only in `v0.5.5`.
+`vcp init` is guidance-only in `v0.5.6`.
 It does not modify files by default.
 Use it to:
 - print the short onboarding flow;
@@ -152,10 +173,14 @@ The CLI:
 
 ## Related docs
 
+- [install.md](./install.md)
+- [glossary.md](./glossary.md)
+- [geo-ai-visibility.md](./geo-ai-visibility.md)
+- [page-templates.md](./page-templates.md)
 - [../AI_EVALUATION_GUIDE.md](../AI_EVALUATION_GUIDE.md)
 - [scoring.md](./scoring.md)
 - [npm.md](./npm.md)
 - [npm-publishing-checklist.md](./npm-publishing-checklist.md)
 - [windows.md](./windows.md)
 - [init.md](./init.md)
-- [release-v0.5.5.md](./release-v0.5.5.md)
+- [release-v0.5.6.md](./release-v0.5.6.md)

@@ -3,7 +3,7 @@ from vcp_cli.backlog import parse_backlog_text, render_backlog, validate_documen
 
 def sample_text() -> str:
     return """<!-- vcp-artifact: PROJECT_BACKLOG -->
-<!-- vcp-version: v0.5.5 -->
+<!-- vcp-version: v0.5.6 -->
 <!-- methodology-version: v1.4 -->
 
 # Project Backlog

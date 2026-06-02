@@ -11,6 +11,7 @@ REQUIRED_API_INTAKE_PACK_ID = "third-party-api"
 REQUIRED_API_INTAKE_BENCHMARK_ID = "third-party-api-intake"
 REQUIRED_OPERATIONS_PROTOCOL_ID = "production-error-capture"
 REQUIRED_BACKLOG_PROTOCOL_ID = "project-backlog-workflow"
+REQUIRED_PUBLIC_GROWTH_PROTOCOL_ID = "public-growth-playbook"
 REQUIRED_OPERATIONS_COMMAND_ID = "prod-log-monitor"
 REQUIRED_BACKLOG_COMMAND_ID = "backlog-update"
 REQUIRED_BACKLOG_LIST_COMMAND_ID = "backlog-list"
@@ -33,8 +34,15 @@ REQUIRED_BACKLOG_ARCHIVE_BENCHMARK_ID = "backlog-archive-not-taken"
 REQUIRED_BACKLOG_ARCH_IMPACT_BENCHMARK_ID = "backlog-architecture-impact"
 REQUIRED_EVALUATION_COMMAND_ID = "evaluate"
 REQUIRED_EVALUATION_REPORT_ID = "vcp-repository-evaluation-report"
+REQUIRED_PUBLIC_GROWTH_AUDIT_REPORT_ID = "public-growth-audit-report"
+REQUIRED_AI_VISIBILITY_REPORT_ID = "ai-visibility-monitoring-report"
+REQUIRED_PUBLIC_GROWTH_PACK_ID = "public-growth"
 REQUIRED_EVALUATION_FULL_BENCHMARK_ID = "repository-evaluation-full"
 REQUIRED_EVALUATION_SHALLOW_BENCHMARK_ID = "repository-evaluation-shallow"
+REQUIRED_PUBLIC_GROWTH_BENCHMARK_ID = "public-growth-audit"
+REQUIRED_GEO_AI_VISIBILITY_BENCHMARK_ID = "geo-ai-visibility"
+REQUIRED_PAGE_TEMPLATE_SELECTION_BENCHMARK_ID = "page-template-selection"
+REQUIRED_GLOSSARY_INSPECTION_BENCHMARK_ID = "glossary-inspection"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -112,6 +120,8 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required protocol manifest entry: production-error-capture")
     if REQUIRED_BACKLOG_PROTOCOL_ID not in protocol_ids:
         errors.append("Missing required protocol manifest entry: project-backlog-workflow")
+    if REQUIRED_PUBLIC_GROWTH_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: public-growth-playbook")
     if REQUIRED_API_INTAKE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: third-party-api-intake")
     if REQUIRED_OPERATIONS_COMMAND_ID not in command_ids:
@@ -144,12 +154,18 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required report manifest entry: backlog-update-report")
     if REQUIRED_EVALUATION_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: vcp-repository-evaluation-report")
+    if REQUIRED_PUBLIC_GROWTH_AUDIT_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: public-growth-audit-report")
+    if REQUIRED_AI_VISIBILITY_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: ai-visibility-monitoring-report")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
     if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: operations")
     if REQUIRED_BACKLOG_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: backlog")
+    if REQUIRED_PUBLIC_GROWTH_PACK_ID not in pack_ids:
+        errors.append("Missing required adoption pack manifest entry: public-growth")
     if REQUIRED_API_INTAKE_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: third-party-api-intake")
     if REQUIRED_OPERATIONS_BENCHMARK_ID not in benchmark_ids:
@@ -168,6 +184,14 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: repository-evaluation-full")
     if REQUIRED_EVALUATION_SHALLOW_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: repository-evaluation-shallow")
+    if REQUIRED_PUBLIC_GROWTH_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: public-growth-audit")
+    if REQUIRED_GEO_AI_VISIBILITY_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: geo-ai-visibility")
+    if REQUIRED_PAGE_TEMPLATE_SELECTION_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: page-template-selection")
+    if REQUIRED_GLOSSARY_INSPECTION_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: glossary-inspection")
 
     payload = {
         "ok": not errors,

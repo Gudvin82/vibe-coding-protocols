@@ -7,3 +7,5 @@ def test_score_json():
     assert result.returncode == 0
     payload = json.loads(result.stdout)
     assert "categories" in payload
+    names = {item["name"] for item in payload["categories"]}
+    assert "Public growth and AI visibility" in names

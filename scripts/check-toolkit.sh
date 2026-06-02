@@ -40,6 +40,8 @@ required_files=(
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/cli.md
+  docs/install.md
+  docs/glossary.md
   docs/scoring.md
   docs/npm-publishing-checklist.md
   docs/public-proof-roadmap.md
@@ -59,6 +61,8 @@ required_files=(
   docs/protocol-index.md
   docs/public-site-readiness.md
   docs/seo-ai-crawler-readiness.md
+  docs/geo-ai-visibility.md
+  docs/page-templates.md
   docs/site/README.md
   docs/site/navigation.md
   docs/site/github-pages.md
@@ -85,6 +89,7 @@ required_files=(
   docs/release-v0.5.0.md
   docs/release-v0.5.1.md
   docs/release-v0.5.2.md
+  docs/release-v0.5.6.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
@@ -97,6 +102,11 @@ required_files=(
   docs/measured-impact.md
   .vcp/README.md
   protocols/integrations/README.md
+  protocols/public-growth/README.md
+  protocols/public-growth/public-growth-playbook.md
+  protocols/public-growth/seo-geo-ai-visibility.md
+  protocols/public-growth/page-template-system.md
+  protocols/public-growth/public-growth-risk-control.md
   protocols/operations/README.md
   protocols/operations/production-error-capture.md
   protocols/operations/daily-error-triage.md
@@ -127,6 +137,7 @@ required_files=(
   scripts/tests/test-vcp-cli-windows-parity.py
   scripts/init-project.example.sh
   package.json
+  setup.py
   pyproject.toml
   comparison.md
   llms.txt
@@ -168,6 +179,7 @@ required_files=(
   templates/prompts/prod-log-monitor.md
   templates/prompts/daily-error-triage.md
   templates/prompts/backlog-update.md
+  templates/prompts/public-growth-audit.md
   templates/reports/vcp-adoption-assessment.md
   templates/reports/vcp-repository-evaluation-report.md
   templates/reports/third-party-api-intake-report.md
@@ -175,6 +187,8 @@ required_files=(
   templates/reports/daily-error-triage-report.md
   templates/reports/error-inbox-entry.md
   templates/reports/backlog-update-report.md
+  templates/reports/public-growth-audit-report.md
+  templates/reports/ai-visibility-monitoring-report.md
   templates/PROJECT_BACKLOG.md
   PROJECT_BACKLOG.md
   templates/protocol-pack-metadata.yml
@@ -187,6 +201,25 @@ required_files=(
   templates/public-site/schema-org.software-source-code.jsonld
   templates/public-site/schema-org.breadcrumb-list.jsonld
   templates/public-site/schema-org.faq-page.jsonld
+  templates/public-growth/page-brief.md
+  templates/public-growth/service-page-template.md
+  templates/public-growth/article-template.md
+  templates/public-growth/case-study-template.md
+  templates/public-growth/faq-page-template.md
+  templates/public-growth/comparison-page-template.md
+  templates/public-growth/alternatives-page-template.md
+  templates/public-growth/homepage-template.md
+  templates/public-growth/public-growth-checklist.md
+  templates/public-growth/ai-visibility-queries.md
+  templates/public-growth/schema/README.md
+  templates/public-growth/schema/organization.jsonld
+  templates/public-growth/schema/person.jsonld
+  templates/public-growth/schema/service.jsonld
+  templates/public-growth/schema/article.jsonld
+  templates/public-growth/schema/faqpage.jsonld
+  templates/public-growth/schema/breadcrumb-list.jsonld
+  templates/public-growth/schema/software-application.jsonld
+  templates/public-growth/schema/video-object.jsonld
   examples/architecture-map-example.md
   examples/adoption/dual-production-engine/README.md
   examples/adoption/dual-production-engine/target-profile.md
@@ -195,6 +228,12 @@ required_files=(
   examples/integrations/README.md
   examples/integrations/public-api-intake.example.md
   examples/integrations/third-party-registry-entry.example.md
+  examples/public-growth/README.md
+  examples/public-growth/public-growth-audit.example.md
+  examples/public-growth/ai-visibility-monitoring.example.md
+  examples/public-growth/page-brief.example.md
+  examples/public-growth/service-page.example.md
+  examples/public-growth/faq-schema.example.md
   examples/backlog/README.md
   examples/backlog/add-idea.example.md
   examples/backlog/move-doing.example.md
@@ -222,6 +261,10 @@ required_files=(
   benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json
   benchmarks/ai-adoption/scenarios/repository-evaluation-full.json
   benchmarks/ai-adoption/scenarios/repository-evaluation-shallow.json
+  benchmarks/ai-adoption/scenarios/public-growth-audit.json
+  benchmarks/ai-adoption/scenarios/geo-ai-visibility.json
+  benchmarks/ai-adoption/scenarios/page-template-selection.json
+  benchmarks/ai-adoption/scenarios/glossary-inspection.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -261,6 +304,7 @@ required_dirs=(
   examples
   examples/adoption
   examples/integrations
+  examples/public-growth
   examples/backlog
   examples/operations
   benchmarks
@@ -271,6 +315,7 @@ required_dirs=(
   docs/integrations
   docs/site
   protocols/review
+  protocols/public-growth
   protocols/operations
   scripts
   assets

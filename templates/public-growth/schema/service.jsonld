@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ service_name }}",
+  "serviceType": "{{ service_type }}",
+  "provider": {
+    "@type": "Organization",
+    "name": "{{ organization_name }}"
+  },
+  "url": "{{ canonical_url }}"
+}

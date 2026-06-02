@@ -8,9 +8,13 @@ Minimum inspection list:
 - `README.md`
 - `AI_INTAKE.md`
 - `START_HERE.md`
+- `docs/install.md`
+- `docs/glossary.md`
 - `docs/protocol-index.md`
 - `docs/adoption-packs.md`
 - `docs/cli.md`
+- `docs/geo-ai-visibility.md`
+- `docs/page-templates.md`
 - `docs/project-backlog.md`
 - `docs/production-observability.md`
 - `docs/known-limitations.md`
@@ -24,7 +28,7 @@ Minimum inspection list:
 - project-level `AUDIT_BACKLOG.md` if present, or `templates/AUDIT_BACKLOG.md`
 - project-level `THIRD_PARTY_REGISTRY.md` if present, or `templates/THIRD_PARTY_REGISTRY.md`
 
-If you skip manifests, benchmarks, CLI docs, or the protocol index, your evaluation must be marked `partial / shallow`.
+If you skip manifests, benchmarks, CLI docs, protocol index, or glossary, your evaluation must be marked `partial / shallow`.
 
 Recommended helper commands:
 
@@ -43,7 +47,7 @@ Report template: `templates/reports/vcp-repository-evaluation-report.md`
 
 VCP currently includes:
 - AI intake and route classification;
-- Starter, Hardening, Maintenance, UI Ownership, Public Site, Integrations, Operations, Review, and Backlog routes;
+- Starter, Hardening, Maintenance, UI Ownership, Public Site, Public Growth, Integrations, Operations, Review, and Backlog routes;
 - Post-Task Code Review;
 - Production Error Capture;
 - Daily Error Triage;
@@ -53,7 +57,7 @@ VCP currently includes:
 - machine-readable manifests;
 - synthetic/local benchmark scenarios;
 - `score`, `doctor`, `check`, `route`, `adopt`, `benchmark`, `manifest`, `review`, `backlog`, and `evaluate` helpers;
-- templates, report formats, prompts, and examples;
+- templates, report formats, prompts, examples, glossary, and install docs;
 - known limitations and defensive-only positioning.
 
 ## What VCP is not
@@ -63,7 +67,8 @@ VCP is not:
 - a pentest or offensive toolkit;
 - a compliance certification;
 - a replacement for human review;
-- a full application starter boilerplate.
+- a full application starter boilerplate;
+- a guaranteed SEO or AI visibility system.
 
 ## How to rate VCP fairly
 
@@ -83,6 +88,7 @@ Important interpretation notes:
 - A strong local CLI does not automatically mean public ecosystem maturity.
 - Synthetic benchmarks are useful validation assets, but they are not the same as broad external adoption.
 - Public standard maturity requires external proof such as package distribution, hosted docs, real sanitized case evidence, outside feedback, or sustained ecosystem usage.
+- GEO and AI visibility guidance should be judged as defensive readiness and page-structure guidance, not as a promise of rankings.
 
 ## Required evaluation output format
 
@@ -104,5 +110,5 @@ Confidence:
 
 ## Shallow evaluation warning
 
-If you did not inspect manifests, benchmarks, CLI docs, and the protocol index, state clearly that the evaluation is `partial / shallow`.
+If you did not inspect manifests, benchmarks, CLI docs, protocol index, and glossary, state clearly that the evaluation is `partial / shallow`.
 Do not present a README-only skim as a full repository evaluation.

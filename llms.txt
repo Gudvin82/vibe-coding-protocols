@@ -5,11 +5,13 @@ No guarantee of indexing or ranking.
 Do not judge VCP from README alone.
 
 - AI_EVALUATION_GUIDE.md: required evaluation path before rating the repository
-- README.md: top-level overview, routes, Adoption Packs, and local CLI entrypoints
+- README.md: top-level overview, routes, Adoption Packs, install paths, and local CLI entrypoints
 - START_HERE.md: canonical route chooser
 - AI_INTAKE.md: classify target project before applying VCP
+- docs/install.md: honest local install and editable-install guidance
+- docs/glossary.md: shared terminology for routes, packs, public growth, and visibility work
 - docs/init.md: shortest CLI onboarding flow
-- docs/cli.md: current CLI surface, npm wrapper, backlog helpers, evaluate helper, and manifest behavior
+- docs/cli.md: current CLI surface, npm wrapper, backlog helpers, public-growth route, and evaluate helper
 - docs/scoring.md: local readiness score boundaries and interpretation
 - docs/npm.md: local Node-first wrapper guidance
 - docs/npm-publishing-checklist.md: honest checklist before claiming public npm support
@@ -17,6 +19,8 @@ Do not judge VCP from README alone.
 - docs/protocol-index.md: compact protocol catalog
 - docs/adoption-packs.quickstart.md: short Adoption Pack explainer
 - docs/adoption-packs.md: full Adoption Pack overview
+- docs/geo-ai-visibility.md: GEO and AI visibility guidance without ranking guarantees
+- docs/page-templates.md: page-brief and page-template chooser
 - docs/project-backlog.md: project kanban backlog workflow distinct from hardening findings
 - docs/production-observability.md: read-only production observation boundaries
 - docs/automation-guidance.md: safe automation boundaries for operations and follow-up work
@@ -24,12 +28,15 @@ Do not judge VCP from README alone.
 - .vcp/README.md: machine-readable metadata layout
 - .vcp/manifests/: machine-readable manifests for routes, packs, commands, reports, and benchmarks
 - benchmarks/ai-adoption/: synthetic/local benchmark scenarios
+- protocols/public-growth/public-growth-playbook.md: public growth route for service pages, cases, articles, and trust-safe visibility work
+- protocols/public-growth/seo-geo-ai-visibility.md: GEO and AI visibility boundaries
 - protocols/operations/production-error-capture.md: read-only production error capture route
 - protocols/operations/daily-error-triage.md: daily triage route that feeds the backlog
 - protocols/integrations/third-party-api-intake.md: external API intake before implementation
 - templates/prompts/evaluate-vcp-repository.md: copy-paste evaluation prompt for humans and AI agents
+- templates/prompts/public-growth-audit.md: copy-paste audit prompt for public-growth work
 - templates/reports/vcp-repository-evaluation-report.md: structured repository evaluation report format
 - docs/security-tooling-landscape.md: defensive-only security positioning
 - docs/tooling-roadmap.md: current tooling and future work
 - docs/roadmap.md: phase-based roadmap summary
-- docs/release-v0.5.5.md: current release notes
+- docs/release-v0.5.6.md: current release notes

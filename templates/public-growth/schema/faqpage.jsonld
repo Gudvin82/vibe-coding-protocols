@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{ visible_question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ visible_answer }}"
+      }
+    }
+  ]
+}

@@ -15,6 +15,7 @@ Use a pack when you already know the target situation:
 - external API intake;
 - maintenance cleanup;
 - public-site readiness.
+- public-growth page and visibility work.
 
 If you do not know the situation yet, start with:
 - `AI_INTAKE.md`

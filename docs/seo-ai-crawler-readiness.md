@@ -2,13 +2,19 @@
 
 This route prepares public docs and product pages for search and AI crawlers.
 It does not guarantee indexing,
-ranking
+ranking,
 or AI visibility.
 
-## v0.5.0 focus
+## Current focus
 
 - keep `llms.txt` current
-- link CLI docs and route map
-- link manifests and benchmark docs where useful
 - keep visible content aligned with schema and trust claims
-- keep release notes current
+- expose canonical docs, release notes, and contact/trust pages
+- keep internal links readable in raw markdown
+- avoid hidden FAQ content, doorway pages, or fake proof
+
+## Related docs
+
+- [public-site-readiness.md](./public-site-readiness.md)
+- [geo-ai-visibility.md](./geo-ai-visibility.md)
+- [page-templates.md](./page-templates.md)

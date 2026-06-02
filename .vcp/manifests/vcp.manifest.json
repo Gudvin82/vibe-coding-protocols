@@ -1,16 +1,18 @@
 {
-  "package_version": "v0.5.5",
+  "package_version": "v0.5.6",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
-  "description": "Controlled AI delivery framework with route selection, adoption packs, evaluation guidance, validation, review gates, operations follow-up, backlog discipline, local Python CLI, local npm wrapper, and machine-readable metadata.",
+  "description": "Controlled AI delivery framework with route selection, adoption packs, evaluation guidance, validation, review gates, operations follow-up, backlog discipline, public-growth guidance, local Python CLI, local npm wrapper, and machine-readable metadata.",
   "entrypoints": [
     "README.md",
     "AI_EVALUATION_GUIDE.md",
     "START_HERE.md",
     "AI_INTAKE.md",
     "docs/cli.md",
-    "docs/init.md"
+    "docs/init.md",
+    "docs/install.md",
+    "docs/glossary.md"
   ],
   "core_docs": [
     "docs/protocol-index.md",
@@ -25,7 +27,9 @@
     "docs/npm.md",
     "docs/scoring.md",
     "docs/public-proof-roadmap.md",
-    "docs/npm-publishing-checklist.md"
+    "docs/npm-publishing-checklist.md",
+    "docs/geo-ai-visibility.md",
+    "docs/page-templates.md"
   ],
   "route_docs": [
     "protocols/ai-project-starter-protocol.md",
@@ -35,7 +39,9 @@
     "protocols/integrations/third-party-api-intake.md",
     "protocols/operations/production-error-capture.md",
     "protocols/operations/daily-error-triage.md",
-    "protocols/review/post-task-code-review.md"
+    "protocols/review/post-task-code-review.md",
+    "protocols/public-growth/public-growth-playbook.md",
+    "protocols/public-growth/seo-geo-ai-visibility.md"
   ],
   "cli_commands": [
     "version",

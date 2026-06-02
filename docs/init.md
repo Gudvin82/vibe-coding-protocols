@@ -1,6 +1,6 @@
 # Init
 
-`vcp init` is the simplest CLI starting action in `v0.5.5`.
+`vcp init` is the simplest CLI starting action in `v0.5.6`.
 It is intentionally guidance-first.
 
 ## What it does
@@ -32,7 +32,7 @@ npm run vcp -- init --print-prompt
 ## Current limits
 
 - `init` does not modify files by default;
-- `init --apply` is intentionally not implemented in `v0.5.5`;
+- `init --apply` is intentionally not implemented in `v0.5.6`;
 - prompts are guidance, not a substitute for route-specific docs.
 
 ## Repository evaluation note

@@ -1,6 +1,6 @@
 # Known Limitations
 
-## Improved in v0.5.5
+## Improved in v0.5.6
 
 - VCP now has a dedicated repository evaluation guide for humans and AI agents.
 - `vcp evaluate` can summarize evaluation surfaces and print the recommended evaluation prompt.

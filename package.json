@@ -1,6 +1,6 @@
 {
   "name": "vibe-coding-protocols",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,
@@ -20,7 +20,10 @@
     "codex",
     "claude-code",
     "cursor",
-    "delivery"
+    "delivery",
+    "seo",
+    "geo",
+    "ai-visibility"
   ],
   "files": [
     "bin/",
@@ -39,7 +42,9 @@
     "protocols/",
     "benchmarks/",
     "PROJECT_BACKLOG.md",
-    "llms.txt"
+    "llms.txt",
+    "docs/install.md",
+    "docs/glossary.md"
   ],
   "bin": {
     "vcp": "./bin/vcp-node.js",

@@ -6,7 +6,10 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/new-project.json",
       "expected_route": "starter",
       "expected_pack": "new-project",
-      "required_inspected_files": ["START_HERE.md", "protocols/ai-project-starter-protocol.md"],
+      "required_inspected_files": [
+        "START_HERE.md",
+        "protocols/ai-project-starter-protocol.md"
+      ],
       "expected_warnings": [],
       "expected_first_action": "Create product brief and project map."
     },
@@ -16,8 +19,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/existing-mvp.json",
       "expected_route": "hardening-light",
       "expected_pack": "existing-mvp",
-      "required_inspected_files": ["AI_INTAKE.md", "docs/adoption-packs.md"],
-      "expected_warnings": ["no validation path exists"],
+      "required_inspected_files": [
+        "AI_INTAKE.md",
+        "docs/adoption-packs.md"
+      ],
+      "expected_warnings": [
+        "no validation path exists"
+      ],
       "expected_first_action": "Map dependencies and current validation path."
     },
     {
@@ -26,8 +34,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/production-saas.json",
       "expected_route": "hardening-full",
       "expected_pack": "production",
-      "required_inspected_files": ["AI_INTAKE.md", "templates/reports/security-review-scope.md"],
-      "expected_warnings": ["independent review required"],
+      "required_inspected_files": [
+        "AI_INTAKE.md",
+        "templates/reports/security-review-scope.md"
+      ],
+      "expected_warnings": [
+        "independent review required"
+      ],
       "expected_first_action": "Lock review scope and release gate before modifications."
     },
     {
@@ -36,8 +49,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/regulated-payments-data.json",
       "expected_route": "hardening-full",
       "expected_pack": "regulated",
-      "required_inspected_files": ["templates/reports/security-review-scope.md", "docs/security-methodology-scope.md"],
-      "expected_warnings": ["human review unavailable blocks acceptance"],
+      "required_inspected_files": [
+        "templates/reports/security-review-scope.md",
+        "docs/security-methodology-scope.md"
+      ],
+      "expected_warnings": [
+        "human review unavailable blocks acceptance"
+      ],
       "expected_first_action": "Document sensitive flows and stop conditions first."
     },
     {
@@ -46,8 +64,14 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/shared-engine-production.json",
       "expected_route": "hardening-full",
       "expected_pack": "shared-engine",
-      "required_inspected_files": ["AI_INTAKE.md", "PROJECT_MAP.md", "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"],
-      "expected_warnings": ["shared engine can be misread as generic without intake discipline"],
+      "required_inspected_files": [
+        "AI_INTAKE.md",
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "expected_warnings": [
+        "shared engine can be misread as generic without intake discipline"
+      ],
       "expected_first_action": "Create engine map and identify product-specific modules."
     },
     {
@@ -56,8 +80,12 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/maintenance-refactor.json",
       "expected_route": "maintenance-refactoring",
       "expected_pack": "maintenance",
-      "required_inspected_files": ["protocols/maintenance/care-refactoring.md"],
-      "expected_warnings": ["behavior change requires escalation"],
+      "required_inspected_files": [
+        "protocols/maintenance/care-refactoring.md"
+      ],
+      "expected_warnings": [
+        "behavior change requires escalation"
+      ],
       "expected_first_action": "Choose one small behavior-preserving refactor."
     },
     {
@@ -66,8 +94,12 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/ui-ownership.json",
       "expected_route": "ui-ownership",
       "expected_pack": "ui-ownership",
-      "required_inspected_files": ["protocols/maintenance/ui-refactoring.md"],
-      "expected_warnings": ["do not redesign the entire system"],
+      "required_inspected_files": [
+        "protocols/maintenance/ui-refactoring.md"
+      ],
+      "expected_warnings": [
+        "do not redesign the entire system"
+      ],
       "expected_first_action": "Pick one coherent UI ownership slice."
     },
     {
@@ -76,9 +108,78 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/public-site.json",
       "expected_route": "public-site-readiness",
       "expected_pack": "public-site",
-      "required_inspected_files": ["docs/public-site-readiness.md", "llms.txt"],
-      "expected_warnings": ["do not claim guaranteed AI indexing"],
+      "required_inspected_files": [
+        "docs/public-site-readiness.md",
+        "llms.txt"
+      ],
+      "expected_warnings": [
+        "do not claim guaranteed AI indexing"
+      ],
       "expected_first_action": "Check trust links, canonical docs and publish checklist."
+    },
+    {
+      "id": "public-growth-audit",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/public-growth-audit.json",
+      "expected_route": "public-growth-playbook",
+      "expected_pack": "public-growth",
+      "required_inspected_files": [
+        "protocols/public-growth/public-growth-playbook.md",
+        "docs/geo-ai-visibility.md",
+        "templates/reports/public-growth-audit-report.md"
+      ],
+      "expected_warnings": [
+        "do not claim guaranteed rankings or AI citations"
+      ],
+      "expected_first_action": "Choose one public growth surface, one audience intent, and one proof boundary before rewriting pages."
+    },
+    {
+      "id": "geo-ai-visibility",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/geo-ai-visibility.json",
+      "expected_route": "public-growth-playbook",
+      "expected_pack": "public-growth",
+      "required_inspected_files": [
+        "protocols/public-growth/seo-geo-ai-visibility.md",
+        "docs/geo-ai-visibility.md",
+        "llms.txt"
+      ],
+      "expected_warnings": [
+        "AI visibility is a readiness layer, not a guarantee"
+      ],
+      "expected_first_action": "Map the public entities, answerable questions, and proof links before editing metadata or schema."
+    },
+    {
+      "id": "page-template-selection",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/page-template-selection.json",
+      "expected_route": "public-growth-playbook",
+      "expected_pack": "public-growth",
+      "required_inspected_files": [
+        "docs/page-templates.md",
+        "templates/public-growth/page-brief.md",
+        "templates/public-growth/service-page-template.md"
+      ],
+      "expected_warnings": [
+        "pick one template that matches user intent instead of mixing all formats"
+      ],
+      "expected_first_action": "Write a page brief first, then choose the narrowest matching template and schema."
+    },
+    {
+      "id": "glossary-inspection",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/glossary-inspection.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "AI_EVALUATION_GUIDE.md",
+        "docs/glossary.md",
+        "docs/cli.md"
+      ],
+      "expected_warnings": [
+        "terminology judgments are shallow if glossary inspection was skipped"
+      ],
+      "expected_first_action": "Read the glossary before making claims about package maturity, routes, or public-standard readiness."
     },
     {
       "id": "post-task-review",
@@ -86,8 +187,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/post-task-review.json",
       "expected_route": "post-task-code-review",
       "expected_pack": "post-task-review",
-      "required_inspected_files": ["protocols/review/post-task-code-review.md", "templates/reports/code-review-report.md"],
-      "expected_warnings": ["validation red blocks acceptance"],
+      "required_inspected_files": [
+        "protocols/review/post-task-code-review.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "expected_warnings": [
+        "validation red blocks acceptance"
+      ],
       "expected_first_action": "Inspect git status, diff and validation output."
     },
     {
@@ -96,8 +202,16 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
       "expected_route": "third-party-api-intake",
       "expected_pack": "third-party-api",
-      "required_inspected_files": ["protocols/integrations/third-party-api-intake.md", "templates/THIRD_PARTY_REGISTRY.md", "templates/reports/third-party-api-intake-report.md", "commands/third-party-api-intake.md"],
-      "expected_warnings": ["do not add API key to code", "do not assume public or free means production-safe"],
+      "required_inspected_files": [
+        "protocols/integrations/third-party-api-intake.md",
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "templates/reports/third-party-api-intake-report.md",
+        "commands/third-party-api-intake.md"
+      ],
+      "expected_warnings": [
+        "do not add API key to code",
+        "do not assume public or free means production-safe"
+      ],
       "expected_first_action": "Classify auth, data flow, terms, fallback and owner before implementation."
     },
     {
@@ -106,8 +220,16 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/production-error-capture.json",
       "expected_route": "production-error-capture",
       "expected_pack": "operations",
-      "required_inspected_files": ["protocols/operations/production-error-capture.md", "protocols/operations/daily-error-triage.md", "docs/production-observability.md", "PROJECT_BACKLOG.md"],
-      "expected_warnings": ["read-only capture only", "do not copy secrets or customer data into reports"],
+      "required_inspected_files": [
+        "protocols/operations/production-error-capture.md",
+        "protocols/operations/daily-error-triage.md",
+        "docs/production-observability.md",
+        "PROJECT_BACKLOG.md"
+      ],
+      "expected_warnings": [
+        "read-only capture only",
+        "do not copy secrets or customer data into reports"
+      ],
       "expected_first_action": "Discover the documented authorized production log path before monitoring anything."
     },
     {
@@ -116,8 +238,15 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/project-backlog-update.json",
       "expected_route": "project-backlog-workflow",
       "expected_pack": "backlog",
-      "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md", "commands/backlog-update.md", "templates/reports/backlog-update-report.md"],
-      "expected_warnings": ["do not confuse PROJECT_BACKLOG with AUDIT_BACKLOG"],
+      "required_inspected_files": [
+        "PROJECT_BACKLOG.md",
+        "docs/project-backlog.md",
+        "commands/backlog-update.md",
+        "templates/reports/backlog-update-report.md"
+      ],
+      "expected_warnings": [
+        "do not confuse PROJECT_BACKLOG with AUDIT_BACKLOG"
+      ],
       "expected_first_action": "Add or update the backlog item before implementation starts."
     },
     {
@@ -126,8 +255,14 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-add-idea.json",
       "expected_route": "project-backlog-workflow",
       "expected_pack": "backlog",
-      "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md", "templates/PROJECT_BACKLOG.md"],
-      "expected_warnings": ["do not silently lose new ideas in chat"],
+      "required_inspected_files": [
+        "PROJECT_BACKLOG.md",
+        "docs/project-backlog.md",
+        "templates/PROJECT_BACKLOG.md"
+      ],
+      "expected_warnings": [
+        "do not silently lose new ideas in chat"
+      ],
       "expected_first_action": "Add the idea to TODO before implementation starts."
     },
     {
@@ -136,8 +271,14 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-move-done-with-review.json",
       "expected_route": "project-backlog-workflow",
       "expected_pack": "backlog",
-      "required_inspected_files": ["PROJECT_BACKLOG.md", "templates/reports/backlog-update-report.md", "templates/reports/code-review-report.md"],
-      "expected_warnings": ["done items need validation and review evidence"],
+      "required_inspected_files": [
+        "PROJECT_BACKLOG.md",
+        "templates/reports/backlog-update-report.md",
+        "templates/reports/code-review-report.md"
+      ],
+      "expected_warnings": [
+        "done items need validation and review evidence"
+      ],
       "expected_first_action": "Move the item only after validation and review evidence are recorded."
     },
     {
@@ -146,8 +287,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-archive-not-taken.json",
       "expected_route": "project-backlog-workflow",
       "expected_pack": "backlog",
-      "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md"],
-      "expected_warnings": ["archiving needs an explicit reason"],
+      "required_inspected_files": [
+        "PROJECT_BACKLOG.md",
+        "docs/project-backlog.md"
+      ],
+      "expected_warnings": [
+        "archiving needs an explicit reason"
+      ],
       "expected_first_action": "Archive the item with a visible reason instead of deleting it."
     },
     {
@@ -156,8 +302,14 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json",
       "expected_route": "project-backlog-workflow",
       "expected_pack": "backlog",
-      "required_inspected_files": ["PROJECT_BACKLOG.md", "PROJECT_MAP.md", "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"],
-      "expected_warnings": ["cross-layer backlog items must sync architecture memory"],
+      "required_inspected_files": [
+        "PROJECT_BACKLOG.md",
+        "PROJECT_MAP.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
+      "expected_warnings": [
+        "cross-layer backlog items must sync architecture memory"
+      ],
       "expected_first_action": "Update the backlog item and the architecture memory in the same task or create a linked follow-up item."
     },
     {
@@ -166,8 +318,15 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/repository-evaluation-full.json",
       "expected_route": null,
       "expected_pack": null,
-      "required_inspected_files": ["AI_EVALUATION_GUIDE.md", "docs/cli.md", ".vcp/manifests/vcp.manifest.json", "benchmarks/ai-adoption/README.md"],
-      "expected_warnings": ["separate methodology maturity from distribution maturity"],
+      "required_inspected_files": [
+        "AI_EVALUATION_GUIDE.md",
+        "docs/cli.md",
+        ".vcp/manifests/vcp.manifest.json",
+        "benchmarks/ai-adoption/README.md"
+      ],
+      "expected_warnings": [
+        "separate methodology maturity from distribution maturity"
+      ],
       "expected_first_action": "Inspect the evaluation guide, manifests, benchmarks, and CLI outputs before scoring the repository."
     },
     {
@@ -176,8 +335,13 @@
       "scenario_file": "benchmarks/ai-adoption/scenarios/repository-evaluation-shallow.json",
       "expected_route": null,
       "expected_pack": null,
-      "required_inspected_files": ["README.md", "AI_EVALUATION_GUIDE.md"],
-      "expected_warnings": ["mark the evaluation as partial / shallow if manifests, benchmarks, CLI docs, and protocol index were skipped"],
+      "required_inspected_files": [
+        "README.md",
+        "AI_EVALUATION_GUIDE.md"
+      ],
+      "expected_warnings": [
+        "mark the evaluation as partial / shallow if manifests, benchmarks, CLI docs, and protocol index were skipped"
+      ],
       "expected_first_action": "Stop calling the evaluation complete and inspect the minimum file set from AI_EVALUATION_GUIDE.md."
     }
   ]

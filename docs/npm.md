@@ -1,6 +1,6 @@
 # npm Wrapper
 
-`v0.5.5` keeps the local npm entrypoint for JS/Node-first users.
+`v0.5.6` keeps the local npm entrypoint for JS/Node-first users.
 It is still a thin wrapper around the Python CLI.
 
 ## What works now
@@ -11,6 +11,7 @@ Inside this repository:
 npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- route --profile public-growth
 npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
@@ -36,7 +37,7 @@ vcp init --print-prompt
 Public npm and `npx` distribution are planned.
 Current npm support is local wrapper only.
 
-That means `v0.5.5` does not claim:
+That means `v0.5.6` does not claim:
 - a published npm package;
 - `npx vcp` from the public registry;
 - `npm install -g` support from a published package;
@@ -64,6 +65,7 @@ npm pack --dry-run
 
 ## Related docs
 
+- [install.md](./install.md)
 - [cli.md](./cli.md)
 - [npm-publishing-checklist.md](./npm-publishing-checklist.md)
 - [windows.md](./windows.md)

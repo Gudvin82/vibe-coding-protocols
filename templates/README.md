@@ -7,7 +7,7 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.5.5 -->
+<!-- vcp-version: v0.5.6 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -33,9 +33,13 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 - [prompts/prod-log-monitor.md](./prompts/prod-log-monitor.md)
 - [prompts/daily-error-triage.md](./prompts/daily-error-triage.md)
 - [prompts/backlog-update.md](./prompts/backlog-update.md)
+- [prompts/public-growth-audit.md](./prompts/public-growth-audit.md)
 
 ## Integration safety artifacts
 
 - [THIRD_PARTY_REGISTRY.md](./THIRD_PARTY_REGISTRY.md)
 - [PROJECT_BACKLOG.md](./PROJECT_BACKLOG.md)
 - [examples/THIRD_PARTY_REGISTRY.filled.example.md](./examples/THIRD_PARTY_REGISTRY.filled.example.md)
+- [public-growth/page-brief.md](./public-growth/page-brief.md)
+- [public-growth/service-page-template.md](./public-growth/service-page-template.md)
+- [public-growth/schema/README.md](./public-growth/schema/README.md)

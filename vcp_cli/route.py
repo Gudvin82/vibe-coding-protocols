@@ -110,6 +110,27 @@ ROUTES = {
         "validation_commands": ["python3 scripts/check-newlines.py", "python3 scripts/validate-links.sh"],
         "post_task_review_gate": "Use lighter review for meaningful docs or config changes.",
     },
+    "public-growth": {
+        "selected_route": "Public Growth Playbook",
+        "manifest_route_id": "public-growth-playbook",
+        "adoption_pack": "public-growth",
+        "confidence": "High",
+        "required_files_to_inspect": [
+            "protocols/public-growth/public-growth-playbook.md",
+            "protocols/public-growth/seo-geo-ai-visibility.md",
+            "docs/geo-ai-visibility.md",
+            "docs/page-templates.md",
+            "templates/public-growth/public-growth-checklist.md",
+        ],
+        "first_safe_action": "Choose one public growth surface, one audience intent, and one proof boundary before rewriting pages.",
+        "stop_conditions": [
+            "The plan depends on guaranteed rankings or AI citations",
+            "Visible claims, schema, or FAQ content would diverge",
+            "The page plan would create doorway pages, hidden FAQ, or fabricated proof",
+        ],
+        "validation_commands": ["python3 scripts/check-newlines.py", "python3 scripts/validate-links.sh", "python3 -m vcp_cli review plan --json"],
+        "post_task_review_gate": "Recommended for meaningful public-page changes; required once commercial or trust claims change.",
+    },
     "operations": {
         "selected_route": "Operations Feedback Loop",
         "manifest_route_id": "production-error-capture",

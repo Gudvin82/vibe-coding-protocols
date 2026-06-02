@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.6
+
+- Added `public-growth` as a first-class route and Adoption Pack.
+- Added public growth protocol family for SEO/GEO, AI visibility, page templates, and risk control.
+- Added public-growth templates, schema examples, audit prompts, reports, and examples.
+- Added glossary and install docs to reduce terminology drift and packaging confusion.
+- Updated evaluation guidance so AI agents inspect glossary and public-growth docs before judging maturity.
+- Improved README, CLI docs, manifests, benchmarks, and CI smoke coverage without faking public package publication or guaranteed SEO outcomes.
+
 ## v0.5.5
 
 - Added `AI_EVALUATION_GUIDE.md` plus a first-screen README block so humans and AI agents do not judge VCP from a shallow README skim.

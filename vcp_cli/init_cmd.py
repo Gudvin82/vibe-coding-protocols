@@ -29,7 +29,7 @@ def _guide(target: str, include_prompt: bool) -> str:
     lines = [
         "# VCP Init",
         "",
-        "VCP init is guidance-only in v0.5.5.",
+        "VCP init is guidance-only in v0.5.6.",
         "It does not modify files by default.",
         "",
         f"Target: {target}",
@@ -71,7 +71,7 @@ def _guide(target: str, include_prompt: bool) -> str:
 
 def run(target: str = "generic", print_prompt: bool = False, json_mode: bool = False, apply: bool = False) -> int:
     if apply:
-        print("`vcp init --apply` is not implemented in v0.5.5. Init is guidance-only.")
+        print("`vcp init --apply` is not implemented in v0.5.6. Init is guidance-only.")
         return 1
     if target not in TARGET_PROMPTS:
         print(f"Unknown init target: {target}")

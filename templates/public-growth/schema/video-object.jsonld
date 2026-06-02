@@ -1,0 +1,9 @@
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "{{ video_title }}",
+  "description": "{{ video_description }}",
+  "thumbnailUrl": ["{{ thumbnail_url }}"],
+  "uploadDate": "{{ upload_date }}",
+  "contentUrl": "{{ video_url }}"
+}

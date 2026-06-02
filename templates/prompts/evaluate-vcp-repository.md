@@ -1,5 +1,5 @@
 <!-- vcp-artifact: EVALUATE_VCP_REPOSITORY_PROMPT -->
-<!-- vcp-version: v0.5.5 -->
+<!-- vcp-version: v0.5.6 -->
 <!-- methodology-version: v1.4 -->
 
 You are evaluating Vibe Coding Protocols.
@@ -10,9 +10,13 @@ First inspect:
 - AI_EVALUATION_GUIDE.md
 - AI_INTAKE.md
 - START_HERE.md
+- docs/install.md
+- docs/glossary.md
 - docs/protocol-index.md
 - docs/adoption-packs.md
 - docs/cli.md
+- docs/geo-ai-visibility.md
+- docs/page-templates.md
 - docs/project-backlog.md
 - .vcp/manifests/
 - benchmarks/ai-adoption/
@@ -34,3 +38,5 @@ Return a structured evaluation with:
 - fair scores by category
 - whether evaluation is full or shallow
 - confidence level
+
+If you skipped glossary or public-growth docs, say that terminology and public-maturity judgments are shallow.

@@ -65,14 +65,23 @@ jobs:
       - name: CLI third-party API route smoke
         run: python3 -m vcp_cli route --profile third-party-api --json
 
+      - name: CLI public-growth route smoke
+        run: python3 -m vcp_cli route --profile public-growth --json
+
       - name: CLI adopt smoke
         run: python3 -m vcp_cli adopt --pack production --dry-run --json
 
       - name: CLI third-party API adopt smoke
         run: python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
 
+      - name: CLI public-growth adopt smoke
+        run: python3 -m vcp_cli adopt --pack public-growth --dry-run --json
+
       - name: CLI review smoke
         run: python3 -m vcp_cli review plan --json
+
+      - name: CLI evaluate smoke
+        run: python3 -m vcp_cli evaluate --json
 
       - name: Manifest validation
         run: python3 -m vcp_cli manifest validate
@@ -91,6 +100,9 @@ jobs:
 
       - name: npm wrapper manifest validate
         run: npm run vcp -- manifest validate
+
+      - name: npm wrapper evaluate
+        run: npm run vcp -- evaluate
 
       - name: Todo app starter tests
         run: npm test --prefix examples/todo-app-starter
@@ -168,12 +180,21 @@ jobs:
       - name: CLI third-party API route
         shell: pwsh
         run: py -m vcp_cli route --profile third-party-api --json
+      - name: CLI public-growth route
+        shell: pwsh
+        run: py -m vcp_cli route --profile public-growth --json
       - name: CLI adopt dry-run
         shell: pwsh
         run: py -m vcp_cli adopt --pack production --dry-run --json
       - name: CLI third-party API adopt dry-run
         shell: pwsh
         run: py -m vcp_cli adopt --pack third-party-api --dry-run --json
+      - name: CLI public-growth adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack public-growth --dry-run --json
+      - name: CLI evaluate
+        shell: pwsh
+        run: py -m vcp_cli evaluate --json
       - name: Manifest validation
         shell: pwsh
         run: py -m vcp_cli manifest validate
@@ -189,3 +210,6 @@ jobs:
       - name: npm wrapper manifest validate
         shell: pwsh
         run: npm run vcp -- manifest validate
+      - name: npm wrapper evaluate
+        shell: pwsh
+        run: npm run vcp -- evaluate
