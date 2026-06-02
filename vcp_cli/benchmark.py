@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
-from .utils import load_json, print_output, repo_root
+from .utils import load_json, manifest_path, print_output, repo_root
 
 
 def scenario_paths() -> list[Path]:
@@ -16,15 +15,15 @@ def list_scenarios() -> int:
     return 0
 
 
-def _manifest_ids(filename: str) -> set[str]:
-    items = load_json(repo_root() / filename).get("items", [])
+def _manifest_ids(group: str) -> set[str]:
+    items = load_json(manifest_path(repo_root(), group)).get("items", [])
     return {item.get("id") for item in items}
 
 
 def run(scenario: str | None = None, json_mode: bool = False) -> int:
     root = repo_root()
-    route_ids = _manifest_ids("protocols.manifest.json")
-    pack_ids = _manifest_ids("adoption-packs.manifest.json")
+    route_ids = _manifest_ids("protocols")
+    pack_ids = _manifest_ids("adoption-packs")
     selected = [p for p in scenario_paths() if scenario in {None, p.stem}]
     results = []
     errors = []
@@ -46,6 +45,6 @@ def run(scenario: str | None = None, json_mode: bool = False) -> int:
     else:
         for result in results:
             print(f"{result['scenario']}: {'PASS' if result['ok'] else 'FAIL'}")
-            for error in result['errors']:
+            for error in result["errors"]:
                 print(f"- {error}")
     return 0 if not errors else 1

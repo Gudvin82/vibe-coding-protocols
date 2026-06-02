@@ -56,6 +56,9 @@ jobs:
       - name: CLI fast check
         run: python3 -m vcp_cli check --fast --json
 
+      - name: CLI init prompt
+        run: python3 -m vcp_cli init --print-prompt
+
       - name: CLI route smoke
         run: python3 -m vcp_cli route --profile production --json
 
@@ -79,6 +82,15 @@ jobs:
 
       - name: Score JSON
         run: python3 -m vcp_cli score --json
+
+      - name: npm wrapper doctor
+        run: npm run vcp -- doctor
+
+      - name: npm wrapper route
+        run: npm run vcp -- route --profile production
+
+      - name: npm wrapper manifest validate
+        run: npm run vcp -- manifest validate
 
       - name: Todo app starter tests
         run: npm test --prefix examples/todo-app-starter
@@ -132,6 +144,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
       - name: CLI help
         shell: pwsh
         run: py -m vcp_cli --help
@@ -144,6 +159,9 @@ jobs:
       - name: CLI fast check
         shell: pwsh
         run: py -m vcp_cli check --fast --json
+      - name: CLI init prompt
+        shell: pwsh
+        run: py -m vcp_cli init --print-prompt
       - name: CLI production route
         shell: pwsh
         run: py -m vcp_cli route --profile production --json
@@ -165,3 +183,9 @@ jobs:
       - name: Score JSON
         shell: pwsh
         run: py -m vcp_cli score --json
+      - name: npm wrapper doctor
+        shell: pwsh
+        run: npm run vcp -- doctor
+      - name: npm wrapper manifest validate
+        shell: pwsh
+        run: npm run vcp -- manifest validate

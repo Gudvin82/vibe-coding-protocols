@@ -8,6 +8,14 @@ from typing import Any
 
 MANIFEST_SCHEMA_VERSION = "v1"
 REPO_NAME = "vibe-coding-protocols"
+MANIFEST_FILENAMES = {
+    "vcp": "vcp.manifest.json",
+    "protocols": "protocols.manifest.json",
+    "adoption-packs": "adoption-packs.manifest.json",
+    "commands": "commands.manifest.json",
+    "reports": "reports.manifest.json",
+    "benchmarks": "benchmarks.manifest.json",
+}
 
 
 def repo_root(start: Path | None = None) -> Path:
@@ -69,15 +77,24 @@ def git_status_short(root: Path) -> str:
     return result.stdout.strip() if result.returncode == 0 else ""
 
 
+def manifest_dir(root: Path) -> Path:
+    preferred = root / ".vcp" / "manifests"
+    if preferred.is_dir():
+        return preferred
+    return root
+
+
+def manifest_path(root: Path, name: str) -> Path:
+    filename = MANIFEST_FILENAMES[name]
+    preferred = root / ".vcp" / "manifests" / filename
+    if preferred.exists():
+        return preferred
+    legacy = root / filename
+    return legacy if legacy.exists() else preferred
+
+
 def manifest_paths(root: Path) -> dict[str, Path]:
-    return {
-        "vcp": root / "vcp.manifest.json",
-        "protocols": root / "protocols.manifest.json",
-        "adoption-packs": root / "adoption-packs.manifest.json",
-        "commands": root / "commands.manifest.json",
-        "reports": root / "reports.manifest.json",
-        "benchmarks": root / "benchmarks.manifest.json",
-    }
+    return {key: manifest_path(root, key) for key in MANIFEST_FILENAMES}
 
 
 def relative_to_root(root: Path, path: Path) -> str:

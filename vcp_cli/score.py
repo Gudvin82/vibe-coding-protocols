@@ -1,22 +1,28 @@
 from __future__ import annotations
 
-from .utils import print_output, repo_root
+from .utils import manifest_paths, print_output, repo_root, relative_to_root
+
+
+def manifest_relpaths() -> list[str]:
+    root = repo_root()
+    return [relative_to_root(root, path) for path in manifest_paths(root).values()]
+
 
 CATEGORY_RULES = [
     ("AI Intake readiness", ["AI_INTAKE.md", "docs/target-project-classifier.md"]),
     ("Route classifier", ["docs/protocol-index.md", "docs/route-map.md"]),
-    ("Adoption packs", ["docs/adoption-packs.md", "adoption-packs.manifest.json"]),
+    ("Adoption packs", ["docs/adoption-packs.md", ".vcp/manifests/adoption-packs.manifest.json"]),
     ("Third-party API intake / registry", ["protocols/integrations/third-party-api-intake.md", "templates/THIRD_PARTY_REGISTRY.md", "templates/reports/third-party-api-intake-report.md"]),
     ("Post-task review gate", ["protocols/review/post-task-code-review.md", "commands/loop-code-review.md"]),
     ("Protocol index", ["docs/protocol-index.md"]),
-    ("Manifests", ["vcp.manifest.json", "protocols.manifest.json", "commands.manifest.json", "reports.manifest.json", "benchmarks.manifest.json"]),
-    ("CLI status", ["docs/cli.md", "docs/windows.md", "vcp_cli/cli.py"]),
+    ("Manifests", manifest_relpaths()),
+    ("CLI status", ["docs/cli.md", "docs/windows.md", "docs/npm.md", "docs/init.md", "vcp_cli/cli.py", "bin/vcp-node.js"]),
     ("Validation scripts", ["scripts/check-newlines.py", "scripts/check-toolkit.sh", "scripts/validate-links.sh"]),
     ("Markdown readability", ["docs/markdown-style.md"]),
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
-    ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.1.md"]),
+    ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.2.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 
@@ -47,7 +53,7 @@ def run(json_mode: bool = False) -> int:
         "next_recommended_improvements": [
             "Reduce remaining markdown readability warnings.",
             "Add authenticated GitHub Release publishing when tooling is available.",
-            "Keep Windows CLI parity and manifest validation in CI.",
+            "Keep Python CLI, npm wrapper and manifest validation in CI.",
         ],
     }
     if json_mode:
@@ -56,8 +62,8 @@ def run(json_mode: bool = False) -> int:
         print(f"Score: {payload['score']}/100")
         for category in categories:
             print(f"- {category['name']}: {category['status']}")
-        if payload['warnings']:
+        if payload["warnings"]:
             print("Warnings:")
-            for warning in payload['warnings']:
+            for warning in payload["warnings"]:
                 print(f"- {warning}")
     return 0

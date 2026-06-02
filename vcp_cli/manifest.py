@@ -1,9 +1,8 @@
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
-from .utils import dump_json, load_json, print_output, repo_root
+from .utils import dump_json, load_json, manifest_path, manifest_paths, print_output, repo_root
 
 REQUIRED_API_INTAKE_PROTOCOL_ID = "third-party-api-intake"
 REQUIRED_API_INTAKE_COMMAND_ID = "third-party-api-intake"
@@ -14,14 +13,7 @@ REQUIRED_API_INTAKE_BENCHMARK_ID = "third-party-api-intake"
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
     root = repo_root()
-    paths = {
-        "vcp": root / "vcp.manifest.json",
-        "protocols": root / "protocols.manifest.json",
-        "adoption-packs": root / "adoption-packs.manifest.json",
-        "commands": root / "commands.manifest.json",
-        "reports": root / "reports.manifest.json",
-        "benchmarks": root / "benchmarks.manifest.json",
-    }
+    paths = manifest_paths(root)
     if name:
         return {name: load_json(paths[name])}
     return {key: load_json(path) for key, path in paths.items()}
@@ -29,14 +21,7 @@ def show_manifest(name: str | None = None) -> dict[str, Any]:
 
 def validate_manifests(json_mode: bool = False) -> int:
     root = repo_root()
-    paths = {
-        "vcp": root / "vcp.manifest.json",
-        "protocols": root / "protocols.manifest.json",
-        "adoption-packs": root / "adoption-packs.manifest.json",
-        "commands": root / "commands.manifest.json",
-        "reports": root / "reports.manifest.json",
-        "benchmarks": root / "benchmarks.manifest.json",
-    }
+    paths = manifest_paths(root)
     errors: list[str] = []
     details: dict[str, Any] = {}
     protocol_ids: set[str] = set()
@@ -78,7 +63,7 @@ def validate_manifests(json_mode: bool = False) -> int:
             if key == "adoption-packs":
                 for field in ["recommended_files", "optional_files", "merge_only_files"]:
                     for rel in item.get(field, []):
-                        if rel.endswith((".md", ".json", ".sh", ".py", ".txt", ".ps1", ".cmd")) and not (root / rel).exists():
+                        if rel.endswith((".md", ".json", ".sh", ".py", ".txt", ".ps1", ".cmd", ".yml", ".yaml")) and not (root / rel).exists():
                             errors.append(f"Missing pack path for {item.get('id')}:{field}: {rel}")
             if key == "benchmarks":
                 scenario_file = item.get("scenario_file")
@@ -123,11 +108,11 @@ def validate_manifests(json_mode: bool = False) -> int:
 def list_group(group: str) -> int:
     root = repo_root()
     lookup = {
-        "routes": root / "protocols.manifest.json",
-        "packs": root / "adoption-packs.manifest.json",
-        "commands": root / "commands.manifest.json",
-        "reports": root / "reports.manifest.json",
-        "benchmarks": root / "benchmarks.manifest.json",
+        "routes": manifest_path(root, "protocols"),
+        "packs": manifest_path(root, "adoption-packs"),
+        "commands": manifest_path(root, "commands"),
+        "reports": manifest_path(root, "reports"),
+        "benchmarks": manifest_path(root, "benchmarks"),
     }
     data = load_json(lookup[group])
     print(dump_json(data.get("items", [])))

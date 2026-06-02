@@ -2,93 +2,95 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.1-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.2-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
-[![Manifests](https://img.shields.io/badge/manifests-v1-blue)](./vcp.manifest.json)
+[![Windows CLI](https://img.shields.io/badge/Windows-CLI-blue)](./docs/windows.md)
+[![Manifests](https://img.shields.io/badge/manifests-v1-blue)](./.vcp/manifests/vcp.manifest.json)
 [![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
+[![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
-**Это не коллекция промптов.**
+VCP — это управляемый workflow для AI-assisted разработки.
+Когда AI помогает писать код, команда часто начинает двигаться быстрее, чем успевают собраться архитектура, review, stop conditions и release discipline.
+VCP помогает сначала классифицировать проект, потом выбрать правильный route, взять только нужный adoption pack, провалидировать результат и прогнать review gate до следующего шага.
 
-VCP — это controlled AI delivery framework для AI-assisted разработки.
-Он дает маршруты, protocols, adoption packs, validation, review gates, manifests, benchmarks и project memory, чтобы AI не менял код хаотично.
-
-Пакет репозитория: `v0.5.1`
+Пакет репозитория: `v0.5.2`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
-## Отдаешь репозиторий AI-агенту?
-
-Начинай с [AI_INTAKE.md](./AI_INTAKE.md), а не с поверхностного чтения `README.md`.
-If agent rules are needed, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
-Потом смотри:
-- [START_HERE.md](./START_HERE.md)
-- [docs/protocol-index.md](./docs/protocol-index.md)
-- [docs/adoption-packs.md](./docs/adoption-packs.md)
-- [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md)
-
-## Windows и безопасность внешних API
-
-Пользователи Windows могут идти по основному VCP-маршруту через Python CLI из PowerShell.
-Bash-скрипты остаются поддержанными для legacy parity.
-Если добавляется любой внешний API, сначала запускай Third-party API Intake, а уже потом пиши интеграционный код.
-Public или free API не означает production-safe по умолчанию.
-
-## С чего начать
-
-| Ситуация | Куда идти |
-|---|---|
-| Новый проект или идея | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
-| Уже есть AI-generated MVP | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| Production, regulated или shared-engine repo | [AI_INTAKE.md](./AI_INTAKE.md) + [adoption packs](./docs/adoption-packs.md) |
-| Код работает, но его трудно менять | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
-| Расползся UI styling ownership | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
-| Появился внешний API, SDK или webhook | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
-| Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
-| Публичный сайт или docs | [Public Site Readiness](./docs/public-site-readiness.md) |
-
-## Текущий CLI surface
+## Старт за 30 секунд
 
 ```bash
 python3 -m vcp_cli doctor
-python3 -m vcp_cli check --fast
-python3 -m vcp_cli route --profile production --json
-python3 -m vcp_cli route --profile third-party-api --json
-python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
-python3 -m vcp_cli manifest validate
-python3 -m vcp_cli benchmark run
-python3 -m vcp_cli score --json
+python3 -m vcp_cli route --profile production
+python3 -m vcp_cli adopt --pack production --dry-run
 ```
 
-PowerShell:
+Локальный Node-first вариант:
+
+```bash
+npm run vcp -- doctor
+npm run vcp -- route --profile production
+```
+
+Windows PowerShell:
 
 ```powershell
 py -m vcp_cli doctor
-py -m vcp_cli check --fast
-py -m vcp_cli route --profile production --json
+npm run vcp -- doctor
 ```
+
+## Это можно сразу отдать AI-агенту
+
+Начинай с [AI_INTAKE.md](./AI_INTAKE.md), потом переходи в [START_HERE.md](./START_HERE.md). Если нужны agent rules, лучше брать [templates/AGENTS.md](./templates/AGENTS.md), а не копировать root `AGENTS.md`.
+Если нужен готовый onboarding prompt, используй `python3 -m vcp_cli init --print-prompt` или [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md).
+
+## В чем VCP помогает
+
+- выбрать правильный route для реального репозитория, а не по умолчанию идти в Starter;
+- держать production, regulated, public-site, maintenance и API-intake работу в безопасных границах;
+- переносить небольшой релевантный набор файлов, а не копировать весь toolkit;
+- прогонять validation перед merge, release или deploy;
+- включать review gate после meaningful AI-generated изменений.
+
+## Routes
+
+| Ситуация | Route |
+|---|---|
+| Новый проект или идея | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
+| Уже есть AI-generated MVP | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
+| Production, regulated или shared-engine repo | [AI_INTAKE.md](./AI_INTAKE.md) + [Adoption Packs](./docs/adoption-packs.md) |
+| Код работает, но его трудно менять | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
+| Расползся styling или ownership компонентов | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
+| Появился внешний API, SDK, webhook или SaaS | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
+| Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
+| Публичный сайт, docs, trust или crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
+
+## Adoption Packs
+
+Adoption Pack — это небольшой рекомендуемый набор файлов под конкретную ситуацию.
+Например:
+- Production Pack = hardening docs + audit backlog + security baseline + review gate.
+- Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
+- Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
+
+Если нужен быстрый вход, начни с [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md).
 
 ## Что VCP не делает
 
-- не hacking toolkit;
-- не exploit framework;
-- не pentest suite;
-- не bug bounty automation suite;
-- не public API directory;
-- не public API recommendation engine;
-- не production security certification;
-- не legal compliance certification;
-- не замена developers, tests, security review, legal review или human judgment.
+VCP — это не scanner, не pentest/offensive toolkit, не compliance certification и не замена human review. Это workflow и tooling layer для более безопасной AI-assisted delivery.
 
-## Ключевые ссылки
+## Куда идти дальше
 
-- [AI_INTAKE.md](./AI_INTAKE.md)
 - [docs/cli.md](./docs/cli.md)
+- [docs/npm.md](./docs/npm.md)
 - [docs/windows.md](./docs/windows.md)
+- [docs/init.md](./docs/init.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
-- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
-- [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/release-v0.5.1.md](./docs/release-v0.5.1.md)
+- [docs/roadmap.md](./docs/roadmap.md)
+- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
+- [docs/measured-impact.md](./docs/measured-impact.md)
+- [docs/release-v0.5.2.md](./docs/release-v0.5.2.md)

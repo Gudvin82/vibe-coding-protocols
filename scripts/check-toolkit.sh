@@ -80,6 +80,13 @@ required_files=(
   docs/release-v0.4.4.md
   docs/release-v0.5.0.md
   docs/release-v0.5.1.md
+  docs/release-v0.5.2.md
+  docs/npm.md
+  docs/init.md
+  docs/adoption-packs.quickstart.md
+  docs/roadmap.md
+  docs/measured-impact.md
+  .vcp/README.md
   protocols/integrations/README.md
   protocols/integrations/third-party-api-intake.md
   commands/third-party-api-intake.md
@@ -108,15 +115,16 @@ required_files=(
   pyproject.toml
   comparison.md
   llms.txt
-  vcp.manifest.json
-  protocols.manifest.json
-  adoption-packs.manifest.json
-  commands.manifest.json
-  reports.manifest.json
-  benchmarks.manifest.json
+  .vcp/manifests/vcp.manifest.json
+  .vcp/manifests/protocols.manifest.json
+  .vcp/manifests/adoption-packs.manifest.json
+  .vcp/manifests/commands.manifest.json
+  .vcp/manifests/reports.manifest.json
+  .vcp/manifests/benchmarks.manifest.json
   bin/vcp
   bin/vcp.cmd
   bin/vcp.ps1
+  bin/vcp-node.js
   bin/vibe-check.js
   vcp_cli/__main__.py
   vcp_cli/cli.py
@@ -183,6 +191,8 @@ required_files=(
   case-studies/sanitized/README.md
   case-studies/sanitized/redaction-checklist.md
   case-studies/sanitized/case-study-template.md
+  case-studies/sanitized/measured-impact-template.md
+  case-studies/sanitized/synthetic-measured-impact-example.md
   case-studies/sanitized/ai-skim-failure-to-full-hardening/README.md
   case-studies/sanitized/shared-engine-production/README.md
   case-studies/sanitized/post-task-review-found-critical/README.md
@@ -224,6 +234,8 @@ required_dirs=(
   examples/bad-to-good
   examples/review
   case-studies/sanitized
+  .vcp
+  .vcp/manifests
   )
 
 for file in "${required_files[@]}"; do

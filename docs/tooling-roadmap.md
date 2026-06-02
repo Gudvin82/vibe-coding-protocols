@@ -1,28 +1,44 @@
 # Tooling Roadmap
 
-## Available in v0.5.1
+## Available in v0.5.2
 
-- local Python CLI;
-- Windows-first PowerShell path for core CLI workflows;
-- Bash-compatible legacy scripts;
-- machine-readable manifests;
-- benchmark scenarios;
-- post-task review helper;
-- third-party API intake protocol and registry discipline.
+- local Python CLI
+- local npm wrapper that forwards to the Python CLI
+- Windows-first PowerShell path for the fast CLI workflow
+- Bash-compatible legacy scripts
+- machine-readable manifests under `.vcp/manifests/`
+- benchmark scenarios
+- post-task review helper
+- third-party API intake protocol and registry discipline
 
-## Improved now
+## What the tooling can catch today
 
-- `check --fast` is Python-native and intended to work without Bash;
-- `doctor` reports OS, shell, Bash and PowerShell-first capability;
-- Windows CI can verify Python CLI parity;
-- external API intake is now a first-class route, pack and benchmark.
+- missing required structure
+- broken local markdown links
+- version drift
+- manifest consistency
+- benchmark scenario consistency
+- basic CLI and wrapper smoke
+- markdown readability warnings
+
+## What still requires human review
+
+- architecture quality
+- whether a refactor is worth doing
+- business logic correctness
+- legal or compliance judgment
+- whether an external API is acceptable for the target product
+- final release or deployment approval
 
 ## Still future
 
-- native installer;
-- PyPI, npm or Homebrew distribution if not published;
-- full Bash parity on native Windows;
-- automatic legal or terms review;
-- vendor risk automation;
-- live API monitoring integration;
-- security scanner integration.
+- published npm package
+- PyPI or pipx packaging
+- mature native Windows installer
+- deep AST boundary linter
+- automatic legal or terms review
+- vendor risk automation
+- live API monitoring integration
+- authenticated GitHub Release publishing from the CLI
+
+See also [roadmap.md](./roadmap.md) and [../ROADMAP.md](../ROADMAP.md).

@@ -20,3 +20,8 @@ review auth and data,
 review terms and fallback,
 update `THIRD_PARTY_REGISTRY`,
 and require review before production use.
+
+## Packaging note
+
+Use ecosystem references to understand contribution patterns, not to borrow maturity claims.
+Do not imply that a local wrapper equals a published package or a stable registry distribution.

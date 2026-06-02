@@ -11,6 +11,7 @@ from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
+from . import init_cmd
 from . import manifest as manifest_cmd
 from . import review as review_cmd
 from . import route as route_cmd
@@ -46,6 +47,12 @@ def build_parser() -> argparse.ArgumentParser:
     check_p.add_argument("--full", action="store_true")
     check_p.add_argument("--json", action="store_true")
     check_p.add_argument("--no-audit", action="store_true")
+
+    init_p = sub.add_parser("init")
+    init_p.add_argument("--target", default="generic", choices=["generic", "claude", "codex", "cursor", "windsurf", "copilot"])
+    init_p.add_argument("--print-prompt", action="store_true")
+    init_p.add_argument("--json", action="store_true")
+    init_p.add_argument("--apply", action="store_true")
 
     route_p = sub.add_parser("route")
     route_p.add_argument("--profile", default="production")
@@ -114,6 +121,8 @@ def main(argv: list[str] | None = None) -> int:
         return doctor_cmd.run(args.json)
     if args.command == "check":
         return check_cmd.run(args.fast, args.full, args.no_audit, args.json)
+    if args.command == "init":
+        return init_cmd.run(args.target, args.print_prompt, args.json, args.apply)
     if args.command == "route":
         return route_cmd.run(args.profile, args.json)
     if args.command == "adopt":

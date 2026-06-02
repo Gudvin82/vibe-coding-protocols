@@ -15,21 +15,26 @@ Read this file before evaluating or applying VCP to a target repository.
 
 1. Classify the target project.
 2. Choose the correct VCP route.
-3. Choose the correct adoption pack.
+3. Choose the correct Adoption Pack.
 4. Select only relevant artifacts.
 5. Report what you inspected and what you intentionally skipped.
 6. Ask for missing context if the route is still unclear.
 7. Recommend post-task review after meaningful AI-generated changes.
 
+If the user wants the shortest CLI onboarding path, start with:
+- `python3 -m vcp_cli init`
+- `python3 -m vcp_cli route --profile production`
+- `python3 -m vcp_cli adopt --pack production --dry-run`
+
 ## Route defaults
 
 - If the target project is already in production, do not default to Starter.
 - If the target has users, payments, personal data, compliance obligations, legal or security claims, public APIs, or shared engine risk, default to Hardening or Full Hardening unless evidence says otherwise.
-- If a request adds any external API, SDK, webhook or SaaS integration, run Third-party API Intake before implementation.
+- If a request adds any external API, SDK, webhook, or SaaS integration, run Third-party API Intake before implementation.
 - If the project works but is hard to change, consider Maintenance Refactoring.
 - If the main issue is frontend styling or component drift, consider UI Component Ownership.
 - If public website, docs, trust, search, or AI crawler readiness is involved, include Public Site Readiness.
-- If the target project is production, shared-engine or regulated, recommend `/loop-code-review` after each meaningful change.
+- If the target project is production, shared-engine, or regulated, recommend `/loop-code-review` after each meaningful change.
 
 ## Minimum inspection before judgment
 

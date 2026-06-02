@@ -1,57 +1,58 @@
 # Roadmap
 
-This is a new public toolkit. The roadmap is intentionally practical and may change based on feedback.
+This roadmap is theme-based on purpose.
+It does not promise dates that the repository cannot honestly support yet.
 
-## v0.1.x — Public toolkit foundation
+## v0.5.x — Product and DX hardening
 
-- README packaging
-- synthetic examples
-- AI IDE files
-- lightweight checks
+- npm local wrapper for shorter Node-first commands
+- repository UX cleanup and manifest relocation
+- README simplification and progressive disclosure
+- Windows parity improvements for the fast CLI path
+- third-party API intake and registry discipline
+- better measured-impact structure without fake metrics
 
-## v0.2.0 — Better adoption
+## v0.6.0 — Distribution and hosted docs
 
-Near-term:
-- more examples
-- improved social preview
-- awesome-list PR
-- community feedback loop
+- published npm package if packaging and naming are ready
+- optional PyPI or pipx packaging if maintained well enough
+- GitHub Pages or hosted docs surface if IA is stable
+- stronger release checklist automation
+- clearer documentation information architecture
 
-## v0.3.0 — Specialized routes
+## v0.7.0 — Integrations and installers
 
-Later:
-- bot / AI-agent checklist
-- mobile / Telegram Mini App route
-- team adoption guide
+- per-IDE installer helpers or rule generators
+- Cursor and Windsurf rule-pack installer ideas
+- Copilot instructions generator
+- Claude and Codex prompt-pack export
 
-## v0.4.0 — Tooling experiments
+## v0.8.0 — Graph and project-map layer
 
-Experimental:
-- lightweight CLI prototype
-- GitHub Action wrapper
-- VS Code extension prototype
+- `PROJECT_MAP.json`
+- artifact and dependency graph ideas
+- route graph
+- freshness checks for derived project-map data
 
-### VS Code Extension prototype
+## v1.0 — Stable protocol and CLI contract
 
-Not planned for the current release.
+- stable manifest schema
+- stable CLI contract
+- compatibility guarantees
+- documented deprecation policy
+- stronger contribution loop and measured case studies
+- clearer expectations for what counts as stable
 
-Possible future features:
-- insert Product Brief prompt;
-- create `AGENTS.md` / `PROJECT_MAP.md`;
-- run `vibe-check` from a VS Code task;
-- show Stop Conditions;
-- open Audit Backlog;
-- insert Hardening prompt;
-- link to Vibe Coding Protocols documentation.
+## Intentionally not planned
 
-This should be explored only after the markdown toolkit, installer and vibe-check workflow get external feedback.
-
-### CLI note
-
-A future Node.js CLI may be explored later, but the current release intentionally keeps the setup lightweight: shell scripts, markdown templates and GitHub Actions.
-
-## Not planned right now
-
+- offensive security tooling
 - fake security certification
-- full SaaS
-- heavy automation that modifies projects without review
+- fake production-proven claims
+- heavy project mutation without review
+
+## Needs external validation
+
+- published package names and distribution channels
+- real measured-impact reports
+- long-term CLI contract stability
+- which integrations deserve installer-grade automation

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .utils import dump_json, load_json, print_output, repo_root
+from .utils import load_json, manifest_path, print_output, repo_root
 
 PROTECTED_FILES = [
     "AGENTS.md",
@@ -17,7 +17,7 @@ PROTECTED_FILES = [
 
 
 def load_pack(pack_id: str) -> dict:
-    data = load_json(repo_root() / "adoption-packs.manifest.json")
+    data = load_json(manifest_path(repo_root(), "adoption-packs"))
     for item in data.get("items", []):
         if item.get("id") == pack_id:
             return item
@@ -26,13 +26,13 @@ def load_pack(pack_id: str) -> dict:
 
 def to_markdown(plan: dict) -> str:
     lines = [f"# Adoption Dry Run: {plan['name']}", "", "## Files to copy"]
-    lines += [f"- `{item}`" for item in plan['files_to_copy']]
+    lines += [f"- `{item}`" for item in plan["files_to_copy"]]
     lines += ["", "## Files to merge manually"]
-    lines += [f"- `{item}`" for item in plan['files_to_merge_manually']]
+    lines += [f"- `{item}`" for item in plan["files_to_merge_manually"]]
     lines += ["", "## Files to skip"]
-    lines += [f"- `{item}`" for item in plan['files_to_skip']]
+    lines += [f"- `{item}`" for item in plan["files_to_skip"]]
     lines += ["", "## Protected files"]
-    lines += [f"- `{item}`" for item in plan['protected_files']]
+    lines += [f"- `{item}`" for item in plan["protected_files"]]
     lines += ["", f"Review gate: {plan['review_gate_requirement']}"]
     lines += ["", f"Suggested commit message: {plan['suggested_commit_message']}"]
     return "\n".join(lines) + "\n"
@@ -43,7 +43,7 @@ def run(pack: str, dry_run: bool = True, json_mode: bool = False, output: str | 
         print("Refusing apply without --yes.")
         return 1
     if apply:
-        print("Apply mode is intentionally not implemented in v0.5.0. Use --dry-run.")
+        print("Apply mode is intentionally not implemented in v0.5.2. Use --dry-run and merge manually.")
         return 1
     pack_data = load_pack(pack)
     plan = {

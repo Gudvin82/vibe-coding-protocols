@@ -1,11 +1,19 @@
-# Sanitized Case Study Structure
+# Sanitized Case Studies
 
-These are synthetic or sanitized structures only.
-They are not proof of real client outcomes.
+This folder is for sanitized and synthetic publication-safe examples.
+It is not proof of real customer metrics by default.
 
-Included structures:
-- [ai-skim-failure-to-full-hardening/README.md](./ai-skim-failure-to-full-hardening/README.md)
-- [shared-engine-production/README.md](./shared-engine-production/README.md)
-- [post-task-review-found-critical/README.md](./post-task-review-found-critical/README.md)
+## Labels
+
+- `synthetic` = invented example used to show structure only
+- `sanitized` = based on a real pattern but cleaned for publication
+- `measured` = real tracked data approved for publication
+
+## Available materials
+
 - [redaction-checklist.md](./redaction-checklist.md)
 - [case-study-template.md](./case-study-template.md)
+- [measured-impact-template.md](./measured-impact-template.md)
+- [synthetic-measured-impact-example.md](./synthetic-measured-impact-example.md)
+
+Add real measured material only after redaction, review, and publication approval.

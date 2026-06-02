@@ -1,10 +1,11 @@
 # Known Limitations
 
-## Improved in v0.5.1
+## Improved in v0.5.2
 
-- Windows PowerShell plus Python CLI path for core workflows;
-- Bash is no longer required for `vcp check --fast`;
-- Third-party API intake and registry fields are first-class VCP artifacts.
+- manifest files are moved out of the repository root into `.vcp/manifests/`;
+- README and onboarding path are shorter and easier to scan;
+- a local npm wrapper exists for shorter Node-first commands;
+- `vcp init` gives a guidance-first starting step.
 
 ## Still limited
 
@@ -12,4 +13,5 @@
 - VCP does not automatically review vendor terms or legal compatibility;
 - VCP does not auto-connect or test external APIs;
 - VCP does not provide real API monitoring integration;
-- authenticated GitHub Release creation still depends on external auth tooling.
+- authenticated GitHub Release creation still depends on external auth tooling;
+- npm distribution is local-wrapper-only until a real published package exists.

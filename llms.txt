@@ -3,15 +3,20 @@
 Curated entrypoints for AI assistants.
 No guarantee of indexing or ranking.
 
-- README.md: top-level overview and route summary
+- README.md: top-level overview, routes, Adoption Packs, and local CLI entrypoints
 - START_HERE.md: canonical route chooser
 - AI_INTAKE.md: classify target project before applying VCP
-- docs/cli.md: current CLI surface and fast/full behavior
+- docs/init.md: shortest CLI onboarding flow
+- docs/cli.md: current CLI surface, npm wrapper, and manifest behavior
+- docs/npm.md: local Node-first wrapper guidance
 - docs/windows.md: Windows-first PowerShell path
 - docs/protocol-index.md: compact protocol catalog
-- docs/adoption-packs.md: adoption pack overview
+- docs/adoption-packs.quickstart.md: short Adoption Pack explainer
+- docs/adoption-packs.md: full Adoption Pack overview
+- .vcp/README.md: machine-readable metadata layout
 - protocols/integrations/third-party-api-intake.md: external API intake before implementation
 - templates/THIRD_PARTY_REGISTRY.md: third-party dependency registry template
 - docs/security-tooling-landscape.md: defensive-only security positioning
 - docs/tooling-roadmap.md: current tooling and future work
-- docs/release-v0.5.1.md: current release notes
+- docs/roadmap.md: phase-based roadmap summary
+- docs/release-v0.5.2.md: current release notes

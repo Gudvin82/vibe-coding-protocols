@@ -1,7 +1,7 @@
 # Metrics Board
 
 <!-- vcp-artifact: METRICS_BOARD -->
-<!-- vcp-version: v0.5.1 -->
+<!-- vcp-version: v0.5.2 -->
 <!-- methodology-version: v1.4 -->
 
 Use this to track whether VCP helps your project.

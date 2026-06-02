@@ -1,6 +1,6 @@
 # Contributing
 
-Keep contributions narrow, reviewable and evidence-based.
+Keep contributions narrow, reviewable, and evidence-based.
 
 ## General rules
 
@@ -12,14 +12,25 @@ Keep contributions narrow, reviewable and evidence-based.
 - no real secrets or customer data;
 - no real production endpoints unless intentionally public and safe.
 
-## Protocol, pack and integration catalog discipline
+## Protocol, pack, and integration catalog discipline
 
-- one protocol, pack or integration entry per PR;
+- one protocol, pack, or integration entry per PR;
 - short description required;
 - category required;
+- metadata required;
 - related docs required;
-- manifests must validate;
-- benchmark or example updates should be included when relevant.
+- validation must pass;
+- no duplicate entries;
+- no unsupported claims;
+- no offensive tooling;
+- no secret-looking examples;
+- no real customer data.
+
+## Distribution claims
+
+- do not claim npm publication until the package is really published;
+- do not claim PyPI, Homebrew, or native installer support until it exists;
+- package naming must be checked before public distribution claims.
 
 ## Third-party API examples
 
@@ -27,7 +38,7 @@ Keep contributions narrow, reviewable and evidence-based.
 - no API keys;
 - no endorsement;
 - no production-safety claim;
-- no hidden assumptions about terms, quotas or fallback.
+- no hidden assumptions about terms, quotas, or fallback.
 
 `public-apis/public-apis` is an ecosystem reference for contribution discipline only.
 VCP does not copy its API list.

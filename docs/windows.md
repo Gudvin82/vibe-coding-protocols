@@ -1,57 +1,53 @@
 # Windows
 
-VCP is now Python-CLI-first for the core workflow on Windows.
-Bash is still supported for legacy parity, but it is no longer required for the main fast path.
+VCP keeps the Python CLI as the source of truth and adds a simpler local npm wrapper for Node-first users.
+Native Windows packaging is still not a mature product in `v0.5.2`.
 
 ## Support matrix
 
-| Path | Status | Notes |
+| Path | Status | Recommended for |
 |---|---|---|
-| PowerShell + Python CLI | Recommended | Core route, check, adopt, score, manifest and benchmark flow |
-| Git Bash | Supported | Full legacy script compatibility |
-| WSL | Supported | Linux-like environment |
-| Native installed `vcp` package | Future | Not published yet |
+| PowerShell + `py -m vcp_cli` | Recommended | Core cross-platform CLI flow |
+| `npm run vcp -- ...` | Recommended | Node-first local repo usage |
+| `npm link` + `vcp ...` | Supported locally | Frequent local use after linking |
+| Git Bash | Supported | Legacy Bash parity |
+| WSL | Supported | Linux-like workflow on Windows |
+| Native published Windows installer | Not available yet | Future work |
 
-## Recommended Windows path
+## Recommended commands
 
 ```powershell
 py -m vcp_cli doctor
-py -m vcp_cli check --fast
+py -m vcp_cli init --print-prompt
 py -m vcp_cli route --profile production
-py -m vcp_cli adopt --pack production --dry-run
-py -m vcp_cli score
+npm run vcp -- doctor
+npm run vcp -- manifest validate
 ```
 
-Optional local launchers:
+If you linked the package locally:
 
 ```powershell
-bin\vcp.cmd doctor
-pwsh -File .\bin\vcp.ps1 check --fast
+vcp doctor
+vcp init --print-prompt
 ```
 
-## Optional full Bash compatibility
+## When shell scripts fail
 
-If you want full legacy script parity:
-- Git Bash;
-- WSL;
-- MSYS2.
+If a Bash-backed script fails on native Windows:
+- prefer `py -m vcp_cli check --fast` first;
+- use `npm run vcp -- check --fast` if you prefer Node-first invocation;
+- switch to Git Bash or WSL for legacy Bash parity.
 
-Bash is optional for core CLI usage, but it may still be needed for full legacy script parity.
+## Current limitations
 
-## What works without Bash
+- path handling can still differ between PowerShell and Bash-heavy examples;
+- executable bits matter less on Windows, so prefer `py -m ...` or `npm run vcp -- ...`;
+- PowerShell wrappers are local launchers, not a published installer;
+- CI covers the Python fast path and local npm wrapper, not every Bash legacy path;
+- global npm registry install is not claimed because no published npm package exists yet.
 
-The Python CLI fast path is intended to work without Bash for:
-- `doctor`;
-- `check --fast`;
-- `route`;
-- `adopt --dry-run`;
-- `manifest validate`;
-- `benchmark run`;
-- `score`.
+## Related docs
 
-## Known limitations
-
-- full legacy Bash parity is not complete on native Windows;
-- authenticated GitHub release publishing is still external to the CLI;
-- PowerShell launchers are local wrappers, not a published installer;
-- Windows CI covers Python CLI parity, not every Bash legacy script.
+- [cli.md](./cli.md)
+- [npm.md](./npm.md)
+- [tooling-roadmap.md](./tooling-roadmap.md)

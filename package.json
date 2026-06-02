@@ -1,14 +1,18 @@
 {
-  "name": "@gudvin/vibe-check",
-  "version": "0.5.1",
-  "description": "Local CLI metadata for Vibe Coding Protocols",
+  "name": "vibe-coding-protocols",
+  "version": "0.5.2",
+  "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,
   "bin": {
-    "vibe-check": "bin/vibe-check.js"
+    "vcp": "./bin/vcp-node.js",
+    "vibe-check": "./bin/vibe-check.js"
   },
   "scripts": {
-    "doctor": "node bin/vibe-check.js --doctor",
-    "init-report": "node bin/vibe-check.js --init-report"
+    "vcp": "node ./bin/vcp-node.js",
+    "vcp:doctor": "node ./bin/vcp-node.js doctor",
+    "vcp:test": "node ./bin/vcp-node.js check --fast",
+    "doctor": "node ./bin/vcp-node.js doctor",
+    "init-report": "node ./bin/vibe-check.js --init-report"
   }
 }

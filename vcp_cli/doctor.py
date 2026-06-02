@@ -15,13 +15,16 @@ from .fast_checks import (
     validate_required_files,
     windows_path_mode,
 )
-from .utils import git_status_short, manifest_paths, print_output, repo_root, repo_version
+from .utils import git_status_short, manifest_paths, print_output, repo_root, repo_version, relative_to_root
 
 CORE_FILES = [
     "AI_INTAKE.md",
     "START_HERE.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
+    "docs/adoption-packs.quickstart.md",
+    "docs/npm.md",
+    "docs/init.md",
     "protocols/review/post-task-code-review.md",
     "protocols/integrations/third-party-api-intake.md",
     "templates/THIRD_PARTY_REGISTRY.md",
@@ -39,7 +42,7 @@ def run(json_mode: bool = False) -> int:
     for rel in CORE_FILES:
         checks.append({"item": rel, "status": "PASS" if (root / rel).exists() else "FAIL"})
     for _, path in manifest_paths(root).items():
-        checks.append({"item": path.name, "status": "PASS" if path.exists() else "FAIL"})
+        checks.append({"item": relative_to_root(root, path), "status": "PASS" if path.exists() else "FAIL"})
 
     required_files_result = validate_required_files(root)
     checks.append({"item": "required-files", "status": required_files_result["status"]})
@@ -69,6 +72,7 @@ def run(json_mode: bool = False) -> int:
         "full_bash_checks_available": full_bash_checks_available(root),
         "third_party_registry_template_exists": (root / "templates/THIRD_PARTY_REGISTRY.md").exists(),
         "third_party_api_intake_protocol_exists": (root / "protocols/integrations/third-party-api-intake.md").exists(),
+        "manifest_directory": str((root / ".vcp" / "manifests").resolve()),
         "checks": checks,
         "fast_check_summary": {
             "ok": ok,
@@ -92,6 +96,7 @@ def run(json_mode: bool = False) -> int:
         print(f"Windows path mode: {'yes' if payload['windows_path_mode'] else 'no'}")
         print(f"PowerShell-first mode supported: {'yes' if payload['powershell_first_mode_supported'] else 'no'}")
         print(f"Full Bash checks available: {'yes' if payload['full_bash_checks_available'] else 'no'}")
+        print(f"Manifest directory: {payload['manifest_directory']}")
         print(f"THIRD_PARTY_REGISTRY template: {'yes' if payload['third_party_registry_template_exists'] else 'no'}")
         print(f"Third-party API intake protocol: {'yes' if payload['third_party_api_intake_protocol_exists'] else 'no'}")
         for item in checks:

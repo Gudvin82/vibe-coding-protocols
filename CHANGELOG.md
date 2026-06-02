@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.2
+
+- Moved machine-readable manifests from the repository root into `.vcp/manifests/` and updated the CLI, tests, CI and validation scripts to use the cleaner layout
+- Simplified the README and README_ru first screen so new users can find the route chooser, AI intake flow, Adoption Packs and current CLI options faster
+- Added a local npm wrapper with `npm run vcp -- ...`, `bin/vcp-node.js`, and optional `npm link` support without claiming public npm package publication
+- Added `vcp init` as a guidance-first onboarding command with target-specific prompt output
+- Added Adoption Pack quickstart, measured-impact guidance, case-study template polish, and phase-based roadmap updates for `v0.6.0` through `v1.0`
+- Preserved Python CLI, Bash legacy scripts, Windows-friendly launchers, manifest validation and benchmark validation across the `v0.5.x` feature set
+
 ## v0.5.1
 
 - Added Windows-first Python CLI parity for the core fast path, including `doctor`, `check --fast`, `route`, `adopt`, `manifest`, `benchmark` and `score`

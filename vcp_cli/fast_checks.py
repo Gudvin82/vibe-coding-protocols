@@ -5,7 +5,6 @@ import io
 import json
 import os
 import platform
-import re
 import shutil
 import sys
 from pathlib import Path
@@ -16,8 +15,9 @@ from . import manifest as manifest_cmd
 from .utils import (
     dump_json,
     load_json,
+    manifest_path,
+    manifest_paths,
     methodology_version,
-    read_trimmed,
     repo_root,
     repo_version,
     run_command,
@@ -39,36 +39,43 @@ FAST_REQUIRED_FILES = [
     "README_ru.md",
     "START_HERE.md",
     "AI_INTAKE.md",
+    "ROADMAP.md",
+    ".vcp/README.md",
     "docs/cli.md",
     "docs/windows.md",
+    "docs/npm.md",
+    "docs/init.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
+    "docs/adoption-packs.quickstart.md",
     "docs/tooling-roadmap.md",
     "docs/known-limitations.md",
+    "docs/measured-impact.md",
     "protocols/integrations/README.md",
     "protocols/integrations/third-party-api-intake.md",
     "commands/third-party-api-intake.md",
     "templates/prompts/third-party-api-intake.md",
+    "templates/prompts/evaluate-vcp-for-my-repo.md",
     "templates/reports/third-party-api-intake-report.md",
     "templates/THIRD_PARTY_REGISTRY.md",
     "templates/examples/THIRD_PARTY_REGISTRY.filled.example.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
     "scripts/check-version-consistency.sh",
-    "vcp.manifest.json",
-    "protocols.manifest.json",
-    "adoption-packs.manifest.json",
-    "commands.manifest.json",
-    "reports.manifest.json",
-    "benchmarks.manifest.json",
-    "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
     "bin/vcp",
     "bin/vcp.cmd",
     "bin/vcp.ps1",
+    "bin/vcp-node.js",
+    "package.json",
+    "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
+    "case-studies/README.md",
+    "case-studies/sanitized/README.md",
+    "case-studies/sanitized/measured-impact-template.md",
 ]
 
 FAST_REQUIRED_DIRS = [
     "vcp_cli",
+    ".vcp/manifests",
     "protocols/integrations",
     "templates/reports",
     "templates/prompts",
@@ -88,6 +95,7 @@ STALE_VERSIONS = [
     "v0.4.3",
     "v0.4.4",
     "v0.5.0",
+    "v0.5.1",
 ]
 
 ENTRY_FILES_FOR_STALE_SCAN = [
@@ -102,6 +110,7 @@ ENTRY_FILES_FOR_STALE_SCAN = [
 CORE_SMOKE_COMMANDS = [
     ["--help"],
     ["version", "--json"],
+    ["init", "--print-prompt"],
     ["route", "--profile", "production", "--json"],
     ["route", "--profile", "third-party-api", "--json"],
     ["adopt", "--pack", "third-party-api", "--dry-run", "--json"],
@@ -176,18 +185,22 @@ def validate_required_files(root: Path) -> dict[str, Any]:
     for rel in FAST_REQUIRED_FILES:
         if not (root / rel).exists():
             missing.append(rel)
+    for _, path in manifest_paths(root).items():
+        if not path.exists():
+            missing.append(str(path.relative_to(root)))
     for rel in FAST_REQUIRED_DIRS:
         if not (root / rel).is_dir():
             missing.append(f"{rel}/")
     if missing:
         return _fail_result("required-files", "python", errors=missing)
-    return _ok_result("required-files", "python", note="Core cross-platform CLI and API intake files are present.")
+    return _ok_result("required-files", "python", note="Core cross-platform CLI, manifests, npm wrapper and API intake files are present.")
 
 
 def validate_version_consistency(root: Path) -> dict[str, Any]:
     repo_ver = repo_version(root)
     method_ver = methodology_version(root)
     problems: list[str] = []
+    vcp_manifest = manifest_path(root, "vcp")
 
     checks = [
         (root / "README.md", f"repo-{repo_ver}", "README badge"),
@@ -197,8 +210,8 @@ def validate_version_consistency(root: Path) -> dict[str, Any]:
         (root / "docs/versioning.md", f"Repository package `{repo_ver}`", "docs/versioning repo version"),
         (root / "docs/versioning.md", f"Web methodology `{method_ver}`", "docs/versioning methodology version"),
         (root / f"docs/release-{repo_ver}.md", repo_ver, "release notes title"),
-        (root / "vcp.manifest.json", f'"package_version": "{repo_ver}"', "vcp manifest package version"),
-        (root / "vcp.manifest.json", f'"methodology_version": "{method_ver}"', "vcp manifest methodology version"),
+        (vcp_manifest, f'"package_version": "{repo_ver}"', "vcp manifest package version"),
+        (vcp_manifest, f'"methodology_version": "{method_ver}"', "vcp manifest methodology version"),
         (root / "package.json", f'"version": "{repo_ver.removeprefix("v")}"', "package.json version"),
         (root / "pyproject.toml", f'version = "{repo_ver.removeprefix("v")}"', "pyproject.toml version"),
         (root / "vcp_cli/__init__.py", f'__version__ = "{repo_ver.removeprefix("v")}"', "vcp_cli version"),
@@ -320,7 +333,25 @@ def run_full_bash_checks(root: Path, include_audit: bool = True) -> list[dict[st
 
 
 def summarize_results(results: list[dict[str, Any]]) -> tuple[bool, int, int, int]:
-    passed = sum(1 for item in results if item.get("status") == "PASS")
-    failed = sum(1 for item in results if item.get("status") == "FAIL")
-    skipped = sum(1 for item in results if item.get("status") == "SKIP")
+    passed = sum(1 for item in results if item["status"] == "PASS")
+    failed = sum(1 for item in results if item["status"] == "FAIL")
+    skipped = sum(1 for item in results if item["status"] == "SKIP")
     return failed == 0, passed, failed, skipped
+
+
+def render_results(results: list[dict[str, Any]]) -> str:
+    lines: list[str] = []
+    for item in results:
+        lines.append(f"[{item['status']}] {item['name']} ({item['runner']})")
+        if item.get("note"):
+            lines.append(f"  note: {item['note']}")
+        if item.get("reason"):
+            lines.append(f"  reason: {item['reason']}")
+        if item.get("errors"):
+            for error in item["errors"]:
+                lines.append(f"  - {error}")
+        if item.get("stdout"):
+            lines.append(item["stdout"])
+        if item.get("stderr"):
+            lines.append(item["stderr"])
+    return "\n".join(lines)

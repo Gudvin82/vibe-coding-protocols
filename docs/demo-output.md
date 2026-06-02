@@ -19,3 +19,12 @@ Review gate: Required before production integration merge or release.
 First action: Classify auth, data flow, terms, fallback and owner before implementation.
 Sample score: 90/100 local framework readiness
 ```
+
+## npm wrapper example
+
+```text
+$ npm run vcp -- doctor
+Repository package: v0.5.2
+Worktree clean: yes
+Manifest directory: .../.vcp/manifests
+```

@@ -6,6 +6,7 @@ cd "$ROOT"
 
 REPO_VERSION="$(tr -d '[:space:]' < VERSION)"
 METHODOLOGY_VERSION="$(tr -d '[:space:]' < METHODOLOGY_VERSION)"
+VCP_MANIFEST=".vcp/manifests/vcp.manifest.json"
 problems=0
 
 check_contains() {
@@ -32,8 +33,8 @@ check_contains CHANGELOG.md "$REPO_VERSION" "CHANGELOG entry"
 check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/versioning repo version"
 check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
-check_contains vcp.manifest.json "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
-check_contains vcp.manifest.json "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
+check_contains "$VCP_MANIFEST" "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
+check_contains "$VCP_MANIFEST" "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
 
 if [[ -f package.json ]]; then
   check_contains package.json "\"version\": \"${REPO_VERSION#v}\"" "package.json version"
@@ -75,6 +76,7 @@ stale_versions=(
   "v0.4.3"
   "v0.4.4"
   "v0.5.0"
+  "v0.5.1"
 )
 
 entry_files=(
@@ -84,6 +86,7 @@ entry_files=(
   PROJECT_MAP.md
   package.json
   pyproject.toml
+  llms.txt
 )
 
 for file in "${entry_files[@]}"; do

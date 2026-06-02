@@ -17,9 +17,17 @@ def run(*args: str) -> str:
     return proc.stdout
 
 
+def run_npm(*args: str) -> str:
+    proc = subprocess.run(['npm', 'run', 'vcp', '--', *args], cwd=ROOT, text=True, capture_output=True, check=False)
+    if proc.returncode != 0:
+        raise SystemExit(f"npm wrapper failed: {' '.join(args)}\nSTDOUT:\n{proc.stdout}\nSTDERR:\n{proc.stderr}")
+    return proc.stdout
+
+
 def main() -> int:
     doctor = json.loads(run('doctor', '--json'))
     assert 'powershell_first_mode_supported' in doctor
+    assert '.vcp/manifests' in doctor['manifest_directory']
     check = json.loads(run('check', '--fast', '--json'))
     assert check['ok'] is True
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
@@ -32,6 +40,10 @@ def main() -> int:
     assert benchmark['ok'] is True
     score = json.loads(run('score', '--json'))
     assert any(item['name'] == 'Third-party API intake / registry' for item in score['categories'])
+    prompt = run('init', '--print-prompt')
+    assert 'Read START_HERE.md first.' in prompt
+    npm_doctor = run_npm('doctor')
+    assert 'Repository package:' in npm_doctor
     print('Windows parity CLI smoke passed.')
     return 0
 
