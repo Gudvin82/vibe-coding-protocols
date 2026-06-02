@@ -2,18 +2,17 @@
 
 This project uses two version lines:
 
-- Repository package `v0.5.6` — GitHub toolkit packaging, CLI, npm wrapper, manifests, benchmarks, examples, CI and docs.
+- Repository package `v0.5.7` — GitHub toolkit packaging, CLI, npm wrapper, manifests, benchmarks, examples, CI and docs.
 - Web methodology `v1.4` — public methodology pages on `anmalishev.ru`.
 
 Repository package versions track the GitHub-distributed framework.
 Methodology version tracks the public web methodology.
 
-Current repository package: `v0.5.6`.
+Current repository package: `v0.5.7`.
 Current web methodology: `v1.4`.
 
-`v0.5.6` adds the Public Growth playbook layer,
-GEO and AI visibility guidance,
-page templates,
-schema templates,
-install and glossary docs,
-and evaluation guardrails for terminology and public-maturity judgments.
+`v0.5.7` adds LLM citation and AI-agent entry surfaces,
+FAQ/comparison/anti-pattern explanation docs,
+demo-script and walkthrough readiness,
+an honest adopters layer,
+and stronger repository-evaluation wiring for manifests, benchmarks, and CLI helpers.

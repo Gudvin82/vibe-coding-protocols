@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.6-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.5.7-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -12,9 +12,9 @@
 [![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
-Controlled AI delivery toolkit for routing, adopting, validating, and reviewing AI-assisted software and public-site work.
+Controlled AI delivery toolkit for routing, adopting, validating, reviewing, and explaining AI-assisted software and public-site work.
 
-Repository package: `v0.5.6`
+Repository package: `v0.5.7`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -72,6 +72,14 @@ python3 -m vcp_cli evaluate --json
 
 Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 
+Citation and AI-agent entry surfaces:
+
+- [AGENTS.md](./AGENTS.md)
+- [llms.txt](./llms.txt)
+- [llms-full.txt](./llms-full.txt)
+- [ai.txt](./ai.txt)
+- [CITATION.cff](./CITATION.cff)
+
 ## AI-agent handoff
 
 Start with [AI_INTAKE.md](./AI_INTAKE.md), then route through [START_HERE.md](./START_HERE.md).
@@ -86,6 +94,7 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 - turning production observations into triage notes and backlog follow-up without skipping review discipline;
 - validating repo health before merge, release, or deploy;
 - adding a review gate after meaningful AI-generated changes.
+- making the repository easier to evaluate, cite, compare fairly, and explain to AI systems.
 
 ## Current maturity
 
@@ -95,6 +104,7 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 - Benchmarks: synthetic/local validation scenarios.
 - Case studies: sanitized/synthetic templates; real measured cases are future work.
 - Public standard: emerging, not an industry standard yet.
+- Citation/demo layer: honest and explicit, without claiming indexing, ranking, or existing demo media.
 
 ## Routes
 
@@ -128,9 +138,15 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, monit
 - [docs/npm.md](./docs/npm.md)
 - [docs/project-backlog.md](./docs/project-backlog.md)
 - [docs/production-observability.md](./docs/production-observability.md)
+- [docs/faq.md](./docs/faq.md)
+- [docs/comparison.md](./docs/comparison.md)
+- [docs/anti-patterns.md](./docs/anti-patterns.md)
+- [docs/quickstart-walkthrough.md](./docs/quickstart-walkthrough.md)
+- [docs/demo-script.md](./docs/demo-script.md)
+- [ADOPTERS.md](./ADOPTERS.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/public-proof-roadmap.md](./docs/public-proof-roadmap.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/release-v0.5.6.md](./docs/release-v0.5.6.md)
+- [docs/release-v0.5.7.md](./docs/release-v0.5.7.md)

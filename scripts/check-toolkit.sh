@@ -11,6 +11,11 @@ required_files=(
   README_ru.md
   ROADMAP.md
   AI_EVALUATION_GUIDE.md
+  AGENTS.md
+  ADOPTERS.md
+  llms-full.txt
+  ai.txt
+  CITATION.cff
   ANTI_PATTERNS.md
   LICENSE
   DISCLAIMER.md
@@ -39,6 +44,11 @@ required_files=(
   docs/release-readiness.md
   docs/adoption-feedback.md
   docs/known-limitations.md
+  docs/faq.md
+  docs/comparison.md
+  docs/anti-patterns.md
+  docs/demo-script.md
+  docs/quickstart-walkthrough.md
   docs/cli.md
   docs/install.md
   docs/glossary.md
@@ -90,6 +100,7 @@ required_files=(
   docs/release-v0.5.1.md
   docs/release-v0.5.2.md
   docs/release-v0.5.6.md
+  docs/release-v0.5.7.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
@@ -265,6 +276,10 @@ required_files=(
   benchmarks/ai-adoption/scenarios/geo-ai-visibility.json
   benchmarks/ai-adoption/scenarios/page-template-selection.json
   benchmarks/ai-adoption/scenarios/glossary-inspection.json
+  benchmarks/ai-adoption/scenarios/llms-full-reference.json
+  benchmarks/ai-adoption/scenarios/faq-comparison-inspection.json
+  benchmarks/ai-adoption/scenarios/anti-patterns-inspection.json
+  benchmarks/ai-adoption/scenarios/quickstart-walkthrough-inspection.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json

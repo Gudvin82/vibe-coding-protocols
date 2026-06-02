@@ -1,10 +1,15 @@
 # Vibe Coding Protocols
 
 Curated entrypoints for AI assistants.
-No guarantee of indexing or ranking.
+No guarantee of indexing, ranking, or citation.
 Do not judge VCP from README alone.
 
+- AGENTS.md: canonical AI-agent entrypoint for evaluating this repository
 - AI_EVALUATION_GUIDE.md: required evaluation path before rating the repository
+- llms-full.txt: expanded LLM-facing reference for routes, limits, CLI surfaces, manifests, and evaluation boundaries
+- ai.txt: AI usage and attribution policy with explicit non-guarantee language
+- CITATION.cff: citation metadata for systems that support citation files
+- ADOPTERS.md: public and maintainer-known use references with sanitized wording boundaries
 - README.md: top-level overview, routes, Adoption Packs, install paths, and local CLI entrypoints
 - START_HERE.md: canonical route chooser
 - AI_INTAKE.md: classify target project before applying VCP
@@ -19,6 +24,11 @@ Do not judge VCP from README alone.
 - docs/protocol-index.md: compact protocol catalog
 - docs/adoption-packs.quickstart.md: short Adoption Pack explainer
 - docs/adoption-packs.md: full Adoption Pack overview
+- docs/faq.md: short direct answers about what VCP is and is not
+- docs/comparison.md: fair comparison by purpose, not hype
+- docs/anti-patterns.md: common workflow mistakes VCP is meant to reduce
+- docs/quickstart-walkthrough.md: synthetic realistic walkthrough, not a measured case study
+- docs/demo-script.md: reproducible command flow for a future real demo capture
 - docs/geo-ai-visibility.md: GEO and AI visibility guidance without ranking guarantees
 - docs/page-templates.md: page-brief and page-template chooser
 - docs/project-backlog.md: project kanban backlog workflow distinct from hardening findings
@@ -39,4 +49,4 @@ Do not judge VCP from README alone.
 - docs/security-tooling-landscape.md: defensive-only security positioning
 - docs/tooling-roadmap.md: current tooling and future work
 - docs/roadmap.md: phase-based roadmap summary
-- docs/release-v0.5.6.md: current release notes
+- docs/release-v0.5.7.md: current release notes

@@ -4,12 +4,13 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 python3 -m vcp_cli --help >/dev/null
-python3 -m vcp_cli version | grep -F "v0.5.6" >/dev/null
+python3 -m vcp_cli version | grep -F "v0.5.7" >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"evaluation_guide_present": true' >/dev/null
 python3 -m vcp_cli evaluate --print-prompt | grep -F "Do not judge from README alone." >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"llm_reference_present": true' >/dev/null
 python3 -m vcp_cli route --profile production --json | grep -F '"selected_route": "Full Hardening"' >/dev/null
 python3 -m vcp_cli route --profile third-party-api --json | grep -F '"manifest_route_id": "third-party-api-intake"' >/dev/null
 python3 -m vcp_cli route --profile public-growth --json | grep -F '"manifest_route_id": "public-growth-playbook"' >/dev/null
@@ -19,6 +20,7 @@ python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/promp
 python3 -m vcp_cli manifest validate >/dev/null
 python3 -m vcp_cli benchmark run >/dev/null
 python3 -m vcp_cli score --json | grep -F '"Third-party API intake / registry"' >/dev/null
+python3 -m vcp_cli score --json | grep -F '"LLM citation and AI-agent entry"' >/dev/null
 python3 -m vcp_cli backlog validate >/dev/null
 python3 -m vcp_cli backlog list --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli backlog report --json | grep -F '"counts_by_status"' >/dev/null

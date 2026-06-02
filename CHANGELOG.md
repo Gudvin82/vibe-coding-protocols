@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.7
+
+- Added explicit LLM citation and AI-agent entry surfaces: `llms-full.txt`, `ai.txt`, `CITATION.cff`, and a stronger root `AGENTS.md`.
+- Added `ADOPTERS.md` with public / maintainer-known usage wording that avoids fake endorsements or implied certification.
+- Added `docs/faq.md`, `docs/comparison.md`, and `docs/anti-patterns.md` for shorter explanation, fair comparisons, and clearer workflow boundaries.
+- Added `docs/demo-script.md`, `assets/demo/README.md`, and `docs/quickstart-walkthrough.md` for honest demo readiness without fake media or measured-proof claims.
+- Expanded manifests, benchmark scenarios, doctor/evaluate/score coverage, and toolkit checks so the new repository-evaluation and citation surfaces are part of normal validation.
+
 ## v0.5.6
 
 - Added `public-growth` as a first-class route and Adoption Pack.

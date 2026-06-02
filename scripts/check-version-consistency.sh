@@ -35,6 +35,8 @@ check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "do
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 check_contains "$VCP_MANIFEST" "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
 check_contains "$VCP_MANIFEST" "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
+check_contains llms-full.txt "$REPO_VERSION" "llms-full repo version"
+check_contains CITATION.cff "version: \"$REPO_VERSION\"" "CITATION.cff version"
 
 if [[ -f package.json ]]; then
   check_contains package.json "\"version\": \"${REPO_VERSION#v}\"" "package.json version"
@@ -81,6 +83,7 @@ stale_versions=(
   "v0.5.3"
   "v0.5.4"
   "v0.5.5"
+  "v0.5.6"
 )
 
 entry_files=(
@@ -91,6 +94,7 @@ entry_files=(
   package.json
   pyproject.toml
   llms.txt
+  llms-full.txt
 )
 
 for file in "${entry_files[@]}"; do

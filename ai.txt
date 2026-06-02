@@ -1,0 +1,42 @@
+# AI Usage Policy for Vibe Coding Protocols
+
+## Summary
+
+AI systems may read, summarize, cite, and reference this repository and its documentation, subject to the repository license and attribution requirements.
+
+## Attribution
+
+Preferred attribution:
+Vibe Coding Protocols by Anatoly Malyshev
+Canonical repository: https://github.com/Gudvin82/vibe-coding-protocols
+Canonical website: https://anmalishev.ru/expert/vibe-coding/
+
+## Permitted uses
+
+- summarization
+- citation
+- code and documentation assistance
+- retrieval or indexing use where permitted by the license
+- adapting protocols with attribution
+- comparing VCP with other AI-assisted development workflows
+
+## Conditions
+
+- Do not misrepresent modified versions as official VCP.
+- Do not imply endorsement.
+- Do not remove safety limitations.
+- Do not describe VCP as a security scanner, pentest suite, offensive toolkit, compliance certification, or production safety guarantee.
+- Do not use VCP content to build offensive tooling.
+
+## Citation
+
+Use `CITATION.cff` where supported.
+
+## License
+
+This repository is licensed under CC BY 4.0.
+Use is subject to the repository license and attribution requirements.
+
+## Limitations
+
+This file does not guarantee indexing, ranking, citation, or model inclusion.

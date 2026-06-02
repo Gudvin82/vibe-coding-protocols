@@ -1,5 +1,5 @@
 <!-- vcp-artifact: UI_REFACTORING_REPORT -->
-<!-- vcp-version: v0.5.6 -->
+<!-- vcp-version: v0.5.7 -->
 <!-- methodology-version: v1.4 -->
 
 # UI Refactoring Report

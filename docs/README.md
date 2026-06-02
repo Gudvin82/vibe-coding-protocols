@@ -13,6 +13,8 @@ Use the route docs and product layer intentionally.
 6. [init.md](./init.md)
 7. [protocol-index.md](./protocol-index.md)
 8. [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
+9. [faq.md](./faq.md)
+10. [comparison.md](./comparison.md)
 
 ## Product layer
 
@@ -26,9 +28,14 @@ Use the route docs and product layer intentionally.
 - [project-backlog.md](./project-backlog.md)
 - [production-observability.md](./production-observability.md)
 - [automation-guidance.md](./automation-guidance.md)
+- [faq.md](./faq.md)
+- [comparison.md](./comparison.md)
+- [anti-patterns.md](./anti-patterns.md)
+- [quickstart-walkthrough.md](./quickstart-walkthrough.md)
+- [demo-script.md](./demo-script.md)
 - [public-proof-roadmap.md](./public-proof-roadmap.md)
 - [glossary.md](./glossary.md)
-- [release-v0.5.6.md](./release-v0.5.6.md)
+- [release-v0.5.7.md](./release-v0.5.7.md)
 - [roadmap.md](./roadmap.md)
 
 ## Routes and packs
@@ -58,6 +65,10 @@ Use the route docs and product layer intentionally.
 ## Community and examples
 
 - [community-feedback.md](./community-feedback.md)
+- [../ADOPTERS.md](../ADOPTERS.md)
+- [../llms-full.txt](../llms-full.txt)
+- [../ai.txt](../ai.txt)
+- [../CITATION.cff](../CITATION.cff)
 - [../CONTRIBUTING.md](../CONTRIBUTING.md)
 - [../templates/prompts/evaluate-vcp-repository.md](../templates/prompts/evaluate-vcp-repository.md)
 - [../templates/prompts/public-growth-audit.md](../templates/prompts/public-growth-audit.md)

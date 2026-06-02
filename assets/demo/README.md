@@ -1,6 +1,13 @@
 # Demo Assets
 
-Terminal demo output is the current default.
-No GIF or video is required for v0.5.0.
+This directory is reserved for future demo captures.
 
-Use [docs/demo.md](../../docs/demo.md) and [docs/demo-output.md](../../docs/demo-output.md) as the demo surface.
+Recommended filenames:
+- `vcp-30s-demo.cast`
+- `vcp-30s-demo.gif`
+
+Do not add a fake demo file.
+Only place a capture here if it was actually recorded.
+
+Source script:
+- [../../docs/demo-script.md](../../docs/demo-script.md)

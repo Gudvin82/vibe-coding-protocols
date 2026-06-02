@@ -6,9 +6,15 @@ from .utils import load_json, manifest_dir, manifest_paths, print_output, repo_r
 
 KEY_FILES = [
     "AI_EVALUATION_GUIDE.md",
+    "AGENTS.md",
     "README.md",
     "AI_INTAKE.md",
     "START_HERE.md",
+    "llms.txt",
+    "llms-full.txt",
+    "ai.txt",
+    "CITATION.cff",
+    "ADOPTERS.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/cli.md",
@@ -16,6 +22,11 @@ KEY_FILES = [
     "docs/glossary.md",
     "docs/geo-ai-visibility.md",
     "docs/page-templates.md",
+    "docs/faq.md",
+    "docs/comparison.md",
+    "docs/anti-patterns.md",
+    "docs/quickstart-walkthrough.md",
+    "docs/demo-script.md",
     "docs/project-backlog.md",
     "docs/production-observability.md",
     "docs/known-limitations.md",
@@ -97,6 +108,11 @@ def evaluate_payload() -> dict[str, object]:
         "project_backlog_present": (root / "PROJECT_BACKLOG.md").exists(),
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
+        "llm_reference_present": all(
+            (root / rel).exists()
+            for rel in ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff"]
+        ),
+        "adopters_doc_present": (root / "ADOPTERS.md").exists(),
         "glossary_present": (root / "docs/glossary.md").exists(),
         "install_doc_present": (root / "docs/install.md").exists(),
         "known_limitations": KNOWN_LIMITATIONS_PATH,
@@ -127,6 +143,8 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_present'] else 'no'}")
     print(f"Operations workflow present: {'yes' if payload['operations_workflow_present'] else 'no'}")
     print(f"Public growth layer present: {'yes' if payload['public_growth_layer_present'] else 'no'}")
+    print(f"LLM reference layer present: {'yes' if payload['llm_reference_present'] else 'no'}")
+    print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")
     print(f"Install doc present: {'yes' if payload['install_doc_present'] else 'no'}")
     print(f"Known limitations: {payload['known_limitations']}")

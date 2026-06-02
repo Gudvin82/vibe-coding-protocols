@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AGENTS_CURSOR -->
-<!-- vcp-version: v0.5.6 -->
+<!-- vcp-version: v0.5.7 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Cursor

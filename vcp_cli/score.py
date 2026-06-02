@@ -10,6 +10,7 @@ def manifest_relpaths() -> list[str]:
 
 CATEGORY_RULES = [
     ("Repository evaluation guidance", ["AI_EVALUATION_GUIDE.md", "templates/prompts/evaluate-vcp-repository.md", "templates/reports/vcp-repository-evaluation-report.md"]),
+    ("LLM citation and AI-agent entry", ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff", "ADOPTERS.md"]),
     ("AI Intake readiness", ["AI_INTAKE.md", "docs/target-project-classifier.md"]),
     ("Route classifier", ["docs/protocol-index.md", "docs/route-map.md"]),
     ("Adoption packs", ["docs/adoption-packs.md", ".vcp/manifests/adoption-packs.manifest.json"]),
@@ -21,14 +22,14 @@ CATEGORY_RULES = [
     ("Protocol index", ["docs/protocol-index.md"]),
     ("Manifests", manifest_relpaths()),
     ("CLI status", ["docs/cli.md", "docs/windows.md", "docs/npm.md", "docs/install.md", "docs/init.md", "vcp_cli/cli.py", "bin/vcp-node.js"]),
-    ("Evaluation surfaces", ["docs/scoring.md", "docs/public-proof-roadmap.md", "vcp_cli/evaluate.py"]),
+    ("Evaluation surfaces", ["docs/scoring.md", "docs/public-proof-roadmap.md", "docs/faq.md", "docs/comparison.md", "docs/anti-patterns.md", "docs/quickstart-walkthrough.md", "docs/demo-script.md", "vcp_cli/evaluate.py"]),
     ("Installation and terminology docs", ["docs/install.md", "docs/glossary.md"]),
     ("Validation scripts", ["scripts/check-newlines.py", "scripts/check-toolkit.sh", "scripts/validate-links.sh"]),
     ("Markdown readability", ["docs/markdown-style.md"]),
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.6.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.7.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 

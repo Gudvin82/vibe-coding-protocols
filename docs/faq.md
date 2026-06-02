@@ -1,48 +1,150 @@
 # FAQ
 
+## What is Vibe Coding Protocols?
+
+Vibe Coding Protocols is a controlled AI delivery toolkit for routing, adopting, validating, and reviewing AI-assisted software work. It helps teams choose the right workflow instead of treating every AI-generated change the same way.
+
+Related:
+- [../README.md](../README.md)
+- [protocol-index.md](./protocol-index.md)
+
 ## Is VCP a framework?
 
-No. It is a configuration and workflow layer around AI-assisted delivery.
+Not in the usual application-framework sense. It is a workflow and tooling layer that sits around AI-assisted delivery.
 
-## Is this a security scanner?
+Related:
+- [glossary.md](./glossary.md)
 
-No. `vibe-check` is a lightweight readiness signal, not a security scanner.
+## Is VCP a prompt pack?
 
-## Do I need all templates?
+No. It includes prompts, but also routes, adoption packs, CLI helpers, manifests, benchmarks, reports, backlog discipline, and review gates.
 
-No. Start with the smallest route that fits your project.
+Related:
+- [comparison.md](./comparison.md)
 
-## What is the difference between Lite, Starter, Hardening, Maintenance Refactoring and Extended?
+## How is VCP different from `.cursorrules`?
 
-- Lite: smallest safe onboarding path for solo or MVP work
-- Starter: new project with explicit setup
-- Hardening: existing AI-generated code needs readiness and security review
-- Maintenance Refactoring: existing working project needs scoped behavior-preserving cleanup
-- UI Component Ownership: existing frontend needs styling and component ownership cleanup
-- Extended: public, client-facing or production-bound path
+A `.cursorrules` file is usually one IDE-local instruction surface. VCP covers broader delivery concerns like route selection, scoped adoption, review gates, and operations follow-up.
 
-## What should I copy first?
+Related:
+- [comparison.md](./comparison.md)
 
-Usually `templates/AGENTS.md`, `templates/PROJECT_MAP.md`, `templates/AUDIT_BACKLOG.md` and a Product Brief prompt.
+## How is VCP different from GitHub Copilot Instructions?
 
-## What is `AGENTS.md` vs `templates/AGENTS.md`?
+Copilot Instructions guide one assistant surface. VCP is repository-level workflow structure that can be used with multiple AI tools and includes manifests, benchmarks, and route discipline.
 
-Root `AGENTS.md` configures this repository.
-`templates/AGENTS.md` is the generic copy-ready template for your project.
+Related:
+- [comparison.md](./comparison.md)
 
-## Can I use this with Cursor, Windsurf or Copilot?
+## How is VCP different from Conventional Commits?
 
-Yes. The toolkit is vendor-neutral and includes IDE-specific guidance where useful.
+Conventional Commits standardize commit messages. VCP handles upstream workflow concerns like intake, hardening, review, public-growth planning, and backlog state.
 
-## Is this production-ready?
+Related:
+- [comparison.md](./comparison.md)
 
-The toolkit can support production-bound work, but it does not make a project safe by default.
+## Do I need VCP if I am a solo developer?
 
-## How do I update copied templates?
+Not always. But if your project has production risk, external APIs, AI-generated complexity, or public-site trust requirements, VCP can still be useful even for one person.
 
-Compare your local artifact with the current template, copy only useful changes and keep project-specific rules intact.
+## Does VCP work with Claude Code?
 
-## Why are there two versions: repo `v0.2.x` and methodology `v1.4`?
+Yes, as a repository workflow. VCP does not require one specific model or IDE.
 
-The repository package version tracks GitHub toolkit packaging.
-The methodology version tracks the public web methodology.
+## Does VCP work with Codex?
+
+Yes. VCP is designed to be usable through repository files, CLI helpers, and route/adoption discipline rather than one vendor-specific integration.
+
+## Does VCP work with Cursor?
+
+Yes. Cursor is one possible environment for using VCP, but VCP is not affiliated with Cursor.
+
+## Does VCP work with Windsurf?
+
+Yes. Windsurf can consume the repository docs and templates, but VCP is not a Windsurf-native product.
+
+## Does VCP work with GitHub Copilot?
+
+Yes, as a repository workflow. It complements Copilot rather than replacing it.
+
+## Does VCP replace tests?
+
+No. VCP can help enforce validation discipline, but it does not replace tests.
+
+## Does VCP replace human review?
+
+No. VCP explicitly keeps human review and post-task review gates in scope.
+
+## Is VCP a security scanner?
+
+No. VCP is not a scanner, pentest suite, or offensive toolkit.
+
+## Is VCP suitable for production projects?
+
+Yes, if used honestly and with proper hardening, validation, and review discipline. It is designed to be more useful in production than shallow prompt-only workflows.
+
+## What is an Adoption Pack?
+
+An Adoption Pack is a small recommended file set for one situation. It is meant to prevent blind copying of the whole toolkit.
+
+Related:
+- [adoption-packs.md](./adoption-packs.md)
+
+## What is AI Intake?
+
+AI Intake is the classification step before route selection. It helps prevent README-only or Starter-by-default mistakes.
+
+Related:
+- [../AI_INTAKE.md](../AI_INTAKE.md)
+
+## What is a Post-Task Code Review Gate?
+
+It is the acceptance layer after meaningful AI-generated changes. In VCP, this is a first-class route, not an informal suggestion.
+
+## What is `PROJECT_BACKLOG.md`?
+
+It is VCP’s lightweight local kanban for tracking work, findings, and follow-up tasks. It is distinct from `AUDIT_BACKLOG.md`.
+
+## What is GEO / AI visibility?
+
+In VCP, GEO and AI visibility mean making public content easier for answer engines to understand without promising rankings or using spam tactics.
+
+Related:
+- [geo-ai-visibility.md](./geo-ai-visibility.md)
+
+## How do I evaluate VCP fairly?
+
+Do not evaluate it from README alone. Use the evaluation guide, manifests, benchmarks, glossary, and CLI outputs before scoring maturity.
+
+Related:
+- [../AI_EVALUATION_GUIDE.md](../AI_EVALUATION_GUIDE.md)
+
+## What is the fastest way to try VCP?
+
+Run `doctor`, `route`, and `adopt --dry-run` first. If you want a realistic human walkthrough, use the quickstart walkthrough doc.
+
+Related:
+- [install.md](./install.md)
+- [quickstart-walkthrough.md](./quickstart-walkthrough.md)
+
+## Optional FAQPage schema for hosted docs
+
+Use FAQPage schema only if the hosted page contains the same visible questions and answers.
+Do not publish hidden or mismatched FAQ schema.
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Vibe Coding Protocols?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vibe Coding Protocols is a controlled AI delivery toolkit for routing, adopting, validating, and reviewing AI-assisted software work."
+      }
+    }
+  ]
+}
+```

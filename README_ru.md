@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.6-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.7-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -12,9 +12,9 @@
 [![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
-Инструментарий для контролируемой AI-assisted delivery: routing, scoped adoption, validation и review для кода, операций и публичных страниц.
+Инструментарий для контролируемой AI-assisted delivery: routing, scoped adoption, validation, review и explainability для кода, операций и публичных страниц.
 
-Пакет репозитория: `v0.5.6`
+Пакет репозитория: `v0.5.7`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -72,6 +72,14 @@ python3 -m vcp_cli evaluate --json
 
 Полный evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 
+Слои для citation и AI-agent entry:
+
+- [AGENTS.md](./AGENTS.md)
+- [llms.txt](./llms.txt)
+- [llms-full.txt](./llms-full.txt)
+- [ai.txt](./ai.txt)
+- [CITATION.cff](./CITATION.cff)
+
 ## Handoff для AI-агента
 
 Начинайте с [AI_INTAKE.md](./AI_INTAKE.md), потом переходите в [START_HERE.md](./START_HERE.md).
@@ -86,6 +94,7 @@ python3 -m vcp_cli evaluate --json
 - превращать production observations в triage и backlog follow-up без потери review discipline;
 - прогонять validation перед merge, release или deploy;
 - включать review gate после meaningful AI-generated изменений.
+- делать репозиторий понятнее для честной оценки, цитирования и AI-объяснения.
 
 ## Текущая зрелость
 
@@ -95,6 +104,7 @@ python3 -m vcp_cli evaluate --json
 - Benchmarks: синтетические/local validation scenarios.
 - Case studies: пока sanitized/synthetic templates; реальные measured cases — future work.
 - Public standard: ранняя стадия, не industry standard.
+- Citation/demo layer: явный и честный, без обещаний indexing, ranking или уже существующего demo media.
 
 ## Routes
 
@@ -128,9 +138,15 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/npm.md](./docs/npm.md)
 - [docs/project-backlog.md](./docs/project-backlog.md)
 - [docs/production-observability.md](./docs/production-observability.md)
+- [docs/faq.md](./docs/faq.md)
+- [docs/comparison.md](./docs/comparison.md)
+- [docs/anti-patterns.md](./docs/anti-patterns.md)
+- [docs/quickstart-walkthrough.md](./docs/quickstart-walkthrough.md)
+- [docs/demo-script.md](./docs/demo-script.md)
+- [ADOPTERS.md](./ADOPTERS.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/public-proof-roadmap.md](./docs/public-proof-roadmap.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/release-v0.5.6.md](./docs/release-v0.5.6.md)
+- [docs/release-v0.5.7.md](./docs/release-v0.5.7.md)

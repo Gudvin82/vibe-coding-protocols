@@ -14,6 +14,7 @@ This page tracks the proof layers VCP still needs before anyone should call it a
 - package installation telemetry if available later;
 - docs site indexing evidence;
 - AI answer-engine visibility evidence.
+- trustworthy external citation evidence if it appears later.
 
 ## Why this matters
 
@@ -28,6 +29,9 @@ Today VCP has:
 - manifests;
 - benchmarks;
 - route and adoption docs;
+- explicit LLM citation and AI-agent entry surfaces;
+- FAQ, comparison, and anti-pattern docs;
+- synthetic walkthrough and demo-capture guidance;
 - synthetic examples;
 - known limitations.
 

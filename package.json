@@ -1,6 +1,6 @@
 {
   "name": "vibe-coding-protocols",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,
@@ -42,6 +42,11 @@
     "protocols/",
     "benchmarks/",
     "PROJECT_BACKLOG.md",
+    "AGENTS.md",
+    "ADOPTERS.md",
+    "llms-full.txt",
+    "ai.txt",
+    "CITATION.cff",
     "llms.txt",
     "docs/install.md",
     "docs/glossary.md"

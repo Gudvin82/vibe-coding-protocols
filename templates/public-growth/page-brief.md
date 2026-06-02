@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_GROWTH_PAGE_BRIEF -->
-<!-- vcp-version: v0.5.6 -->
+<!-- vcp-version: v0.5.7 -->
 <!-- methodology-version: v1.4 -->
 
 # Page Brief

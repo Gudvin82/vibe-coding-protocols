@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use Vibe Coding Protocols, please cite it as below."
+title: "Vibe Coding Protocols"
+authors:
+  - family-names: "Malyshev"
+    given-names: "Anatoly"
+url: "https://github.com/Gudvin82/vibe-coding-protocols"
+repository-code: "https://github.com/Gudvin82/vibe-coding-protocols"
+license: "CC-BY-4.0"
+version: "v0.5.7"
+date-released: "2026-06-02"
+abstract: "Vibe Coding Protocols is an open-source toolkit for controlled AI-assisted software delivery, including routes, adoption packs, CLI checks, manifests, benchmarks, review gates, operations workflows, backlog discipline, public growth readiness, FAQ/comparison guidance, and AI-agent evaluation surfaces."
+keywords:
+  - "AI-assisted development"
+  - "vibe coding"
+  - "controlled AI delivery"
+  - "AI IDE"
+  - "software delivery"
+  - "project hardening"

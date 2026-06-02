@@ -1,5 +1,5 @@
 <!-- vcp-artifact: DAILY_ERROR_TRIAGE_PROMPT -->
-<!-- vcp-version: v0.5.6 -->
+<!-- vcp-version: v0.5.7 -->
 <!-- methodology-version: v1.4 -->
 
 Review existing `.vcp/runtime/error-inbox/` entries only after capture exists.

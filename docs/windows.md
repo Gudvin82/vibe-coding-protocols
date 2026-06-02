@@ -1,7 +1,7 @@
 # Windows
 
 VCP keeps the Python CLI as the source of truth and adds a simpler local npm wrapper for Node-first users.
-Native Windows packaging is still not a mature product in `v0.5.6`.
+Native Windows packaging is still not a mature product in `v0.5.7`.
 
 ## Support matrix
 

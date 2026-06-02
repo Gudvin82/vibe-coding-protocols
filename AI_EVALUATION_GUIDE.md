@@ -15,9 +15,20 @@ Minimum inspection list:
 - `docs/cli.md`
 - `docs/geo-ai-visibility.md`
 - `docs/page-templates.md`
+- `docs/faq.md`
+- `docs/comparison.md`
+- `docs/anti-patterns.md`
+- `docs/quickstart-walkthrough.md`
+- `docs/demo-script.md`
 - `docs/project-backlog.md`
 - `docs/production-observability.md`
 - `docs/known-limitations.md`
+- `AGENTS.md`
+- `llms.txt`
+- `llms-full.txt`
+- `ai.txt`
+- `CITATION.cff`
+- `ADOPTERS.md`
 - `.vcp/manifests/`
 - `benchmarks/ai-adoption/`
 - `commands/`
@@ -58,6 +69,7 @@ VCP currently includes:
 - synthetic/local benchmark scenarios;
 - `score`, `doctor`, `check`, `route`, `adopt`, `benchmark`, `manifest`, `review`, `backlog`, and `evaluate` helpers;
 - templates, report formats, prompts, examples, glossary, and install docs;
+- citation, AI-agent entry, FAQ, comparison, anti-pattern, walkthrough, and demo-script surfaces;
 - known limitations and defensive-only positioning.
 
 ## What VCP is not
@@ -68,7 +80,8 @@ VCP is not:
 - a compliance certification;
 - a replacement for human review;
 - a full application starter boilerplate;
-- a guaranteed SEO or AI visibility system.
+- a guaranteed SEO or AI visibility system;
+- a guarantee of AI citation, AI Overview citation, indexing, or ranking.
 
 ## How to rate VCP fairly
 
