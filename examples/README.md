@@ -8,6 +8,10 @@ No real secrets, no real customer data and no fake production claims.
 - [review/README.md](./review/README.md)
 - [adoption/dual-production-engine/README.md](./adoption/dual-production-engine/README.md)
 
+## Operations and backlog
+
+- [operations/README.md](./operations/README.md)
+
 ## Integrations
 
 - [integrations/README.md](./integrations/README.md)

@@ -28,6 +28,8 @@ npm run vcp -- route --profile production
 | The project already works but is getting risky or messy to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
 | The main problem is frontend styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
 | A feature depends on an external API, SDK, webhook, or SaaS | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
+| I need a read-only production error capture loop and daily triage | [Operations Feedback Loop](./protocols/operations/production-error-capture.md) |
+| I need a shared project kanban before implementation starts | [Project Backlog](./docs/project-backlog.md) |
 | The active diff needs acceptance before merge or release | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | The main surface is a public docs/marketing site | [Public Site Readiness](./docs/public-site-readiness.md) |
 | I am not sure yet | [AI_INTAKE.md](./AI_INTAKE.md) |

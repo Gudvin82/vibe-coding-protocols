@@ -1,0 +1,29 @@
+{
+  "scenario_id": "production-error-capture",
+  "target_profile": "operations",
+  "target_signals": [
+    "production webhook errors are being reported",
+    "the user needs read-only evidence capture first"
+  ],
+  "expected_route": "production-error-capture",
+  "expected_adoption_pack": "operations",
+  "required_files_to_inspect": [
+    "protocols/operations/production-error-capture.md",
+    "protocols/operations/daily-error-triage.md",
+    "docs/production-observability.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "files_not_to_copy": [
+    ".env"
+  ],
+  "expected_stop_conditions": [
+    "no documented authorized log path exists",
+    "the task would mutate production state"
+  ],
+  "expected_review_gate": "Required only when triage turns into meaningful code changes.",
+  "expected_first_safe_action": "Discover the documented authorized production log path before monitoring anything.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli doctor",
+    "python3 -m vcp_cli backlog validate"
+  ]
+}

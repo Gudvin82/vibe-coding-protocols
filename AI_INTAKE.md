@@ -9,6 +9,7 @@ Read this file before evaluating or applying VCP to a target repository.
 - Do not default to Starter just because the toolkit has templates.
 - Do not recommend copying everything blindly.
 - Do not write third-party integration code before doing API intake.
+- Do not jump from production observation straight into fixes without triage and backlog state.
 - Do not claim confidence if the target repository classification is unclear.
 
 ## What to do first
@@ -33,6 +34,8 @@ If the user wants the shortest CLI onboarding path, start with:
 - If a request adds any external API, SDK, webhook, or SaaS integration, run Third-party API Intake before implementation.
 - If the project works but is hard to change, consider Maintenance Refactoring.
 - If the main issue is frontend styling or component drift, consider UI Component Ownership.
+- If production errors must be observed, use the Operations route in read-only mode first.
+- If follow-up work must be tracked, create or update `PROJECT_BACKLOG.md` before implementation begins.
 - If public website, docs, trust, search, or AI crawler readiness is involved, include Public Site Readiness.
 - If the target project is production, shared-engine, or regulated, recommend `/loop-code-review` after each meaningful change.
 
@@ -50,6 +53,8 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - the relevant report templates
 - `docs/security-tooling-landscape.md` if security or production is involved
 - `protocols/integrations/third-party-api-intake.md` if an external API is in scope
+- `protocols/operations/production-error-capture.md` if production observations are in scope
+- `docs/project-backlog.md` if ongoing tasks or follow-up work are in scope
 - `docs/public-site-readiness.md` if public website or docs are involved
 - `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
 

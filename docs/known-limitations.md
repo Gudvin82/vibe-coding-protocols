@@ -1,11 +1,11 @@
 # Known Limitations
 
-## Improved in v0.5.2
+## Improved in v0.5.3
 
-- manifest files are moved out of the repository root into `.vcp/manifests/`;
-- README and onboarding path are shorter and easier to scan;
-- a local npm wrapper exists for shorter Node-first commands;
-- `vcp init` gives a guidance-first starting step.
+- VCP now has an explicit operations feedback loop for read-only production observation and daily triage.
+- `PROJECT_BACKLOG.md` now exists as a separate working kanban next to `AUDIT_BACKLOG.md`.
+- The local CLI now validates backlog structure and can print a backlog template.
+- Benchmarks and manifests now cover operations and backlog workflows.
 
 ## Still limited
 
@@ -13,5 +13,6 @@
 - VCP does not automatically review vendor terms or legal compatibility;
 - VCP does not auto-connect or test external APIs;
 - VCP does not provide real API monitoring integration;
+- the operations route is documentation-first, not a live observability product;
 - authenticated GitHub Release creation still depends on external auth tooling;
 - npm distribution is local-wrapper-only until a real published package exists.

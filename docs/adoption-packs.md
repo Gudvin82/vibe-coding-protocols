@@ -10,6 +10,8 @@ It is a scoped recommendation for humans and AI agents.
 - Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
 - Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
 - Third-party API Pack = API intake protocol + registry + intake report + review gate.
+- Operations Pack = read-only capture workflow + daily triage + observability boundaries + backlog follow-up.
+- Backlog Pack = `PROJECT_BACKLOG.md` + update prompt + backlog report + review trigger.
 
 ## Packs
 
@@ -23,6 +25,8 @@ It is a scoped recommendation for humans and AI agents.
 | `maintenance` | working code is hard to change | required after refactoring slice |
 | `ui-ownership` | pages own final component appearance | required after ownership cleanup |
 | `third-party-api` | an external API, SDK, webhook, or SaaS integration is being proposed | required before production integration merge or release |
+| `operations` | production observations must be captured and triaged without mutation | required only when follow-up becomes code work |
+| `backlog` | ongoing delivery work needs one shared kanban/backlog | required once meaningful implementation starts |
 | `public-site` | public docs or marketing surfaces | lighter review for meaningful changes |
 | `post-task-review` | active diff needs acceptance | this pack is the gate itself |
 
@@ -30,7 +34,8 @@ It is a scoped recommendation for humans and AI agents.
 
 ```bash
 python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
+python3 -m vcp_cli adopt --pack operations --dry-run --json
+python3 -m vcp_cli adopt --pack backlog --dry-run --json
 npm run vcp -- adopt --pack production --dry-run
 ```
 
@@ -61,5 +66,7 @@ The CLI reads pack metadata from:
 ## Related docs
 
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
+- [project-backlog.md](./project-backlog.md)
+- [production-observability.md](./production-observability.md)
 - [../AI_INTAKE.md](../AI_INTAKE.md)
 - [../START_HERE.md](../START_HERE.md)

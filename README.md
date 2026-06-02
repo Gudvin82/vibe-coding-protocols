@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.2-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.5.3-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
@@ -12,10 +12,10 @@
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
 VCP is a controlled workflow for AI-assisted software delivery.
-When AI helps write code, teams often move faster than their architecture, review, stop conditions, and release discipline can keep up.
+When AI helps write code, teams often move faster than their architecture, review, stop conditions, release discipline, and operations follow-up can keep up.
 VCP helps by classifying the project first, choosing the right route, applying only the needed adoption pack, validating the result, and reviewing changes before they move forward.
 
-Repository package: `v0.5.2`
+Repository package: `v0.5.3`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -49,8 +49,9 @@ If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prom
 ## What VCP helps with
 
 - choosing the right route for a real repo instead of defaulting to Starter;
-- keeping production, regulated, public-site, maintenance, and API-intake work scoped;
+- keeping production, regulated, public-site, maintenance, API-intake, and operations work scoped;
 - adopting a small relevant file set instead of copying the whole toolkit;
+- turning production observations into triage notes and backlog follow-up without skipping review discipline;
 - validating repo health before merge, release, or deploy;
 - adding a review gate after meaningful AI-generated changes.
 
@@ -64,6 +65,8 @@ If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prom
 | Working code that is hard to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
 | UI styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
 | External API, SDK, webhook, or SaaS proposal | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
+| Read-only production issue observation and daily triage | [Operations Feedback Loop](./protocols/operations/production-error-capture.md) |
+| Ongoing task tracking before implementation starts | [Project Backlog](./docs/project-backlog.md) |
 | Active diff that must be accepted before moving on | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | Public docs, marketing site, trust, or crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
 
@@ -72,6 +75,8 @@ If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prom
 An Adoption Pack is a small recommended file set for a situation.
 For example:
 - Production Pack = hardening docs + audit backlog + security baseline + review gate.
+- Operations Pack = observability docs + read-only capture workflow + daily triage + backlog discipline.
+- Backlog Pack = `PROJECT_BACKLOG.md` + backlog update prompt/report + review gate trigger.
 - Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
 - Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
 
@@ -79,7 +84,7 @@ Use [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md) if 
 
 ## What VCP is not
 
-VCP is not a scanner, pentest/offensive toolkit, compliance certification, or replacement for human review. It is a workflow and tooling layer for safer AI-assisted delivery.
+VCP is not a scanner, pentest/offensive toolkit, compliance certification, monitoring product, or replacement for human review. It is a workflow and tooling layer for safer AI-assisted delivery.
 
 ## Go deeper
 
@@ -87,10 +92,13 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, or re
 - [docs/npm.md](./docs/npm.md)
 - [docs/windows.md](./docs/windows.md)
 - [docs/init.md](./docs/init.md)
+- [docs/project-backlog.md](./docs/project-backlog.md)
+- [docs/production-observability.md](./docs/production-observability.md)
+- [docs/automation-guidance.md](./docs/automation-guidance.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/roadmap.md](./docs/roadmap.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [docs/measured-impact.md](./docs/measured-impact.md)
-- [docs/release-v0.5.2.md](./docs/release-v0.5.2.md)
+- [docs/release-v0.5.3.md](./docs/release-v0.5.3.md)

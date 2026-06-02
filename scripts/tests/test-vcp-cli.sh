@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 python3 -m vcp_cli --help >/dev/null
-python3 -m vcp_cli version | grep -F "v0.5.2" >/dev/null
+python3 -m vcp_cli version | grep -F "v0.5.3" >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null

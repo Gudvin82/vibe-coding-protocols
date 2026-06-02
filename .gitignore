@@ -11,3 +11,7 @@ Thumbs.db
 node_modules/
 .vscode/
 .idea/
+.vcp/runtime/
+.vcp/runtime/error-inbox/
+.vcp/runtime/errors/
+errors/

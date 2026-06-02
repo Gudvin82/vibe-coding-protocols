@@ -1,9 +1,9 @@
 {
-  "package_version": "v0.5.2",
+  "package_version": "v0.5.3",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
-  "description": "Controlled AI delivery framework with route selection, adoption packs, validation, review gates, local Python CLI, local npm wrapper, and machine-readable metadata.",
+  "description": "Controlled AI delivery framework with route selection, adoption packs, validation, review gates, operations follow-up, backlog discipline, local Python CLI, local npm wrapper, and machine-readable metadata.",
   "entrypoints": [
     "README.md",
     "START_HERE.md",
@@ -15,6 +15,9 @@
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
+    "docs/project-backlog.md",
+    "docs/production-observability.md",
+    "docs/automation-guidance.md",
     "docs/route-map.md",
     "docs/demo.md",
     "docs/windows.md",
@@ -25,8 +28,10 @@
     "protocols/ai-project-hardening-protocol.md",
     "protocols/maintenance/care-refactoring.md",
     "protocols/maintenance/ui-refactoring.md",
-    "protocols/review/post-task-code-review.md",
-    "protocols/integrations/third-party-api-intake.md"
+    "protocols/integrations/third-party-api-intake.md",
+    "protocols/operations/production-error-capture.md",
+    "protocols/operations/daily-error-triage.md",
+    "protocols/review/post-task-code-review.md"
   ],
   "cli_commands": [
     "version",
@@ -35,6 +40,7 @@
     "init",
     "route",
     "adopt",
+    "backlog",
     "score",
     "manifest",
     "benchmark",
@@ -58,7 +64,8 @@
     "Not a production security certification",
     "Does not call external AI APIs",
     "Dry-run by default for adoption",
-    "Does not auto-connect third-party APIs"
+    "Does not auto-connect third-party APIs",
+    "Does not mutate production state from the operations route"
   ],
   "what_vcp_is_not": [
     "offensive_security_tooling",

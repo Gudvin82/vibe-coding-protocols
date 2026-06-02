@@ -23,17 +23,33 @@ CORE_FILES = [
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
+    "docs/project-backlog.md",
+    "docs/production-observability.md",
+    "docs/automation-guidance.md",
     "docs/npm.md",
     "docs/init.md",
+    "PROJECT_BACKLOG.md",
     "protocols/review/post-task-code-review.md",
     "protocols/integrations/third-party-api-intake.md",
+    "protocols/operations/production-error-capture.md",
+    "protocols/operations/daily-error-triage.md",
     "templates/THIRD_PARTY_REGISTRY.md",
+    "templates/PROJECT_BACKLOG.md",
+    "templates/reports/error-inbox-entry.md",
     "docs/public-site-readiness.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
     "scripts/check-toolkit.sh",
     ".github/workflows/vibe-check.yml",
 ]
+
+
+def runtime_error_inbox_gitignored(root: Path) -> bool:
+    gitignore = root / ".gitignore"
+    if not gitignore.exists():
+        return False
+    text = gitignore.read_text(encoding="utf-8")
+    return ".vcp/runtime/" in text and ".vcp/runtime/error-inbox/" in text
 
 
 def run(json_mode: bool = False) -> int:
@@ -72,6 +88,9 @@ def run(json_mode: bool = False) -> int:
         "full_bash_checks_available": full_bash_checks_available(root),
         "third_party_registry_template_exists": (root / "templates/THIRD_PARTY_REGISTRY.md").exists(),
         "third_party_api_intake_protocol_exists": (root / "protocols/integrations/third-party-api-intake.md").exists(),
+        "operations_protocol_exists": (root / "protocols/operations/production-error-capture.md").exists(),
+        "project_backlog_exists": (root / "PROJECT_BACKLOG.md").exists(),
+        "runtime_error_inbox_gitignored": runtime_error_inbox_gitignored(root),
         "manifest_directory": str((root / ".vcp" / "manifests").resolve()),
         "checks": checks,
         "fast_check_summary": {
@@ -99,6 +118,9 @@ def run(json_mode: bool = False) -> int:
         print(f"Manifest directory: {payload['manifest_directory']}")
         print(f"THIRD_PARTY_REGISTRY template: {'yes' if payload['third_party_registry_template_exists'] else 'no'}")
         print(f"Third-party API intake protocol: {'yes' if payload['third_party_api_intake_protocol_exists'] else 'no'}")
+        print(f"Operations protocol: {'yes' if payload['operations_protocol_exists'] else 'no'}")
+        print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_exists'] else 'no'}")
+        print(f"Runtime error inbox gitignored: {'yes' if payload['runtime_error_inbox_gitignored'] else 'no'}")
         for item in checks:
             print(f"{item['status']}: {item['item']}")
         if warnings:

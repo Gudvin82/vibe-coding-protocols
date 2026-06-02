@@ -48,16 +48,35 @@ FAST_REQUIRED_FILES = [
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
+    "docs/project-backlog.md",
+    "docs/production-observability.md",
+    "docs/automation-guidance.md",
     "docs/tooling-roadmap.md",
     "docs/known-limitations.md",
     "docs/measured-impact.md",
+    "PROJECT_BACKLOG.md",
     "protocols/integrations/README.md",
     "protocols/integrations/third-party-api-intake.md",
+    "protocols/operations/README.md",
+    "protocols/operations/production-error-capture.md",
+    "protocols/operations/daily-error-triage.md",
     "commands/third-party-api-intake.md",
+    "commands/prod-log-monitor.md",
+    "commands/daily-error-triage.md",
+    "commands/backlog-update.md",
     "templates/prompts/third-party-api-intake.md",
     "templates/prompts/evaluate-vcp-for-my-repo.md",
+    "templates/prompts/prod-log-monitor.md",
+    "templates/prompts/daily-error-triage.md",
+    "templates/prompts/backlog-update.md",
     "templates/reports/third-party-api-intake-report.md",
+    "templates/reports/production-error-capture-report.md",
+    "templates/reports/daily-error-triage-report.md",
+    "templates/reports/error-inbox-entry.md",
+    "templates/reports/backlog-update-report.md",
     "templates/THIRD_PARTY_REGISTRY.md",
+    "templates/PROJECT_BACKLOG.md",
+    "templates/runtime/error-inbox/.gitkeep",
     "templates/examples/THIRD_PARTY_REGISTRY.filled.example.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
@@ -67,19 +86,25 @@ FAST_REQUIRED_FILES = [
     "bin/vcp.ps1",
     "bin/vcp-node.js",
     "package.json",
+    "benchmarks/ai-adoption/scenarios/production-error-capture.json",
+    "benchmarks/ai-adoption/scenarios/project-backlog-update.json",
     "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
     "case-studies/README.md",
     "case-studies/sanitized/README.md",
     "case-studies/sanitized/measured-impact-template.md",
+    "examples/operations/README.md",
 ]
 
 FAST_REQUIRED_DIRS = [
     "vcp_cli",
     ".vcp/manifests",
     "protocols/integrations",
+    "protocols/operations",
     "templates/reports",
     "templates/prompts",
+    "templates/runtime/error-inbox",
     "examples/integrations",
+    "examples/operations",
     "benchmarks/ai-adoption/scenarios",
 ]
 
@@ -96,6 +121,7 @@ STALE_VERSIONS = [
     "v0.4.4",
     "v0.5.0",
     "v0.5.1",
+    "v0.5.2",
 ]
 
 ENTRY_FILES_FOR_STALE_SCAN = [
@@ -112,8 +138,11 @@ CORE_SMOKE_COMMANDS = [
     ["version", "--json"],
     ["init", "--print-prompt"],
     ["route", "--profile", "production", "--json"],
+    ["route", "--profile", "operations", "--json"],
     ["route", "--profile", "third-party-api", "--json"],
     ["adopt", "--pack", "third-party-api", "--dry-run", "--json"],
+    ["backlog", "validate", "--json"],
+    ["backlog", "template"],
 ]
 
 
@@ -193,7 +222,7 @@ def validate_required_files(root: Path) -> dict[str, Any]:
             missing.append(f"{rel}/")
     if missing:
         return _fail_result("required-files", "python", errors=missing)
-    return _ok_result("required-files", "python", note="Core cross-platform CLI, manifests, npm wrapper and API intake files are present.")
+    return _ok_result("required-files", "python", note="Core cross-platform CLI, manifests, npm wrapper, operations, backlog, and API intake files are present.")
 
 
 def validate_version_consistency(root: Path) -> dict[str, Any]:

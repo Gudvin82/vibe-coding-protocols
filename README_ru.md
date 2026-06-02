@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.2-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.3-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
@@ -12,10 +12,10 @@
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
 VCP — это управляемый workflow для AI-assisted разработки.
-Когда AI помогает писать код, команда часто начинает двигаться быстрее, чем успевают собраться архитектура, review, stop conditions и release discipline.
+Когда AI помогает писать код, команда часто начинает двигаться быстрее, чем успевают собраться архитектура, review, stop conditions, release discipline и operations follow-up.
 VCP помогает сначала классифицировать проект, потом выбрать правильный route, взять только нужный adoption pack, провалидировать результат и прогнать review gate до следующего шага.
 
-Пакет репозитория: `v0.5.2`
+Пакет репозитория: `v0.5.3`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -49,8 +49,9 @@ npm run vcp -- doctor
 ## В чем VCP помогает
 
 - выбрать правильный route для реального репозитория, а не по умолчанию идти в Starter;
-- держать production, regulated, public-site, maintenance и API-intake работу в безопасных границах;
+- держать production, regulated, public-site, maintenance, API-intake и operations работу в безопасных границах;
 - переносить небольшой релевантный набор файлов, а не копировать весь toolkit;
+- превращать production observations в triage и backlog follow-up без потери review discipline;
 - прогонять validation перед merge, release или deploy;
 - включать review gate после meaningful AI-generated изменений.
 
@@ -64,6 +65,8 @@ npm run vcp -- doctor
 | Код работает, но его трудно менять | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
 | Расползся styling или ownership компонентов | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
 | Появился внешний API, SDK, webhook или SaaS | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
+| Нужна read-only фиксация production errors и daily triage | [Operations Feedback Loop](./protocols/operations/production-error-capture.md) |
+| Нужен рабочий kanban/backlog до старта реализации | [Project Backlog](./docs/project-backlog.md) |
 | Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | Публичный сайт, docs, trust или crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
 
@@ -72,6 +75,8 @@ npm run vcp -- doctor
 Adoption Pack — это небольшой рекомендуемый набор файлов под конкретную ситуацию.
 Например:
 - Production Pack = hardening docs + audit backlog + security baseline + review gate.
+- Operations Pack = observability docs + read-only capture workflow + daily triage + backlog discipline.
+- Backlog Pack = `PROJECT_BACKLOG.md` + backlog update prompt/report + trigger для review gate.
 - Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
 - Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
 
@@ -79,7 +84,7 @@ Adoption Pack — это небольшой рекомендуемый набо�
 
 ## Что VCP не делает
 
-VCP — это не scanner, не pentest/offensive toolkit, не compliance certification и не замена human review. Это workflow и tooling layer для более безопасной AI-assisted delivery.
+VCP — это не scanner, не pentest/offensive toolkit, не compliance certification, не monitoring product и не замена human review. Это workflow и tooling layer для более безопасной AI-assisted delivery.
 
 ## Куда идти дальше
 
@@ -87,10 +92,13 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/npm.md](./docs/npm.md)
 - [docs/windows.md](./docs/windows.md)
 - [docs/init.md](./docs/init.md)
+- [docs/project-backlog.md](./docs/project-backlog.md)
+- [docs/production-observability.md](./docs/production-observability.md)
+- [docs/automation-guidance.md](./docs/automation-guidance.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/roadmap.md](./docs/roadmap.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [docs/measured-impact.md](./docs/measured-impact.md)
-- [docs/release-v0.5.2.md](./docs/release-v0.5.2.md)
+- [docs/release-v0.5.3.md](./docs/release-v0.5.3.md)

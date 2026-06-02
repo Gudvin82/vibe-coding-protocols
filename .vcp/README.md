@@ -5,7 +5,7 @@ This directory holds VCP machine-readable metadata.
 ## What is here
 
 - `.vcp/manifests/` contains route, pack, command, report, benchmark, and package metadata.
-- The CLI uses these files for `manifest`, `route`, `adopt`, `benchmark`, and `score`.
+- The CLI uses these files for `manifest`, `route`, `adopt`, `benchmark`, `score`, and backlog-aware validation.
 
 ## Do most users need to edit this?
 

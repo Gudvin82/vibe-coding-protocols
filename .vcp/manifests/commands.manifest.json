@@ -5,62 +5,63 @@
       "command_name": "/care-refactoring",
       "file": "commands/care-refactoring.md",
       "route": "maintenance",
-      "inputs": [
-        "scope",
-        "validation path"
-      ],
+      "inputs": ["scope", "validation path"],
       "output": "maintenance refactoring plan",
-      "validation": [
-        "focused tests",
-        "review gate"
-      ]
+      "validation": ["focused tests", "review gate"]
     },
     {
       "id": "ui-refactoring",
       "command_name": "/ui-refactoring",
       "file": "commands/ui-refactoring.md",
       "route": "ui-ownership",
-      "inputs": [
-        "target slice",
-        "current behavior"
-      ],
+      "inputs": ["target slice", "current behavior"],
       "output": "ui ownership cleanup plan",
-      "validation": [
-        "typecheck",
-        "review gate"
-      ]
+      "validation": ["typecheck", "review gate"]
     },
     {
       "id": "loop-code-review",
       "command_name": "/loop-code-review",
       "file": "commands/loop-code-review.md",
       "route": "review",
-      "inputs": [
-        "active diff",
-        "validation output",
-        "reviewer path"
-      ],
+      "inputs": ["active diff", "validation output", "reviewer path"],
       "output": "review findings and acceptance signal",
-      "validation": [
-        "review plus validation green"
-      ]
+      "validation": ["review plus validation green"]
     },
     {
       "id": "third-party-api-intake",
       "command_name": "/third-party-api-intake",
       "file": "commands/third-party-api-intake.md",
       "route": "integrations",
-      "inputs": [
-        "feature purpose",
-        "provider",
-        "data flow",
-        "validation path"
-      ],
+      "inputs": ["feature purpose", "provider", "data flow", "validation path"],
       "output": "third-party API intake report and registry decision",
-      "validation": [
-        "registry update",
-        "review gate"
-      ]
+      "validation": ["registry update", "review gate"]
+    },
+    {
+      "id": "prod-log-monitor",
+      "command_name": "/prod-log-monitor",
+      "file": "commands/prod-log-monitor.md",
+      "route": "operations",
+      "inputs": ["authorized log path", "time window", "sanitization rules"],
+      "output": "production error capture report",
+      "validation": ["read-only evidence", "sanitized capture"]
+    },
+    {
+      "id": "daily-error-triage",
+      "command_name": "/daily-error-triage",
+      "file": "commands/daily-error-triage.md",
+      "route": "operations",
+      "inputs": ["recent inbox entries", "backlog path", "validation ownership"],
+      "output": "triage report and backlog routing",
+      "validation": ["backlog update", "no direct production mutation"]
+    },
+    {
+      "id": "backlog-update",
+      "command_name": "/backlog-update",
+      "file": "commands/backlog-update.md",
+      "route": "backlog",
+      "inputs": ["work item", "owner", "status", "validation path"],
+      "output": "backlog change summary",
+      "validation": ["backlog validate"]
     }
   ]
 }

@@ -9,6 +9,16 @@ REQUIRED_API_INTAKE_COMMAND_ID = "third-party-api-intake"
 REQUIRED_API_INTAKE_REPORT_ID = "third-party-api-intake-report"
 REQUIRED_API_INTAKE_PACK_ID = "third-party-api"
 REQUIRED_API_INTAKE_BENCHMARK_ID = "third-party-api-intake"
+REQUIRED_OPERATIONS_PROTOCOL_ID = "production-error-capture"
+REQUIRED_BACKLOG_PROTOCOL_ID = "project-backlog-workflow"
+REQUIRED_OPERATIONS_COMMAND_ID = "prod-log-monitor"
+REQUIRED_BACKLOG_COMMAND_ID = "backlog-update"
+REQUIRED_ERROR_REPORT_ID = "production-error-capture-report"
+REQUIRED_BACKLOG_REPORT_ID = "backlog-update-report"
+REQUIRED_OPERATIONS_PACK_ID = "operations"
+REQUIRED_BACKLOG_PACK_ID = "backlog"
+REQUIRED_OPERATIONS_BENCHMARK_ID = "production-error-capture"
+REQUIRED_BACKLOG_BENCHMARK_ID = "project-backlog-update"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -80,14 +90,34 @@ def validate_manifests(json_mode: bool = False) -> int:
 
     if REQUIRED_API_INTAKE_PROTOCOL_ID not in protocol_ids:
         errors.append("Missing required protocol manifest entry: third-party-api-intake")
+    if REQUIRED_OPERATIONS_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: production-error-capture")
+    if REQUIRED_BACKLOG_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: project-backlog-workflow")
     if REQUIRED_API_INTAKE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: third-party-api-intake")
+    if REQUIRED_OPERATIONS_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: prod-log-monitor")
+    if REQUIRED_BACKLOG_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-update")
     if REQUIRED_API_INTAKE_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: third-party-api-intake-report")
+    if REQUIRED_ERROR_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: production-error-capture-report")
+    if REQUIRED_BACKLOG_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: backlog-update-report")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
+    if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
+        errors.append("Missing required adoption pack manifest entry: operations")
+    if REQUIRED_BACKLOG_PACK_ID not in pack_ids:
+        errors.append("Missing required adoption pack manifest entry: backlog")
     if REQUIRED_API_INTAKE_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: third-party-api-intake")
+    if REQUIRED_OPERATIONS_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: production-error-capture")
+    if REQUIRED_BACKLOG_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: project-backlog-update")
 
     payload = {
         "ok": not errors,

@@ -1,6 +1,6 @@
 # npm Wrapper
 
-`v0.5.2` adds a local npm entrypoint for JS/Node-first users.
+`v0.5.3` adds a local npm entrypoint for JS/Node-first users.
 It is a thin wrapper around the Python CLI.
 
 ## What works now
@@ -31,7 +31,7 @@ vcp init --print-prompt
 
 ## What this does not mean
 
-`v0.5.2` does not claim:
+`v0.5.3` does not claim:
 - a published npm package;
 - `npx vcp` from the public registry;
 - `npm install -g` support from a published package;

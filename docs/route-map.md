@@ -10,20 +10,29 @@ flowchart TD
     B --> G[shared-engine]
     B --> H[maintenance]
     B --> I[ui-ownership]
-    B --> J[public-site]
-    C --> K[Starter]
-    D --> L[Hardening Light/Standard]
-    E --> M[Hardening Full]
-    F --> N[Security Review Scope]
-    G --> O[Shared Engine Pack]
-    H --> P[Maintenance Refactoring]
-    I --> Q[UI Ownership]
-    J --> R[Public Site Readiness]
-    M --> S[Post-Task Review Gate]
-    N --> S
-    O --> S
-    P --> S
-    Q --> S
-    R --> S
-    A --> T[Adoption Assessment]
+    B --> J[third-party-api]
+    B --> K[operations]
+    B --> L[backlog]
+    B --> M[public-site]
+    C --> N[Starter]
+    D --> O[Hardening Light or Standard]
+    E --> P[Hardening Full]
+    F --> Q[Security Review Scope]
+    G --> R[Shared Engine Pack]
+    H --> S[Maintenance Refactoring]
+    I --> T[UI Ownership]
+    J --> U[Third-party API Intake]
+    K --> V[Production Error Capture and Daily Triage]
+    L --> W[Project Backlog Workflow]
+    M --> X[Public Site Readiness]
+    P --> Y[Post-Task Review Gate]
+    Q --> Y
+    R --> Y
+    S --> Y
+    T --> Y
+    U --> Y
+    V --> W
+    W --> Y
+    X --> Y
+    A --> Z[Adoption Assessment]
 ```

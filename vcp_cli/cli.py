@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 from . import adopt as adopt_cmd
+from . import backlog as backlog_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import demo as demo_cmd
@@ -99,6 +100,12 @@ def build_parser() -> argparse.ArgumentParser:
     demo_p = sub.add_parser("demo")
     demo_p.add_argument("name", nargs="?")
 
+    backlog_p = sub.add_parser("backlog")
+    backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
+    backlog_validate = backlog_sub.add_parser("validate")
+    backlog_validate.add_argument("--json", action="store_true")
+    backlog_sub.add_parser("template")
+
     for legacy in sorted(LEGACY_VIBE_CHECK):
         sub.add_parser(legacy)
 
@@ -142,6 +149,11 @@ def main(argv: list[str] | None = None) -> int:
             return benchmark_cmd.list_scenarios()
         if args.benchmark_command == "run":
             return benchmark_cmd.run(args.scenario, args.json)
+    if args.command == "backlog":
+        if args.backlog_command in {None, "validate"}:
+            return backlog_cmd.validate(getattr(args, "json", False))
+        if args.backlog_command == "template":
+            return backlog_cmd.template()
     if args.command == "review":
         if args.review_command in {None, "plan"}:
             return review_cmd.plan(getattr(args, "json", False))

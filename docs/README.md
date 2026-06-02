@@ -18,10 +18,13 @@ Use the route docs and product layer intentionally.
 - [npm.md](./npm.md)
 - [windows.md](./windows.md)
 - [route-map.md](./route-map.md)
+- [project-backlog.md](./project-backlog.md)
+- [production-observability.md](./production-observability.md)
+- [automation-guidance.md](./automation-guidance.md)
 - [demo.md](./demo.md)
 - [demo-output.md](./demo-output.md)
 - [release-checklist.md](./release-checklist.md)
-- [release-v0.5.2.md](./release-v0.5.2.md)
+- [release-v0.5.3.md](./release-v0.5.3.md)
 - [roadmap.md](./roadmap.md)
 
 ## Routes and packs
@@ -30,6 +33,8 @@ Use the route docs and product layer intentionally.
 - [adoption-packs.md](./adoption-packs.md)
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [target-project-classifier.md](./target-project-classifier.md)
+- [../protocols/operations/production-error-capture.md](../protocols/operations/production-error-capture.md)
+- [../protocols/operations/daily-error-triage.md](../protocols/operations/daily-error-triage.md)
 - [../protocols/integrations/third-party-api-intake.md](../protocols/integrations/third-party-api-intake.md)
 - [../protocols/review/post-task-code-review.md](../protocols/review/post-task-code-review.md)
 
@@ -44,6 +49,7 @@ Use the route docs and product layer intentionally.
 
 - [community-feedback.md](./community-feedback.md)
 - [../CONTRIBUTING.md](../CONTRIBUTING.md)
+- [../examples/operations/README.md](../examples/operations/README.md)
 - [../examples/integrations/README.md](../examples/integrations/README.md)
 - [../benchmarks/ai-adoption/README.md](../benchmarks/ai-adoption/README.md)
 - [../case-studies/README.md](../case-studies/README.md)

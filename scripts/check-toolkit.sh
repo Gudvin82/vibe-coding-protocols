@@ -81,6 +81,10 @@ required_files=(
   docs/release-v0.5.0.md
   docs/release-v0.5.1.md
   docs/release-v0.5.2.md
+  docs/release-v0.5.3.md
+  docs/project-backlog.md
+  docs/production-observability.md
+  docs/automation-guidance.md
   docs/npm.md
   docs/init.md
   docs/adoption-packs.quickstart.md
@@ -88,6 +92,12 @@ required_files=(
   docs/measured-impact.md
   .vcp/README.md
   protocols/integrations/README.md
+  protocols/operations/README.md
+  protocols/operations/production-error-capture.md
+  protocols/operations/daily-error-triage.md
+  commands/prod-log-monitor.md
+  commands/daily-error-triage.md
+  commands/backlog-update.md
   protocols/integrations/third-party-api-intake.md
   commands/third-party-api-intake.md
   protocols/review/README.md
@@ -148,8 +158,17 @@ required_files=(
   templates/THIRD_PARTY_REGISTRY.md
   templates/prompts/evaluate-vcp-for-my-repo.md
   templates/prompts/third-party-api-intake.md
+  templates/prompts/prod-log-monitor.md
+  templates/prompts/daily-error-triage.md
+  templates/prompts/backlog-update.md
   templates/reports/vcp-adoption-assessment.md
   templates/reports/third-party-api-intake-report.md
+  templates/reports/production-error-capture-report.md
+  templates/reports/daily-error-triage-report.md
+  templates/reports/error-inbox-entry.md
+  templates/reports/backlog-update-report.md
+  templates/PROJECT_BACKLOG.md
+  PROJECT_BACKLOG.md
   templates/protocol-pack-metadata.yml
   templates/reports/security-review-scope.md
   templates/public-site/README.md
@@ -168,6 +187,10 @@ required_files=(
   examples/integrations/README.md
   examples/integrations/public-api-intake.example.md
   examples/integrations/third-party-registry-entry.example.md
+  examples/operations/README.md
+  examples/operations/error-inbox-entry.example.md
+  examples/operations/daily-error-triage-report.example.md
+  examples/operations/project-backlog.example.md
   benchmarks/ai-adoption/README.md
   benchmarks/ai-adoption/expected/README.md
   benchmarks/ai-adoption/scenarios/new-project.json
@@ -176,6 +199,8 @@ required_files=(
   benchmarks/ai-adoption/scenarios/regulated-payments-data.json
   benchmarks/ai-adoption/scenarios/shared-engine-production.json
   benchmarks/ai-adoption/scenarios/third-party-api-intake.json
+  benchmarks/ai-adoption/scenarios/production-error-capture.json
+  benchmarks/ai-adoption/scenarios/project-backlog-update.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -215,6 +240,7 @@ required_dirs=(
   examples
   examples/adoption
   examples/integrations
+  examples/operations
   benchmarks
   benchmarks/ai-adoption
   benchmarks/ai-adoption/scenarios
@@ -223,6 +249,7 @@ required_dirs=(
   docs/integrations
   docs/site
   protocols/review
+  protocols/operations
   scripts
   assets
   .github/workflows

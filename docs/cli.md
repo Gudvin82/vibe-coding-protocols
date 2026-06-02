@@ -4,7 +4,7 @@ VCP now has two honest local entrypaths:
 - the Python CLI, which remains the primary implementation;
 - a thin local npm wrapper for Node-first users.
 
-The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.2`.
+The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.3`.
 
 ## Start here
 
@@ -80,7 +80,7 @@ The wrapper is thin on purpose:
 
 ## Init behavior
 
-`vcp init` is guidance-only in `v0.5.2`.
+`vcp init` is guidance-only in `v0.5.3`.
 It does not modify files by default.
 Use it to:
 - print the short onboarding flow;
@@ -112,4 +112,4 @@ The CLI:
 - [adoption-packs.md](./adoption-packs.md)
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [tooling-roadmap.md](./tooling-roadmap.md)
-- [release-v0.5.2.md](./release-v0.5.2.md)
+- [release-v0.5.3.md](./release-v0.5.3.md)

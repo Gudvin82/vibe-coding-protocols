@@ -4,78 +4,61 @@
       "id": "refactoring-report",
       "file": "templates/reports/refactoring-report.md",
       "intended_route": "maintenance",
-      "required_sections": [
-        "Overall result",
-        "Risk level",
-        "Challenge decision",
-        "Validation run"
-      ]
+      "required_sections": ["Overall result", "Risk level", "Challenge decision", "Validation run"]
     },
     {
       "id": "ui-refactoring-report",
       "file": "templates/reports/ui-refactoring-report.md",
       "intended_route": "ui-ownership",
-      "required_sections": [
-        "Overall result",
-        "Allowed exceptions retained",
-        "Validation run"
-      ]
+      "required_sections": ["Overall result", "Allowed exceptions retained", "Validation run"]
     },
     {
       "id": "code-review-report",
       "file": "templates/reports/code-review-report.md",
       "intended_route": "review",
-      "required_sections": [
-        "Review scope",
-        "Worktree state",
-        "Validation after fixes",
-        "Acceptance signal",
-        "Remaining risks"
-      ]
+      "required_sections": ["Review scope", "Worktree state", "Validation after fixes", "Acceptance signal", "Remaining risks"]
     },
     {
       "id": "vcp-adoption-assessment",
       "file": "templates/reports/vcp-adoption-assessment.md",
       "intended_route": "intake",
-      "required_sections": [
-        "target classification",
-        "selected route",
-        "selected pack",
-        "next action"
-      ]
+      "required_sections": ["target classification", "selected route", "selected pack", "next action"]
     },
     {
       "id": "security-review-scope",
       "file": "templates/reports/security-review-scope.md",
       "intended_route": "security",
-      "required_sections": [
-        "Authorized systems",
-        "Disallowed tools/actions",
-        "Stop conditions",
-        "Approval status"
-      ]
+      "required_sections": ["Authorized systems", "Disallowed tools/actions", "Stop conditions", "Approval status"]
     },
     {
       "id": "audit-backlog",
       "file": "templates/AUDIT_BACKLOG.md",
       "intended_route": "hardening",
-      "required_sections": [
-        "findings",
-        "owners",
-        "priorities"
-      ]
+      "required_sections": ["findings", "owners", "priorities"]
     },
     {
       "id": "third-party-api-intake-report",
       "file": "templates/reports/third-party-api-intake-report.md",
       "intended_route": "integrations",
-      "required_sections": [
-        "Overall result",
-        "Classification",
-        "Auth and secrets",
-        "Data handling",
-        "Implementation decision"
-      ]
+      "required_sections": ["Overall result", "Classification", "Auth and secrets", "Data handling", "Implementation decision"]
+    },
+    {
+      "id": "production-error-capture-report",
+      "file": "templates/reports/production-error-capture-report.md",
+      "intended_route": "operations",
+      "required_sections": ["Observation window", "Authorized source", "Sanitization notes", "Observed patterns", "Recommended next action"]
+    },
+    {
+      "id": "daily-error-triage-report",
+      "file": "templates/reports/daily-error-triage-report.md",
+      "intended_route": "operations",
+      "required_sections": ["Triage window", "Input sources", "Grouped incidents", "Backlog updates", "Escalations or stop conditions"]
+    },
+    {
+      "id": "backlog-update-report",
+      "file": "templates/reports/backlog-update-report.md",
+      "intended_route": "backlog",
+      "required_sections": ["Update reason", "Items added or changed", "Validation path", "Next step"]
     }
   ]
 }
