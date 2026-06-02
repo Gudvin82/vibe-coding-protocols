@@ -13,12 +13,24 @@ REQUIRED_OPERATIONS_PROTOCOL_ID = "production-error-capture"
 REQUIRED_BACKLOG_PROTOCOL_ID = "project-backlog-workflow"
 REQUIRED_OPERATIONS_COMMAND_ID = "prod-log-monitor"
 REQUIRED_BACKLOG_COMMAND_ID = "backlog-update"
+REQUIRED_BACKLOG_LIST_COMMAND_ID = "backlog-list"
+REQUIRED_BACKLOG_ADD_COMMAND_ID = "backlog-add"
+REQUIRED_BACKLOG_MOVE_COMMAND_ID = "backlog-move"
+REQUIRED_BACKLOG_DONE_COMMAND_ID = "backlog-done"
+REQUIRED_BACKLOG_ARCHIVE_COMMAND_ID = "backlog-archive"
+REQUIRED_BACKLOG_REPORT_COMMAND_ID = "backlog-report"
+REQUIRED_BACKLOG_VALIDATE_COMMAND_ID = "backlog-validate"
+REQUIRED_BACKLOG_TEMPLATE_COMMAND_ID = "backlog-template"
 REQUIRED_ERROR_REPORT_ID = "production-error-capture-report"
 REQUIRED_BACKLOG_REPORT_ID = "backlog-update-report"
 REQUIRED_OPERATIONS_PACK_ID = "operations"
 REQUIRED_BACKLOG_PACK_ID = "backlog"
 REQUIRED_OPERATIONS_BENCHMARK_ID = "production-error-capture"
 REQUIRED_BACKLOG_BENCHMARK_ID = "project-backlog-update"
+REQUIRED_BACKLOG_ADD_BENCHMARK_ID = "backlog-add-idea"
+REQUIRED_BACKLOG_DONE_BENCHMARK_ID = "backlog-move-done-with-review"
+REQUIRED_BACKLOG_ARCHIVE_BENCHMARK_ID = "backlog-archive-not-taken"
+REQUIRED_BACKLOG_ARCH_IMPACT_BENCHMARK_ID = "backlog-architecture-impact"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -100,6 +112,22 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: prod-log-monitor")
     if REQUIRED_BACKLOG_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: backlog-update")
+    if REQUIRED_BACKLOG_LIST_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-list")
+    if REQUIRED_BACKLOG_ADD_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-add")
+    if REQUIRED_BACKLOG_MOVE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-move")
+    if REQUIRED_BACKLOG_DONE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-done")
+    if REQUIRED_BACKLOG_ARCHIVE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-archive")
+    if REQUIRED_BACKLOG_REPORT_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-report")
+    if REQUIRED_BACKLOG_VALIDATE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-validate")
+    if REQUIRED_BACKLOG_TEMPLATE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: backlog-template")
     if REQUIRED_API_INTAKE_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: third-party-api-intake-report")
     if REQUIRED_ERROR_REPORT_ID not in report_ids:
@@ -118,6 +146,14 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: production-error-capture")
     if REQUIRED_BACKLOG_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: project-backlog-update")
+    if REQUIRED_BACKLOG_ADD_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: backlog-add-idea")
+    if REQUIRED_BACKLOG_DONE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: backlog-move-done-with-review")
+    if REQUIRED_BACKLOG_ARCHIVE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: backlog-archive-not-taken")
+    if REQUIRED_BACKLOG_ARCH_IMPACT_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: backlog-architecture-impact")
 
     payload = {
         "ok": not errors,

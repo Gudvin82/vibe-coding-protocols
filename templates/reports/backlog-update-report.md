@@ -1,37 +1,44 @@
 <!-- vcp-artifact: BACKLOG_UPDATE_REPORT -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 # Backlog Update Report
 
-## Request summary
+## Update reason
 
-Summarize the idea, task, or follow-up that triggered the update.
+Summarize the request, idea, prod-error follow-up, review finding, or deferred work that triggered the change.
 
-## Backlog item IDs
+## Duplicate check
 
-List created or updated item IDs.
+State whether a matching backlog item already existed.
+If yes, list the reused item ID.
+If no, state that a new item was created.
 
-## State changes
+## Items added or changed
 
-Record transitions such as `TODO -> DOING` or `DOING -> DONE`.
+List IDs and status transitions.
+Example: `VCP-014 TODO -> DOING`.
 
-## Route and priority
+## Route decision
 
-State the chosen route, priority, and source.
+State the route selected for the backlog item.
+If the route is still unknown, say why.
 
 ## Architecture impact
 
-Use one of: `none`, `docs-only`, `component-level`, `cross-layer`, `production-critical`.
+Use one of:
+- `none`
+- `docs-only`
+- `component-level`
+- `cross-layer`
+- `production-critical`
 
-## Linked docs updated
+List any required architecture doc updates or follow-up items.
 
-List `PROJECT_MAP.md`, `ARCHITECTURE_SOURCE_OF_TRUTH.md`, `AUDIT_BACKLOG.md`, `THIRD_PARTY_REGISTRY.md`, or review reports when relevant.
+## Validation path
 
-## Validation and review expected
+State what validation or review evidence is required before `DONE`.
 
-Record validation path and whether post-task review is required.
+## Next step
 
-## Deferred or archived work
-
-If an item was not taken, record the reason.
+State the next safe action.

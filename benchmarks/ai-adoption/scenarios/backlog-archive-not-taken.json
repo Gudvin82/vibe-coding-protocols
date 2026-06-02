@@ -1,0 +1,25 @@
+{
+  "scenario_id": "backlog-archive-not-taken",
+  "target_profile": "backlog",
+  "target_signals": [
+    "the task is intentionally not being taken",
+    "history should stay visible"
+  ],
+  "expected_route": "project-backlog-workflow",
+  "expected_adoption_pack": "backlog",
+  "required_files_to_inspect": [
+    "PROJECT_BACKLOG.md",
+    "docs/project-backlog.md"
+  ],
+  "files_not_to_copy": [],
+  "expected_stop_conditions": [
+    "the item would be deleted instead of archived",
+    "no archive reason is recorded"
+  ],
+  "expected_review_gate": "Not required if no implementation happened.",
+  "expected_first_safe_action": "Move the item to ARCHIVED / NOT TAKEN with a clear reason.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli backlog archive --id VCP-001 --reason \"Not in scope\" --dry-run --json",
+    "python3 -m vcp_cli backlog validate"
+  ]
+}

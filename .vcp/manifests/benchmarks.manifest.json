@@ -119,6 +119,46 @@
       "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md", "commands/backlog-update.md", "templates/reports/backlog-update-report.md"],
       "expected_warnings": ["do not confuse PROJECT_BACKLOG with AUDIT_BACKLOG"],
       "expected_first_action": "Add or update the backlog item before implementation starts."
+    },
+    {
+      "id": "backlog-add-idea",
+      "profile": "backlog",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-add-idea.json",
+      "expected_route": "project-backlog-workflow",
+      "expected_pack": "backlog",
+      "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md", "templates/PROJECT_BACKLOG.md"],
+      "expected_warnings": ["do not silently lose new ideas in chat"],
+      "expected_first_action": "Add the idea to TODO before implementation starts."
+    },
+    {
+      "id": "backlog-move-done-with-review",
+      "profile": "backlog",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-move-done-with-review.json",
+      "expected_route": "project-backlog-workflow",
+      "expected_pack": "backlog",
+      "required_inspected_files": ["PROJECT_BACKLOG.md", "templates/reports/backlog-update-report.md", "templates/reports/code-review-report.md"],
+      "expected_warnings": ["done items need validation and review evidence"],
+      "expected_first_action": "Move the item only after validation and review evidence are recorded."
+    },
+    {
+      "id": "backlog-archive-not-taken",
+      "profile": "backlog",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-archive-not-taken.json",
+      "expected_route": "project-backlog-workflow",
+      "expected_pack": "backlog",
+      "required_inspected_files": ["PROJECT_BACKLOG.md", "docs/project-backlog.md"],
+      "expected_warnings": ["archiving needs an explicit reason"],
+      "expected_first_action": "Archive the item with a visible reason instead of deleting it."
+    },
+    {
+      "id": "backlog-architecture-impact",
+      "profile": "backlog",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json",
+      "expected_route": "project-backlog-workflow",
+      "expected_pack": "backlog",
+      "required_inspected_files": ["PROJECT_BACKLOG.md", "PROJECT_MAP.md", "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"],
+      "expected_warnings": ["cross-layer backlog items must sync architecture memory"],
+      "expected_first_action": "Update the backlog item and the architecture memory in the same task or create a linked follow-up item."
     }
   ]
 }

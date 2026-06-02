@@ -4,7 +4,7 @@ VCP now has two honest local entrypaths:
 - the Python CLI, which remains the primary implementation;
 - a thin local npm wrapper for Node-first users.
 
-The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.3`.
+The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.4`.
 
 ## Start here
 
@@ -40,6 +40,7 @@ npm run vcp -- doctor
 - `init` — guidance-only onboarding and copy-paste prompt output
 - `route` — choose the route for a target profile
 - `adopt` — dry-run an Adoption Pack
+- `backlog` — validate, list, add, move, complete, archive, and report backlog items
 - `score` — readiness heuristic summary
 - `manifest` — show and validate machine-readable metadata
 - `benchmark` — validate route and adoption scenarios
@@ -80,12 +81,29 @@ The wrapper is thin on purpose:
 
 ## Init behavior
 
-`vcp init` is guidance-only in `v0.5.3`.
+`vcp init` is guidance-only in `v0.5.4`.
 It does not modify files by default.
 Use it to:
 - print the short onboarding flow;
 - print a target-specific prompt with `--print-prompt`;
 - steer an AI agent toward `AI_INTAKE.md`, `route`, and `adopt --dry-run`.
+
+## Backlog workflow
+
+Current backlog helpers:
+
+```bash
+python3 -m vcp_cli backlog validate
+python3 -m vcp_cli backlog list --json
+python3 -m vcp_cli backlog add --title "Triage API retries" --type bug --priority P1 --source review --dry-run --json
+python3 -m vcp_cli backlog move --id VCP-001 --status doing --dry-run --json
+python3 -m vcp_cli backlog done --id VCP-001 --validation "tests green" --review "accepted" --dry-run --json
+python3 -m vcp_cli backlog archive --id VCP-002 --reason "Not in scope" --dry-run --json
+python3 -m vcp_cli backlog report --json
+```
+
+Real writes create a backup in `.vcp/runtime/backups/` before `PROJECT_BACKLOG.md` is updated.
+Dry-run stays non-destructive and returns a preview instead of writing.
 
 ## Manifest location
 
@@ -112,4 +130,4 @@ The CLI:
 - [adoption-packs.md](./adoption-packs.md)
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [tooling-roadmap.md](./tooling-roadmap.md)
-- [release-v0.5.3.md](./release-v0.5.3.md)
+- [release-v0.5.4.md](./release-v0.5.4.md)

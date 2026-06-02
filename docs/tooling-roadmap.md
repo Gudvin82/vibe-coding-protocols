@@ -1,6 +1,6 @@
 # Tooling Roadmap
 
-## Available in v0.5.3
+## Available in v0.5.4
 
 - local Python CLI
 - local npm wrapper that forwards to the Python CLI
@@ -10,8 +10,9 @@
 - benchmark scenarios
 - post-task review helper
 - third-party API intake protocol and registry discipline
-- backlog validation and template output
+- backlog validation, listing, add/move/done/archive/report output
 - operations route docs and report templates for read-only production capture
+- runtime backups for backlog writes
 
 ## What the tooling can catch today
 

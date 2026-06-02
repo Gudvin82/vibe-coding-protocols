@@ -14,4 +14,5 @@ node_modules/
 .vcp/runtime/
 .vcp/runtime/error-inbox/
 .vcp/runtime/errors/
+.vcp/runtime/backups/
 errors/

@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md
@@ -12,6 +12,10 @@
 ## Compact planning references
 - Architecture Map: `ARCHITECTURE_MAP.md`, if the project has multiple surfaces
 - Architecture Source of Truth: `ARCHITECTURE_SOURCE_OF_TRUTH.md`, if a detailed architecture document exists
+
+## Backlog synchronization rule
+- If a backlog item has architecture impact `component-level`, update this map when routes, components, or ownership change.
+- If a backlog item has architecture impact `cross-layer` or `production-critical`, update this map and `ARCHITECTURE_SOURCE_OF_TRUTH.md` or create a linked follow-up backlog item.
 
 ## Entrypoints
 - frontend entrypoints: [FILL IN]

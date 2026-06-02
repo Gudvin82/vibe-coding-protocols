@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROMPT_EVALUATE_VCP_FOR_MY_REPO -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 You are evaluating Vibe Coding Protocols for my repository.

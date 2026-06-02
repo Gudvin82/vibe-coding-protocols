@@ -24,4 +24,4 @@ No guarantee of indexing or ranking.
 - docs/security-tooling-landscape.md: defensive-only security positioning
 - docs/tooling-roadmap.md: current tooling and future work
 - docs/roadmap.md: phase-based roadmap summary
-- docs/release-v0.5.3.md: current release notes
+- docs/release-v0.5.4.md: current release notes

@@ -1,11 +1,12 @@
 # Known Limitations
 
-## Improved in v0.5.3
+## Improved in v0.5.4
 
 - VCP now has an explicit operations feedback loop for read-only production observation and daily triage.
-- `PROJECT_BACKLOG.md` now exists as a separate working kanban next to `AUDIT_BACKLOG.md`.
-- The local CLI now validates backlog structure and can print a backlog template.
-- Benchmarks and manifests now cover operations and backlog workflows.
+- `PROJECT_BACKLOG.md` now behaves like a working kanban next to `AUDIT_BACKLOG.md`.
+- The local CLI now lists, adds, moves, completes, archives, and reports backlog items.
+- Real backlog writes are backed up under `.vcp/runtime/backups/`.
+- Benchmarks and manifests now cover the richer backlog workflow.
 
 ## Still limited
 

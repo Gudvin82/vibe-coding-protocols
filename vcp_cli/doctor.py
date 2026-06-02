@@ -52,6 +52,14 @@ def runtime_error_inbox_gitignored(root: Path) -> bool:
     return ".vcp/runtime/" in text and ".vcp/runtime/error-inbox/" in text
 
 
+def runtime_backups_gitignored(root: Path) -> bool:
+    gitignore = root / ".gitignore"
+    if not gitignore.exists():
+        return False
+    text = gitignore.read_text(encoding="utf-8")
+    return ".vcp/runtime/backups/" in text
+
+
 def run(json_mode: bool = False) -> int:
     root = repo_root()
     checks = []
@@ -91,6 +99,7 @@ def run(json_mode: bool = False) -> int:
         "operations_protocol_exists": (root / "protocols/operations/production-error-capture.md").exists(),
         "project_backlog_exists": (root / "PROJECT_BACKLOG.md").exists(),
         "runtime_error_inbox_gitignored": runtime_error_inbox_gitignored(root),
+        "runtime_backups_gitignored": runtime_backups_gitignored(root),
         "manifest_directory": str((root / ".vcp" / "manifests").resolve()),
         "checks": checks,
         "fast_check_summary": {
@@ -121,6 +130,7 @@ def run(json_mode: bool = False) -> int:
         print(f"Operations protocol: {'yes' if payload['operations_protocol_exists'] else 'no'}")
         print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_exists'] else 'no'}")
         print(f"Runtime error inbox gitignored: {'yes' if payload['runtime_error_inbox_gitignored'] else 'no'}")
+        print(f"Runtime backups gitignored: {'yes' if payload['runtime_backups_gitignored'] else 'no'}")
         for item in checks:
             print(f"{item['status']}: {item['item']}")
         if warnings:

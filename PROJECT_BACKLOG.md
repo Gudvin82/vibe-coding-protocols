@@ -1,38 +1,39 @@
 <!-- vcp-artifact: PROJECT_BACKLOG -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 # Project Backlog
 
 ## Rules
 
-- Use this backlog for tasks, ideas, bugs, operations follow-up, and product work.
+- Use this backlog for tasks, ideas, bugs, operations follow-up, review follow-up, and product work.
 - Do not use it as a replacement for `AUDIT_BACKLOG.md`.
+- Keep IDs stable. Do not renumber existing items.
+- Create or update a backlog item before implementation starts when a new request arrives.
+- If architecture impact is `cross-layer` or `production-critical`, update architecture docs in the same task or create a linked follow-up item.
 - Example rows below illustrate the format. Replace them with real project state.
-- Update backlog state before starting implementation when a new request arrives.
-- If architecture impact is `cross-layer` or `production-critical`, update architecture docs in the same task or create a follow-up item.
 
 ## TODO
 
-| ID | Priority | Type | Title | Route | Source | Created | Updated | Notes |
-|---|---|---|---|---|---|---|---|---|
-| VCP-001 | P1 | operations | Example: add production error capture workflow | Operations | roadmap | 2026-06-02 | 2026-06-02 | Example row. Links to operations docs and runtime inbox guidance. |
-| VCP-002 | P2 | API integration | Example: review new third-party dependency before implementation | Third-party API Intake | AI | 2026-06-02 | 2026-06-02 | Example row. Update `THIRD_PARTY_REGISTRY.md` if accepted. |
+| ID | Priority | Type | Title | Route | Source | Owner | Created | Updated | Architecture impact | Validation required | Review required | Linked docs | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| VCP-001 | P1 | operations | Example: extend production error capture workflow | Operations | roadmap | maintainer | 2026-06-02 | 2026-06-02 | docs-only | doctor + backlog validate | no | docs/production-observability.md | Example row. Keep runtime inbox guidance current. |
+| VCP-002 | P2 | api-integration | Example: review new external dependency before coding | Third-party API Intake | ai | maintainer | 2026-06-02 | 2026-06-02 | none | intake report required | yes | templates/THIRD_PARTY_REGISTRY.md | Example row. Registry update required if accepted. |
 
 ## DOING
 
-| ID | Priority | Type | Title | Route | Source | Started | Updated | Validation |
-|---|---|---|---|---|---|---|---|---|
-| VCP-003 | P2 | docs | Example: update Architecture Source of Truth after route change | Backlog | review | 2026-06-02 | 2026-06-02 | Example row. Update architecture docs in the same task. |
+| ID | Priority | Type | Title | Route | Source | Owner | Created | Updated | Architecture impact | Validation required | Review required | Linked docs | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| VCP-003 | P2 | docs | Example: sync architecture docs after accepted route change | Backlog | review | maintainer | 2026-06-02 | 2026-06-02 | cross-layer | update docs and re-run checks | yes | PROJECT_MAP.md, templates/ARCHITECTURE_SOURCE_OF_TRUTH.md | Example row. Update architecture memory in the same task. |
 
 ## DONE
 
-| ID | Priority | Type | Title | Route | Source | Done | Validation | Review |
-|---|---|---|---|---|---|---|---|---|
-| VCP-004 | P2 | feature | Example: backlog item moved to done after validated change | Post-Task Review | user | 2026-06-02 | Example row. Validation green. | Review gate passed. |
+| ID | Priority | Type | Title | Route | Source | Owner | Created | Updated | Architecture impact | Validation required | Review required | Linked docs | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| VCP-004 | P2 | review-finding | Example: backlog item closed after validated follow-up | Post-Task Review | user | maintainer | 2026-06-02 | 2026-06-02 | component-level | checks green: `vcp check --fast --json` | review passed: `code-review-report` updated | templates/reports/code-review-report.md | Example row. Validation and review evidence are recorded before DONE. |
 
 ## ARCHIVED / NOT TAKEN
 
-| ID | Priority | Type | Title | Source | Reason | Archived |
-|---|---|---|---|---|---|---|
-| VCP-005 | P3 | idea | Example: low-value suggestion not taken | AI | Example row. Deferred because it does not justify scope right now. | 2026-06-02 |
+| ID | Priority | Type | Title | Route | Source | Owner | Created | Updated | Architecture impact | Validation required | Review required | Linked docs | Notes |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| VCP-005 | P3 | idea | Example: low-value suggestion not taken | Backlog | ai | maintainer | 2026-06-02 | 2026-06-02 | none | - | - | - | Example row. Archived because it does not justify scope right now. |

@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 python3 -m vcp_cli --help >/dev/null
-python3 -m vcp_cli version | grep -F "v0.5.3" >/dev/null
+python3 -m vcp_cli version | grep -F "v0.5.4" >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null
@@ -15,6 +15,13 @@ python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/promp
 python3 -m vcp_cli manifest validate >/dev/null
 python3 -m vcp_cli benchmark run >/dev/null
 python3 -m vcp_cli score --json | grep -F '"Third-party API intake / registry"' >/dev/null
+python3 -m vcp_cli backlog validate >/dev/null
+python3 -m vcp_cli backlog list --json | grep -F '"ok": true' >/dev/null
+python3 -m vcp_cli backlog report --json | grep -F '"counts_by_status"' >/dev/null
+python3 -m vcp_cli backlog add --title "Synthetic backlog test item" --type idea --priority P3 --source manual --dry-run --json | grep -F '"dry_run": true' >/dev/null
+python3 -m vcp_cli backlog move --id VCP-001 --status doing --dry-run --json | grep -F '"dry_run": true' >/dev/null
+python3 -m vcp_cli backlog done --id VCP-001 --validation "tests green" --review "accepted" --dry-run --json | grep -F '"dry_run": true' >/dev/null
+python3 -m vcp_cli backlog archive --id VCP-002 --reason "Synthetic archive path" --dry-run --json | grep -F '"dry_run": true' >/dev/null
 npm run vcp -- doctor >/dev/null
 npm run vcp -- route --profile production >/dev/null
 npm run vcp -- manifest validate >/dev/null

@@ -102,6 +102,49 @@ def build_parser() -> argparse.ArgumentParser:
 
     backlog_p = sub.add_parser("backlog")
     backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
+    backlog_list = backlog_sub.add_parser("list")
+    backlog_list.add_argument("--status")
+    backlog_list.add_argument("--type")
+    backlog_list.add_argument("--priority")
+    backlog_list.add_argument("--source")
+    backlog_list.add_argument("--route")
+    backlog_list.add_argument("--json", action="store_true")
+    backlog_add = backlog_sub.add_parser("add")
+    backlog_add.add_argument("--title", required=True)
+    backlog_add.add_argument("--type", required=True)
+    backlog_add.add_argument("--priority", required=True)
+    backlog_add.add_argument("--source", default="user")
+    backlog_add.add_argument("--route", default="Unknown")
+    backlog_add.add_argument("--owner", default="-")
+    backlog_add.add_argument("--architecture-impact", default="none")
+    backlog_add.add_argument("--notes", default="-")
+    backlog_add.add_argument("--linked-docs", default="-")
+    backlog_add.add_argument("--validation-required", default="-")
+    backlog_add.add_argument("--review-required", default="-")
+    backlog_add.add_argument("--id-prefix")
+    backlog_add.add_argument("--dry-run", action="store_true")
+    backlog_add.add_argument("--json", action="store_true")
+    backlog_move = backlog_sub.add_parser("move")
+    backlog_move.add_argument("--id", required=True)
+    backlog_move.add_argument("--status", required=True)
+    backlog_move.add_argument("--reason")
+    backlog_move.add_argument("--validation")
+    backlog_move.add_argument("--review")
+    backlog_move.add_argument("--dry-run", action="store_true")
+    backlog_move.add_argument("--json", action="store_true")
+    backlog_done = backlog_sub.add_parser("done")
+    backlog_done.add_argument("--id", required=True)
+    backlog_done.add_argument("--validation")
+    backlog_done.add_argument("--review")
+    backlog_done.add_argument("--dry-run", action="store_true")
+    backlog_done.add_argument("--json", action="store_true")
+    backlog_archive = backlog_sub.add_parser("archive")
+    backlog_archive.add_argument("--id", required=True)
+    backlog_archive.add_argument("--reason", required=True)
+    backlog_archive.add_argument("--dry-run", action="store_true")
+    backlog_archive.add_argument("--json", action="store_true")
+    backlog_report = backlog_sub.add_parser("report")
+    backlog_report.add_argument("--json", action="store_true")
     backlog_validate = backlog_sub.add_parser("validate")
     backlog_validate.add_argument("--json", action="store_true")
     backlog_sub.add_parser("template")
@@ -150,6 +193,59 @@ def main(argv: list[str] | None = None) -> int:
         if args.benchmark_command == "run":
             return benchmark_cmd.run(args.scenario, args.json)
     if args.command == "backlog":
+        if args.backlog_command == "list":
+            return backlog_cmd.list_items(
+                status=args.status,
+                type_=getattr(args, "type"),
+                priority=args.priority,
+                source=args.source,
+                route=args.route,
+                json_mode=args.json,
+            )
+        if args.backlog_command == "add":
+            return backlog_cmd.add_item(
+                title=args.title,
+                type_=getattr(args, "type"),
+                priority=args.priority,
+                source=args.source,
+                route=args.route,
+                owner=args.owner,
+                architecture_impact=args.architecture_impact,
+                notes=args.notes,
+                linked_docs=args.linked_docs,
+                validation_required=args.validation_required,
+                review_required=args.review_required,
+                id_prefix=args.id_prefix,
+                dry_run=args.dry_run,
+                json_mode=args.json,
+            )
+        if args.backlog_command == "move":
+            return backlog_cmd.move_item(
+                item_id=args.id,
+                status=args.status,
+                reason=args.reason,
+                validation=args.validation,
+                review=args.review,
+                dry_run=args.dry_run,
+                json_mode=args.json,
+            )
+        if args.backlog_command == "done":
+            return backlog_cmd.done_item(
+                item_id=args.id,
+                validation=args.validation,
+                review=args.review,
+                dry_run=args.dry_run,
+                json_mode=args.json,
+            )
+        if args.backlog_command == "archive":
+            return backlog_cmd.archive_item(
+                item_id=args.id,
+                reason=args.reason,
+                dry_run=args.dry_run,
+                json_mode=args.json,
+            )
+        if args.backlog_command == "report":
+            return backlog_cmd.report(args.json)
         if args.backlog_command in {None, "validate"}:
             return backlog_cmd.validate(getattr(args, "json", False))
         if args.backlog_command == "template":

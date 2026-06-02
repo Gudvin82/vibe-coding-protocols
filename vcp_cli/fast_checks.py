@@ -49,6 +49,7 @@ FAST_REQUIRED_FILES = [
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
     "docs/project-backlog.md",
+    "docs/release-v0.5.4.md",
     "docs/production-observability.md",
     "docs/automation-guidance.md",
     "docs/tooling-roadmap.md",
@@ -77,6 +78,13 @@ FAST_REQUIRED_FILES = [
     "templates/THIRD_PARTY_REGISTRY.md",
     "templates/PROJECT_BACKLOG.md",
     "templates/runtime/error-inbox/.gitkeep",
+    "examples/backlog/README.md",
+    "examples/backlog/add-idea.example.md",
+    "examples/backlog/move-doing.example.md",
+    "examples/backlog/done-with-review.example.md",
+    "examples/backlog/archive-not-taken.example.md",
+    "examples/backlog/architecture-impact.example.md",
+    "examples/backlog/prod-error-to-backlog.example.md",
     "templates/examples/THIRD_PARTY_REGISTRY.filled.example.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
@@ -88,6 +96,10 @@ FAST_REQUIRED_FILES = [
     "package.json",
     "benchmarks/ai-adoption/scenarios/production-error-capture.json",
     "benchmarks/ai-adoption/scenarios/project-backlog-update.json",
+    "benchmarks/ai-adoption/scenarios/backlog-add-idea.json",
+    "benchmarks/ai-adoption/scenarios/backlog-move-done-with-review.json",
+    "benchmarks/ai-adoption/scenarios/backlog-archive-not-taken.json",
+    "benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json",
     "benchmarks/ai-adoption/scenarios/third-party-api-intake.json",
     "case-studies/README.md",
     "case-studies/sanitized/README.md",
@@ -105,6 +117,7 @@ FAST_REQUIRED_DIRS = [
     "templates/runtime/error-inbox",
     "examples/integrations",
     "examples/operations",
+    "examples/backlog",
     "benchmarks/ai-adoption/scenarios",
 ]
 
@@ -122,6 +135,7 @@ STALE_VERSIONS = [
     "v0.5.0",
     "v0.5.1",
     "v0.5.2",
+    "v0.5.3",
 ]
 
 ENTRY_FILES_FOR_STALE_SCAN = [
@@ -142,6 +156,12 @@ CORE_SMOKE_COMMANDS = [
     ["route", "--profile", "third-party-api", "--json"],
     ["adopt", "--pack", "third-party-api", "--dry-run", "--json"],
     ["backlog", "validate", "--json"],
+    ["backlog", "list", "--json"],
+    ["backlog", "report", "--json"],
+    ["backlog", "add", "--title", "Synthetic dry-run test item", "--type", "idea", "--priority", "P3", "--source", "manual", "--dry-run", "--json"],
+    ["backlog", "move", "--id", "VCP-001", "--status", "doing", "--dry-run", "--json"],
+    ["backlog", "done", "--id", "VCP-001", "--validation", "tests green", "--review", "accepted", "--dry-run", "--json"],
+    ["backlog", "archive", "--id", "VCP-002", "--reason", "Synthetic archive path", "--dry-run", "--json"],
     ["backlog", "template"],
 ]
 

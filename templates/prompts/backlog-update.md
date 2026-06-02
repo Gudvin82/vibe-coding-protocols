@@ -1,10 +1,12 @@
 <!-- vcp-artifact: BACKLOG_UPDATE_PROMPT -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 Read `PROJECT_BACKLOG.md`, `PROJECT_MAP.md`, and `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present.
+Check for duplicate backlog items before adding a new one.
 Add or update a backlog item before implementation starts.
-Do not let new ideas or deferred work disappear in chat.
-Set the correct kanban state, source, route, priority, and architecture impact.
+Use a stable ID and do not renumber existing items.
+Set the correct kanban state, route, source, priority, owner, and architecture impact.
 If architecture changes are required, update linked docs in the same task or create a follow-up backlog item.
-If the task touches audit risk or third-party dependencies, update the matching artifacts too.
+If the task is deferred or rejected, archive it with reason instead of silently dropping it.
+If validation or review evidence is missing, say so explicitly before marking `DONE`.

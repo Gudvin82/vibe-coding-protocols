@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.3-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.4-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
@@ -15,7 +15,7 @@ VCP — это управляемый workflow для AI-assisted разрабо
 Когда AI помогает писать код, команда часто начинает двигаться быстрее, чем успевают собраться архитектура, review, stop conditions, release discipline и operations follow-up.
 VCP помогает сначала классифицировать проект, потом выбрать правильный route, взять только нужный adoption pack, провалидировать результат и прогнать review gate до следующего шага.
 
-Пакет репозитория: `v0.5.3`
+Пакет репозитория: `v0.5.4`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -101,4 +101,4 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/roadmap.md](./docs/roadmap.md)
 - [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
 - [docs/measured-impact.md](./docs/measured-impact.md)
-- [docs/release-v0.5.3.md](./docs/release-v0.5.3.md)
+- [docs/release-v0.5.4.md](./docs/release-v0.5.4.md)

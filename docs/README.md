@@ -24,7 +24,7 @@ Use the route docs and product layer intentionally.
 - [demo.md](./demo.md)
 - [demo-output.md](./demo-output.md)
 - [release-checklist.md](./release-checklist.md)
-- [release-v0.5.3.md](./release-v0.5.3.md)
+- [release-v0.5.4.md](./release-v0.5.4.md)
 - [roadmap.md](./roadmap.md)
 
 ## Routes and packs

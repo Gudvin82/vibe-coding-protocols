@@ -81,7 +81,7 @@ required_files=(
   docs/release-v0.5.0.md
   docs/release-v0.5.1.md
   docs/release-v0.5.2.md
-  docs/release-v0.5.3.md
+  docs/release-v0.5.4.md
   docs/project-backlog.md
   docs/production-observability.md
   docs/automation-guidance.md
@@ -187,6 +187,13 @@ required_files=(
   examples/integrations/README.md
   examples/integrations/public-api-intake.example.md
   examples/integrations/third-party-registry-entry.example.md
+  examples/backlog/README.md
+  examples/backlog/add-idea.example.md
+  examples/backlog/move-doing.example.md
+  examples/backlog/done-with-review.example.md
+  examples/backlog/archive-not-taken.example.md
+  examples/backlog/architecture-impact.example.md
+  examples/backlog/prod-error-to-backlog.example.md
   examples/operations/README.md
   examples/operations/error-inbox-entry.example.md
   examples/operations/daily-error-triage-report.example.md
@@ -201,6 +208,10 @@ required_files=(
   benchmarks/ai-adoption/scenarios/third-party-api-intake.json
   benchmarks/ai-adoption/scenarios/production-error-capture.json
   benchmarks/ai-adoption/scenarios/project-backlog-update.json
+  benchmarks/ai-adoption/scenarios/backlog-add-idea.json
+  benchmarks/ai-adoption/scenarios/backlog-move-done-with-review.json
+  benchmarks/ai-adoption/scenarios/backlog-archive-not-taken.json
+  benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -240,6 +251,7 @@ required_dirs=(
   examples
   examples/adoption
   examples/integrations
+  examples/backlog
   examples/operations
   benchmarks
   benchmarks/ai-adoption

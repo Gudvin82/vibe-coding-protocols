@@ -62,6 +62,78 @@
       "inputs": ["work item", "owner", "status", "validation path"],
       "output": "backlog change summary",
       "validation": ["backlog validate"]
+    },
+    {
+      "id": "backlog-list",
+      "command_name": "vcp backlog list",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["optional status/type/priority/source/route filters"],
+      "output": "filtered backlog rows",
+      "validation": ["backlog validate"]
+    },
+    {
+      "id": "backlog-add",
+      "command_name": "vcp backlog add",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["title", "type", "priority", "source", "route"],
+      "output": "new backlog item plus write/preview result",
+      "validation": ["backup created on write", "backlog validate"]
+    },
+    {
+      "id": "backlog-move",
+      "command_name": "vcp backlog move",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["item id", "target status", "optional reason"],
+      "output": "updated backlog item plus write/preview result",
+      "validation": ["backup created on write", "backlog validate"]
+    },
+    {
+      "id": "backlog-done",
+      "command_name": "vcp backlog done",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["item id", "validation evidence", "review evidence"],
+      "output": "done backlog item plus write/preview result",
+      "validation": ["backup created on write", "backlog validate"]
+    },
+    {
+      "id": "backlog-archive",
+      "command_name": "vcp backlog archive",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["item id", "archive reason"],
+      "output": "archived backlog item plus write/preview result",
+      "validation": ["backup created on write", "backlog validate"]
+    },
+    {
+      "id": "backlog-report",
+      "command_name": "vcp backlog report",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["backlog path"],
+      "output": "status/priority summary and next focus",
+      "validation": ["backlog validate"]
+    },
+    {
+      "id": "backlog-validate",
+      "command_name": "vcp backlog validate",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": ["backlog path"],
+      "output": "backlog structure validation",
+      "validation": ["required sections present"]
+    },
+    {
+      "id": "backlog-template",
+      "command_name": "vcp backlog template",
+      "file": "templates/PROJECT_BACKLOG.md",
+      "route": "backlog",
+      "inputs": ["template path"],
+      "output": "canonical backlog template",
+      "validation": ["template markers present"]
     }
   ]
 }

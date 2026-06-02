@@ -1,12 +1,12 @@
 # Changelog
 
-## v0.5.3
+## v0.5.4
 
-- Added an operations route for read-only production error capture and daily triage.
-- Added `PROJECT_BACKLOG.md` as a first-class kanban-style task tracker distinct from `AUDIT_BACKLOG.md`.
-- Added backlog CLI helpers: `vcp backlog validate` and `vcp backlog template`.
-- Added operations prompt and report templates plus synthetic examples.
-- Extended manifests, benchmarks, docs indexes, and CLI guidance for operations and backlog workflows.
+- Expanded the project backlog into a practical working kanban with standardized fields and architecture-impact discipline.
+- Added safer backlog CLI operations: `list`, `add`, `move`, `done`, `archive`, `report`, `validate`, and `template`.
+- Added automatic backups for real backlog writes under `.vcp/runtime/backups/`.
+- Added backlog benchmark scenarios plus parser, CLI, and smoke coverage.
+- Improved docs, prompts, examples, and manifests so delivery tracking stays separate from `AUDIT_BACKLOG.md`.
 
 ## v0.5.2
 

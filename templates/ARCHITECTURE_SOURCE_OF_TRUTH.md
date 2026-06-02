@@ -1,5 +1,5 @@
 <!-- vcp-artifact: ARCHITECTURE_SOURCE_OF_TRUTH -->
-<!-- vcp-version: v0.5.3 -->
+<!-- vcp-version: v0.5.4 -->
 <!-- methodology-version: v1.4 -->
 
 # Architecture Source of Truth
@@ -50,6 +50,11 @@ Link to the compact map:
 
 Use the map for quick orientation.
 Use this document for details, decisions, risks and operations.
+
+## Backlog synchronization rule
+
+If a backlog item has architecture impact `cross-layer` or `production-critical`, this document must be updated in the same task or a linked follow-up backlog item must be created.
+If that is not possible, stop and ask the user.
 
 ## Как использовать
 

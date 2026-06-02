@@ -15,7 +15,7 @@ CATEGORY_RULES = [
     ("Third-party API intake / registry", ["protocols/integrations/third-party-api-intake.md", "templates/THIRD_PARTY_REGISTRY.md", "templates/reports/third-party-api-intake-report.md"]),
     ("Operations feedback loop", ["protocols/operations/production-error-capture.md", "protocols/operations/daily-error-triage.md", "docs/production-observability.md", "docs/automation-guidance.md"]),
     ("Post-task review gate", ["protocols/review/post-task-code-review.md", "commands/loop-code-review.md"]),
-    ("Project Backlog", ["PROJECT_BACKLOG.md", "templates/PROJECT_BACKLOG.md", "docs/project-backlog.md", "commands/backlog-update.md"]),
+    ("Project Backlog", ["PROJECT_BACKLOG.md", "templates/PROJECT_BACKLOG.md", "docs/project-backlog.md", "commands/backlog-update.md", "vcp_cli/backlog.py", "examples/backlog/README.md", "protocols/operations/daily-error-triage.md", "protocols/review/post-task-code-review.md"]),
     ("Protocol index", ["docs/protocol-index.md"]),
     ("Manifests", manifest_relpaths()),
     ("CLI status", ["docs/cli.md", "docs/windows.md", "docs/npm.md", "docs/init.md", "vcp_cli/cli.py", "bin/vcp-node.js"]),
@@ -24,7 +24,7 @@ CATEGORY_RULES = [
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.3.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.4.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 
