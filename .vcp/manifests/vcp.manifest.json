@@ -1,11 +1,12 @@
 {
-  "package_version": "v0.5.4",
+  "package_version": "v0.5.5",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
-  "description": "Controlled AI delivery framework with route selection, adoption packs, validation, review gates, operations follow-up, backlog discipline, local Python CLI, local npm wrapper, and machine-readable metadata.",
+  "description": "Controlled AI delivery framework with route selection, adoption packs, evaluation guidance, validation, review gates, operations follow-up, backlog discipline, local Python CLI, local npm wrapper, and machine-readable metadata.",
   "entrypoints": [
     "README.md",
+    "AI_EVALUATION_GUIDE.md",
     "START_HERE.md",
     "AI_INTAKE.md",
     "docs/cli.md",
@@ -21,7 +22,10 @@
     "docs/route-map.md",
     "docs/demo.md",
     "docs/windows.md",
-    "docs/npm.md"
+    "docs/npm.md",
+    "docs/scoring.md",
+    "docs/public-proof-roadmap.md",
+    "docs/npm-publishing-checklist.md"
   ],
   "route_docs": [
     "protocols/ai-project-starter-protocol.md",
@@ -40,6 +44,7 @@
     "init",
     "route",
     "adopt",
+    "evaluate",
     "backlog",
     "score",
     "manifest",

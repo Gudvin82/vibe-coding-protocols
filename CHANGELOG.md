@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.5.5
+
+- Added `AI_EVALUATION_GUIDE.md` plus a first-screen README block so humans and AI agents do not judge VCP from a shallow README skim.
+- Added `vcp evaluate` with human-readable, JSON, and prompt-printing modes.
+- Added repository evaluation prompt and report templates.
+- Clarified that `vcp score` is a local readiness signal, not proof of public standard maturity.
+- Added npm publication readiness docs and metadata prep without faking public npm publication.
+- Added public-proof roadmap notes and evaluation benchmark scenarios.
+
 ## v0.5.4
 
 - Expanded the project backlog into a practical working kanban with standardized fields and architecture-impact discipline.

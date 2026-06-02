@@ -1,6 +1,6 @@
 # Tooling Roadmap
 
-## Available in v0.5.4
+## Available in v0.5.5
 
 - local Python CLI
 - local npm wrapper that forwards to the Python CLI
@@ -8,6 +8,7 @@
 - Bash-compatible legacy scripts
 - machine-readable manifests under `.vcp/manifests/`
 - benchmark scenarios
+- repository evaluation helper via `vcp evaluate`
 - post-task review helper
 - third-party API intake protocol and registry discipline
 - backlog validation, listing, add/move/done/archive/report output
@@ -34,6 +35,7 @@
 - whether an external API is acceptable for the target product
 - whether a captured production symptom is ready for implementation work
 - final release or deployment approval
+- public-standard maturity claims
 
 ## Still future
 
@@ -46,4 +48,4 @@
 - live API monitoring integration
 - authenticated GitHub Release publishing from the CLI
 
-See also [roadmap.md](./roadmap.md) and [../ROADMAP.md](../ROADMAP.md).
+See also [public-proof-roadmap.md](./public-proof-roadmap.md), [roadmap.md](./roadmap.md), and [../ROADMAP.md](../ROADMAP.md).

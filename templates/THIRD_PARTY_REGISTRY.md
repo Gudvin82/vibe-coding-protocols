@@ -1,5 +1,5 @@
 <!-- vcp-artifact: THIRD_PARTY_REGISTRY -->
-<!-- vcp-version: v0.5.4 -->
+<!-- vcp-version: v0.5.5 -->
 <!-- methodology-version: v1.4 -->
 
 # THIRD_PARTY_REGISTRY.md

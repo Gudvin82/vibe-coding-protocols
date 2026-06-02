@@ -1,7 +1,7 @@
 # npm Wrapper
 
-`v0.5.4` adds a local npm entrypoint for JS/Node-first users.
-It is a thin wrapper around the Python CLI.
+`v0.5.5` keeps the local npm entrypoint for JS/Node-first users.
+It is still a thin wrapper around the Python CLI.
 
 ## What works now
 
@@ -11,6 +11,7 @@ Inside this repository:
 npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
 
@@ -19,6 +20,7 @@ Optional local link:
 ```bash
 npm link
 vcp doctor
+vcp evaluate
 vcp init --print-prompt
 ```
 
@@ -29,15 +31,30 @@ vcp init --print-prompt
 - forwards all arguments to `python -m vcp_cli`;
 - prints a useful error if Python is not available.
 
-## What this does not mean
+## Public npm status
 
-`v0.5.4` does not claim:
+Public npm and `npx` distribution are planned.
+Current npm support is local wrapper only.
+
+That means `v0.5.5` does not claim:
 - a published npm package;
 - `npx vcp` from the public registry;
 - `npm install -g` support from a published package;
 - parity with a future standalone JavaScript implementation.
 
-Those are roadmap items, not current distribution claims.
+## Publication readiness
+
+The wrapper is now closer to publish-ready metadata, but publication is still a separate step.
+See [npm-publishing-checklist.md](./npm-publishing-checklist.md).
+
+Suggested rehearsal:
+
+```bash
+npm run vcp -- doctor
+npm run vcp -- evaluate
+npm run vcp -- manifest validate
+npm pack --dry-run
+```
 
 ## Recommended usage
 
@@ -48,5 +65,6 @@ Those are roadmap items, not current distribution claims.
 ## Related docs
 
 - [cli.md](./cli.md)
+- [npm-publishing-checklist.md](./npm-publishing-checklist.md)
 - [windows.md](./windows.md)
 - [tooling-roadmap.md](./tooling-roadmap.md)

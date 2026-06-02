@@ -12,6 +12,15 @@ Read this file before evaluating or applying VCP to a target repository.
 - Do not jump from production observation straight into fixes without triage and backlog state.
 - Do not claim confidence if the target repository classification is unclear.
 
+## Repository evaluation first
+
+If the user asks you to evaluate VCP itself, start with:
+- `AI_EVALUATION_GUIDE.md`
+- `templates/prompts/evaluate-vcp-repository.md`
+- `python3 -m vcp_cli evaluate --json`
+
+A README-only evaluation is partial.
+
 ## What to do first
 
 1. Classify the target project.
@@ -43,11 +52,14 @@ If the user wants the shortest CLI onboarding path, start with:
 
 Do not say “I evaluated VCP” unless you inspected at least:
 - `README.md`
+- `AI_EVALUATION_GUIDE.md`
 - `START_HERE.md`
 - `AI_INTAKE.md`
 - `docs/protocol-index.md`
-- `protocols/README.md`
 - `docs/adoption-packs.md`
+- `docs/cli.md`
+- `.vcp/manifests/`
+- `benchmarks/ai-adoption/`
 - the relevant route protocol
 - the relevant command docs
 - the relevant report templates

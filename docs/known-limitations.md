@@ -1,12 +1,11 @@
 # Known Limitations
 
-## Improved in v0.5.4
+## Improved in v0.5.5
 
-- VCP now has an explicit operations feedback loop for read-only production observation and daily triage.
-- `PROJECT_BACKLOG.md` now behaves like a working kanban next to `AUDIT_BACKLOG.md`.
-- The local CLI now lists, adds, moves, completes, archives, and reports backlog items.
-- Real backlog writes are backed up under `.vcp/runtime/backups/`.
-- Benchmarks and manifests now cover the richer backlog workflow.
+- VCP now has a dedicated repository evaluation guide for humans and AI agents.
+- `vcp evaluate` can summarize evaluation surfaces and print the recommended evaluation prompt.
+- npm readiness docs are clearer without claiming real registry publication.
+- README now routes AI agents away from shallow README-only judgment.
 
 ## Still limited
 
@@ -16,4 +15,6 @@
 - VCP does not provide real API monitoring integration;
 - the operations route is documentation-first, not a live observability product;
 - authenticated GitHub Release creation still depends on external auth tooling;
-- npm distribution is local-wrapper-only until a real published package exists.
+- npm distribution is local-wrapper-only until a real published package exists;
+- a strong `vcp score` does not prove public adoption or industry-standard maturity;
+- real measured public proof layers are still future work.

@@ -30,6 +30,8 @@ def main() -> int:
     assert '.vcp/manifests' in doctor['manifest_directory']
     check = json.loads(run('check', '--fast', '--json'))
     assert check['ok'] is True
+    evaluate = json.loads(run('evaluate', '--json'))
+    assert evaluate['evaluation_guide_present'] is True
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
     assert route['adoption_pack'] == 'third-party-api'
     adopt = json.loads(run('adopt', '--pack', 'third-party-api', '--dry-run', '--json'))
@@ -54,8 +56,12 @@ def main() -> int:
     assert backlog_archive['write_result']['dry_run'] is True
     prompt = run('init', '--print-prompt')
     assert 'Read START_HERE.md first.' in prompt
+    eval_prompt = run('evaluate', '--print-prompt')
+    assert 'Do not judge from README alone.' in eval_prompt
     npm_doctor = run_npm('doctor')
     assert 'Repository package:' in npm_doctor
+    npm_evaluate = run_npm('evaluate')
+    assert 'Evaluation guide present:' in npm_evaluate
     print('Windows parity CLI smoke passed.')
     return 0
 

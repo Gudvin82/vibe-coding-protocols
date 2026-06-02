@@ -9,6 +9,7 @@ def manifest_relpaths() -> list[str]:
 
 
 CATEGORY_RULES = [
+    ("Repository evaluation guidance", ["AI_EVALUATION_GUIDE.md", "templates/prompts/evaluate-vcp-repository.md", "templates/reports/vcp-repository-evaluation-report.md"]),
     ("AI Intake readiness", ["AI_INTAKE.md", "docs/target-project-classifier.md"]),
     ("Route classifier", ["docs/protocol-index.md", "docs/route-map.md"]),
     ("Adoption packs", ["docs/adoption-packs.md", ".vcp/manifests/adoption-packs.manifest.json"]),
@@ -19,12 +20,13 @@ CATEGORY_RULES = [
     ("Protocol index", ["docs/protocol-index.md"]),
     ("Manifests", manifest_relpaths()),
     ("CLI status", ["docs/cli.md", "docs/windows.md", "docs/npm.md", "docs/init.md", "vcp_cli/cli.py", "bin/vcp-node.js"]),
+    ("Evaluation surfaces", ["docs/scoring.md", "docs/public-proof-roadmap.md", "vcp_cli/evaluate.py"]),
     ("Validation scripts", ["scripts/check-newlines.py", "scripts/check-toolkit.sh", "scripts/validate-links.sh"]),
     ("Markdown readability", ["docs/markdown-style.md"]),
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.4.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.5.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 
@@ -56,6 +58,7 @@ def run(json_mode: bool = False) -> int:
             "Reduce remaining markdown readability warnings.",
             "Add authenticated GitHub Release publishing when tooling is available.",
             "Keep Python CLI, npm wrapper and manifest validation in CI.",
+            "Add real external proof layers before claiming public-standard maturity.",
         ],
     }
     if json_mode:

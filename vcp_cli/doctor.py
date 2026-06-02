@@ -18,11 +18,15 @@ from .fast_checks import (
 from .utils import git_status_short, manifest_paths, print_output, repo_root, repo_version, relative_to_root
 
 CORE_FILES = [
+    "AI_EVALUATION_GUIDE.md",
     "AI_INTAKE.md",
     "START_HERE.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",
+    "docs/scoring.md",
+    "docs/npm-publishing-checklist.md",
+    "docs/public-proof-roadmap.md",
     "docs/project-backlog.md",
     "docs/production-observability.md",
     "docs/automation-guidance.md",

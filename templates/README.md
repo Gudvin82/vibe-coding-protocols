@@ -7,7 +7,7 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.5.4 -->
+<!-- vcp-version: v0.5.5 -->
 <!-- methodology-version: v1.4 -->
 ```
 
@@ -17,6 +17,7 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 - [reports/ui-refactoring-report.md](./reports/ui-refactoring-report.md)
 - [reports/code-review-report.md](./reports/code-review-report.md)
 - [reports/vcp-adoption-assessment.md](./reports/vcp-adoption-assessment.md)
+- [reports/vcp-repository-evaluation-report.md](./reports/vcp-repository-evaluation-report.md)
 - [reports/security-review-scope.md](./reports/security-review-scope.md)
 - [reports/third-party-api-intake-report.md](./reports/third-party-api-intake-report.md)
 - [reports/production-error-capture-report.md](./reports/production-error-capture-report.md)
@@ -25,6 +26,7 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 
 ## Prompt templates
 
+- [prompts/evaluate-vcp-repository.md](./prompts/evaluate-vcp-repository.md)
 - [prompts/evaluate-vcp-for-my-repo.md](./prompts/evaluate-vcp-for-my-repo.md)
 - [prompts/loop-code-review.md](./prompts/loop-code-review.md)
 - [prompts/third-party-api-intake.md](./prompts/third-party-api-intake.md)

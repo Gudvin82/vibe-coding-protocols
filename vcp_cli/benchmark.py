@@ -30,14 +30,23 @@ def run(scenario: str | None = None, json_mode: bool = False) -> int:
     for path in selected:
         data = load_json(path)
         scenario_errors = []
-        if data.get("expected_route") not in route_ids:
+        expected_route = data.get("expected_route")
+        expected_pack = data.get("expected_adoption_pack")
+        if expected_route and expected_route not in route_ids:
             scenario_errors.append(f"Unknown route: {data.get('expected_route')}")
-        if data.get("expected_adoption_pack") not in pack_ids:
+        if expected_pack and expected_pack not in pack_ids:
             scenario_errors.append(f"Unknown pack: {data.get('expected_adoption_pack')}")
         for rel in data.get("required_files_to_inspect", []):
             if not (root / rel).exists():
                 scenario_errors.append(f"Missing required file: {rel}")
-        results.append({"scenario": data.get("scenario_id"), "ok": not scenario_errors, "errors": scenario_errors})
+        results.append(
+            {
+                "scenario": data.get("scenario_id"),
+                "ok": not scenario_errors,
+                "errors": scenario_errors,
+                "expected_warnings": data.get("expected_warnings", []),
+            }
+        )
         errors.extend(scenario_errors)
     payload = {"ok": not errors, "results": results}
     if json_mode:

@@ -1,10 +1,10 @@
 # CLI
 
-VCP now has two honest local entrypaths:
+VCP has two honest local entrypaths:
 - the Python CLI, which remains the primary implementation;
 - a thin local npm wrapper for Node-first users.
 
-The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.4`.
+The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.5`.
 
 ## Start here
 
@@ -14,13 +14,16 @@ Linux and macOS:
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
+python3 -m vcp_cli evaluate --json
 ```
 
 Local npm wrapper:
 
 ```bash
+npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
 
@@ -29,6 +32,7 @@ Windows PowerShell:
 ```powershell
 py -m vcp_cli doctor
 py -m vcp_cli init --print-prompt
+py -m vcp_cli evaluate --json
 npm run vcp -- doctor
 ```
 
@@ -40,12 +44,36 @@ npm run vcp -- doctor
 - `init` — guidance-only onboarding and copy-paste prompt output
 - `route` — choose the route for a target profile
 - `adopt` — dry-run an Adoption Pack
+- `evaluate` — summarize repository evaluation surfaces and print the evaluation prompt
 - `backlog` — validate, list, add, move, complete, archive, and report backlog items
-- `score` — readiness heuristic summary
+- `score` — local readiness heuristic summary
 - `manifest` — show and validate machine-readable metadata
 - `benchmark` — validate route and adoption scenarios
 - `review` — helper for the Post-Task Code Review Gate
 - `demo` — print small route/adoption demos
+
+## Evaluation helper
+
+Use `evaluate` when a human or external AI agent needs a fair repository-level picture.
+
+```bash
+python3 -m vcp_cli evaluate
+python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli evaluate --print-prompt
+npm run vcp -- evaluate
+```
+
+`evaluate` reports:
+- repository version;
+- key evaluation files present;
+- manifest directory;
+- benchmark count;
+- command and protocol counts;
+- backlog and operations workflow status;
+- known limitations link;
+- prompt template path.
+
+It does not call external AI APIs and does not pretend to be a vanity score.
 
 ## npm wrapper status
 
@@ -55,6 +83,7 @@ Local options that work inside this repository:
 npm install
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- evaluate
 npm run vcp -- manifest validate
 ```
 
@@ -63,15 +92,12 @@ Optional local linking:
 ```bash
 npm link
 vcp doctor
+vcp evaluate
 vcp init --print-prompt
 ```
 
-The wrapper is thin on purpose:
-- it does not duplicate CLI logic;
-- it detects `python3`, `python`, or `py` depending on platform;
-- it fails clearly if Python is unavailable;
-- it does not require network;
-- it does not publish anything for you.
+Public npm and `npx` distribution are planned.
+Current npm support is local wrapper only.
 
 ## Fast vs full
 
@@ -81,12 +107,14 @@ The wrapper is thin on purpose:
 
 ## Init behavior
 
-`vcp init` is guidance-only in `v0.5.4`.
+`vcp init` is guidance-only in `v0.5.5`.
 It does not modify files by default.
 Use it to:
 - print the short onboarding flow;
 - print a target-specific prompt with `--print-prompt`;
 - steer an AI agent toward `AI_INTAKE.md`, `route`, and `adopt --dry-run`.
+
+If the task is repository evaluation instead of repo adoption, use `vcp evaluate` instead of overloading `init`.
 
 ## Backlog workflow
 
@@ -107,7 +135,7 @@ Dry-run stays non-destructive and returns a preview instead of writing.
 
 ## Manifest location
 
-Machine-readable metadata now lives in:
+Machine-readable metadata lives in:
 - `.vcp/manifests/`
 
 The CLI prefers `.vcp/manifests/` and can still read legacy root manifests as a fallback if a repository has not been migrated yet.
@@ -124,10 +152,10 @@ The CLI:
 
 ## Related docs
 
+- [../AI_EVALUATION_GUIDE.md](../AI_EVALUATION_GUIDE.md)
+- [scoring.md](./scoring.md)
 - [npm.md](./npm.md)
+- [npm-publishing-checklist.md](./npm-publishing-checklist.md)
 - [windows.md](./windows.md)
 - [init.md](./init.md)
-- [adoption-packs.md](./adoption-packs.md)
-- [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
-- [tooling-roadmap.md](./tooling-roadmap.md)
-- [release-v0.5.4.md](./release-v0.5.4.md)
+- [release-v0.5.5.md](./release-v0.5.5.md)

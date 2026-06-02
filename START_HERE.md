@@ -12,11 +12,19 @@ python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
 ```
 
+If you are evaluating the repository itself:
+
+```bash
+python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli benchmark run
+```
+
 Node-first local option:
 
 ```bash
 npm run vcp -- init
 npm run vcp -- route --profile production
+npm run vcp -- evaluate
 ```
 
 ## Route chooser
@@ -32,9 +40,11 @@ npm run vcp -- route --profile production
 | I need a shared project kanban before implementation starts | [Project Backlog](./docs/project-backlog.md) |
 | The active diff needs acceptance before merge or release | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | The main surface is a public docs/marketing site | [Public Site Readiness](./docs/public-site-readiness.md) |
+| I am evaluating VCP itself | [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md) |
 | I am not sure yet | [AI_INTAKE.md](./AI_INTAKE.md) |
 
 ## Adoption Packs
 
-After route selection, use an Adoption Pack dry-run instead of copying everything blindly. If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
+After route selection, use an Adoption Pack dry-run instead of copying everything blindly.
+If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
 Start with [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md).

@@ -159,6 +159,26 @@
       "required_inspected_files": ["PROJECT_BACKLOG.md", "PROJECT_MAP.md", "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"],
       "expected_warnings": ["cross-layer backlog items must sync architecture memory"],
       "expected_first_action": "Update the backlog item and the architecture memory in the same task or create a linked follow-up item."
+    },
+    {
+      "id": "repository-evaluation-full",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/repository-evaluation-full.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": ["AI_EVALUATION_GUIDE.md", "docs/cli.md", ".vcp/manifests/vcp.manifest.json", "benchmarks/ai-adoption/README.md"],
+      "expected_warnings": ["separate methodology maturity from distribution maturity"],
+      "expected_first_action": "Inspect the evaluation guide, manifests, benchmarks, and CLI outputs before scoring the repository."
+    },
+    {
+      "id": "repository-evaluation-shallow",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/repository-evaluation-shallow.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": ["README.md", "AI_EVALUATION_GUIDE.md"],
+      "expected_warnings": ["mark the evaluation as partial / shallow if manifests, benchmarks, CLI docs, and protocol index were skipped"],
+      "expected_first_action": "Stop calling the evaluation complete and inspect the minimum file set from AI_EVALUATION_GUIDE.md."
     }
   ]
 }

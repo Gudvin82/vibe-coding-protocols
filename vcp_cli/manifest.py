@@ -31,6 +31,10 @@ REQUIRED_BACKLOG_ADD_BENCHMARK_ID = "backlog-add-idea"
 REQUIRED_BACKLOG_DONE_BENCHMARK_ID = "backlog-move-done-with-review"
 REQUIRED_BACKLOG_ARCHIVE_BENCHMARK_ID = "backlog-archive-not-taken"
 REQUIRED_BACKLOG_ARCH_IMPACT_BENCHMARK_ID = "backlog-architecture-impact"
+REQUIRED_EVALUATION_COMMAND_ID = "evaluate"
+REQUIRED_EVALUATION_REPORT_ID = "vcp-repository-evaluation-report"
+REQUIRED_EVALUATION_FULL_BENCHMARK_ID = "repository-evaluation-full"
+REQUIRED_EVALUATION_SHALLOW_BENCHMARK_ID = "repository-evaluation-shallow"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -91,9 +95,11 @@ def validate_manifests(json_mode: bool = False) -> int:
                 scenario_file = item.get("scenario_file")
                 if scenario_file and not (root / scenario_file).exists():
                     errors.append(f"Missing benchmark scenario for {item.get('id')}: {scenario_file}")
-                if item.get("expected_route") not in protocol_ids:
+                expected_route = item.get("expected_route")
+                expected_pack = item.get("expected_pack")
+                if expected_route and expected_route not in protocol_ids:
                     errors.append(f"Unknown expected route in benchmarks:{item.get('id')}: {item.get('expected_route')}")
-                if item.get("expected_pack") not in pack_ids:
+                if expected_pack and expected_pack not in pack_ids:
                     errors.append(f"Unknown expected pack in benchmarks:{item.get('id')}: {item.get('expected_pack')}")
         for top_key in ["entrypoints", "core_docs", "validation_scripts", "safety_boundaries", "route_docs", "known_limitations"]:
             for rel in data.get(top_key, []):
@@ -128,12 +134,16 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: backlog-validate")
     if REQUIRED_BACKLOG_TEMPLATE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: backlog-template")
+    if REQUIRED_EVALUATION_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: evaluate")
     if REQUIRED_API_INTAKE_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: third-party-api-intake-report")
     if REQUIRED_ERROR_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: production-error-capture-report")
     if REQUIRED_BACKLOG_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: backlog-update-report")
+    if REQUIRED_EVALUATION_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: vcp-repository-evaluation-report")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
     if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
@@ -154,6 +164,10 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: backlog-archive-not-taken")
     if REQUIRED_BACKLOG_ARCH_IMPACT_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: backlog-architecture-impact")
+    if REQUIRED_EVALUATION_FULL_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: repository-evaluation-full")
+    if REQUIRED_EVALUATION_SHALLOW_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: repository-evaluation-shallow")
 
     payload = {
         "ok": not errors,

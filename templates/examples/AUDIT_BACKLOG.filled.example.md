@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AUDIT_BACKLOG_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.5.4 -->
+<!-- vcp-version: v0.5.5 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled Audit Backlog Example

@@ -1,9 +1,46 @@
 {
   "name": "vibe-coding-protocols",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gudvin82/vibe-coding-protocols.git"
+  },
+  "homepage": "https://github.com/Gudvin82/vibe-coding-protocols",
+  "bugs": {
+    "url": "https://github.com/Gudvin82/vibe-coding-protocols/issues"
+  },
+  "keywords": [
+    "ai",
+    "ai-agents",
+    "vibe-coding",
+    "ai-development",
+    "codex",
+    "claude-code",
+    "cursor",
+    "delivery"
+  ],
+  "files": [
+    "bin/",
+    "vcp_cli/",
+    ".vcp/",
+    "AI_EVALUATION_GUIDE.md",
+    "AI_INTAKE.md",
+    "START_HERE.md",
+    "README.md",
+    "LICENSE",
+    "VERSION",
+    "METHODOLOGY_VERSION",
+    "docs/",
+    "templates/",
+    "commands/",
+    "protocols/",
+    "benchmarks/",
+    "PROJECT_BACKLOG.md",
+    "llms.txt"
+  ],
   "bin": {
     "vcp": "./bin/vcp-node.js",
     "vibe-check": "./bin/vibe-check.js"

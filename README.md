@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.4-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.5.5-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
@@ -12,12 +12,41 @@
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
 VCP is a controlled workflow for AI-assisted software delivery.
-When AI helps write code, teams often move faster than their architecture, review, stop conditions, release discipline, and operations follow-up can keep up.
-VCP helps by classifying the project first, choosing the right route, applying only the needed adoption pack, validating the result, and reviewing changes before they move forward.
+It helps teams classify the project first, choose the right route, apply only the needed adoption pack, validate the result, and review changes before they move forward.
 
-Repository package: `v0.5.4`
+Repository package: `v0.5.5`
 
 Web methodology: `Vibe Coding Protocols v1.4`
+
+## Evaluating VCP with an AI agent?
+
+Do not judge this repository from README alone.
+
+Before rating or adopting VCP, ask your AI agent to inspect:
+
+1. `AI_INTAKE.md`
+2. `START_HERE.md`
+3. `docs/protocol-index.md`
+4. `docs/adoption-packs.md`
+5. `docs/cli.md`
+6. `.vcp/manifests/`
+7. `benchmarks/ai-adoption/`
+8. `commands/`
+9. `protocols/`
+10. `PROJECT_BACKLOG.md`
+
+Then run:
+
+```bash
+python3 -m vcp_cli doctor
+python3 -m vcp_cli score --json
+python3 -m vcp_cli benchmark run
+python3 -m vcp_cli manifest validate
+```
+
+VCP is not only a README or prompt collection. It includes routes, adoption packs, CLI, manifests, benchmarks, review gates, operations workflows, project backlog and validation.
+
+Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 
 ## Start in 30 seconds
 
@@ -32,19 +61,22 @@ Node-first local option:
 ```bash
 npm run vcp -- doctor
 npm run vcp -- route --profile production
+npm run vcp -- evaluate
 ```
 
 Windows PowerShell:
 
 ```powershell
 py -m vcp_cli doctor
+py -m vcp_cli evaluate --json
 npm run vcp -- doctor
 ```
 
 ## Give this to your AI agent
 
-Start with [AI_INTAKE.md](./AI_INTAKE.md), then route through [START_HERE.md](./START_HERE.md). If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
-If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prompt` or use [templates/prompts/evaluate-vcp-for-my-repo.md](./templates/prompts/evaluate-vcp-for-my-repo.md).
+Start with [AI_INTAKE.md](./AI_INTAKE.md), then route through [START_HERE.md](./START_HERE.md).
+If you need a dedicated repository evaluation prompt, use [templates/prompts/evaluate-vcp-repository.md](./templates/prompts/evaluate-vcp-repository.md).
+If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
 
 ## What VCP helps with
 
@@ -54,6 +86,15 @@ If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prom
 - turning production observations into triage notes and backlog follow-up without skipping review discipline;
 - validating repo health before merge, release, or deploy;
 - adding a review gate after meaningful AI-generated changes.
+
+## Current maturity
+
+- Methodology: mature enough for real project adoption.
+- Local CLI: usable and validated in clean clone.
+- npm: local wrapper available; public package planned unless published.
+- Benchmarks: synthetic/local validation scenarios.
+- Case studies: sanitized/synthetic templates; real measured cases are future work.
+- Public standard: emerging, not an industry standard yet.
 
 ## Routes
 
@@ -70,35 +111,22 @@ If you want a ready onboarding prompt, run `python3 -m vcp_cli init --print-prom
 | Active diff that must be accepted before moving on | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 | Public docs, marketing site, trust, or crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
 
-## Adoption Packs
-
-An Adoption Pack is a small recommended file set for a situation.
-For example:
-- Production Pack = hardening docs + audit backlog + security baseline + review gate.
-- Operations Pack = observability docs + read-only capture workflow + daily triage + backlog discipline.
-- Backlog Pack = `PROJECT_BACKLOG.md` + backlog update prompt/report + review gate trigger.
-- Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
-- Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
-
-Use [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md) if you want the short explanation first.
-
 ## What VCP is not
 
 VCP is not a scanner, pentest/offensive toolkit, compliance certification, monitoring product, or replacement for human review. It is a workflow and tooling layer for safer AI-assisted delivery.
 
 ## Go deeper
 
+- [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 - [docs/cli.md](./docs/cli.md)
+- [docs/scoring.md](./docs/scoring.md)
 - [docs/npm.md](./docs/npm.md)
-- [docs/windows.md](./docs/windows.md)
-- [docs/init.md](./docs/init.md)
+- [docs/npm-publishing-checklist.md](./docs/npm-publishing-checklist.md)
 - [docs/project-backlog.md](./docs/project-backlog.md)
 - [docs/production-observability.md](./docs/production-observability.md)
-- [docs/automation-guidance.md](./docs/automation-guidance.md)
 - [docs/protocol-index.md](./docs/protocol-index.md)
 - [docs/adoption-packs.md](./docs/adoption-packs.md)
+- [docs/public-proof-roadmap.md](./docs/public-proof-roadmap.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
-- [docs/roadmap.md](./docs/roadmap.md)
-- [docs/security-tooling-landscape.md](./docs/security-tooling-landscape.md)
-- [docs/measured-impact.md](./docs/measured-impact.md)
-- [docs/release-v0.5.4.md](./docs/release-v0.5.4.md)
+- [docs/known-limitations.md](./docs/known-limitations.md)
+- [docs/release-v0.5.5.md](./docs/release-v0.5.5.md)

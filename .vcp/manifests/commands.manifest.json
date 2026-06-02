@@ -64,6 +64,15 @@
       "validation": ["backlog validate"]
     },
     {
+      "id": "evaluate",
+      "command_name": "vcp evaluate",
+      "file": "AI_EVALUATION_GUIDE.md",
+      "route": "intake",
+      "inputs": ["repository state", "evaluation scope"],
+      "output": "repository evaluation summary or evaluation prompt",
+      "validation": ["manifest validate", "benchmark run", "score semantics reviewed"]
+    },
+    {
       "id": "backlog-list",
       "command_name": "vcp backlog list",
       "file": "docs/project-backlog.md",

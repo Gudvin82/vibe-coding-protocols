@@ -1,6 +1,6 @@
 # Init
 
-`vcp init` is the simplest CLI starting action in `v0.5.4`.
+`vcp init` is the simplest CLI starting action in `v0.5.5`.
 It is intentionally guidance-first.
 
 ## What it does
@@ -32,8 +32,17 @@ npm run vcp -- init --print-prompt
 ## Current limits
 
 - `init` does not modify files by default;
-- `init --apply` is intentionally not implemented in `v0.5.4`;
+- `init --apply` is intentionally not implemented in `v0.5.5`;
 - prompts are guidance, not a substitute for route-specific docs.
+
+## Repository evaluation note
+
+If the task is evaluating VCP itself rather than onboarding a target repo, use:
+
+```bash
+python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli evaluate --print-prompt
+```
 
 ## Why this exists
 
@@ -43,5 +52,6 @@ The repository has grown beyond a single README skim.
 ## Related docs
 
 - [../AI_INTAKE.md](../AI_INTAKE.md)
+- [../AI_EVALUATION_GUIDE.md](../AI_EVALUATION_GUIDE.md)
 - [cli.md](./cli.md)
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)

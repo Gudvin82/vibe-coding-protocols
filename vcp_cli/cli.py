@@ -12,6 +12,7 @@ from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
+from . import evaluate as evaluate_cmd
 from . import init_cmd
 from . import manifest as manifest_cmd
 from . import review as review_cmd
@@ -66,6 +67,10 @@ def build_parser() -> argparse.ArgumentParser:
     adopt_p.add_argument("--output")
     adopt_p.add_argument("--apply", action="store_true")
     adopt_p.add_argument("--yes", action="store_true")
+
+    evaluate_p = sub.add_parser("evaluate")
+    evaluate_p.add_argument("--json", action="store_true")
+    evaluate_p.add_argument("--print-prompt", action="store_true")
 
     score_p = sub.add_parser("score")
     score_p.add_argument("--json", action="store_true")
@@ -177,6 +182,8 @@ def main(argv: list[str] | None = None) -> int:
         return route_cmd.run(args.profile, args.json)
     if args.command == "adopt":
         return adopt_cmd.run(args.pack, args.dry_run, args.json, args.output, args.apply, args.yes)
+    if args.command == "evaluate":
+        return evaluate_cmd.run(args.json, args.print_prompt)
     if args.command == "score":
         return score_cmd.run(args.json)
     if args.command == "manifest":

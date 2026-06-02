@@ -10,6 +10,7 @@ required_files=(
   README.md
   README_ru.md
   ROADMAP.md
+  AI_EVALUATION_GUIDE.md
   ANTI_PATTERNS.md
   LICENSE
   DISCLAIMER.md
@@ -39,6 +40,9 @@ required_files=(
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/cli.md
+  docs/scoring.md
+  docs/npm-publishing-checklist.md
+  docs/public-proof-roadmap.md
   docs/windows.md
   docs/integrations/README.md
   docs/integrations/claude-code.md
@@ -81,6 +85,7 @@ required_files=(
   docs/release-v0.5.0.md
   docs/release-v0.5.1.md
   docs/release-v0.5.2.md
+  docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
   docs/production-observability.md
@@ -143,6 +148,7 @@ required_files=(
   vcp_cli/check.py
   vcp_cli/route.py
   vcp_cli/adopt.py
+  vcp_cli/evaluate.py
   vcp_cli/score.py
   vcp_cli/manifest.py
   vcp_cli/benchmark.py
@@ -157,11 +163,13 @@ required_files=(
   templates/ARCHITECTURE_MAP.md
   templates/THIRD_PARTY_REGISTRY.md
   templates/prompts/evaluate-vcp-for-my-repo.md
+  templates/prompts/evaluate-vcp-repository.md
   templates/prompts/third-party-api-intake.md
   templates/prompts/prod-log-monitor.md
   templates/prompts/daily-error-triage.md
   templates/prompts/backlog-update.md
   templates/reports/vcp-adoption-assessment.md
+  templates/reports/vcp-repository-evaluation-report.md
   templates/reports/third-party-api-intake-report.md
   templates/reports/production-error-capture-report.md
   templates/reports/daily-error-triage-report.md
@@ -212,6 +220,8 @@ required_files=(
   benchmarks/ai-adoption/scenarios/backlog-move-done-with-review.json
   benchmarks/ai-adoption/scenarios/backlog-archive-not-taken.json
   benchmarks/ai-adoption/scenarios/backlog-architecture-impact.json
+  benchmarks/ai-adoption/scenarios/repository-evaluation-full.json
+  benchmarks/ai-adoption/scenarios/repository-evaluation-shallow.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json

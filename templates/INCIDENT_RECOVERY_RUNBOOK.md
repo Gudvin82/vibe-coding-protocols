@@ -1,5 +1,5 @@
 <!-- vcp-artifact: INCIDENT_RECOVERY_RUNBOOK -->
-<!-- vcp-version: v0.5.4 -->
+<!-- vcp-version: v0.5.5 -->
 <!-- methodology-version: v1.4 -->
 
 # INCIDENT_RECOVERY_RUNBOOK.md

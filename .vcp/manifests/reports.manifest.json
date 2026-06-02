@@ -25,6 +25,12 @@
       "required_sections": ["target classification", "selected route", "selected pack", "next action"]
     },
     {
+      "id": "vcp-repository-evaluation-report",
+      "file": "templates/reports/vcp-repository-evaluation-report.md",
+      "intended_route": "intake",
+      "required_sections": ["Version / commit inspected", "Files inspected", "Commands run", "Scores", "Confidence", "Evaluation completeness"]
+    },
+    {
       "id": "security-review-scope",
       "file": "templates/reports/security-review-scope.md",
       "intended_route": "security",

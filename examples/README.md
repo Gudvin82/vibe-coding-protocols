@@ -3,7 +3,7 @@
 Synthetic examples only.
 No real secrets, no real customer data and no fake production claims.
 
-## Review and adoption
+## Evaluation and review
 
 - [review/README.md](./review/README.md)
 - [adoption/dual-production-engine/README.md](./adoption/dual-production-engine/README.md)
