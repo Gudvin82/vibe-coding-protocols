@@ -99,3 +99,5 @@ Use:
 - `TAKE_THIS_FIRST.md`
 - `templates/prompts/adopt-vcp-from-link.md`
 - `templates/reports/vcp-adoption-decision-report.md`
+- `docs/visual-overview.md`
+- `docs/demo.md`

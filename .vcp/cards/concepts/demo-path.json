@@ -1,0 +1,73 @@
+{
+  "id": "demo-path",
+  "type": "concept",
+  "name": "2-minute Demo Path",
+  "summary": "Fast local demo path for understanding VCP without reading the whole repository.",
+  "use_when": [
+    "a human wants to try VCP quickly",
+    "a presentation needs a short command flow"
+  ],
+  "do_not_use_when": [
+    "the demo would be presented as a production proof artifact"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "demo"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "first-impression confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "adoption clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/demo.md"
+  ],
+  "related_files": [
+    "docs/demo-script.md",
+    "assets/demo/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate",
+    "python3 -m vcp_cli cards list --recommended",
+    "python3 -m vcp_cli spec depth --task \"add payment webhook\"",
+    "python3 -m vcp_cli review-diff",
+    "python3 -m vcp_cli score --badge markdown"
+  ],
+  "outputs": [
+    "two-minute local walkthrough"
+  ],
+  "stop_conditions": [
+    "do not imply a fake GIF or recorded demo exists"
+  ],
+  "validation": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "version": "v0.6.3",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "demo",
+    "recommended"
+  ]
+}

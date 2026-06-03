@@ -54,7 +54,7 @@ def main() -> int:
     index_validate = json.loads(run('index', 'validate', '--json'))
     assert index_validate['ok'] is True
     index_show = json.loads(run('index', 'show', '--json'))
-    assert index_show['version'] == 'v0.6.2'
+    assert index_show['version'] == 'v0.6.3'
     index_search = json.loads(run('index', 'search', 'production', '--json'))
     assert index_search['query'] == 'production'
     cards_list = json.loads(run('cards', 'list', '--json'))

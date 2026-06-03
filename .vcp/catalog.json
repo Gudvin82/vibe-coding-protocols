@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.2",
+  "version": "v0.6.3",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -81,6 +81,9 @@
   "related_docs": [
     "TAKE_THIS_FIRST.md",
     "docs/product-delivery-lifecycle.md",
-    "docs/flagship-workflows.md"
+    "docs/flagship-workflows.md",
+    "docs/visual-overview.md",
+    "docs/demo.md",
+    "docs/install.md"
   ]
 }

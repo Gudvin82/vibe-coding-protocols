@@ -1,8 +1,8 @@
-<!-- vcp-version: v0.6.2 -->
+<!-- vcp-version: v0.6.3 -->
 <!-- methodology-version: v1.4 -->
 # Acceptance Criteria
 
-`vcp-version: v0.6.2`
+`vcp-version: v0.6.3`
 
 ## Acceptance criteria
 - [ ] Criterion 1

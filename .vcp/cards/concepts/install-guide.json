@@ -1,0 +1,69 @@
+{
+  "id": "install-guide",
+  "type": "concept",
+  "name": "Install Guide",
+  "summary": "Honest install paths for local Python, editable install, Windows launcher, and local npm wrapper usage.",
+  "use_when": [
+    "a user asks how to try VCP locally",
+    "install claims need to stay honest"
+  ],
+  "do_not_use_when": [
+    "a public npm or PyPI package is being assumed without publication"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "install"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake"
+    ],
+    "ai_failure_modes": [
+      "distribution overclaim"
+    ],
+    "project_state": [
+      "new"
+    ],
+    "risk_categories": [
+      "adoption trust"
+    ]
+  },
+  "entry_files": [
+    "docs/install.md"
+  ],
+  "related_files": [
+    "docs/pip-install.md",
+    "docs/npm.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate",
+    "npm run vcp -- evaluate"
+  ],
+  "outputs": [
+    "honest local install guidance"
+  ],
+  "stop_conditions": [
+    "do not claim npm, npx, or PyPI publication unless it exists"
+  ],
+  "validation": [
+    "python3 -m pip install -e .",
+    "vcp evaluate"
+  ],
+  "version": "v0.6.3",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot",
+    "gemini-cli"
+  ],
+  "badges": [
+    "concept",
+    "install",
+    "recommended"
+  ]
+}

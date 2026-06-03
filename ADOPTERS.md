@@ -21,6 +21,7 @@ They may be updated, sanitized, or removed.
 - They are not proof of security, compliance, or production safety.
 - They do not imply affiliation with VCP-adjacent tools or vendors.
 - A listed project may use only part of VCP, not the full toolkit.
+- Case-study proof should use `case-studies/` labels such as `sanitized`, `real`, or `synthetic`.
 
 ## How to add an adopter
 

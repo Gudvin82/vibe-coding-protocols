@@ -278,6 +278,19 @@
         "Confidence",
         "Evaluation completeness"
       ]
+    },
+    {
+      "id": "first-impression-audit-report",
+      "file": "templates/reports/first-impression-audit-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Scenario",
+        "First thing understood",
+        "What remained unclear",
+        "AI shallow-evaluation risk",
+        "Recommended next document",
+        "Confidence"
+      ]
     }
   ],
   "related_docs": [

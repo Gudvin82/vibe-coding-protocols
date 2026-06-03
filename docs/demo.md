@@ -1,32 +1,43 @@
-# Demo Journeys
+# 2-minute VCP demo
 
-Use these local commands to show the product layer without overwhelming a new user.
+## What this demo shows
 
-## Shared engine
+- evaluate the repo;
+- inspect AI-readable index/cards;
+- classify task/spec depth;
+- review current diff;
+- generate score badge.
 
-```bash
-python3 -m vcp_cli route --profile shared-engine
-python3 -m vcp_cli adopt --pack shared-engine --dry-run
-python3 -m vcp_cli review plan
-python3 -m vcp_cli score
-python3 -m vcp_cli benchmark run
-```
-
-## Third-party API intake
+## Commands
 
 ```bash
-python3 -m vcp_cli route --profile third-party-api
-python3 -m vcp_cli adopt --pack third-party-api --dry-run
-python3 -m vcp_cli check --fast --json
-python3 -m vcp_cli benchmark run --scenario third-party-api-intake
+python3 -m vcp_cli evaluate
+python3 -m vcp_cli cards list --recommended
+python3 -m vcp_cli spec depth --task "add payment webhook"
+python3 -m vcp_cli review-diff
+python3 -m vcp_cli score --badge markdown
 ```
 
-## Short npm wrapper demo
+## Expected result
 
-```bash
-npm run vcp -- doctor
-npm run vcp -- route --profile production
-npm run vcp -- manifest validate
-```
+You should understand:
 
-See also [demo-output.md](./demo-output.md).
+- what VCP covers;
+- which workflow applies;
+- what gates are required;
+- what readiness score can be published.
+
+## Optional GIF / terminal recording
+
+No fake demo artifact is committed by default.
+
+Recommended manual recording:
+- asciinema
+- terminalizer
+- Kap / Screen Studio / native screen recording
+
+Recommended output:
+- `assets/demo/vcp-2min-demo.cast`
+- `assets/demo/vcp-2min-demo.gif`
+
+Visual overview: `docs/visual-overview.md`

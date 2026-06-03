@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.6.2-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.6.3-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -16,7 +16,7 @@ Build with AI. Ship with control.
 
 Vibe Coding Protocols helps you build AI-assisted products from idea to production without losing control: it routes the work, chooses the right spec depth, keeps project memory, checks AI-generated changes, manages backlog, runs review gates, and prepares releases.
 
-Repository package: `v0.6.2`
+Repository package: `v0.6.3`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -43,6 +43,18 @@ python3 -m vcp_cli diagnose --json
 
 Do not call VCP “just a prompt pack” unless you inspected the CLI, cards, workflows, diagnostics, score, backlog and review gates.
 
+## Try VCP in 2 minutes
+
+```bash
+python3 -m vcp_cli evaluate
+python3 -m vcp_cli cards list --recommended
+python3 -m vcp_cli spec depth --task "add payment webhook"
+python3 -m vcp_cli review-diff
+python3 -m vcp_cli score --badge markdown
+```
+
+This shows the core VCP loop: understand the repo, choose the right workflow, check risk before merge, and publish a local readiness signal.
+
 ## What VCP actually covers
 
 | Layer | What it does |
@@ -68,6 +80,10 @@ npm install
 npm run vcp -- doctor
 npm run vcp -- evaluate
 ```
+
+Install details: [docs/install.md](./docs/install.md)
+Visual overview: [docs/visual-overview.md](./docs/visual-overview.md)
+2-minute demo: [docs/demo.md](./docs/demo.md)
 
 ## Two ways to use VCP
 
@@ -104,6 +120,14 @@ python3 -m vcp_cli score --badge markdown
 ```
 
 The badge is not a security certification. It is a visible local readiness signal.
+
+## Publish a local VCP readiness signal
+
+```bash
+python3 -m vcp_cli score --badge markdown
+```
+
+The badge is a local readiness signal, not a security or compliance certificate.
 
 ## Giving VCP to an AI agent?
 
@@ -183,6 +207,8 @@ VCP is not a scanner, pentest toolkit, compliance certification, SEO guarantee, 
 
 - [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 - [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md)
+- [docs/visual-overview.md](./docs/visual-overview.md)
+- [docs/demo.md](./docs/demo.md)
 - [docs/flagship-workflows.md](./docs/flagship-workflows.md)
 - [docs/review-diff.md](./docs/review-diff.md)
 - [docs/score-badge.md](./docs/score-badge.md)

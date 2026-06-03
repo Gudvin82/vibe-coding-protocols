@@ -27,6 +27,9 @@ python3 -m vcp_cli adopt --pack production --dry-run --json
 python3 -m vcp_cli spec depth --task "describe the task" --json
 ```
 
+Visual overview: `docs/visual-overview.md`
+2-minute demo: `docs/demo.md`
+
 ## Step 3 — copy only selected files
 
 Usually copy:
@@ -75,6 +78,7 @@ Return:
 
 - Prompt: `templates/prompts/adopt-vcp-from-link.md`
 - Report: `templates/reports/vcp-adoption-decision-report.md`
+- Visual overview: `docs/visual-overview.md`
 
 ## Кратко по-русски
 

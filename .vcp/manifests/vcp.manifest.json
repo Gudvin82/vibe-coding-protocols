@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.6.2",
+  "package_version": "v0.6.3",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -29,7 +29,11 @@
     "docs/product-delivery-lifecycle.md",
     "docs/workflows.md",
     "llms-full.txt",
-    "llms.txt"
+    "llms.txt",
+    "docs/visual-overview.md",
+    "docs/demo.md",
+    "docs/pip-install.md",
+    "docs/first-impression-audit.md"
   ],
   "core_docs": [
     "TAKE_THIS_FIRST.md",
@@ -73,7 +77,10 @@
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
     "docs/windows.md",
-    "docs/workflows.md"
+    "docs/workflows.md",
+    "docs/visual-overview.md",
+    "docs/pip-install.md",
+    "docs/first-impression-audit.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -126,7 +133,8 @@
     "scripts/check-toolkit.sh",
     "scripts/check-version-consistency.sh",
     "scripts/validate-links.sh",
-    "scripts/vibe-check.sh"
+    "scripts/vibe-check.sh",
+    "scripts/check-readme-parity.py"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

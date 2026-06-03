@@ -1,0 +1,11 @@
+flowchart LR
+    idea["Idea"] --> intake["AI Intake"]
+    intake --> route["Route"]
+    route --> spec["Spec Depth"]
+    spec --> backlog["Backlog"]
+    backlog --> memory["Architecture Memory"]
+    memory --> implementation["Implementation"]
+    implementation --> review["Review Diff"]
+    review --> diagnostics["Diagnostics"]
+    diagnostics --> release["Release Gate"]
+    release --> followup["Operations / Public Growth"]

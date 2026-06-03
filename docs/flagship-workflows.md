@@ -4,6 +4,9 @@ These are the three public flagship workflows for VCP.
 
 If the repository is being evaluated or adopted by an AI agent, pair this file with `AGENTS.md`, `TAKE_THIS_FIRST.md`, `.vcp/index.json`, and `.vcp/cards/`. A README-only impression is shallow.
 
+Visual overview: `docs/visual-overview.md`
+Quick demo: `docs/demo.md`
+
 ## 1. Build an AI-assisted product from idea
 
 Use when:

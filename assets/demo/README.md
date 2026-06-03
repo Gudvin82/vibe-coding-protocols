@@ -3,11 +3,16 @@
 This directory is reserved for future demo captures.
 
 Recommended filenames:
-- `vcp-30s-demo.cast`
-- `vcp-30s-demo.gif`
+- `vcp-2min-demo.cast`
+- `vcp-2min-demo.gif`
+- `vcp-lifecycle.svg`
 
-Do not add a fake demo file.
-Only place a capture here if it was actually recorded.
+Rules:
+- do not add a fake demo file;
+- commit only real captures or intentionally generated secondary assets;
+- Mermaid source in `docs/diagrams/` remains the canonical source of truth.
 
-Source script:
+Source docs:
+- [../../docs/demo.md](../../docs/demo.md)
 - [../../docs/demo-script.md](../../docs/demo-script.md)
+- [../../docs/visual-overview.md](../../docs/visual-overview.md)

@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.6.2",
+  "version": "v0.6.3",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -13,7 +13,10 @@
     "AI_INTAKE.md",
     "START_HERE.md",
     "llms-full.txt",
-    "llms.txt"
+    "llms.txt",
+    "docs/visual-overview.md",
+    "docs/demo.md",
+    "docs/install.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -51,7 +54,10 @@
     "docs/spec-retrofit.md",
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
-    "docs/workflows.md"
+    "docs/workflows.md",
+    "docs/visual-overview.md",
+    "docs/demo.md",
+    "docs/install.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -136,7 +142,13 @@
     "spec-lane",
     "spec-review",
     "stop-condition",
-    "workflow"
+    "workflow",
+    "visual-overview",
+    "demo-path",
+    "install-guide",
+    "first-impression-audit",
+    "readme-ru-parity",
+    "score-badge-adoption"
   ],
   "benchmarks_list": [
     "anti-patterns-inspection",
@@ -183,7 +195,9 @@
     "ui-ownership",
     "workflow-production-hardening",
     "workflow-public-growth-audit",
-    "shallow-readme-evaluation-trap"
+    "shallow-readme-evaluation-trap",
+    "first-impression-audit",
+    "readme-ru-parity"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -191,6 +205,8 @@
     "AI_INTAKE.md",
     ".vcp/index.json",
     ".vcp/cards/README.md",
+    "docs/visual-overview.md",
+    "docs/demo.md",
     "docs/flagship-workflows.md",
     "docs/product-delivery-lifecycle.md",
     "llms.txt"
@@ -234,12 +250,14 @@
       "diagnostics",
       "score/readiness signals",
       "release readiness",
-      "public growth"
+      "public growth",
+      "visual onboarding"
     ],
     "minimum_inspection": [
       "AGENTS.md",
       "TAKE_THIS_FIRST.md",
       "AI_INTAKE.md",
+      "docs/visual-overview.md",
       ".vcp/cards/",
       "docs/flagship-workflows.md",
       "docs/product-delivery-lifecycle.md"

@@ -1,19 +1,15 @@
 # Sanitized Case Studies
 
-This folder is for sanitized and synthetic publication-safe examples.
-It is not proof of real customer metrics by default.
+These case studies are real-pattern or maintainer-known examples with redaction or generalization.
 
-## Labels
+Rules:
+- no private customer data;
+- no unsupported KPI claims;
+- no fake benchmark results;
+- clearly label what was measured and what was not.
 
-- `synthetic` = invented example used to show structure only
-- `sanitized` = based on a real pattern but cleaned for publication
-- `measured` = real tracked data approved for publication
-
-## Available materials
-
-- [redaction-checklist.md](./redaction-checklist.md)
-- [case-study-template.md](./case-study-template.md)
-- [measured-impact-template.md](./measured-impact-template.md)
-- [synthetic-measured-impact-example.md](./synthetic-measured-impact-example.md)
-
-Add real measured material only after redaction, review, and publication approval.
+Current examples:
+- `vcp-retrofit-public-growth/`
+- `ai-generated-mvp-hardening/`
+- `spec-retrofit-existing-project/`
+- `ai-skim-failure-to-full-hardening/`

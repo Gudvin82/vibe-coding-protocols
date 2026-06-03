@@ -8,7 +8,7 @@ If the user only shared a link to VCP and asked what to take, start with `../TAK
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.6.2 -->
+<!-- vcp-version: v0.6.3 -->
 <!-- methodology-version: v1.4 -->
 ```
 

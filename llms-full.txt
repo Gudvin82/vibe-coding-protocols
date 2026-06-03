@@ -7,7 +7,7 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.2`
+- Repository package: `v0.6.3`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
@@ -24,6 +24,9 @@ Start with:
 - `.vcp/cards/`
 - `docs/product-delivery-lifecycle.md`
 - `docs/flagship-workflows.md`
+- `docs/visual-overview.md`
+- `docs/demo.md`
+- `docs/install.md`
 
 Then run:
 - `python3 -m vcp_cli evaluate --json`
@@ -43,6 +46,8 @@ Use:
 - `docs/adoption-packs.md`
 - `templates/prompts/adopt-vcp-from-link.md`
 - `templates/reports/vcp-adoption-decision-report.md`
+- `docs/visual-overview.md`
+- `docs/demo.md`
 
 ## Flagship workflows
 
@@ -55,6 +60,7 @@ Use:
 - `docs/review-diff.md`
 - `docs/score-badge.md`
 - `docs/github-action.md`
+- `docs/install.md`
 - `docs/anti-patterns.md`
 - `docs/public-proof-roadmap.md`
 - `ADOPTERS.md`

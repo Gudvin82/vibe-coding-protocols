@@ -18,7 +18,8 @@ This page tracks which proof layers still need work before VCP should be describ
 - local CLI and npm wrapper;
 - manifests, cards, workflows, diagnostics, and benchmarks;
 - review-diff and score badge surfaces;
-- sanitized, synthetic, and template proof assets with explicit labels.
+- sanitized, synthetic, and template proof assets with explicit labels;
+- maintainer-known adoption notes with non-endorsement wording.
 
 ## What does not exist yet
 

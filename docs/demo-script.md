@@ -3,45 +3,34 @@
 This file is for reproducible terminal capture later.
 It is not a claim that a GIF or video already exists.
 
-## 30-second demo
+## 2-minute demo
 
 ```bash
-python3 -m vcp_cli doctor
 python3 -m vcp_cli evaluate
-python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli backlog report
-python3 -m vcp_cli score
+python3 -m vcp_cli cards list --recommended
+python3 -m vcp_cli spec depth --task "add payment webhook"
+python3 -m vcp_cli review-diff
+python3 -m vcp_cli score --badge markdown
 ```
 
-## Public Growth demo
+## What to say while recording
 
-```bash
-python3 -m vcp_cli route --profile public-growth
-python3 -m vcp_cli adopt --pack public-growth --dry-run
-```
+- VCP is a foundation and trust layer for AI-assisted product delivery.
+- `evaluate` explains what the repository actually contains.
+- `cards list --recommended` narrows discovery without reading the whole repo.
+- `spec depth` shows whether the change needs no-spec, spec-lite, full-spec, or governed-spec.
+- `review-diff` checks risk before merge.
+- `score --badge markdown` produces a local readiness signal, not certification.
 
-## Backlog demo
+## Optional capture formats
 
-Use dry-run only:
-
-```bash
-python3 -m vcp_cli backlog add --title "Demo item" --type idea --priority P3 --dry-run
-python3 -m vcp_cli backlog report
-```
-
-## Capture guidance
-
-Possible tools:
+Recommended tools:
 - asciinema
 - terminalizer
-- OBS plus terminal crop
+- Kap / Screen Studio / native screen recording
 
 Recommended future filenames:
-- `assets/demo/vcp-30s-demo.gif`
-- `assets/demo/vcp-30s-demo.cast`
+- `assets/demo/vcp-2min-demo.cast`
+- `assets/demo/vcp-2min-demo.gif`
 
 If no capture file exists, describe this as a demo script, not a demo GIF.
-
-Related:
-- [quickstart-walkthrough.md](./quickstart-walkthrough.md)

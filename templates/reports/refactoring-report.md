@@ -1,5 +1,5 @@
 <!-- vcp-artifact: REFACTORING_REPORT -->
-<!-- vcp-version: v0.6.2 -->
+<!-- vcp-version: v0.6.3 -->
 <!-- methodology-version: v1.4 -->
 
 # Refactoring Report

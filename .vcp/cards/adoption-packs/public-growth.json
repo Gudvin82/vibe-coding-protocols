@@ -65,7 +65,7 @@
     "python3 scripts/validate-links.sh",
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.6.2",
+  "version": "v0.6.3",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -6,7 +6,7 @@ Build with AI. Ship with control.
 
 Vibe Coding Protocols помогает строить продукты через ИИ — от идеи до production — без потери контроля: выбирает маршрут, глубину ТЗ, хранит память проекта, проверяет AI-изменения, ведет backlog, запускает review gates и готовит релиз.
 
-Repository package: `v0.6.2`
+Repository package: `v0.6.3`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -33,6 +33,18 @@ python3 -m vcp_cli diagnose --json
 
 Не называй VCP "просто набором промптов", пока не проверил CLI, cards, workflows, diagnostics, score, backlog и review gates.
 
+## Попробовать VCP за 2 минуты
+
+```bash
+python3 -m vcp_cli evaluate
+python3 -m vcp_cli cards list --recommended
+python3 -m vcp_cli spec depth --task "add payment webhook"
+python3 -m vcp_cli review-diff
+python3 -m vcp_cli score --badge markdown
+```
+
+Это показывает основной цикл VCP: понять репозиторий, выбрать workflow, проверить риск перед merge и получить локальный readiness-сигнал.
+
 ## Что реально покрывает VCP
 
 | Слой | Что делает |
@@ -51,6 +63,10 @@ python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
 ```
 
+Детали установки: [docs/install.md](./docs/install.md)
+Визуальный обзор: [docs/visual-overview.md](./docs/visual-overview.md)
+2-минутный демо-путь: [docs/demo.md](./docs/demo.md)
+
 ## Два режима использования VCP
 
 ### Сборка с нуля
@@ -67,6 +83,14 @@ Intake -> diagnostics -> hardening -> review gates -> backlog -> release readine
 2. [Укрепить AI-сгенерированный MVP](./docs/flagship-workflows.md)
 3. [Проверять ongoing AI-driven changes](./docs/flagship-workflows.md)
 
+## Публикация локального VCP readiness-сигнала
+
+```bash
+python3 -m vcp_cli score --badge markdown
+```
+
+Этот badge — локальный readiness-сигнал, а не сертификат безопасности или compliance.
+
 ## Где смотреть дальше
 
 Если нужны правила именно для этого репозитория, используй root `AGENTS.md`.
@@ -75,6 +99,8 @@ Intake -> diagnostics -> hardening -> review gates -> backlog -> release readine
 - [TAKE_THIS_FIRST.md](./TAKE_THIS_FIRST.md)
 - [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 - [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md)
+- [docs/visual-overview.md](./docs/visual-overview.md)
+- [docs/demo.md](./docs/demo.md)
 - [docs/flagship-workflows.md](./docs/flagship-workflows.md)
 - [docs/review-diff.md](./docs/review-diff.md)
 - [docs/score-badge.md](./docs/score-badge.md)

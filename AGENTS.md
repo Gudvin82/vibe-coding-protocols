@@ -14,6 +14,8 @@ Required inspection path:
 6. `docs/product-delivery-lifecycle.md`
 7. `AI_EVALUATION_GUIDE.md`
 
+Visual overview: `docs/visual-overview.md`
+
 Root `AGENTS.md` is for evaluating or adopting VCP itself.
 `templates/AGENTS.md` is for target projects that adopt selected VCP layers.
 
@@ -36,6 +38,8 @@ Use:
 - `START_HERE.md`
 - `docs/adoption-packs.md`
 - `docs/product-delivery-lifecycle.md`
+- `docs/demo.md`
+- `docs/visual-overview.md`
 
 Do not recommend copying the whole repository.
 
@@ -102,6 +106,7 @@ Stop and report instead of guessing when:
 ## Helpful supporting docs
 
 - `docs/product-delivery-lifecycle.md`
+- `docs/visual-overview.md`
 - `docs/flagship-workflows.md`
 - `TAKE_THIS_FIRST.md`
 - `docs/review-diff.md`

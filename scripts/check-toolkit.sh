@@ -32,9 +32,12 @@ required_files=(
   docs/community-feedback.md
   docs/target-project-classifier.md
   docs/adoption-packs.md
+  docs/visual-overview.md
+  docs/diagrams/README.md
   docs/route-map.md
   docs/demo.md
   docs/demo-output.md
+  docs/first-impression-audit.md
   docs/release-checklist.md
   docs/community-issues.md
   docs/awesome-vibe-coding-pr.md
@@ -67,6 +70,7 @@ required_files=(
   docs/vcp-mappings.md
   docs/cli.md
   docs/install.md
+  docs/pip-install.md
   docs/glossary.md
   docs/scoring.md
   docs/npm-publishing-checklist.md
@@ -214,6 +218,7 @@ required_files=(
   scripts/check-version-consistency.sh
   scripts/check-ide-rules-consistency.sh
   scripts/check-newlines.py
+  scripts/check-readme-parity.py
   scripts/tests/test-vcp-cli.sh
   scripts/tests/test-vcp-cli-windows-parity.py
   scripts/init-project.example.sh
@@ -232,6 +237,7 @@ required_files=(
   schemas/vcp-preset.schema.json
   schemas/vcp-workflow.schema.json
   schemas/vcp-event.schema.json
+  templates/reports/first-impression-audit-report.md
   bin/vcp
   bin/vcp.cmd
   bin/vcp.ps1
@@ -494,6 +500,7 @@ fi
 bash scripts/check-version-consistency.sh
 bash scripts/check-ide-rules-consistency.sh
 python3 scripts/check-newlines.py
+python3 scripts/check-readme-parity.py
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli benchmark run
 

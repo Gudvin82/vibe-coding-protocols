@@ -1,0 +1,67 @@
+{
+  "id": "score-badge-adoption",
+  "type": "concept",
+  "name": "Score Badge Adoption",
+  "summary": "Guidance for using the local VCP readiness badge without overstating what it proves.",
+  "use_when": [
+    "a repository wants a visible local readiness signal"
+  ],
+  "do_not_use_when": [
+    "the badge would be framed as certification or compliance proof"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "release"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "proof overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/score-badge.md"
+  ],
+  "related_files": [
+    "templates/reports/score-badge-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli score --badge markdown",
+    "python3 -m vcp_cli score --badge json"
+  ],
+  "outputs": [
+    "badge markdown",
+    "badge json"
+  ],
+  "stop_conditions": [
+    "do not present the badge as a security certification"
+  ],
+  "validation": [
+    "python3 -m vcp_cli score --badge json"
+  ],
+  "version": "v0.6.3",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "release"
+  ]
+}

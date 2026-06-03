@@ -21,8 +21,11 @@ Do not judge VCP from README alone.
 - docs/catalog.md: card filter and discovery model
 - docs/event-schema.md: normalized event/finding schema
 - docs/platforms/README.md: multi-platform compatibility docs
+- docs/visual-overview.md: Mermaid-first onboarding diagrams for lifecycle, AI inspection path, and trust gates
+- docs/demo.md: 2-minute human demo path
+- docs/install.md: honest local install methods and non-claims
 - .vcp/manifests/: full manifest metadata
-- docs/release-v0.6.2.md: current release notes
+- docs/release-v0.6.3.md: current release notes
 - docs/product-delivery-lifecycle.md: lifecycle map for idea, intake, spec depth, backlog, review, diagnostics, and release
 - docs/flagship-workflows.md: three public flagship workflows
 - docs/review-diff.md: local pre-merge trust gate for changed files

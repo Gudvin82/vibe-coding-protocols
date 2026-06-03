@@ -859,6 +859,41 @@
         "do not call VCP just a prompt pack without inspecting CLI and cards"
       ],
       "expected_first_action": "Open TAKE_THIS_FIRST.md before recommending adoption."
+    },
+    {
+      "id": "readme-ru-parity",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/readme-ru-parity.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "README_ru.md",
+        "docs/demo.md",
+        "docs/install.md"
+      ],
+      "expected_warnings": [
+        "Russian README should not lag behind the core adoption and AI-guard sections"
+      ],
+      "expected_first_action": "Check that the Russian README preserves the same first-contact concepts as the English README."
+    },
+    {
+      "id": "first-impression-audit",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/first-impression-audit.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "TAKE_THIS_FIRST.md",
+        "docs/visual-overview.md",
+        "docs/demo.md",
+        "docs/install.md"
+      ],
+      "expected_warnings": [
+        "first impression should not reduce VCP to a prompt pack or spec-kit clone"
+      ],
+      "expected_first_action": "Inspect the README, TAKE_THIS_FIRST, and visual overview before summarizing what VCP is."
     }
   ]
 }
