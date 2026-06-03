@@ -154,7 +154,7 @@
     },
     "version": {
       "type": "string",
-      "const": "v0.6.0"
+      "const": "v0.6.1"
     },
     "status": {
       "type": "string"

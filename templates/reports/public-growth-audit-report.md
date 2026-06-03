@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_GROWTH_AUDIT_REPORT -->
-<!-- vcp-version: v0.6.0 -->
+<!-- vcp-version: v0.6.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Growth Audit Report

@@ -63,6 +63,17 @@
       ]
     },
     {
+      "id": "pr-gate-report",
+      "file": "templates/reports/pr-gate-report.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Scope",
+        "Checks run",
+        "Review-diff result",
+        "Merge note"
+      ]
+    },
+    {
       "id": "production-error-capture-report",
       "file": "templates/reports/production-error-capture-report.md",
       "intended_route": "operations",
@@ -89,6 +100,29 @@
         "Risk level",
         "Challenge decision",
         "Validation run"
+      ]
+    },
+    {
+      "id": "review-diff-report",
+      "file": "templates/reports/review-diff-report.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Diff scope",
+        "Impacted areas",
+        "Risk level",
+        "Recommended spec depth",
+        "Artifact follow-up",
+        "Validation path"
+      ]
+    },
+    {
+      "id": "score-badge-report",
+      "file": "templates/reports/score-badge-report.md",
+      "intended_route": "release",
+      "required_sections": [
+        "Score snapshot",
+        "Badge output",
+        "Notes"
       ]
     },
     {

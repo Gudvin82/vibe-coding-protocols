@@ -1,0 +1,17 @@
+{
+  "scenario_id": "github-pr-gate-workflow",
+  "target_profile": "review",
+  "target_signals": [
+    "CI gate",
+    "pull request"
+  ],
+  "required_files_to_inspect": [
+    "docs/github-action.md",
+    "ci-examples/github-actions/vcp-check.yml",
+    ".github/workflows/vibe-check.yml"
+  ],
+  "expected_first_safe_action": "Run repository validation checks in CI before merge.",
+  "expected_warnings": [
+    "CI example is not a GitHub Marketplace Action"
+  ]
+}

@@ -1,21 +1,17 @@
 # Case Studies
 
-No fake adoption or public real-world case study is claimed here.
+This directory mixes real, sanitized, synthetic, and template assets.
+Use the label on each asset before treating it as proof.
 
-## What exists today
+## Labels
 
-- sanitized structure for future public writeups
-- redaction guidance
-- measured-impact template
-- synthetic examples that show reporting shape without claiming real outcomes
+- `real`: directly supported by public or approved evidence
+- `sanitized`: based on a real pattern, but redacted or generalized
+- `synthetic`: illustrative scenario, not production proof
+- `template`: reusable structure only
 
-## Read next
+## Current highlighted cases
 
-- [sanitized/README.md](./sanitized/README.md)
-- [sanitized/redaction-checklist.md](./sanitized/redaction-checklist.md)
-- [sanitized/case-study-template.md](./sanitized/case-study-template.md)
-- [sanitized/measured-impact-template.md](./sanitized/measured-impact-template.md)
-- [redaction-guide.md](./redaction-guide.md)
-
-Share only sanitized material.
-Do not include secrets, customer data, private URLs, or private architecture.
+- `sanitized/vcp-retrofit-public-growth/`
+- `sanitized/ai-generated-mvp-hardening/`
+- `sanitized/spec-retrofit-existing-project/`

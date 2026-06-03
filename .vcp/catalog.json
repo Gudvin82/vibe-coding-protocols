@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.0",
+  "version": "v0.6.1",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -68,5 +68,14 @@
     "vs-code-ai-assistants",
     "windsurf",
     "zed-ai"
+  ],
+  "platform_status_labels": [
+    "tested-local",
+    "documented",
+    "prompt-compatible",
+    "rules-compatible",
+    "cli-compatible",
+    "experimental",
+    "not-official-plugin"
   ]
 }

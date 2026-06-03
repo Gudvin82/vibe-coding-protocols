@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_GROWTH_FAQ_PAGE -->
-<!-- vcp-version: v0.6.0 -->
+<!-- vcp-version: v0.6.1 -->
 <!-- methodology-version: v1.4 -->
 
 # FAQ Page Template

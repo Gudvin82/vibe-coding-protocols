@@ -20,6 +20,7 @@ from . import cards as cards_cmd
 from . import manifest as manifest_cmd
 from . import preset_cmd
 from . import review as review_cmd
+from . import review_diff as review_diff_cmd
 from . import route as route_cmd
 from . import score as score_cmd
 from . import spec_cmd
@@ -116,6 +117,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     score_p = sub.add_parser("score")
     score_p.add_argument("--json", action="store_true")
+    score_p.add_argument("--badge", nargs="?", const="text", choices=["text", "markdown", "json"])
+
+    review_diff_p = sub.add_parser("review-diff")
+    review_diff_p.add_argument("--base")
+    review_diff_p.add_argument("--head")
+    review_diff_p.add_argument("--json", action="store_true")
 
     manifest_p = sub.add_parser("manifest")
     manifest_sub = manifest_p.add_subparsers(dest="manifest_command")
@@ -308,7 +315,9 @@ def main(argv: list[str] | None = None) -> int:
         if args.cards_command == "validate":
             return cards_cmd.validate_cards(getattr(args, "json", False))
     if args.command == "score":
-        return score_cmd.run(args.json)
+        return score_cmd.run(args.json, getattr(args, "badge", None))
+    if args.command == "review-diff":
+        return review_diff_cmd.run(args.base, args.head, getattr(args, "json", False))
     if args.command == "manifest":
         if args.manifest_command in {None, "show"}:
             print(manifest_cmd.dump_json(manifest_cmd.show_manifest()))

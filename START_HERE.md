@@ -58,3 +58,4 @@ python3 -m vcp_cli route --profile spec-first --json
 python3 -m vcp_cli workflow show spec-first-feature --json
 python3 -m vcp_cli diagnose --profile production --json
 ```
+See also: [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) and [docs/flagship-workflows.md](./docs/flagship-workflows.md).

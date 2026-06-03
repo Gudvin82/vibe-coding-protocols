@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date
+
 from .utils import manifest_paths, print_output, repo_root, relative_to_root
 
 
@@ -20,6 +22,19 @@ CATEGORY_RULES = [
     (
         "LLM citation and AI-agent entry",
         ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff", "ADOPTERS.md"],
+    ),
+    (
+        "Foundation and trust docs",
+        [
+            "README.md",
+            "README_ru.md",
+            "docs/product-delivery-lifecycle.md",
+            "docs/flagship-workflows.md",
+            "docs/review-diff.md",
+            "docs/score-badge.md",
+            "docs/github-action.md",
+            "docs/case-study-guidelines.md",
+        ],
     ),
     (
         "Progressive disclosure and cards",
@@ -108,14 +123,14 @@ CATEGORY_RULES = [
     ("Protocol index", ["docs/protocol-index.md"]),
     ("Manifests", manifest_relpaths()),
     ("CLI status", ["docs/cli.md", "docs/windows.md", "docs/npm.md", "docs/install.md", "docs/init.md", "vcp_cli/cli.py", "bin/vcp-node.js"]),
-    ("Evaluation surfaces", ["docs/scoring.md", "docs/public-proof-roadmap.md", "docs/faq.md", "docs/comparison.md", "docs/anti-patterns.md", "docs/quickstart-walkthrough.md", "docs/demo-script.md", "vcp_cli/evaluate.py"]),
+    ("Evaluation surfaces", ["docs/scoring.md", "docs/public-proof-roadmap.md", "docs/faq.md", "docs/comparison.md", "docs/anti-patterns.md", "docs/quickstart-walkthrough.md", "docs/demo-script.md", "case-studies/README.md", "vcp_cli/evaluate.py"]),
     ("Installation and terminology docs", ["docs/install.md", "docs/glossary.md"]),
     ("Validation scripts", ["scripts/check-newlines.py", "scripts/check-toolkit.sh", "scripts/validate-links.sh"]),
     ("Markdown readability", ["docs/markdown-style.md"]),
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.6.0.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.6.1.md", "ci-examples/github-actions/vcp-check.yml"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 
@@ -128,7 +143,15 @@ WARNINGS = [
 ]
 
 
-def run(json_mode: bool = False) -> int:
+def _score_status(score: int) -> tuple[str, str]:
+    if score >= 90:
+        return "pass", "brightgreen"
+    if score >= 75:
+        return "warn", "yellow"
+    return "fail", "red"
+
+
+def _build_payload() -> dict[str, object]:
     root = repo_root()
     categories = []
     score = 0
@@ -150,11 +173,39 @@ def run(json_mode: bool = False) -> int:
             "Add real external proof layers before claiming public-standard maturity.",
         ],
     }
+    status, color = _score_status(payload["score"])
+    payload["status"] = status
+    payload["badge"] = f"https://img.shields.io/badge/VCP_score-{payload['score']}%2F100-{color}"
+    payload["checked_at"] = str(date.today())
+    return payload
+
+
+def run(json_mode: bool = False, badge_mode: str | None = None) -> int:
+    payload = _build_payload()
     if json_mode:
         print_output(payload, True)
+    elif badge_mode == "json":
+        print_output(
+            {
+                "score": payload["score"],
+                "status": payload["status"],
+                "badge": payload["badge"],
+                "checked_at": payload["checked_at"],
+                "note": "Local readiness score only; not a security certification.",
+            },
+            True,
+        )
+    elif badge_mode == "markdown":
+        print(f"![VCP Score]({payload['badge']})")
+    elif badge_mode == "text":
+        print(f"**VCP Score:** {payload['score']}/100")
+        print(f"**Status:** {payload['status']}")
+        print(f"**Last checked:** {payload['checked_at']}")
+        print(f"**Badge:** {payload['badge']}")
+        print("This is a local readiness signal, not a security certification.")
     else:
         print(f"Score: {payload['score']}/100")
-        for category in categories:
+        for category in payload["categories"]:
             print(f"- {category['name']}: {category['status']}")
         if payload["warnings"]:
             print("Warnings:")

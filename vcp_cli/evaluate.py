@@ -39,6 +39,12 @@ KEY_FILES = [
     "docs/faq.md",
     "docs/comparison.md",
     "docs/anti-patterns.md",
+    "docs/product-delivery-lifecycle.md",
+    "docs/flagship-workflows.md",
+    "docs/review-diff.md",
+    "docs/score-badge.md",
+    "docs/github-action.md",
+    "docs/case-study-guidelines.md",
     "docs/quickstart-walkthrough.md",
     "docs/demo-script.md",
     "docs/workflows.md",
@@ -70,6 +76,7 @@ CLI_COMMANDS = [
     "workflow",
     "diagnose",
     "preset",
+    "review-diff",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -180,6 +187,25 @@ def evaluate_payload() -> dict[str, object]:
             "templates/reports/vcp-event-entry.md",
         ]
     )
+    trust_layer_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "docs/product-delivery-lifecycle.md",
+            "docs/flagship-workflows.md",
+            "docs/review-diff.md",
+            "docs/score-badge.md",
+            "docs/github-action.md",
+        ]
+    )
+    proof_surfaces_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "ADOPTERS.md",
+            "case-studies/README.md",
+            "docs/case-study-guidelines.md",
+            "docs/public-proof-roadmap.md",
+        ]
+    )
 
     payload = {
         "repository_package": repo_version(root),
@@ -203,6 +229,8 @@ def evaluate_payload() -> dict[str, object]:
         "diagnostics_layer_present": diagnostics_ready,
         "catalog_layer_present": catalog_ready,
         "event_schema_present": event_schema_ready,
+        "trust_layer_present": trust_layer_ready,
+        "proof_surfaces_present": proof_surfaces_ready,
         "platform_doc_count": len(list((root / "docs" / "platforms").glob("*.md"))) if (root / "docs" / "platforms").exists() else 0,
         "platform_card_count": len(list((root / ".vcp" / "cards" / "platforms").glob("*.json"))) if (root / ".vcp" / "cards" / "platforms").exists() else 0,
         "llm_reference_present": all(
@@ -258,6 +286,8 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Diagnostics layer present: {'yes' if payload['diagnostics_layer_present'] else 'no'}")
     print(f"Catalog layer present: {'yes' if payload['catalog_layer_present'] else 'no'}")
     print(f"Event schema present: {'yes' if payload['event_schema_present'] else 'no'}")
+    print(f"Trust layer present: {'yes' if payload['trust_layer_present'] else 'no'}")
+    print(f"Proof surfaces present: {'yes' if payload['proof_surfaces_present'] else 'no'}")
     print(f"Platform docs: {payload['platform_doc_count']}")
     print(f"Platform cards: {payload['platform_card_count']}")
     print(f"LLM reference layer present: {'yes' if payload['llm_reference_present'] else 'no'}")

@@ -1,50 +1,28 @@
 # Public Proof Roadmap
 
-This page tracks the proof layers VCP still needs before anyone should call it a public standard.
+This page tracks which proof layers still need work before VCP should be described as broadly proven.
 
-## Missing public proof layers
+## Missing proof layers
 
 - public npm package;
 - hosted docs site;
-- one real sanitized case study;
-- measured adoption notes;
-- demo video or GIF;
+- more real or sanitized case studies;
+- broader measured adoption notes;
+- demo media captured from real workflow runs;
 - external user feedback;
-- issue and discussion activity;
-- package installation telemetry if available later;
-- docs site indexing evidence;
-- AI answer-engine visibility evidence.
-- trustworthy external citation evidence if it appears later.
+- stronger public discussion history.
 
-## Why this matters
+## What exists today
 
-The repository can be locally complete and still remain early in public-proof terms.
-That gap should be described honestly.
-
-## Current position
-
-Today VCP has:
 - real repository structure;
 - local CLI and npm wrapper;
-- manifests;
-- benchmarks;
-- spec lane, workflow, diagnostics, catalog, and event-schema layers;
-- route and adoption docs;
-- explicit LLM citation and AI-agent entry surfaces;
-- FAQ, comparison, and anti-pattern docs;
-- synthetic walkthrough and demo-capture guidance;
-- synthetic examples;
-- known limitations.
+- manifests, cards, workflows, diagnostics, and benchmarks;
+- review-diff and score badge surfaces;
+- sanitized, synthetic, and template proof assets with explicit labels.
 
-Today VCP does not yet claim:
-- industry-standard status;
-- broad outside adoption;
-- public package distribution;
-- strong external proof of ecosystem maturity.
+## What does not exist yet
 
-## Related docs
-
-- [../ROADMAP.md](../ROADMAP.md)
-- [roadmap.md](./roadmap.md)
-- [npm-publishing-checklist.md](./npm-publishing-checklist.md)
-- [scoring.md](./scoring.md)
+- broad outside adoption proof;
+- marketplace plugin claims;
+- guaranteed safety or visibility evidence;
+- industry-standard status.

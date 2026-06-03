@@ -1,0 +1,61 @@
+{
+  "id": "flagship-workflows",
+  "type": "concept",
+  "name": "Flagship Workflows",
+  "summary": "Three public workflows that show VCP from idea, hardening, and review angles.",
+  "use_when": [
+    "a public overview needs only the strongest workflow examples"
+  ],
+  "do_not_use_when": [
+    "the user needs the full workflow catalog"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "workflow"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "workflow overload"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/flagship-workflows.md"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "public workflow overview"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.6.1",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "workflow"
+  ]
+}

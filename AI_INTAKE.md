@@ -86,3 +86,4 @@ Confidence:
 Next action:
 Post-task review requirement:
 ```
+See also: [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) for minimum/full/skip paths.

@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.6.1
+
+- Clarified VCP as a foundation and trust layer for AI-assisted product delivery.
+- Added product lifecycle, flagship workflow, review-diff, score badge, and GitHub PR gate docs.
+- Added local `vcp review-diff` plus score badge output modes.
+- Synced manifests, cards, index, benchmarks, CI, and proof surfaces for the new trust layer.
+
 ## v0.6.0
 
 - Added adaptive spec depth, spec escape hatch, question engine, spec retrofit, and spec freshness layers.

@@ -329,6 +329,33 @@
       ]
     },
     {
+      "id": "review-diff",
+      "command_name": "vcp review-diff",
+      "file": "docs/review-diff.md",
+      "route": "review",
+      "inputs": [
+        "optional base ref",
+        "optional head ref"
+      ],
+      "output": "changed-file summary, risk, spec recommendation, validation path",
+      "validation": [
+        "python3 -m vcp_cli review-diff --json"
+      ]
+    },
+    {
+      "id": "score-badge",
+      "command_name": "vcp score --badge",
+      "file": "docs/score-badge.md",
+      "route": "release",
+      "inputs": [
+        "optional output mode"
+      ],
+      "output": "badge markdown, badge json, or local text summary",
+      "validation": [
+        "python3 -m vcp_cli score --badge json"
+      ]
+    },
+    {
       "id": "spec-depth",
       "command_name": "vcp spec depth",
       "file": "docs/adaptive-spec-depth.md",

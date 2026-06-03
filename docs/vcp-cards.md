@@ -42,7 +42,7 @@ Each card uses this minimal structure:
   "outputs": [],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.6.0",
+  "version": "v0.6.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code"],

@@ -99,3 +99,10 @@ A structured definition of trigger, route, steps, artifacts, validation, and sto
 
 A CLI or integration surface that forwards to a deeper implementation.
 In VCP, the local npm entrypoint is a thin wrapper around the Python CLI.
+## Foundation and trust layer
+
+A short way to describe VCP: it helps teams build with AI and ship with control.
+
+## Review diff
+
+A local pre-merge helper that inspects changed files, estimates risk, and points to follow-up artifacts and validation.

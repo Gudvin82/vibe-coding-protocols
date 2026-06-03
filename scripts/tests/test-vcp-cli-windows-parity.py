@@ -33,6 +33,8 @@ def main() -> int:
     evaluate = json.loads(run('evaluate', '--json'))
     assert evaluate['evaluation_guide_present'] is True
     assert evaluate['progressive_disclosure_present'] is True
+    review_diff = json.loads(run('review-diff', '--json'))
+    assert 'risk_level' in review_diff
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
     assert route['adoption_pack'] == 'third-party-api'
     public_growth_route = json.loads(run('route', '--profile', 'public-growth', '--json'))
@@ -50,7 +52,7 @@ def main() -> int:
     index_validate = json.loads(run('index', 'validate', '--json'))
     assert index_validate['ok'] is True
     index_show = json.loads(run('index', 'show', '--json'))
-    assert index_show['version'] == 'v0.6.0'
+    assert index_show['version'] == 'v0.6.1'
     index_search = json.loads(run('index', 'search', 'production', '--json'))
     assert index_search['query'] == 'production'
     cards_list = json.loads(run('cards', 'list', '--json'))
@@ -104,6 +106,10 @@ def main() -> int:
     assert benchmark['ok'] is True
     score = json.loads(run('score', '--json'))
     assert any(item['name'] == 'Spec lane' for item in score['categories'])
+    score_badge = run('score', '--badge', 'markdown')
+    assert 'https://img.shields.io/badge/VCP_score-' in score_badge
+    score_badge_json = json.loads(run('score', '--badge', 'json'))
+    assert score_badge_json['badge'].startswith('https://img.shields.io/badge/VCP_score-')
     backlog_list = json.loads(run('backlog', 'list', '--json'))
     assert backlog_list['ok'] is True
     backlog_report = json.loads(run('backlog', 'report', '--json'))

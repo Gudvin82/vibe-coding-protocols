@@ -1,237 +1,169 @@
-# Anti-patterns
+# The VCP Anti-Patterns for AI-Assisted Code
 
-These are common AI-assisted development mistakes that VCP is designed to reduce.
+These anti-patterns describe common ways AI-generated code becomes hard to maintain, unsafe to ship, or impossible to review.
 
 ## 1. README-only evaluation
 
 Symptom:
-- the repository is judged from top-level marketing text only
+- the repository is judged from top-level text only
 
-Why it is risky:
+Why it happens with AI:
+- the model optimizes for the shortest visible context
+
+Production risk:
 - routes, manifests, benchmarks, and limitations are missed
 
 VCP countermeasure:
-- `AI_EVALUATION_GUIDE.md`
 - `AGENTS.md`
-- `llms-full.txt`
+- `AI_EVALUATION_GUIDE.md`
+- `.vcp/index.json`
 
-## 2. AI writes code before Product Brief
+Minimum fix:
+- inspect index, cards, manifests, and lifecycle docs before scoring maturity
+
+## 2. Implementation before scope clarity
 
 Symptom:
-- implementation starts before scope is stable
+- code starts before the product brief is stable
 
-Why it is risky:
-- AI fills in missing requirements with guesses
+Why it happens with AI:
+- models fill requirement gaps with plausible guesses
+
+Production risk:
+- wrong feature shape, hidden acceptance gaps, and rework
 
 VCP countermeasure:
+- adaptive spec depth
 - Spec Lane
-- Starter Protocol
-- `START_HERE.md`
+- question engine
+
+Minimum fix:
+- choose no-spec, spec-lite, full-spec, or governed-spec explicitly
 
 ## 3. No architecture memory
 
 Symptom:
-- every new task rediscovers the same system shape
+- every task rediscovers the same system shape
 
-Why it is risky:
-- cross-layer breakage and stale assumptions
+Why it happens with AI:
+- local context windows forget cross-layer design history
+
+Production risk:
+- drift, regression, and broken assumptions
 
 VCP countermeasure:
 - `PROJECT_MAP.md`
 - `templates/ARCHITECTURE_SOURCE_OF_TRUTH.md`
 
-## 4. Copy every template blindly
+Minimum fix:
+- update architecture memory when cross-layer behavior changes
+
+## 4. No review gate before merge
 
 Symptom:
-- the whole toolkit is copied into a project without selection
+- AI-generated changes are accepted because they look plausible
 
-Why it is risky:
-- noise, confusion, and drift from the real repo context
+Why it happens with AI:
+- speed hides the need for acceptance discipline
 
-VCP countermeasure:
-- Adoption Packs
-- `vcp adopt --dry-run`
-
-## 5. No stop conditions
-
-Symptom:
-- AI keeps editing even after risk has changed
-
-Why it is risky:
-- scope creep and unsafe changes in production-sensitive areas
+Production risk:
+- subtle regressions land without clear ownership
 
 VCP countermeasure:
-- route stop conditions
-- root `AGENTS.md`
+- `review-diff`
+- post-task code review
 
-## 6. No post-task review
+Minimum fix:
+- inspect diff impact and require validation evidence before merge
 
-Symptom:
-- meaningful AI-generated changes move forward without acceptance
-
-Why it is risky:
-- subtle regressions get normalized
-
-VCP countermeasure:
-- Post-Task Code Review Gate
-- `protocols/review/post-task-code-review.md`
-
-## 7. No validation before next feature
+## 5. No validation before the next task
 
 Symptom:
 - work continues even though validation was not checked
 
-Why it is risky:
-- hidden failures accumulate
+Why it happens with AI:
+- models optimize for task completion, not release discipline
+
+Production risk:
+- failures pile up silently
 
 VCP countermeasure:
 - `vcp check`
 - `vcp benchmark run`
 - `vcp manifest validate`
 
-## 8. External API added without intake
+Minimum fix:
+- keep the validation path visible in every non-trivial change
+
+## 6. External API added without intake
 
 Symptom:
-- API code appears before owner/auth/terms/fallback are documented
+- API code appears before owner, auth, terms, or fallback are documented
 
-Why it is risky:
-- secret leaks, brittle integrations, and unknown legal/data boundaries
+Why it happens with AI:
+- SDK examples make integration look cheaper than it is
+
+Production risk:
+- secret leaks, legal gaps, brittle integrations, and hidden vendor risk
 
 VCP countermeasure:
 - Third-party API Intake
 - `templates/THIRD_PARTY_REGISTRY.md`
 
-## 9. Production logs ignored until users complain
+Minimum fix:
+- classify auth, data flow, fallback, and owner before implementation
 
-Symptom:
-- no read-only capture loop exists
-
-Why it is risky:
-- repeated failures stay anecdotal instead of actionable
-
-VCP countermeasure:
-- Production Error Capture
-- Daily Error Triage
-
-## 10. Backlog lives only in chat
+## 7. Backlog lives only in chat
 
 Symptom:
 - important work exists only in conversation history
 
-Why it is risky:
+Why it happens with AI:
+- models treat chat as temporary task memory
+
+Production risk:
 - follow-up disappears and accountability drops
 
 VCP countermeasure:
 - `PROJECT_BACKLOG.md`
 - `vcp backlog`
 
-## 11. UI drift from hardcoded styles
+Minimum fix:
+- write the next real task into backlog before continuing
+
+## 8. Public proof without evidence
 
 Symptom:
-- page-level visual logic spreads unpredictably
+- adoption, safety, or visibility claims are published without support
 
-Why it is risky:
-- frontend becomes expensive to maintain
+Why it happens with AI:
+- models tend to smooth over proof gaps with confident language
+
+Production risk:
+- trust loss, misleading docs, and public overclaim
 
 VCP countermeasure:
-- UI Component Ownership route
+- `ADOPTERS.md`
+- case-study labels
+- `docs/public-proof-roadmap.md`
 
-## 12. Refactoring without characterization tests
+Minimum fix:
+- label assets as real, sanitized, synthetic, or template
+
+## 9. Platform compatibility overclaim
 
 Symptom:
-- behavior-preserving work is attempted without a validation path
+- docs imply official integrations where there are only repository workflows
 
-Why it is risky:
-- regressions hide inside “cleanup” work
+Why it happens with AI:
+- platform lists are easy to inflate with vague wording
 
-VCP countermeasure:
-- Maintenance Refactoring route
-- focused validation before and after edits
-
-## 13. Security checklist treated as optional
-
-Symptom:
-- sensitive repos are treated like toy demos
-
-Why it is risky:
-- production and regulated changes move forward without real gates
+Production risk:
+- misleading adoption claims and support confusion
 
 VCP countermeasure:
-- Hardening routes
-- security review scope
-- review gate
+- platform status taxonomy
+- platform cards with `official_integration: false`
 
-## 14. Public site launched without `llms.txt`, sitemap, or structured-data discipline
-
-Symptom:
-- public content exists but is poorly explained to crawlers and answer engines
-
-Why it is risky:
-- weak discoverability and inconsistent trust signals
-
-VCP countermeasure:
-- Public Site Readiness
-- Public Growth
-- `docs/geo-ai-visibility.md`
-
-## 15. AI-generated content published without review
-
-Symptom:
-- public pages go live because they look plausible
-
-Why it is risky:
-- misleading claims, mismatched schema, or low-trust content
-
-VCP countermeasure:
-- page brief
-- public-growth audit
-- review gate for meaningful claim changes
-
-## 16. No progressive disclosure for large repos
-
-Symptom:
-- AI reads random top-level files or tries to scan the whole repository
-
-Why it is risky:
-- context is wasted and important layers are skipped anyway
-
-VCP countermeasure:
-- `.vcp/index.json`
-- `.vcp/cards/`
-- `docs/progressive-disclosure.md`
-
-## 17. No workflow definition for repeated work
-
-Symptom:
-- the same delivery sequence is re-invented in every chat
-
-Why it is risky:
-- important steps, artifacts, or stop conditions are silently skipped
-
-VCP countermeasure:
-- `.vcp/workflows/`
-- `docs/workflows.md`
-
-## 18. No diagnostics by layer
-
-Symptom:
-- the repo “feels wrong” but there is no structured readiness check
-
-Why it is risky:
-- missing backlog, review, spec, or release surfaces stay hidden
-
-VCP countermeasure:
-- `.vcp/diagnostics/layers.json`
-- `vcp diagnose`
-
-## 19. Findings recorded in ad hoc formats
-
-Symptom:
-- review findings, production errors, and release-gate failures use incompatible note shapes
-
-Why it is risky:
-- severity, evidence, and follow-up become inconsistent
-
-VCP countermeasure:
-- `schemas/vcp-event.schema.json`
-- `templates/reports/vcp-event-entry.md`
+Minimum fix:
+- say documented, prompt-compatible, rules-compatible, CLI-compatible, or experimental

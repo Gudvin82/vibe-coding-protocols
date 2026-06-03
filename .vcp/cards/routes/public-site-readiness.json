@@ -47,7 +47,7 @@
   "validation": [
     "python3 -m vcp_cli benchmark run --scenario public-site"
   ],
-  "version": "v0.6.0",
+  "version": "v0.6.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

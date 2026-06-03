@@ -13,7 +13,7 @@ It does not promise dates that the repository cannot honestly support yet.
 - backlog and operations workflow polish
 - better measured-impact structure without fake metrics
 
-## v0.6.0 — Distribution and hosted docs
+## v0.6.1 — Distribution and hosted docs
 
 - published npm package if packaging and naming are ready
 - optional PyPI or pipx packaging if maintained well enough

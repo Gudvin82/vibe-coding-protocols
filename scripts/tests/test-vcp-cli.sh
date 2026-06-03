@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 python3 -m vcp_cli --help >/dev/null
-python3 -m vcp_cli version | grep -F "v0.6.0" >/dev/null
+python3 -m vcp_cli version | grep -F "v0.6.1" >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null
@@ -12,6 +12,9 @@ python3 -m vcp_cli evaluate --json | grep -F '"evaluation_guide_present": true' 
 python3 -m vcp_cli evaluate --print-prompt | grep -F "Do not judge from README alone." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"llm_reference_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"progressive_disclosure_present": true' >/dev/null
+python3 -m vcp_cli review-diff --json | grep -F '"risk_level"' >/dev/null
+python3 -m vcp_cli score --badge markdown | grep -F 'https://img.shields.io/badge/VCP_score-' >/dev/null
+python3 -m vcp_cli score --badge json | grep -F '"badge": "https://img.shields.io/badge/VCP_score-' >/dev/null
 python3 -m vcp_cli route --profile production --json | grep -F '"selected_route": "Full Hardening"' >/dev/null
 python3 -m vcp_cli route --profile third-party-api --json | grep -F '"manifest_route_id": "third-party-api-intake"' >/dev/null
 python3 -m vcp_cli route --profile public-growth --json | grep -F '"manifest_route_id": "public-growth-playbook"' >/dev/null
@@ -21,7 +24,7 @@ python3 -m vcp_cli adopt --pack public-growth --dry-run --json | grep -F '"pack"
 python3 -m vcp_cli adopt --pack spec-first --dry-run --json | grep -F '"pack": "spec-first"' >/dev/null
 python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/prompts/loop-code-review.md"' >/dev/null
 python3 -m vcp_cli index validate >/dev/null
-python3 -m vcp_cli index show --json | grep -F '"version": "v0.6.0"' >/dev/null
+python3 -m vcp_cli index show --json | grep -F '"version": "v0.6.1"' >/dev/null
 python3 -m vcp_cli index search production --json | grep -F '"query": "production"' >/dev/null
 python3 -m vcp_cli cards list --json | grep -F '"total"' >/dev/null
 python3 -m vcp_cli cards list --recommended --json | grep -F '"items"' >/dev/null

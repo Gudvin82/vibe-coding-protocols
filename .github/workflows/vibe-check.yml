@@ -80,17 +80,32 @@ jobs:
       - name: CLI review smoke
         run: python3 -m vcp_cli review plan --json
 
+      - name: CLI review-diff smoke
+        run: python3 -m vcp_cli review-diff --json
+
       - name: CLI evaluate smoke
         run: python3 -m vcp_cli evaluate --json
 
       - name: Manifest validation
         run: python3 -m vcp_cli manifest validate
 
+      - name: Cards validation
+        run: python3 -m vcp_cli cards validate
+
+      - name: Index validation
+        run: python3 -m vcp_cli index validate
+
+      - name: Workflow validation
+        run: python3 -m vcp_cli workflow validate
+
       - name: Benchmark validation
         run: python3 -m vcp_cli benchmark run
 
       - name: Score JSON
         run: python3 -m vcp_cli score --json
+
+      - name: Score badge JSON
+        run: python3 -m vcp_cli score --badge json
 
       - name: npm wrapper doctor
         run: npm run vcp -- doctor
@@ -195,15 +210,30 @@ jobs:
       - name: CLI evaluate
         shell: pwsh
         run: py -m vcp_cli evaluate --json
+      - name: CLI review-diff
+        shell: pwsh
+        run: py -m vcp_cli review-diff --json
       - name: Manifest validation
         shell: pwsh
         run: py -m vcp_cli manifest validate
+      - name: Cards validation
+        shell: pwsh
+        run: py -m vcp_cli cards validate
+      - name: Index validation
+        shell: pwsh
+        run: py -m vcp_cli index validate
+      - name: Workflow validation
+        shell: pwsh
+        run: py -m vcp_cli workflow validate
       - name: Benchmark validation
         shell: pwsh
         run: py -m vcp_cli benchmark run
       - name: Score JSON
         shell: pwsh
         run: py -m vcp_cli score --json
+      - name: Score badge JSON
+        shell: pwsh
+        run: py -m vcp_cli score --badge json
       - name: npm wrapper doctor
         shell: pwsh
         run: npm run vcp -- doctor

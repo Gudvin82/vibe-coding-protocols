@@ -101,6 +101,18 @@ REQUIRED_SPEC_SKIP_SAFE_BENCHMARK_ID = "spec-skip-check-safe"
 REQUIRED_SPEC_SKIP_UNSAFE_BENCHMARK_ID = "spec-skip-check-unsafe"
 REQUIRED_PRESET_SOLO_FOUNDER_BENCHMARK_ID = "preset-solo-founder"
 REQUIRED_PLATFORM_COVERAGE_BENCHMARK_ID = "platform-25-plus-coverage"
+REQUIRED_REVIEW_DIFF_COMMAND_ID = "review-diff"
+REQUIRED_SCORE_BADGE_COMMAND_ID = "score-badge"
+REQUIRED_REVIEW_DIFF_REPORT_ID = "review-diff-report"
+REQUIRED_SCORE_BADGE_REPORT_ID = "score-badge-report"
+REQUIRED_PR_GATE_REPORT_ID = "pr-gate-report"
+REQUIRED_REVIEW_DIFF_BENCHMARK_ID = "review-diff-risk-routing"
+REQUIRED_SCORE_BADGE_BENCHMARK_ID = "score-badge-generation"
+REQUIRED_GITHUB_PR_GATE_BENCHMARK_ID = "github-pr-gate-workflow"
+REQUIRED_FOUNDATION_LIFECYCLE_BENCHMARK_ID = "foundation-product-delivery-lifecycle"
+REQUIRED_SPEC_KIT_BRIDGE_BENCHMARK_ID = "spec-kit-bridge-positioning"
+REQUIRED_PLATFORM_STATUS_BENCHMARK_ID = "platform-status-honesty"
+REQUIRED_DOCS_TONE_BENCHMARK_ID = "docs-tone-no-overclaim"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -252,6 +264,10 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: preset-show")
     if REQUIRED_PRESET_VALIDATE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: preset-validate")
+    if REQUIRED_REVIEW_DIFF_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: review-diff")
+    if REQUIRED_SCORE_BADGE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: score-badge")
     if REQUIRED_VCP_PRESET_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: vcp-preset")
     if REQUIRED_VCP_SPEC_COMMAND_ID not in command_ids:
@@ -288,6 +304,12 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required report manifest entry: spec-skip-check-report")
     if REQUIRED_SPEC_TO_BACKLOG_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: spec-to-backlog-report")
+    if REQUIRED_REVIEW_DIFF_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: review-diff-report")
+    if REQUIRED_SCORE_BADGE_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: score-badge-report")
+    if REQUIRED_PR_GATE_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: pr-gate-report")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
     if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
@@ -366,6 +388,20 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: preset-solo-founder")
     if REQUIRED_PLATFORM_COVERAGE_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: platform-25-plus-coverage")
+    if REQUIRED_REVIEW_DIFF_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: review-diff-risk-routing")
+    if REQUIRED_SCORE_BADGE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: score-badge-generation")
+    if REQUIRED_GITHUB_PR_GATE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: github-pr-gate-workflow")
+    if REQUIRED_FOUNDATION_LIFECYCLE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: foundation-product-delivery-lifecycle")
+    if REQUIRED_SPEC_KIT_BRIDGE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-kit-bridge-positioning")
+    if REQUIRED_PLATFORM_STATUS_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: platform-status-honesty")
+    if REQUIRED_DOCS_TONE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: docs-tone-no-overclaim")
 
     payload = {
         "ok": not errors,

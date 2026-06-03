@@ -2,464 +2,67 @@
 
 ## What is VCP
 
-Vibe Coding Protocols (VCP) is an open-source toolkit for controlled AI-assisted software delivery.
-It combines route selection, scoped adoption packs, local CLI helpers, manifests, benchmarks, review gates, operations workflows, backlog discipline, and public-growth guidance.
-It now also includes adaptive spec depth, spec escape hatch, question engine, spec retrofit/freshness, lightweight presets, platform coverage docs/cards, a workflow catalog, diagnostics layer, catalog filters over cards, and a normalized event schema.
+VCP is a foundation and trust layer for AI-assisted product delivery.
+It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.0`
+- Repository package: `v0.6.1`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
-- Canonical website: `https://anmalishev.ru/expert/vibe-coding/`
 
-## How AI agents should evaluate VCP
+## Core evaluation path
 
 Do not evaluate VCP from `README.md` alone.
-Read `AI_EVALUATION_GUIDE.md`, `AI_INTAKE.md`, `START_HERE.md`, `docs/protocol-index.md`, `docs/adoption-packs.md`, `docs/cli.md`, `docs/glossary.md`, `.vcp/manifests/`, and `benchmarks/ai-adoption/`.
-Then review CLI outputs from `doctor`, `manifest validate`, `benchmark run`, `score --json`, and `evaluate --json`.
-
-## Core entrypoints
-
-- `README.md`
+Start with:
+- `AGENTS.md`
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
 - `START_HERE.md`
-- `AGENTS.md`
-- `docs/cli.md`
-- `docs/install.md`
-- `docs/glossary.md`
-- `llms.txt`
-- `ai.txt`
-- `CITATION.cff`
+- `.vcp/index.json`
+- `.vcp/cards/`
+- `docs/product-delivery-lifecycle.md`
+- `docs/flagship-workflows.md`
 
-## Route index
-
-VCP routes:
-- Starter Protocol
-- Spec-first Feature
-- Hardening Protocol
-- Maintenance Refactoring
-- UI Component Ownership
-- Post-Task Code Review
-- Production Error Capture
-- Daily Error Triage
-- Project Backlog / Kanban
-- Third-party API Intake
-- Public Site Readiness
-- Public Growth / SEO / GEO / AI Visibility
-
-## Route: Starter Protocol
-
-When to use:
-- new project
-- new MVP
-- no production risk yet
-
-What it does:
-- establishes project brief, structure, and safe start discipline
-
-Key files:
-- `protocols/ai-project-starter-protocol.md`
-- `START_HERE.md`
-- `templates/AGENTS.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile new-project`
-
-Output/report:
-- starter route recommendation and lightweight file set
-
-Stop conditions:
-- production code already exists
-- sensitive live behavior already exists
-
-Limitations:
-- not the right route for production or regulated systems
-
-## Route: Spec-first Feature
-
-When to use:
-- idea exists but product intent is still fuzzy
-- acceptance criteria or tasks are missing
-- feature is large enough that coding immediately would create guesswork
-
-What it does:
-- forces a product/spec/task lane before implementation begins
-
-Key files:
-- `protocols/spec-driven/README.md`
-- `protocols/spec-driven/product-brief-to-prd.md`
-- `templates/specs/PRD.md`
-- `templates/specs/FEATURE_SPEC.md`
-- `templates/specs/TASKS.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile spec-first`
-- `python3 -m vcp_cli spec validate`
-
-Output/report:
-- spec-first route recommendation and current spec readiness summary
-
-Stop conditions:
-- the change is tiny and mechanical
-- the request is a production incident rather than planning work
-
-Limitations:
-- not an implementation generator
-
-## Route: Hardening Protocol
-
-When to use:
-- existing AI-generated MVP
-- production-bound repo
-- payments, personal data, shared engine, or elevated risk
-
-What it does:
-- pushes the repo toward production-safe review, scoping, validation, and risk control
-
-Key files:
-- `protocols/ai-project-hardening-protocol.md`
-- `protocols/ai-project-extended-protocol.md`
-- `templates/reports/security-review-scope.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile production`
-
-Output/report:
-- route recommendation, adoption pack, review-gate requirement
-
-Stop conditions:
-- no validation path
-- human review missing for sensitive flows
-
-Limitations:
-- not a security scanner or certification
-
-## Route: Maintenance Refactoring
-
-When to use:
-- working code is hard to change
-- behavior should stay stable
-
-What it does:
-- narrows refactoring to behavior-preserving slices
-
-Key files:
-- `protocols/maintenance/care-refactoring.md`
-- `templates/reports/refactoring-report.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile maintenance`
-
-Output/report:
-- refactor route choice and review expectation
-
-Stop conditions:
-- behavior change is actually required
-- no validation path exists
-
-Limitations:
-- not for broad redesigns or silent contract changes
-
-## Route: UI Component Ownership
-
-When to use:
-- styling ownership drift
-- repeated hardcoded UI inconsistencies
-
-What it does:
-- scopes frontend cleanup around ownership and consistency
-
-Key files:
-- `protocols/maintenance/ui-refactoring.md`
-- `templates/reports/ui-refactoring-report.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile ui-ownership`
-
-Output/report:
-- route recommendation and focused UI ownership slice
-
-Stop conditions:
-- whole-system redesign is really being requested
-- accessibility behavior changes without validation
-
-Limitations:
-- not a design-system replacement
-
-## Route: Post-Task Code Review
-
-When to use:
-- active diff needs acceptance before merge or release
-
-What it does:
-- creates a structured independent review gate after meaningful AI-generated work
-
-Key files:
-- `protocols/review/post-task-code-review.md`
-- `commands/loop-code-review.md`
-- `templates/reports/code-review-report.md`
-
-CLI example:
-- `python3 -m vcp_cli review plan`
-
-Output/report:
-- review prompt path, report template, validation expectations
-
-Stop conditions:
-- validation is red
-- reviewer path is unavailable for sensitive changes
-
-Limitations:
-- complements, not replaces, deeper hardening work
-
-## Route: Production Error Capture
-
-When to use:
-- production evidence must be observed without mutation
-
-What it does:
-- enforces read-only capture of recent production issues before fixes start
-
-Key files:
-- `protocols/operations/production-error-capture.md`
-- `templates/reports/production-error-capture-report.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile operations`
-
-Output/report:
-- operations route plus evidence-capture expectations
-
-Stop conditions:
-- no authorized log path exists
-- the request implies changing production state
-
-Limitations:
-- does not fix production directly
-
-## Route: Daily Error Triage
-
-When to use:
-- captured evidence must be deduplicated and routed into follow-up work
-
-What it does:
-- groups issues, sets severity, and feeds `PROJECT_BACKLOG.md`
-
-Key files:
-- `protocols/operations/daily-error-triage.md`
-- `templates/reports/daily-error-triage-report.md`
-
-CLI example:
+Then run:
 - `python3 -m vcp_cli doctor`
+- `python3 -m vcp_cli score --json`
+- `python3 -m vcp_cli review-diff --json`
+- `python3 -m vcp_cli manifest validate`
+- `python3 -m vcp_cli benchmark run`
 
-Output/report:
-- triage report and backlog follow-up path
+## Flagship workflows
 
-Stop conditions:
-- evidence is unsanitized or incomplete
+1. Build an AI-assisted product from idea.
+2. Harden an AI-generated MVP.
+3. Review ongoing AI-driven changes before merge.
 
-Limitations:
-- not root-cause remediation by itself
+## Trust surfaces
 
-## Route: Project Backlog / Kanban
+- `docs/review-diff.md`
+- `docs/score-badge.md`
+- `docs/github-action.md`
+- `docs/anti-patterns.md`
+- `docs/public-proof-roadmap.md`
+- `ADOPTERS.md`
+- `case-studies/README.md`
 
-When to use:
-- work items, findings, and follow-up tasks need one visible queue
+## Platform coverage note
 
-What it does:
-- gives a local lightweight kanban with validation and review fields
+VCP is documented for 25+ AI coding tools and workflows.
+That does not mean 25+ official plugins.
+See `docs/platforms/README.md` for status taxonomy and limitations.
 
-Key files:
-- `PROJECT_BACKLOG.md`
-- `docs/project-backlog.md`
-- `commands/backlog-update.md`
+## Spec-first bridge
 
-CLI example:
-- `python3 -m vcp_cli backlog report`
-
-Output/report:
-- validated backlog state and dry-run write previews
-
-Stop conditions:
-- work is silently skipped instead of recorded
-
-Limitations:
-- not a replacement for external issue trackers when teams need them
-
-## Route: Third-party API Intake
-
-When to use:
-- external API, SDK, SaaS, or webhook is proposed
-
-What it does:
-- forces auth/data-flow/terms/fallback review before implementation
-
-Key files:
-- `protocols/integrations/third-party-api-intake.md`
-- `templates/THIRD_PARTY_REGISTRY.md`
-- `templates/reports/third-party-api-intake-report.md`
-
-CLI example:
-- `python3 -m vcp_cli route --profile third-party-api`
-
-Output/report:
-- intake route plus recommended files and review gate
-
-Stop conditions:
-- secrets would be committed
-- terms or fallback are unknown
-
-Limitations:
-- not an automated integration wizard
-
-## Route: Public Site Readiness
-
-When to use:
-- public docs, trust pages, crawl files, or publish metadata need review
-
-What it does:
-- checks canonical docs, trust links, visible/schema alignment, and crawler-readiness basics
-
-Key files:
-- `docs/public-site-readiness.md`
-- `docs/seo-ai-crawler-readiness.md`
-- `llms.txt`
-
-CLI example:
-- `python3 -m vcp_cli route --profile public-site`
-
-Output/report:
-- route recommendation and publish-safe validation steps
-
-Stop conditions:
-- visible content and schema diverge
-
-Limitations:
-- does not guarantee indexing or ranking
-
-## Route: Public Growth / SEO / GEO / AI Visibility
-
-When to use:
-- service pages, public articles, case pages, FAQ pages, or comparison pages need structure
-- GEO and AI visibility need honest readiness work
-
-What it does:
-- adds page-brief discipline, template selection, schema honesty, internal-link planning, FAQ/comparison/anti-pattern support, and public-growth audit reporting
-
-Key files:
-- `protocols/public-growth/public-growth-playbook.md`
-- `protocols/public-growth/seo-geo-ai-visibility.md`
-- `docs/geo-ai-visibility.md`
-- `docs/page-templates.md`
-- `docs/workflows.md`
-- `docs/diagnostics.md`
-- `docs/catalog.md`
-- `docs/event-schema.md`
-- `templates/public-growth/`
-
-CLI example:
-- `python3 -m vcp_cli route --profile public-growth`
-- `python3 -m vcp_cli adopt --pack public-growth --dry-run`
-
-Output/report:
-- public-growth route selection, scoped pack, audit report, monitoring report
-
-Stop conditions:
-- guaranteed ranking/citation claims
-- hidden FAQ schema
-- fake proof, doorway pages, fake reviews, or spam tactics
-
-Limitations:
-- not a ranking guarantee
-- not a black-hat SEO toolkit
-
-## CLI commands
-
-Current command groups:
-- `version`
-- `doctor`
-- `check`
-- `init`
-- `route`
-- `adopt`
-- `evaluate`
-- `spec`
-- `workflow`
-- `diagnose`
-- `backlog`
-- `score`
-- `manifest`
-- `benchmark`
-- `review`
-- `demo`
-
-## Manifests
-
-Machine-readable metadata lives in `.vcp/manifests/`.
-It describes routes, packs, commands, reports, benchmarks, and package metadata.
-
-## Benchmarks
-
-Benchmarks are synthetic/local scenario checks.
-They validate that route selection, adoption pack behavior, evaluation guidance, public-growth surfaces, and related docs stay wired correctly.
-They are not real adoption metrics.
-
-## Reports and templates
-
-VCP includes:
-- adoption assessment templates
-- review report templates
-- third-party API intake report
-- operations capture and triage reports
-- backlog update reports
-- public-growth audit and AI visibility monitoring reports
-- page templates and schema templates
+Spec-first tools help define what to build.
+VCP helps govern how AI-assisted changes move safely toward merge and production.
+See `docs/integrations/spec-kit-bridge.md`.
 
 ## What VCP is not
 
-VCP is not:
-- a security scanner
-- a pentest suite
-- an offensive toolkit
-- a compliance certification
-- a guaranteed production safety system
-- a guaranteed SEO or AI citation system
-- a replacement for tests or human review
-
-## Citation and attribution
-
-Preferred attribution:
-- Vibe Coding Protocols by Anatoly Malyshev
-
-See:
-- `CITATION.cff`
-- `ai.txt`
-- `ADOPTERS.md`
-
-## Recommended evaluation path
-
-1. Read `AGENTS.md`
-2. Read `AI_EVALUATION_GUIDE.md`
-3. Read `AI_INTAKE.md`
-4. Read `docs/glossary.md`
-5. Read `docs/faq.md`, `docs/comparison.md`, `docs/anti-patterns.md`
-6. Run or review `doctor`, `manifest validate`, `benchmark run`, `score --json`, `evaluate --json`
-7. Mark evaluation as shallow if that path was skipped
-
-## Progressive disclosure
-
-If context is limited, inspect in this order:
-- `AGENTS.md`
-- `AI_EVALUATION_GUIDE.md`
-- `llms.txt`
-- `.vcp/index.json`
-- `.vcp/cards/`
-- `.vcp/manifests/`
-- selected full docs only
-
-## Platform compatibility
-
-See `docs/platforms/README.md` plus per-platform docs for Claude Code, Codex CLI, Cursor, Windsurf, GitHub Copilot, Gemini CLI, and JetBrains / Junie.
-These are docs-based usage paths, not official plugin claims.
+- not a scanner;
+- not a compliance certification;
+- not a guarantee of production safety;
+- not a guarantee of AI citation, indexing, or ranking;
+- not an official plugin suite unless explicitly stated.

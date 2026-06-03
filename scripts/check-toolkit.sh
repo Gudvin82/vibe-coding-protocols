@@ -147,7 +147,7 @@ required_files=(
   docs/release-v0.5.7.md
   docs/release-v0.5.8.md
   docs/release-v0.5.9.md
-  docs/release-v0.6.0.md
+  docs/release-v0.6.1.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md

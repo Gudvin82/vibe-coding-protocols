@@ -1,8 +1,8 @@
-<!-- vcp-version: v0.6.0 -->
+<!-- vcp-version: v0.6.1 -->
 <!-- methodology-version: v1.4 -->
 # Tasks
 
-`vcp-version: v0.6.0`
+`vcp-version: v0.6.1`
 
 ## Task breakdown
 - [ ] Task 1

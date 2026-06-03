@@ -1,0 +1,15 @@
+{
+  "scenario_id": "foundation-product-delivery-lifecycle",
+  "target_profile": "new-project",
+  "target_signals": [
+    "idea to production lifecycle"
+  ],
+  "required_files_to_inspect": [
+    "docs/product-delivery-lifecycle.md",
+    "docs/flagship-workflows.md"
+  ],
+  "expected_first_safe_action": "Choose the minimum, full, or skip path before implementation.",
+  "expected_warnings": [
+    "full lifecycle should not force PRD for tiny fixes"
+  ]
+}

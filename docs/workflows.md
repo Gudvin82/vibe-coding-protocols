@@ -1,6 +1,6 @@
 # Workflows
 
-Repository package: `v0.6.0`
+Repository package: `v0.6.1`
 
 VCP workflows are structured guidance records, not an automation engine.
 

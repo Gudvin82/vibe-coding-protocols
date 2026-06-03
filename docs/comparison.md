@@ -1,79 +1,40 @@
 # Comparison
 
-VCP should be compared by purpose, not by hype.
-It complements several adjacent tools and conventions.
-It does not replace all of them.
+Compare VCP by purpose, not by hype.
+
+VCP is most useful when AI-assisted delivery needs both a product foundation and trust gates before merge or release.
 
 ## Capability comparison
 
-| Capability | VCP | `.cursorrules` only | Copilot Instructions | Conventional Commits | Generic prompt pack | Issue tracker | Security scanner |
-|---|---|---|---|---|---|---|---|
-| Multi-AI support | Yes | Partial | Partial | No | Partial | N/A | N/A |
-| Route classification | Yes | No | No | No | Rarely | No | No |
-| Spec-first lane | Yes | No | No | No | Rarely | Partial | No |
-| Workflow catalog | Yes | No | No | No | Rarely | Partial | No |
-| Diagnostics by layer | Yes | No | No | No | Rarely | Partial | Partial |
-| Adoption packs | Yes | No | No | No | Rarely | No | No |
-| Project memory | Yes | Partial | Partial | No | Partial | Partial | No |
-| Architecture Source of Truth | Supported | No | No | No | Rarely | No | No |
-| Hardening workflow | Yes | No | No | No | Rarely | No | No |
-| Post-task review gate | Yes | No | No | No | Rarely | No | No |
-| Backlog discipline | Yes | No | No | No | No | Yes | No |
-| Production error capture | Yes | No | No | No | No | No | No |
-| Third-party API intake | Yes | No | No | No | Rarely | No | No |
-| Public Growth / GEO | Yes | No | No | No | Rarely | No | No |
-| Event schema for findings | Yes | No | No | No | Rarely | Partial | Partial |
-| CLI | Yes | No | No | No | Rarely | No | Yes |
-| Manifests | Yes | No | No | No | Rarely | No | No |
-| Benchmarks | Yes | No | No | No | Rarely | No | Partial |
-| Reports/templates | Yes | Rarely | Rarely | No | Partial | Partial | Partial |
-| Security scanning | No, different purpose | No | No | No | No | No | Yes |
-| Replaces human review | No | No | No | No | No | No | No |
+| Capability | VCP | Rules file only | Copilot Instructions | Issue tracker | Security scanner |
+|---|---|---|---|---|---|
+| Route classification | Yes | No | No | No | No |
+| Adaptive spec depth | Yes | No | No | No | No |
+| Backlog and architecture memory discipline | Yes | Partial | Partial | Partial | No |
+| Review-diff trust gate | Yes | No | No | No | No |
+| Diagnostics and release readiness | Yes | No | No | Partial | Partial |
+| Public-growth / crawler readiness | Yes | No | No | No | No |
+| Security scanning | No, different purpose | No | No | No | Yes |
+| Replaces human review | No | No | No | No | No |
 
 ## Notes by category
 
-### `.cursorrules` or a single IDE rules file
+### Rules files and IDE instructions
 
-Different purpose. A rules file can shape one assistant’s local behavior, but it usually does not provide route classification, manifests, benchmarks, backlog discipline, or operations workflow.
-
-### GitHub Copilot Instructions
-
-Different purpose. Copilot Instructions guide one assistant surface; VCP adds repository-wide workflow structure across adoption, validation, review, and public-growth work.
-
-### Conventional Commits
-
-Different purpose. Conventional Commits standardize commit messages, while VCP focuses on upstream delivery discipline before and after changes are made.
-
-### Generic prompt packs
-
-Prompt packs can be useful, but they often stop at prompting. VCP tries to add repeatable routing, scoped adoption, manifests, benchmarks, and review/report artifacts.
-
-### Product starter templates
-
-Starter templates help bootstrap code. VCP is more about controlling AI-assisted delivery across the project lifecycle.
+Different purpose. A rules file can shape one assistant surface, but it usually does not add route discipline, diagnostics, review-diff, or release-gate structure.
 
 ### Spec-first tooling
 
-Different purpose. Spec-first tools focus on PRD/spec/task discipline. VCP now includes a spec lane, but it does not claim external compatibility or code generation capabilities that are not implemented.
+Different purpose. Spec-first tools help define what to build. VCP helps govern how AI-assisted changes move safely toward merge and production. VCP can also stay on no-spec or spec-lite when risk is low.
 
-### Workflow automation platforms
+### Issue trackers
 
-Different purpose. Workflow platforms can execute actions across services. VCP workflows are local catalog definitions for trigger, steps, validation, and stop conditions. They are not a Zapier/Pipedream clone.
+Different purpose. Trackers remain useful for teams. VCP adds a local workflow layer around backlog, review, validation, and release evidence.
 
 ### Security scanners
 
-Different purpose. Scanners inspect for specific technical findings. VCP does not pretend to replace scanning, testing, or human security review.
+Different purpose. Scanners inspect technical findings. VCP does not pretend to replace scanning, testing, or human security review.
 
-### Issue trackers like Jira or Linear
+### Platform docs
 
-Different purpose. Issue trackers remain useful for teams. VCP’s local backlog is a lightweight workflow layer, not a claim that external trackers are unnecessary.
-
-## Conclusion
-
-VCP complements these tools.
-It is not trying to replace IDE instructions, scanners, issue trackers, or commit conventions.
-It is most useful when AI-assisted delivery needs route discipline, scoped adoption, validation, review gates, and honest public-growth structure.
-
-## VCP cards and index vs large skill registries
-
-Different purpose. VCP now uses cards and `.vcp/index.json` as a lightweight AI-native discovery layer for a delivery framework. This is architecture inspiration for progressive disclosure, not a claim that VCP is a cybersecurity skill registry or agentskills.io-compatible package.
+VCP is documented for 25+ AI coding tools and workflows. That does not mean 25+ official plugins. See `docs/platforms/README.md` for status taxonomy and limitations.

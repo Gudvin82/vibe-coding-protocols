@@ -127,6 +127,22 @@
       "expected_first_action": "Run diagnose and inspect layer results."
     },
     {
+      "id": "docs-tone-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/docs-tone-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/comparison.md",
+        "docs/public-proof-roadmap.md"
+      ],
+      "expected_warnings": [
+        "docs should avoid hype and unsupported superiority claims"
+      ],
+      "expected_first_action": "Check use cases, limits, and evidence before summarizing maturity."
+    },
+    {
       "id": "event-schema-review-finding",
       "profile": "post-task-review",
       "scenario_file": "benchmarks/ai-adoption/scenarios/event-schema-review-finding.json",
@@ -188,6 +204,21 @@
       "expected_first_action": "Convert accepted spec into tasks and backlog linkage."
     },
     {
+      "id": "foundation-product-delivery-lifecycle",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/foundation-product-delivery-lifecycle.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/product-delivery-lifecycle.md",
+        "docs/flagship-workflows.md"
+      ],
+      "expected_warnings": [
+        "full lifecycle should not force PRD for tiny fixes"
+      ],
+      "expected_first_action": "Choose the minimum, full, or skip path before implementation."
+    },
+    {
       "id": "geo-ai-visibility",
       "profile": "public-growth",
       "scenario_file": "benchmarks/ai-adoption/scenarios/geo-ai-visibility.json",
@@ -202,6 +233,21 @@
         "AI visibility is a readiness layer, not a guarantee"
       ],
       "expected_first_action": "Map the public entities, answerable questions, and proof links before editing metadata or schema."
+    },
+    {
+      "id": "github-pr-gate-workflow",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/github-pr-gate-workflow.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/github-action.md",
+        "ci-examples/github-actions/vcp-check.yml"
+      ],
+      "expected_warnings": [
+        "CI example is not a GitHub Marketplace Action"
+      ],
+      "expected_first_action": "Run repository validation checks in CI before merge."
     },
     {
       "id": "glossary-inspection",
@@ -312,6 +358,21 @@
         "do not claim official plugins where only docs/prompts exist"
       ],
       "expected_first_action": "Read the platform docs before making compatibility or vendor-support claims."
+    },
+    {
+      "id": "platform-status-honesty",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/platform-status-honesty.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/platforms/README.md",
+        ".vcp/cards/platforms/codex-cli.json"
+      ],
+      "expected_warnings": [
+        "documented for 25+ tools is not the same as 25+ official plugins"
+      ],
+      "expected_first_action": "Check platform status taxonomy before claiming compatibility."
     },
     {
       "id": "post-task-review",
@@ -519,6 +580,36 @@
       "expected_first_action": "Stop calling the evaluation complete and inspect the minimum file set from AI_EVALUATION_GUIDE.md."
     },
     {
+      "id": "review-diff-risk-routing",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/review-diff-risk-routing.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/review-diff.md",
+        "vcp_cli/review_diff.py"
+      ],
+      "expected_warnings": [
+        "review-diff should not auto-approve or auto-edit changes"
+      ],
+      "expected_first_action": "Inspect changed files and classify impacted areas before merge."
+    },
+    {
+      "id": "score-badge-generation",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/score-badge-generation.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/score-badge.md",
+        "vcp_cli/score.py"
+      ],
+      "expected_warnings": [
+        "score badge is a local readiness signal, not external proof"
+      ],
+      "expected_first_action": "Generate a local badge string without claiming certification."
+    },
+    {
       "id": "shared-engine-production",
       "profile": "shared-engine",
       "scenario_file": "benchmarks/ai-adoption/scenarios/shared-engine-production.json",
@@ -608,6 +699,21 @@
         "missing optional files should not hard-fail freshness"
       ],
       "expected_first_action": "Run freshness checks and report stale/unknown signals."
+    },
+    {
+      "id": "spec-kit-bridge-positioning",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-kit-bridge-positioning.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/spec-kit-bridge.md",
+        "docs/comparison.md"
+      ],
+      "expected_warnings": [
+        "bridge docs must not imply endorsement or native plugin support"
+      ],
+      "expected_first_action": "Explain how VCP complements spec-first planning without claiming official integration."
     },
     {
       "id": "spec-question-engine",

@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.6.0-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.6.1-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -12,13 +12,15 @@
 [![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
 [![No Offensive Tooling](https://img.shields.io/badge/security-defensive_only-success)](./docs/security-tooling-landscape.md)
 
-Controlled AI delivery toolkit for routing, adopting, validating, reviewing, and explaining AI-assisted software and public-site work.
+Build with AI. Ship with control.
 
-Repository package: `v0.6.0`
+Vibe Coding Protocols helps you build AI-assisted products from idea to production without losing control: it routes the work, chooses the right spec depth, keeps project memory, checks AI-generated changes, manages backlog, runs review gates, and prepares releases.
+
+Repository package: `v0.6.1`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
-## Quick Start: 3 steps
+## Quick Start
 
 ```bash
 python3 -m vcp_cli doctor
@@ -26,7 +28,7 @@ python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
 ```
 
-Local Node-first option:
+Node-first local option:
 
 ```bash
 npm install
@@ -34,18 +36,41 @@ npm run vcp -- doctor
 npm run vcp -- evaluate
 ```
 
-Optional local editable install:
+## Two ways to use VCP
+
+### Build from scratch
+
+Use VCP to turn an idea into a controlled AI-assisted product:
+idea -> spec depth -> PRD / feature spec -> tasks -> backlog -> architecture memory -> implementation -> review -> release.
+
+### Stabilize an existing project
+
+Use VCP to harden and govern an existing AI-generated project:
+intake -> diagnostics -> hardening -> review gates -> backlog -> release readiness -> operations feedback.
+
+## Three flagship workflows
+
+1. [Build an AI-assisted product from idea](./docs/flagship-workflows.md)
+2. [Harden an AI-generated MVP](./docs/flagship-workflows.md)
+3. [Review ongoing AI-driven changes](./docs/flagship-workflows.md)
+
+## Product delivery lifecycle
+
+See [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) for:
+- minimum path;
+- full path;
+- skip path;
+- stage-by-stage commands, outputs, and stop conditions.
+
+## VCP score badge
+
+Projects can publish a local VCP readiness badge after running checks:
 
 ```bash
-python3 -m venv .venv
-. .venv/bin/activate
-python3 -m pip install -e .
-vcp doctor
+python3 -m vcp_cli score --badge markdown
 ```
 
-AI-native delivery flow:
-
-`Idea -> Adaptive Spec Depth -> Spec Lane or Escape Hatch -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
+The badge is not a security certification. It is a visible local readiness signal.
 
 ## Giving VCP to an AI agent?
 
@@ -53,85 +78,64 @@ Do not judge this repository from README alone.
 
 Minimum inspection path:
 
-1. `AI_INTAKE.md`
-2. `START_HERE.md`
-3. `docs/install.md`
-4. `docs/glossary.md`
-5. `docs/protocol-index.md`
-6. `docs/adoption-packs.md`
-7. `docs/cli.md`
-8. `.vcp/manifests/`
-9. `benchmarks/ai-adoption/`
-10. `commands/`, `protocols/`, `PROJECT_BACKLOG.md`
+1. `AGENTS.md`
+2. `AI_EVALUATION_GUIDE.md`
+3. `AI_INTAKE.md`
+4. `START_HERE.md`
+5. `.vcp/index.json`
+6. `.vcp/cards/`
+7. `docs/product-delivery-lifecycle.md`
+8. `docs/flagship-workflows.md`
+9. `docs/protocol-index.md`
+10. `docs/adoption-packs.md`
+11. `docs/cli.md`
+12. `.vcp/manifests/`
+13. `benchmarks/ai-adoption/`
+14. `PROJECT_BACKLOG.md`
 
 Then run:
 
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli score --json
+python3 -m vcp_cli review-diff --json
 python3 -m vcp_cli benchmark run
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli evaluate --json
-python3 -m vcp_cli workflow list
-python3 -m vcp_cli diagnose --profile production --json
 ```
 
 Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 
-Citation and AI-agent entry surfaces:
-
-- [AGENTS.md](./AGENTS.md)
-- [llms.txt](./llms.txt)
-- [llms-full.txt](./llms-full.txt)
-- [ai.txt](./ai.txt)
-- [CITATION.cff](./CITATION.cff)
-
-VCP includes a progressive-disclosure discovery layer for AI agents:
-
-- `.vcp/index.json` — machine-readable entrypoint
-- `.vcp/cards/` — small route/protocol/adoption-pack cards
-- `.vcp/manifests/` — full manifest metadata
-- `llms-full.txt` — expanded LLM reference
-
-Use this when your AI agent has limited context and should not read the whole repository.
-
-```bash
-python3 -m vcp_cli index validate
-python3 -m vcp_cli cards list --recommended
-python3 -m vcp_cli index search production
-```
-
-## AI-agent handoff
-
-Start with [AI_INTAKE.md](./AI_INTAKE.md), then route through [START_HERE.md](./START_HERE.md).
-If you need a repository evaluation prompt, use [templates/prompts/evaluate-vcp-repository.md](./templates/prompts/evaluate-vcp-repository.md).
-If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
+If you need repo-level agent rules, use root `AGENTS.md`.
+If you need a reusable project template, use [templates/AGENTS.md](./templates/AGENTS.md).
 
 ## What VCP helps with
 
-- choosing the right route for a real repo instead of defaulting to Starter;
-- keeping production, regulated, public-site, public-growth, maintenance, API-intake, and operations work scoped;
-- adopting a small relevant file set instead of copying the whole toolkit;
-- turning production observations into triage notes and backlog follow-up without skipping review discipline;
-- choosing between no-spec, spec-lite, full-spec, and governed-spec instead of forcing every task through the same lane;
-- forcing non-trivial ideas through a spec lane before implementation starts;
-- making repeated delivery flows explicit through workflow definitions instead of chat-only memory;
-- checking project/process readiness by layer with diagnostics instead of guessing;
-- making card discovery easier with recommended filters, maturity labels, and platform badges;
-- capturing findings in a normalized event schema instead of ad hoc notes;
-- validating repo health before merge, release, or deploy;
-- adding a review gate after meaningful AI-generated changes.
-- making the repository easier to evaluate, cite, compare fairly, and explain to AI systems.
+- choosing the right route instead of treating every AI task the same way;
+- deciding between no-spec, spec-lite, full-spec, and governed-spec;
+- turning ideas into PRD/spec/tasks without forcing full process on tiny fixes;
+- keeping backlog, architecture memory, and release notes in sync;
+- checking active diffs before merge with `review-diff` and review gates;
+- validating repository health through manifests, cards, benchmarks, diagnostics, and workflows;
+- documenting public-growth and platform usage without claiming official integrations.
+
+## When VCP is too much
+
+- toy project;
+- one-off script;
+- pure copy edit;
+- no production or public use;
+- pure exploration;
+- user does not want process yet.
 
 ## Current maturity
 
-- Methodology: mature enough for real project adoption.
+- Methodology: strong enough for real adoption.
 - Local CLI: usable and validated in clean clone.
-- npm: local wrapper available; public package planned unless published.
-- Benchmarks: synthetic/local validation scenarios.
-- Case studies: sanitized/synthetic templates; real measured cases are future work.
-- Public standard: emerging, not an industry standard yet.
-- Citation/demo layer: honest and explicit, without claiming indexing, ranking, or existing demo media.
+- npm: local wrapper available; public package is future work unless published.
+- Benchmarks: local/synthetic validation scenarios.
+- Case studies: mixed real, sanitized, synthetic, and template layers with clear labels.
+- Public standard: still emerging.
 
 ## Routes
 
@@ -141,50 +145,28 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 | Existing AI-generated MVP | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
 | Production, regulated, or shared-engine repo | [AI_INTAKE.md](./AI_INTAKE.md) + [Adoption Packs](./docs/adoption-packs.md) |
 | Working code that is hard to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
-| UI styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
 | External API, SDK, webhook, or SaaS proposal | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
-| Read-only production issue observation and daily triage | [Operations Feedback Loop](./protocols/operations/production-error-capture.md) |
-| Ongoing task tracking before implementation starts | [Project Backlog](./docs/project-backlog.md) |
 | Public docs, marketing site, trust, or crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
-| Service pages, GEO, AI visibility, and public growth structure | [Public Growth Playbook](./protocols/public-growth/public-growth-playbook.md) |
 | Idea is still fuzzy and needs PRD / feature spec / acceptance criteria first | [Spec-first Feature](./protocols/spec-driven/README.md) |
-| Active diff that must be accepted before moving on | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
+| Active diff that must be accepted before merge or release | [Review Diff](./docs/review-diff.md) + [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 
 ## What VCP is not
 
-VCP is not a scanner, pentest/offensive toolkit, compliance certification, monitoring product, SEO guarantee, or replacement for human review. It is a workflow and tooling layer for safer AI-assisted delivery.
+VCP is not a scanner, pentest toolkit, compliance certification, SEO guarantee, or replacement for human review. It is a workflow and trust layer for safer AI-assisted delivery.
 
 ## Go deeper
 
 - [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
-- [docs/install.md](./docs/install.md)
-- [docs/glossary.md](./docs/glossary.md)
-- [docs/cli.md](./docs/cli.md)
-- [docs/adaptive-spec-depth.md](./docs/adaptive-spec-depth.md)
-- [docs/packs-and-presets.md](./docs/packs-and-presets.md)
-- [docs/geo-ai-visibility.md](./docs/geo-ai-visibility.md)
-- [docs/page-templates.md](./docs/page-templates.md)
-- [docs/scoring.md](./docs/scoring.md)
-- [docs/npm.md](./docs/npm.md)
-- [docs/project-backlog.md](./docs/project-backlog.md)
-- [docs/production-observability.md](./docs/production-observability.md)
+- [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md)
+- [docs/flagship-workflows.md](./docs/flagship-workflows.md)
+- [docs/review-diff.md](./docs/review-diff.md)
+- [docs/score-badge.md](./docs/score-badge.md)
+- [docs/github-action.md](./docs/github-action.md)
+- [docs/integrations/spec-kit-bridge.md](./docs/integrations/spec-kit-bridge.md)
+- [docs/platforms/README.md](./docs/platforms/README.md)
 - [docs/faq.md](./docs/faq.md)
 - [docs/comparison.md](./docs/comparison.md)
 - [docs/anti-patterns.md](./docs/anti-patterns.md)
-- [docs/quickstart-walkthrough.md](./docs/quickstart-walkthrough.md)
-- [docs/demo-script.md](./docs/demo-script.md)
-- [ADOPTERS.md](./ADOPTERS.md)
-- [docs/protocol-index.md](./docs/protocol-index.md)
-- [docs/adoption-packs.md](./docs/adoption-packs.md)
 - [docs/public-proof-roadmap.md](./docs/public-proof-roadmap.md)
-- [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
-- [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/progressive-disclosure.md](./docs/progressive-disclosure.md)
-- [docs/workflows.md](./docs/workflows.md)
-- [docs/diagnostics.md](./docs/diagnostics.md)
-- [docs/catalog.md](./docs/catalog.md)
-- [docs/event-schema.md](./docs/event-schema.md)
-- [docs/vcp-cards.md](./docs/vcp-cards.md)
-- [docs/vcp-mappings.md](./docs/vcp-mappings.md)
-- [docs/platforms/README.md](./docs/platforms/README.md)
-- [docs/release-v0.6.0.md](./docs/release-v0.6.0.md)
+- [case-studies/README.md](./case-studies/README.md)
+- [ADOPTERS.md](./ADOPTERS.md)
