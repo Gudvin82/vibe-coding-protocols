@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Growth Schema Templates

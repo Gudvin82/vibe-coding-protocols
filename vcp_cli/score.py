@@ -11,6 +11,7 @@ def manifest_relpaths() -> list[str]:
 CATEGORY_RULES = [
     ("Repository evaluation guidance", ["AI_EVALUATION_GUIDE.md", "templates/prompts/evaluate-vcp-repository.md", "templates/reports/vcp-repository-evaluation-report.md"]),
     ("LLM citation and AI-agent entry", ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff", "ADOPTERS.md"]),
+    ("Progressive disclosure and cards", [".vcp/index.json", ".vcp/cards/README.md", "schemas/vcp-card.schema.json", "docs/progressive-disclosure.md", "docs/vcp-cards.md", "docs/vcp-mappings.md", "docs/platforms/README.md", "vcp_cli/index_cmd.py", "vcp_cli/cards.py"]),
     ("AI Intake readiness", ["AI_INTAKE.md", "docs/target-project-classifier.md"]),
     ("Route classifier", ["docs/protocol-index.md", "docs/route-map.md"]),
     ("Adoption packs", ["docs/adoption-packs.md", ".vcp/manifests/adoption-packs.manifest.json"]),
@@ -29,7 +30,7 @@ CATEGORY_RULES = [
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.7.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.8.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 

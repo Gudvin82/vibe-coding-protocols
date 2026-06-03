@@ -1,0 +1,41 @@
+{
+  "id": "geo-ai-visibility",
+  "type": "concept",
+  "name": "GEO / AI Visibility",
+  "summary": "Public answer-engine readability without ranking guarantees.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "growth"
+    ],
+    "ai_failure_modes": [
+      "public growth without baseline"
+    ],
+    "project_state": [
+      "public site"
+    ],
+    "risk_categories": [
+      "public visibility"
+    ]
+  },
+  "entry_files": [
+    "docs/geo-ai-visibility.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "release-gate",
+  "type": "concept",
+  "name": "Release Gate",
+  "summary": "Validation and review boundary before release.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "no review gate",
+      "no validation"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "security",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "templates/reports/code-review-report.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

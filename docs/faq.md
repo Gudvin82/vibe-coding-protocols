@@ -126,6 +126,7 @@ Run `doctor`, `route`, and `adopt --dry-run` first. If you want a realistic huma
 Related:
 - [install.md](./install.md)
 - [quickstart-walkthrough.md](./quickstart-walkthrough.md)
+- [progressive-disclosure.md](./progressive-disclosure.md)
 
 ## Optional FAQPage schema for hosted docs
 
@@ -148,3 +149,15 @@ Do not publish hidden or mismatched FAQ schema.
   ]
 }
 ```
+
+## What is `.vcp/index.json`?
+
+It is the machine-readable discovery entrypoint for VCP. If an AI agent has limited context, it should inspect `.vcp/index.json` and relevant cards before opening the full repository docs.
+
+## What are VCP Cards?
+
+VCP Cards are small metadata-first JSON summaries for routes, protocols, adoption packs, commands, reports, and concepts. They support progressive disclosure and do not replace the full docs.
+
+Related:
+- [progressive-disclosure.md](./progressive-disclosure.md)
+- [vcp-cards.md](./vcp-cards.md)

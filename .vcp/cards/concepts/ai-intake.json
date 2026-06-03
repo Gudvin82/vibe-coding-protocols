@@ -1,0 +1,43 @@
+{
+  "id": "ai-intake",
+  "type": "concept",
+  "name": "AI Intake",
+  "summary": "Classification step before route selection.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "AI_INTAKE.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

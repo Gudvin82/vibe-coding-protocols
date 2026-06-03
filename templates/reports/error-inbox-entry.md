@@ -1,5 +1,5 @@
 <!-- vcp-artifact: ERROR_INBOX_ENTRY -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 # Error Inbox Entry

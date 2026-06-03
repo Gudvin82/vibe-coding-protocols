@@ -185,3 +185,16 @@ VCP countermeasure:
 - page brief
 - public-growth audit
 - review gate for meaningful claim changes
+
+## 16. No progressive disclosure for large repos
+
+Symptom:
+- AI reads random top-level files or tries to scan the whole repository
+
+Why it is risky:
+- context is wasted and important layers are skipped anyway
+
+VCP countermeasure:
+- `.vcp/index.json`
+- `.vcp/cards/`
+- `docs/progressive-disclosure.md`

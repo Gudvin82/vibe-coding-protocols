@@ -556,5 +556,9 @@
       "review_gate_requirement": "Required once backlog items turn into meaningful implementation work.",
       "next_safe_step": "Add or update the backlog item before the implementation slice starts."
     }
+  ],
+  "progressive_disclosure_entrypoints": [
+    ".vcp/index.json",
+    ".vcp/cards/"
   ]
 }

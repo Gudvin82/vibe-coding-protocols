@@ -1,0 +1,63 @@
+{
+  "id": "regulated",
+  "type": "adoption_pack",
+  "name": "Regulated Pack",
+  "summary": "Scoped adoption pack for regulated pack.",
+  "use_when": [
+    "payments",
+    "personal data",
+    "compliance claims"
+  ],
+  "do_not_use_when": [
+    "toy demo only"
+  ],
+  "risk_level": "critical",
+  "domains": [
+    "adoption-pack"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "hardening",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "unsafe external API",
+      "no review gate"
+    ],
+    "project_state": [
+      "regulated"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "templates/reports/security-review-scope.md",
+    "protocols/review/post-task-code-review.md",
+    "templates/reports/code-review-report.md",
+    "templates/SECURITY_OPERATIONS_BASELINE.md",
+    "protocols/integrations/third-party-api-intake.md",
+    "templates/THIRD_PARTY_REGISTRY.md"
+  ],
+  "related_files": [
+    "templates/INCIDENT_RECOVERY_RUNBOOK.md",
+    "PROJECT_BACKLOG.md",
+    "PROJECT_MAP.md",
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt --pack regulated --dry-run"
+  ],
+  "outputs": [
+    "adoption dry-run plan"
+  ],
+  "stop_conditions": [
+    "Human review unavailable",
+    "Sensitive flow change lacks validation"
+  ],
+  "validation": [
+    "bash scripts/vibe-check.sh --audit --json",
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "version": "v0.5.8"
+}

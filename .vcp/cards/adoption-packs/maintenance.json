@@ -1,0 +1,56 @@
+{
+  "id": "maintenance",
+  "type": "adoption_pack",
+  "name": "Maintenance Pack",
+  "summary": "Scoped adoption pack for maintenance pack.",
+  "use_when": [
+    "working code is hard to change"
+  ],
+  "do_not_use_when": [
+    "behavior change is required"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "adoption-pack"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "no validation"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "protocols/maintenance/care-refactoring.md",
+    "templates/reports/refactoring-report.md",
+    "protocols/review/post-task-code-review.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "related_files": [
+    "PROJECT_MAP.md",
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md",
+    "PROJECT_MAP.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt --pack maintenance --dry-run"
+  ],
+  "outputs": [
+    "adoption dry-run plan"
+  ],
+  "stop_conditions": [
+    "No focused validation exists"
+  ],
+  "validation": [
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "version": "v0.5.8"
+}

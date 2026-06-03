@@ -1,5 +1,5 @@
 <!-- vcp-artifact: REPORT_VCP_ADOPTION_ASSESSMENT -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 # VCP Adoption Assessment

@@ -43,6 +43,15 @@ REQUIRED_PUBLIC_GROWTH_BENCHMARK_ID = "public-growth-audit"
 REQUIRED_GEO_AI_VISIBILITY_BENCHMARK_ID = "geo-ai-visibility"
 REQUIRED_PAGE_TEMPLATE_SELECTION_BENCHMARK_ID = "page-template-selection"
 REQUIRED_GLOSSARY_INSPECTION_BENCHMARK_ID = "glossary-inspection"
+REQUIRED_INDEX_SHOW_COMMAND_ID = "index-show"
+REQUIRED_INDEX_VALIDATE_COMMAND_ID = "index-validate"
+REQUIRED_INDEX_SEARCH_COMMAND_ID = "index-search"
+REQUIRED_CARDS_LIST_COMMAND_ID = "cards-list"
+REQUIRED_CARDS_SHOW_COMMAND_ID = "cards-show"
+REQUIRED_CARDS_VALIDATE_COMMAND_ID = "cards-validate"
+REQUIRED_PROGRESSIVE_DISCLOSURE_BENCHMARK_ID = "progressive-disclosure-index"
+REQUIRED_CARD_ROUTE_SELECTION_BENCHMARK_ID = "card-based-route-selection"
+REQUIRED_PLATFORM_COMPATIBILITY_BENCHMARK_ID = "platform-compatibility-inspection"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -146,6 +155,18 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: backlog-template")
     if REQUIRED_EVALUATION_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: evaluate")
+    if REQUIRED_INDEX_SHOW_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: index-show")
+    if REQUIRED_INDEX_VALIDATE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: index-validate")
+    if REQUIRED_INDEX_SEARCH_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: index-search")
+    if REQUIRED_CARDS_LIST_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: cards-list")
+    if REQUIRED_CARDS_SHOW_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: cards-show")
+    if REQUIRED_CARDS_VALIDATE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: cards-validate")
     if REQUIRED_API_INTAKE_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: third-party-api-intake-report")
     if REQUIRED_ERROR_REPORT_ID not in report_ids:
@@ -192,6 +213,12 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: page-template-selection")
     if REQUIRED_GLOSSARY_INSPECTION_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: glossary-inspection")
+    if REQUIRED_PROGRESSIVE_DISCLOSURE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: progressive-disclosure-index")
+    if REQUIRED_CARD_ROUTE_SELECTION_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: card-based-route-selection")
+    if REQUIRED_PLATFORM_COMPATIBILITY_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: platform-compatibility-inspection")
 
     payload = {
         "ok": not errors,

@@ -1,0 +1,53 @@
+{
+  "id": "maintenance-refactoring",
+  "type": "route",
+  "name": "Maintenance Refactoring",
+  "summary": "Use when working code is hard to change and behavior should stay stable.",
+  "use_when": [
+    "working code is hard to change"
+  ],
+  "do_not_use_when": [
+    "intentional behavior change is required"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "maintenance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "no validation"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "maintainability",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "protocols/maintenance/care-refactoring.md"
+  ],
+  "related_files": [
+    "templates/reports/refactoring-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli route --profile maintenance"
+  ],
+  "outputs": [
+    "maintenance route recommendation"
+  ],
+  "stop_conditions": [
+    "behavior change is actually required"
+  ],
+  "validation": [
+    "focused tests",
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "version": "v0.5.8"
+}

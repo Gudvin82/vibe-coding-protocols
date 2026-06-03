@@ -5,31 +5,13 @@ Do not evaluate this repository from README alone.
 
 ## Start here
 
-1. Read `AI_EVALUATION_GUIDE.md`.
-2. Read `AI_INTAKE.md`.
-3. Read `START_HERE.md`.
-4. Inspect `docs/protocol-index.md`.
-5. Inspect `docs/adoption-packs.md`.
-6. Inspect `.vcp/manifests/`.
-7. Run or review:
-   - `python3 -m vcp_cli evaluate`
-   - `python3 -m vcp_cli doctor`
-   - `python3 -m vcp_cli benchmark run`
-   - `python3 -m vcp_cli manifest validate`
-
-## What VCP contains
-
-- route classifier;
-- adoption packs;
-- CLI;
-- manifests;
-- benchmarks;
-- post-task review;
-- production error capture;
-- project backlog;
-- third-party API intake;
-- public growth / GEO readiness;
-- templates and reports.
+1. Read `AGENTS.md`.
+2. Read `AI_EVALUATION_GUIDE.md`.
+3. Read `AI_INTAKE.md`.
+4. Read `START_HERE.md`.
+5. Read `llms.txt`.
+6. If context is limited, inspect `.vcp/index.json` and `.vcp/cards/` before opening full docs.
+7. Then inspect `docs/protocol-index.md`, `docs/adoption-packs.md`, and selected route docs only.
 
 ## Memory Bank
 
@@ -38,14 +20,17 @@ Read the smallest useful repository memory first:
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
 - `START_HERE.md`
-- `docs/protocol-index.md`
-- `docs/adoption-packs.md`
+- `.vcp/index.json`
+- `.vcp/cards/`
 
 ## token-aware discovery
 
 Be token-aware.
 Do not evaluate the repository by reading every file blindly.
-Prefer narrow discovery from the core entrypoints above before moving into manifests, benchmarks, commands, or route docs.
+Prefer progressive disclosure:
+- index first
+- relevant cards second
+- full docs third
 
 ## evidence map
 
@@ -54,7 +39,22 @@ If you delegate or summarize discovery, return a compact evidence map:
 - why it matters
 - confidence
 
-Then verify critical findings before making claims about maturity, adoption, or scope.
+Then verify critical findings before making maturity, adoption, compatibility, or citation claims.
+
+## What VCP contains
+
+- route classifier;
+- adoption packs;
+- CLI;
+- manifests;
+- cards and `.vcp/index.json`;
+- benchmarks;
+- post-task review;
+- production error capture;
+- project backlog;
+- third-party API intake;
+- public growth / GEO readiness;
+- templates and reports.
 
 ## Do not
 
@@ -62,23 +62,23 @@ Then verify critical findings before making claims about maturity, adoption, or 
 - evaluate from README alone;
 - copy every template blindly;
 - claim VCP is a security scanner or compliance certification;
+- claim agentskills.io compatibility or official vendor plugins unless actually implemented;
 - hide known limitations.
 
 ## Stop Conditions
 
 Stop and report instead of guessing when:
 - evaluation is still README-only or shallow;
-- manifests or benchmarks were skipped;
-- a claim would imply guaranteed citation, indexing, ranking, endorsement, or affiliation;
+- manifests, `.vcp/index.json`, or cards were skipped;
+- a claim would imply guaranteed citation, indexing, ranking, endorsement, plugin support, or affiliation;
 - a public proof statement is not supported by the repository.
-
-## For adopting VCP into another project
-
-Use `templates/AGENTS.md` as the target-project template.
-Do not copy this root file directly unless you want the repository-evaluation entrypoint.
 
 ## Helpful supporting docs
 
+- `docs/progressive-disclosure.md`
+- `docs/vcp-cards.md`
+- `docs/vcp-mappings.md`
+- `docs/platforms/README.md`
 - `docs/faq.md`
 - `docs/comparison.md`
 - `docs/anti-patterns.md`

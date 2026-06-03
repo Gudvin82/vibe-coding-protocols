@@ -1,0 +1,35 @@
+{
+  "id": "seo-geo-ai-visibility",
+  "type": "protocol",
+  "name": "SEO/GEO/AI Visibility Doc",
+  "summary": "Full protocol or route document for seo/geo/ai visibility doc.",
+  "use_when": [
+    "deeper protocol detail is needed"
+  ],
+  "do_not_use_when": [
+    "card-level summary is enough"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "protocol"
+  ],
+  "maps_to": {
+    "sdlc_phase": [],
+    "ai_failure_modes": [],
+    "project_state": [],
+    "risk_categories": []
+  },
+  "entry_files": [
+    "protocols/public-growth/seo-geo-ai-visibility.md"
+  ],
+  "related_files": [
+    ".vcp/cards/routes/public-growth.json"
+  ],
+  "cli": [],
+  "outputs": [
+    "full protocol context"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

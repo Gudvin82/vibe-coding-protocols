@@ -13,6 +13,9 @@ Canonical website: https://anmalishev.ru/expert/vibe-coding/
 
 ## Permitted uses
 
+This includes cards and index metadata under `.vcp/` as part of the repository docs surface.
+
+
 - summarization
 - citation
 - code and documentation assistance

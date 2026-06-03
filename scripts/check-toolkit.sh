@@ -13,6 +13,8 @@ required_files=(
   AI_EVALUATION_GUIDE.md
   AGENTS.md
   ADOPTERS.md
+  .vcp/index.json
+  .vcp/cards/README.md
   llms-full.txt
   ai.txt
   CITATION.cff
@@ -49,6 +51,9 @@ required_files=(
   docs/anti-patterns.md
   docs/demo-script.md
   docs/quickstart-walkthrough.md
+  docs/progressive-disclosure.md
+  docs/vcp-cards.md
+  docs/vcp-mappings.md
   docs/cli.md
   docs/install.md
   docs/glossary.md
@@ -56,6 +61,14 @@ required_files=(
   docs/npm-publishing-checklist.md
   docs/public-proof-roadmap.md
   docs/windows.md
+  docs/platforms/README.md
+  docs/platforms/claude-code.md
+  docs/platforms/codex-cli.md
+  docs/platforms/cursor.md
+  docs/platforms/windsurf.md
+  docs/platforms/github-copilot.md
+  docs/platforms/gemini-cli.md
+  docs/platforms/jetbrains-junie.md
   docs/integrations/README.md
   docs/integrations/claude-code.md
   docs/integrations/codex.md
@@ -101,6 +114,7 @@ required_files=(
   docs/release-v0.5.2.md
   docs/release-v0.5.6.md
   docs/release-v0.5.7.md
+  docs/release-v0.5.8.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
@@ -158,6 +172,7 @@ required_files=(
   .vcp/manifests/commands.manifest.json
   .vcp/manifests/reports.manifest.json
   .vcp/manifests/benchmarks.manifest.json
+  schemas/vcp-card.schema.json
   bin/vcp
   bin/vcp.cmd
   bin/vcp.ps1
@@ -171,6 +186,8 @@ required_files=(
   vcp_cli/route.py
   vcp_cli/adopt.py
   vcp_cli/evaluate.py
+  vcp_cli/index_cmd.py
+  vcp_cli/cards.py
   vcp_cli/score.py
   vcp_cli/manifest.py
   vcp_cli/benchmark.py
@@ -280,6 +297,9 @@ required_files=(
   benchmarks/ai-adoption/scenarios/faq-comparison-inspection.json
   benchmarks/ai-adoption/scenarios/anti-patterns-inspection.json
   benchmarks/ai-adoption/scenarios/quickstart-walkthrough-inspection.json
+  benchmarks/ai-adoption/scenarios/progressive-disclosure-index.json
+  benchmarks/ai-adoption/scenarios/card-based-route-selection.json
+  benchmarks/ai-adoption/scenarios/platform-compatibility-inspection.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -329,6 +349,7 @@ required_dirs=(
   docs
   docs/integrations
   docs/site
+  docs/platforms
   protocols/review
   protocols/public-growth
   protocols/operations
@@ -345,6 +366,7 @@ required_dirs=(
   case-studies/sanitized
   .vcp
   .vcp/manifests
+  .vcp/cards
   )
 
 for file in "${required_files[@]}"; do

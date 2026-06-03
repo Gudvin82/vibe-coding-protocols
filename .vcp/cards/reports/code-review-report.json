@@ -1,0 +1,44 @@
+{
+  "id": "code-review-report",
+  "type": "report",
+  "name": "Code Review Report",
+  "summary": "Reportable artifact template for code review report.",
+  "use_when": [
+    "a structured output artifact is required"
+  ],
+  "do_not_use_when": [
+    "plain chat summary is enough"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "report"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "hardening",
+      "operations",
+      "growth"
+    ],
+    "ai_failure_modes": [],
+    "project_state": [
+      "existing MVP",
+      "production",
+      "public site"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "templates/reports/code-review-report.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "markdown report"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

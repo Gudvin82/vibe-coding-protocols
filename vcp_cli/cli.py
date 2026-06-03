@@ -14,6 +14,8 @@ from . import demo as demo_cmd
 from . import doctor as doctor_cmd
 from . import evaluate as evaluate_cmd
 from . import init_cmd
+from . import index_cmd
+from . import cards as cards_cmd
 from . import manifest as manifest_cmd
 from . import review as review_cmd
 from . import route as route_cmd
@@ -71,6 +73,27 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate_p = sub.add_parser("evaluate")
     evaluate_p.add_argument("--json", action="store_true")
     evaluate_p.add_argument("--print-prompt", action="store_true")
+
+    index_p = sub.add_parser("index")
+    index_sub = index_p.add_subparsers(dest="index_command")
+    index_show = index_sub.add_parser("show")
+    index_show.add_argument("--json", action="store_true")
+    index_validate = index_sub.add_parser("validate")
+    index_validate.add_argument("--json", action="store_true")
+    index_search = index_sub.add_parser("search")
+    index_search.add_argument("query")
+    index_search.add_argument("--json", action="store_true")
+
+    cards_p = sub.add_parser("cards")
+    cards_sub = cards_p.add_subparsers(dest="cards_command")
+    cards_list = cards_sub.add_parser("list")
+    cards_list.add_argument("--type")
+    cards_list.add_argument("--json", action="store_true")
+    cards_show = cards_sub.add_parser("show")
+    cards_show.add_argument("id")
+    cards_show.add_argument("--json", action="store_true")
+    cards_validate = cards_sub.add_parser("validate")
+    cards_validate.add_argument("--json", action="store_true")
 
     score_p = sub.add_parser("score")
     score_p.add_argument("--json", action="store_true")
@@ -184,6 +207,20 @@ def main(argv: list[str] | None = None) -> int:
         return adopt_cmd.run(args.pack, args.dry_run, args.json, args.output, args.apply, args.yes)
     if args.command == "evaluate":
         return evaluate_cmd.run(args.json, args.print_prompt)
+    if args.command == "index":
+        if args.index_command in {None, "show"}:
+            return index_cmd.show(getattr(args, "json", False))
+        if args.index_command == "validate":
+            return index_cmd.validate(getattr(args, "json", False))
+        if args.index_command == "search":
+            return index_cmd.search(args.query, getattr(args, "json", False))
+    if args.command == "cards":
+        if args.cards_command in {None, "list"}:
+            return cards_cmd.list_cards(getattr(args, "type", None), getattr(args, "json", False))
+        if args.cards_command == "show":
+            return cards_cmd.show_card(args.id, getattr(args, "json", False))
+        if args.cards_command == "validate":
+            return cards_cmd.validate_cards(getattr(args, "json", False))
     if args.command == "score":
         return score_cmd.run(args.json)
     if args.command == "manifest":

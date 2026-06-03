@@ -1,0 +1,59 @@
+{
+  "id": "public-site",
+  "type": "adoption_pack",
+  "name": "Public Site Pack",
+  "summary": "Scoped adoption pack for public site pack.",
+  "use_when": [
+    "public docs or marketing pages"
+  ],
+  "do_not_use_when": [
+    "no public site exists"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "adoption-pack"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release",
+      "growth"
+    ],
+    "ai_failure_modes": [
+      "public growth without baseline"
+    ],
+    "project_state": [
+      "public site"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/public-site-readiness.md",
+    "docs/seo-ai-crawler-readiness.md",
+    "templates/public-site/README.md",
+    "llms.txt"
+  ],
+  "related_files": [
+    "docs/site/publishing-checklist.md",
+    "docs/community-feedback.md",
+    "protocols/integrations/third-party-api-intake.md",
+    "templates/THIRD_PARTY_REGISTRY.md",
+    "templates/public-site/robots.txt",
+    "llms.txt"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt --pack public-site --dry-run"
+  ],
+  "outputs": [
+    "adoption dry-run plan"
+  ],
+  "stop_conditions": [
+    "Visible content and structured data do not match"
+  ],
+  "validation": [
+    "python3 scripts/check-newlines.py",
+    "python3 scripts/validate-links.sh"
+  ],
+  "version": "v0.5.8"
+}

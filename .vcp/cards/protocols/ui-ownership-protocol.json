@@ -1,0 +1,35 @@
+{
+  "id": "ui-ownership-protocol",
+  "type": "protocol",
+  "name": "UI Component Ownership Protocol Doc",
+  "summary": "Full protocol or route document for ui component ownership protocol doc.",
+  "use_when": [
+    "deeper protocol detail is needed"
+  ],
+  "do_not_use_when": [
+    "card-level summary is enough"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "protocol"
+  ],
+  "maps_to": {
+    "sdlc_phase": [],
+    "ai_failure_modes": [],
+    "project_state": [],
+    "risk_categories": []
+  },
+  "entry_files": [
+    "protocols/maintenance/ui-refactoring.md"
+  ],
+  "related_files": [
+    ".vcp/cards/routes/ui-component-ownership.json"
+  ],
+  "cli": [],
+  "outputs": [
+    "full protocol context"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

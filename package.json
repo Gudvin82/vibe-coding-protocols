@@ -1,6 +1,6 @@
 {
   "name": "vibe-coding-protocols",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "CC-BY-4.0",
   "private": false,
@@ -29,6 +29,9 @@
     "bin/",
     "vcp_cli/",
     ".vcp/",
+    "schemas/",
+    ".vcp/cards/",
+    ".vcp/index.json",
     "AI_EVALUATION_GUIDE.md",
     "AI_INTAKE.md",
     "START_HERE.md",

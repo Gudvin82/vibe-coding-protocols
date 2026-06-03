@@ -1,5 +1,5 @@
 <!-- vcp-artifact: BACKLOG_UPDATE_REPORT -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 # Backlog Update Report

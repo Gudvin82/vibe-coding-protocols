@@ -1,0 +1,43 @@
+{
+  "id": "architecture-source-of-truth",
+  "type": "concept",
+  "name": "Architecture Source of Truth",
+  "summary": "Compact architecture memory for cross-layer work.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "hardening"
+    ],
+    "ai_failure_modes": [
+      "no architecture memory"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "architecture drift"
+    ]
+  },
+  "entry_files": [
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

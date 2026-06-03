@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Gudvin82/vibe-coding-protocols/schemas/vcp-card.schema.json",
+  "title": "VCP Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "type",
+    "name",
+    "summary",
+    "use_when",
+    "do_not_use_when",
+    "risk_level",
+    "domains",
+    "maps_to",
+    "entry_files",
+    "related_files",
+    "cli",
+    "outputs",
+    "stop_conditions",
+    "validation",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "route",
+        "protocol",
+        "adoption_pack",
+        "command",
+        "report",
+        "template",
+        "benchmark",
+        "concept"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "do_not_use_when": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "variable"
+      ]
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "maps_to": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sdlc_phase",
+        "ai_failure_modes",
+        "project_state",
+        "risk_categories"
+      ],
+      "properties": {
+        "sdlc_phase": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ai_failure_modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "project_state": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risk_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "entry_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cli": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string",
+      "const": "v0.5.8"
+    }
+  }
+}

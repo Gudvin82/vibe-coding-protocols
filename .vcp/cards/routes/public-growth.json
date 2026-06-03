@@ -1,0 +1,59 @@
+{
+  "id": "public-growth",
+  "type": "route",
+  "name": "Public Growth",
+  "summary": "Use when service pages, cases, GEO, and AI visibility need structured public-growth work.",
+  "use_when": [
+    "service pages",
+    "GEO",
+    "AI visibility"
+  ],
+  "do_not_use_when": [
+    "ranking guarantee request",
+    "spam tactics"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "public growth",
+    "GEO"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "growth"
+    ],
+    "ai_failure_modes": [
+      "public growth without baseline",
+      "README-only evaluation"
+    ],
+    "project_state": [
+      "public site",
+      "production"
+    ],
+    "risk_categories": [
+      "public visibility",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "protocols/public-growth/public-growth-playbook.md",
+    "protocols/public-growth/seo-geo-ai-visibility.md"
+  ],
+  "related_files": [
+    "templates/public-growth/page-brief.md",
+    "templates/reports/public-growth-audit-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli route --profile public-growth"
+  ],
+  "outputs": [
+    "public-growth route recommendation",
+    "audit report"
+  ],
+  "stop_conditions": [
+    "guaranteed ranking/citation claims"
+  ],
+  "validation": [
+    "python3 -m vcp_cli benchmark run --scenario public-growth-audit"
+  ],
+  "version": "v0.5.8"
+}

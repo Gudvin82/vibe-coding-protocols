@@ -15,11 +15,17 @@ KEY_FILES = [
     "ai.txt",
     "CITATION.cff",
     "ADOPTERS.md",
+    ".vcp/index.json",
+    ".vcp/cards/README.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/cli.md",
     "docs/install.md",
     "docs/glossary.md",
+    "docs/progressive-disclosure.md",
+    "docs/vcp-cards.md",
+    "docs/vcp-mappings.md",
+    "docs/platforms/README.md",
     "docs/geo-ai-visibility.md",
     "docs/page-templates.md",
     "docs/faq.md",
@@ -45,6 +51,8 @@ CLI_COMMANDS = [
     "benchmark",
     "review",
     "backlog",
+    "index",
+    "cards",
     "evaluate",
 ]
 
@@ -115,6 +123,17 @@ def evaluate_payload() -> dict[str, object]:
         "adopters_doc_present": (root / "ADOPTERS.md").exists(),
         "glossary_present": (root / "docs/glossary.md").exists(),
         "install_doc_present": (root / "docs/install.md").exists(),
+        "progressive_disclosure_present": all(
+            (root / rel).exists()
+            for rel in [
+                ".vcp/index.json",
+                ".vcp/cards/README.md",
+                "docs/progressive-disclosure.md",
+                "docs/vcp-cards.md",
+                "docs/vcp-mappings.md",
+                "docs/platforms/README.md",
+            ]
+        ),
         "known_limitations": KNOWN_LIMITATIONS_PATH,
         "suggested_evaluation_prompt": PROMPT_PATH,
         "note": "This helper supports external evaluation. It is not a market-maturity score.",
@@ -147,6 +166,7 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")
     print(f"Install doc present: {'yes' if payload['install_doc_present'] else 'no'}")
+    print(f"Progressive disclosure present: {'yes' if payload['progressive_disclosure_present'] else 'no'}")
     print(f"Known limitations: {payload['known_limitations']}")
     print(f"Suggested evaluation prompt: {payload['suggested_evaluation_prompt']}")
     print("Key files:")

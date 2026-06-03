@@ -137,5 +137,10 @@
       "intended_route": "public-growth",
       "purpose": "repeatable AI visibility and GEO monitoring notes without claiming ranking guarantees"
     }
+  ],
+  "related_docs": [
+    "docs/progressive-disclosure.md",
+    "docs/vcp-cards.md",
+    "docs/vcp-mappings.md"
   ]
 }

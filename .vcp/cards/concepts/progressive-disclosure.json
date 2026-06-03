@@ -1,0 +1,45 @@
+{
+  "id": "progressive-disclosure",
+  "type": "concept",
+  "name": "Progressive Disclosure",
+  "summary": "Small index-first discovery path before opening full docs.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production",
+      "public site"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/progressive-disclosure.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

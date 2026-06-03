@@ -1,0 +1,35 @@
+{
+  "id": "review-gate-protocol",
+  "type": "protocol",
+  "name": "Post-Task Code Review Protocol Doc",
+  "summary": "Full protocol or route document for post-task code review protocol doc.",
+  "use_when": [
+    "deeper protocol detail is needed"
+  ],
+  "do_not_use_when": [
+    "card-level summary is enough"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "protocol"
+  ],
+  "maps_to": {
+    "sdlc_phase": [],
+    "ai_failure_modes": [],
+    "project_state": [],
+    "risk_categories": []
+  },
+  "entry_files": [
+    "protocols/review/post-task-code-review.md"
+  ],
+  "related_files": [
+    ".vcp/cards/routes/post-task-code-review.json"
+  ],
+  "cli": [],
+  "outputs": [
+    "full protocol context"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

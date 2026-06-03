@@ -1,0 +1,42 @@
+{
+  "id": "audit-backlog",
+  "type": "concept",
+  "name": "Audit Backlog",
+  "summary": "Hardening findings and accepted risk tracker.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "hardening"
+    ],
+    "ai_failure_modes": [
+      "no validation"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "security"
+    ]
+  },
+  "entry_files": [
+    "templates/AUDIT_BACKLOG.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

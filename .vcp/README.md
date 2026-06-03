@@ -4,6 +4,8 @@ This directory holds VCP machine-readable metadata.
 
 ## What is here
 
+- `.vcp/index.json` is the machine-readable repository entrypoint for progressive disclosure.
+- `.vcp/cards/` contains metadata-first cards for routes, protocols, packs, commands, reports, and concepts.
 - `.vcp/manifests/` contains route, pack, command, report, benchmark, and package metadata.
 - The CLI uses these files for `manifest`, `route`, `adopt`, `benchmark`, `score`, and backlog-aware validation.
 

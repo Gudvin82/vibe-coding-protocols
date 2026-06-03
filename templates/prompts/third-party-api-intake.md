@@ -1,5 +1,5 @@
 <!-- vcp-artifact: THIRD_PARTY_API_INTAKE_PROMPT -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 Read `protocols/integrations/third-party-api-intake.md` first.

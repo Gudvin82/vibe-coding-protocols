@@ -409,6 +409,55 @@
         "walkthrough is synthetic realistic guidance, not a measured case study or existing demo capture"
       ],
       "expected_first_action": "Read the walkthrough and demo-script docs before claiming public demo proof exists."
+    },
+    {
+      "id": "progressive-disclosure-index",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/progressive-disclosure-index.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "AGENTS.md",
+        ".vcp/index.json",
+        "docs/progressive-disclosure.md"
+      ],
+      "expected_warnings": [
+        "AI agent should inspect .vcp/index.json before broad repository reading when context is limited"
+      ],
+      "expected_first_action": "Read AGENTS.md and .vcp/index.json before opening full route docs."
+    },
+    {
+      "id": "card-based-route-selection",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/card-based-route-selection.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        ".vcp/cards/routes/production-hardening.json",
+        ".vcp/cards/routes/third-party-api-intake.json",
+        ".vcp/cards/routes/public-growth.json"
+      ],
+      "expected_warnings": [
+        "AI agent should choose relevant cards first instead of reading every route"
+      ],
+      "expected_first_action": "Use cards to narrow route candidates before loading full docs."
+    },
+    {
+      "id": "platform-compatibility-inspection",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/platform-compatibility-inspection.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/platforms/README.md",
+        "docs/platforms/codex-cli.md",
+        "docs/platforms/claude-code.md",
+        "docs/platforms/github-copilot.md"
+      ],
+      "expected_warnings": [
+        "do not claim official plugins where only docs/prompts exist"
+      ],
+      "expected_first_action": "Read the platform docs before making compatibility or vendor-support claims."
     }
   ]
 }

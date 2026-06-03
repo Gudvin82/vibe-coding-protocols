@@ -61,3 +61,7 @@ Different purpose. Issue trackers remain useful for teams. VCP’s local backlog
 VCP complements these tools.
 It is not trying to replace IDE instructions, scanners, issue trackers, or commit conventions.
 It is most useful when AI-assisted delivery needs route discipline, scoped adoption, validation, review gates, and honest public-growth structure.
+
+## VCP cards and index vs large skill registries
+
+Different purpose. VCP now uses cards and `.vcp/index.json` as a lightweight AI-native discovery layer for a delivery framework. This is architecture inspiration for progressive disclosure, not a claim that VCP is a cybersecurity skill registry or agentskills.io-compatible package.

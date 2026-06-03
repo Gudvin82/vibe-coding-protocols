@@ -1,0 +1,61 @@
+{
+  "id": "shared-engine",
+  "type": "adoption_pack",
+  "name": "Shared Engine Pack",
+  "summary": "Scoped adoption pack for shared engine pack.",
+  "use_when": [
+    "shared engine across multiple products"
+  ],
+  "do_not_use_when": [
+    "disposable single product"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "adoption-pack"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "hardening",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "no architecture memory"
+    ],
+    "project_state": [
+      "shared engine"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "AI_INTAKE.md",
+    "PROJECT_MAP.md",
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md",
+    "protocols/review/post-task-code-review.md",
+    "templates/reports/code-review-report.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "related_files": [
+    "templates/AUDIT_BACKLOG.md",
+    "templates/THIRD_PARTY_REGISTRY.md",
+    "protocols/integrations/third-party-api-intake.md",
+    "PROJECT_MAP.md",
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt --pack shared-engine --dry-run"
+  ],
+  "outputs": [
+    "adoption dry-run plan"
+  ],
+  "stop_conditions": [
+    "Both product validation paths are not identified",
+    "Shared engine ownership is unclear"
+  ],
+  "validation": [
+    "bash scripts/vibe-check.sh --audit --json",
+    "python3 -m vcp_cli benchmark run --scenario shared-engine-production"
+  ],
+  "version": "v0.5.8"
+}

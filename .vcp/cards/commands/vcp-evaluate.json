@@ -1,0 +1,50 @@
+{
+  "id": "vcp-evaluate",
+  "type": "command",
+  "name": "Evaluate",
+  "summary": "Repository evaluation summary and prompt helper.",
+  "use_when": [
+    "command-level discovery is enough"
+  ],
+  "do_not_use_when": [
+    "full protocol context is required"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/cli.py"
+  ],
+  "related_files": [
+    "docs/cli.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "CLI output"
+  ],
+  "stop_conditions": [],
+  "validation": [
+    "python3 -m vcp_cli --help"
+  ],
+  "version": "v0.5.8"
+}

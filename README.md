@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.7-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.5.8-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -14,7 +14,7 @@
 
 Controlled AI delivery toolkit for routing, adopting, validating, reviewing, and explaining AI-assisted software and public-site work.
 
-Repository package: `v0.5.7`
+Repository package: `v0.5.8`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -79,6 +79,21 @@ Citation and AI-agent entry surfaces:
 - [llms-full.txt](./llms-full.txt)
 - [ai.txt](./ai.txt)
 - [CITATION.cff](./CITATION.cff)
+
+VCP includes a progressive-disclosure discovery layer for AI agents:
+
+- `.vcp/index.json` — machine-readable entrypoint
+- `.vcp/cards/` — small route/protocol/adoption-pack cards
+- `.vcp/manifests/` — full manifest metadata
+- `llms-full.txt` — expanded LLM reference
+
+Use this when your AI agent has limited context and should not read the whole repository.
+
+```bash
+python3 -m vcp_cli index validate
+python3 -m vcp_cli cards list
+python3 -m vcp_cli index search production
+```
 
 ## AI-agent handoff
 
@@ -149,4 +164,8 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, monit
 - [docs/public-proof-roadmap.md](./docs/public-proof-roadmap.md)
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
-- [docs/release-v0.5.7.md](./docs/release-v0.5.7.md)
+- [docs/progressive-disclosure.md](./docs/progressive-disclosure.md)
+- [docs/vcp-cards.md](./docs/vcp-cards.md)
+- [docs/vcp-mappings.md](./docs/vcp-mappings.md)
+- [docs/platforms/README.md](./docs/platforms/README.md)
+- [docs/release-v0.5.8.md](./docs/release-v0.5.8.md)

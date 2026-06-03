@@ -7,7 +7,7 @@ It combines route selection, scoped adoption packs, local CLI helpers, manifests
 
 ## Current version and methodology
 
-- Repository package: `v0.5.7`
+- Repository package: `v0.5.8`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 - Canonical website: `https://anmalishev.ru/expert/vibe-coding/`
@@ -407,3 +407,19 @@ See:
 5. Read `docs/faq.md`, `docs/comparison.md`, `docs/anti-patterns.md`
 6. Run or review `doctor`, `manifest validate`, `benchmark run`, `score --json`, `evaluate --json`
 7. Mark evaluation as shallow if that path was skipped
+
+## Progressive disclosure
+
+If context is limited, inspect in this order:
+- `AGENTS.md`
+- `AI_EVALUATION_GUIDE.md`
+- `llms.txt`
+- `.vcp/index.json`
+- `.vcp/cards/`
+- `.vcp/manifests/`
+- selected full docs only
+
+## Platform compatibility
+
+See `docs/platforms/README.md` plus per-platform docs for Claude Code, Codex CLI, Cursor, Windsurf, GitHub Copilot, Gemini CLI, and JetBrains / Junie.
+These are docs-based usage paths, not official plugin claims.

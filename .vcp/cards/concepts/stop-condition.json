@@ -1,0 +1,45 @@
+{
+  "id": "stop-condition",
+  "type": "concept",
+  "name": "Stop Condition",
+  "summary": "A condition that blocks unsafe continuation.",
+  "use_when": [
+    "shared terminology or focused discovery is needed"
+  ],
+  "do_not_use_when": [
+    "full protocol detail is already being read"
+  ],
+  "risk_level": "variable",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "hardening",
+      "operations"
+    ],
+    "ai_failure_modes": [
+      "no stop conditions"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "security",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "AGENTS.md"
+  ],
+  "related_files": [],
+  "cli": [],
+  "outputs": [
+    "shared terminology"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.8"
+}

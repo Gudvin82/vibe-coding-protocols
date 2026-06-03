@@ -17,6 +17,11 @@ It helps prevent shallow README-only recommendations.
 Whether an AI answer engine can discover and summarize a page.
 VCP treats this as a documentation and trust-readiness problem, not a guaranteed ranking outcome.
 
+## Card
+
+A small metadata-first JSON description of a route, protocol, adoption pack, command, report, benchmark, template, or concept.
+Cards support progressive disclosure.
+
 ## Controlled AI delivery
 
 A workflow where AI-generated work is routed, scoped, validated, and reviewed instead of merged on trust alone.
@@ -25,6 +30,11 @@ A workflow where AI-generated work is routed, scoped, validated, and reviewed in
 
 Generative Engine Optimization.
 In VCP it means making public content easier for answer engines to understand without using spam, hidden content, or fake proof.
+
+## Index
+
+In VCP, `.vcp/index.json` is the machine-readable repository entrypoint for AI discovery.
+It points to entrypoints, cards, manifests, docs, and safety boundaries.
 
 ## Manifest
 
@@ -40,6 +50,10 @@ It captures audience, intent, proof, internal links, schema, and boundaries befo
 
 A required acceptance step after meaningful AI-generated changes.
 The gate is represented by the Post-Task Code Review route.
+
+## Progressive disclosure
+
+An inspection pattern where AI first reads small metadata/index files, then relevant cards, then only the full docs needed for the task.
 
 ## Public growth
 

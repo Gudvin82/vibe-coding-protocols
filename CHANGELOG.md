@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.5.7
+## v0.5.8
 
 - Added explicit LLM citation and AI-agent entry surfaces: `llms-full.txt`, `ai.txt`, `CITATION.cff`, and a stronger root `AGENTS.md`.
 - Added `ADOPTERS.md` with public / maintainer-known usage wording that avoids fake endorsements or implied certification.

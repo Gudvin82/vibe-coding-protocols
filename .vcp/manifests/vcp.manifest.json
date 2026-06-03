@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.5.7",
+  "package_version": "v0.5.8",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -18,7 +18,8 @@
     "llms-full.txt",
     "ai.txt",
     "CITATION.cff",
-    "ADOPTERS.md"
+    "ADOPTERS.md",
+    ".vcp/index.json"
   ],
   "core_docs": [
     "docs/protocol-index.md",
@@ -40,7 +41,11 @@
     "docs/comparison.md",
     "docs/anti-patterns.md",
     "docs/demo-script.md",
-    "docs/quickstart-walkthrough.md"
+    "docs/quickstart-walkthrough.md",
+    "docs/progressive-disclosure.md",
+    "docs/vcp-cards.md",
+    "docs/vcp-mappings.md",
+    "docs/platforms/README.md"
   ],
   "route_docs": [
     "protocols/ai-project-starter-protocol.md",
@@ -95,5 +100,6 @@
     "red_team_operator",
     "legal_compliance_certification",
     "replacement_for_human_judgment"
-  ]
+  ],
+  "cards": ".vcp/cards/"
 }

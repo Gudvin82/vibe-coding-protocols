@@ -1,0 +1,71 @@
+{
+  "id": "production-hardening",
+  "type": "route",
+  "name": "Production Hardening",
+  "summary": "Use when an existing AI-generated project needs production readiness and stronger review boundaries.",
+  "use_when": [
+    "existing MVP before production",
+    "production",
+    "payments",
+    "personal data",
+    "shared engine"
+  ],
+  "do_not_use_when": [
+    "toy repo only",
+    "new idea only"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "hardening",
+    "production-readiness"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "hardening",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation",
+      "no review gate",
+      "no validation",
+      "no architecture memory"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production",
+      "regulated",
+      "shared engine"
+    ],
+    "risk_categories": [
+      "security",
+      "privacy/data",
+      "architecture drift",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "AI_INTAKE.md",
+    "protocols/ai-project-hardening-protocol.md",
+    "protocols/ai-project-extended-protocol.md"
+  ],
+  "related_files": [
+    "templates/reports/security-review-scope.md",
+    "templates/AUDIT_BACKLOG.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli route --profile production"
+  ],
+  "outputs": [
+    "hardening route recommendation",
+    "review gate requirement"
+  ],
+  "stop_conditions": [
+    "independent review unavailable",
+    "no release gate evidence"
+  ],
+  "validation": [
+    "bash scripts/vibe-check.sh --audit --json",
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "version": "v0.5.8"
+}

@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_GROWTH_AUDIT_PROMPT -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 You are auditing a public website or documentation surface.

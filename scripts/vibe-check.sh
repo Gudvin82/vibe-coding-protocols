@@ -666,7 +666,7 @@ version_to_number() {
   major=${major:-0}
   minor=${minor:-0}
   patch=${patch:-0}
-  printf '%d%03d%03d\n' "$major" "$minor" "$patch"
+  printf '%d\n' $((10#$major * 1000000 + 10#$minor * 1000 + 10#$patch))
 }
 
 check_checksum_manifest() {

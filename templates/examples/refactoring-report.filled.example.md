@@ -1,5 +1,5 @@
 <!-- vcp-artifact: REFACTORING_REPORT_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.5.7 -->
+<!-- vcp-version: v0.5.8 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled Refactoring Report Example

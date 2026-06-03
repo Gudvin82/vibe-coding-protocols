@@ -1,0 +1,53 @@
+{
+  "id": "daily-error-triage",
+  "type": "route",
+  "name": "Daily Error Triage",
+  "summary": "Use when captured production issues need grouping, severity routing, and backlog follow-up.",
+  "use_when": [
+    "captured errors need triage"
+  ],
+  "do_not_use_when": [
+    "raw evidence is unsanitized"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "operations"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "operations"
+    ],
+    "ai_failure_modes": [
+      "backlog only in chat",
+      "production logs ignored"
+    ],
+    "project_state": [
+      "production"
+    ],
+    "risk_categories": [
+      "operations",
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "protocols/operations/daily-error-triage.md",
+    "commands/daily-error-triage.md"
+  ],
+  "related_files": [
+    "templates/reports/daily-error-triage-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli doctor"
+  ],
+  "outputs": [
+    "triage report",
+    "backlog updates"
+  ],
+  "stop_conditions": [
+    "evidence is incomplete"
+  ],
+  "validation": [
+    "python3 -m vcp_cli backlog validate"
+  ],
+  "version": "v0.5.8"
+}
