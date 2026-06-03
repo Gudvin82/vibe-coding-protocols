@@ -475,7 +475,7 @@ def run_python_script(root: Path, relative_script: str) -> dict[str, Any]:
     launcher = [
         *current_python_command(),
         "-c",
-        "import runpy, sys; runpy.run_path(sys.argv[1], run_name='__main__')",
+        "import runpy, sys; path=sys.argv[1]; sys.argv=[path, *sys.argv[2:]]; runpy.run_path(path, run_name='__main__')",
         str(script_path),
     ]
     proc = run_command(launcher, root)

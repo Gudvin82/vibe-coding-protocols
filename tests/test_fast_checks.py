@@ -23,6 +23,7 @@ def test_run_python_script_uses_runpy_for_non_py_extensions(monkeypatch, tmp_pat
     command = captured["command"]
     assert command[:3] == ["py.exe", "-3", "-c"]
     assert "runpy.run_path" in command[3]
+    assert "sys.argv=[path, *sys.argv[2:]]" in command[3]
     assert command[4] == str((tmp_path / "scripts/validate-links.sh").resolve())
     assert captured["cwd"] == tmp_path
 
