@@ -1,0 +1,67 @@
+{
+  "id": "workflow-daily-error-triage",
+  "type": "workflow",
+  "name": "Daily Error Triage Workflow",
+  "summary": "Workflow card for Daily Error Triage Workflow.",
+  "use_when": [
+    "Recent production error captures need grouping and routing."
+  ],
+  "do_not_use_when": [
+    "you expect the workflow file to execute automation by itself"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "workflow",
+    "delivery-governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "chat-only memory",
+      "skipped validation"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "route drift",
+      "validation drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/workflows/daily-error-triage.json"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow show daily-error-triage"
+  ],
+  "outputs": [
+    "triage report",
+    "backlog follow-up"
+  ],
+  "stop_conditions": [
+    "The task expects direct production remediation",
+    "Log path is unauthorized or unknown"
+  ],
+  "validation": [
+    "python3 -m vcp_cli backlog validate"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "workflow"
+  ]
+}

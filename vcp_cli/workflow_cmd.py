@@ -62,7 +62,7 @@ def validate_workflows(json_mode: bool = False) -> int:
         for field in REQUIRED_FIELDS:
             if field not in workflow:
                 errors.append(f"Missing field {field} in {workflow['__path']}")
-        if workflow.get("version") != "v0.5.9":
+        if workflow.get("version") != "v0.6.0":
             errors.append(f"Workflow version mismatch in {workflow['__path']}: {workflow.get('version')}")
         steps = workflow.get("steps", [])
         if not isinstance(steps, list) or not steps:

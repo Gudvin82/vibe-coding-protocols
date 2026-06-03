@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.6.0
+
+- Added adaptive spec depth, spec escape hatch, question engine, spec retrofit, and spec freshness layers.
+- Added lightweight presets plus CLI support for listing, showing, and validating preset defaults.
+- Expanded platform documentation and cards to 25+ repository workflow paths without overclaiming official integrations.
+- Synced cards, index, catalog, manifests, benchmarks, diagnostics, and smoke coverage for the new layers.
+- Added a sanitized retrofit/public-growth case-study packet and cleaned platform-doc placeholders.
+
 ## v0.5.9
 
 - Added a first-class Spec Lane with product-brief-to-PRD, feature spec, spec review, spec-to-tasks, and change-control protocols.

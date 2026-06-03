@@ -4,14 +4,42 @@
   "trigger": "An external API, SDK, webhook, or SaaS dependency is proposed.",
   "route": "third-party-api-intake",
   "steps": [
-    {"id": "classify", "name": "Route to API intake", "action": "route", "command": "python3 -m vcp_cli route --profile third-party-api --json"},
-    {"id": "registry", "name": "Check registry impact", "action": "artifact"},
-    {"id": "review", "name": "Plan review gate", "action": "review", "command": "python3 -m vcp_cli review plan --json"}
+    {
+      "id": "classify",
+      "name": "Route to API intake",
+      "action": "route",
+      "command": "python3 -m vcp_cli route --profile third-party-api --json"
+    },
+    {
+      "id": "registry",
+      "name": "Check registry impact",
+      "action": "artifact"
+    },
+    {
+      "id": "review",
+      "name": "Plan review gate",
+      "action": "review",
+      "command": "python3 -m vcp_cli review plan --json"
+    }
   ],
-  "required_artifacts": ["protocols/integrations/third-party-api-intake.md", "templates/THIRD_PARTY_REGISTRY.md"],
-  "outputs": ["intake decision", "registry update decision"],
-  "validation": ["python3 -m vcp_cli check --fast --json"],
-  "stop_conditions": ["API terms or data handling still unknown", "A token would be committed to code"],
-  "related_cards": ["third-party-api-intake", "accepted-risk"],
-  "version": "v0.5.9"
+  "required_artifacts": [
+    "protocols/integrations/third-party-api-intake.md",
+    "templates/THIRD_PARTY_REGISTRY.md"
+  ],
+  "outputs": [
+    "intake decision",
+    "registry update decision"
+  ],
+  "validation": [
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "stop_conditions": [
+    "API terms or data handling still unknown",
+    "A token would be committed to code"
+  ],
+  "related_cards": [
+    "third-party-api-intake",
+    "accepted-risk"
+  ],
+  "version": "v0.6.0"
 }

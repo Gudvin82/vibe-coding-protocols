@@ -4,14 +4,40 @@
   "trigger": "Meaningful AI-generated changes need acceptance evidence.",
   "route": "post-task-code-review",
   "steps": [
-    {"id": "diff", "name": "Inspect active diff", "action": "inspect"},
-    {"id": "validate", "name": "Collect validation output", "action": "validate"},
-    {"id": "review", "name": "Request review", "action": "review", "command": "python3 -m vcp_cli review plan --json"}
+    {
+      "id": "diff",
+      "name": "Inspect active diff",
+      "action": "inspect"
+    },
+    {
+      "id": "validate",
+      "name": "Collect validation output",
+      "action": "validate"
+    },
+    {
+      "id": "review",
+      "name": "Request review",
+      "action": "review",
+      "command": "python3 -m vcp_cli review plan --json"
+    }
   ],
-  "required_artifacts": ["templates/reports/code-review-report.md"],
-  "outputs": ["review findings", "acceptance signal"],
-  "validation": ["python3 -m vcp_cli review plan --json"],
-  "stop_conditions": ["Validation is red", "Independent reviewer path unavailable for sensitive changes"],
-  "related_cards": ["post-task-code-review", "release-gate"],
-  "version": "v0.5.9"
+  "required_artifacts": [
+    "templates/reports/code-review-report.md"
+  ],
+  "outputs": [
+    "review findings",
+    "acceptance signal"
+  ],
+  "validation": [
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "stop_conditions": [
+    "Validation is red",
+    "Independent reviewer path unavailable for sensitive changes"
+  ],
+  "related_cards": [
+    "post-task-code-review",
+    "release-gate"
+  ],
+  "version": "v0.6.0"
 }

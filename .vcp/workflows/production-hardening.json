@@ -4,14 +4,44 @@
   "trigger": "Existing AI-generated MVP needs production readiness.",
   "route": "hardening-full",
   "steps": [
-    {"id": "classify", "name": "Classify project state", "action": "route", "command": "python3 -m vcp_cli route --profile production --json"},
-    {"id": "scope", "name": "Lock review scope", "action": "artifact", "notes": "Use security review scope and release gate evidence."},
-    {"id": "review", "name": "Plan post-task review", "action": "review", "command": "python3 -m vcp_cli review plan --json"}
+    {
+      "id": "classify",
+      "name": "Classify project state",
+      "action": "route",
+      "command": "python3 -m vcp_cli route --profile production --json"
+    },
+    {
+      "id": "scope",
+      "name": "Lock review scope",
+      "action": "artifact",
+      "notes": "Use security review scope and release gate evidence."
+    },
+    {
+      "id": "review",
+      "name": "Plan post-task review",
+      "action": "review",
+      "command": "python3 -m vcp_cli review plan --json"
+    }
   ],
-  "required_artifacts": ["templates/reports/security-review-scope.md", "templates/reports/code-review-report.md"],
-  "outputs": ["hardening route recommendation", "review scope"],
-  "validation": ["python3 -m vcp_cli check --fast --json", "python3 -m vcp_cli review plan --json"],
-  "stop_conditions": ["Independent review unavailable", "Release gate evidence missing"],
-  "related_cards": ["production-hardening", "release-gate"],
-  "version": "v0.5.9"
+  "required_artifacts": [
+    "templates/reports/security-review-scope.md",
+    "templates/reports/code-review-report.md"
+  ],
+  "outputs": [
+    "hardening route recommendation",
+    "review scope"
+  ],
+  "validation": [
+    "python3 -m vcp_cli check --fast --json",
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "stop_conditions": [
+    "Independent review unavailable",
+    "Release gate evidence missing"
+  ],
+  "related_cards": [
+    "production-hardening",
+    "release-gate"
+  ],
+  "version": "v0.6.0"
 }

@@ -2,30 +2,40 @@
 
 ## Status
 
-Supported via docs, prompts, rules, and repository workflow surfaces.
-No official plugin or vendor endorsement is claimed unless separately implemented later.
+cli-compatible
 
-## Recommended entrypoint
+This is a repository workflow path, not an official vendor plugin.
 
-- AI_EVALUATION_GUIDE.md, AGENTS.md, vcp_cli
+## Recommended VCP entrypoints
 
-## What to ask the tool
+- `AGENTS.md`
+- `AI_EVALUATION_GUIDE.md`
+- `vcp_cli`
 
-Ask Codex to use `vcp_cli` commands, `.vcp/index.json`, and cards first when context is limited.
+## What to paste into the agent
 
-## What not to ask
+Start with `AGENTS.md`, then `AI_INTAKE.md`, then `.vcp/index.json` if context is limited.
+Ask the tool to choose the smallest safe workflow instead of copying the whole repository.
 
-Do not ask it to treat README-only skim as a complete evaluation.
+## Compatible files
 
-## Avoid copying everything blindly
-
-Use route selection and Adoption Packs first. Prefer `--dry-run` and manual merge decisions over bulk copy.
+- `AGENTS.md`
+- `.vcp/index.json`
 
 ## Validation commands
 
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli manifest validate
+python3 -m vcp_cli check --fast --json
 ```
+
+## Limitations
+
+- Not an official plugin or marketplace integration.
+- Do not assume the tool understands VCP unless you point it at `AGENTS.md`, `AI_INTAKE.md`, or `.vcp/index.json`.
+- Avoid copying every template blindly.
+
+## Notes
+
+This works best when shell access is available so the tool can run local VCP commands instead of relying on pasted guidance only.

@@ -41,7 +41,7 @@
     "validation": {"type": "array", "items": {"type": "string"}},
     "stop_conditions": {"type": "array", "items": {"type": "string"}},
     "related_cards": {"type": "array", "items": {"type": "string"}},
-    "version": {"type": "string", "const": "v0.5.9"}
+    "version": {"type": "string", "const": "v0.6.0"}
   },
   "additionalProperties": false
 }

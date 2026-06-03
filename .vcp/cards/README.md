@@ -1,6 +1,6 @@
 # VCP Cards
 
-VCP Cards are small machine-readable descriptions of routes, protocols, adoption packs, commands, reports, benchmarks, templates, and concepts.
+VCP Cards are small machine-readable descriptions of routes, protocols, adoption packs, commands, reports, benchmarks, templates, concepts, platforms, presets, workflows, and diagnostics.
 
 They exist to support progressive disclosure for AI agents and humans.
 
@@ -16,6 +16,10 @@ Card directories:
 - `commands/`
 - `reports/`
 - `concepts/`
+- `platforms/`
+- `presets/`
+- `workflows/`
+- `diagnostics/`
 
 Validation:
 - `python3 -m vcp_cli cards validate`

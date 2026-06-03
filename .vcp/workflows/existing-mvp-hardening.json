@@ -4,14 +4,42 @@
   "trigger": "A working MVP exists but is not production-ready.",
   "route": "hardening-light",
   "steps": [
-    {"id": "classify", "name": "Route MVP state", "action": "route", "command": "python3 -m vcp_cli route --profile existing-mvp --json"},
-    {"id": "map", "name": "Map dependencies and risk areas", "action": "inspect"},
-    {"id": "adopt", "name": "Plan adoption pack", "action": "adopt", "command": "python3 -m vcp_cli adopt --pack existing-mvp --dry-run --json"}
+    {
+      "id": "classify",
+      "name": "Route MVP state",
+      "action": "route",
+      "command": "python3 -m vcp_cli route --profile existing-mvp --json"
+    },
+    {
+      "id": "map",
+      "name": "Map dependencies and risk areas",
+      "action": "inspect"
+    },
+    {
+      "id": "adopt",
+      "name": "Plan adoption pack",
+      "action": "adopt",
+      "command": "python3 -m vcp_cli adopt --pack existing-mvp --dry-run --json"
+    }
   ],
-  "required_artifacts": ["AI_INTAKE.md", "templates/AUDIT_BACKLOG.md"],
-  "outputs": ["risk map", "adoption dry run"],
-  "validation": ["bash scripts/vibe-check.sh --hardening"],
-  "stop_conditions": ["No validation path exists", "Users or payments already exist and scope is still unclear"],
-  "related_cards": ["production-hardening", "audit-backlog"],
-  "version": "v0.5.9"
+  "required_artifacts": [
+    "AI_INTAKE.md",
+    "templates/AUDIT_BACKLOG.md"
+  ],
+  "outputs": [
+    "risk map",
+    "adoption dry run"
+  ],
+  "validation": [
+    "bash scripts/vibe-check.sh --hardening"
+  ],
+  "stop_conditions": [
+    "No validation path exists",
+    "Users or payments already exist and scope is still unclear"
+  ],
+  "related_cards": [
+    "production-hardening",
+    "audit-backlog"
+  ],
+  "version": "v0.6.0"
 }

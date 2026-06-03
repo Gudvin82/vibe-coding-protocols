@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.9-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.6.0-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -14,7 +14,7 @@
 
 Controlled AI delivery toolkit for routing, adopting, validating, reviewing, and explaining AI-assisted software and public-site work.
 
-Repository package: `v0.5.9`
+Repository package: `v0.6.0`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -45,7 +45,7 @@ vcp doctor
 
 AI-native delivery flow:
 
-`Idea -> Spec Lane -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
+`Idea -> Adaptive Spec Depth -> Spec Lane or Escape Hatch -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
 
 ## Giving VCP to an AI agent?
 
@@ -113,6 +113,7 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 - keeping production, regulated, public-site, public-growth, maintenance, API-intake, and operations work scoped;
 - adopting a small relevant file set instead of copying the whole toolkit;
 - turning production observations into triage notes and backlog follow-up without skipping review discipline;
+- choosing between no-spec, spec-lite, full-spec, and governed-spec instead of forcing every task through the same lane;
 - forcing non-trivial ideas through a spec lane before implementation starts;
 - making repeated delivery flows explicit through workflow definitions instead of chat-only memory;
 - checking project/process readiness by layer with diagnostics instead of guessing;
@@ -159,6 +160,8 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, monit
 - [docs/install.md](./docs/install.md)
 - [docs/glossary.md](./docs/glossary.md)
 - [docs/cli.md](./docs/cli.md)
+- [docs/adaptive-spec-depth.md](./docs/adaptive-spec-depth.md)
+- [docs/packs-and-presets.md](./docs/packs-and-presets.md)
 - [docs/geo-ai-visibility.md](./docs/geo-ai-visibility.md)
 - [docs/page-templates.md](./docs/page-templates.md)
 - [docs/scoring.md](./docs/scoring.md)
@@ -184,4 +187,4 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, monit
 - [docs/vcp-cards.md](./docs/vcp-cards.md)
 - [docs/vcp-mappings.md](./docs/vcp-mappings.md)
 - [docs/platforms/README.md](./docs/platforms/README.md)
-- [docs/release-v0.5.9.md](./docs/release-v0.5.9.md)
+- [docs/release-v0.6.0.md](./docs/release-v0.6.0.md)

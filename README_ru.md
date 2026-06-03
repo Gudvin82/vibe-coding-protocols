@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.9-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.6.0-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -14,7 +14,7 @@
 
 Инструментарий для контролируемой AI-assisted delivery: routing, scoped adoption, validation, review и explainability для кода, операций и публичных страниц.
 
-Пакет репозитория: `v0.5.9`
+Пакет репозитория: `v0.6.0`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -45,7 +45,7 @@ vcp doctor
 
 AI-native flow:
 
-`Idea -> Spec Lane -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
+`Idea -> Adaptive Spec Depth -> Spec Lane или Escape Hatch -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
 
 ## Отдаете VCP AI-агенту?
 
@@ -113,6 +113,7 @@ python3 -m vcp_cli index search production
 - держать production, regulated, public-site, public-growth, maintenance, API-intake и operations работу в безопасных границах;
 - переносить небольшой релевантный набор файлов, а не копировать весь toolkit;
 - превращать production observations в triage и backlog follow-up без потери review discipline;
+- выбирать между no-spec, spec-lite, full-spec и governed-spec вместо одного тяжелого пути для всех задач;
 - прогонять неочевидные идеи через spec lane до написания кода;
 - держать повторяемые delivery flows в явных workflow definitions;
 - смотреть на readiness по слоям через diagnostics, а не только через intuition;
@@ -159,6 +160,8 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/install.md](./docs/install.md)
 - [docs/glossary.md](./docs/glossary.md)
 - [docs/cli.md](./docs/cli.md)
+- [docs/adaptive-spec-depth.md](./docs/adaptive-spec-depth.md)
+- [docs/packs-and-presets.md](./docs/packs-and-presets.md)
 - [docs/geo-ai-visibility.md](./docs/geo-ai-visibility.md)
 - [docs/page-templates.md](./docs/page-templates.md)
 - [docs/scoring.md](./docs/scoring.md)
@@ -184,4 +187,4 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/vcp-cards.md](./docs/vcp-cards.md)
 - [docs/vcp-mappings.md](./docs/vcp-mappings.md)
 - [docs/platforms/README.md](./docs/platforms/README.md)
-- [docs/release-v0.5.9.md](./docs/release-v0.5.9.md)
+- [docs/release-v0.6.0.md](./docs/release-v0.6.0.md)

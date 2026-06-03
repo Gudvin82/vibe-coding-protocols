@@ -17,6 +17,14 @@ KEY_FILES = [
     "ADOPTERS.md",
     ".vcp/index.json",
     ".vcp/cards/README.md",
+    ".vcp/presets/README.md",
+    "docs/adaptive-spec-depth.md",
+    "docs/spec-escape-hatch.md",
+    "docs/question-engine.md",
+    "docs/spec-retrofit.md",
+    "docs/spec-freshness.md",
+    "docs/packs-and-presets.md",
+    "docs/integrations/spec-kit-bridge.md",
     "docs/protocol-index.md",
     "docs/adoption-packs.md",
     "docs/cli.md",
@@ -61,6 +69,7 @@ CLI_COMMANDS = [
     "spec",
     "workflow",
     "diagnose",
+    "preset",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -115,6 +124,30 @@ def evaluate_payload() -> dict[str, object]:
             "vcp_cli/spec_cmd.py",
         ]
     )
+    adaptive_spec_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "docs/adaptive-spec-depth.md",
+            "docs/spec-escape-hatch.md",
+            "docs/question-engine.md",
+            "docs/spec-retrofit.md",
+            "docs/spec-freshness.md",
+            "protocols/spec-driven/adaptive-spec-depth.md",
+            "protocols/spec-driven/spec-escape-hatch.md",
+            "protocols/spec-driven/question-engine.md",
+            "protocols/spec-driven/spec-retrofit.md",
+            "protocols/spec-driven/spec-freshness.md",
+        ]
+    )
+    presets_ready = all(
+        (root / rel).exists()
+        for rel in [
+            ".vcp/presets/README.md",
+            "docs/packs-and-presets.md",
+            "schemas/vcp-preset.schema.json",
+            "vcp_cli/preset_cmd.py",
+        ]
+    )
     workflow_layer_ready = all(
         (root / rel).exists()
         for rel in [
@@ -164,10 +197,14 @@ def evaluate_payload() -> dict[str, object]:
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
         "spec_lane_present": spec_lane_ready,
+        "adaptive_spec_depth_present": adaptive_spec_ready,
+        "presets_layer_present": presets_ready,
         "workflow_layer_present": workflow_layer_ready,
         "diagnostics_layer_present": diagnostics_ready,
         "catalog_layer_present": catalog_ready,
         "event_schema_present": event_schema_ready,
+        "platform_doc_count": len(list((root / "docs" / "platforms").glob("*.md"))) if (root / "docs" / "platforms").exists() else 0,
+        "platform_card_count": len(list((root / ".vcp" / "cards" / "platforms").glob("*.json"))) if (root / ".vcp" / "cards" / "platforms").exists() else 0,
         "llm_reference_present": all(
             (root / rel).exists()
             for rel in ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff"]
@@ -215,10 +252,14 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Operations workflow present: {'yes' if payload['operations_workflow_present'] else 'no'}")
     print(f"Public growth layer present: {'yes' if payload['public_growth_layer_present'] else 'no'}")
     print(f"Spec lane present: {'yes' if payload['spec_lane_present'] else 'no'}")
+    print(f"Adaptive spec depth present: {'yes' if payload['adaptive_spec_depth_present'] else 'no'}")
+    print(f"Presets layer present: {'yes' if payload['presets_layer_present'] else 'no'}")
     print(f"Workflow layer present: {'yes' if payload['workflow_layer_present'] else 'no'}")
     print(f"Diagnostics layer present: {'yes' if payload['diagnostics_layer_present'] else 'no'}")
     print(f"Catalog layer present: {'yes' if payload['catalog_layer_present'] else 'no'}")
     print(f"Event schema present: {'yes' if payload['event_schema_present'] else 'no'}")
+    print(f"Platform docs: {payload['platform_doc_count']}")
+    print(f"Platform cards: {payload['platform_card_count']}")
     print(f"LLM reference layer present: {'yes' if payload['llm_reference_present'] else 'no'}")
     print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")

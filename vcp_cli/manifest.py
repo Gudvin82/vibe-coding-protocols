@@ -71,6 +71,36 @@ REQUIRED_WORKFLOW_PUBLIC_GROWTH_BENCHMARK_ID = "workflow-public-growth-audit"
 REQUIRED_DIAGNOSTICS_BENCHMARK_ID = "diagnostics-layer-check"
 REQUIRED_CATALOG_BENCHMARK_ID = "catalog-filter-selection"
 REQUIRED_EVENT_SCHEMA_BENCHMARK_ID = "event-schema-review-finding"
+REQUIRED_ADAPTIVE_SPEC_PROTOCOL_ID = "adaptive-spec-depth"
+REQUIRED_SPEC_ESCAPE_HATCH_PROTOCOL_ID = "spec-escape-hatch"
+REQUIRED_QUESTION_ENGINE_PROTOCOL_ID = "question-engine"
+REQUIRED_SPEC_RETROFIT_PROTOCOL_ID = "spec-retrofit"
+REQUIRED_SPEC_FRESHNESS_PROTOCOL_ID = "spec-freshness"
+REQUIRED_SPEC_DEPTH_COMMAND_ID = "spec-depth"
+REQUIRED_SPEC_SKIP_CHECK_COMMAND_ID = "spec-skip-check"
+REQUIRED_SPEC_QUESTIONS_COMMAND_ID = "spec-questions"
+REQUIRED_SPEC_RETROFIT_COMMAND_ID = "spec-retrofit"
+REQUIRED_SPEC_FRESHNESS_COMMAND_ID = "spec-freshness"
+REQUIRED_PRESET_LIST_COMMAND_ID = "preset-list"
+REQUIRED_PRESET_SHOW_COMMAND_ID = "preset-show"
+REQUIRED_PRESET_VALIDATE_COMMAND_ID = "preset-validate"
+REQUIRED_VCP_PRESET_COMMAND_ID = "vcp-preset"
+REQUIRED_SPEC_DEPTH_REPORT_ID = "spec-depth-decision-report"
+REQUIRED_SPEC_FRESHNESS_REPORT_ID = "spec-freshness-report"
+REQUIRED_SPEC_QUESTIONS_REPORT_ID = "spec-questions-report"
+REQUIRED_SPEC_RETROFIT_REPORT_ID = "spec-retrofit-report"
+REQUIRED_SPEC_SKIP_CHECK_REPORT_ID = "spec-skip-check-report"
+REQUIRED_SPEC_TO_BACKLOG_REPORT_ID = "spec-to-backlog-report"
+REQUIRED_SPEC_DEPTH_GOVERNED_BENCHMARK_ID = "spec-depth-governed"
+REQUIRED_SPEC_DEPTH_NO_SPEC_BENCHMARK_ID = "spec-depth-no-spec"
+REQUIRED_SPEC_DEPTH_SPEC_LITE_BENCHMARK_ID = "spec-depth-spec-lite"
+REQUIRED_SPEC_FRESHNESS_BENCHMARK_ID = "spec-freshness-stale"
+REQUIRED_SPEC_QUESTION_ENGINE_BENCHMARK_ID = "spec-question-engine"
+REQUIRED_SPEC_RETROFIT_BENCHMARK_ID = "spec-retrofit-existing-code"
+REQUIRED_SPEC_SKIP_SAFE_BENCHMARK_ID = "spec-skip-check-safe"
+REQUIRED_SPEC_SKIP_UNSAFE_BENCHMARK_ID = "spec-skip-check-unsafe"
+REQUIRED_PRESET_SOLO_FOUNDER_BENCHMARK_ID = "preset-solo-founder"
+REQUIRED_PLATFORM_COVERAGE_BENCHMARK_ID = "platform-25-plus-coverage"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -154,6 +184,16 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required protocol manifest entry: spec-first-feature")
     if REQUIRED_SPEC_DRIVEN_PROTOCOL_ID not in protocol_ids:
         errors.append("Missing required protocol manifest entry: spec-driven-development")
+    if REQUIRED_ADAPTIVE_SPEC_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: adaptive-spec-depth")
+    if REQUIRED_SPEC_ESCAPE_HATCH_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: spec-escape-hatch")
+    if REQUIRED_QUESTION_ENGINE_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: question-engine")
+    if REQUIRED_SPEC_RETROFIT_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: spec-retrofit")
+    if REQUIRED_SPEC_FRESHNESS_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: spec-freshness")
     if REQUIRED_API_INTAKE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: third-party-api-intake")
     if REQUIRED_OPERATIONS_COMMAND_ID not in command_ids:
@@ -196,6 +236,24 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: spec-review")
     if REQUIRED_SPEC_TO_TASKS_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: spec-to-tasks")
+    if REQUIRED_SPEC_DEPTH_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-depth")
+    if REQUIRED_SPEC_SKIP_CHECK_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-skip-check")
+    if REQUIRED_SPEC_QUESTIONS_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-questions")
+    if REQUIRED_SPEC_RETROFIT_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-retrofit")
+    if REQUIRED_SPEC_FRESHNESS_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-freshness")
+    if REQUIRED_PRESET_LIST_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: preset-list")
+    if REQUIRED_PRESET_SHOW_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: preset-show")
+    if REQUIRED_PRESET_VALIDATE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: preset-validate")
+    if REQUIRED_VCP_PRESET_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: vcp-preset")
     if REQUIRED_VCP_SPEC_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: vcp-spec")
     if REQUIRED_VCP_WORKFLOW_COMMAND_ID not in command_ids:
@@ -218,6 +276,18 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required report manifest entry: diagnostic-report")
     if REQUIRED_EVENT_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: vcp-event-entry")
+    if REQUIRED_SPEC_DEPTH_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-depth-decision-report")
+    if REQUIRED_SPEC_FRESHNESS_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-freshness-report")
+    if REQUIRED_SPEC_QUESTIONS_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-questions-report")
+    if REQUIRED_SPEC_RETROFIT_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-retrofit-report")
+    if REQUIRED_SPEC_SKIP_CHECK_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-skip-check-report")
+    if REQUIRED_SPEC_TO_BACKLOG_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: spec-to-backlog-report")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
     if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
@@ -276,6 +346,26 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: catalog-filter-selection")
     if REQUIRED_EVENT_SCHEMA_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: event-schema-review-finding")
+    if REQUIRED_SPEC_DEPTH_GOVERNED_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-depth-governed")
+    if REQUIRED_SPEC_DEPTH_NO_SPEC_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-depth-no-spec")
+    if REQUIRED_SPEC_DEPTH_SPEC_LITE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-depth-spec-lite")
+    if REQUIRED_SPEC_FRESHNESS_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-freshness-stale")
+    if REQUIRED_SPEC_QUESTION_ENGINE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-question-engine")
+    if REQUIRED_SPEC_RETROFIT_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-retrofit-existing-code")
+    if REQUIRED_SPEC_SKIP_SAFE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-skip-check-safe")
+    if REQUIRED_SPEC_SKIP_UNSAFE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-skip-check-unsafe")
+    if REQUIRED_PRESET_SOLO_FOUNDER_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: preset-solo-founder")
+    if REQUIRED_PLATFORM_COVERAGE_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: platform-25-plus-coverage")
 
     payload = {
         "ok": not errors,

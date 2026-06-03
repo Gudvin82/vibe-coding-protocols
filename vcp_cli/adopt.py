@@ -43,7 +43,7 @@ def run(pack: str, dry_run: bool = True, json_mode: bool = False, output: str | 
         print("Refusing apply without --yes.")
         return 1
     if apply:
-        print("Apply mode is intentionally not implemented in v0.5.9. Use --dry-run and merge manually.")
+        print("Apply mode is intentionally not implemented in v0.6.0. Use --dry-run and merge manually.")
         return 1
     pack_data = load_pack(pack)
     plan = {

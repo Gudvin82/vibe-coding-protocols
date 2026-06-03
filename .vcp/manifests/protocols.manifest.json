@@ -1,6 +1,33 @@
 {
   "items": [
     {
+      "id": "adaptive-spec-depth",
+      "name": "Adaptive Spec Depth",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/adaptive-spec-depth.md",
+      "command": "python3 -m vcp_cli spec depth --task \"example\" --json",
+      "use_when": [
+        "choosing smallest safe spec depth before implementation"
+      ],
+      "do_not_use_when": [
+        "spec depth is already explicit and agreed"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "task description or source file"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec depth --task \"copy-only docs fix\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-depth-decision-report.md"
+      ],
+      "related_docs": [
+        "docs/adaptive-spec-depth.md"
+      ]
+    },
+    {
       "id": "ai-intake",
       "name": "AI Intake",
       "route": "intake",
@@ -304,6 +331,33 @@
       ]
     },
     {
+      "id": "question-engine",
+      "name": "Question Engine",
+      "route": "spec-first-feature",
+      "domain": "clarification",
+      "file": "protocols/spec-driven/question-engine.md",
+      "command": "python3 -m vcp_cli spec questions --idea \"example\" --json",
+      "use_when": [
+        "product idea or task framing is still ambiguous"
+      ],
+      "do_not_use_when": [
+        "scope and acceptance criteria are already explicit"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or source notes"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec questions --idea \"example\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-questions-report.md"
+      ],
+      "related_docs": [
+        "docs/question-engine.md"
+      ]
+    },
+    {
       "id": "security-review-scope",
       "name": "Security Review Scope",
       "route": "security",
@@ -362,6 +416,33 @@
       ]
     },
     {
+      "id": "spec-escape-hatch",
+      "name": "Spec Escape Hatch",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/spec-escape-hatch.md",
+      "command": "python3 -m vcp_cli spec skip-check --task \"copy-only docs fix\" --json",
+      "use_when": [
+        "a task may be small enough to skip full spec work"
+      ],
+      "do_not_use_when": [
+        "auth, payments, migrations, user data, or external APIs are involved"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "task description"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec skip-check --task \"copy-only docs fix\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-skip-check-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-escape-hatch.md"
+      ]
+    },
+    {
       "id": "spec-first-feature",
       "name": "Spec-first Feature",
       "route": "spec-first",
@@ -392,6 +473,61 @@
       "related_docs": [
         "docs/adoption-packs.md",
         "docs/workflows.md"
+      ]
+    },
+    {
+      "id": "spec-freshness",
+      "name": "Spec Freshness",
+      "route": "spec-first-feature",
+      "domain": "spec-maintenance",
+      "file": "protocols/spec-driven/spec-freshness.md",
+      "command": "python3 -m vcp_cli spec freshness --json",
+      "use_when": [
+        "spec artifacts may have drifted from backlog, architecture, or validation evidence"
+      ],
+      "do_not_use_when": [
+        "spec artifacts do not exist and the check would be misread as a hard failure"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo context"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec freshness --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-freshness-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-freshness.md"
+      ]
+    },
+    {
+      "id": "spec-retrofit",
+      "name": "Spec Retrofit",
+      "route": "spec-first-feature",
+      "domain": "retrofit",
+      "file": "protocols/spec-driven/spec-retrofit.md",
+      "command": "python3 -m vcp_cli spec retrofit --scope auth --dry-run --json",
+      "use_when": [
+        "code exists but spec memory is missing or weak"
+      ],
+      "do_not_use_when": [
+        "the team expects automatic code rewriting from this lane"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo docs",
+        "scope"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec retrofit --scope auth --dry-run --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-retrofit-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-retrofit.md"
       ]
     },
     {

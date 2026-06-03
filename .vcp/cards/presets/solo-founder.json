@@ -1,0 +1,65 @@
+{
+  "id": "solo-founder",
+  "type": "preset",
+  "name": "Solo Founder",
+  "summary": "Preset card for the Solo Founder default workflow shape.",
+  "use_when": [
+    "the repo resembles a solo founder workflow"
+  ],
+  "do_not_use_when": [
+    "you need a destructive preset apply flow in this release"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "preset",
+    "workflow-defaults"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "over-adoption",
+      "wrong default route"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "scope drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/presets/solo-founder.json"
+  ],
+  "related_files": [
+    "docs/packs-and-presets.md",
+    ".vcp/presets/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli preset show solo-founder"
+  ],
+  "outputs": [
+    "preset defaults",
+    "recommended routes",
+    "required gates"
+  ],
+  "stop_conditions": [
+    "do not mutate repo files automatically in this release"
+  ],
+  "validation": [
+    "python3 -m vcp_cli preset validate"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code"
+  ],
+  "badges": [
+    "preset"
+  ]
+}

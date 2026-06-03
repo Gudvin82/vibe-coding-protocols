@@ -18,6 +18,7 @@ from . import init_cmd
 from . import index_cmd
 from . import cards as cards_cmd
 from . import manifest as manifest_cmd
+from . import preset_cmd
 from . import review as review_cmd
 from . import route as route_cmd
 from . import score as score_cmd
@@ -159,6 +160,34 @@ def build_parser() -> argparse.ArgumentParser:
     spec_review.add_argument("--json", action="store_true")
     spec_summary = spec_sub.add_parser("summary")
     spec_summary.add_argument("--json", action="store_true")
+    spec_depth = spec_sub.add_parser("depth")
+    spec_depth.add_argument("--task")
+    spec_depth.add_argument("--from")
+    spec_depth.add_argument("--json", action="store_true")
+    spec_skip = spec_sub.add_parser("skip-check")
+    spec_skip.add_argument("--task")
+    spec_skip.add_argument("--reason")
+    spec_skip.add_argument("--json", action="store_true")
+    spec_questions = spec_sub.add_parser("questions")
+    spec_questions.add_argument("--idea")
+    spec_questions.add_argument("--from")
+    spec_questions.add_argument("--json", action="store_true")
+    spec_retrofit = spec_sub.add_parser("retrofit")
+    spec_retrofit.add_argument("--scope", required=True)
+    spec_retrofit.add_argument("--dry-run", action="store_true")
+    spec_retrofit.add_argument("--json", action="store_true")
+    spec_freshness = spec_sub.add_parser("freshness")
+    spec_freshness.add_argument("--json", action="store_true")
+
+    preset_p = sub.add_parser("preset")
+    preset_sub = preset_p.add_subparsers(dest="preset_command")
+    preset_list = preset_sub.add_parser("list")
+    preset_list.add_argument("--json", action="store_true")
+    preset_show = preset_sub.add_parser("show")
+    preset_show.add_argument("id")
+    preset_show.add_argument("--json", action="store_true")
+    preset_validate = preset_sub.add_parser("validate")
+    preset_validate.add_argument("--json", action="store_true")
 
     workflow_p = sub.add_parser("workflow")
     workflow_sub = workflow_p.add_subparsers(dest="workflow_command")
@@ -302,6 +331,23 @@ def main(argv: list[str] | None = None) -> int:
             return spec_cmd.review(getattr(args, "json", False))
         if args.spec_command == "summary":
             return spec_cmd.summary(getattr(args, "json", False))
+        if args.spec_command == "depth":
+            return spec_cmd.depth(getattr(args, "task", None), getattr(args, "from", None), getattr(args, "json", False))
+        if args.spec_command == "skip-check":
+            return spec_cmd.skip_check(getattr(args, "task", None), getattr(args, "reason", None), getattr(args, "json", False))
+        if args.spec_command == "questions":
+            return spec_cmd.questions(getattr(args, "idea", None), getattr(args, "from", None), getattr(args, "json", False))
+        if args.spec_command == "retrofit":
+            return spec_cmd.retrofit(args.scope, getattr(args, "dry_run", False), getattr(args, "json", False))
+        if args.spec_command == "freshness":
+            return spec_cmd.freshness(getattr(args, "json", False))
+    if args.command == "preset":
+        if args.preset_command in {None, "list"}:
+            return preset_cmd.list_presets(getattr(args, "json", False))
+        if args.preset_command == "show":
+            return preset_cmd.show_preset(args.id, getattr(args, "json", False))
+        if args.preset_command == "validate":
+            return preset_cmd.validate_presets(getattr(args, "json", False))
     if args.command == "workflow":
         if args.workflow_command in {None, "list"}:
             return workflow_cmd.list_workflows(getattr(args, "json", False))

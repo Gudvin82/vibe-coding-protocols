@@ -4,14 +4,41 @@
   "trigger": "Recent production error captures need grouping and routing.",
   "route": "production-error-capture",
   "steps": [
-    {"id": "collect", "name": "Collect inbox entries", "action": "inspect"},
-    {"id": "triage", "name": "Group incidents", "action": "triage"},
-    {"id": "backlog", "name": "Update backlog", "action": "backlog", "command": "python3 -m vcp_cli backlog validate"}
+    {
+      "id": "collect",
+      "name": "Collect inbox entries",
+      "action": "inspect"
+    },
+    {
+      "id": "triage",
+      "name": "Group incidents",
+      "action": "triage"
+    },
+    {
+      "id": "backlog",
+      "name": "Update backlog",
+      "action": "backlog",
+      "command": "python3 -m vcp_cli backlog validate"
+    }
   ],
-  "required_artifacts": ["protocols/operations/daily-error-triage.md", "PROJECT_BACKLOG.md"],
-  "outputs": ["triage report", "backlog follow-up"],
-  "validation": ["python3 -m vcp_cli backlog validate"],
-  "stop_conditions": ["The task expects direct production remediation", "Log path is unauthorized or unknown"],
-  "related_cards": ["production-error-capture", "project-backlog-concept"],
-  "version": "v0.5.9"
+  "required_artifacts": [
+    "protocols/operations/daily-error-triage.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "outputs": [
+    "triage report",
+    "backlog follow-up"
+  ],
+  "validation": [
+    "python3 -m vcp_cli backlog validate"
+  ],
+  "stop_conditions": [
+    "The task expects direct production remediation",
+    "Log path is unauthorized or unknown"
+  ],
+  "related_cards": [
+    "production-error-capture",
+    "project-backlog-concept"
+  ],
+  "version": "v0.6.0"
 }

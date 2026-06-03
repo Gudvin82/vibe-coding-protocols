@@ -281,6 +281,22 @@
       "expected_first_action": "Write a page brief first, then choose the narrowest matching template and schema."
     },
     {
+      "id": "platform-25-plus-coverage",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/platform-25-plus-coverage.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/platforms/README.md",
+        ".vcp/cards/platforms/claude-code.json",
+        ".vcp/cards/platforms/ollama-local-coding.json"
+      ],
+      "expected_warnings": [
+        "platform docs must not overclaim official integrations"
+      ],
+      "expected_first_action": "Check documented platform status and avoid claiming official plugins."
+    },
+    {
       "id": "platform-compatibility-inspection",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/platform-compatibility-inspection.json",
@@ -326,6 +342,21 @@
         "ask clarifying questions before coding"
       ],
       "expected_first_action": "Review PRD gaps before implementation."
+    },
+    {
+      "id": "preset-solo-founder",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/preset-solo-founder.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/packs-and-presets.md",
+        ".vcp/presets/solo-founder.json"
+      ],
+      "expected_warnings": [
+        "presets are guidance-only, not destructive apply flows"
+      ],
+      "expected_first_action": "Use the solo-founder preset as a lightweight default set."
     },
     {
       "id": "production-error-capture",
@@ -504,6 +535,51 @@
       "expected_first_action": "Create engine map and identify product-specific modules."
     },
     {
+      "id": "spec-depth-governed",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-depth-governed.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/adaptive-spec-depth.md",
+        "protocols/spec-driven/adaptive-spec-depth.md"
+      ],
+      "expected_warnings": [
+        "payment/auth/data work must not take the no-spec path"
+      ],
+      "expected_first_action": "Escalate to governed-spec and release discipline."
+    },
+    {
+      "id": "spec-depth-no-spec",
+      "profile": "spec-first",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-depth-no-spec.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/adaptive-spec-depth.md",
+        "protocols/spec-driven/adaptive-spec-depth.md"
+      ],
+      "expected_warnings": [
+        "tiny changes can skip PRD but not validation"
+      ],
+      "expected_first_action": "Allow no-spec path but keep validation."
+    },
+    {
+      "id": "spec-depth-spec-lite",
+      "profile": "spec-first",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-depth-spec-lite.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/adaptive-spec-depth.md",
+        "templates/reports/spec-depth-decision-report.md"
+      ],
+      "expected_warnings": [
+        "spec-lite is still more than README-only prompting"
+      ],
+      "expected_first_action": "Use a one-page feature brief plus acceptance criteria."
+    },
+    {
       "id": "spec-first-product-brief",
       "profile": "spec-first",
       "scenario_file": "benchmarks/ai-adoption/scenarios/spec-first-product-brief.json",
@@ -517,6 +593,83 @@
         "do not implement before scope clarity"
       ],
       "expected_first_action": "Write or refine the PRD before implementation."
+    },
+    {
+      "id": "spec-freshness-stale",
+      "profile": "spec-first",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-freshness-stale.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-freshness.md",
+        "protocols/spec-driven/spec-freshness.md"
+      ],
+      "expected_warnings": [
+        "missing optional files should not hard-fail freshness"
+      ],
+      "expected_first_action": "Run freshness checks and report stale/unknown signals."
+    },
+    {
+      "id": "spec-question-engine",
+      "profile": "spec-first",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-question-engine.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/question-engine.md",
+        "protocols/spec-driven/question-engine.md",
+        "templates/prompts/spec-question-engine.md"
+      ],
+      "expected_warnings": [
+        "do not overwhelm the user with a large questionnaire"
+      ],
+      "expected_first_action": "Ask one clarifying question at a time."
+    },
+    {
+      "id": "spec-retrofit-existing-code",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-retrofit-existing-code.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-retrofit.md",
+        "protocols/spec-driven/spec-retrofit.md",
+        "templates/specs/OBSERVED_SPEC.md"
+      ],
+      "expected_warnings": [
+        "retrofit lane should not rewrite code"
+      ],
+      "expected_first_action": "Capture observed behavior before changing implementation."
+    },
+    {
+      "id": "spec-skip-check-safe",
+      "profile": "maintenance",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-skip-check-safe.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-escape-hatch.md",
+        "protocols/spec-driven/spec-escape-hatch.md"
+      ],
+      "expected_warnings": [
+        "skipping spec never means skipping validation"
+      ],
+      "expected_first_action": "Allow spec skip but keep validation."
+    },
+    {
+      "id": "spec-skip-check-unsafe",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-skip-check-unsafe.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-escape-hatch.md",
+        "protocols/spec-driven/spec-escape-hatch.md"
+      ],
+      "expected_warnings": [
+        "high-risk domains cannot skip spec"
+      ],
+      "expected_first_action": "Reject spec skip and require full/governed spec."
     },
     {
       "id": "third-party-api-intake",

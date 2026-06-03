@@ -7,7 +7,7 @@ If agent rules are needed, prefer `templates/AGENTS.md` over copying root `AGENT
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.5.9 -->
+<!-- vcp-version: v0.6.0 -->
 <!-- methodology-version: v1.4 -->
 ```
 

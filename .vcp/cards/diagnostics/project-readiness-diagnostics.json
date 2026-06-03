@@ -1,0 +1,66 @@
+{
+  "id": "diagnostic-project-readiness",
+  "type": "diagnostic",
+  "name": "Project Readiness Diagnostics",
+  "summary": "Layer-by-layer readiness checks for project and process state.",
+  "use_when": [
+    "you need to know whether the project is ready for implementation, release, or hardening"
+  ],
+  "do_not_use_when": [
+    "you only need local environment health from doctor"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "diagnostics",
+    "readiness"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "validation",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "missing validation path",
+      "missing project memory"
+    ],
+    "project_state": [
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "process drift"
+    ]
+  },
+  "entry_files": [
+    "docs/diagnostics.md",
+    ".vcp/diagnostics/layers.json"
+  ],
+  "related_files": [
+    "vcp_cli/diagnose.py",
+    "templates/reports/diagnostic-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "outputs": [
+    "layer results",
+    "highest-priority warnings"
+  ],
+  "stop_conditions": [
+    "critical layer is FAIL or MISSING"
+  ],
+  "validation": [
+    "python3 -m vcp_cli workflow validate",
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code"
+  ],
+  "badges": [
+    "diagnostic"
+  ]
+}

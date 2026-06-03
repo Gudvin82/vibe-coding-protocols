@@ -1,0 +1,28 @@
+{
+  "id": "public-site-defaults",
+  "name": "Public Site Defaults",
+  "default_spec_depth": "spec-lite",
+  "recommended_routes": [
+    "public-site-readiness",
+    "public-growth",
+    "post-task-code-review"
+  ],
+  "recommended_packs": [
+    "public-site",
+    "public-growth"
+  ],
+  "required_gates": [
+    "validation",
+    "schema-honesty"
+  ],
+  "public_growth_options": [
+    "seo",
+    "geo",
+    "ai-visibility"
+  ],
+  "risk_defaults": [
+    "trust-signals",
+    "public-claims"
+  ],
+  "notes": "Useful for docs, marketing pages, and AI visibility work with lightweight defaults."
+}

@@ -2,30 +2,40 @@
 
 ## Status
 
-Supported via docs, prompts, rules, and repository workflow surfaces.
-No official plugin or vendor endorsement is claimed unless separately implemented later.
+documented
 
-## Recommended entrypoint
+This is a repository workflow path, not an official vendor plugin.
 
-- AGENTS.md, AI_INTAKE.md, templates/AGENTS.md
+## Recommended VCP entrypoints
 
-## What to ask the tool
+- `AGENTS.md`
+- `AI_INTAKE.md`
+- `.vcp/index.json`
 
-Ask Claude Code to classify the repo, choose the route, inspect only relevant files, and report validation before final output.
+## What to paste into the agent
 
-## What not to ask
+Start with `AGENTS.md`, then `AI_INTAKE.md`, then `.vcp/index.json` if context is limited.
+Ask the tool to choose the smallest safe workflow instead of copying the whole repository.
 
-Do not ask it to copy the whole toolkit blindly or claim vendor-native integration.
+## Compatible files
 
-## Avoid copying everything blindly
-
-Use route selection and Adoption Packs first. Prefer `--dry-run` and manual merge decisions over bulk copy.
+- `AGENTS.md`
+- `AI_INTAKE.md`
 
 ## Validation commands
 
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli manifest validate
+python3 -m vcp_cli check --fast --json
 ```
+
+## Limitations
+
+- Not an official plugin or marketplace integration.
+- Do not assume the tool understands VCP unless you point it at `AGENTS.md`, `AI_INTAKE.md`, or `.vcp/index.json`.
+- Avoid copying every template blindly.
+
+## Notes
+
+Use the repository entrypoints directly and verify the path with local VCP commands before relying on the workflow.

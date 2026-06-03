@@ -103,6 +103,72 @@
       ]
     },
     {
+      "id": "spec-depth-decision-report",
+      "file": "templates/reports/spec-depth-decision-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Decision",
+        "Reason",
+        "Required artifacts",
+        "Validation path"
+      ]
+    },
+    {
+      "id": "spec-freshness-report",
+      "file": "templates/reports/spec-freshness-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Freshness scope",
+        "Observed statuses",
+        "Missing or stale evidence",
+        "Next action"
+      ]
+    },
+    {
+      "id": "spec-questions-report",
+      "file": "templates/reports/spec-questions-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Source idea",
+        "Questions asked",
+        "Answers captured",
+        "Route implications"
+      ]
+    },
+    {
+      "id": "spec-retrofit-report",
+      "file": "templates/reports/spec-retrofit-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Scope",
+        "Observed behavior",
+        "Gaps",
+        "Backlog follow-up"
+      ]
+    },
+    {
+      "id": "spec-skip-check-report",
+      "file": "templates/reports/spec-skip-check-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Task summary",
+        "Skip decision",
+        "Validation still required",
+        "Stop conditions"
+      ]
+    },
+    {
+      "id": "spec-to-backlog-report",
+      "file": "templates/reports/spec-to-backlog-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Spec artifacts",
+        "Backlog linkage",
+        "Validation path",
+        "Review gate"
+      ]
+    },
+    {
       "id": "third-party-api-intake-report",
       "file": "templates/reports/third-party-api-intake-report.md",
       "intended_route": "integrations",

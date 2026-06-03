@@ -31,7 +31,7 @@
     "related_backlog_items": {"type": "array", "items": {"type": "string"}},
     "recommended_next_action": {"type": "string"},
     "redaction_status": {"type": "string", "enum": ["no-sensitive-data", "redacted", "needs-review"]},
-    "version": {"type": "string", "const": "v0.5.9"}
+    "version": {"type": "string", "const": "v0.6.0"}
   },
   "additionalProperties": false
 }

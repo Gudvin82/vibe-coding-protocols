@@ -36,11 +36,20 @@ CORE_FILES = [
     ".vcp/index.json",
     ".vcp/catalog.json",
     ".vcp/cards/README.md",
+    ".vcp/presets/README.md",
     ".vcp/workflows/README.md",
     ".vcp/diagnostics/README.md",
     "schemas/vcp-card.schema.json",
+    "schemas/vcp-preset.schema.json",
     "schemas/vcp-workflow.schema.json",
     "schemas/vcp-event.schema.json",
+    "docs/adaptive-spec-depth.md",
+    "docs/spec-escape-hatch.md",
+    "docs/question-engine.md",
+    "docs/spec-retrofit.md",
+    "docs/spec-freshness.md",
+    "docs/packs-and-presets.md",
+    "docs/integrations/spec-kit-bridge.md",
     "docs/progressive-disclosure.md",
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
@@ -78,8 +87,13 @@ CORE_FILES = [
     "protocols/public-growth/public-growth-playbook.md",
     "protocols/public-growth/seo-geo-ai-visibility.md",
     "protocols/spec-driven/README.md",
+    "protocols/spec-driven/adaptive-spec-depth.md",
     "protocols/spec-driven/product-brief-to-prd.md",
     "protocols/spec-driven/feature-spec.md",
+    "protocols/spec-driven/question-engine.md",
+    "protocols/spec-driven/spec-escape-hatch.md",
+    "protocols/spec-driven/spec-freshness.md",
+    "protocols/spec-driven/spec-retrofit.md",
     "protocols/spec-driven/spec-review.md",
     "protocols/spec-driven/spec-to-tasks.md",
     "protocols/spec-driven/spec-change-control.md",
@@ -88,14 +102,23 @@ CORE_FILES = [
     "templates/specs/PRD.md",
     "templates/specs/FEATURE_SPEC.md",
     "templates/specs/ACCEPTANCE_CRITERIA.md",
+    "templates/specs/OBSERVED_SPEC.md",
+    "templates/specs/SPEC_GAPS.md",
     "templates/specs/TASKS.md",
     "templates/specs/SPEC_REVIEW.md",
     "templates/specs/SPEC_CHANGELOG.md",
+    "templates/reports/spec-depth-decision-report.md",
+    "templates/reports/spec-freshness-report.md",
+    "templates/reports/spec-questions-report.md",
+    "templates/reports/spec-retrofit-report.md",
+    "templates/reports/spec-skip-check-report.md",
+    "templates/reports/spec-to-backlog-report.md",
     "templates/reports/error-inbox-entry.md",
     "templates/reports/diagnostic-report.md",
     "templates/reports/vcp-event-entry.md",
     "templates/public-growth/public-growth-checklist.md",
     "docs/public-site-readiness.md",
+    "case-studies/sanitized/vcp-retrofit-public-growth/README.md",
     "scripts/check-newlines.py",
     "scripts/validate-links.sh",
     "scripts/check-toolkit.sh",
@@ -158,6 +181,31 @@ def run(json_mode: bool = False) -> int:
         "operations_protocol_exists": (root / "protocols/operations/production-error-capture.md").exists(),
         "public_growth_protocol_exists": (root / "protocols/public-growth/public-growth-playbook.md").exists(),
         "public_growth_templates_exist": (root / "templates/public-growth/public-growth-checklist.md").exists(),
+        "adaptive_spec_layer_exists": all(
+            (root / rel).exists()
+            for rel in [
+                "docs/adaptive-spec-depth.md",
+                "docs/spec-escape-hatch.md",
+                "docs/question-engine.md",
+                "docs/spec-retrofit.md",
+                "docs/spec-freshness.md",
+                "protocols/spec-driven/adaptive-spec-depth.md",
+                "protocols/spec-driven/spec-escape-hatch.md",
+                "protocols/spec-driven/question-engine.md",
+                "protocols/spec-driven/spec-retrofit.md",
+                "protocols/spec-driven/spec-freshness.md",
+            ]
+        ),
+        "preset_layer_exists": all(
+            (root / rel).exists()
+            for rel in [
+                "docs/packs-and-presets.md",
+                ".vcp/presets/README.md",
+                "schemas/vcp-preset.schema.json",
+            ]
+        ),
+        "platform_doc_count": len(list((root / "docs" / "platforms").glob("*.md"))) if (root / "docs" / "platforms").exists() else 0,
+        "platform_card_count": len(list((root / ".vcp" / "cards" / "platforms").glob("*.json"))) if (root / ".vcp" / "cards" / "platforms").exists() else 0,
         "project_backlog_exists": (root / "PROJECT_BACKLOG.md").exists(),
         "runtime_error_inbox_gitignored": runtime_error_inbox_gitignored(root),
         "runtime_backups_gitignored": runtime_backups_gitignored(root),
@@ -191,6 +239,10 @@ def run(json_mode: bool = False) -> int:
         print(f"Operations protocol: {'yes' if payload['operations_protocol_exists'] else 'no'}")
         print(f"Public growth protocol: {'yes' if payload['public_growth_protocol_exists'] else 'no'}")
         print(f"Public growth templates: {'yes' if payload['public_growth_templates_exist'] else 'no'}")
+        print(f"Adaptive spec layer: {'yes' if payload['adaptive_spec_layer_exists'] else 'no'}")
+        print(f"Preset layer: {'yes' if payload['preset_layer_exists'] else 'no'}")
+        print(f"Platform docs: {payload['platform_doc_count']}")
+        print(f"Platform cards: {payload['platform_card_count']}")
         print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_exists'] else 'no'}")
         print(f"Runtime error inbox gitignored: {'yes' if payload['runtime_error_inbox_gitignored'] else 'no'}")
         print(f"Runtime backups gitignored: {'yes' if payload['runtime_backups_gitignored'] else 'no'}")

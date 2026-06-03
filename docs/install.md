@@ -1,7 +1,7 @@
 # Install
 
 VCP is currently a local repository toolkit.
-It does not claim public PyPI, public npm, Homebrew, or native installer distribution in `v0.5.9`.
+It does not claim public PyPI, public npm, Homebrew, or native installer distribution in `v0.6.0`.
 
 ## Fastest local start
 

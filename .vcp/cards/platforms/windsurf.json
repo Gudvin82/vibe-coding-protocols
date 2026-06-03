@@ -1,0 +1,91 @@
+{
+  "id": "windsurf",
+  "type": "platform",
+  "name": "Windsurf",
+  "summary": "VCP usage guidance for Windsurf.",
+  "status": "rules-compatible",
+  "use_when": [
+    "Windsurf is the active AI coding tool or workflow."
+  ],
+  "do_not_use_when": [
+    "official plugin support is required and not implemented."
+  ],
+  "risk_level": "low",
+  "domains": [
+    "platform-compatibility",
+    "ai-tooling"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation",
+      "blind template copying"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "mis-scoped adoption",
+      "shallow evaluation"
+    ]
+  },
+  "entry_files": [
+    "docs/platforms/windsurf.md",
+    "AGENTS.md",
+    ".vcp/index.json"
+  ],
+  "related_files": [
+    "AI_EVALUATION_GUIDE.md",
+    "AI_INTAKE.md",
+    "docs/platforms/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli doctor",
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "outputs": [
+    "platform usage guidance",
+    "recommended entrypoints",
+    "validation commands"
+  ],
+  "stop_conditions": [
+    "do not claim official integration if only prompt-compatible"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate",
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "version": "v0.6.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "windsurf"
+  ],
+  "badges": [
+    "rules-compatible"
+  ],
+  "entrypoints": [
+    "AGENTS.md",
+    "AI_INTAKE.md",
+    "templates/AGENTS.md"
+  ],
+  "compatible_files": [
+    "AGENTS.md",
+    "templates/AGENTS.md"
+  ],
+  "recommended_commands": [
+    "python3 -m vcp_cli doctor",
+    "python3 -m vcp_cli route --profile production",
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "limitations": [
+    "Not an official plugin or marketplace integration.",
+    "Prompt/rules compatibility still depends on the tool reading repo files."
+  ],
+  "official_integration": false
+}

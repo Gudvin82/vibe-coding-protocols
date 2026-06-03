@@ -1,17 +1,18 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.5.9",
+  "version": "v0.6.0",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
   "purpose": "Controlled AI-assisted delivery toolkit.",
   "entrypoints": [
+    ".vcp/presets/README.md",
     "AGENTS.md",
     "AI_EVALUATION_GUIDE.md",
     "AI_INTAKE.md",
     "START_HERE.md",
-    "llms.txt",
-    "llms-full.txt"
+    "llms-full.txt",
+    "llms.txt"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -20,16 +21,27 @@
     "adoption_packs": ".vcp/cards/adoption-packs/",
     "commands": ".vcp/cards/commands/",
     "reports": ".vcp/cards/reports/",
-    "concepts": ".vcp/cards/concepts/"
+    "concepts": ".vcp/cards/concepts/",
+    "platforms": ".vcp/cards/platforms/",
+    "presets": ".vcp/cards/presets/",
+    "workflows": ".vcp/cards/workflows/",
+    "diagnostics": ".vcp/cards/diagnostics/"
   },
   "manifests": ".vcp/manifests/",
   "benchmarks": "benchmarks/ai-adoption/",
   "docs": [
+    "docs/adaptive-spec-depth.md",
     "docs/catalog.md",
     "docs/diagnostics.md",
     "docs/event-schema.md",
+    "docs/integrations/spec-kit-bridge.md",
+    "docs/packs-and-presets.md",
     "docs/platforms/README.md",
     "docs/progressive-disclosure.md",
+    "docs/question-engine.md",
+    "docs/spec-escape-hatch.md",
+    "docs/spec-freshness.md",
+    "docs/spec-retrofit.md",
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
     "docs/workflows.md"
@@ -73,6 +85,7 @@
     "vcp-evaluate",
     "vcp-index",
     "vcp-manifest",
+    "vcp-preset",
     "vcp-route",
     "vcp-score",
     "vcp-spec",
@@ -147,22 +160,33 @@
     "workflow-public-growth-audit"
   ],
   "recommended_ai_flow": [
-    "read AGENTS.md",
-    "read AI_EVALUATION_GUIDE.md",
-    "read .vcp/index.json",
-    "inspect relevant cards or catalog filters",
-    "choose route or workflow",
-    "open only required full docs"
+    "AGENTS.md",
+    "AI_EVALUATION_GUIDE.md",
+    "llms.txt",
+    ".vcp/index.json",
+    ".vcp/cards/README.md",
+    ".vcp/presets/README.md",
+    "docs/adaptive-spec-depth.md",
+    "docs/platforms/README.md"
   ],
   "not": [
-    "not a security scanner",
-    "not a pentest/offensive toolkit",
+    "Not a destructive preset engine",
+    "Not an official vendor plugin suite",
     "not a compliance certification",
-    "not a replacement for human review"
+    "not a pentest/offensive toolkit",
+    "not a replacement for human review",
+    "not a security scanner"
   ],
   "reminder": "Do not evaluate README alone.",
   "workflows": ".vcp/workflows/",
   "diagnostics": ".vcp/diagnostics/",
   "catalog": ".vcp/catalog.json",
-  "event_schema": "schemas/vcp-event.schema.json"
+  "event_schema": "schemas/vcp-event.schema.json",
+  "presets": [
+    "agency-client",
+    "legaltech",
+    "public-site-defaults",
+    "saas",
+    "solo-founder"
+  ]
 }

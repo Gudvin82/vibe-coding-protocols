@@ -1,0 +1,65 @@
+{
+  "id": "agency-client",
+  "type": "preset",
+  "name": "Agency Client",
+  "summary": "Preset card for the Agency Client default workflow shape.",
+  "use_when": [
+    "the repo resembles a agency client workflow"
+  ],
+  "do_not_use_when": [
+    "you need a destructive preset apply flow in this release"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "preset",
+    "workflow-defaults"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "over-adoption",
+      "wrong default route"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "scope drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/presets/agency-client.json"
+  ],
+  "related_files": [
+    "docs/packs-and-presets.md",
+    ".vcp/presets/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli preset show agency-client"
+  ],
+  "outputs": [
+    "preset defaults",
+    "recommended routes",
+    "required gates"
+  ],
+  "stop_conditions": [
+    "do not mutate repo files automatically in this release"
+  ],
+  "validation": [
+    "python3 -m vcp_cli preset validate"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code"
+  ],
+  "badges": [
+    "preset"
+  ]
+}

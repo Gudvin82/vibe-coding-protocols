@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_GROWTH_SERVICE_PAGE -->
-<!-- vcp-version: v0.5.9 -->
+<!-- vcp-version: v0.6.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Service Page Template

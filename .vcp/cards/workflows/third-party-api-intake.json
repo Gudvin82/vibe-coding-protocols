@@ -1,0 +1,67 @@
+{
+  "id": "workflow-third-party-api-intake",
+  "type": "workflow",
+  "name": "Third-party API Intake Workflow",
+  "summary": "Workflow card for Third-party API Intake Workflow.",
+  "use_when": [
+    "An external API, SDK, webhook, or SaaS dependency is proposed."
+  ],
+  "do_not_use_when": [
+    "you expect the workflow file to execute automation by itself"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "workflow",
+    "delivery-governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "chat-only memory",
+      "skipped validation"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "route drift",
+      "validation drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/workflows/third-party-api-intake.json"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow show third-party-api-intake"
+  ],
+  "outputs": [
+    "intake decision",
+    "registry update decision"
+  ],
+  "stop_conditions": [
+    "API terms or data handling still unknown",
+    "A token would be committed to code"
+  ],
+  "validation": [
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "workflow"
+  ]
+}

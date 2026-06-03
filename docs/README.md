@@ -49,7 +49,7 @@ Use the route docs and product layer intentionally.
 - [platforms/README.md](./platforms/README.md)
 - [public-proof-roadmap.md](./public-proof-roadmap.md)
 - [glossary.md](./glossary.md)
-- [release-v0.5.9.md](./release-v0.5.9.md)
+- [release-v0.6.0.md](./release-v0.6.0.md)
 - [roadmap.md](./roadmap.md)
 
 ## Routes and packs

@@ -274,6 +274,45 @@
       ]
     },
     {
+      "id": "preset-list",
+      "command_name": "vcp preset list",
+      "file": "docs/packs-and-presets.md",
+      "route": "preset",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "available preset list",
+      "validation": [
+        "python3 -m vcp_cli preset validate --json"
+      ]
+    },
+    {
+      "id": "preset-show",
+      "command_name": "vcp preset show",
+      "file": "docs/packs-and-presets.md",
+      "route": "preset",
+      "inputs": [
+        "preset id"
+      ],
+      "output": "one preset definition",
+      "validation": [
+        "python3 -m vcp_cli preset validate --json"
+      ]
+    },
+    {
+      "id": "preset-validate",
+      "command_name": "vcp preset validate",
+      "file": "docs/packs-and-presets.md",
+      "route": "preset",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "preset validation result",
+      "validation": [
+        "python3 -m vcp_cli preset validate --json"
+      ]
+    },
+    {
       "id": "prod-log-monitor",
       "command_name": "/prod-log-monitor",
       "file": "commands/prod-log-monitor.md",
@@ -287,6 +326,32 @@
       "validation": [
         "read-only evidence",
         "sanitized capture"
+      ]
+    },
+    {
+      "id": "spec-depth",
+      "command_name": "vcp spec depth",
+      "file": "docs/adaptive-spec-depth.md",
+      "route": "spec-first",
+      "inputs": [
+        "task text or --from file"
+      ],
+      "output": "recommended spec depth and required artifacts",
+      "validation": [
+        "python3 -m vcp_cli spec depth --task \"copy-only docs fix\" --json"
+      ]
+    },
+    {
+      "id": "spec-freshness",
+      "command_name": "vcp spec freshness",
+      "file": "docs/spec-freshness.md",
+      "route": "spec-first",
+      "inputs": [
+        "repo context"
+      ],
+      "output": "best-effort freshness checks",
+      "validation": [
+        "python3 -m vcp_cli spec freshness --json"
       ]
     },
     {
@@ -305,6 +370,33 @@
       ]
     },
     {
+      "id": "spec-questions",
+      "command_name": "vcp spec questions",
+      "file": "docs/question-engine.md",
+      "route": "spec-first",
+      "inputs": [
+        "idea text or --from file"
+      ],
+      "output": "one-question-at-a-time clarification set",
+      "validation": [
+        "python3 -m vcp_cli spec questions --idea \"build a customer portal\" --json"
+      ]
+    },
+    {
+      "id": "spec-retrofit",
+      "command_name": "vcp spec retrofit",
+      "file": "docs/spec-retrofit.md",
+      "route": "spec-first",
+      "inputs": [
+        "scope",
+        "optional --dry-run"
+      ],
+      "output": "guidance-only retrofit plan",
+      "validation": [
+        "python3 -m vcp_cli spec retrofit --scope auth --dry-run --json"
+      ]
+    },
+    {
       "id": "spec-review",
       "command_name": "/spec-review",
       "file": "commands/spec-review.md",
@@ -317,6 +409,19 @@
       "output": "spec review decision",
       "validation": [
         "gaps explicit before implementation"
+      ]
+    },
+    {
+      "id": "spec-skip-check",
+      "command_name": "vcp spec skip-check",
+      "file": "docs/spec-escape-hatch.md",
+      "route": "spec-first",
+      "inputs": [
+        "task text or --from file"
+      ],
+      "output": "safe/unsafe spec skip decision",
+      "validation": [
+        "python3 -m vcp_cli spec skip-check --task \"copy-only docs fix\" --json"
       ]
     },
     {
@@ -377,6 +482,19 @@
       "output": "layer readiness report",
       "validation": [
         "python3 -m vcp_cli diagnose --json"
+      ]
+    },
+    {
+      "id": "vcp-preset",
+      "command_name": "vcp preset",
+      "file": "docs/packs-and-presets.md",
+      "route": "preset",
+      "inputs": [
+        "list/show/validate"
+      ],
+      "output": "preset catalog response",
+      "validation": [
+        "python3 -m vcp_cli preset validate --json"
       ]
     },
     {

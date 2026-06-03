@@ -4,7 +4,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 python3 -m vcp_cli --help >/dev/null
-python3 -m vcp_cli version | grep -F "v0.5.9" >/dev/null
+python3 -m vcp_cli version | grep -F "v0.6.0" >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null
@@ -21,7 +21,7 @@ python3 -m vcp_cli adopt --pack public-growth --dry-run --json | grep -F '"pack"
 python3 -m vcp_cli adopt --pack spec-first --dry-run --json | grep -F '"pack": "spec-first"' >/dev/null
 python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/prompts/loop-code-review.md"' >/dev/null
 python3 -m vcp_cli index validate >/dev/null
-python3 -m vcp_cli index show --json | grep -F '"version": "v0.5.9"' >/dev/null
+python3 -m vcp_cli index show --json | grep -F '"version": "v0.6.0"' >/dev/null
 python3 -m vcp_cli index search production --json | grep -F '"query": "production"' >/dev/null
 python3 -m vcp_cli cards list --json | grep -F '"total"' >/dev/null
 python3 -m vcp_cli cards list --recommended --json | grep -F '"items"' >/dev/null
@@ -32,6 +32,15 @@ python3 -m vcp_cli cards show production-hardening --json | grep -F '"id": "prod
 python3 -m vcp_cli spec validate --json | grep -F '"spec_files"' >/dev/null
 python3 -m vcp_cli spec template prd | grep -F "# Product Requirements Document" >/dev/null
 python3 -m vcp_cli spec summary --json | grep -F '"recommended_flow"' >/dev/null
+python3 -m vcp_cli spec depth --task "copy-only docs fix" --json | grep -F '"recommended_spec_depth": "no-spec"' >/dev/null
+python3 -m vcp_cli spec skip-check --task "copy-only docs fix" --json | grep -F '"safe_to_skip_spec": true' >/dev/null
+python3 -m vcp_cli spec questions --idea "build a customer portal" --json | grep -F '"one_question_at_a_time": true' >/dev/null
+python3 -m vcp_cli spec retrofit --scope auth --dry-run --json | grep -F '"writes_source_code": false' >/dev/null
+python3 -m vcp_cli spec freshness --json | grep -F '"summary"' >/dev/null
+python3 -m vcp_cli preset list --json | grep -F '"total": 5' >/dev/null
+python3 -m vcp_cli preset show solo-founder --json | grep -F '"id": "solo-founder"' >/dev/null
+python3 -m vcp_cli preset validate --json | grep -F '"ok": true' >/dev/null
+python3 -m vcp_cli cards list --type platform --json | grep -F '"total": 27' >/dev/null
 python3 -m vcp_cli workflow list --json | grep -F '"items"' >/dev/null
 python3 -m vcp_cli workflow validate --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli workflow show production-hardening --json | grep -F '"id": "production-hardening"' >/dev/null

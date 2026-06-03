@@ -1,0 +1,67 @@
+{
+  "id": "workflow-existing-mvp-hardening",
+  "type": "workflow",
+  "name": "Existing MVP Hardening Workflow",
+  "summary": "Workflow card for Existing MVP Hardening Workflow.",
+  "use_when": [
+    "A working MVP exists but is not production-ready."
+  ],
+  "do_not_use_when": [
+    "you expect the workflow file to execute automation by itself"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "workflow",
+    "delivery-governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "chat-only memory",
+      "skipped validation"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "route drift",
+      "validation drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/workflows/existing-mvp-hardening.json"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow show existing-mvp-hardening"
+  ],
+  "outputs": [
+    "risk map",
+    "adoption dry run"
+  ],
+  "stop_conditions": [
+    "No validation path exists",
+    "Users or payments already exist and scope is still unclear"
+  ],
+  "validation": [
+    "bash scripts/vibe-check.sh --hardening"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "workflow"
+  ]
+}

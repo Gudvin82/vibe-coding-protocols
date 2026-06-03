@@ -156,7 +156,7 @@ def _section_heading(status: str) -> str:
 def _build_preamble() -> list[str]:
     return [
         "<!-- vcp-artifact: PROJECT_BACKLOG -->",
-        "<!-- vcp-version: v0.5.9 -->",
+        "<!-- vcp-version: v0.6.0 -->",
         "<!-- methodology-version: v1.4 -->",
         "",
         "# Project Backlog",
@@ -164,11 +164,18 @@ def _build_preamble() -> list[str]:
         "## Rules",
         "",
         "- Use this backlog for tasks, ideas, bugs, operations follow-up, review follow-up, and product work.",
-        "- Do not use it as a replacement for `AUDIT_BACKLOG.md`.",
-        "- Keep IDs stable. Do not renumber existing items.",
-        "- Create or update a backlog item before implementation starts when a new request arrives.",
-        "- If architecture impact is `cross-layer` or `production-critical`, update architecture docs in the same task or create a linked follow-up item.",
+        "- Keep it separate from `AUDIT_BACKLOG.md`.",
+        "- IDs must be unique and stable. Do not renumber existing items.",
+        "- If an item is split, create new IDs and reference the parent in notes.",
+        "- If duplicates are merged, keep the oldest ID and reference merged IDs in notes.",
+        "- Add or update an item before implementation starts when a new request arrives.",
+        "- If architecture impact is not `none`, update linked architecture docs in the same task or create a follow-up item.",
         "- Example rows below illustrate the format. Replace them with real project state.",
+        "",
+        "## ID convention",
+        "",
+        "- Default VCP prefix: `VCP-001`, `VCP-002`, `VCP-003`",
+        "- Copied project prefixes may be customized: `PROJECT-001`, `SP-001`, `APP-001`",
         "",
     ]
 

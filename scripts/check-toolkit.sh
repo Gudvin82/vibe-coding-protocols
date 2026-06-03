@@ -55,6 +55,13 @@ required_files=(
   docs/event-schema.md
   docs/demo-script.md
   docs/quickstart-walkthrough.md
+  docs/adaptive-spec-depth.md
+  docs/spec-escape-hatch.md
+  docs/question-engine.md
+  docs/spec-retrofit.md
+  docs/spec-freshness.md
+  docs/packs-and-presets.md
+  docs/integrations/spec-kit-bridge.md
   docs/progressive-disclosure.md
   docs/vcp-cards.md
   docs/vcp-mappings.md
@@ -73,6 +80,26 @@ required_files=(
   docs/platforms/github-copilot.md
   docs/platforms/gemini-cli.md
   docs/platforms/jetbrains-junie.md
+  docs/platforms/aider.md
+  docs/platforms/amazon-q-developer.md
+  docs/platforms/bolt-new.md
+  docs/platforms/cline.md
+  docs/platforms/continue.md
+  docs/platforms/devin.md
+  docs/platforms/google-jules.md
+  docs/platforms/lm-studio-local-workflow.md
+  docs/platforms/lovable.md
+  docs/platforms/ollama-local-coding.md
+  docs/platforms/openhands.md
+  docs/platforms/qwen-code.md
+  docs/platforms/replit-agent.md
+  docs/platforms/roo-code.md
+  docs/platforms/sourcegraph-cody.md
+  docs/platforms/tabnine.md
+  docs/platforms/trae.md
+  docs/platforms/v0-dev.md
+  docs/platforms/vs-code-ai-assistants.md
+  docs/platforms/zed-ai.md
   docs/integrations/README.md
   docs/integrations/claude-code.md
   docs/integrations/codex.md
@@ -120,6 +147,7 @@ required_files=(
   docs/release-v0.5.7.md
   docs/release-v0.5.8.md
   docs/release-v0.5.9.md
+  docs/release-v0.6.0.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
@@ -141,12 +169,23 @@ required_files=(
   protocols/operations/production-error-capture.md
   protocols/operations/daily-error-triage.md
   protocols/spec-driven/README.md
+  protocols/spec-driven/adaptive-spec-depth.md
   protocols/spec-driven/product-brief-to-prd.md
   protocols/spec-driven/feature-spec.md
+  protocols/spec-driven/question-engine.md
+  protocols/spec-driven/spec-escape-hatch.md
+  protocols/spec-driven/spec-freshness.md
+  protocols/spec-driven/spec-retrofit.md
   protocols/spec-driven/spec-review.md
   protocols/spec-driven/spec-to-tasks.md
   protocols/spec-driven/spec-change-control.md
   .vcp/catalog.json
+  .vcp/presets/README.md
+  .vcp/presets/agency-client.json
+  .vcp/presets/legaltech.json
+  .vcp/presets/public-site-defaults.json
+  .vcp/presets/saas.json
+  .vcp/presets/solo-founder.json
   .vcp/workflows/README.md
   .vcp/diagnostics/README.md
   commands/prod-log-monitor.md
@@ -190,6 +229,7 @@ required_files=(
   .vcp/manifests/reports.manifest.json
   .vcp/manifests/benchmarks.manifest.json
   schemas/vcp-card.schema.json
+  schemas/vcp-preset.schema.json
   schemas/vcp-workflow.schema.json
   schemas/vcp-event.schema.json
   bin/vcp
@@ -233,6 +273,8 @@ required_files=(
   templates/prompts/product-brief-to-prd.md
   templates/prompts/ask-one-question-at-a-time.md
   templates/prompts/review-prd-for-gaps.md
+  templates/prompts/spec-question-engine.md
+  templates/prompts/spec-retrofit.md
   templates/prompts/spec-to-tasks.md
   templates/reports/vcp-adoption-assessment.md
   templates/reports/vcp-repository-evaluation-report.md
@@ -245,9 +287,17 @@ required_files=(
   templates/reports/ai-visibility-monitoring-report.md
   templates/reports/diagnostic-report.md
   templates/reports/vcp-event-entry.md
+  templates/reports/spec-depth-decision-report.md
+  templates/reports/spec-freshness-report.md
+  templates/reports/spec-questions-report.md
+  templates/reports/spec-retrofit-report.md
+  templates/reports/spec-skip-check-report.md
+  templates/reports/spec-to-backlog-report.md
   templates/PROJECT_BACKLOG.md
   templates/specs/PRD.md
   templates/specs/FEATURE_SPEC.md
+  templates/specs/OBSERVED_SPEC.md
+  templates/specs/SPEC_GAPS.md
   templates/specs/ACCEPTANCE_CRITERIA.md
   templates/specs/TASKS.md
   templates/specs/SPEC_REVIEW.md
@@ -304,6 +354,7 @@ required_files=(
   examples/backlog/architecture-impact.example.md
   examples/backlog/prod-error-to-backlog.example.md
   examples/operations/README.md
+  case-studies/sanitized/vcp-retrofit-public-growth/README.md
   examples/operations/error-inbox-entry.example.md
   examples/operations/daily-error-triage-report.example.md
   examples/operations/project-backlog.example.md
@@ -338,6 +389,16 @@ required_files=(
   benchmarks/ai-adoption/scenarios/prd-gap-review.json
   benchmarks/ai-adoption/scenarios/feature-spec-to-tasks.json
   benchmarks/ai-adoption/scenarios/workflow-production-hardening.json
+  benchmarks/ai-adoption/scenarios/spec-depth-governed.json
+  benchmarks/ai-adoption/scenarios/spec-depth-no-spec.json
+  benchmarks/ai-adoption/scenarios/spec-depth-spec-lite.json
+  benchmarks/ai-adoption/scenarios/spec-freshness-stale.json
+  benchmarks/ai-adoption/scenarios/spec-question-engine.json
+  benchmarks/ai-adoption/scenarios/spec-retrofit-existing-code.json
+  benchmarks/ai-adoption/scenarios/spec-skip-check-safe.json
+  benchmarks/ai-adoption/scenarios/spec-skip-check-unsafe.json
+  benchmarks/ai-adoption/scenarios/preset-solo-founder.json
+  benchmarks/ai-adoption/scenarios/platform-25-plus-coverage.json
   benchmarks/ai-adoption/scenarios/workflow-public-growth-audit.json
   benchmarks/ai-adoption/scenarios/diagnostics-layer-check.json
   benchmarks/ai-adoption/scenarios/catalog-filter-selection.json

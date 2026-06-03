@@ -50,7 +50,7 @@ def main() -> int:
     index_validate = json.loads(run('index', 'validate', '--json'))
     assert index_validate['ok'] is True
     index_show = json.loads(run('index', 'show', '--json'))
-    assert index_show['version'] == 'v0.5.9'
+    assert index_show['version'] == 'v0.6.0'
     index_search = json.loads(run('index', 'search', 'production', '--json'))
     assert index_search['query'] == 'production'
     cards_list = json.loads(run('cards', 'list', '--json'))
@@ -70,6 +70,24 @@ def main() -> int:
     assert '# Product Requirements Document' in run('spec', 'template', 'prd')
     spec_summary = json.loads(run('spec', 'summary', '--json'))
     assert 'recommended_flow' in spec_summary
+    spec_depth = json.loads(run('spec', 'depth', '--task', 'copy-only docs fix', '--json'))
+    assert spec_depth['recommended_spec_depth'] == 'no-spec'
+    spec_skip = json.loads(run('spec', 'skip-check', '--task', 'copy-only docs fix', '--json'))
+    assert spec_skip['safe_to_skip_spec'] is True
+    spec_questions = json.loads(run('spec', 'questions', '--idea', 'build a customer portal', '--json'))
+    assert spec_questions['one_question_at_a_time'] is True
+    spec_retrofit = json.loads(run('spec', 'retrofit', '--scope', 'auth', '--dry-run', '--json'))
+    assert spec_retrofit['writes_source_code'] is False
+    spec_freshness = json.loads(run('spec', 'freshness', '--json'))
+    assert 'summary' in spec_freshness
+    preset_list = json.loads(run('preset', 'list', '--json'))
+    assert preset_list['total'] == 5
+    preset_show = json.loads(run('preset', 'show', 'solo-founder', '--json'))
+    assert preset_show['id'] == 'solo-founder'
+    preset_validate = json.loads(run('preset', 'validate', '--json'))
+    assert preset_validate['ok'] is True
+    platform_cards = json.loads(run('cards', 'list', '--type', 'platform', '--json'))
+    assert platform_cards['total'] == 27
     workflow_list = json.loads(run('workflow', 'list', '--json'))
     assert workflow_list['total'] > 0
     workflow_validate = json.loads(run('workflow', 'validate', '--json'))

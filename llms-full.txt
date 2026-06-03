@@ -4,11 +4,11 @@
 
 Vibe Coding Protocols (VCP) is an open-source toolkit for controlled AI-assisted software delivery.
 It combines route selection, scoped adoption packs, local CLI helpers, manifests, benchmarks, review gates, operations workflows, backlog discipline, and public-growth guidance.
-It now also includes a Spec Lane, workflow catalog, diagnostics layer, catalog filters over cards, and a normalized event schema.
+It now also includes adaptive spec depth, spec escape hatch, question engine, spec retrofit/freshness, lightweight presets, platform coverage docs/cards, a workflow catalog, diagnostics layer, catalog filters over cards, and a normalized event schema.
 
 ## Current version and methodology
 
-- Repository package: `v0.5.9`
+- Repository package: `v0.6.0`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 - Canonical website: `https://anmalishev.ru/expert/vibe-coding/`

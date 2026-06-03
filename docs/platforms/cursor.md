@@ -2,30 +2,40 @@
 
 ## Status
 
-Supported via docs, prompts, rules, and repository workflow surfaces.
-No official plugin or vendor endorsement is claimed unless separately implemented later.
+rules-compatible
 
-## Recommended entrypoint
+This is a repository workflow path, not an official vendor plugin.
 
-- templates/AGENTS.md, docs/, AI_INTAKE.md
+## Recommended VCP entrypoints
 
-## What to ask the tool
+- `AGENTS.md`
+- `AI_INTAKE.md`
+- `templates/AGENTS.md`
 
-Ask Cursor to use route selection and dry-run adoption before making edits.
+## What to paste into the agent
 
-## What not to ask
+Start with `AGENTS.md`, then `AI_INTAKE.md`, then `.vcp/index.json` if context is limited.
+Ask the tool to choose the smallest safe workflow instead of copying the whole repository.
 
-Do not ask Cursor to overwrite project-specific files blindly or pretend an official plugin exists.
+## Compatible files
 
-## Avoid copying everything blindly
-
-Use route selection and Adoption Packs first. Prefer `--dry-run` and manual merge decisions over bulk copy.
+- `AGENTS.md`
+- `templates/AGENTS.md`
 
 ## Validation commands
 
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli manifest validate
+python3 -m vcp_cli check --fast --json
 ```
+
+## Limitations
+
+- Not an official plugin or marketplace integration.
+- Do not assume the tool understands VCP unless you point it at `AGENTS.md`, `AI_INTAKE.md`, or `.vcp/index.json`.
+- Avoid copying every template blindly.
+
+## Notes
+
+This works best when the tool can pin repository rules or instruction files and keep them visible during the task.

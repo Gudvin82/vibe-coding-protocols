@@ -1,0 +1,67 @@
+{
+  "id": "workflow-post-task-review",
+  "type": "workflow",
+  "name": "Post-task Review Workflow",
+  "summary": "Workflow card for Post-task Review Workflow.",
+  "use_when": [
+    "Meaningful AI-generated changes need acceptance evidence."
+  ],
+  "do_not_use_when": [
+    "you expect the workflow file to execute automation by itself"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "workflow",
+    "delivery-governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "chat-only memory",
+      "skipped validation"
+    ],
+    "project_state": [
+      "new-project",
+      "existing-repo"
+    ],
+    "risk_categories": [
+      "route drift",
+      "validation drift"
+    ]
+  },
+  "entry_files": [
+    ".vcp/workflows/post-task-review.json"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow show post-task-review"
+  ],
+  "outputs": [
+    "review findings",
+    "acceptance signal"
+  ],
+  "stop_conditions": [
+    "Validation is red",
+    "Independent reviewer path unavailable for sensitive changes"
+  ],
+  "validation": [
+    "python3 -m vcp_cli review plan --json"
+  ],
+  "version": "v0.6.0",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "workflow"
+  ]
+}

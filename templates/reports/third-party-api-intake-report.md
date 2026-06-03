@@ -1,5 +1,5 @@
 <!-- vcp-artifact: THIRD_PARTY_API_INTAKE_REPORT -->
-<!-- vcp-version: v0.5.9 -->
+<!-- vcp-version: v0.6.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Third-party API Intake Report

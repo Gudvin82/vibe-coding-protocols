@@ -1,6 +1,6 @@
 # Tooling Roadmap
 
-## Available in v0.5.9
+## Available in v0.6.0
 
 - local Python CLI
 - local npm wrapper that forwards to the Python CLI

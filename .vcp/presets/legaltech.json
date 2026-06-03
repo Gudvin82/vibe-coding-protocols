@@ -1,0 +1,28 @@
+{
+  "id": "legaltech",
+  "name": "LegalTech",
+  "default_spec_depth": "governed-spec",
+  "recommended_routes": [
+    "spec-first-feature",
+    "production-hardening",
+    "third-party-api-intake"
+  ],
+  "recommended_packs": [
+    "regulated",
+    "production"
+  ],
+  "required_gates": [
+    "validation",
+    "review",
+    "release-gate"
+  ],
+  "public_growth_options": [
+    "trust-safe"
+  ],
+  "risk_defaults": [
+    "regulated-data",
+    "compliance",
+    "auditability"
+  ],
+  "notes": "Assumes elevated trust, evidence, and data-handling constraints."
+}

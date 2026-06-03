@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from .utils import dump_json, load_json, print_output, repo_root
+from .utils import dump_json, load_json, print_output, repo_root, repo_version
 
 CARD_TYPES = {
     "route",
@@ -15,6 +15,10 @@ CARD_TYPES = {
     "template",
     "benchmark",
     "concept",
+    "platform",
+    "preset",
+    "workflow",
+    "diagnostic",
 }
 RISK_LEVELS = {"low", "medium", "high", "critical", "variable"}
 MATURITY_LEVELS = {"experimental", "local-stable", "stable", "deprecated"}
@@ -127,6 +131,7 @@ def show_card(card_id: str, json_mode: bool = False) -> int:
 
 def collect_card_validation(root: Path | None = None) -> tuple[list[dict[str, Any]], list[str]]:
     root = repo_root(root)
+    target_version = repo_version(root)
     errors: list[str] = []
     cards = load_cards(root)
     ids: dict[str, list[str]] = defaultdict(list)
@@ -172,7 +177,7 @@ def collect_card_validation(root: Path | None = None) -> tuple[list[dict[str, An
             if isinstance(rel, str) and rel.endswith((".md", ".json", ".py", ".sh", ".txt", ".yml", ".yaml", ".ps1", ".cmd")):
                 if not (root / rel).exists():
                     errors.append(f"Missing referenced path from {card['__path']}: {rel}")
-        if card.get("version") != "v0.5.9":
+        if card.get("version") != target_version:
             errors.append(f"Card version mismatch in {card['__path']}: {card.get('version')}")
     for card_id, paths in ids.items():
         if len(paths) > 1:
