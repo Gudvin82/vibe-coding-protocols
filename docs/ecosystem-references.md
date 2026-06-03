@@ -2,60 +2,67 @@
 
 These references are for positioning, architecture inspiration, and contribution discipline, not copied content.
 
-## Anthropic Cybersecurity Skills — skill registry and progressive disclosure reference
+## Spec-first tooling reference
 
-Use only as a reference for:
-- large AI-native skill library organization;
-- metadata-first discovery;
-- progressive disclosure;
-- index and catalog design;
-- framework mapping;
-- multi-platform compatibility documentation.
+Useful pattern:
+- specs before implementation;
+- PRD / feature / task lifecycle;
+- CLI bootstrap for structured planning.
 
-Important boundaries:
-- VCP does not copy cybersecurity skills;
-- VCP is not a cybersecurity skill library;
-- VCP does not claim agentskills.io compatibility unless that is separately implemented later;
-- VCP uses its own card, index, and manifest model.
+Boundary:
+- do not copy brand, flow, claims, or file names;
+- do not claim compatibility;
+- do not claim executable implementation generation unless implemented.
 
-## Everything Claude Code
+## Workflow automation reference
 
-Useful as a reference for prompt/rules discipline and repository onboarding surfaces.
-Do not treat this as proof of vendor affiliation or official integration.
+Useful pattern:
+- trigger;
+- steps;
+- action;
+- output;
+- validation.
 
-## Understand Anything
+Boundary:
+- VCP workflows are a local guidance/catalog layer;
+- VCP is not a workflow automation platform and does not clone Zapier/Pipedream behavior.
 
-Useful as a reference for knowledge organization and explanation-first structure.
-VCP applies this idea to AI-assisted delivery workflow artifacts, not general-purpose knowledge browsing.
+## Layer diagnostics reference
 
-## public-apis/public-apis
+Useful pattern:
+- layer-by-layer checks;
+- evidence;
+- likely reason;
+- next action.
 
-Use as a reference for:
-- catalog contribution discipline;
-- one-entry-per-change expectations;
-- metadata and review hygiene.
+Boundary:
+- diagnostics stay local and repository/process-oriented;
+- VCP is not a network, censorship, or production-monitoring diagnostic tool.
 
-Do not copy:
-- the public API list;
-- categories verbatim;
-- claims that public or free means production-safe.
+## Catalog UX reference
 
-VCP uses its own Third-party API Intake discipline instead:
-classify the dependency,
-review auth and data,
-review terms and fallback,
-update `THIRD_PARTY_REGISTRY`,
-and require review before production use.
+Useful pattern:
+- platform badges;
+- filters;
+- recommended markers;
+- metadata-first discovery.
 
-## Hermes Desktop
+Boundary:
+- VCP is not an app catalog;
+- VCP uses cards and manifests to navigate a delivery framework, not a marketplace.
 
-Useful as a reference for multi-surface AI workflow packaging and desktop-oriented documentation structure.
-Not a compatibility claim and not a VCP dependency.
+## Event schema reference
 
-## Z4nzu/hackingtool contrast reference
+Useful pattern:
+- severity;
+- timestamp;
+- source;
+- evidence;
+- redaction status.
 
-Use only as a contrast reference for what VCP is not.
-VCP is not an offensive toolkit, exploit framework, or hacking-tool catalog.
+Boundary:
+- VCP event records are generic workflow artifacts;
+- VCP does not claim SIEM/IDS/IPS compatibility and does not add offensive/security engine behavior.
 
 ## Packaging note
 

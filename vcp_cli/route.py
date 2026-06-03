@@ -3,6 +3,25 @@ from __future__ import annotations
 from .utils import print_output
 
 ROUTES = {
+    "spec-first": {
+        "selected_route": "Spec-first Feature",
+        "manifest_route_id": "spec-first-feature",
+        "adoption_pack": "spec-first",
+        "confidence": "High",
+        "required_files_to_inspect": [
+            "protocols/spec-driven/README.md",
+            "protocols/spec-driven/product-brief-to-prd.md",
+            "templates/specs/PRD.md",
+            "PROJECT_BACKLOG.md",
+        ],
+        "first_safe_action": "Write or refine the PRD and acceptance criteria before implementation starts.",
+        "stop_conditions": [
+            "The request is still too ambiguous after clarifying questions",
+            "The change is tiny enough that a spec lane would add more overhead than value",
+        ],
+        "validation_commands": ["python3 -m vcp_cli spec validate", "python3 -m vcp_cli backlog validate"],
+        "post_task_review_gate": "Recommended once implementation begins; required for meaningful code changes.",
+    },
     "new-project": {
         "selected_route": "Starter Protocol",
         "manifest_route_id": "starter",

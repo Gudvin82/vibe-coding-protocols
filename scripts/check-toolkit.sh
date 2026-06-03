@@ -49,6 +49,10 @@ required_files=(
   docs/faq.md
   docs/comparison.md
   docs/anti-patterns.md
+  docs/workflows.md
+  docs/diagnostics.md
+  docs/catalog.md
+  docs/event-schema.md
   docs/demo-script.md
   docs/quickstart-walkthrough.md
   docs/progressive-disclosure.md
@@ -115,6 +119,7 @@ required_files=(
   docs/release-v0.5.6.md
   docs/release-v0.5.7.md
   docs/release-v0.5.8.md
+  docs/release-v0.5.9.md
   docs/release-v0.5.5.md
   docs/release-v0.5.4.md
   docs/project-backlog.md
@@ -135,9 +140,21 @@ required_files=(
   protocols/operations/README.md
   protocols/operations/production-error-capture.md
   protocols/operations/daily-error-triage.md
+  protocols/spec-driven/README.md
+  protocols/spec-driven/product-brief-to-prd.md
+  protocols/spec-driven/feature-spec.md
+  protocols/spec-driven/spec-review.md
+  protocols/spec-driven/spec-to-tasks.md
+  protocols/spec-driven/spec-change-control.md
+  .vcp/catalog.json
+  .vcp/workflows/README.md
+  .vcp/diagnostics/README.md
   commands/prod-log-monitor.md
   commands/daily-error-triage.md
   commands/backlog-update.md
+  commands/spec-intake.md
+  commands/spec-review.md
+  commands/spec-to-tasks.md
   protocols/integrations/third-party-api-intake.md
   commands/third-party-api-intake.md
   protocols/review/README.md
@@ -173,6 +190,8 @@ required_files=(
   .vcp/manifests/reports.manifest.json
   .vcp/manifests/benchmarks.manifest.json
   schemas/vcp-card.schema.json
+  schemas/vcp-workflow.schema.json
+  schemas/vcp-event.schema.json
   bin/vcp
   bin/vcp.cmd
   bin/vcp.ps1
@@ -188,6 +207,9 @@ required_files=(
   vcp_cli/evaluate.py
   vcp_cli/index_cmd.py
   vcp_cli/cards.py
+  vcp_cli/spec_cmd.py
+  vcp_cli/workflow_cmd.py
+  vcp_cli/diagnose.py
   vcp_cli/score.py
   vcp_cli/manifest.py
   vcp_cli/benchmark.py
@@ -208,6 +230,10 @@ required_files=(
   templates/prompts/daily-error-triage.md
   templates/prompts/backlog-update.md
   templates/prompts/public-growth-audit.md
+  templates/prompts/product-brief-to-prd.md
+  templates/prompts/ask-one-question-at-a-time.md
+  templates/prompts/review-prd-for-gaps.md
+  templates/prompts/spec-to-tasks.md
   templates/reports/vcp-adoption-assessment.md
   templates/reports/vcp-repository-evaluation-report.md
   templates/reports/third-party-api-intake-report.md
@@ -217,7 +243,15 @@ required_files=(
   templates/reports/backlog-update-report.md
   templates/reports/public-growth-audit-report.md
   templates/reports/ai-visibility-monitoring-report.md
+  templates/reports/diagnostic-report.md
+  templates/reports/vcp-event-entry.md
   templates/PROJECT_BACKLOG.md
+  templates/specs/PRD.md
+  templates/specs/FEATURE_SPEC.md
+  templates/specs/ACCEPTANCE_CRITERIA.md
+  templates/specs/TASKS.md
+  templates/specs/SPEC_REVIEW.md
+  templates/specs/SPEC_CHANGELOG.md
   PROJECT_BACKLOG.md
   templates/protocol-pack-metadata.yml
   templates/reports/security-review-scope.md
@@ -300,6 +334,14 @@ required_files=(
   benchmarks/ai-adoption/scenarios/progressive-disclosure-index.json
   benchmarks/ai-adoption/scenarios/card-based-route-selection.json
   benchmarks/ai-adoption/scenarios/platform-compatibility-inspection.json
+  benchmarks/ai-adoption/scenarios/spec-first-product-brief.json
+  benchmarks/ai-adoption/scenarios/prd-gap-review.json
+  benchmarks/ai-adoption/scenarios/feature-spec-to-tasks.json
+  benchmarks/ai-adoption/scenarios/workflow-production-hardening.json
+  benchmarks/ai-adoption/scenarios/workflow-public-growth-audit.json
+  benchmarks/ai-adoption/scenarios/diagnostics-layer-check.json
+  benchmarks/ai-adoption/scenarios/catalog-filter-selection.json
+  benchmarks/ai-adoption/scenarios/event-schema-review-finding.json
   benchmarks/ai-adoption/scenarios/maintenance-refactor.json
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
@@ -353,6 +395,7 @@ required_dirs=(
   protocols/review
   protocols/public-growth
   protocols/operations
+  protocols/spec-driven
   scripts
   assets
   .github/workflows
@@ -367,6 +410,9 @@ required_dirs=(
   .vcp
   .vcp/manifests
   .vcp/cards
+  .vcp/workflows
+  .vcp/diagnostics
+  templates/specs
   )
 
 for file in "${required_files[@]}"; do

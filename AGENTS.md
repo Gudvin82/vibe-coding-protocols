@@ -44,11 +44,16 @@ Then verify critical findings before making maturity, adoption, compatibility, o
 ## What VCP contains
 
 - route classifier;
+- spec lane;
+- workflow catalog;
+- diagnostics by layer;
 - adoption packs;
 - CLI;
 - manifests;
 - cards and `.vcp/index.json`;
+- catalog filters and maturity labels;
 - benchmarks;
+- normalized event schema;
 - post-task review;
 - production error capture;
 - project backlog;
@@ -75,6 +80,10 @@ Stop and report instead of guessing when:
 
 ## Helpful supporting docs
 
+- `docs/workflows.md`
+- `docs/diagnostics.md`
+- `docs/catalog.md`
+- `docs/event-schema.md`
 - `docs/progressive-disclosure.md`
 - `docs/vcp-cards.md`
 - `docs/vcp-mappings.md`

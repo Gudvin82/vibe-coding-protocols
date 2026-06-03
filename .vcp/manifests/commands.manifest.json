@@ -1,145 +1,6 @@
 {
   "items": [
     {
-      "id": "care-refactoring",
-      "command_name": "/care-refactoring",
-      "file": "commands/care-refactoring.md",
-      "route": "maintenance",
-      "inputs": [
-        "scope",
-        "validation path"
-      ],
-      "output": "maintenance refactoring plan",
-      "validation": [
-        "focused tests",
-        "review gate"
-      ]
-    },
-    {
-      "id": "ui-refactoring",
-      "command_name": "/ui-refactoring",
-      "file": "commands/ui-refactoring.md",
-      "route": "ui-ownership",
-      "inputs": [
-        "target slice",
-        "current behavior"
-      ],
-      "output": "ui ownership cleanup plan",
-      "validation": [
-        "typecheck",
-        "review gate"
-      ]
-    },
-    {
-      "id": "loop-code-review",
-      "command_name": "/loop-code-review",
-      "file": "commands/loop-code-review.md",
-      "route": "review",
-      "inputs": [
-        "active diff",
-        "validation output",
-        "reviewer path"
-      ],
-      "output": "review findings and acceptance signal",
-      "validation": [
-        "review plus validation green"
-      ]
-    },
-    {
-      "id": "third-party-api-intake",
-      "command_name": "/third-party-api-intake",
-      "file": "commands/third-party-api-intake.md",
-      "route": "integrations",
-      "inputs": [
-        "feature purpose",
-        "provider",
-        "data flow",
-        "validation path"
-      ],
-      "output": "third-party API intake report and registry decision",
-      "validation": [
-        "registry update",
-        "review gate"
-      ]
-    },
-    {
-      "id": "prod-log-monitor",
-      "command_name": "/prod-log-monitor",
-      "file": "commands/prod-log-monitor.md",
-      "route": "operations",
-      "inputs": [
-        "authorized log path",
-        "time window",
-        "sanitization rules"
-      ],
-      "output": "production error capture report",
-      "validation": [
-        "read-only evidence",
-        "sanitized capture"
-      ]
-    },
-    {
-      "id": "daily-error-triage",
-      "command_name": "/daily-error-triage",
-      "file": "commands/daily-error-triage.md",
-      "route": "operations",
-      "inputs": [
-        "recent inbox entries",
-        "backlog path",
-        "validation ownership"
-      ],
-      "output": "triage report and backlog routing",
-      "validation": [
-        "backlog update",
-        "no direct production mutation"
-      ]
-    },
-    {
-      "id": "backlog-update",
-      "command_name": "/backlog-update",
-      "file": "commands/backlog-update.md",
-      "route": "backlog",
-      "inputs": [
-        "work item",
-        "owner",
-        "status",
-        "validation path"
-      ],
-      "output": "backlog change summary",
-      "validation": [
-        "backlog validate"
-      ]
-    },
-    {
-      "id": "evaluate",
-      "command_name": "vcp evaluate",
-      "file": "AI_EVALUATION_GUIDE.md",
-      "route": "intake",
-      "inputs": [
-        "repository state",
-        "evaluation scope"
-      ],
-      "output": "repository evaluation summary or evaluation prompt",
-      "validation": [
-        "manifest validate",
-        "benchmark run",
-        "score semantics reviewed"
-      ]
-    },
-    {
-      "id": "backlog-list",
-      "command_name": "vcp backlog list",
-      "file": "docs/project-backlog.md",
-      "route": "backlog",
-      "inputs": [
-        "optional status/type/priority/source/route filters"
-      ],
-      "output": "filtered backlog rows",
-      "validation": [
-        "backlog validate"
-      ]
-    },
-    {
       "id": "backlog-add",
       "command_name": "vcp backlog add",
       "file": "docs/project-backlog.md",
@@ -158,16 +19,15 @@
       ]
     },
     {
-      "id": "backlog-move",
-      "command_name": "vcp backlog move",
+      "id": "backlog-archive",
+      "command_name": "vcp backlog archive",
       "file": "docs/project-backlog.md",
       "route": "backlog",
       "inputs": [
         "item id",
-        "target status",
-        "optional reason"
+        "archive reason"
       ],
-      "output": "updated backlog item plus write/preview result",
+      "output": "archived backlog item plus write/preview result",
       "validation": [
         "backup created on write",
         "backlog validate"
@@ -190,15 +50,29 @@
       ]
     },
     {
-      "id": "backlog-archive",
-      "command_name": "vcp backlog archive",
+      "id": "backlog-list",
+      "command_name": "vcp backlog list",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
+      "inputs": [
+        "optional status/type/priority/source/route filters"
+      ],
+      "output": "filtered backlog rows",
+      "validation": [
+        "backlog validate"
+      ]
+    },
+    {
+      "id": "backlog-move",
+      "command_name": "vcp backlog move",
       "file": "docs/project-backlog.md",
       "route": "backlog",
       "inputs": [
         "item id",
-        "archive reason"
+        "target status",
+        "optional reason"
       ],
-      "output": "archived backlog item plus write/preview result",
+      "output": "updated backlog item plus write/preview result",
       "validation": [
         "backup created on write",
         "backlog validate"
@@ -218,19 +92,6 @@
       ]
     },
     {
-      "id": "backlog-validate",
-      "command_name": "vcp backlog validate",
-      "file": "docs/project-backlog.md",
-      "route": "backlog",
-      "inputs": [
-        "backlog path"
-      ],
-      "output": "backlog structure validation",
-      "validation": [
-        "required sections present"
-      ]
-    },
-    {
       "id": "backlog-template",
       "command_name": "vcp backlog template",
       "file": "templates/PROJECT_BACKLOG.md",
@@ -244,42 +105,32 @@
       ]
     },
     {
-      "id": "index-show",
-      "command_name": "vcp index show",
-      "file": "docs/progressive-disclosure.md",
-      "route": "intake",
+      "id": "backlog-update",
+      "command_name": "/backlog-update",
+      "file": "commands/backlog-update.md",
+      "route": "backlog",
       "inputs": [
-        "repository state"
+        "work item",
+        "owner",
+        "status",
+        "validation path"
       ],
-      "output": "index summary",
+      "output": "backlog change summary",
       "validation": [
-        "index validate"
+        "backlog validate"
       ]
     },
     {
-      "id": "index-validate",
-      "command_name": "vcp index validate",
-      "file": "docs/progressive-disclosure.md",
-      "route": "intake",
+      "id": "backlog-validate",
+      "command_name": "vcp backlog validate",
+      "file": "docs/project-backlog.md",
+      "route": "backlog",
       "inputs": [
-        ".vcp/index.json"
+        "backlog path"
       ],
-      "output": "index validation result",
+      "output": "backlog structure validation",
       "validation": [
-        "cards validate"
-      ]
-    },
-    {
-      "id": "index-search",
-      "command_name": "vcp index search",
-      "file": "docs/progressive-disclosure.md",
-      "route": "intake",
-      "inputs": [
-        "query"
-      ],
-      "output": "matching cards",
-      "validation": [
-        "index validate"
+        "required sections present"
       ]
     },
     {
@@ -319,6 +170,239 @@
       "output": "card validation result",
       "validation": [
         "index validate"
+      ]
+    },
+    {
+      "id": "care-refactoring",
+      "command_name": "/care-refactoring",
+      "file": "commands/care-refactoring.md",
+      "route": "maintenance",
+      "inputs": [
+        "scope",
+        "validation path"
+      ],
+      "output": "maintenance refactoring plan",
+      "validation": [
+        "focused tests",
+        "review gate"
+      ]
+    },
+    {
+      "id": "daily-error-triage",
+      "command_name": "/daily-error-triage",
+      "file": "commands/daily-error-triage.md",
+      "route": "operations",
+      "inputs": [
+        "recent inbox entries",
+        "backlog path",
+        "validation ownership"
+      ],
+      "output": "triage report and backlog routing",
+      "validation": [
+        "backlog update",
+        "no direct production mutation"
+      ]
+    },
+    {
+      "id": "evaluate",
+      "command_name": "vcp evaluate",
+      "file": "AI_EVALUATION_GUIDE.md",
+      "route": "intake",
+      "inputs": [
+        "repository state",
+        "evaluation scope"
+      ],
+      "output": "repository evaluation summary or evaluation prompt",
+      "validation": [
+        "manifest validate",
+        "benchmark run",
+        "score semantics reviewed"
+      ]
+    },
+    {
+      "id": "index-search",
+      "command_name": "vcp index search",
+      "file": "docs/progressive-disclosure.md",
+      "route": "intake",
+      "inputs": [
+        "query"
+      ],
+      "output": "matching cards",
+      "validation": [
+        "index validate"
+      ]
+    },
+    {
+      "id": "index-show",
+      "command_name": "vcp index show",
+      "file": "docs/progressive-disclosure.md",
+      "route": "intake",
+      "inputs": [
+        "repository state"
+      ],
+      "output": "index summary",
+      "validation": [
+        "index validate"
+      ]
+    },
+    {
+      "id": "index-validate",
+      "command_name": "vcp index validate",
+      "file": "docs/progressive-disclosure.md",
+      "route": "intake",
+      "inputs": [
+        ".vcp/index.json"
+      ],
+      "output": "index validation result",
+      "validation": [
+        "cards validate"
+      ]
+    },
+    {
+      "id": "loop-code-review",
+      "command_name": "/loop-code-review",
+      "file": "commands/loop-code-review.md",
+      "route": "review",
+      "inputs": [
+        "active diff",
+        "validation output",
+        "reviewer path"
+      ],
+      "output": "review findings and acceptance signal",
+      "validation": [
+        "review plus validation green"
+      ]
+    },
+    {
+      "id": "prod-log-monitor",
+      "command_name": "/prod-log-monitor",
+      "file": "commands/prod-log-monitor.md",
+      "route": "operations",
+      "inputs": [
+        "authorized log path",
+        "time window",
+        "sanitization rules"
+      ],
+      "output": "production error capture report",
+      "validation": [
+        "read-only evidence",
+        "sanitized capture"
+      ]
+    },
+    {
+      "id": "spec-intake",
+      "command_name": "/spec-intake",
+      "file": "commands/spec-intake.md",
+      "route": "spec-first",
+      "inputs": [
+        "raw idea",
+        "constraints",
+        "validation expectations"
+      ],
+      "output": "PRD draft plus open questions",
+      "validation": [
+        "PRD scope clarified"
+      ]
+    },
+    {
+      "id": "spec-review",
+      "command_name": "/spec-review",
+      "file": "commands/spec-review.md",
+      "route": "spec-first",
+      "inputs": [
+        "PRD",
+        "feature spec",
+        "acceptance criteria"
+      ],
+      "output": "spec review decision",
+      "validation": [
+        "gaps explicit before implementation"
+      ]
+    },
+    {
+      "id": "spec-to-tasks",
+      "command_name": "/spec-to-tasks",
+      "file": "commands/spec-to-tasks.md",
+      "route": "spec-first",
+      "inputs": [
+        "feature spec",
+        "acceptance criteria",
+        "validation plan"
+      ],
+      "output": "task breakdown and backlog linkage",
+      "validation": [
+        "tasks map to acceptance criteria"
+      ]
+    },
+    {
+      "id": "third-party-api-intake",
+      "command_name": "/third-party-api-intake",
+      "file": "commands/third-party-api-intake.md",
+      "route": "integrations",
+      "inputs": [
+        "feature purpose",
+        "provider",
+        "data flow",
+        "validation path"
+      ],
+      "output": "third-party API intake report and registry decision",
+      "validation": [
+        "registry update",
+        "review gate"
+      ]
+    },
+    {
+      "id": "ui-refactoring",
+      "command_name": "/ui-refactoring",
+      "file": "commands/ui-refactoring.md",
+      "route": "ui-ownership",
+      "inputs": [
+        "target slice",
+        "current behavior"
+      ],
+      "output": "ui ownership cleanup plan",
+      "validation": [
+        "typecheck",
+        "review gate"
+      ]
+    },
+    {
+      "id": "vcp-diagnose",
+      "command_name": "vcp diagnose",
+      "file": "docs/diagnostics.md",
+      "route": "intake",
+      "inputs": [
+        "optional profile"
+      ],
+      "output": "layer readiness report",
+      "validation": [
+        "python3 -m vcp_cli diagnose --json"
+      ]
+    },
+    {
+      "id": "vcp-spec",
+      "command_name": "vcp spec",
+      "file": "docs/cli.md",
+      "route": "spec-first",
+      "inputs": [
+        "template kind or current spec files"
+      ],
+      "output": "spec template or spec status",
+      "validation": [
+        "python3 -m vcp_cli spec validate"
+      ]
+    },
+    {
+      "id": "vcp-workflow",
+      "command_name": "vcp workflow",
+      "file": "docs/workflows.md",
+      "route": "intake",
+      "inputs": [
+        "workflow id or search query"
+      ],
+      "output": "workflow catalog response",
+      "validation": [
+        "python3 -m vcp_cli workflow validate"
       ]
     }
   ],

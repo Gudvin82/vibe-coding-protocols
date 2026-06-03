@@ -25,6 +25,10 @@ Minimum inspection list:
 - `docs/cli.md`
 - `docs/geo-ai-visibility.md`
 - `docs/page-templates.md`
+- `docs/workflows.md`
+- `docs/diagnostics.md`
+- `docs/catalog.md`
+- `docs/event-schema.md`
 - `docs/project-backlog.md`
 - `docs/production-observability.md`
 - `docs/known-limitations.md`
@@ -48,6 +52,8 @@ python3 -m vcp_cli benchmark run
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli index validate
 python3 -m vcp_cli cards validate
+python3 -m vcp_cli workflow validate
+python3 -m vcp_cli diagnose --json
 python3 -m vcp_cli evaluate --json
 ```
 
@@ -60,6 +66,11 @@ VCP currently includes:
 - AI intake and route classification;
 - route, protocol, adoption-pack, command, report, and concept cards;
 - `.vcp/index.json` for machine-readable entry;
+- spec-first lane with PRD / feature spec / acceptance criteria / tasks templates;
+- workflow definitions for repeated delivery flows;
+- diagnostics for project/process readiness by layer;
+- catalog filters, badges, and maturity labels over cards;
+- normalized event/finding schema;
 - Starter, Hardening, Maintenance, UI Ownership, Public Site, Public Growth, Integrations, Operations, Review, and Backlog routes;
 - Post-Task Code Review;
 - Production Error Capture;

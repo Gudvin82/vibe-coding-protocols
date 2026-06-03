@@ -22,6 +22,41 @@ No. It includes prompts, but also routes, adoption packs, CLI helpers, manifests
 Related:
 - [comparison.md](./comparison.md)
 
+## What is the Spec Lane?
+
+The Spec Lane is the idea-to-PRD-to-feature-spec path for non-trivial work. It exists so AI does not jump from vague product intent straight into implementation.
+
+Related:
+- [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
+
+## What are workflows in VCP?
+
+Workflows are structured guidance records for repeated delivery flows. They describe trigger, route, steps, artifacts, validation, and stop conditions, but they are not an automation engine.
+
+Related:
+- [workflows.md](./workflows.md)
+
+## What is the difference between `doctor` and `diagnose`?
+
+`doctor` checks the local toolkit environment. `diagnose` checks project/process readiness by layer, such as spec lane, review gate, backlog, manifests, workflows, and release readiness.
+
+Related:
+- [diagnostics.md](./diagnostics.md)
+
+## What is `.vcp/catalog.json` for?
+
+It defines the card-discovery layer for filters like recommended-only, maturity, platform, and domain. It helps AI agents and humans browse VCP Cards without scanning everything manually.
+
+Related:
+- [catalog.md](./catalog.md)
+
+## What is the event schema?
+
+It is a normalized record shape for findings and transitions such as review findings, production errors, spec gaps, backlog moves, and release-gate failures.
+
+Related:
+- [event-schema.md](./event-schema.md)
+
 ## How is VCP different from `.cursorrules`?
 
 A `.cursorrules` file is usually one IDE-local instruction surface. VCP covers broader delivery concerns like route selection, scoped adoption, review gates, and operations follow-up.

@@ -67,5 +67,19 @@
     "bash scripts/vibe-check.sh --audit --json",
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.5.8"
+  "version": "v0.5.9",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "route",
+    "hardening",
+    "production-readiness"
+  ]
 }

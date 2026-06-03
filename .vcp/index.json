@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.5.8",
+  "version": "v0.5.9",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -25,10 +25,14 @@
   "manifests": ".vcp/manifests/",
   "benchmarks": "benchmarks/ai-adoption/",
   "docs": [
+    "docs/catalog.md",
+    "docs/diagnostics.md",
+    "docs/event-schema.md",
+    "docs/platforms/README.md",
     "docs/progressive-disclosure.md",
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
-    "docs/platforms/README.md"
+    "docs/workflows.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -40,6 +44,7 @@
     "public-growth",
     "public-site-readiness",
     "repository-evaluation",
+    "spec-first-feature",
     "starter",
     "third-party-api-intake",
     "ui-component-ownership"
@@ -54,6 +59,7 @@
     "public-site",
     "regulated",
     "shared-engine",
+    "spec-first",
     "third-party-api",
     "ui-ownership"
   ],
@@ -62,12 +68,15 @@
     "vcp-backlog",
     "vcp-benchmark",
     "vcp-cards",
+    "vcp-diagnose",
     "vcp-doctor",
     "vcp-evaluate",
     "vcp-index",
     "vcp-manifest",
     "vcp-route",
-    "vcp-score"
+    "vcp-score",
+    "vcp-spec",
+    "vcp-workflow"
   ],
   "reports": [
     "code-review-report",
@@ -77,17 +86,26 @@
     "third-party-api-intake-report"
   ],
   "concepts": [
+    "acceptance-criteria",
     "accepted-risk",
     "adoption-pack",
     "ai-intake",
     "architecture-source-of-truth",
     "audit-backlog",
+    "catalog",
+    "diagnostics",
+    "event-schema",
+    "feature-spec",
     "geo-ai-visibility",
+    "prd",
     "progressive-disclosure",
     "project-backlog-concept",
     "project-map",
     "release-gate",
-    "stop-condition"
+    "spec-lane",
+    "spec-review",
+    "stop-condition",
+    "workflow"
   ],
   "benchmarks_list": [
     "anti-patterns-inspection",
@@ -96,8 +114,12 @@
     "backlog-archive-not-taken",
     "backlog-move-done-with-review",
     "card-based-route-selection",
+    "catalog-filter-selection",
+    "diagnostics-layer-check",
+    "event-schema-review-finding",
     "existing-mvp",
     "faq-comparison-inspection",
+    "feature-spec-to-tasks",
     "geo-ai-visibility",
     "glossary-inspection",
     "llms-full-reference",
@@ -106,6 +128,7 @@
     "page-template-selection",
     "platform-compatibility-inspection",
     "post-task-review",
+    "prd-gap-review",
     "production-error-capture",
     "production-saas",
     "progressive-disclosure-index",
@@ -117,14 +140,18 @@
     "repository-evaluation-full",
     "repository-evaluation-shallow",
     "shared-engine-production",
+    "spec-first-product-brief",
     "third-party-api-intake",
-    "ui-ownership"
+    "ui-ownership",
+    "workflow-production-hardening",
+    "workflow-public-growth-audit"
   ],
   "recommended_ai_flow": [
     "read AGENTS.md",
     "read AI_EVALUATION_GUIDE.md",
     "read .vcp/index.json",
-    "inspect relevant cards",
+    "inspect relevant cards or catalog filters",
+    "choose route or workflow",
     "open only required full docs"
   ],
   "not": [
@@ -133,5 +160,9 @@
     "not a compliance certification",
     "not a replacement for human review"
   ],
-  "reminder": "Do not evaluate README alone."
+  "reminder": "Do not evaluate README alone.",
+  "workflows": ".vcp/workflows/",
+  "diagnostics": ".vcp/diagnostics/",
+  "catalog": ".vcp/catalog.json",
+  "event_schema": "schemas/vcp-event.schema.json"
 }

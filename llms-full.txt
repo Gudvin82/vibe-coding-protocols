@@ -4,10 +4,11 @@
 
 Vibe Coding Protocols (VCP) is an open-source toolkit for controlled AI-assisted software delivery.
 It combines route selection, scoped adoption packs, local CLI helpers, manifests, benchmarks, review gates, operations workflows, backlog discipline, and public-growth guidance.
+It now also includes a Spec Lane, workflow catalog, diagnostics layer, catalog filters over cards, and a normalized event schema.
 
 ## Current version and methodology
 
-- Repository package: `v0.5.8`
+- Repository package: `v0.5.9`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 - Canonical website: `https://anmalishev.ru/expert/vibe-coding/`
@@ -36,6 +37,7 @@ Then review CLI outputs from `doctor`, `manifest validate`, `benchmark run`, `sc
 
 VCP routes:
 - Starter Protocol
+- Spec-first Feature
 - Hardening Protocol
 - Maintenance Refactoring
 - UI Component Ownership
@@ -74,6 +76,37 @@ Stop conditions:
 
 Limitations:
 - not the right route for production or regulated systems
+
+## Route: Spec-first Feature
+
+When to use:
+- idea exists but product intent is still fuzzy
+- acceptance criteria or tasks are missing
+- feature is large enough that coding immediately would create guesswork
+
+What it does:
+- forces a product/spec/task lane before implementation begins
+
+Key files:
+- `protocols/spec-driven/README.md`
+- `protocols/spec-driven/product-brief-to-prd.md`
+- `templates/specs/PRD.md`
+- `templates/specs/FEATURE_SPEC.md`
+- `templates/specs/TASKS.md`
+
+CLI example:
+- `python3 -m vcp_cli route --profile spec-first`
+- `python3 -m vcp_cli spec validate`
+
+Output/report:
+- spec-first route recommendation and current spec readiness summary
+
+Stop conditions:
+- the change is tiny and mechanical
+- the request is a production incident rather than planning work
+
+Limitations:
+- not an implementation generator
 
 ## Route: Hardening Protocol
 
@@ -320,6 +353,10 @@ Key files:
 - `protocols/public-growth/seo-geo-ai-visibility.md`
 - `docs/geo-ai-visibility.md`
 - `docs/page-templates.md`
+- `docs/workflows.md`
+- `docs/diagnostics.md`
+- `docs/catalog.md`
+- `docs/event-schema.md`
 - `templates/public-growth/`
 
 CLI example:
@@ -348,6 +385,9 @@ Current command groups:
 - `route`
 - `adopt`
 - `evaluate`
+- `spec`
+- `workflow`
+- `diagnose`
 - `backlog`
 - `score`
 - `manifest`

@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Версия repo](https://img.shields.io/badge/repo-v0.5.8-blue)](./CHANGELOG.md)
+[![Версия repo](https://img.shields.io/badge/repo-v0.5.9-blue)](./CHANGELOG.md)
 [![Методология](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -14,7 +14,7 @@
 
 Инструментарий для контролируемой AI-assisted delivery: routing, scoped adoption, validation, review и explainability для кода, операций и публичных страниц.
 
-Пакет репозитория: `v0.5.8`
+Пакет репозитория: `v0.5.9`
 
 Веб-методология: `Vibe Coding Protocols v1.4`
 
@@ -43,6 +43,10 @@ python3 -m pip install -e .
 vcp doctor
 ```
 
+AI-native flow:
+
+`Idea -> Spec Lane -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
+
 ## Отдаете VCP AI-агенту?
 
 Не оценивайте этот репозиторий только по README.
@@ -68,6 +72,8 @@ python3 -m vcp_cli score --json
 python3 -m vcp_cli benchmark run
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli workflow list
+python3 -m vcp_cli diagnose --profile production --json
 ```
 
 Полный evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
@@ -91,7 +97,7 @@ python3 -m vcp_cli evaluate --json
 
 ```bash
 python3 -m vcp_cli index validate
-python3 -m vcp_cli cards list
+python3 -m vcp_cli cards list --recommended
 python3 -m vcp_cli index search production
 ```
 
@@ -107,6 +113,11 @@ python3 -m vcp_cli index search production
 - держать production, regulated, public-site, public-growth, maintenance, API-intake и operations работу в безопасных границах;
 - переносить небольшой релевантный набор файлов, а не копировать весь toolkit;
 - превращать production observations в triage и backlog follow-up без потери review discipline;
+- прогонять неочевидные идеи через spec lane до написания кода;
+- держать повторяемые delivery flows в явных workflow definitions;
+- смотреть на readiness по слоям через diagnostics, а не только через intuition;
+- быстрее находить нужные cards через recommended filters, maturity labels и platform badges;
+- фиксировать finding/event records в нормализованной схеме;
 - прогонять validation перед merge, release или deploy;
 - включать review gate после meaningful AI-generated изменений.
 - делать репозиторий понятнее для честной оценки, цитирования и AI-объяснения.
@@ -135,6 +146,7 @@ python3 -m vcp_cli index search production
 | Нужен рабочий kanban/backlog до старта реализации | [Project Backlog](./docs/project-backlog.md) |
 | Публичный сайт, docs, trust или crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
 | Нужны service pages, GEO, AI visibility и public growth structure | [Public Growth Playbook](./protocols/public-growth/public-growth-playbook.md) |
+| Идея еще не оформлена и сначала нужен PRD / feature spec / acceptance criteria | [Spec-first Feature](./protocols/spec-driven/README.md) |
 | Нужен приемочный gate для активного diff | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 
 ## Что VCP не делает
@@ -165,7 +177,11 @@ VCP — это не scanner, не pentest/offensive toolkit, не compliance cer
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
 - [docs/progressive-disclosure.md](./docs/progressive-disclosure.md)
+- [docs/workflows.md](./docs/workflows.md)
+- [docs/diagnostics.md](./docs/diagnostics.md)
+- [docs/catalog.md](./docs/catalog.md)
+- [docs/event-schema.md](./docs/event-schema.md)
 - [docs/vcp-cards.md](./docs/vcp-cards.md)
 - [docs/vcp-mappings.md](./docs/vcp-mappings.md)
 - [docs/platforms/README.md](./docs/platforms/README.md)
-- [docs/release-v0.5.8.md](./docs/release-v0.5.8.md)
+- [docs/release-v0.5.9.md](./docs/release-v0.5.9.md)

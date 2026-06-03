@@ -42,7 +42,11 @@ Each card uses this minimal structure:
   "outputs": [],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.5.8"
+  "version": "v0.5.9",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code"],
+  "badges": ["route", "production"]
 }
 ```
 
@@ -50,6 +54,7 @@ Each card uses this minimal structure:
 
 Cards do not replace full docs.
 They reduce context waste and help route discovery stay narrow.
+They now also support catalog-style filtering by maturity, platform, domain, and recommended use.
 
 ## Validation
 

@@ -1,7 +1,7 @@
 # Install
 
 VCP is currently a local repository toolkit.
-It does not claim public PyPI, public npm, Homebrew, or native installer distribution in `v0.5.8`.
+It does not claim public PyPI, public npm, Homebrew, or native installer distribution in `v0.5.9`.
 
 ## Fastest local start
 
@@ -10,6 +10,7 @@ macOS and Linux:
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli workflow list --json
 ```
 
 Node-first local wrapper:
@@ -74,7 +75,9 @@ It is not a signal that VCP is already published to PyPI.
 ```bash
 python3 -m vcp_cli doctor
 python3 -m vcp_cli route --profile public-growth --json
+python3 -m vcp_cli route --profile spec-first --json
 python3 -m vcp_cli adopt --pack public-growth --dry-run --json
+python3 -m vcp_cli diagnose --profile production --json
 python3 -m vcp_cli evaluate --json
 python3 -m vcp_cli manifest validate
 ```

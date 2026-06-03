@@ -1,0 +1,8 @@
+{
+  "version": "v0.5.9",
+  "maturity_labels": ["experimental", "local-stable", "stable", "deprecated"],
+  "filters": ["type", "domain", "route", "risk", "maturity", "platform", "recommended"],
+  "default_platforms": ["claude-code", "codex-cli", "cursor", "windsurf", "github-copilot"],
+  "recommended_only_hint": "Use recommended cards first when discovering VCP from scratch.",
+  "source": ".vcp/cards/"
+}

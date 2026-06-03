@@ -10,6 +10,7 @@ If you want the shortest guided start:
 python3 -m vcp_cli init
 python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
+python3 -m vcp_cli workflow list
 ```
 
 If you are evaluating the repository itself:
@@ -32,6 +33,7 @@ npm run vcp -- evaluate
 | If this is your situation | Start here |
 |---|---|
 | I am starting a new project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
+| I have an idea or feature request but requirements are still fuzzy | [Spec-first Feature](./protocols/spec-driven/README.md) |
 | I already have an AI-generated project and need production readiness or security work | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
 | The project already works but is getting risky or messy to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
 | The main problem is frontend styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
@@ -48,3 +50,11 @@ npm run vcp -- evaluate
 After route selection, use an Adoption Pack dry-run instead of copying everything blindly.
 If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
 Start with [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md).
+
+Useful next commands:
+
+```bash
+python3 -m vcp_cli route --profile spec-first --json
+python3 -m vcp_cli workflow show spec-first-feature --json
+python3 -m vcp_cli diagnose --profile production --json
+```

@@ -4,7 +4,7 @@ VCP has two honest local entrypaths:
 - the Python CLI, which remains the primary implementation;
 - a thin local npm wrapper for Node-first users.
 
-The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.8`.
+The repo is not claiming published npm, PyPI, Homebrew, or native installer distribution in `v0.5.9`.
 
 ## Start here
 
@@ -48,6 +48,9 @@ npm run vcp -- doctor
 - `route` — choose the route for a target profile
 - `adopt` — dry-run an Adoption Pack
 - `evaluate` — summarize repository evaluation surfaces and print the evaluation prompt
+- `spec` — print spec templates, validate spec artifacts, and summarize spec readiness
+- `workflow` — browse and validate local workflow definitions
+- `diagnose` — inspect project/process readiness by layer
 - `backlog` — validate, list, add, move, complete, archive, and report backlog items
 - `score` — local readiness heuristic summary
 - `manifest` — show and validate machine-readable metadata
@@ -70,6 +73,20 @@ This route is intentionally defensive:
 - no hidden FAQ content;
 - no doorway pages or spam-link tactics;
 - no fake reviews, ratings, or fabricated case proof.
+
+## Spec, workflow, and diagnostics helpers
+
+Use these when the feature is still unclear or the repo needs process-level readiness checks.
+
+```bash
+python3 -m vcp_cli route --profile spec-first --json
+python3 -m vcp_cli spec template prd
+python3 -m vcp_cli spec validate --json
+python3 -m vcp_cli workflow list --json
+python3 -m vcp_cli workflow validate --json
+python3 -m vcp_cli diagnose --profile production --json
+npm run vcp -- workflow validate
+```
 
 ## Evaluation helper
 
@@ -128,7 +145,7 @@ Current npm support is local wrapper only.
 
 ## Init behavior
 
-`vcp init` is guidance-only in `v0.5.8`.
+`vcp init` is guidance-only in `v0.5.9`.
 It does not modify files by default.
 Use it to:
 - print the short onboarding flow;
@@ -183,4 +200,4 @@ The CLI:
 - [npm-publishing-checklist.md](./npm-publishing-checklist.md)
 - [windows.md](./windows.md)
 - [init.md](./init.md)
-- [release-v0.5.8.md](./release-v0.5.8.md)
+- [release-v0.5.9.md](./release-v0.5.9.md)

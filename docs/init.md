@@ -1,6 +1,6 @@
 # Init
 
-`vcp init` is the simplest CLI starting action in `v0.5.8`.
+`vcp init` is the simplest CLI starting action in `v0.5.9`.
 It is intentionally guidance-first.
 
 ## What it does
@@ -8,6 +8,7 @@ It is intentionally guidance-first.
 - points the user to `AI_INTAKE.md`;
 - reminds the user to classify the project before copying anything;
 - suggests `route` and `adopt --dry-run` next;
+- nudges non-trivial unclear ideas toward the Spec Lane;
 - can print a target-specific copy-paste prompt.
 
 ## Examples
@@ -32,7 +33,7 @@ npm run vcp -- init --print-prompt
 ## Current limits
 
 - `init` does not modify files by default;
-- `init --apply` is intentionally not implemented in `v0.5.8`;
+- `init --apply` is intentionally not implemented in `v0.5.9`;
 - prompts are guidance, not a substitute for route-specific docs.
 
 ## Repository evaluation note

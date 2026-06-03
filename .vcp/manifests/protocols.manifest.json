@@ -1,30 +1,63 @@
 {
   "items": [
     {
-      "id": "starter",
-      "name": "Starter Protocol",
-      "route": "starter",
-      "domain": "project-bootstrap",
-      "file": "protocols/ai-project-starter-protocol.md",
+      "id": "ai-intake",
+      "name": "AI Intake",
+      "route": "intake",
+      "domain": "adoption-classification",
+      "file": "AI_INTAKE.md",
       "command": null,
       "use_when": [
-        "new project",
-        "new MVP"
+        "AI agent is evaluating VCP for a target repo"
       ],
       "do_not_use_when": [
-        "production repo already exists"
+        "route is already explicitly known"
       ],
-      "risk_level": "low-to-medium",
+      "risk_level": "medium",
       "required_inputs": [
-        "product brief",
-        "scope"
+        "repo stage",
+        "risk signals"
       ],
       "validation": [
-        "bash scripts/vibe-check.sh --starter"
+        "route selection quality"
       ],
-      "report_template": [],
+      "report_template": [
+        "templates/reports/vcp-adoption-assessment.md"
+      ],
       "related_docs": [
-        "START_HERE.md"
+        "docs/target-project-classifier.md"
+      ]
+    },
+    {
+      "id": "hardening-full",
+      "name": "Hardening Full",
+      "route": "hardening",
+      "domain": "production-readiness",
+      "file": "protocols/ai-project-extended-protocol.md",
+      "command": null,
+      "use_when": [
+        "production",
+        "payments",
+        "personal data",
+        "shared engine"
+      ],
+      "do_not_use_when": [
+        "local toy project"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "security scope",
+        "operations evidence"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --audit --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/security-review-scope.md"
+      ],
+      "related_docs": [
+        "docs/security-methodology-scope.md"
       ]
     },
     {
@@ -84,38 +117,6 @@
       ]
     },
     {
-      "id": "hardening-full",
-      "name": "Hardening Full",
-      "route": "hardening",
-      "domain": "production-readiness",
-      "file": "protocols/ai-project-extended-protocol.md",
-      "command": null,
-      "use_when": [
-        "production",
-        "payments",
-        "personal data",
-        "shared engine"
-      ],
-      "do_not_use_when": [
-        "local toy project"
-      ],
-      "risk_level": "high",
-      "required_inputs": [
-        "security scope",
-        "operations evidence"
-      ],
-      "validation": [
-        "bash scripts/vibe-check.sh --audit --json",
-        "python3 -m vcp_cli review plan --json"
-      ],
-      "report_template": [
-        "templates/reports/security-review-scope.md"
-      ],
-      "related_docs": [
-        "docs/security-methodology-scope.md"
-      ]
-    },
-    {
       "id": "maintenance-refactoring",
       "name": "Maintenance Refactoring",
       "route": "maintenance",
@@ -139,36 +140,6 @@
       ],
       "report_template": [
         "templates/reports/refactoring-report.md"
-      ],
-      "related_docs": [
-        "protocols/maintenance/README.md"
-      ]
-    },
-    {
-      "id": "ui-ownership",
-      "name": "UI Component Ownership",
-      "route": "ui-ownership",
-      "domain": "frontend",
-      "file": "protocols/maintenance/ui-refactoring.md",
-      "command": "commands/ui-refactoring.md",
-      "use_when": [
-        "page-level visual styling drift"
-      ],
-      "do_not_use_when": [
-        "broad redesign"
-      ],
-      "risk_level": "low-to-high",
-      "required_inputs": [
-        "target slice",
-        "current UI behavior"
-      ],
-      "validation": [
-        "typecheck",
-        "lint",
-        "python3 -m vcp_cli review plan --json"
-      ],
-      "report_template": [
-        "templates/reports/ui-refactoring-report.md"
       ],
       "related_docs": [
         "protocols/maintenance/README.md"
@@ -202,38 +173,6 @@
       ],
       "related_docs": [
         "protocols/review/README.md"
-      ]
-    },
-    {
-      "id": "third-party-api-intake",
-      "name": "Third-party API Intake",
-      "route": "integrations",
-      "domain": "third-party-dependencies",
-      "file": "protocols/integrations/third-party-api-intake.md",
-      "command": "commands/third-party-api-intake.md",
-      "use_when": [
-        "an external API, SDK or webhook is proposed"
-      ],
-      "do_not_use_when": [
-        "no third-party system is involved"
-      ],
-      "risk_level": "medium-to-high",
-      "required_inputs": [
-        "provider name",
-        "feature purpose",
-        "data flow",
-        "validation path"
-      ],
-      "validation": [
-        "python3 -m vcp_cli check --fast --json",
-        "python3 -m vcp_cli review plan --json"
-      ],
-      "report_template": [
-        "templates/reports/third-party-api-intake-report.md"
-      ],
-      "related_docs": [
-        "protocols/integrations/README.md",
-        "templates/THIRD_PARTY_REGISTRY.md"
       ]
     },
     {
@@ -299,33 +238,6 @@
       ]
     },
     {
-      "id": "public-site-readiness",
-      "name": "Public Site Readiness",
-      "route": "public-site",
-      "domain": "docs-and-trust",
-      "file": "docs/public-site-readiness.md",
-      "command": null,
-      "use_when": [
-        "public site or docs are being published"
-      ],
-      "do_not_use_when": [
-        "no public docs surface exists"
-      ],
-      "risk_level": "medium",
-      "required_inputs": [
-        "canonical docs",
-        "publish checklist"
-      ],
-      "validation": [
-        "python3 scripts/check-newlines.py",
-        "python3 scripts/validate-links.sh"
-      ],
-      "report_template": [],
-      "related_docs": [
-        "docs/seo-ai-crawler-readiness.md"
-      ]
-    },
-    {
       "id": "public-growth-playbook",
       "name": "Public Growth Playbook",
       "route": "public-growth",
@@ -365,6 +277,33 @@
       ]
     },
     {
+      "id": "public-site-readiness",
+      "name": "Public Site Readiness",
+      "route": "public-site",
+      "domain": "docs-and-trust",
+      "file": "docs/public-site-readiness.md",
+      "command": null,
+      "use_when": [
+        "public site or docs are being published"
+      ],
+      "do_not_use_when": [
+        "no public docs surface exists"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "canonical docs",
+        "publish checklist"
+      ],
+      "validation": [
+        "python3 scripts/check-newlines.py",
+        "python3 scripts/validate-links.sh"
+      ],
+      "report_template": [],
+      "related_docs": [
+        "docs/seo-ai-crawler-readiness.md"
+      ]
+    },
+    {
       "id": "security-review-scope",
       "name": "Security Review Scope",
       "route": "security",
@@ -393,31 +332,155 @@
       ]
     },
     {
-      "id": "ai-intake",
-      "name": "AI Intake",
-      "route": "intake",
-      "domain": "adoption-classification",
-      "file": "AI_INTAKE.md",
-      "command": null,
+      "id": "spec-driven-development",
+      "name": "Spec-driven Development",
+      "route": "spec-first",
+      "domain": "spec-driven-delivery",
+      "file": "protocols/spec-driven/feature-spec.md",
+      "command": "commands/spec-review.md",
       "use_when": [
-        "AI agent is evaluating VCP for a target repo"
+        "the team needs PRD → feature spec → tasks discipline"
       ],
       "do_not_use_when": [
-        "route is already explicitly known"
+        "mechanical formatting only"
       ],
       "risk_level": "medium",
       "required_inputs": [
-        "repo stage",
-        "risk signals"
+        "PRD",
+        "constraints",
+        "acceptance boundaries"
       ],
       "validation": [
-        "route selection quality"
+        "python3 -m vcp_cli spec review --json"
       ],
       "report_template": [
-        "templates/reports/vcp-adoption-assessment.md"
+        "templates/specs/SPEC_REVIEW.md"
       ],
       "related_docs": [
-        "docs/target-project-classifier.md"
+        "protocols/spec-driven/product-brief-to-prd.md",
+        "protocols/spec-driven/spec-to-tasks.md"
+      ]
+    },
+    {
+      "id": "spec-first-feature",
+      "name": "Spec-first Feature",
+      "route": "spec-first",
+      "domain": "spec-driven-delivery",
+      "file": "protocols/spec-driven/README.md",
+      "command": "commands/spec-intake.md",
+      "use_when": [
+        "feature scope is unclear",
+        "PRD and acceptance criteria are needed before coding"
+      ],
+      "do_not_use_when": [
+        "tiny one-line fix",
+        "emergency production incident"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or brief",
+        "constraints",
+        "validation expectations"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec validate",
+        "python3 -m vcp_cli backlog validate"
+      ],
+      "report_template": [
+        "templates/specs/SPEC_REVIEW.md"
+      ],
+      "related_docs": [
+        "docs/adoption-packs.md",
+        "docs/workflows.md"
+      ]
+    },
+    {
+      "id": "starter",
+      "name": "Starter Protocol",
+      "route": "starter",
+      "domain": "project-bootstrap",
+      "file": "protocols/ai-project-starter-protocol.md",
+      "command": null,
+      "use_when": [
+        "new project",
+        "new MVP"
+      ],
+      "do_not_use_when": [
+        "production repo already exists"
+      ],
+      "risk_level": "low-to-medium",
+      "required_inputs": [
+        "product brief",
+        "scope"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --starter"
+      ],
+      "report_template": [],
+      "related_docs": [
+        "START_HERE.md"
+      ]
+    },
+    {
+      "id": "third-party-api-intake",
+      "name": "Third-party API Intake",
+      "route": "integrations",
+      "domain": "third-party-dependencies",
+      "file": "protocols/integrations/third-party-api-intake.md",
+      "command": "commands/third-party-api-intake.md",
+      "use_when": [
+        "an external API, SDK or webhook is proposed"
+      ],
+      "do_not_use_when": [
+        "no third-party system is involved"
+      ],
+      "risk_level": "medium-to-high",
+      "required_inputs": [
+        "provider name",
+        "feature purpose",
+        "data flow",
+        "validation path"
+      ],
+      "validation": [
+        "python3 -m vcp_cli check --fast --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/third-party-api-intake-report.md"
+      ],
+      "related_docs": [
+        "protocols/integrations/README.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
+      ]
+    },
+    {
+      "id": "ui-ownership",
+      "name": "UI Component Ownership",
+      "route": "ui-ownership",
+      "domain": "frontend",
+      "file": "protocols/maintenance/ui-refactoring.md",
+      "command": "commands/ui-refactoring.md",
+      "use_when": [
+        "page-level visual styling drift"
+      ],
+      "do_not_use_when": [
+        "broad redesign"
+      ],
+      "risk_level": "low-to-high",
+      "required_inputs": [
+        "target slice",
+        "current UI behavior"
+      ],
+      "validation": [
+        "typecheck",
+        "lint",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/ui-refactoring-report.md"
+      ],
+      "related_docs": [
+        "protocols/maintenance/README.md"
       ]
     }
   ],

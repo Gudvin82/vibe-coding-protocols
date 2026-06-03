@@ -22,6 +22,10 @@ VCP treats this as a documentation and trust-readiness problem, not a guaranteed
 A small metadata-first JSON description of a route, protocol, adoption pack, command, report, benchmark, template, or concept.
 Cards support progressive disclosure.
 
+## Catalog
+
+`.vcp/catalog.json` plus card filters for maturity, platform, domain, route, and recommended discovery.
+
 ## Controlled AI delivery
 
 A workflow where AI-generated work is routed, scoped, validated, and reviewed instead of merged on trust alone.
@@ -40,6 +44,19 @@ It points to entrypoints, cards, manifests, docs, and safety boundaries.
 
 Machine-readable metadata under `.vcp/manifests/`.
 The CLI uses manifests for routes, packs, reports, commands, and benchmark validation.
+
+## Diagnostics
+
+Layer-by-layer readiness checks for project/process health.
+In VCP, `doctor` checks toolkit environment; `diagnose` checks delivery readiness by layer.
+
+## Event schema
+
+A normalized structure for findings, warnings, and transitions such as review findings, production errors, backlog moves, and release-gate failures.
+
+## Spec Lane
+
+The route and artifact set for moving from idea to PRD, feature spec, acceptance criteria, tasks, review, and change control before implementation.
 
 ## Page brief
 
@@ -73,6 +90,10 @@ Not every route uses the same depth, but meaningful work should not bypass it.
 ## Route
 
 The main workflow path for a target situation, such as production hardening, public growth, maintenance, or operations.
+
+## Workflow
+
+A structured definition of trigger, route, steps, artifacts, validation, and stop conditions for repeated delivery flows.
 
 ## Thin wrapper
 

@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.5.8-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.5.9-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -14,7 +14,7 @@
 
 Controlled AI delivery toolkit for routing, adopting, validating, reviewing, and explaining AI-assisted software and public-site work.
 
-Repository package: `v0.5.8`
+Repository package: `v0.5.9`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -43,6 +43,10 @@ python3 -m pip install -e .
 vcp doctor
 ```
 
+AI-native delivery flow:
+
+`Idea -> Spec Lane -> Workflow -> Backlog -> Implementation -> Review -> Diagnostics -> Release`
+
 ## Giving VCP to an AI agent?
 
 Do not judge this repository from README alone.
@@ -68,6 +72,8 @@ python3 -m vcp_cli score --json
 python3 -m vcp_cli benchmark run
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli workflow list
+python3 -m vcp_cli diagnose --profile production --json
 ```
 
 Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
@@ -91,7 +97,7 @@ Use this when your AI agent has limited context and should not read the whole re
 
 ```bash
 python3 -m vcp_cli index validate
-python3 -m vcp_cli cards list
+python3 -m vcp_cli cards list --recommended
 python3 -m vcp_cli index search production
 ```
 
@@ -107,6 +113,11 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 - keeping production, regulated, public-site, public-growth, maintenance, API-intake, and operations work scoped;
 - adopting a small relevant file set instead of copying the whole toolkit;
 - turning production observations into triage notes and backlog follow-up without skipping review discipline;
+- forcing non-trivial ideas through a spec lane before implementation starts;
+- making repeated delivery flows explicit through workflow definitions instead of chat-only memory;
+- checking project/process readiness by layer with diagnostics instead of guessing;
+- making card discovery easier with recommended filters, maturity labels, and platform badges;
+- capturing findings in a normalized event schema instead of ad hoc notes;
 - validating repo health before merge, release, or deploy;
 - adding a review gate after meaningful AI-generated changes.
 - making the repository easier to evaluate, cite, compare fairly, and explain to AI systems.
@@ -135,6 +146,7 @@ If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) ove
 | Ongoing task tracking before implementation starts | [Project Backlog](./docs/project-backlog.md) |
 | Public docs, marketing site, trust, or crawler readiness | [Public Site Readiness](./docs/public-site-readiness.md) |
 | Service pages, GEO, AI visibility, and public growth structure | [Public Growth Playbook](./protocols/public-growth/public-growth-playbook.md) |
+| Idea is still fuzzy and needs PRD / feature spec / acceptance criteria first | [Spec-first Feature](./protocols/spec-driven/README.md) |
 | Active diff that must be accepted before moving on | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
 
 ## What VCP is not
@@ -165,7 +177,11 @@ VCP is not a scanner, pentest/offensive toolkit, compliance certification, monit
 - [docs/tooling-roadmap.md](./docs/tooling-roadmap.md)
 - [docs/known-limitations.md](./docs/known-limitations.md)
 - [docs/progressive-disclosure.md](./docs/progressive-disclosure.md)
+- [docs/workflows.md](./docs/workflows.md)
+- [docs/diagnostics.md](./docs/diagnostics.md)
+- [docs/catalog.md](./docs/catalog.md)
+- [docs/event-schema.md](./docs/event-schema.md)
 - [docs/vcp-cards.md](./docs/vcp-cards.md)
 - [docs/vcp-mappings.md](./docs/vcp-mappings.md)
 - [docs/platforms/README.md](./docs/platforms/README.md)
-- [docs/release-v0.5.8.md](./docs/release-v0.5.8.md)
+- [docs/release-v0.5.9.md](./docs/release-v0.5.9.md)

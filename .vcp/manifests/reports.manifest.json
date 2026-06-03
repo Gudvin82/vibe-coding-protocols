@@ -1,24 +1,30 @@
 {
   "items": [
     {
-      "id": "refactoring-report",
-      "file": "templates/reports/refactoring-report.md",
-      "intended_route": "maintenance",
+      "id": "ai-visibility-monitoring-report",
+      "file": "templates/reports/ai-visibility-monitoring-report.md",
+      "intended_route": "public-growth",
+      "purpose": "repeatable AI visibility and GEO monitoring notes without claiming ranking guarantees"
+    },
+    {
+      "id": "audit-backlog",
+      "file": "templates/AUDIT_BACKLOG.md",
+      "intended_route": "hardening",
       "required_sections": [
-        "Overall result",
-        "Risk level",
-        "Challenge decision",
-        "Validation run"
+        "findings",
+        "owners",
+        "priorities"
       ]
     },
     {
-      "id": "ui-refactoring-report",
-      "file": "templates/reports/ui-refactoring-report.md",
-      "intended_route": "ui-ownership",
+      "id": "backlog-update-report",
+      "file": "templates/reports/backlog-update-report.md",
+      "intended_route": "backlog",
       "required_sections": [
-        "Overall result",
-        "Allowed exceptions retained",
-        "Validation run"
+        "Update reason",
+        "Items added or changed",
+        "Validation path",
+        "Next step"
       ]
     },
     {
@@ -34,60 +40,26 @@
       ]
     },
     {
-      "id": "vcp-adoption-assessment",
-      "file": "templates/reports/vcp-adoption-assessment.md",
-      "intended_route": "intake",
+      "id": "daily-error-triage-report",
+      "file": "templates/reports/daily-error-triage-report.md",
+      "intended_route": "operations",
       "required_sections": [
-        "target classification",
-        "selected route",
-        "selected pack",
-        "next action"
+        "Triage window",
+        "Input sources",
+        "Grouped incidents",
+        "Backlog updates",
+        "Escalations or stop conditions"
       ]
     },
     {
-      "id": "vcp-repository-evaluation-report",
-      "file": "templates/reports/vcp-repository-evaluation-report.md",
-      "intended_route": "intake",
+      "id": "diagnostic-report",
+      "file": "templates/reports/diagnostic-report.md",
+      "intended_route": "diagnostics",
       "required_sections": [
-        "Version / commit inspected",
-        "Files inspected",
-        "Commands run",
-        "Scores",
-        "Confidence",
-        "Evaluation completeness"
-      ]
-    },
-    {
-      "id": "security-review-scope",
-      "file": "templates/reports/security-review-scope.md",
-      "intended_route": "security",
-      "required_sections": [
-        "Authorized systems",
-        "Disallowed tools/actions",
-        "Stop conditions",
-        "Approval status"
-      ]
-    },
-    {
-      "id": "audit-backlog",
-      "file": "templates/AUDIT_BACKLOG.md",
-      "intended_route": "hardening",
-      "required_sections": [
-        "findings",
-        "owners",
-        "priorities"
-      ]
-    },
-    {
-      "id": "third-party-api-intake-report",
-      "file": "templates/reports/third-party-api-intake-report.md",
-      "intended_route": "integrations",
-      "required_sections": [
-        "Overall result",
-        "Classification",
-        "Auth and secrets",
-        "Data handling",
-        "Implementation decision"
+        "Profile",
+        "Layers checked",
+        "Highest-priority warnings",
+        "Suggested next step"
       ]
     },
     {
@@ -103,39 +75,91 @@
       ]
     },
     {
-      "id": "daily-error-triage-report",
-      "file": "templates/reports/daily-error-triage-report.md",
-      "intended_route": "operations",
-      "required_sections": [
-        "Triage window",
-        "Input sources",
-        "Grouped incidents",
-        "Backlog updates",
-        "Escalations or stop conditions"
-      ]
-    },
-    {
-      "id": "backlog-update-report",
-      "file": "templates/reports/backlog-update-report.md",
-      "intended_route": "backlog",
-      "required_sections": [
-        "Update reason",
-        "Items added or changed",
-        "Validation path",
-        "Next step"
-      ]
-    },
-    {
       "id": "public-growth-audit-report",
       "file": "templates/reports/public-growth-audit-report.md",
       "intended_route": "public-growth",
       "purpose": "public growth audit findings, priority, proof gaps, and next actions"
     },
     {
-      "id": "ai-visibility-monitoring-report",
-      "file": "templates/reports/ai-visibility-monitoring-report.md",
-      "intended_route": "public-growth",
-      "purpose": "repeatable AI visibility and GEO monitoring notes without claiming ranking guarantees"
+      "id": "refactoring-report",
+      "file": "templates/reports/refactoring-report.md",
+      "intended_route": "maintenance",
+      "required_sections": [
+        "Overall result",
+        "Risk level",
+        "Challenge decision",
+        "Validation run"
+      ]
+    },
+    {
+      "id": "security-review-scope",
+      "file": "templates/reports/security-review-scope.md",
+      "intended_route": "security",
+      "required_sections": [
+        "Authorized systems",
+        "Disallowed tools/actions",
+        "Stop conditions",
+        "Approval status"
+      ]
+    },
+    {
+      "id": "third-party-api-intake-report",
+      "file": "templates/reports/third-party-api-intake-report.md",
+      "intended_route": "integrations",
+      "required_sections": [
+        "Overall result",
+        "Classification",
+        "Auth and secrets",
+        "Data handling",
+        "Implementation decision"
+      ]
+    },
+    {
+      "id": "ui-refactoring-report",
+      "file": "templates/reports/ui-refactoring-report.md",
+      "intended_route": "ui-ownership",
+      "required_sections": [
+        "Overall result",
+        "Allowed exceptions retained",
+        "Validation run"
+      ]
+    },
+    {
+      "id": "vcp-adoption-assessment",
+      "file": "templates/reports/vcp-adoption-assessment.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "target classification",
+        "selected route",
+        "selected pack",
+        "next action"
+      ]
+    },
+    {
+      "id": "vcp-event-entry",
+      "file": "templates/reports/vcp-event-entry.md",
+      "intended_route": "events",
+      "required_sections": [
+        "ID",
+        "Type",
+        "Severity",
+        "Summary",
+        "Evidence",
+        "Recommended next action"
+      ]
+    },
+    {
+      "id": "vcp-repository-evaluation-report",
+      "file": "templates/reports/vcp-repository-evaluation-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Version / commit inspected",
+        "Files inspected",
+        "Commands run",
+        "Scores",
+        "Confidence",
+        "Evaluation completeness"
+      ]
     }
   ],
   "related_docs": [

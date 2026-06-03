@@ -9,9 +9,62 @@ def manifest_relpaths() -> list[str]:
 
 
 CATEGORY_RULES = [
-    ("Repository evaluation guidance", ["AI_EVALUATION_GUIDE.md", "templates/prompts/evaluate-vcp-repository.md", "templates/reports/vcp-repository-evaluation-report.md"]),
-    ("LLM citation and AI-agent entry", ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff", "ADOPTERS.md"]),
-    ("Progressive disclosure and cards", [".vcp/index.json", ".vcp/cards/README.md", "schemas/vcp-card.schema.json", "docs/progressive-disclosure.md", "docs/vcp-cards.md", "docs/vcp-mappings.md", "docs/platforms/README.md", "vcp_cli/index_cmd.py", "vcp_cli/cards.py"]),
+    (
+        "Repository evaluation guidance",
+        [
+            "AI_EVALUATION_GUIDE.md",
+            "templates/prompts/evaluate-vcp-repository.md",
+            "templates/reports/vcp-repository-evaluation-report.md",
+        ],
+    ),
+    (
+        "LLM citation and AI-agent entry",
+        ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff", "ADOPTERS.md"],
+    ),
+    (
+        "Progressive disclosure and cards",
+        [
+            ".vcp/index.json",
+            ".vcp/cards/README.md",
+            "schemas/vcp-card.schema.json",
+            "docs/progressive-disclosure.md",
+            "docs/vcp-cards.md",
+            "docs/vcp-mappings.md",
+            "docs/platforms/README.md",
+            "vcp_cli/index_cmd.py",
+            "vcp_cli/cards.py",
+        ],
+    ),
+    (
+        "Spec lane",
+        [
+            "protocols/spec-driven/README.md",
+            "protocols/spec-driven/product-brief-to-prd.md",
+            "protocols/spec-driven/feature-spec.md",
+            "protocols/spec-driven/spec-review.md",
+            "protocols/spec-driven/spec-to-tasks.md",
+            "protocols/spec-driven/spec-change-control.md",
+            "templates/specs/PRD.md",
+            "templates/specs/FEATURE_SPEC.md",
+            "templates/specs/ACCEPTANCE_CRITERIA.md",
+            "templates/specs/TASKS.md",
+            "templates/specs/SPEC_REVIEW.md",
+            "commands/spec-intake.md",
+            "commands/spec-review.md",
+            "commands/spec-to-tasks.md",
+            "vcp_cli/spec_cmd.py",
+        ],
+    ),
+    (
+        "Workflow layer",
+        ["docs/workflows.md", ".vcp/workflows/README.md", "schemas/vcp-workflow.schema.json", "vcp_cli/workflow_cmd.py"],
+    ),
+    (
+        "Diagnostics layer",
+        ["docs/diagnostics.md", ".vcp/diagnostics/README.md", ".vcp/diagnostics/layers.json", "templates/reports/diagnostic-report.md", "vcp_cli/diagnose.py"],
+    ),
+    ("Catalog UX", ["docs/catalog.md", ".vcp/catalog.json", "docs/vcp-cards.md", "vcp_cli/cards.py"]),
+    ("Event schema", ["docs/event-schema.md", "schemas/vcp-event.schema.json", "templates/reports/vcp-event-entry.md"]),
     ("AI Intake readiness", ["AI_INTAKE.md", "docs/target-project-classifier.md"]),
     ("Route classifier", ["docs/protocol-index.md", "docs/route-map.md"]),
     ("Adoption packs", ["docs/adoption-packs.md", ".vcp/manifests/adoption-packs.manifest.json"]),
@@ -30,7 +83,7 @@ CATEGORY_RULES = [
     ("Security posture docs", ["docs/security-methodology-scope.md", "docs/security-tooling-landscape.md"]),
     ("Public-site readiness", ["docs/public-site-readiness.md", "docs/seo-ai-crawler-readiness.md"]),
     ("Examples and benchmarks", ["benchmarks/ai-adoption/README.md", "examples/integrations/README.md", "docs/measured-impact.md"]),
-    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.8.md"]),
+    ("Release discipline", ["docs/release-checklist.md", "docs/release-v0.5.9.md"]),
     ("Community readiness", ["docs/community-feedback.md", "CONTRIBUTING.md"]),
 ]
 

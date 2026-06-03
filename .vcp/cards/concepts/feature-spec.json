@@ -1,0 +1,61 @@
+{
+  "id": "feature-spec",
+  "type": "concept",
+  "name": "Feature Spec",
+  "summary": "Execution-focused spec that narrows PRD scope into system and behavior detail.",
+  "use_when": [
+    "accepted PRD needs task-ready detail"
+  ],
+  "do_not_use_when": [
+    "no PRD or scope anchor exists"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "spec-driven-delivery"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "unclear implementation boundaries"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "scope drift"
+    ]
+  },
+  "entry_files": [
+    "templates/specs/FEATURE_SPEC.md"
+  ],
+  "related_files": [
+    "protocols/spec-driven/feature-spec.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli spec template feature"
+  ],
+  "outputs": [
+    "feature spec template"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.9",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "spec"
+  ]
+}

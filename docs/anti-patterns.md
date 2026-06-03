@@ -24,6 +24,7 @@ Why it is risky:
 - AI fills in missing requirements with guesses
 
 VCP countermeasure:
+- Spec Lane
 - Starter Protocol
 - `START_HERE.md`
 
@@ -198,3 +199,39 @@ VCP countermeasure:
 - `.vcp/index.json`
 - `.vcp/cards/`
 - `docs/progressive-disclosure.md`
+
+## 17. No workflow definition for repeated work
+
+Symptom:
+- the same delivery sequence is re-invented in every chat
+
+Why it is risky:
+- important steps, artifacts, or stop conditions are silently skipped
+
+VCP countermeasure:
+- `.vcp/workflows/`
+- `docs/workflows.md`
+
+## 18. No diagnostics by layer
+
+Symptom:
+- the repo “feels wrong” but there is no structured readiness check
+
+Why it is risky:
+- missing backlog, review, spec, or release surfaces stay hidden
+
+VCP countermeasure:
+- `.vcp/diagnostics/layers.json`
+- `vcp diagnose`
+
+## 19. Findings recorded in ad hoc formats
+
+Symptom:
+- review findings, production errors, and release-gate failures use incompatible note shapes
+
+Why it is risky:
+- severity, evidence, and follow-up become inconsistent
+
+VCP countermeasure:
+- `schemas/vcp-event.schema.json`
+- `templates/reports/vcp-event-entry.md`

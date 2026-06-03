@@ -52,6 +52,25 @@ REQUIRED_CARDS_VALIDATE_COMMAND_ID = "cards-validate"
 REQUIRED_PROGRESSIVE_DISCLOSURE_BENCHMARK_ID = "progressive-disclosure-index"
 REQUIRED_CARD_ROUTE_SELECTION_BENCHMARK_ID = "card-based-route-selection"
 REQUIRED_PLATFORM_COMPATIBILITY_BENCHMARK_ID = "platform-compatibility-inspection"
+REQUIRED_SPEC_PROTOCOL_ID = "spec-first-feature"
+REQUIRED_SPEC_DRIVEN_PROTOCOL_ID = "spec-driven-development"
+REQUIRED_SPEC_PACK_ID = "spec-first"
+REQUIRED_SPEC_INTAKE_COMMAND_ID = "spec-intake"
+REQUIRED_SPEC_REVIEW_COMMAND_ID = "spec-review"
+REQUIRED_SPEC_TO_TASKS_COMMAND_ID = "spec-to-tasks"
+REQUIRED_VCP_SPEC_COMMAND_ID = "vcp-spec"
+REQUIRED_VCP_WORKFLOW_COMMAND_ID = "vcp-workflow"
+REQUIRED_VCP_DIAGNOSE_COMMAND_ID = "vcp-diagnose"
+REQUIRED_DIAGNOSTIC_REPORT_ID = "diagnostic-report"
+REQUIRED_EVENT_REPORT_ID = "vcp-event-entry"
+REQUIRED_SPEC_PRODUCT_BENCHMARK_ID = "spec-first-product-brief"
+REQUIRED_PRD_GAP_BENCHMARK_ID = "prd-gap-review"
+REQUIRED_FEATURE_TASK_BENCHMARK_ID = "feature-spec-to-tasks"
+REQUIRED_WORKFLOW_PROD_BENCHMARK_ID = "workflow-production-hardening"
+REQUIRED_WORKFLOW_PUBLIC_GROWTH_BENCHMARK_ID = "workflow-public-growth-audit"
+REQUIRED_DIAGNOSTICS_BENCHMARK_ID = "diagnostics-layer-check"
+REQUIRED_CATALOG_BENCHMARK_ID = "catalog-filter-selection"
+REQUIRED_EVENT_SCHEMA_BENCHMARK_ID = "event-schema-review-finding"
 
 
 def show_manifest(name: str | None = None) -> dict[str, Any]:
@@ -131,6 +150,10 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required protocol manifest entry: project-backlog-workflow")
     if REQUIRED_PUBLIC_GROWTH_PROTOCOL_ID not in protocol_ids:
         errors.append("Missing required protocol manifest entry: public-growth-playbook")
+    if REQUIRED_SPEC_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: spec-first-feature")
+    if REQUIRED_SPEC_DRIVEN_PROTOCOL_ID not in protocol_ids:
+        errors.append("Missing required protocol manifest entry: spec-driven-development")
     if REQUIRED_API_INTAKE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: third-party-api-intake")
     if REQUIRED_OPERATIONS_COMMAND_ID not in command_ids:
@@ -167,6 +190,18 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required command manifest entry: cards-show")
     if REQUIRED_CARDS_VALIDATE_COMMAND_ID not in command_ids:
         errors.append("Missing required command manifest entry: cards-validate")
+    if REQUIRED_SPEC_INTAKE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-intake")
+    if REQUIRED_SPEC_REVIEW_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-review")
+    if REQUIRED_SPEC_TO_TASKS_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: spec-to-tasks")
+    if REQUIRED_VCP_SPEC_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: vcp-spec")
+    if REQUIRED_VCP_WORKFLOW_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: vcp-workflow")
+    if REQUIRED_VCP_DIAGNOSE_COMMAND_ID not in command_ids:
+        errors.append("Missing required command manifest entry: vcp-diagnose")
     if REQUIRED_API_INTAKE_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: third-party-api-intake-report")
     if REQUIRED_ERROR_REPORT_ID not in report_ids:
@@ -179,6 +214,10 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required report manifest entry: public-growth-audit-report")
     if REQUIRED_AI_VISIBILITY_REPORT_ID not in report_ids:
         errors.append("Missing required report manifest entry: ai-visibility-monitoring-report")
+    if REQUIRED_DIAGNOSTIC_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: diagnostic-report")
+    if REQUIRED_EVENT_REPORT_ID not in report_ids:
+        errors.append("Missing required report manifest entry: vcp-event-entry")
     if REQUIRED_API_INTAKE_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: third-party-api")
     if REQUIRED_OPERATIONS_PACK_ID not in pack_ids:
@@ -187,6 +226,8 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required adoption pack manifest entry: backlog")
     if REQUIRED_PUBLIC_GROWTH_PACK_ID not in pack_ids:
         errors.append("Missing required adoption pack manifest entry: public-growth")
+    if REQUIRED_SPEC_PACK_ID not in pack_ids:
+        errors.append("Missing required adoption pack manifest entry: spec-first")
     if REQUIRED_API_INTAKE_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: third-party-api-intake")
     if REQUIRED_OPERATIONS_BENCHMARK_ID not in benchmark_ids:
@@ -219,6 +260,22 @@ def validate_manifests(json_mode: bool = False) -> int:
         errors.append("Missing required benchmark manifest entry: card-based-route-selection")
     if REQUIRED_PLATFORM_COMPATIBILITY_BENCHMARK_ID not in benchmark_ids:
         errors.append("Missing required benchmark manifest entry: platform-compatibility-inspection")
+    if REQUIRED_SPEC_PRODUCT_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: spec-first-product-brief")
+    if REQUIRED_PRD_GAP_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: prd-gap-review")
+    if REQUIRED_FEATURE_TASK_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: feature-spec-to-tasks")
+    if REQUIRED_WORKFLOW_PROD_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: workflow-production-hardening")
+    if REQUIRED_WORKFLOW_PUBLIC_GROWTH_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: workflow-public-growth-audit")
+    if REQUIRED_DIAGNOSTICS_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: diagnostics-layer-check")
+    if REQUIRED_CATALOG_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: catalog-filter-selection")
+    if REQUIRED_EVENT_SCHEMA_BENCHMARK_ID not in benchmark_ids:
+        errors.append("Missing required benchmark manifest entry: event-schema-review-finding")
 
     payload = {
         "ok": not errors,

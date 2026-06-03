@@ -1,12 +1,14 @@
 # Changelog
 
-## v0.5.8
+## v0.5.9
 
-- Added explicit LLM citation and AI-agent entry surfaces: `llms-full.txt`, `ai.txt`, `CITATION.cff`, and a stronger root `AGENTS.md`.
-- Added `ADOPTERS.md` with public / maintainer-known usage wording that avoids fake endorsements or implied certification.
-- Added `docs/faq.md`, `docs/comparison.md`, and `docs/anti-patterns.md` for shorter explanation, fair comparisons, and clearer workflow boundaries.
-- Added `docs/demo-script.md`, `assets/demo/README.md`, and `docs/quickstart-walkthrough.md` for honest demo readiness without fake media or measured-proof claims.
-- Expanded manifests, benchmark scenarios, doctor/evaluate/score coverage, and toolkit checks so the new repository-evaluation and citation surfaces are part of normal validation.
+- Added a first-class Spec Lane with product-brief-to-PRD, feature spec, spec review, spec-to-tasks, and change-control protocols.
+- Added spec templates, prompts, and commands plus CLI support for `vcp spec ...`.
+- Added workflow catalog docs, workflow schema, workflow JSON definitions, and CLI support for `vcp workflow ...`.
+- Added diagnostics docs, diagnostic layers, diagnostic report template, and CLI support for `vcp diagnose ...`.
+- Added catalog metadata, card maturity/recommended/platform filtering, and related CLI/filter surfaces.
+- Added normalized event schema docs and report template for findings, backlog transitions, and release-gate records.
+- Expanded manifests, cards, index, benchmarks, score/evaluate/doctor coverage, and smoke checks for the new layers.
 
 ## v0.5.6
 

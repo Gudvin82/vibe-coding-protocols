@@ -1,0 +1,62 @@
+{
+  "id": "prd",
+  "type": "concept",
+  "name": "PRD",
+  "summary": "Product requirements document used before implementation.",
+  "use_when": [
+    "product intent must be captured"
+  ],
+  "do_not_use_when": [
+    "single typo fix"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "spec-driven-delivery"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "implementation before intent clarity"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "scope drift"
+    ]
+  },
+  "entry_files": [
+    "templates/specs/PRD.md"
+  ],
+  "related_files": [
+    "protocols/spec-driven/product-brief-to-prd.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli spec template prd"
+  ],
+  "outputs": [
+    "PRD template"
+  ],
+  "stop_conditions": [],
+  "validation": [],
+  "version": "v0.5.9",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "prd"
+  ]
+}

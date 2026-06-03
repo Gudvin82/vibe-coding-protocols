@@ -10,6 +10,7 @@ from . import adopt as adopt_cmd
 from . import backlog as backlog_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
+from . import diagnose as diagnose_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
 from . import evaluate as evaluate_cmd
@@ -20,7 +21,9 @@ from . import manifest as manifest_cmd
 from . import review as review_cmd
 from . import route as route_cmd
 from . import score as score_cmd
+from . import spec_cmd
 from . import version as version_cmd
+from . import workflow_cmd
 from .utils import repo_root
 
 LEGACY_VIBE_CHECK = {"audit", "starter", "hardening", "init-report", "update-advice"}
@@ -88,6 +91,10 @@ def build_parser() -> argparse.ArgumentParser:
     cards_sub = cards_p.add_subparsers(dest="cards_command")
     cards_list = cards_sub.add_parser("list")
     cards_list.add_argument("--type")
+    cards_list.add_argument("--recommended", action="store_true")
+    cards_list.add_argument("--maturity")
+    cards_list.add_argument("--platform")
+    cards_list.add_argument("--domain")
     cards_list.add_argument("--json", action="store_true")
     cards_show = cards_sub.add_parser("show")
     cards_show.add_argument("id")
@@ -127,6 +134,37 @@ def build_parser() -> argparse.ArgumentParser:
 
     demo_p = sub.add_parser("demo")
     demo_p.add_argument("name", nargs="?")
+
+    spec_p = sub.add_parser("spec")
+    spec_sub = spec_p.add_subparsers(dest="spec_command")
+    spec_template = spec_sub.add_parser("template")
+    spec_template.add_argument("kind", choices=["prd", "feature", "tasks"])
+    spec_template.add_argument("--write", action="store_true")
+    spec_template.add_argument("--output")
+    spec_template.add_argument("--json", action="store_true")
+    spec_validate = spec_sub.add_parser("validate")
+    spec_validate.add_argument("--json", action="store_true")
+    spec_review = spec_sub.add_parser("review")
+    spec_review.add_argument("--json", action="store_true")
+    spec_summary = spec_sub.add_parser("summary")
+    spec_summary.add_argument("--json", action="store_true")
+
+    workflow_p = sub.add_parser("workflow")
+    workflow_sub = workflow_p.add_subparsers(dest="workflow_command")
+    workflow_list = workflow_sub.add_parser("list")
+    workflow_list.add_argument("--json", action="store_true")
+    workflow_show = workflow_sub.add_parser("show")
+    workflow_show.add_argument("id")
+    workflow_show.add_argument("--json", action="store_true")
+    workflow_validate = workflow_sub.add_parser("validate")
+    workflow_validate.add_argument("--json", action="store_true")
+    workflow_search = workflow_sub.add_parser("search")
+    workflow_search.add_argument("query")
+    workflow_search.add_argument("--json", action="store_true")
+
+    diagnose_p = sub.add_parser("diagnose")
+    diagnose_p.add_argument("--profile")
+    diagnose_p.add_argument("--json", action="store_true")
 
     backlog_p = sub.add_parser("backlog")
     backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
@@ -216,7 +254,14 @@ def main(argv: list[str] | None = None) -> int:
             return index_cmd.search(args.query, getattr(args, "json", False))
     if args.command == "cards":
         if args.cards_command in {None, "list"}:
-            return cards_cmd.list_cards(getattr(args, "type", None), getattr(args, "json", False))
+            return cards_cmd.list_cards(
+                type_filter=getattr(args, "type", None),
+                json_mode=getattr(args, "json", False),
+                recommended=getattr(args, "recommended", False),
+                maturity=getattr(args, "maturity", None),
+                platform=getattr(args, "platform", None),
+                domain=getattr(args, "domain", None),
+            )
         if args.cards_command == "show":
             return cards_cmd.show_card(args.id, getattr(args, "json", False))
         if args.cards_command == "validate":
@@ -236,6 +281,26 @@ def main(argv: list[str] | None = None) -> int:
             return benchmark_cmd.list_scenarios()
         if args.benchmark_command == "run":
             return benchmark_cmd.run(args.scenario, args.json)
+    if args.command == "spec":
+        if args.spec_command == "template":
+            return spec_cmd.template(args.kind, args.write, args.output, getattr(args, "json", False))
+        if args.spec_command == "validate":
+            return spec_cmd.validate(getattr(args, "json", False))
+        if args.spec_command == "review":
+            return spec_cmd.review(getattr(args, "json", False))
+        if args.spec_command == "summary":
+            return spec_cmd.summary(getattr(args, "json", False))
+    if args.command == "workflow":
+        if args.workflow_command in {None, "list"}:
+            return workflow_cmd.list_workflows(getattr(args, "json", False))
+        if args.workflow_command == "show":
+            return workflow_cmd.show_workflow(args.id, getattr(args, "json", False))
+        if args.workflow_command == "validate":
+            return workflow_cmd.validate_workflows(getattr(args, "json", False))
+        if args.workflow_command == "search":
+            return workflow_cmd.search_workflows(args.query, getattr(args, "json", False))
+    if args.command == "diagnose":
+        return diagnose_cmd.run(args.profile, getattr(args, "json", False))
     if args.command == "backlog":
         if args.backlog_command == "list":
             return backlog_cmd.list_items(

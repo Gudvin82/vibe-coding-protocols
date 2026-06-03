@@ -10,6 +10,7 @@ It is a scoped recommendation for humans and AI agents.
 - Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
 - Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
 - Public Growth Pack = page brief + page templates + GEO/AI visibility guidance + schema honesty checks.
+- Spec-first Pack = PRD + feature spec + acceptance criteria + tasks + spec review before coding.
 - Third-party API Pack = API intake protocol + registry + intake report + review gate.
 - Operations Pack = read-only capture workflow + daily triage + observability boundaries + backlog follow-up.
 - Backlog Pack = `PROJECT_BACKLOG.md` + update prompt + backlog report + review trigger.
@@ -19,6 +20,7 @@ It is a scoped recommendation for humans and AI agents.
 | Pack | Use when | Review gate |
 |---|---|---|
 | `new-project` | new project or idea stage | recommended for meaningful changes |
+| `spec-first` | requirements are unclear and the feature needs PRD / feature spec / acceptance criteria first | recommended before implementation; required once the feature turns into meaningful code work |
 | `existing-mvp` | working MVP before production | run before merge |
 | `production` | real users or public production | required before merge or release |
 | `regulated` | payments, personal data or compliance | required with independent review |
@@ -36,6 +38,7 @@ It is a scoped recommendation for humans and AI agents.
 
 ```bash
 python3 -m vcp_cli adopt --pack production --dry-run
+python3 -m vcp_cli adopt --pack spec-first --dry-run --json
 python3 -m vcp_cli adopt --pack public-growth --dry-run --json
 python3 -m vcp_cli adopt --pack operations --dry-run --json
 python3 -m vcp_cli adopt --pack backlog --dry-run --json
@@ -70,6 +73,7 @@ The CLI reads pack metadata from:
 
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [project-backlog.md](./project-backlog.md)
+- [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
 - [production-observability.md](./production-observability.md)
 - [geo-ai-visibility.md](./geo-ai-visibility.md)
 - [page-templates.md](./page-templates.md)

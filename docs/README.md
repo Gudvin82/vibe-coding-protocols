@@ -17,6 +17,10 @@ Use the route docs and product layer intentionally.
 10. [vcp-cards.md](./vcp-cards.md)
 11. [faq.md](./faq.md)
 12. [comparison.md](./comparison.md)
+13. [workflows.md](./workflows.md)
+14. [diagnostics.md](./diagnostics.md)
+15. [catalog.md](./catalog.md)
+16. [event-schema.md](./event-schema.md)
 
 ## Product layer
 
@@ -33,6 +37,10 @@ Use the route docs and product layer intentionally.
 - [faq.md](./faq.md)
 - [comparison.md](./comparison.md)
 - [anti-patterns.md](./anti-patterns.md)
+- [workflows.md](./workflows.md)
+- [diagnostics.md](./diagnostics.md)
+- [catalog.md](./catalog.md)
+- [event-schema.md](./event-schema.md)
 - [quickstart-walkthrough.md](./quickstart-walkthrough.md)
 - [demo-script.md](./demo-script.md)
 - [progressive-disclosure.md](./progressive-disclosure.md)
@@ -41,7 +49,7 @@ Use the route docs and product layer intentionally.
 - [platforms/README.md](./platforms/README.md)
 - [public-proof-roadmap.md](./public-proof-roadmap.md)
 - [glossary.md](./glossary.md)
-- [release-v0.5.8.md](./release-v0.5.8.md)
+- [release-v0.5.9.md](./release-v0.5.9.md)
 - [roadmap.md](./roadmap.md)
 
 ## Routes and packs
@@ -50,6 +58,7 @@ Use the route docs and product layer intentionally.
 - [adoption-packs.md](./adoption-packs.md)
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [target-project-classifier.md](./target-project-classifier.md)
+- [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
 - [geo-ai-visibility.md](./geo-ai-visibility.md)
 - [page-templates.md](./page-templates.md)
 - [public-site-readiness.md](./public-site-readiness.md)

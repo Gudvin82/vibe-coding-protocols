@@ -1,0 +1,19 @@
+{
+  "scenario_id": "spec-first-product-brief",
+  "target_profile": "spec-first",
+  "target_signals": [
+    "idea without PRD",
+    "non-trivial feature"
+  ],
+  "expected_route": "spec-first-feature",
+  "expected_adoption_pack": "spec-first",
+  "required_files_to_inspect": [
+    "protocols/spec-driven/README.md",
+    "templates/specs/PRD.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "expected_first_safe_action": "Write or refine the PRD and acceptance criteria before implementation starts.",
+  "expected_warnings": [
+    "do not implement before scope clarity"
+  ]
+}

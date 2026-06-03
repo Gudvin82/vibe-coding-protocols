@@ -5,6 +5,7 @@ Compact VCP route catalog.
 | Protocol / command | Route | Use when | Do not use when | Required inputs | Validation signals | Report template | Risk level |
 |---|---|---|---|---|---|---|---|
 | Starter Protocol | starter | starting a new project | production code already exists | product brief, scope | `vibe-check --starter` | project docs | low to medium |
+| Spec-first Feature | spec-first | idea exists but product intent, acceptance criteria, or tasks are still unclear | tiny one-line fix, purely mechanical change, or emergency production incident | brief, constraints, acceptance criteria, architecture impact | `vcp spec validate`, `vcp backlog validate` | `templates/specs/SPEC_REVIEW.md` | low to medium |
 | Hardening Protocol | hardening | existing AI-generated project needs readiness audit | you only need one tiny cleanup | repo, architecture, risk signals | `vibe-check --audit --json` | `AUDIT_BACKLOG.md` | medium to high |
 | `/care-refactoring` | maintenance | working code is hard to change | behavior change is required | preserved behavior, validation path | focused tests, review gate | `templates/reports/refactoring-report.md` | low to high |
 | `/ui-refactoring` | ui-ownership | UI ownership is drifting | whole-system redesign | target slice, current UI behavior | typecheck, lint, review gate | `templates/reports/ui-refactoring-report.md` | low to high |

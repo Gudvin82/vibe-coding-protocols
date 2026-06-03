@@ -33,6 +33,10 @@ KEY_FILES = [
     "docs/anti-patterns.md",
     "docs/quickstart-walkthrough.md",
     "docs/demo-script.md",
+    "docs/workflows.md",
+    "docs/diagnostics.md",
+    "docs/catalog.md",
+    "docs/event-schema.md",
     "docs/project-backlog.md",
     "docs/production-observability.md",
     "docs/known-limitations.md",
@@ -54,6 +58,9 @@ CLI_COMMANDS = [
     "index",
     "cards",
     "evaluate",
+    "spec",
+    "workflow",
+    "diagnose",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -100,6 +107,46 @@ def evaluate_payload() -> dict[str, object]:
             "templates/public-growth/public-growth-checklist.md",
         ]
     )
+    spec_lane_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "protocols/spec-driven/README.md",
+            "templates/specs/PRD.md",
+            "vcp_cli/spec_cmd.py",
+        ]
+    )
+    workflow_layer_ready = all(
+        (root / rel).exists()
+        for rel in [
+            ".vcp/workflows/README.md",
+            "docs/workflows.md",
+            "vcp_cli/workflow_cmd.py",
+        ]
+    )
+    diagnostics_ready = all(
+        (root / rel).exists()
+        for rel in [
+            ".vcp/diagnostics/layers.json",
+            "docs/diagnostics.md",
+            "vcp_cli/diagnose.py",
+        ]
+    )
+    catalog_ready = all(
+        (root / rel).exists()
+        for rel in [
+            ".vcp/catalog.json",
+            "docs/catalog.md",
+            "vcp_cli/cards.py",
+        ]
+    )
+    event_schema_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "schemas/vcp-event.schema.json",
+            "docs/event-schema.md",
+            "templates/reports/vcp-event-entry.md",
+        ]
+    )
 
     payload = {
         "repository_package": repo_version(root),
@@ -116,6 +163,11 @@ def evaluate_payload() -> dict[str, object]:
         "project_backlog_present": (root / "PROJECT_BACKLOG.md").exists(),
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
+        "spec_lane_present": spec_lane_ready,
+        "workflow_layer_present": workflow_layer_ready,
+        "diagnostics_layer_present": diagnostics_ready,
+        "catalog_layer_present": catalog_ready,
+        "event_schema_present": event_schema_ready,
         "llm_reference_present": all(
             (root / rel).exists()
             for rel in ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff"]
@@ -162,6 +214,11 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"PROJECT_BACKLOG.md: {'yes' if payload['project_backlog_present'] else 'no'}")
     print(f"Operations workflow present: {'yes' if payload['operations_workflow_present'] else 'no'}")
     print(f"Public growth layer present: {'yes' if payload['public_growth_layer_present'] else 'no'}")
+    print(f"Spec lane present: {'yes' if payload['spec_lane_present'] else 'no'}")
+    print(f"Workflow layer present: {'yes' if payload['workflow_layer_present'] else 'no'}")
+    print(f"Diagnostics layer present: {'yes' if payload['diagnostics_layer_present'] else 'no'}")
+    print(f"Catalog layer present: {'yes' if payload['catalog_layer_present'] else 'no'}")
+    print(f"Event schema present: {'yes' if payload['event_schema_present'] else 'no'}")
     print(f"LLM reference layer present: {'yes' if payload['llm_reference_present'] else 'no'}")
     print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")

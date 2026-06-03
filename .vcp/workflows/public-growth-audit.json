@@ -1,0 +1,17 @@
+{
+  "id": "public-growth-audit",
+  "name": "Public Growth Audit Workflow",
+  "trigger": "A public site needs SEO/GEO/AI visibility work without overclaiming.",
+  "route": "public-growth-playbook",
+  "steps": [
+    {"id": "classify", "name": "Choose public-growth route", "action": "route", "command": "python3 -m vcp_cli route --profile public-growth --json"},
+    {"id": "surface", "name": "Pick one surface and one proof boundary", "action": "plan"},
+    {"id": "audit", "name": "Use public growth audit prompt/report", "action": "artifact"}
+  ],
+  "required_artifacts": ["protocols/public-growth/public-growth-playbook.md", "templates/reports/public-growth-audit-report.md"],
+  "outputs": ["audit findings", "proof boundary"],
+  "validation": ["python3 scripts/validate-links.sh"],
+  "stop_conditions": ["The plan depends on guaranteed rankings or AI citation", "Visible content and schema would diverge"],
+  "related_cards": ["public-growth", "geo-ai-visibility"],
+  "version": "v0.5.9"
+}

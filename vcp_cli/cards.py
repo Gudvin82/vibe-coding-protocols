@@ -17,6 +17,7 @@ CARD_TYPES = {
     "concept",
 }
 RISK_LEVELS = {"low", "medium", "high", "critical", "variable"}
+MATURITY_LEVELS = {"experimental", "local-stable", "stable", "deprecated"}
 REQUIRED_FIELDS = [
     "id",
     "type",
@@ -66,15 +67,34 @@ def _text_haystack(card: dict[str, Any]) -> str:
     return "\n".join(bits).lower()
 
 
-def list_cards(type_filter: str | None = None, json_mode: bool = False) -> int:
+def list_cards(
+    type_filter: str | None = None,
+    json_mode: bool = False,
+    recommended: bool = False,
+    maturity: str | None = None,
+    platform: str | None = None,
+    domain: str | None = None,
+) -> int:
     cards = load_cards()
     if type_filter:
         cards = [card for card in cards if card.get("type") == type_filter]
+    if recommended:
+        cards = [card for card in cards if card.get("recommended") is True]
+    if maturity:
+        cards = [card for card in cards if card.get("maturity") == maturity]
+    if platform:
+        cards = [card for card in cards if platform in card.get("platforms", [])]
+    if domain:
+        cards = [card for card in cards if domain in card.get("domains", [])]
     items = [
         {
             "id": card.get("id"),
             "type": card.get("type"),
             "name": card.get("name"),
+            "maturity": card.get("maturity"),
+            "recommended": card.get("recommended"),
+            "platforms": card.get("platforms", []),
+            "badges": card.get("badges", []),
             "path": card.get("__path"),
         }
         for card in cards
@@ -119,6 +139,15 @@ def collect_card_validation(root: Path | None = None) -> tuple[list[dict[str, An
             errors.append(f"Invalid card type in {card['__path']}: {card.get('type')}")
         if card.get("risk_level") not in RISK_LEVELS:
             errors.append(f"Invalid risk level in {card['__path']}: {card.get('risk_level')}")
+        maturity = card.get("maturity")
+        if maturity is not None and maturity not in MATURITY_LEVELS:
+            errors.append(f"Invalid maturity in {card['__path']}: {maturity}")
+        recommended = card.get("recommended")
+        if recommended is not None and not isinstance(recommended, bool):
+            errors.append(f"recommended must be boolean in {card['__path']}")
+        for key in ["platforms", "badges"]:
+            if key in card and not isinstance(card[key], list):
+                errors.append(f"{key} must be a list in {card['__path']}")
         maps = card.get("maps_to")
         if not isinstance(maps, dict):
             errors.append(f"maps_to must be an object in {card['__path']}")
@@ -143,7 +172,7 @@ def collect_card_validation(root: Path | None = None) -> tuple[list[dict[str, An
             if isinstance(rel, str) and rel.endswith((".md", ".json", ".py", ".sh", ".txt", ".yml", ".yaml", ".ps1", ".cmd")):
                 if not (root / rel).exists():
                     errors.append(f"Missing referenced path from {card['__path']}: {rel}")
-        if card.get("version") != "v0.5.8":
+        if card.get("version") != "v0.5.9":
             errors.append(f"Card version mismatch in {card['__path']}: {card.get('version')}")
     for card_id, paths in ids.items():
         if len(paths) > 1:

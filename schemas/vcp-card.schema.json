@@ -150,7 +150,31 @@
     },
     "version": {
       "type": "string",
-      "const": "v0.5.8"
+      "const": "v0.5.9"
+    },
+    "maturity": {
+      "type": "string",
+      "enum": [
+        "experimental",
+        "local-stable",
+        "stable",
+        "deprecated"
+      ]
+    },
+    "recommended": {
+      "type": "boolean"
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }

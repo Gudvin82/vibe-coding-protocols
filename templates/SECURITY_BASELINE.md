@@ -1,5 +1,5 @@
 <!-- vcp-artifact: SECURITY_BASELINE -->
-<!-- vcp-version: v0.5.8 -->
+<!-- vcp-version: v0.5.9 -->
 <!-- methodology-version: v1.4 -->
 
 # SECURITY_BASELINE.md

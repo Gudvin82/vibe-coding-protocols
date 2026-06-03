@@ -1,0 +1,17 @@
+{
+  "id": "backlog-update",
+  "name": "Backlog Update Workflow",
+  "trigger": "Work or findings must be made durable outside chat history.",
+  "route": "project-backlog-workflow",
+  "steps": [
+    {"id": "capture", "name": "Capture work item", "action": "backlog"},
+    {"id": "validate", "name": "Validate backlog structure", "action": "validate", "command": "python3 -m vcp_cli backlog validate"},
+    {"id": "review", "name": "Plan review if coding will follow", "action": "review", "command": "python3 -m vcp_cli review plan --json"}
+  ],
+  "required_artifacts": ["PROJECT_BACKLOG.md", "docs/project-backlog.md"],
+  "outputs": ["backlog update", "next step"],
+  "validation": ["python3 -m vcp_cli backlog validate"],
+  "stop_conditions": ["Cross-layer architecture impact is not documented", "Backlog transition would bypass review discipline"],
+  "related_cards": ["project-backlog", "project-backlog-concept"],
+  "version": "v0.5.9"
+}

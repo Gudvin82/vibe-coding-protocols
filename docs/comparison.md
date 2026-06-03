@@ -10,6 +10,9 @@ It does not replace all of them.
 |---|---|---|---|---|---|---|---|
 | Multi-AI support | Yes | Partial | Partial | No | Partial | N/A | N/A |
 | Route classification | Yes | No | No | No | Rarely | No | No |
+| Spec-first lane | Yes | No | No | No | Rarely | Partial | No |
+| Workflow catalog | Yes | No | No | No | Rarely | Partial | No |
+| Diagnostics by layer | Yes | No | No | No | Rarely | Partial | Partial |
 | Adoption packs | Yes | No | No | No | Rarely | No | No |
 | Project memory | Yes | Partial | Partial | No | Partial | Partial | No |
 | Architecture Source of Truth | Supported | No | No | No | Rarely | No | No |
@@ -19,6 +22,7 @@ It does not replace all of them.
 | Production error capture | Yes | No | No | No | No | No | No |
 | Third-party API intake | Yes | No | No | No | Rarely | No | No |
 | Public Growth / GEO | Yes | No | No | No | Rarely | No | No |
+| Event schema for findings | Yes | No | No | No | Rarely | Partial | Partial |
 | CLI | Yes | No | No | No | Rarely | No | Yes |
 | Manifests | Yes | No | No | No | Rarely | No | No |
 | Benchmarks | Yes | No | No | No | Rarely | No | Partial |
@@ -47,6 +51,14 @@ Prompt packs can be useful, but they often stop at prompting. VCP tries to add r
 ### Product starter templates
 
 Starter templates help bootstrap code. VCP is more about controlling AI-assisted delivery across the project lifecycle.
+
+### Spec-first tooling
+
+Different purpose. Spec-first tools focus on PRD/spec/task discipline. VCP now includes a spec lane, but it does not claim external compatibility or code generation capabilities that are not implemented.
+
+### Workflow automation platforms
+
+Different purpose. Workflow platforms can execute actions across services. VCP workflows are local catalog definitions for trigger, steps, validation, and stop conditions. They are not a Zapier/Pipedream clone.
 
 ### Security scanners
 

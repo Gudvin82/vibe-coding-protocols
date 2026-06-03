@@ -28,6 +28,7 @@ Today VCP has:
 - local CLI and npm wrapper;
 - manifests;
 - benchmarks;
+- spec lane, workflow, diagnostics, catalog, and event-schema layers;
 - route and adoption docs;
 - explicit LLM citation and AI-agent entry surfaces;
 - FAQ, comparison, and anti-pattern docs;

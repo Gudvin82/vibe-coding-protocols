@@ -1,12 +1,17 @@
 # Tooling Roadmap
 
-## Available in v0.5.8
+## Available in v0.5.9
 
 - local Python CLI
 - local npm wrapper that forwards to the Python CLI
 - Windows-first PowerShell path for the fast CLI workflow
 - Bash-compatible legacy scripts
 - machine-readable manifests under `.vcp/manifests/`
+- spec lane CLI and templates
+- workflow catalog and validation
+- diagnostics by layer
+- card catalog filters and maturity labels
+- normalized event schema
 - benchmark scenarios
 - repository evaluation helper via `vcp evaluate`
 - post-task review helper
