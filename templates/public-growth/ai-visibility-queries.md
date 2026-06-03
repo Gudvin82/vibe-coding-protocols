@@ -1,5 +1,5 @@
 <!-- vcp-artifact: AI_VISIBILITY_QUERIES -->
-<!-- vcp-version: v0.6.3 -->
+<!-- vcp-version: v0.6.4 -->
 <!-- methodology-version: v1.4 -->
 
 # AI Visibility Queries

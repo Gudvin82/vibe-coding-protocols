@@ -1,0 +1,17 @@
+{
+  "scenario_id": "spec-kit-bridge-non-subordinate",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "spec-first bridge",
+    "workflow positioning"
+  ],
+  "required_files_to_inspect": [
+    "docs/integrations/spec-kit-bridge.md",
+    "docs/comparison.md",
+    "docs/faq.md"
+  ],
+  "expected_first_safe_action": "Explain that VCP works with spec-first and non-spec-first workflows without claiming subordination or official integration.",
+  "expected_warnings": [
+    "Spec Kit bridge must stay complementary, not subordinate or hostile"
+  ]
+}

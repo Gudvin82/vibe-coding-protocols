@@ -41,6 +41,9 @@ jobs:
       - name: Validate links
         run: python3 scripts/validate-links.sh
 
+      - name: Public version surface check
+        run: python3 scripts/check-public-version-surfaces.py
+
       - name: Vibe check audit JSON
         run: bash scripts/vibe-check.sh --audit --json
 

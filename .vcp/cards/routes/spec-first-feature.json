@@ -58,7 +58,7 @@
     "python3 -m vcp_cli spec validate",
     "python3 -m vcp_cli backlog validate"
   ],
-  "version": "v0.6.3",
+  "version": "v0.6.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

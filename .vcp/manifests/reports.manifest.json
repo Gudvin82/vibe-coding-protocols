@@ -291,6 +291,31 @@
         "Recommended next document",
         "Confidence"
       ]
+    },
+    {
+      "id": "public-source-of-truth-audit-report",
+      "file": "templates/reports/public-source-of-truth-audit-report.md",
+      "intended_route": "release",
+      "required_sections": [
+        "Scope",
+        "Strong signals checked",
+        "Weak public signals checked",
+        "Findings",
+        "Trust conclusion"
+      ]
+    },
+    {
+      "id": "proof-walkthrough-report",
+      "file": "templates/reports/proof-walkthrough-report.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Initial state",
+        "Route and trust path",
+        "Commands run",
+        "Evidence created",
+        "What remains unknown",
+        "What VCP does not guarantee"
+      ]
     }
   ],
   "related_docs": [

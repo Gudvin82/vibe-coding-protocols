@@ -1,0 +1,66 @@
+{
+  "id": "public-source-of-truth-audit",
+  "type": "concept",
+  "name": "Public Source-of-Truth Audit",
+  "summary": "Guidance for verifying current VCP release truth across Git refs, clean clone, docs, and weak public fetch paths.",
+  "use_when": [
+    "public version trust matters",
+    "an external AI review may be reading stale surfaces"
+  ],
+  "do_not_use_when": [
+    "raw GitHub would be treated as stronger evidence than Git refs and a clean clone"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "release"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "stale public evaluation"
+    ],
+    "project_state": [
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/public-source-of-truth-audit.md",
+    "scripts/check-public-version-surfaces.py"
+  ],
+  "related_files": [
+    "README.md",
+    "docs/versioning.md",
+    ".vcp/index.json"
+  ],
+  "cli": [],
+  "outputs": [
+    "public release trust checklist"
+  ],
+  "stop_conditions": [
+    "do not hide weak public-surface mismatches if they appear"
+  ],
+  "validation": [
+    "python3 scripts/check-public-version-surfaces.py"
+  ],
+  "version": "v0.6.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "release",
+    "recommended"
+  ]
+}

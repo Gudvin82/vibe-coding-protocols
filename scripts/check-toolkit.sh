@@ -219,6 +219,7 @@ required_files=(
   scripts/check-ide-rules-consistency.sh
   scripts/check-newlines.py
   scripts/check-readme-parity.py
+  scripts/check-public-version-surfaces.py
   scripts/tests/test-vcp-cli.sh
   scripts/tests/test-vcp-cli-windows-parity.py
   scripts/init-project.example.sh
@@ -238,6 +239,8 @@ required_files=(
   schemas/vcp-workflow.schema.json
   schemas/vcp-event.schema.json
   templates/reports/first-impression-audit-report.md
+  templates/reports/public-source-of-truth-audit-report.md
+  templates/reports/proof-walkthrough-report.md
   bin/vcp
   bin/vcp.cmd
   bin/vcp.ps1
@@ -501,7 +504,10 @@ bash scripts/check-version-consistency.sh
 bash scripts/check-ide-rules-consistency.sh
 python3 scripts/check-newlines.py
 python3 scripts/check-readme-parity.py
+python3 scripts/check-public-version-surfaces.py
 python3 -m vcp_cli manifest validate
+python3 -m vcp_cli cards validate
+python3 -m vcp_cli index validate
 python3 -m vcp_cli benchmark run
 
 echo "Toolkit structure check passed."

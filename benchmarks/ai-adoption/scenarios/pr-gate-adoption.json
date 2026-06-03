@@ -1,0 +1,17 @@
+{
+  "scenario_id": "pr-gate-adoption",
+  "target_profile": "review",
+  "target_signals": [
+    "pull request",
+    "pre-merge gate"
+  ],
+  "required_files_to_inspect": [
+    "docs/pr-gate.md",
+    "docs/github-action.md",
+    "ci-examples/github-actions/vcp-check.yml"
+  ],
+  "expected_first_safe_action": "Add VCP Check as a pre-merge decision surface before treating the repository as governed.",
+  "expected_warnings": [
+    "PR Gate docs must not imply a published GitHub Marketplace Action"
+  ]
+}

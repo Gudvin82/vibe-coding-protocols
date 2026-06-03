@@ -1,0 +1,72 @@
+{
+  "id": "distribution-chain",
+  "type": "concept",
+  "name": "Distribution Chain",
+  "summary": "Honest install-to-run-to-PR-check-to-badge adoption chain for local VCP usage.",
+  "use_when": [
+    "someone needs the shortest honest adoption path"
+  ],
+  "do_not_use_when": [
+    "public npm or PyPI availability would be implied without publication"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "distribution"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "adoption confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/install.md",
+    "docs/pr-gate.md",
+    "docs/score-badge.md"
+  ],
+  "related_files": [
+    "README.md",
+    "README_ru.md",
+    "TAKE_THIS_FIRST.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate",
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli score --badge markdown"
+  ],
+  "outputs": [
+    "local adoption chain"
+  ],
+  "stop_conditions": [
+    "do not overclaim package distribution availability"
+  ],
+  "validation": [
+    "python3 scripts/check-readme-parity.py"
+  ],
+  "version": "v0.6.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "distribution",
+    "recommended"
+  ]
+}

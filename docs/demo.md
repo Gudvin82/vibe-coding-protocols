@@ -27,6 +27,16 @@ You should understand:
 - what gates are required;
 - what readiness score can be published.
 
+## Install -> run -> PR check -> badge
+
+A practical chain looks like this:
+
+1. run locally with `python3 -m vcp_cli ...`, `py -m vcp_cli ...`, or `npm run vcp -- ...`;
+2. evaluate the repo;
+3. inspect the active diff with `review-diff`;
+4. add PR Gate before merge;
+5. publish a local score badge if you want a visible readiness signal.
+
 ## Optional GIF / terminal recording
 
 No fake demo artifact is committed by default.
@@ -41,3 +51,4 @@ Recommended output:
 - `assets/demo/vcp-2min-demo.gif`
 
 Visual overview: `docs/visual-overview.md`
+PR Gate: `docs/pr-gate.md`

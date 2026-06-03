@@ -25,6 +25,7 @@ def run_npm(*args: str) -> str:
 
 
 def main() -> int:
+    subprocess.run([PYTHON, 'scripts/check-public-version-surfaces.py'], cwd=ROOT, text=True, capture_output=True, check=True)
     doctor = json.loads(run('doctor', '--json'))
     assert 'powershell_first_mode_supported' in doctor
     assert '.vcp/manifests' in doctor['manifest_directory']
@@ -53,8 +54,9 @@ def main() -> int:
     assert manifest['ok'] is True
     index_validate = json.loads(run('index', 'validate', '--json'))
     assert index_validate['ok'] is True
+    expected_version = Path('VERSION').read_text(encoding='utf-8').strip()
     index_show = json.loads(run('index', 'show', '--json'))
-    assert index_show['version'] == 'v0.6.3'
+    assert index_show['version'] == expected_version
     index_search = json.loads(run('index', 'search', 'production', '--json'))
     assert index_search['query'] == 'production'
     cards_list = json.loads(run('cards', 'list', '--json'))

@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.6.3",
+  "package_version": "v0.6.4",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -33,7 +33,10 @@
     "docs/visual-overview.md",
     "docs/demo.md",
     "docs/pip-install.md",
-    "docs/first-impression-audit.md"
+    "docs/first-impression-audit.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md"
   ],
   "core_docs": [
     "TAKE_THIS_FIRST.md",
@@ -80,7 +83,10 @@
     "docs/workflows.md",
     "docs/visual-overview.md",
     "docs/pip-install.md",
-    "docs/first-impression-audit.md"
+    "docs/first-impression-audit.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -134,7 +140,8 @@
     "scripts/check-version-consistency.sh",
     "scripts/validate-links.sh",
     "scripts/vibe-check.sh",
-    "scripts/check-readme-parity.py"
+    "scripts/check-readme-parity.py",
+    "scripts/check-public-version-surfaces.py"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

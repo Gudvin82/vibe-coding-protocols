@@ -7,7 +7,7 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.3`
+- Repository package: `v0.6.4`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
@@ -60,7 +60,10 @@ Use:
 - `docs/review-diff.md`
 - `docs/score-badge.md`
 - `docs/github-action.md`
+- `docs/pr-gate.md`
+- `docs/public-source-of-truth-audit.md`
 - `docs/install.md`
+- `docs/proof-walkthrough.md`
 - `docs/anti-patterns.md`
 - `docs/public-proof-roadmap.md`
 - `ADOPTERS.md`

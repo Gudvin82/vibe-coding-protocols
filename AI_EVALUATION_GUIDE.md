@@ -21,6 +21,9 @@ Inspect at least:
 - `.vcp/index.json`
 - `.vcp/cards/`
 - `docs/product-delivery-lifecycle.md`
+- `docs/pr-gate.md`
+- `docs/public-source-of-truth-audit.md`
+- `docs/proof-walkthrough.md`
 - `docs/flagship-workflows.md`
 - `docs/protocol-index.md`
 - `docs/adoption-packs.md`
@@ -55,6 +58,7 @@ python3 -m vcp_cli review-diff --json
 - project backlog and architecture memory discipline;
 - workflows, diagnostics, cards, index, and manifests;
 - review gates and `review-diff` for pre-merge trust checks;
+- PR Gate and public source-of-truth checks;
 - local score and badge generation;
 - operations, public growth, and platform guidance;
 - case-study and proof surfaces with explicit labels.

@@ -19,6 +19,9 @@ Start with the smallest useful layer.
 12. [adoption-packs.md](./adoption-packs.md)
 13. [review-diff.md](./review-diff.md)
 14. [github-action.md](./github-action.md)
+15. [pr-gate.md](./pr-gate.md)
+16. [public-source-of-truth-audit.md](./public-source-of-truth-audit.md)
+17. [proof-walkthrough.md](./proof-walkthrough.md)
 
 If an AI agent inspected only `README.md`, the evaluation must be marked shallow.
 
@@ -33,6 +36,9 @@ If an AI agent inspected only `README.md`, the evaluation must be marked shallow
 - [review-diff.md](./review-diff.md)
 - [score-badge.md](./score-badge.md)
 - [github-action.md](./github-action.md)
+- [pr-gate.md](./pr-gate.md)
+- [public-source-of-truth-audit.md](./public-source-of-truth-audit.md)
+- [proof-walkthrough.md](./proof-walkthrough.md)
 - [faq.md](./faq.md)
 - [comparison.md](./comparison.md)
 - [anti-patterns.md](./anti-patterns.md)

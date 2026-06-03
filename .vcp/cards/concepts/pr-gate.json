@@ -1,0 +1,69 @@
+{
+  "id": "pr-gate",
+  "type": "concept",
+  "name": "PR Gate",
+  "summary": "Pre-merge VCP Check path for route, risk, validation, and score signals.",
+  "use_when": [
+    "a team wants VCP in pull requests before merge"
+  ],
+  "do_not_use_when": [
+    "someone expects a published marketplace action instead of repo-level CI guidance"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "review"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "no pre-merge trust gate"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "merge risk"
+    ]
+  },
+  "entry_files": [
+    "docs/pr-gate.md",
+    "docs/github-action.md"
+  ],
+  "related_files": [
+    "ci-examples/github-actions/vcp-check.yml",
+    ".github/workflows/vibe-check.yml",
+    "templates/reports/pr-gate-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli score --json"
+  ],
+  "outputs": [
+    "pre-merge decision surface"
+  ],
+  "stop_conditions": [
+    "do not present PR Gate as security certification or marketplace publication"
+  ],
+  "validation": [
+    "python3 -m vcp_cli manifest validate",
+    "python3 -m vcp_cli benchmark run"
+  ],
+  "version": "v0.6.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "github-copilot",
+    "codex-cli",
+    "claude-code"
+  ],
+  "badges": [
+    "concept",
+    "review",
+    "recommended"
+  ]
+}

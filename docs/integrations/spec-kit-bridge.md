@@ -1,35 +1,35 @@
 # Spec Kit Bridge
 
 Spec-first tools help define what to build.
-VCP helps govern how AI-assisted changes move safely toward merge and production.
+VCP helps teams build with AI and ship with control.
 
-VCP is not a clone of spec-first tooling.
-It should stay useful when the right answer is no-spec or spec-lite.
+VCP works with spec-first and non-spec-first AI workflows.
+It is not a clone of spec-first tooling, and it should stay useful when the right answer is no-spec or spec-lite.
 
-## Use VCP after spec-first planning
+## Mode 1 — with spec-first tools
 
-- import PRD, feature spec, and tasks into VCP spec artifacts;
+- import PRD, feature spec, and tasks into VCP artifacts;
 - run spec freshness;
 - link tasks into `PROJECT_BACKLOG.md`;
 - run `review-diff` before merge;
-- run diagnostics and release checks before shipping.
+- run PR Gate and score before release.
 
-## Use VCP without full spec-first tooling
+## Mode 2 — without full spec-first tooling
 
-- `no-spec` for tiny low-risk fixes;
-- `spec-lite` for smaller features;
-- `full-spec` or `governed-spec` only when risk requires it.
+- use `no-spec` for tiny low-risk fixes;
+- use `spec-lite` for smaller features;
+- use `full-spec` or `governed-spec` only when risk requires it.
 
-## Use VCP for brownfield projects
+## Mode 3 — brownfield / retrofit
 
 - capture observed behavior with spec retrofit;
 - record gaps;
-- harden the repo;
+- use diagnostics and hardening;
 - add review gates and release discipline.
 
 ## Boundaries
 
 - no claim of official integration;
 - no claim of endorsement;
-- no aggressive replacement framing;
+- no subordinate framing such as “use VCP only after Spec Kit”;
 - no copied external workflow.

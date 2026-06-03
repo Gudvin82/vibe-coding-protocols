@@ -29,6 +29,8 @@ python3 -m vcp_cli spec depth --task "describe the task" --json
 
 Visual overview: `docs/visual-overview.md`
 2-minute demo: `docs/demo.md`
+PR Gate: `docs/pr-gate.md`
+Public source-of-truth audit: `docs/public-source-of-truth-audit.md`
 
 ## Step 3 — copy only selected files
 

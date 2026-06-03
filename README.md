@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.6.3-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.6.4-blue)](./CHANGELOG.md)
 [![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
@@ -16,7 +16,7 @@ Build with AI. Ship with control.
 
 Vibe Coding Protocols helps you build AI-assisted products from idea to production without losing control: it routes the work, chooses the right spec depth, keeps project memory, checks AI-generated changes, manages backlog, runs review gates, and prepares releases.
 
-Repository package: `v0.6.3`
+Repository package: `v0.6.4`
 
 Web methodology: `Vibe Coding Protocols v1.4`
 
@@ -55,6 +55,11 @@ python3 -m vcp_cli score --badge markdown
 
 This shows the core VCP loop: understand the repo, choose the right workflow, check risk before merge, and publish a local readiness signal.
 
+## Add VCP to pull requests
+
+Use VCP Check before merge to surface route, risk, validation and score signals.
+See `docs/pr-gate.md`.
+
 ## What VCP actually covers
 
 | Layer | What it does |
@@ -84,6 +89,8 @@ npm run vcp -- evaluate
 Install details: [docs/install.md](./docs/install.md)
 Visual overview: [docs/visual-overview.md](./docs/visual-overview.md)
 2-minute demo: [docs/demo.md](./docs/demo.md)
+PR Gate: [docs/pr-gate.md](./docs/pr-gate.md)
+Public source-of-truth audit: [docs/public-source-of-truth-audit.md](./docs/public-source-of-truth-audit.md)
 
 ## Two ways to use VCP
 
@@ -128,6 +135,15 @@ python3 -m vcp_cli score --badge markdown
 ```
 
 The badge is a local readiness signal, not a security or compliance certificate.
+
+## Install -> run -> PR check -> badge
+
+1. Install or run locally through `python3 -m vcp_cli ...`, `py -m vcp_cli ...`, or `npm run vcp -- ...`.
+2. Evaluate the repository with `python3 -m vcp_cli evaluate`.
+3. Check active changes with `python3 -m vcp_cli review-diff --json`.
+4. Add VCP Check to pull requests with `docs/pr-gate.md`.
+5. Publish a local score badge with `python3 -m vcp_cli score --badge markdown`.
+6. Adopt a route or pack only if your project needs it.
 
 ## Giving VCP to an AI agent?
 
@@ -213,6 +229,9 @@ VCP is not a scanner, pentest toolkit, compliance certification, SEO guarantee, 
 - [docs/review-diff.md](./docs/review-diff.md)
 - [docs/score-badge.md](./docs/score-badge.md)
 - [docs/github-action.md](./docs/github-action.md)
+- [docs/pr-gate.md](./docs/pr-gate.md)
+- [docs/public-source-of-truth-audit.md](./docs/public-source-of-truth-audit.md)
+- [docs/proof-walkthrough.md](./docs/proof-walkthrough.md)
 - [docs/integrations/spec-kit-bridge.md](./docs/integrations/spec-kit-bridge.md)
 - [docs/platforms/README.md](./docs/platforms/README.md)
 - [docs/faq.md](./docs/faq.md)

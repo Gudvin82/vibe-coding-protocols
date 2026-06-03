@@ -894,6 +894,88 @@
         "first impression should not reduce VCP to a prompt pack or spec-kit clone"
       ],
       "expected_first_action": "Inspect the README, TAKE_THIS_FIRST, and visual overview before summarizing what VCP is."
+    },
+    {
+      "id": "public-version-truth",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/public-version-truth.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/public-source-of-truth-audit.md",
+        "scripts/check-public-version-surfaces.py",
+        "README.md",
+        ".vcp/index.json"
+      ],
+      "expected_warnings": [
+        "raw GitHub can be a weak stale signal, but real version drift is still a repository failure"
+      ],
+      "expected_first_action": "Verify Git refs, clean clone, VERSION, and current docs before trusting weaker public fetch paths."
+    },
+    {
+      "id": "pr-gate-adoption",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-adoption.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/pr-gate.md",
+        "docs/github-action.md",
+        "ci-examples/github-actions/vcp-check.yml"
+      ],
+      "expected_warnings": [
+        "PR Gate docs must not imply a published GitHub Marketplace Action"
+      ],
+      "expected_first_action": "Add VCP Check as a pre-merge decision surface before treating the repository as governed."
+    },
+    {
+      "id": "install-to-pr-check-to-badge",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/install-to-pr-check-to-badge.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/install.md",
+        "docs/pr-gate.md",
+        "docs/score-badge.md",
+        "README.md"
+      ],
+      "expected_warnings": [
+        "install chain must stay honest about local-only distribution surfaces"
+      ],
+      "expected_first_action": "Explain the chain from local install to review-diff to PR Gate to local badge output."
+    },
+    {
+      "id": "proof-walkthrough-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-walkthrough-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/proof-walkthrough.md",
+        "case-studies/README.md",
+        "case-studies/sanitized/vcp-retrofit-public-growth/VALIDATION.md"
+      ],
+      "expected_warnings": [
+        "proof walkthrough must not invent metrics or guarantee outcomes"
+      ],
+      "expected_first_action": "Describe the trust path and evidence boundary without inventing KPI or production guarantees."
+    },
+    {
+      "id": "spec-kit-bridge-non-subordinate",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-kit-bridge-non-subordinate.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/spec-kit-bridge.md",
+        "docs/comparison.md",
+        "docs/faq.md"
+      ],
+      "expected_warnings": [
+        "Spec Kit bridge must stay complementary, not subordinate or hostile"
+      ],
+      "expected_first_action": "Explain that VCP works with spec-first and non-spec-first workflows without claiming subordination or official integration."
     }
   ]
 }

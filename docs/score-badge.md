@@ -2,7 +2,7 @@
 
 `vcp score --badge` generates a local readiness badge string from the current repository score.
 
-It is not a security certification, marketplace listing, or third-party audit.
+It is not a security certification, compliance statement, marketplace listing, or third-party audit.
 
 ## Commands
 
@@ -31,3 +31,9 @@ python3 -m vcp_cli score --badge json
 - score depends on checks present in the repo.
 
 The URL is generated locally. The command does not call `shields.io`.
+
+## How to add it to your README
+
+1. run `python3 -m vcp_cli score --badge markdown`;
+2. paste the resulting Markdown into your project README;
+3. keep the wording clear that it is a local readiness signal, not certification.

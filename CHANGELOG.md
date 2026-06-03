@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.6.4
+
+- Added a public source-of-truth audit and strict public version surface checker.
+- Promoted PR Gate and GitHub Action onboarding as a first-class adoption path.
+- Clarified the install -> review-diff -> PR Gate -> score badge chain.
+- Added proof walkthrough guidance and fairer Spec Kit bridge positioning.
+- Synced cards, index, manifests, benchmarks, and release metadata for public trust surfaces.
+
 ## v0.6.3
 
 - Clarified VCP as a foundation and trust layer for AI-assisted product delivery.

@@ -45,6 +45,9 @@ KEY_FILES = [
     "docs/review-diff.md",
     "docs/score-badge.md",
     "docs/github-action.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md",
     "docs/case-study-guidelines.md",
     "docs/quickstart-walkthrough.md",
     "docs/demo-script.md",
@@ -251,6 +254,9 @@ def evaluate_payload() -> dict[str, object]:
         "adopters_doc_present": (root / "ADOPTERS.md").exists(),
         "glossary_present": (root / "docs/glossary.md").exists(),
         "install_doc_present": (root / "docs/install.md").exists(),
+        "pr_gate_present": (root / "docs/pr-gate.md").exists(),
+        "public_source_of_truth_audit_present": (root / "docs/public-source-of-truth-audit.md").exists(),
+        "proof_walkthrough_present": (root / "docs/proof-walkthrough.md").exists(),
         "progressive_disclosure_present": all(
             (root / rel).exists()
             for rel in [
@@ -306,6 +312,9 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")
     print(f"Install doc present: {'yes' if payload['install_doc_present'] else 'no'}")
+    print(f"PR Gate present: {'yes' if payload['pr_gate_present'] else 'no'}")
+    print(f"Public source-of-truth audit present: {'yes' if payload['public_source_of_truth_audit_present'] else 'no'}")
+    print(f"Proof walkthrough present: {'yes' if payload['proof_walkthrough_present'] else 'no'}")
     print(f"Progressive disclosure present: {'yes' if payload['progressive_disclosure_present'] else 'no'}")
     print(f"Known limitations: {payload['known_limitations']}")
     print(f"Suggested evaluation prompt: {payload['suggested_evaluation_prompt']}")

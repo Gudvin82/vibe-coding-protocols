@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.3",
+  "version": "v0.6.4",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -84,6 +84,9 @@
     "docs/flagship-workflows.md",
     "docs/visual-overview.md",
     "docs/demo.md",
-    "docs/install.md"
+    "docs/install.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md"
   ]
 }

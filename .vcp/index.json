@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.6.3",
+  "version": "v0.6.4",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -16,7 +16,10 @@
     "llms.txt",
     "docs/visual-overview.md",
     "docs/demo.md",
-    "docs/install.md"
+    "docs/install.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -57,7 +60,10 @@
     "docs/workflows.md",
     "docs/visual-overview.md",
     "docs/demo.md",
-    "docs/install.md"
+    "docs/install.md",
+    "docs/pr-gate.md",
+    "docs/public-source-of-truth-audit.md",
+    "docs/proof-walkthrough.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -148,7 +154,12 @@
     "install-guide",
     "first-impression-audit",
     "readme-ru-parity",
-    "score-badge-adoption"
+    "score-badge-adoption",
+    "public-source-of-truth-audit",
+    "public-version-surfaces",
+    "pr-gate",
+    "proof-walkthrough",
+    "distribution-chain"
   ],
   "benchmarks_list": [
     "anti-patterns-inspection",
@@ -197,7 +208,12 @@
     "workflow-public-growth-audit",
     "shallow-readme-evaluation-trap",
     "first-impression-audit",
-    "readme-ru-parity"
+    "readme-ru-parity",
+    "public-version-truth",
+    "pr-gate-adoption",
+    "install-to-pr-check-to-badge",
+    "proof-walkthrough-no-overclaim",
+    "spec-kit-bridge-non-subordinate"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -251,7 +267,9 @@
       "score/readiness signals",
       "release readiness",
       "public growth",
-      "visual onboarding"
+      "visual onboarding",
+      "pr gates",
+      "public version truth"
     ],
     "minimum_inspection": [
       "AGENTS.md",
@@ -260,7 +278,10 @@
       "docs/visual-overview.md",
       ".vcp/cards/",
       "docs/flagship-workflows.md",
-      "docs/product-delivery-lifecycle.md"
+      "docs/product-delivery-lifecycle.md",
+      "docs/pr-gate.md",
+      "docs/public-source-of-truth-audit.md",
+      "docs/proof-walkthrough.md"
     ],
     "shallow_evaluation_warning": "If an AI agent inspected only README.md, the evaluation must be marked as shallow."
   }

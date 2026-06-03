@@ -46,7 +46,7 @@ Only when explicitly stated. Most platform pages describe documented, prompt-com
 
 ## How is VCP different from spec-first tooling?
 
-Spec-first tools focus on defining what to build. VCP helps govern how AI-assisted changes move through backlog, review, validation, and release.
+Spec-first tools focus on defining what to build. VCP helps govern how AI-assisted changes move through backlog, review, validation, and release. VCP works with spec-first and non-spec-first workflows.
 
 ## What should an AI agent do when a user says “take what is useful”?
 

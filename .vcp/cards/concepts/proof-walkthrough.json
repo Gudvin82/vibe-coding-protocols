@@ -1,0 +1,68 @@
+{
+  "id": "proof-walkthrough",
+  "type": "concept",
+  "name": "Proof Walkthrough",
+  "summary": "Honest path from unclear repository readiness to VCP-controlled trust signals without fake KPI claims.",
+  "use_when": [
+    "someone asks what VCP proof looks like in practice"
+  ],
+  "do_not_use_when": [
+    "proof language would outrun the actual evidence"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "proof overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/proof-walkthrough.md"
+  ],
+  "related_files": [
+    "case-studies/README.md",
+    "case-studies/sanitized/vcp-retrofit-public-growth/VALIDATION.md",
+    "docs/public-proof-roadmap.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate",
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli score --json"
+  ],
+  "outputs": [
+    "proof path with explicit boundaries"
+  ],
+  "stop_conditions": [
+    "do not invent metrics or production guarantees"
+  ],
+  "validation": [
+    "python3 -m vcp_cli benchmark run"
+  ],
+  "version": "v0.6.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "proof"
+  ]
+}

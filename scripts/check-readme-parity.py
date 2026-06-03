@@ -7,12 +7,13 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 README_EN = (ROOT / 'README.md').read_text(encoding='utf-8')
 README_RU = (ROOT / 'README_ru.md').read_text(encoding='utf-8')
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 CHECKS = [
     (
         'repository package version',
-        ['Repository package:', 'v0.6.3'],
-        ['Repository package:', 'v0.6.3'],
+        ['Repository package:', CURRENT],
+        ['Repository package:', CURRENT],
     ),
     (
         'AI shallow evaluation warning',
@@ -43,6 +44,16 @@ CHECKS = [
         'score badge mention',
         ['score --badge markdown', 'local readiness signal'],
         ['score --badge markdown', 'локальный readiness-сигнал'],
+    ),
+    (
+        'PR Gate block',
+        ['Add VCP to pull requests', 'docs/pr-gate.md'],
+        ['Добавить VCP в pull request', 'docs/pr-gate.md'],
+    ),
+    (
+        'source-of-truth marker',
+        ['docs/public-source-of-truth-audit.md'],
+        ['docs/public-source-of-truth-audit.md'],
     ),
 ]
 

@@ -15,6 +15,8 @@ Required inspection path:
 7. `AI_EVALUATION_GUIDE.md`
 
 Visual overview: `docs/visual-overview.md`
+PR Gate: `docs/pr-gate.md`
+Public source-of-truth audit: `docs/public-source-of-truth-audit.md`
 
 Root `AGENTS.md` is for evaluating or adopting VCP itself.
 `templates/AGENTS.md` is for target projects that adopt selected VCP layers.
@@ -111,6 +113,9 @@ Stop and report instead of guessing when:
 - `TAKE_THIS_FIRST.md`
 - `docs/review-diff.md`
 - `docs/github-action.md`
+- `docs/pr-gate.md`
+- `docs/public-source-of-truth-audit.md`
+- `docs/proof-walkthrough.md`
 - `docs/platforms/README.md`
 - `docs/faq.md`
 - `docs/comparison.md`

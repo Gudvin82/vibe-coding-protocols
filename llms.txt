@@ -25,9 +25,12 @@ Do not judge VCP from README alone.
 - docs/demo.md: 2-minute human demo path
 - docs/install.md: honest local install methods and non-claims
 - .vcp/manifests/: full manifest metadata
-- docs/release-v0.6.3.md: current release notes
+- docs/release-v0.6.4.md: current release notes
 - docs/product-delivery-lifecycle.md: lifecycle map for idea, intake, spec depth, backlog, review, diagnostics, and release
 - docs/flagship-workflows.md: three public flagship workflows
 - docs/review-diff.md: local pre-merge trust gate for changed files
 - docs/score-badge.md: local readiness badge generation
 - docs/github-action.md: CI and PR gate guidance
+- docs/pr-gate.md: pull-request gate guidance
+- docs/public-source-of-truth-audit.md: release-truth verification guidance
+- docs/proof-walkthrough.md: honest proof path without fake metrics

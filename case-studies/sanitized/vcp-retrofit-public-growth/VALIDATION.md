@@ -13,7 +13,8 @@ Status: sanitized / maintainer-known / no private data
 
 - clarified route choice before editing public surfaces;
 - recorded retrofit reasoning instead of relying on chat memory;
-- made review and validation steps explicit.
+- made review, PR Gate, and validation steps explicit;
+- made score and trust signals easier to publish without overclaim.
 
 ## What was not measured
 

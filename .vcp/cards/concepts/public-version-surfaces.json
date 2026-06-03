@@ -1,0 +1,70 @@
+{
+  "id": "public-version-surfaces",
+  "type": "concept",
+  "name": "Public Version Surfaces",
+  "summary": "Current version markers across README, VERSION, release docs, package metadata, cards, manifests, and CLI output.",
+  "use_when": [
+    "a release needs consistent public current-version evidence"
+  ],
+  "do_not_use_when": [
+    "historical release notes would be mistaken for stale current-version markers"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "release"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "version drift"
+    ],
+    "project_state": [
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "VERSION",
+    "README.md",
+    "docs/versioning.md",
+    ".vcp/index.json"
+  ],
+  "related_files": [
+    "scripts/check-public-version-surfaces.py",
+    "CITATION.cff",
+    "package.json",
+    "pyproject.toml"
+  ],
+  "cli": [
+    "python3 -m vcp_cli version",
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "current-version trust report"
+  ],
+  "stop_conditions": [
+    "do not leave current version mismatches in public-facing files"
+  ],
+  "validation": [
+    "python3 scripts/check-public-version-surfaces.py"
+  ],
+  "version": "v0.6.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "release"
+  ]
+}
