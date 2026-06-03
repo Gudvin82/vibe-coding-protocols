@@ -25,7 +25,12 @@ Different purpose. A rules file can shape one assistant surface, but it usually 
 
 ### Spec-first tooling
 
-Different purpose. Spec-first tools help define what to build. VCP helps govern how AI-assisted changes move safely toward merge and production. VCP works with spec-first and non-spec-first workflows, and it can stay on no-spec or spec-lite when risk is low.
+Different purpose.
+Spec-first tools help define what to build.
+VCP helps govern how AI-assisted changes move safely toward merge and production.
+VCP works with spec-first and non-spec-first workflows, and it can stay on no-spec or spec-lite when risk is low.
+
+That is a complement relationship, not a “better than” claim.
 
 If an AI agent only read `README.md`, any comparison must be marked shallow.
 

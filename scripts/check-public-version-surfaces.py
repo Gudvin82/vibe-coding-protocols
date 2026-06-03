@@ -144,6 +144,10 @@ if issues:
     sys.exit(1)
 
 print(f"Public version surface check passed for {CURRENT}.")
+print(
+    "Note: this script validates repository files, not GitHub UI cache or release object state. "
+    "For GitHub Release latest verification, use a manual browser check or GitHub API / gh when available."
+)
 if allowed_historical_hits:
     print("Allowed historical references:")
     for item in allowed_historical_hits:

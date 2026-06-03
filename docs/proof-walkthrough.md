@@ -2,6 +2,8 @@
 
 This page shows a clean proof path from unclear AI-assisted repository state to a more controlled VCP state.
 
+The goal is trust clarity, not hype.
+
 ## Initial state
 
 An AI-assisted project exists, but readiness is unclear.
@@ -25,6 +27,8 @@ There may be code, docs, or workflows, but trust surfaces are incomplete.
 - validation run;
 - what remains unknown;
 - what VCP does not guarantee.
+- no invented KPI uplift;
+- no fake before/after claim.
 
 ## Proof boundary
 

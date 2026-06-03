@@ -7,6 +7,8 @@ VCP PR Gate is one of the main adoption paths for teams that already have a repo
 It is a decision surface, not a security certification.
 It is also not a GitHub Marketplace Action unless that is explicitly published.
 
+Treat it as a pre-merge visibility layer: route, risk, validation, and score become explicit before a human decides whether to merge.
+
 ## What PR Gate does
 
 - checks current version and public source-of-truth surfaces;

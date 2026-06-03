@@ -3,6 +3,7 @@
 `vcp score --badge` generates a local readiness badge string from the current repository score.
 
 It is not a security certification, compliance statement, marketplace listing, or third-party audit.
+It is a local readiness signal based on the checks present in the current repository.
 
 ## Commands
 

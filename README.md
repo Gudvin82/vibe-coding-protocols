@@ -14,7 +14,9 @@
 
 Build with AI. Ship with control.
 
-Vibe Coding Protocols helps you build AI-assisted products from idea to production without losing control: it routes the work, chooses the right spec depth, keeps project memory, checks AI-generated changes, manages backlog, runs review gates, and prepares releases.
+Vibe Coding Protocols helps you build AI-assisted products from idea to production without losing control.
+
+It routes the work, chooses the right spec depth, keeps project memory, checks AI-generated changes, manages backlog, runs review gates, and prepares releases.
 
 Repository package: `v0.6.4`
 
@@ -58,6 +60,9 @@ This shows the core VCP loop: understand the repo, choose the right workflow, ch
 ## Add VCP to pull requests
 
 Use VCP Check before merge to surface route, risk, validation and score signals.
+
+PR Gate is a decision surface, not a security certification.
+
 See `docs/pr-gate.md`.
 
 ## What VCP actually covers
@@ -87,9 +92,13 @@ npm run vcp -- evaluate
 ```
 
 Install details: [docs/install.md](./docs/install.md)
+
 Visual overview: [docs/visual-overview.md](./docs/visual-overview.md)
+
 2-minute demo: [docs/demo.md](./docs/demo.md)
+
 PR Gate: [docs/pr-gate.md](./docs/pr-gate.md)
+
 Public source-of-truth audit: [docs/public-source-of-truth-audit.md](./docs/public-source-of-truth-audit.md)
 
 ## Two ways to use VCP
@@ -126,15 +135,8 @@ Projects can publish a local VCP readiness badge after running checks:
 python3 -m vcp_cli score --badge markdown
 ```
 
-The badge is not a security certification. It is a visible local readiness signal.
-
-## Publish a local VCP readiness signal
-
-```bash
-python3 -m vcp_cli score --badge markdown
-```
-
-The badge is a local readiness signal, not a security or compliance certificate.
+The badge is a visible local readiness signal.
+It is not a security or compliance certification.
 
 ## Install -> run -> PR check -> badge
 
@@ -144,6 +146,8 @@ The badge is a local readiness signal, not a security or compliance certificate.
 4. Add VCP Check to pull requests with `docs/pr-gate.md`.
 5. Publish a local score badge with `python3 -m vcp_cli score --badge markdown`.
 6. Adopt a route or pack only if your project needs it.
+
+Unless npm or PyPI are actually published, treat these install paths as local repository usage paths.
 
 ## Giving VCP to an AI agent?
 
@@ -172,6 +176,7 @@ Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
 Practical adoption router: [TAKE_THIS_FIRST.md](./TAKE_THIS_FIRST.md)
 
 If you need repo-level agent rules, use root `AGENTS.md`.
+
 If you need a reusable project template, use [templates/AGENTS.md](./templates/AGENTS.md).
 
 ## What VCP helps with

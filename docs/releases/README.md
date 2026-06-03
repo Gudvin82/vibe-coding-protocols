@@ -3,6 +3,17 @@
 Release notes stay at the top level for stable links.
 Use this index as a navigator.
 
+## Manual GitHub Release verification
+
+After publishing a release object:
+
+1. Open `https://github.com/Gudvin82/vibe-coding-protocols/releases`
+2. Confirm the latest release title.
+3. Confirm the tag points to the expected commit.
+4. Confirm root repository sidebar shows the same latest release.
+5. Confirm raw `VERSION` and raw `README.md` match.
+6. If release listing appears stale in a bot or fetch path, prefer `git ls-remote`, clean clone, raw `VERSION`, and direct release tag URL as stronger evidence.
+
 - [`../release-v0.1.0.md`](../release-v0.1.0.md)
 - [`../release-v0.1.1.md`](../release-v0.1.1.md)
 - [`../release-v0.1.2.md`](../release-v0.1.2.md)

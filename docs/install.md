@@ -3,6 +3,8 @@
 VCP is currently a local repository toolkit.
 It does not claim public PyPI, public npm, Homebrew, or native installer distribution in `v0.6.4`.
 
+Unless a package is actually published, treat install guidance here as local repository usage guidance.
+
 ## Honest install table
 
 | Method | Status | Command |
@@ -23,6 +25,8 @@ It does not claim public PyPI, public npm, Homebrew, or native installer distrib
 4. Add PR Gate.
 5. Publish a local score badge.
 6. Adopt a route or pack only if needed.
+
+This chain is intentionally conservative: run locally first, then expose trust signals, then decide whether deeper adoption is useful.
 
 ## Fastest local start
 

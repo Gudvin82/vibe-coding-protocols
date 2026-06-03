@@ -5,6 +5,7 @@ VCP helps teams build with AI and ship with control.
 
 VCP works with spec-first and non-spec-first AI workflows.
 It is not a clone of spec-first tooling, and it should stay useful when the right answer is no-spec or spec-lite.
+It can sit beside spec-first tooling, or operate without it when the project does not need a heavy spec lane.
 
 ## Mode 1 — with spec-first tools
 

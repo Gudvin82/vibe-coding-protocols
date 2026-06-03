@@ -4,7 +4,9 @@
 
 Build with AI. Ship with control.
 
-Vibe Coding Protocols помогает строить продукты через ИИ — от идеи до production — без потери контроля: выбирает маршрут, глубину ТЗ, хранит память проекта, проверяет AI-изменения, ведет backlog, запускает review gates и готовит релиз.
+Vibe Coding Protocols помогает строить продукты через ИИ — от идеи до production — без потери контроля.
+
+Он выбирает маршрут, глубину ТЗ, хранит память проекта, проверяет AI-изменения, ведет backlog, запускает review gates и готовит релиз.
 
 Repository package: `v0.6.4`
 
@@ -48,6 +50,9 @@ python3 -m vcp_cli score --badge markdown
 ## Добавить VCP в pull request
 
 Запускайте VCP Check перед merge, чтобы видеть route, risk, validation и score.
+
+PR Gate — это decision surface, а не security certification.
+
 См. `docs/pr-gate.md`.
 
 ## Что реально покрывает VCP
@@ -68,10 +73,22 @@ python3 -m vcp_cli route --profile production
 python3 -m vcp_cli adopt --pack production --dry-run
 ```
 
+Node-first локальный вариант:
+
+```bash
+npm install
+npm run vcp -- doctor
+npm run vcp -- evaluate
+```
+
 Детали установки: [docs/install.md](./docs/install.md)
+
 Визуальный обзор: [docs/visual-overview.md](./docs/visual-overview.md)
+
 2-минутный демо-путь: [docs/demo.md](./docs/demo.md)
+
 PR Gate: [docs/pr-gate.md](./docs/pr-gate.md)
+
 Аудит source-of-truth: [docs/public-source-of-truth-audit.md](./docs/public-source-of-truth-audit.md)
 
 ## Два режима использования VCP
@@ -96,7 +113,8 @@ Intake -> diagnostics -> hardening -> review gates -> backlog -> release readine
 python3 -m vcp_cli score --badge markdown
 ```
 
-Этот badge — локальный readiness-сигнал, а не сертификат безопасности или compliance.
+Этот badge — локальный readiness-сигнал.
+Это не сертификат безопасности или compliance.
 
 ## Установка -> запуск -> PR check -> badge
 
@@ -106,6 +124,8 @@ python3 -m vcp_cli score --badge markdown
 4. Добавь VCP Check в pull request через `docs/pr-gate.md`.
 5. Опубликуй локальный score badge через `python3 -m vcp_cli score --badge markdown`.
 6. Подключай route или pack только если проекту это действительно нужно.
+
+Если npm или PyPI реально не опубликованы, считай эти install paths локальными путями использования репозитория.
 
 ## Где смотреть дальше
 
