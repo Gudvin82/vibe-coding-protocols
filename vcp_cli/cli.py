@@ -29,6 +29,17 @@ from .utils import repo_root
 LEGACY_VIBE_CHECK = {"audit", "starter", "hardening", "init-report", "update-advice"}
 
 
+def configure_utf8_stdio() -> None:
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name, None)
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            try:
+                reconfigure(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+
+
 def run_vibe_check(args: list[str]) -> int:
     root = repo_root()
     script = root / "scripts" / "vibe-check.sh"
@@ -222,6 +233,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    configure_utf8_stdio()
     argv = list(sys.argv[1:] if argv is None else argv)
     parser = build_parser()
     if not argv:
