@@ -332,6 +332,16 @@ def current_python() -> str:
     return sys.executable or "python3"
 
 
+def current_python_command() -> list[str]:
+    executable = current_python()
+    name = Path(executable).name.lower()
+    # The Windows py launcher handles -m/-c reliably, but it can trip over
+    # non-.py script extensions even when the file contains valid Python.
+    if name in {"py", "py.exe"}:
+        return [executable, "-3"]
+    return [executable]
+
+
 def has_bash() -> bool:
     return shutil.which("bash") is not None
 
@@ -461,7 +471,14 @@ def validate_version_consistency(root: Path) -> dict[str, Any]:
 
 
 def run_python_script(root: Path, relative_script: str) -> dict[str, Any]:
-    proc = run_command([current_python(), relative_script], root)
+    script_path = (root / relative_script).resolve()
+    launcher = [
+        *current_python_command(),
+        "-c",
+        "import runpy, sys; runpy.run_path(sys.argv[1], run_name='__main__')",
+        str(script_path),
+    ]
+    proc = run_command(launcher, root)
     name = Path(relative_script).name
     if proc.returncode != 0:
         return _fail_result(name, "python", stdout=proc.stdout, stderr=proc.stderr)
@@ -498,7 +515,7 @@ def validate_cli_smoke(root: Path) -> dict[str, Any]:
     failures: list[str] = []
     outputs: list[str] = []
     for command in CORE_SMOKE_COMMANDS:
-        proc = run_command([current_python(), "-m", "vcp_cli", *command], root)
+        proc = run_command([*current_python_command(), "-m", "vcp_cli", *command], root)
         label = " ".join(command)
         outputs.append(f"$ vcp {label}\n{(proc.stdout or proc.stderr).strip()}")
         if proc.returncode != 0:
