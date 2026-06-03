@@ -10,7 +10,10 @@ def get_version_info(start: Path | None = None) -> dict[str, object]:
     return {
         "name": "Vibe Coding Protocols",
         "repository_package": repo_version(root),
+        "repository_package_version": repo_version(root),
         "methodology": methodology_version(root),
+        "methodology_version": methodology_version(root),
+        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
         "manifest_schema": MANIFEST_SCHEMA_VERSION,
         "git_commit": git_head(root),
         "repo_root": str(root),
@@ -25,7 +28,8 @@ def run(json_mode: bool = False) -> int:
     else:
         print("Vibe Coding Protocols")
         print(f"Repository package: {data['repository_package']}")
-        print(f"Methodology: {data['methodology']}")
+        print(f"Methodology version: {data['methodology']}")
+        print(data["version_semantics_warning"])
         print(f"Manifest schema: {data['manifest_schema']}")
         print(f"Git commit: {data['git_commit'] or 'unknown'}")
         print(f"Repo root: {'yes' if data['running_from_repo_root'] else 'no'}")

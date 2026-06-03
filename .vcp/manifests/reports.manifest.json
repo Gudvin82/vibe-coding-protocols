@@ -316,6 +316,43 @@
         "What remains unknown",
         "What VCP does not guarantee"
       ]
+    },
+    {
+      "id": "protocol-pack-security-review",
+      "file": "templates/reports/protocol-pack-security-review.md",
+      "intended_route": "adoption",
+      "required_sections": [
+        "Pack identity",
+        "Touched surfaces",
+        "Security boundaries",
+        "Required validation",
+        "Merge recommendation"
+      ]
+    },
+    {
+      "id": "proactive-routine-report",
+      "file": "templates/reports/proactive-routine-report.md",
+      "intended_route": "operations",
+      "required_sections": [
+        "Routine",
+        "Commands run",
+        "Findings",
+        "Backlog or review follow-up"
+      ]
+    },
+    {
+      "id": "seo-geo-ai-structure-evaluation-report",
+      "file": "templates/reports/seo-geo-ai-structure-evaluation-report.md",
+      "intended_route": "public-growth",
+      "required_sections": [
+        "Project or site",
+        "Overall readiness",
+        "Technical SEO",
+        "GEO readiness",
+        "AI visibility",
+        "Risks",
+        "What cannot be guaranteed"
+      ]
     }
   ],
   "related_docs": [

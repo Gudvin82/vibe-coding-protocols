@@ -43,3 +43,9 @@ Use is subject to the repository license and attribution requirements.
 ## Limitations
 
 This file does not guarantee indexing, ranking, citation, or model inclusion.
+
+## Version semantics
+
+Current repository package version: `v0.6.5`.
+Current methodology version: `v1.4`.
+Do not confuse the methodology version with the current repository release.

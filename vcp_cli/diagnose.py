@@ -74,6 +74,9 @@ def run(profile: str | None = None, json_mode: bool = False) -> int:
     ok = all(item["result"] in {"OK", "WARN"} for item in results)
     payload = {
         "ok": ok,
+        "repository_package_version": repo_version(root),
+        "methodology_version": methodology_version(root),
+        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
         "profile": profile,
         "summary": {
             "ok": sum(1 for item in results if item["result"] == "OK"),

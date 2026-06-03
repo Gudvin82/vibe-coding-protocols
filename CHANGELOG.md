@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.6.5
+
+- Added a file-based project memory model and explicit memory update rules.
+- Added VCP principles and refusal boundaries for identity and adoption guidance.
+- Added protocol-pack security trust levels, review template, and pack-safety rules.
+- Added proactive VCP routines for merge, release, project health, backlog, and spec freshness.
+- Added SEO/GEO/AI structure evaluation surfaces for Public Growth without ranking or citation guarantees.
+- Added version semantics guidance so AI evaluators separate repository package v0.6.5 from methodology v1.4.
+- Synced cards, index, manifests, reports, benchmarks, and version-checkers for the new governance layer.
+
 ## v0.6.4
 
 - Added a public source-of-truth audit and strict public version surface checker.

@@ -10,6 +10,9 @@ KEY_FILES = [
     "README.md",
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
+    "docs/version-semantics.md",
+    "docs/project-memory-model.md",
+    "docs/principles.md",
     "START_HERE.md",
     "llms.txt",
     "llms-full.txt",
@@ -89,6 +92,9 @@ INSPECTION_PATH = [
     "AGENTS.md",
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
+    "docs/version-semantics.md",
+    "docs/project-memory-model.md",
+    "docs/principles.md",
     ".vcp/index.json",
     ".vcp/cards/",
 ]
@@ -220,6 +226,9 @@ def evaluate_payload() -> dict[str, object]:
 
     payload = {
         "repository_package": repo_version(root),
+        "repository_package_version": repo_version(root),
+        "methodology_version": "v1.4",
+        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
         "evaluation_guide_present": (root / "AI_EVALUATION_GUIDE.md").exists(),
         "key_files": key_files,
         "manifest_directory": str(manifest_dir(root)),
@@ -233,6 +242,12 @@ def evaluate_payload() -> dict[str, object]:
         "inspection_path": INSPECTION_PATH,
         "shallow_evaluation_guard": True,
         "adoption_entrypoint": "TAKE_THIS_FIRST.md",
+        "version_semantics_doc": "docs/version-semantics.md",
+        "project_memory_model_present": (root / "docs/project-memory-model.md").exists(),
+        "principles_present": (root / "docs/principles.md").exists(),
+        "protocol_pack_security_present": (root / "docs/protocol-pack-security.md").exists(),
+        "proactive_vcp_routines_present": (root / "docs/proactive-vcp-routines.md").exists(),
+        "seo_geo_ai_structure_evaluation_present": (root / "docs/public-growth/seo-geo-ai-structure-evaluation.md").exists(),
         "project_backlog_present": (root / "PROJECT_BACKLOG.md").exists(),
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
@@ -287,6 +302,8 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
         return 0
 
     print(f"Repository package: {payload['repository_package']}")
+    print(f"Methodology version: {payload['methodology_version']}")
+    print(payload["version_semantics_warning"])
     print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
     print(f"Evaluation guide present: {'yes' if payload['evaluation_guide_present'] else 'no'}")
     print(f"Manifest directory: {payload['manifest_directory']}")

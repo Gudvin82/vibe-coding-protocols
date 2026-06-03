@@ -48,3 +48,8 @@ Track:
 - [public-site-readiness.md](./public-site-readiness.md)
 - [public-proof-roadmap.md](./public-proof-roadmap.md)
 - [../protocols/public-growth/seo-geo-ai-visibility.md](../protocols/public-growth/seo-geo-ai-visibility.md)
+
+
+## Structured evaluation
+
+Use [public-growth/seo-geo-ai-structure-evaluation.md](./public-growth/seo-geo-ai-structure-evaluation.md) when an external AI evaluator should inspect SEO, GEO, and AI visibility as a structured public-growth artifact.

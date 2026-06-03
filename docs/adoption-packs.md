@@ -6,6 +6,8 @@ It is a scoped recommendation for humans and AI agents.
 
 If a user shares VCP by link and says “take what is useful,” start with `TAKE_THIS_FIRST.md` before choosing a pack.
 
+For trust and mutation rules, also inspect `docs/protocol-pack-security.md`.
+
 ## Quick examples
 
 - Production Pack = hardening docs + audit backlog + security baseline + review gate.
@@ -75,6 +77,7 @@ The CLI reads pack metadata from:
 
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
 - [../TAKE_THIS_FIRST.md](../TAKE_THIS_FIRST.md)
+- [protocol-pack-security.md](./protocol-pack-security.md)
 - [project-backlog.md](./project-backlog.md)
 - [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
 - [production-observability.md](./production-observability.md)

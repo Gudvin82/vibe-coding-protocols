@@ -50,7 +50,7 @@
     "typecheck",
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.6.4",
+  "version": "v0.6.5",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

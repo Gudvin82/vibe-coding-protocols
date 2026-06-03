@@ -1,0 +1,68 @@
+{
+  "id": "version-semantics",
+  "type": "concept",
+  "name": "Version Semantics",
+  "summary": "Repository package version and methodology version must be reported separately across public and AI-facing surfaces.",
+  "use_when": [
+    "an evaluator might confuse the current repository release with the stable methodology version"
+  ],
+  "do_not_use_when": [
+    "version language would imply the repository package is v1.4"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "release"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "version confusion"
+    ],
+    "project_state": [
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/version-semantics.md",
+    "docs/versioning.md"
+  ],
+  "related_files": [
+    "README.md",
+    "README_ru.md",
+    ".vcp/index.json",
+    "llms-full.txt"
+  ],
+  "cli": [
+    "python3 -m vcp_cli version",
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "disambiguated version summary"
+  ],
+  "stop_conditions": [
+    "do not call the latest repository release v1.4"
+  ],
+  "validation": [
+    "python3 scripts/check-public-version-surfaces.py"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "release"
+  ]
+}

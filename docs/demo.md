@@ -52,3 +52,4 @@ Recommended output:
 
 Visual overview: `docs/visual-overview.md`
 PR Gate: `docs/pr-gate.md`
+Proactive routines: `docs/proactive-vcp-routines.md`

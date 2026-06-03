@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PUBLIC_SITE_TEMPLATE_PACK -->
-<!-- vcp-version: v0.6.4 -->
+<!-- vcp-version: v0.6.5 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Site Templates

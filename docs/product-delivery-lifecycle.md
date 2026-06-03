@@ -5,6 +5,8 @@ VCP can support both new products and existing AI-assisted projects.
 Before evaluating or adopting VCP itself, do not stop at `README.md`. Use `AGENTS.md`, `TAKE_THIS_FIRST.md`, `AI_INTAKE.md`, `.vcp/index.json`, `.vcp/cards/`, and the flagship workflow docs first.
 
 Visual overview: `docs/visual-overview.md`
+Project memory model: `docs/project-memory-model.md`
+Proactive routines: `docs/proactive-vcp-routines.md`
 
 ```text
 Idea

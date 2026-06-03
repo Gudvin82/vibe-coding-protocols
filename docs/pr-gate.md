@@ -9,6 +9,8 @@ It is also not a GitHub Marketplace Action unless that is explicitly published.
 
 Treat it as a pre-merge visibility layer: route, risk, validation, and score become explicit before a human decides whether to merge.
 
+For pack trust and mutation boundaries, pair PR Gate with `docs/protocol-pack-security.md`.
+
 ## What PR Gate does
 
 - checks current version and public source-of-truth surfaces;
@@ -55,6 +57,8 @@ jobs:
 ## Related files
 
 - `docs/github-action.md`
+- `docs/protocol-pack-security.md`
+- `docs/proactive-vcp-routines.md`
 - `ci-examples/github-actions/vcp-check.yml`
 - `.github/workflows/vibe-check.yml`
 - `templates/reports/pr-gate-report.md`

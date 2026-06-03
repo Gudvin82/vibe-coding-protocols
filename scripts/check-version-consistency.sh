@@ -29,9 +29,13 @@ check_contains() {
 check_contains README.md "repo-${REPO_VERSION}" "README badge"
 check_contains README.md "$REPO_VERSION" "README repository package"
 check_contains README_ru.md "$REPO_VERSION" "README_ru repository package"
+check_contains README.md "Current methodology version: \`$METHODOLOGY_VERSION\`" "README methodology version block"
+check_contains README_ru.md "Текущая версия методологии: \`$METHODOLOGY_VERSION\`" "README_ru methodology version block"
+check_contains docs/version-semantics.md "Current repository package version: \`$REPO_VERSION\`" "version semantics package version"
+check_contains docs/version-semantics.md "Current methodology version: \`$METHODOLOGY_VERSION\`" "version semantics methodology version"
 check_contains CHANGELOG.md "$REPO_VERSION" "CHANGELOG entry"
 check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/versioning repo version"
-check_contains docs/versioning.md "Web methodology \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
+check_contains docs/versioning.md "Methodology version \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 check_contains "$VCP_MANIFEST" "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
 check_contains "$VCP_MANIFEST" "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
@@ -91,6 +95,7 @@ stale_versions=(
   "v0.6.1"
   "v0.6.2"
   "v0.6.4"
+  "v0.6.5"
 )
 
 entry_files=(
@@ -112,6 +117,37 @@ for file in "${entry_files[@]}"; do
     fi
     if grep -F "$stale" "$file" >/dev/null 2>&1; then
       echo "Stale version marker in $file: $stale"
+      problems=$((problems + 1))
+    fi
+  done
+done
+
+semantics_bad_patterns=(
+  "Repository package: v1.4"
+  "Repo version: v1.4"
+  "Current release: v1.4"
+  "Latest: v1.4"
+  "Current repository version: v1.4"
+  "GitHub package: v1.4"
+)
+
+semantics_files=(
+  README.md
+  README_ru.md
+  docs/versioning.md
+  docs/version-semantics.md
+  llms.txt
+  llms-full.txt
+  ai.txt
+  .vcp/index.json
+  .vcp/catalog.json
+)
+
+for file in "${semantics_files[@]}"; do
+  [[ -f "$file" ]] || continue
+  for bad in "${semantics_bad_patterns[@]}"; do
+    if grep -F "$bad" "$file" >/dev/null 2>&1; then
+      echo "Version semantics confusion in $file: $bad"
       problems=$((problems + 1))
     fi
   done

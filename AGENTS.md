@@ -8,13 +8,21 @@ Required inspection path:
 
 1. `TAKE_THIS_FIRST.md`
 2. `AI_INTAKE.md`
-3. `.vcp/index.json`
-4. `.vcp/cards/`
-5. `docs/flagship-workflows.md`
-6. `docs/product-delivery-lifecycle.md`
-7. `AI_EVALUATION_GUIDE.md`
+3. `docs/version-semantics.md`
+4. `.vcp/index.json`
+5. `.vcp/cards/`
+6. `docs/project-memory-model.md`
+7. `docs/principles.md`
+8. `docs/flagship-workflows.md`
+9. `docs/product-delivery-lifecycle.md`
+10. `AI_EVALUATION_GUIDE.md`
 
 Visual overview: `docs/visual-overview.md`
+Version semantics: `docs/version-semantics.md`
+Project memory: `docs/project-memory-model.md`
+Principles: `docs/principles.md`
+Pack security: `docs/protocol-pack-security.md`
+Proactive routines: `docs/proactive-vcp-routines.md`
 PR Gate: `docs/pr-gate.md`
 Public source-of-truth audit: `docs/public-source-of-truth-audit.md`
 
@@ -83,7 +91,7 @@ If you summarize discovery, return a compact evidence map:
 
 - routes and adoption packs;
 - adaptive spec depth and Spec Lane;
-- project backlog and architecture memory discipline;
+- project memory model, backlog, and architecture memory discipline;
 - workflows, diagnostics, cards, index, and manifests;
 - review-diff and post-task review gates;
 - public-growth and platform guidance;

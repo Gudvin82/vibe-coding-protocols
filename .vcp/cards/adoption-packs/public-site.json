@@ -55,7 +55,7 @@
     "python3 scripts/check-newlines.py",
     "python3 scripts/validate-links.sh"
   ],
-  "version": "v0.6.4",
+  "version": "v0.6.5",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

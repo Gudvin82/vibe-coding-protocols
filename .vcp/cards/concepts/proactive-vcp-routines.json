@@ -1,0 +1,71 @@
+{
+  "id": "proactive-vcp-routines",
+  "type": "concept",
+  "name": "Proactive VCP Routines",
+  "summary": "Repeated governance routines for merge, release, backlog, health, and spec freshness without autonomous agent behavior.",
+  "use_when": [
+    "a team wants repeated governance loops without turning VCP into a notification bot"
+  ],
+  "do_not_use_when": [
+    "routines would be misrepresented as autonomous proactive messaging"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "operations"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release",
+      "operations"
+    ],
+    "ai_failure_modes": [
+      "stale backlog",
+      "skipped release checks"
+    ],
+    "project_state": [
+      "production"
+    ],
+    "risk_categories": [
+      "governance"
+    ]
+  },
+  "entry_files": [
+    "docs/proactive-vcp-routines.md"
+  ],
+  "related_files": [
+    "docs/pr-gate.md",
+    "docs/product-delivery-lifecycle.md",
+    "docs/demo.md",
+    "templates/reports/proactive-routine-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli score --json",
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "outputs": [
+    "repeatable governance routine"
+  ],
+  "stop_conditions": [
+    "do not imply VCP sends proactive messages by itself"
+  ],
+  "validation": [
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "operations"
+  ]
+}

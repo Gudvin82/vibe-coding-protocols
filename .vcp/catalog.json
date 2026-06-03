@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.4",
+  "version": "v0.6.5",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -87,6 +87,12 @@
     "docs/install.md",
     "docs/pr-gate.md",
     "docs/public-source-of-truth-audit.md",
-    "docs/proof-walkthrough.md"
+    "docs/proof-walkthrough.md",
+    "docs/version-semantics.md",
+    "docs/project-memory-model.md",
+    "docs/principles.md",
+    "docs/protocol-pack-security.md",
+    "docs/proactive-vcp-routines.md",
+    "docs/public-growth/seo-geo-ai-structure-evaluation.md"
   ]
 }

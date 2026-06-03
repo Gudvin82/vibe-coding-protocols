@@ -1,0 +1,67 @@
+{
+  "id": "ecosystem-vellum-reference",
+  "type": "concept",
+  "name": "Ecosystem Vellum Reference",
+  "summary": "Neutral ecosystem reference for memory, identity, skills security, and proactive routine ideas without compatibility or endorsement claims.",
+  "use_when": [
+    "ecosystem references need a neutral boundary for inspiration-only comparison"
+  ],
+  "do_not_use_when": [
+    "the reference would imply compatibility, copying, or endorsement"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "ecosystem"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake"
+    ],
+    "ai_failure_modes": [
+      "brand confusion",
+      "ecosystem overclaim"
+    ],
+    "project_state": [
+      "new-project",
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/ecosystem-references.md"
+  ],
+  "related_files": [
+    "docs/project-memory-model.md",
+    "docs/protocol-pack-security.md",
+    "docs/proactive-vcp-routines.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "ecosystem positioning note"
+  ],
+  "stop_conditions": [
+    "do not claim VCP copies or integrates with Vellum"
+  ],
+  "validation": [
+    "python3 scripts/validate-links.sh"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": false,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "ecosystem"
+  ]
+}

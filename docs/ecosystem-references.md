@@ -24,8 +24,8 @@ Useful pattern:
 - validation.
 
 Boundary:
-- VCP workflows are a local guidance/catalog layer;
-- VCP is not a workflow automation platform and does not clone Zapier/Pipedream behavior.
+- VCP workflows are a local guidance and catalog layer;
+- VCP is not a workflow automation platform and does not clone Zapier or Pipedream behavior.
 
 ## Layer diagnostics reference
 
@@ -36,7 +36,7 @@ Useful pattern:
 - next action.
 
 Boundary:
-- diagnostics stay local and repository/process-oriented;
+- diagnostics stay local and repository or process-oriented;
 - VCP is not a network, censorship, or production-monitoring diagnostic tool.
 
 ## Catalog UX reference
@@ -62,7 +62,24 @@ Useful pattern:
 
 Boundary:
 - VCP event records are generic workflow artifacts;
-- VCP does not claim SIEM/IDS/IPS compatibility and does not add offensive/security engine behavior.
+- VCP does not claim SIEM, IDS, or IPS compatibility and does not add offensive or security-engine behavior.
+
+## Vellum Assistant — memory, identity and skills security reference
+
+Useful as a reference for:
+- file-based assistant memory;
+- identity and principles docs;
+- skills and plugin trust boundaries;
+- proactive routines;
+- multi-channel assistant architecture as future reference only.
+
+VCP does not copy Vellum Assistant and does not become a personal assistant.
+VCP uses these ideas only to improve project memory, pack security, and repeated governance routines for AI-assisted delivery.
+
+## VCP SEO/GEO/AI Structure — public-growth evaluation reference
+
+The SEO/GEO/AI structure should be evaluated as a first-class Public Growth artifact.
+External AI evaluators should inspect its technical SEO, GEO readiness, AI visibility, trust, schema, llms.txt, public proof, and no-overclaim boundaries.
 
 ## Packaging note
 

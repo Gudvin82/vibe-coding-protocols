@@ -17,6 +17,9 @@ If a user says “study this repo and take what is useful for my project,” sta
 Inspect at least:
 - `AGENTS.md`
 - `TAKE_THIS_FIRST.md`
+- `docs/version-semantics.md`
+- `docs/project-memory-model.md`
+- `docs/principles.md`
 - `AI_INTAKE.md`
 - `.vcp/index.json`
 - `.vcp/cards/`
@@ -101,6 +104,9 @@ When the user says “take what is useful,” return:
 
 Use:
 - `TAKE_THIS_FIRST.md`
+- `docs/version-semantics.md`
+- `docs/project-memory-model.md`
+- `docs/principles.md`
 - `templates/prompts/adopt-vcp-from-link.md`
 - `templates/reports/vcp-adoption-decision-report.md`
 - `docs/visual-overview.md`

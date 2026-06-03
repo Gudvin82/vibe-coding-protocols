@@ -48,3 +48,4 @@ After publishing a release object:
 - [`../release-v0.6.2.md`](../release-v0.6.2.md)
 - [`../release-v0.6.3.md`](../release-v0.6.3.md)
 - [`../release-v0.6.4.md`](../release-v0.6.4.md)
+- [`../release-v0.6.5.md`](../release-v0.6.5.md)

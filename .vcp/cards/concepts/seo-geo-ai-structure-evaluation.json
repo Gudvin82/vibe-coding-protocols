@@ -1,0 +1,67 @@
+{
+  "id": "seo-geo-ai-structure-evaluation",
+  "type": "concept",
+  "name": "SEO/GEO/AI Structure Evaluation",
+  "summary": "Public-growth evaluation path for SEO, GEO, AI visibility, trust, schema, llms.txt, proof, and no-overclaim readiness.",
+  "use_when": [
+    "external AI or humans need to inspect public-growth readiness as a structured artifact"
+  ],
+  "do_not_use_when": [
+    "the evaluator would promise rankings, AI citations, or black-hat tactics"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "public-growth"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "public-growth",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "marketing overclaim",
+      "citation guarantee claim"
+    ],
+    "project_state": [
+      "public-site"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
+  },
+  "entry_files": [
+    "docs/public-growth/seo-geo-ai-structure-evaluation.md"
+  ],
+  "related_files": [
+    "docs/geo-ai-visibility.md",
+    "templates/prompts/evaluate-seo-geo-ai-structure.md",
+    "templates/reports/seo-geo-ai-structure-evaluation-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "seo geo ai structure evaluation report"
+  ],
+  "stop_conditions": [
+    "do not treat this structure as a guarantee of ranking or AI citation"
+  ],
+  "validation": [
+    "python3 -m vcp_cli benchmark run --scenario seo-geo-ai-structure-evaluation"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "public-growth"
+  ]
+}

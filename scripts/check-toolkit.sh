@@ -75,6 +75,21 @@ required_files=(
   docs/scoring.md
   docs/npm-publishing-checklist.md
   docs/public-proof-roadmap.md
+  benchmarks/ai-adoption/scenarios/version-semantics-disambiguation.json
+  benchmarks/ai-adoption/scenarios/seo-geo-ai-structure-evaluation.json
+  schemas/vcp-pack-security.schema.json
+  templates/prompts/evaluate-seo-geo-ai-structure.md
+  templates/reports/seo-geo-ai-structure-evaluation-report.md
+  templates/reports/proactive-routine-report.md
+  templates/reports/protocol-pack-security-review.md
+  docs/site-version-sync-checklist.md
+  docs/public-growth/seo-geo-ai-structure-evaluation.md
+  docs/public-growth/README.md
+  docs/proactive-vcp-routines.md
+  docs/protocol-pack-security.md
+  docs/principles.md
+  docs/project-memory-model.md
+  docs/version-semantics.md
   docs/windows.md
   docs/platforms/README.md
   docs/platforms/claude-code.md

@@ -976,6 +976,39 @@
         "Spec Kit bridge must stay complementary, not subordinate or hostile"
       ],
       "expected_first_action": "Explain that VCP works with spec-first and non-spec-first workflows without claiming subordination or official integration."
+    },
+    {
+      "id": "seo-geo-ai-structure-evaluation",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/seo-geo-ai-structure-evaluation.json",
+      "expected_route": "public-growth-playbook",
+      "expected_pack": "public-growth",
+      "required_inspected_files": [
+        "docs/public-growth/seo-geo-ai-structure-evaluation.md",
+        "docs/geo-ai-visibility.md",
+        "llms-full.txt"
+      ],
+      "expected_warnings": [
+        "do not promise ranking or citation guarantees"
+      ],
+      "expected_first_action": "Inspect the SEO/GEO/AI structure as a public-growth artifact before making readiness claims."
+    },
+    {
+      "id": "version-semantics-disambiguation",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/version-semantics-disambiguation.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/version-semantics.md",
+        "docs/versioning.md",
+        "README.md",
+        ".vcp/index.json"
+      ],
+      "expected_warnings": [
+        "do not report the latest repository release as v1.4 when v1.4 is the methodology version"
+      ],
+      "expected_first_action": "Separate repository package version from methodology version before describing the current VCP release."
     }
   ]
 }

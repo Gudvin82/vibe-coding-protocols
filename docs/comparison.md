@@ -2,6 +2,8 @@
 
 Compare VCP by purpose, not by hype.
 
+For operating identity and boundaries, see `docs/principles.md`.
+
 VCP is most useful when AI-assisted delivery needs both a product foundation and trust gates before merge or release.
 
 ## Capability comparison

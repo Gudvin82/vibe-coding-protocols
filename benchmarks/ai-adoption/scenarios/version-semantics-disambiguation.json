@@ -1,0 +1,19 @@
+{
+  "scenario_id": "version-semantics-disambiguation",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "repository package version",
+    "methodology version",
+    "ai version confusion prevention"
+  ],
+  "required_files_to_inspect": [
+    "docs/version-semantics.md",
+    "docs/versioning.md",
+    "README.md",
+    ".vcp/index.json"
+  ],
+  "expected_first_safe_action": "Separate repository package version from methodology version before describing the current VCP release.",
+  "expected_warnings": [
+    "do not report the latest repository release as v1.4 when v1.4 is the methodology version"
+  ]
+}

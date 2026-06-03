@@ -1,0 +1,74 @@
+{
+  "id": "project-memory-model",
+  "type": "concept",
+  "name": "Project Memory Model",
+  "summary": "File-based project memory for architecture, backlog, risks, release state, and selective AI update discipline.",
+  "use_when": [
+    "AI or humans need to understand what memory means in VCP before making meaningful changes"
+  ],
+  "do_not_use_when": [
+    "memory is treated as a hidden runtime database or dumping ground"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "memory"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "design",
+      "implementation",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "context loss",
+      "architecture drift"
+    ],
+    "project_state": [
+      "new-project",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery control"
+    ]
+  },
+  "entry_files": [
+    "docs/project-memory-model.md",
+    "PROJECT_MAP.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "related_files": [
+    "AI_INTAKE.md",
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate --json",
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "outputs": [
+    "memory-aware change discipline"
+  ],
+  "stop_conditions": [
+    "do not proceed with major change while memory is known to be stale and ignored"
+  ],
+  "validation": [
+    "python3 -m vcp_cli diagnose --json"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "memory"
+  ]
+}

@@ -28,3 +28,8 @@ This page tracks which proof layers still need work before VCP should be describ
 - marketplace plugin claims;
 - guaranteed safety or visibility evidence;
 - industry-standard status.
+
+
+## Public Growth evaluation
+
+Public Growth should also be inspectable through [docs/public-growth/seo-geo-ai-structure-evaluation.md](./public-growth/seo-geo-ai-structure-evaluation.md) without turning readiness into ranking or citation promises.

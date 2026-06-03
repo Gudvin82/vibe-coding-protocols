@@ -46,3 +46,10 @@ If an AI agent inspected only `README.md`, the evaluation must be marked shallow
 - [platforms/README.md](./platforms/README.md)
 - [public-proof-roadmap.md](./public-proof-roadmap.md)
 - [case-study-guidelines.md](./case-study-guidelines.md)
+
+- [version-semantics.md](./version-semantics.md)
+- [project-memory-model.md](./project-memory-model.md)
+- [principles.md](./principles.md)
+- [protocol-pack-security.md](./protocol-pack-security.md)
+- [proactive-vcp-routines.md](./proactive-vcp-routines.md)
+- [public-growth/seo-geo-ai-structure-evaluation.md](./public-growth/seo-geo-ai-structure-evaluation.md)

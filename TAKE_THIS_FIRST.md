@@ -28,6 +28,9 @@ python3 -m vcp_cli spec depth --task "describe the task" --json
 ```
 
 Visual overview: `docs/visual-overview.md`
+Version semantics: `docs/version-semantics.md`
+Project memory: `docs/project-memory-model.md`
+Protocol-pack security: `docs/protocol-pack-security.md`
 2-minute demo: `docs/demo.md`
 PR Gate: `docs/pr-gate.md`
 Public source-of-truth audit: `docs/public-source-of-truth-audit.md`
@@ -81,6 +84,9 @@ Return:
 - Prompt: `templates/prompts/adopt-vcp-from-link.md`
 - Report: `templates/reports/vcp-adoption-decision-report.md`
 - Visual overview: `docs/visual-overview.md`
+Version semantics: `docs/version-semantics.md`
+Project memory: `docs/project-memory-model.md`
+Protocol-pack security: `docs/protocol-pack-security.md`
 
 ## Кратко по-русски
 

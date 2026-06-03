@@ -1,0 +1,72 @@
+{
+  "id": "protocol-pack-security",
+  "type": "concept",
+  "name": "Protocol Pack Security",
+  "summary": "Trust-level and review rules for adoption packs, protocol packs, command packs, and future external packs.",
+  "use_when": [
+    "a pack source or mutation needs explicit trust and review boundaries"
+  ],
+  "do_not_use_when": [
+    "packs would be applied blindly or weaken CI and release gates"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "concept",
+    "security"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "unsafe adoption",
+      "gate weakening"
+    ],
+    "project_state": [
+      "new-project",
+      "production"
+    ],
+    "risk_categories": [
+      "supply chain",
+      "delivery control"
+    ]
+  },
+  "entry_files": [
+    "docs/protocol-pack-security.md",
+    "schemas/vcp-pack-security.schema.json"
+  ],
+  "related_files": [
+    "docs/adoption-packs.md",
+    "docs/pr-gate.md",
+    "templates/reports/protocol-pack-security-review.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli review-diff --json"
+  ],
+  "outputs": [
+    "pack trust review"
+  ],
+  "stop_conditions": [
+    "do not merge external pack changes without explicit review"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate",
+    "python3 -m vcp_cli index validate",
+    "python3 -m vcp_cli manifest validate"
+  ],
+  "version": "v0.6.5",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "security"
+  ]
+}

@@ -80,11 +80,13 @@ def scan_stale_versions() -> None:
         "README_ru.md",
         "VERSION",
         "docs/versioning.md",
+        "docs/version-semantics.md",
         "package.json",
         "pyproject.toml",
         "CITATION.cff",
         "llms.txt",
         "llms-full.txt",
+        "ai.txt",
         "PROJECT_MAP.md",
         "AGENTS.md",
         ".vcp/index.json",
@@ -99,6 +101,20 @@ def scan_stale_versions() -> None:
         for stale in stale_versions:
             if stale in text:
                 issues.append(f"{rel}: stale current-surface version {stale!r} found")
+
+    bad_patterns = [
+        "Repository package: v1.4",
+        "Repo version: v1.4",
+        "Current release: v1.4",
+        "Latest: v1.4",
+        "Current repository version: v1.4",
+        "GitHub package: v1.4",
+    ]
+    for rel in current_files:
+        text = read(rel)
+        for pattern in bad_patterns:
+            if pattern in text:
+                issues.append(f"{rel}: package/methodology confusion detected -> {pattern}")
 
     historical_allowed = [
         "CHANGELOG.md",
@@ -116,8 +132,12 @@ require_exact("VERSION", CURRENT, "repository version")
 require_contains("README.md", f"repo-{CURRENT}", "README badge")
 require_contains("README.md", f"Repository package: `{CURRENT}`", "README package marker")
 require_contains("README_ru.md", f"Repository package: `{CURRENT}`", "README_ru package marker")
+require_contains("README.md", f"Current methodology version: `{METHODOLOGY}`", "README methodology block")
+require_contains("README_ru.md", f"Текущая версия методологии: `{METHODOLOGY}`", "README_ru methodology block")
 require_contains("docs/versioning.md", f"Repository package `{CURRENT}`", "docs/versioning package marker")
-require_contains("docs/versioning.md", f"Web methodology `{METHODOLOGY}`", "docs/versioning methodology marker")
+require_contains("docs/versioning.md", f"Methodology version `{METHODOLOGY}`", "docs/versioning methodology marker")
+require_contains("docs/version-semantics.md", f"Current repository package version: `{CURRENT}`", "version semantics package marker")
+require_contains("docs/version-semantics.md", f"Current methodology version: `{METHODOLOGY}`", "version semantics methodology marker")
 require_contains("llms.txt", CURRENT, "llms current version")
 require_contains("llms-full.txt", CURRENT, "llms-full current version")
 require_contains("CITATION.cff", f'version: "{CURRENT}"', "citation version")
@@ -125,6 +145,8 @@ require_contains("package.json", f'"version": "{CURRENT_NO_V}"', "package.json v
 require_contains("pyproject.toml", f'version = "{CURRENT_NO_V}"', "pyproject version")
 require_contains("vcp_cli/__init__.py", f'__version__ = "{CURRENT_NO_V}"', "CLI version")
 require_json_value(".vcp/index.json", "version", CURRENT)
+require_json_value(".vcp/index.json", "repository_package_version", CURRENT)
+require_json_value(".vcp/index.json", "methodology_version", METHODOLOGY)
 require_json_value(".vcp/catalog.json", "version", CURRENT)
 require_json_value(".vcp/manifests/vcp.manifest.json", "package_version", CURRENT)
 require_json_value(".vcp/manifests/vcp.manifest.json", "methodology_version", METHODOLOGY)
@@ -143,6 +165,10 @@ if issues:
             print(f"- {item}")
     sys.exit(1)
 
+print("Version semantics check passed:")
+print(f"- repository package version: {CURRENT}")
+print(f"- methodology version: {METHODOLOGY}")
+print("- no package or methodology confusion detected")
 print(f"Public version surface check passed for {CURRENT}.")
 print(
     "Note: this script validates repository files, not GitHub UI cache or release object state. "

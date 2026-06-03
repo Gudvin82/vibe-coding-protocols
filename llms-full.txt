@@ -7,8 +7,9 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.4`
-- Web methodology: `v1.4`
+- Repository package: `v0.6.5`
+- Methodology version: `v1.4`
+- Do not confuse methodology version `v1.4` with repository package version `v0.6.5`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path
@@ -20,6 +21,12 @@ Start with:
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
 - `START_HERE.md`
+- `docs/version-semantics.md`
+- `docs/project-memory-model.md`
+- `docs/principles.md`
+- `docs/protocol-pack-security.md`
+- `docs/proactive-vcp-routines.md`
+- `docs/public-growth/seo-geo-ai-structure-evaluation.md`
 - `.vcp/index.json`
 - `.vcp/cards/`
 - `docs/product-delivery-lifecycle.md`
