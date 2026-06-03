@@ -1,5 +1,5 @@
 <!-- vcp-artifact: SECURITY_OPERATIONS_BASELINE_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.6.1 -->
+<!-- vcp-version: v0.6.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled Security Operations Baseline Example

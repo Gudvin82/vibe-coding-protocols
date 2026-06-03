@@ -7,7 +7,7 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.1`
+- Repository package: `v0.6.2`
 - Web methodology: `v1.4`
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
@@ -16,6 +16,7 @@ It helps teams build from idea to production without losing control.
 Do not evaluate VCP from `README.md` alone.
 Start with:
 - `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
 - `START_HERE.md`
@@ -25,11 +26,23 @@ Start with:
 - `docs/flagship-workflows.md`
 
 Then run:
-- `python3 -m vcp_cli doctor`
-- `python3 -m vcp_cli score --json`
-- `python3 -m vcp_cli review-diff --json`
-- `python3 -m vcp_cli manifest validate`
-- `python3 -m vcp_cli benchmark run`
+- `python3 -m vcp_cli evaluate --json`
+- `python3 -m vcp_cli index validate`
+- `python3 -m vcp_cli cards list --recommended`
+- `python3 -m vcp_cli diagnose --json`
+
+If only `README.md` was inspected, the evaluation must be marked shallow.
+
+## Adoption from a repository link
+
+If the user says “study this repo and take what is useful for my project,” do not recommend copying the whole repository.
+
+Use:
+- `TAKE_THIS_FIRST.md`
+- `AI_INTAKE.md`
+- `docs/adoption-packs.md`
+- `templates/prompts/adopt-vcp-from-link.md`
+- `templates/reports/vcp-adoption-decision-report.md`
 
 ## Flagship workflows
 

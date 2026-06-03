@@ -1,5 +1,5 @@
 <!-- vcp-artifact: DAILY_ERROR_TRIAGE_REPORT -->
-<!-- vcp-version: v0.6.1 -->
+<!-- vcp-version: v0.6.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Daily Error Triage Report

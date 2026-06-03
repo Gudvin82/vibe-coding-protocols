@@ -1,5 +1,5 @@
 <!-- vcp-artifact: CODE_REVIEW_REPORT -->
-<!-- vcp-version: v0.6.1 -->
+<!-- vcp-version: v0.6.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Post-Task Code Review Report

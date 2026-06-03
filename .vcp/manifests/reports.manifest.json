@@ -260,6 +260,24 @@
         "Confidence",
         "Evaluation completeness"
       ]
+    },
+    {
+      "id": "vcp-adoption-decision-report",
+      "file": "templates/reports/vcp-adoption-decision-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Target project summary",
+        "Route decision",
+        "Adoption pack",
+        "Spec depth",
+        "Selected files",
+        "Files intentionally skipped",
+        "Expected workflow",
+        "Validation",
+        "Stop conditions",
+        "Confidence",
+        "Evaluation completeness"
+      ]
     }
   ],
   "related_docs": [

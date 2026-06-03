@@ -5,6 +5,7 @@ No guarantee of indexing, ranking, or citation.
 Do not judge VCP from README alone.
 
 - AGENTS.md: canonical AI-agent entrypoint for evaluating this repository
+- TAKE_THIS_FIRST.md: adoption-from-link path for AI agents who should not copy the whole repository
 - AI_EVALUATION_GUIDE.md: required evaluation path before rating the repository
 - .vcp/index.json: machine-readable entrypoint for progressive disclosure
 - .vcp/cards/: small route/protocol/adoption-pack/concept cards
@@ -21,7 +22,7 @@ Do not judge VCP from README alone.
 - docs/event-schema.md: normalized event/finding schema
 - docs/platforms/README.md: multi-platform compatibility docs
 - .vcp/manifests/: full manifest metadata
-- docs/release-v0.6.1.md: current release notes
+- docs/release-v0.6.2.md: current release notes
 - docs/product-delivery-lifecycle.md: lifecycle map for idea, intake, spec depth, backlog, review, diagnostics, and release
 - docs/flagship-workflows.md: three public flagship workflows
 - docs/review-diff.md: local pre-merge trust gate for changed files

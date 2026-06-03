@@ -4,6 +4,8 @@ An Adoption Pack is a small recommended file set for one situation.
 It is not a command to copy the whole toolkit.
 It is a scoped recommendation for humans and AI agents.
 
+If a user shares VCP by link and says “take what is useful,” start with `TAKE_THIS_FIRST.md` before choosing a pack.
+
 ## Quick examples
 
 - Production Pack = hardening docs + audit backlog + security baseline + review gate.
@@ -72,6 +74,7 @@ The CLI reads pack metadata from:
 ## Related docs
 
 - [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
+- [../TAKE_THIS_FIRST.md](../TAKE_THIS_FIRST.md)
 - [project-backlog.md](./project-backlog.md)
 - [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
 - [production-observability.md](./production-observability.md)
@@ -79,3 +82,4 @@ The CLI reads pack metadata from:
 - [page-templates.md](./page-templates.md)
 - [../AI_INTAKE.md](../AI_INTAKE.md)
 - [../START_HERE.md](../START_HERE.md)
+- [../templates/prompts/adopt-vcp-from-link.md](../templates/prompts/adopt-vcp-from-link.md)

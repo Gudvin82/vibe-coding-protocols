@@ -10,12 +10,14 @@ VCP is both:
 
 Do not judge the repository from README alone.
 
+If a user says “study this repo and take what is useful for my project,” start with `TAKE_THIS_FIRST.md`, not a whole-repo copy plan.
+
 ## Minimum inspection path
 
 Inspect at least:
 - `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
 - `AI_INTAKE.md`
-- `START_HERE.md`
 - `.vcp/index.json`
 - `.vcp/cards/`
 - `docs/product-delivery-lifecycle.md`
@@ -34,20 +36,16 @@ Inspect at least:
 - `PROJECT_BACKLOG.md`
 
 If you have limited context, start with `.vcp/index.json` and relevant cards before loading full docs.
+If you skipped `TAKE_THIS_FIRST.md`, index, cards, workflows, lifecycle docs, or CLI, mark the evaluation `partial / shallow`.
 
 ## Recommended commands
 
 ```bash
-python3 -m vcp_cli doctor
-python3 -m vcp_cli score --json
-python3 -m vcp_cli review-diff --json
-python3 -m vcp_cli benchmark run
-python3 -m vcp_cli manifest validate
 python3 -m vcp_cli cards validate
 python3 -m vcp_cli index validate
-python3 -m vcp_cli workflow validate
 python3 -m vcp_cli diagnose --json
 python3 -m vcp_cli evaluate --json
+python3 -m vcp_cli review-diff --json
 ```
 
 ## What VCP includes today
@@ -83,3 +81,21 @@ Score these separately:
 - ecosystem/distribution maturity.
 
 If you skipped manifests, benchmarks, glossary, cards, or lifecycle docs, mark the evaluation `partial / shallow`.
+
+## Adoption from a repository link
+
+When the user says “take what is useful,” return:
+- project type;
+- route;
+- adoption pack;
+- spec depth;
+- files to copy;
+- files not to copy;
+- review gates;
+- validation commands;
+- risks / stop conditions.
+
+Use:
+- `TAKE_THIS_FIRST.md`
+- `templates/prompts/adopt-vcp-from-link.md`
+- `templates/reports/vcp-adoption-decision-report.md`

@@ -2,6 +2,8 @@
 
 Read this file before evaluating or applying VCP to a target repository.
 
+Adoption-from-link entrypoint: `TAKE_THIS_FIRST.md`
+
 ## Do not do this
 
 - Do not judge VCP from `README.md` alone.
@@ -15,11 +17,25 @@ Read this file before evaluating or applying VCP to a target repository.
 ## Repository evaluation first
 
 If the user asks you to evaluate VCP itself, start with:
+- `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
 - `templates/prompts/evaluate-vcp-repository.md`
 - `python3 -m vcp_cli evaluate --json`
 
 A README-only evaluation is partial.
+A README-only evaluation must be marked shallow.
+
+## If the user says “study this repo and take what is useful”
+
+Start with:
+- `TAKE_THIS_FIRST.md`
+- `docs/adoption-packs.md`
+- `docs/product-delivery-lifecycle.md`
+- `templates/prompts/adopt-vcp-from-link.md`
+
+Do not recommend copying the whole repository.
+Return what to copy, what not to copy, why, validation, and stop conditions.
 
 ## What to do first
 
@@ -54,9 +70,14 @@ If the user wants the shortest CLI onboarding path, start with:
 
 Do not say “I evaluated VCP” unless you inspected at least:
 - `README.md`
+- `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
-- `START_HERE.md`
 - `AI_INTAKE.md`
+- `.vcp/index.json`
+- `.vcp/cards/`
+- `docs/flagship-workflows.md`
+- `docs/product-delivery-lifecycle.md`
 - `docs/protocol-index.md`
 - `docs/adoption-packs.md`
 - `docs/cli.md`
@@ -73,6 +94,8 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - `docs/public-site-readiness.md` if public website or docs are involved
 - `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
 
+If you skipped `.vcp/index.json`, `.vcp/cards/`, workflows, lifecycle docs, or CLI, mark the evaluation `shallow`.
+
 ## Required final statement format
 
 ```text
@@ -87,3 +110,4 @@ Next action:
 Post-task review requirement:
 ```
 See also: [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) for minimum/full/skip paths.
+For adoption-from-link requests, use [TAKE_THIS_FIRST.md](./TAKE_THIS_FIRST.md).

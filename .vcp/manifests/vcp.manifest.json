@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.6.1",
+  "package_version": "v0.6.2",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -9,6 +9,7 @@
     ".vcp/presets/README.md",
     "ADOPTERS.md",
     "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
     "AI_EVALUATION_GUIDE.md",
     "AI_INTAKE.md",
     "CITATION.cff",
@@ -31,6 +32,7 @@
     "llms.txt"
   ],
   "core_docs": [
+    "TAKE_THIS_FIRST.md",
     "docs/adaptive-spec-depth.md",
     "docs/adoption-packs.md",
     "docs/adoption-packs.quickstart.md",

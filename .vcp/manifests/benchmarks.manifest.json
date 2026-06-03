@@ -838,6 +838,27 @@
         "do not claim guaranteed rankings or AI citations"
       ],
       "expected_first_action": "Inspect the public growth audit workflow steps."
+    },
+    {
+      "id": "shallow-readme-evaluation-trap",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/shallow-readme-evaluation-trap.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "AGENTS.md",
+        "TAKE_THIS_FIRST.md",
+        "AI_INTAKE.md",
+        ".vcp/index.json",
+        ".vcp/cards/",
+        "docs/flagship-workflows.md",
+        "docs/product-delivery-lifecycle.md"
+      ],
+      "expected_warnings": [
+        "README-only summaries must be marked shallow",
+        "do not call VCP just a prompt pack without inspecting CLI and cards"
+      ],
+      "expected_first_action": "Open TAKE_THIS_FIRST.md before recommending adoption."
     }
   ]
 }

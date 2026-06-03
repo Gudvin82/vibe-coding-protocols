@@ -12,6 +12,10 @@ It is not a command to copy the whole repository.
 The classification step before choosing a route.
 It helps prevent shallow README-only recommendations.
 
+## AI intake enforcement
+
+The repository-level rule that an AI agent should not evaluate or adopt VCP from `README.md` alone. It points the agent to `AGENTS.md`, `TAKE_THIS_FIRST.md`, `AI_INTAKE.md`, `.vcp/index.json`, and `.vcp/cards/`.
+
 ## AI visibility
 
 Whether an AI answer engine can discover and summarize a page.
@@ -39,6 +43,10 @@ In VCP it means making public content easier for answer engines to understand wi
 
 In VCP, `.vcp/index.json` is the machine-readable repository entrypoint for AI discovery.
 It points to entrypoints, cards, manifests, docs, and safety boundaries.
+
+## Shallow evaluation
+
+An evaluation where the agent did not inspect the required path such as `TAKE_THIS_FIRST.md`, cards, workflows, lifecycle docs, manifests, or CLI surfaces. Shallow evaluations must be labeled as shallow instead of presented as full judgments.
 
 ## Manifest
 
@@ -106,3 +114,7 @@ A short way to describe VCP: it helps teams build with AI and ship with control.
 ## Review diff
 
 A local pre-merge helper that inspects changed files, estimates risk, and points to follow-up artifacts and validation.
+
+## Take-this-first flow
+
+The adoption-from-link path for AI agents. It helps decide what to copy into a target project and what to leave behind.

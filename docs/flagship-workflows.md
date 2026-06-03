@@ -2,6 +2,8 @@
 
 These are the three public flagship workflows for VCP.
 
+If the repository is being evaluated or adopted by an AI agent, pair this file with `AGENTS.md`, `TAKE_THIS_FIRST.md`, `.vcp/index.json`, and `.vcp/cards/`. A README-only impression is shallow.
+
 ## 1. Build an AI-assisted product from idea
 
 Use when:
@@ -76,3 +78,7 @@ python3 -m vcp_cli review-diff --json
 python3 -m vcp_cli score --json
 python3 -m vcp_cli diagnose --json
 ```
+
+## When the repo is shared by link
+
+Use `TAKE_THIS_FIRST.md` to classify the target project and choose only the route, pack, templates, and review gates that matter.

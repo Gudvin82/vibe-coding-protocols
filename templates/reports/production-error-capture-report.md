@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PRODUCTION_ERROR_CAPTURE_REPORT -->
-<!-- vcp-version: v0.6.1 -->
+<!-- vcp-version: v0.6.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Production Error Capture Report

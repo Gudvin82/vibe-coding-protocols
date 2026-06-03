@@ -33,6 +33,8 @@ def main() -> int:
     evaluate = json.loads(run('evaluate', '--json'))
     assert evaluate['evaluation_guide_present'] is True
     assert evaluate['progressive_disclosure_present'] is True
+    assert evaluate['shallow_evaluation_guard'] is True
+    assert evaluate['adoption_entrypoint'] == 'TAKE_THIS_FIRST.md'
     review_diff = json.loads(run('review-diff', '--json'))
     assert 'risk_level' in review_diff
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
@@ -52,7 +54,7 @@ def main() -> int:
     index_validate = json.loads(run('index', 'validate', '--json'))
     assert index_validate['ok'] is True
     index_show = json.loads(run('index', 'show', '--json'))
-    assert index_show['version'] == 'v0.6.1'
+    assert index_show['version'] == 'v0.6.2'
     index_search = json.loads(run('index', 'search', 'production', '--json'))
     assert index_search['query'] == 'production'
     cards_list = json.loads(run('cards', 'list', '--json'))

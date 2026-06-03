@@ -27,6 +27,8 @@ Different purpose. A rules file can shape one assistant surface, but it usually 
 
 Different purpose. Spec-first tools help define what to build. VCP helps govern how AI-assisted changes move safely toward merge and production. VCP can also stay on no-spec or spec-lite when risk is low.
 
+If an AI agent only read `README.md`, any comparison must be marked shallow.
+
 ### Issue trackers
 
 Different purpose. Trackers remain useful for teams. VCP adds a local workflow layer around backlog, review, validation, and release evidence.
@@ -38,3 +40,7 @@ Different purpose. Scanners inspect technical findings. VCP does not pretend to 
 ### Platform docs
 
 VCP is documented for 25+ AI coding tools and workflows. That does not mean 25+ official plugins. See `docs/platforms/README.md` for status taxonomy and limitations.
+
+## Adoption from link
+
+If a user shares the repo and says “take what is useful,” use `TAKE_THIS_FIRST.md` and scoped adoption packs. Do not recommend copying the whole repository.

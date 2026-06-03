@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.1",
+  "version": "v0.6.2",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -77,5 +77,10 @@
     "cli-compatible",
     "experimental",
     "not-official-plugin"
+  ],
+  "related_docs": [
+    "TAKE_THIS_FIRST.md",
+    "docs/product-delivery-lifecycle.md",
+    "docs/flagship-workflows.md"
   ]
 }

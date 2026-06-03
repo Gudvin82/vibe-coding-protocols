@@ -8,6 +8,7 @@ KEY_FILES = [
     "AI_EVALUATION_GUIDE.md",
     "AGENTS.md",
     "README.md",
+    "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
     "START_HERE.md",
     "llms.txt",
@@ -81,6 +82,13 @@ CLI_COMMANDS = [
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
 KNOWN_LIMITATIONS_PATH = "docs/known-limitations.md"
+INSPECTION_PATH = [
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "AI_INTAKE.md",
+    ".vcp/index.json",
+    ".vcp/cards/",
+]
 
 
 def _count_markdown_files(path: Path) -> int:
@@ -219,6 +227,9 @@ def evaluate_payload() -> dict[str, object]:
         "command_markdown_files": _count_markdown_files(commands_dir),
         "report_template_count": len(reports_manifest.get("items", [])),
         "cli_commands": CLI_COMMANDS,
+        "inspection_path": INSPECTION_PATH,
+        "shallow_evaluation_guard": True,
+        "adoption_entrypoint": "TAKE_THIS_FIRST.md",
         "project_backlog_present": (root / "PROJECT_BACKLOG.md").exists(),
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
@@ -270,6 +281,7 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
         return 0
 
     print(f"Repository package: {payload['repository_package']}")
+    print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
     print(f"Evaluation guide present: {'yes' if payload['evaluation_guide_present'] else 'no'}")
     print(f"Manifest directory: {payload['manifest_directory']}")
     print(f"Benchmark scenarios: {payload['benchmark_count']}")
@@ -297,6 +309,10 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Progressive disclosure present: {'yes' if payload['progressive_disclosure_present'] else 'no'}")
     print(f"Known limitations: {payload['known_limitations']}")
     print(f"Suggested evaluation prompt: {payload['suggested_evaluation_prompt']}")
+    print(f"Adoption entrypoint: {payload['adoption_entrypoint']}")
+    print("Inspection path:")
+    for path in payload["inspection_path"]:
+        print(f"- {path}")
     print("Key files:")
     for item in payload["key_files"]:
         status = "PASS" if item["present"] else "FAIL"

@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.6.1
+## v0.6.2
 
 - Clarified VCP as a foundation and trust layer for AI-assisted product delivery.
 - Added product lifecycle, flagship workflow, review-diff, score badge, and GitHub PR gate docs.

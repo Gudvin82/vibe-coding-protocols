@@ -54,7 +54,7 @@
   "validation": [
     "python3 -m vcp_cli check --fast --json"
   ],
-  "version": "v0.6.1",
+  "version": "v0.6.2",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

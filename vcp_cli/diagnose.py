@@ -28,13 +28,14 @@ def _layer_result(root: Path, layer: dict[str, Any]) -> dict[str, Any]:
         likely_reason = "Uncommitted changes present." if dirty else "Repository is clean."
         evidence.append("git status --short")
     elif layer["id"] == "vcp-version":
-        version_ok = repo_version(root) == "v0.6.1"
+        version_value = repo_version(root)
+        version_ok = version_value.startswith("v") and len(version_value) > 2
         methodology_ok = methodology_version(root) == "v1.4"
-        init_ok = (root / "vcp_cli/__init__.py").read_text(encoding="utf-8").find(repo_version(root).removeprefix("v")) != -1 if (root / "vcp_cli/__init__.py").exists() else False
+        init_ok = (root / "vcp_cli/__init__.py").read_text(encoding="utf-8").find(version_value.removeprefix("v")) != -1 if (root / "vcp_cli/__init__.py").exists() else False
         if not (version_ok and methodology_ok and init_ok):
             result = "FAIL"
             likely_reason = "Version surfaces are not aligned."
-        evidence.extend([f"VERSION={repo_version(root)}", f"METHODOLOGY_VERSION={methodology_version(root)}"])
+        evidence.extend([f"VERSION={version_value}", f"METHODOLOGY_VERSION={methodology_version(root)}"])
     elif layer["id"] == "release-readiness":
         if missing:
             result = "MISSING"

@@ -2,6 +2,8 @@
 
 VCP can support both new products and existing AI-assisted projects.
 
+Before evaluating or adopting VCP itself, do not stop at `README.md`. Use `AGENTS.md`, `TAKE_THIS_FIRST.md`, `AI_INTAKE.md`, `.vcp/index.json`, `.vcp/cards/`, and the flagship workflow docs first.
+
 ```text
 Idea
 ↓
@@ -59,14 +61,14 @@ tiny fix -> skip-check -> validation -> done
 
 ### AI Intake
 - Purpose: classify the project and risk shape.
-- Key files: `AI_INTAKE.md`
+- Key files: `AI_INTAKE.md`, `TAKE_THIS_FIRST.md`
 - CLI: `python3 -m vcp_cli route --profile production --json`
 - Output: route candidate
 - Stop conditions: production, payments, auth, or public claims are still unclassified
 
 ### Route
 - Purpose: choose the right VCP workflow.
-- Key files: `docs/protocol-index.md`, `docs/adoption-packs.md`
+- Key files: `docs/protocol-index.md`, `docs/adoption-packs.md`, `TAKE_THIS_FIRST.md`
 - CLI: `python3 -m vcp_cli route --profile spec-first --json`
 - Output: route + pack recommendation
 - Stop conditions: route is still ambiguous
@@ -112,6 +114,13 @@ tiny fix -> skip-check -> validation -> done
 - CLI: `python3 -m vcp_cli adopt --pack spec-first --dry-run --json`
 - Output: implemented diff
 - Stop conditions: scope drift or unsafe assumptions appear
+
+### Adoption from link
+- Purpose: decide what to take into a target project without copying the whole VCP repository.
+- Key files: `TAKE_THIS_FIRST.md`, `docs/adoption-packs.md`, `templates/prompts/adopt-vcp-from-link.md`
+- CLI: `python3 -m vcp_cli route --profile production --json`
+- Output: files to copy, files to skip, validation path
+- Stop conditions: target project type is still unclear or the answer still implies whole-repo copy
 
 ### Review Diff / Post-Task Review
 - Purpose: check what changed before merge.
