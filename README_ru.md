@@ -8,12 +8,9 @@ Vibe Coding Protocols — это практический локальный too
 Он помогает выбрать правильный трек, оценить риск, построить безопасный adoption plan и выпускать изменения с видимым review и release control.
 
 > Текущий пакет репозитория: `v0.7.0`  
-> Текущий слой методологии: `v1.4`  
-> Для GitHub-релиза используйте `Vibe Coding Protocols v0.7.0`. Для стабильного метода используйте `VCP methodology layer v1.4`.
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.7.0`.
 
 Repository package: `v0.7.0`
-
-Methodology layer: `VCP methodology layer v1.4`
 
 ## Новое в v0.7.0: практическое внедрение
 

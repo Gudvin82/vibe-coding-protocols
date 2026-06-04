@@ -3,7 +3,6 @@
 [Русская версия](./README_ru.md)
 
 [![Repo Version](https://img.shields.io/badge/repo-v0.7.0-blue)](./CHANGELOG.md)
-[![Methodology Layer](https://img.shields.io/badge/methodology-v1.4-purple)](./docs/version-semantics.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -13,12 +12,9 @@ Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
 It helps teams choose the right track, inspect risk, generate safe adoption plans, and ship with visible review and release control.
 
 > Current repository package: `v0.7.0`  
-> Current methodology layer: `v1.4`  
-> When citing the GitHub release, use `Vibe Coding Protocols v0.7.0`. When citing the stable method, use `VCP methodology layer v1.4`.
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.7.0`.
 
 Repository package: `v0.7.0`
-
-Methodology layer: `VCP methodology layer v1.4`
 
 ## New in v0.7.0: practical adoption
 

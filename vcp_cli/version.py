@@ -11,10 +11,8 @@ def get_version_info(start: Path | None = None) -> dict[str, object]:
         "name": "Vibe Coding Protocols",
         "repository_package": repo_version(root),
         "repository_package_version": repo_version(root),
-        "methodology": methodology_version(root),
-        "methodology_layer": methodology_version(root),
-        "methodology_version": methodology_version(root),
-        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
+        "legacy_methodology_reference": methodology_version(root),
+        "version_semantics_warning": f"Report the current GitHub repository release as Vibe Coding Protocols {repo_version(root)}.",
         "manifest_schema": MANIFEST_SCHEMA_VERSION,
         "git_commit": git_head(root),
         "repo_root": str(root),
@@ -29,7 +27,6 @@ def run(json_mode: bool = False) -> int:
     else:
         print("Vibe Coding Protocols")
         print(f"Repository package: {data['repository_package']}")
-        print(f"Methodology layer: {data['methodology_layer']}")
         print(data["version_semantics_warning"])
         print(f"Manifest schema: {data['manifest_schema']}")
         print(f"Git commit: {data['git_commit'] or 'unknown'}")

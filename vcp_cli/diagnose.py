@@ -75,8 +75,8 @@ def run(profile: str | None = None, json_mode: bool = False) -> int:
     payload = {
         "ok": ok,
         "repository_package_version": repo_version(root),
-        "methodology_version": methodology_version(root),
-        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
+        "legacy_methodology_reference": methodology_version(root),
+        "version_semantics_warning": f"Use Vibe Coding Protocols {repo_version(root)} when naming the current GitHub release.",
         "profile": profile,
         "summary": {
             "ok": sum(1 for item in results if item["result"] == "OK"),

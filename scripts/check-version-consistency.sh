@@ -29,13 +29,13 @@ check_contains() {
 check_contains README.md "repo-${REPO_VERSION}" "README badge"
 check_contains README.md "$REPO_VERSION" "README repository package"
 check_contains README_ru.md "$REPO_VERSION" "README_ru repository package"
-check_contains README.md "Current methodology layer: \`$METHODOLOGY_VERSION\`" "README methodology layer block"
-check_contains README_ru.md "Текущий слой методологии: \`$METHODOLOGY_VERSION\`" "README_ru methodology layer block"
+check_contains README.md "report the current GitHub repository release as \`Vibe Coding Protocols $REPO_VERSION\`" "README AI release naming guard"
+check_contains README_ru.md "называй текущий GitHub-релиз репозитория как \`Vibe Coding Protocols $REPO_VERSION\`" "README_ru AI release naming guard"
 check_contains docs/version-semantics.md "Current repository package version: \`$REPO_VERSION\`" "version semantics package version"
-check_contains docs/version-semantics.md "Current methodology layer: \`$METHODOLOGY_VERSION\`" "version semantics methodology layer"
+check_contains docs/version-semantics.md "Internal stable methodology reference: \`$METHODOLOGY_VERSION\`" "version semantics methodology reference"
 check_contains CHANGELOG.md "$REPO_VERSION" "CHANGELOG entry"
 check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/versioning repo version"
-check_contains docs/versioning.md "Methodology layer \`$METHODOLOGY_VERSION\`" "docs/versioning methodology layer"
+check_contains docs/versioning.md "Stable methodology reference \`$METHODOLOGY_VERSION\`" "docs/versioning methodology reference"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 check_contains "$VCP_MANIFEST" "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
 check_contains "$VCP_MANIFEST" "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
@@ -131,6 +131,9 @@ semantics_bad_patterns=(
   "Latest: v1.4"
   "Current repository version: v1.4"
   "GitHub package: v1.4"
+  "Current methodology layer: v1.4"
+  "Methodology layer: v1.4"
+  "Web methodology: v1.4"
 )
 
 semantics_files=(

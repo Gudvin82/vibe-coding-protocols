@@ -3,6 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
 
 Required inspection path:
 

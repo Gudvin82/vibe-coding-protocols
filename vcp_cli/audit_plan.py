@@ -8,7 +8,7 @@ def payload() -> dict[str, object]:
     manifest = load_json(root / ".vcp" / "ai-audit-manifest.json")
     return {
         "repository_package_version": repo_version(root),
-        "methodology_version": manifest.get("methodology_version", "v1.4"),
+        "legacy_methodology_reference": manifest.get("methodology_version", "v1.4"),
         "evaluation_modes": manifest.get("evaluation_modes", {}),
         "required_for_full_evaluation": manifest.get("required_for_full_evaluation", []),
         "minimum_raw_files": manifest.get("minimum_raw_files", []),
@@ -26,7 +26,7 @@ def run(json_mode: bool = False) -> int:
         return 0
 
     print(f"Repository package: {data['repository_package_version']}")
-    print(f"Methodology layer: {data['methodology_version']}")
+    print("Report the current GitHub repository release using the repository package version above.")
     print("Evaluation modes:")
     for name, description in data["evaluation_modes"].items():
         print(f"- {name}: {description}")

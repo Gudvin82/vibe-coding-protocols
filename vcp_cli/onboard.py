@@ -37,7 +37,7 @@ def onboard_payload() -> dict[str, Any]:
     )
     return {
         "repository_package_version": version_info["repository_package_version"],
-        "methodology_layer_version": version_info["methodology_version"],
+        "legacy_methodology_reference": version_info["legacy_methodology_reference"],
         "project_type": classification["project_type"],
         "recommended_track": classification["track"],
         "recommended_tier": classification["suggested_tier"],
@@ -59,7 +59,6 @@ def run(json_mode: bool = False) -> int:
         print_output(payload, True)
     else:
         print(f"Repository package: {payload['repository_package_version']}")
-        print(f"Methodology layer: {payload['methodology_layer_version']}")
         print(f"Project type: {payload['project_type']}")
         print(f"Recommended track: {payload['recommended_track']}")
         print(f"Recommended tier: {payload['recommended_tier']}")

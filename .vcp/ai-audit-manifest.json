@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.7",
+  "version": "v0.7.0",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {

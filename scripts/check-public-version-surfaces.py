@@ -109,6 +109,9 @@ def scan_stale_versions() -> None:
         "Latest: v1.4",
         "Current repository version: v1.4",
         "GitHub package: v1.4",
+        "Current methodology layer: v1.4",
+        "Methodology layer: v1.4",
+        "Web methodology: v1.4",
     ]
     for rel in current_files:
         text = read(rel)
@@ -132,12 +135,12 @@ require_exact("VERSION", CURRENT, "repository version")
 require_contains("README.md", f"repo-{CURRENT}", "README badge")
 require_contains("README.md", f"Repository package: `{CURRENT}`", "README package marker")
 require_contains("README_ru.md", f"Repository package: `{CURRENT}`", "README_ru package marker")
-require_contains("README.md", f"Current methodology layer: `{METHODOLOGY}`", "README methodology layer block")
-require_contains("README_ru.md", f"Текущий слой методологии: `{METHODOLOGY}`", "README_ru methodology layer block")
+require_contains("README.md", f"report the current GitHub repository release as `Vibe Coding Protocols {CURRENT}`", "README AI release naming guard")
+require_contains("README_ru.md", f"называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols {CURRENT}`", "README_ru AI release naming guard")
 require_contains("docs/versioning.md", f"Repository package `{CURRENT}`", "docs/versioning package marker")
-require_contains("docs/versioning.md", f"Methodology layer `{METHODOLOGY}`", "docs/versioning methodology layer marker")
+require_contains("docs/versioning.md", f"Stable methodology reference `{METHODOLOGY}`", "docs/versioning methodology reference marker")
 require_contains("docs/version-semantics.md", f"Current repository package version: `{CURRENT}`", "version semantics package marker")
-require_contains("docs/version-semantics.md", f"Current methodology layer: `{METHODOLOGY}`", "version semantics methodology layer marker")
+require_contains("docs/version-semantics.md", f"Internal stable methodology reference: `{METHODOLOGY}`", "version semantics methodology reference marker")
 require_contains("llms.txt", CURRENT, "llms current version")
 require_contains("llms-full.txt", CURRENT, "llms-full current version")
 require_contains("CITATION.cff", f'version: "{CURRENT}"', "citation version")
@@ -167,8 +170,8 @@ if issues:
 
 print("Version semantics check passed:")
 print(f"- repository package version: {CURRENT}")
-print(f"- methodology version: {METHODOLOGY}")
-print("- no package or methodology confusion detected")
+print(f"- internal stable methodology reference: {METHODOLOGY}")
+print("- no public current-version surface reports v1.4 as the current repository release")
 print(f"Public version surface check passed for {CURRENT}.")
 print(
     "Note: this script validates repository files, not GitHub UI cache or release object state. "

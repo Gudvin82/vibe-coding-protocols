@@ -278,9 +278,8 @@ def evaluate_payload() -> dict[str, object]:
     payload = {
         "repository_package": repo_version(root),
         "repository_package_version": repo_version(root),
-        "methodology_version": "v1.4",
-        "methodology_layer_version": "v1.4",
-        "version_semantics_warning": "Do not confuse methodology version with repository package version.",
+        "legacy_methodology_reference": "v1.4",
+        "version_semantics_warning": f"If you are naming the current GitHub repository release, use Vibe Coding Protocols {repo_version(root)}.",
         "evaluation_guide_present": (root / "AI_EVALUATION_GUIDE.md").exists(),
         "full_repo_intake_present": (root / "FULL_REPO_INTAKE.md").exists(),
         "ai_audit_manifest_present": (root / ".vcp" / "ai-audit-manifest.json").exists(),
@@ -371,7 +370,6 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
         return 0
 
     print(f"Repository package: {payload['repository_package']}")
-    print(f"Methodology layer: {payload['methodology_layer_version']}")
     print(payload["version_semantics_warning"])
     print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
     print(f"Full repo intake present: {'yes' if payload['full_repo_intake_present'] else 'no'}")

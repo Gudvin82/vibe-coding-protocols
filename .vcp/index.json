@@ -422,7 +422,7 @@
   "repository_package_version": "v0.7.0",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
-    "methodology_version_meaning": "Stable VCP methodology and protocol layer.",
-    "ai_instruction": "Do not confuse methodology version v1.4 with repository package version v0.7.0."
+    "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.7.0. Do not present v1.4 as the current repository release."
   }
 }

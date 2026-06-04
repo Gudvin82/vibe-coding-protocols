@@ -2,6 +2,8 @@
 
 Use this file before calling any VCP evaluation `full`.
 
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
+
 ## Evaluation modes
 
 - `shallow`: README or WebFetch summary only.

@@ -63,7 +63,7 @@ def payload(site: str | None = None, root: Path | None = None) -> dict[str, Any]
 
     return {
         "repository_package_version": (root / "VERSION").read_text(encoding="utf-8").strip(),
-        "methodology_layer_version": (root / "METHODOLOGY_VERSION").read_text(encoding="utf-8").strip(),
+        "legacy_methodology_reference": (root / "METHODOLOGY_VERSION").read_text(encoding="utf-8").strip(),
         "technical_seo_readiness": {
             "robots_txt_present": robots,
             "sitemap_xml_present": sitemap,
@@ -108,7 +108,6 @@ def run(site: str | None = None, json_mode: bool = False) -> int:
     else:
         print("Public Growth Check")
         print(f"Repository package: {data['repository_package_version']}")
-        print(f"Methodology layer: {data['methodology_layer_version']}")
         print(f"Ready signals: {len(data['ready_signals'])}")
         print(f"Missing signals: {len(data['missing_signals'])}")
         if site:

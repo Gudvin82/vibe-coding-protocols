@@ -3,6 +3,7 @@
 Curated entrypoints for AI assistants.
 No guarantee of indexing, ranking, or citation.
 Do not judge VCP from README alone.
+If naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
 
 - AGENTS.md: canonical AI-agent entrypoint for evaluating this repository
 - TAKE_THIS_FIRST.md: adoption-from-link path for AI agents who should not copy the whole repository

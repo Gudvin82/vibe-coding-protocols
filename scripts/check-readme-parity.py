@@ -11,7 +11,7 @@ CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 CHECKS = [
     ('repository package version', ['Repository package:', CURRENT], ['Repository package:', CURRENT]),
-    ('methodology layer label', ['Methodology layer:'], ['Methodology layer:']),
+    ('ai release naming guard', ['report the current GitHub repository release as', CURRENT], ['называй текущий GitHub-релиз репозитория как', CURRENT]),
     ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
     ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
     ('practical adoption block', ['New in v0.7.0: practical adoption'], ['Новое в v0.7.0: практическое внедрение']),

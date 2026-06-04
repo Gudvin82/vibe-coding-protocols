@@ -2,6 +2,8 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
+
 ## Core positioning
 
 VCP is both:
