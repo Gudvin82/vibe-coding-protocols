@@ -6,8 +6,11 @@ from .utils import load_json, manifest_dir, manifest_paths, print_output, repo_r
 
 KEY_FILES = [
     "AI_EVALUATION_GUIDE.md",
+    "AI_FULL_REPO_AUDIT.md",
     "AGENTS.md",
+    "FULL_REPO_INTAKE.md",
     "README.md",
+    "REPO_CAPABILITIES_INDEX.md",
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
     "docs/version-semantics.md",
@@ -23,6 +26,7 @@ KEY_FILES = [
     "CITATION.cff",
     "ADOPTERS.md",
     ".vcp/index.json",
+    ".vcp/ai-audit-manifest.json",
     ".vcp/cards/README.md",
     ".vcp/presets/README.md",
     "docs/adaptive-spec-depth.md",
@@ -70,6 +74,7 @@ KEY_FILES = [
 ]
 
 CLI_COMMANDS = [
+    "audit-plan",
     "version",
     "doctor",
     "check",
@@ -98,6 +103,8 @@ INSPECTION_PATH = [
     "AGENTS.md",
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
+    "FULL_REPO_INTAKE.md",
+    ".vcp/ai-audit-manifest.json",
     "docs/version-semantics.md",
     "docs/two-track-model.md",
     "docs/spec-foundation.md",
@@ -106,6 +113,16 @@ INSPECTION_PATH = [
     "docs/principles.md",
     ".vcp/index.json",
     ".vcp/cards/",
+]
+
+FULL_EVALUATION_REQUIRES = [
+    "FULL_REPO_INTAKE.md",
+    ".vcp/ai-audit-manifest.json",
+    ".vcp/index.json",
+    ".vcp/cards/",
+    "vcp_cli/",
+    "templates/",
+    "benchmarks/",
 ]
 
 
@@ -252,6 +269,10 @@ def evaluate_payload() -> dict[str, object]:
         "methodology_version": "v1.4",
         "version_semantics_warning": "Do not confuse methodology version with repository package version.",
         "evaluation_guide_present": (root / "AI_EVALUATION_GUIDE.md").exists(),
+        "full_repo_intake_present": (root / "FULL_REPO_INTAKE.md").exists(),
+        "ai_audit_manifest_present": (root / ".vcp" / "ai-audit-manifest.json").exists(),
+        "repo_capabilities_index_present": (root / "REPO_CAPABILITIES_INDEX.md").exists(),
+        "audit_plan_command_present": (root / "vcp_cli" / "audit_plan.py").exists(),
         "key_files": key_files,
         "manifest_directory": str(manifest_dir(root)),
         "benchmark_count": _benchmark_count(root),
@@ -264,6 +285,8 @@ def evaluate_payload() -> dict[str, object]:
         "inspection_path": INSPECTION_PATH,
         "shallow_evaluation_guard": True,
         "adoption_entrypoint": "TAKE_THIS_FIRST.md",
+        "evaluation_mode_guidance": ["shallow", "partial", "strong", "full"],
+        "full_evaluation_requires": FULL_EVALUATION_REQUIRES,
         "version_semantics_doc": "docs/version-semantics.md",
         "two_track_model_present": (root / "docs/two-track-model.md").exists(),
         "spec_foundation_present": (root / "docs/spec-foundation.md").exists(),
@@ -333,6 +356,10 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Methodology version: {payload['methodology_version']}")
     print(payload["version_semantics_warning"])
     print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
+    print(f"Full repo intake present: {'yes' if payload['full_repo_intake_present'] else 'no'}")
+    print(f"AI audit manifest present: {'yes' if payload['ai_audit_manifest_present'] else 'no'}")
+    print(f"Repo capabilities index present: {'yes' if payload['repo_capabilities_index_present'] else 'no'}")
+    print(f"Audit plan command present: {'yes' if payload['audit_plan_command_present'] else 'no'}")
     print(f"Two-track model present: {'yes' if payload['two_track_model_present'] else 'no'}")
     print(f"Spec foundation present: {'yes' if payload['spec_foundation_present'] else 'no'}")
     print(f"Spec quality gate present: {'yes' if payload['spec_quality_gate_present'] else 'no'}")
@@ -370,6 +397,12 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Known limitations: {payload['known_limitations']}")
     print(f"Suggested evaluation prompt: {payload['suggested_evaluation_prompt']}")
     print(f"Adoption entrypoint: {payload['adoption_entrypoint']}")
+    print("Evaluation modes:")
+    for mode in payload["evaluation_mode_guidance"]:
+        print(f"- {mode}")
+    print("Full evaluation requires:")
+    for item in payload["full_evaluation_requires"]:
+        print(f"- {item}")
     print("Inspection path:")
     for path in payload["inspection_path"]:
         print(f"- {path}")
@@ -380,5 +413,6 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print("CLI commands:")
     for command in payload["cli_commands"]:
         print(f"- {command}")
+    print("Use `vcp audit-plan --json` before calling a review full.")
     print(payload["note"])
     return 0

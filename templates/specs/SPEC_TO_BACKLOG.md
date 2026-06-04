@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.6.6 -->
+<!-- vcp-version: v0.6.7 -->
 <!-- methodology-version: v1.4 -->
 # Spec To Backlog
 

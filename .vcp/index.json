@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.6.6",
+  "version": "v0.6.7",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -32,7 +32,12 @@
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/release-readiness.md",
-    "docs/architecture-drift.md"
+    "docs/architecture-drift.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    "REPO_CAPABILITIES_INDEX.md",
+    ".vcp/ai-audit-manifest.json",
+    "docs/release-v0.6.7.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -89,7 +94,10 @@
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/release-readiness.md",
-    "docs/architecture-drift.md"
+    "docs/architecture-drift.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    "REPO_CAPABILITIES_INDEX.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -138,7 +146,8 @@
     "vcp-score",
     "vcp-spec",
     "vcp-workflow",
-    "vcp-release-check"
+    "vcp-release-check",
+    "vcp-audit-plan"
   ],
   "reports": [
     "code-review-report",
@@ -156,7 +165,8 @@
     "spec-quality-gate-report",
     "release-readiness-report",
     "architecture-drift-report",
-    "brownfield-rescue-report"
+    "brownfield-rescue-report",
+    "ai-repo-audit-coverage-report"
   ],
   "concepts": [
     "acceptance-criteria",
@@ -211,7 +221,10 @@
     "release-readiness",
     "architecture-drift-check",
     "pr-gate-decision-model",
-    "brownfield-rescue-concept"
+    "brownfield-rescue-concept",
+    "full-repo-intake",
+    "ai-audit-coverage",
+    "repo-capabilities-index"
   ],
   "benchmarks_list": [
     "anti-patterns-inspection",
@@ -274,10 +287,13 @@
     "release-readiness-check",
     "architecture-drift-check",
     "pr-gate-decision-model",
-    "brownfield-rescue-pack"
+    "brownfield-rescue-pack",
+    "full-repo-audit-coverage",
+    "eight-url-partial-review-trap"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
+    "FULL_REPO_INTAKE.md",
     "docs/version-semantics.md",
     "docs/project-memory-model.md",
     "TAKE_THIS_FIRST.md",
@@ -291,7 +307,9 @@
     "docs/product-delivery-lifecycle.md",
     "llms.txt",
     "docs/spec-foundation.md",
-    "docs/release-readiness.md"
+    "docs/release-readiness.md",
+    ".vcp/ai-audit-manifest.json",
+    "REPO_CAPABILITIES_INDEX.md"
   ],
   "not": [
     "Not a destructive preset engine",
@@ -347,22 +365,27 @@
       "docs/product-delivery-lifecycle.md",
       "docs/pr-gate.md",
       "docs/public-source-of-truth-audit.md",
-      "docs/proof-walkthrough.md"
+      "docs/proof-walkthrough.md",
+      "FULL_REPO_INTAKE.md",
+      ".vcp/ai-audit-manifest.json",
+      "REPO_CAPABILITIES_INDEX.md"
     ],
-    "shallow_evaluation_warning": "If an AI agent inspected only README.md, the evaluation must be marked as shallow.",
+    "shallow_evaluation_warning": "If an AI agent inspected only README.md or WebFetch summaries, the evaluation must be marked as shallow or partial.",
     "minimum_inspection_path": [
       "AGENTS.md",
       "TAKE_THIS_FIRST.md",
       "AI_INTAKE.md",
+      "FULL_REPO_INTAKE.md",
+      ".vcp/ai-audit-manifest.json",
       "docs/version-semantics.md",
       ".vcp/index.json",
       ".vcp/cards/"
     ]
   },
-  "repository_package_version": "v0.6.6",
+  "repository_package_version": "v0.6.7",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Stable VCP methodology and protocol layer.",
-    "ai_instruction": "Do not confuse methodology version v1.4 with repository package version v0.6.6."
+    "ai_instruction": "Do not confuse methodology version v1.4 with repository package version v0.6.7."
   }
 }

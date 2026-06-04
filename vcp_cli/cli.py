@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 from . import adopt as adopt_cmd
+from . import audit_plan as audit_plan_cmd
 from . import backlog as backlog_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
@@ -90,6 +91,9 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate_p = sub.add_parser("evaluate")
     evaluate_p.add_argument("--json", action="store_true")
     evaluate_p.add_argument("--print-prompt", action="store_true")
+
+    audit_plan_p = sub.add_parser("audit-plan")
+    audit_plan_p.add_argument("--json", action="store_true")
 
     index_p = sub.add_parser("index")
     index_sub = index_p.add_subparsers(dest="index_command")
@@ -299,6 +303,8 @@ def main(argv: list[str] | None = None) -> int:
         return adopt_cmd.run(args.pack, args.dry_run, args.json, args.output, args.apply, args.yes)
     if args.command == "evaluate":
         return evaluate_cmd.run(args.json, args.print_prompt)
+    if args.command == "audit-plan":
+        return audit_plan_cmd.run(args.json)
     if args.command == "index":
         if args.index_command in {None, "show"}:
             return index_cmd.show(getattr(args, "json", False))

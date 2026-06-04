@@ -46,6 +46,6 @@ This file does not guarantee indexing, ranking, citation, or model inclusion.
 
 ## Version semantics
 
-Current repository package version: `v0.6.6`.
+Current repository package version: `v0.6.7`.
 Current methodology version: `v1.4`.
 Do not confuse the methodology version with the current repository release.

@@ -26,9 +26,19 @@ CHECKS = [
         ['TAKE_THIS_FIRST.md'],
     ),
     (
+        'full repo intake marker',
+        ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'],
+        ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'],
+    ),
+    (
         'two-track model',
         ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
         ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
+    ),
+    (
+        'audit coverage wording',
+        ['mark your evaluation as partial', 'WebFetch/README summary as a full repository audit'],
+        ['пометь оценку как partial', 'WebFetch/README-пересказ за полный аудит репозитория'],
     ),
     (
         'new product walkthrough',

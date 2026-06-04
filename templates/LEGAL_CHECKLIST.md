@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Legal Checklist
 
 Практический checklist для РФ-контура после AI Project Hardening Protocol.

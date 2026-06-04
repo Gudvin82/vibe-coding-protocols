@@ -47,7 +47,7 @@
   ],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.6.6",
+  "version": "v0.6.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Metrics Board
 
 <!-- vcp-artifact: METRICS_BOARD -->

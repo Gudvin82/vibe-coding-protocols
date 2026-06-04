@@ -11,9 +11,13 @@ required_files=(
   README_ru.md
   ROADMAP.md
   AI_EVALUATION_GUIDE.md
+  AI_FULL_REPO_AUDIT.md
   AGENTS.md
+  FULL_REPO_INTAKE.md
+  REPO_CAPABILITIES_INDEX.md
   ADOPTERS.md
   .vcp/index.json
+  .vcp/ai-audit-manifest.json
   .vcp/cards/README.md
   llms-full.txt
   ai.txt
@@ -51,6 +55,7 @@ required_files=(
   docs/spec-foundation.md
   docs/spec-quality-gate.md
   docs/architecture-drift.md
+  docs/release-v0.6.7.md
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/faq.md
@@ -88,9 +93,12 @@ required_files=(
   benchmarks/ai-adoption/scenarios/architecture-drift-check.json
   benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json
   benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json
+  benchmarks/ai-adoption/scenarios/full-repo-audit-coverage.json
+  benchmarks/ai-adoption/scenarios/eight-url-partial-review-trap.json
   schemas/vcp-pack-security.schema.json
   templates/prompts/evaluate-seo-geo-ai-structure.md
   templates/reports/seo-geo-ai-structure-evaluation-report.md
+  templates/reports/ai-repo-audit-coverage-report.md
   templates/reports/proactive-routine-report.md
   templates/reports/protocol-pack-security-review.md
   docs/site-version-sync-checklist.md

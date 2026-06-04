@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Templates
 
 This is the copy-ready artifact pack for your own project.

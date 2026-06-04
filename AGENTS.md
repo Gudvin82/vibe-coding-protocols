@@ -8,17 +8,31 @@ Required inspection path:
 
 1. `TAKE_THIS_FIRST.md`
 2. `AI_INTAKE.md`
-3. `docs/version-semantics.md`
-4. `docs/two-track-model.md`
-5. `.vcp/index.json`
-6. `.vcp/cards/`
-7. `docs/spec-foundation.md`
-8. `docs/release-readiness.md`
-9. `docs/product-delivery-lifecycle.md`
-10. `AI_EVALUATION_GUIDE.md`
+3. `FULL_REPO_INTAKE.md`
+4. `.vcp/ai-audit-manifest.json`
+5. `docs/version-semantics.md`
+6. `docs/two-track-model.md`
+7. `.vcp/index.json`
+8. `.vcp/cards/`
+9. `docs/spec-foundation.md`
+10. `docs/release-readiness.md`
+11. `docs/product-delivery-lifecycle.md`
+12. `AI_EVALUATION_GUIDE.md`
+
+Choose an evaluation mode first:
+- `shallow`
+- `partial`
+- `strong`
+- `full`
+
+If you used WebFetch summaries, GitHub HTML previews or README-only inspection, mark the result `shallow` or `partial`.
+Do not present it as a full repository audit.
 
 Visual overview: `docs/visual-overview.md`
 Version semantics: `docs/version-semantics.md`
+Full repo intake: `FULL_REPO_INTAKE.md`
+AI full repo audit contract: `AI_FULL_REPO_AUDIT.md`
+Repo capabilities index: `REPO_CAPABILITIES_INDEX.md`
 Two-track model: `docs/two-track-model.md`
 Spec foundation: `docs/spec-foundation.md`
 Spec quality gate: `docs/spec-quality-gate.md`
@@ -97,6 +111,30 @@ Explain:
 - VCP works with spec-first and non-spec-first workflows;
 - no vendoring, copying, or official integration claim exists unless explicitly published.
 
+## If the user says “what is this repo?”
+
+Use:
+- `FULL_REPO_INTAKE.md`
+- `REPO_CAPABILITIES_INDEX.md`
+- `.vcp/ai-audit-manifest.json`
+
+If those cannot be inspected, answer as `shallow` or `partial`, not `full`.
+
+## If the user says “what should I take?”
+
+Use:
+- `TAKE_THIS_FIRST.md`
+- `FULL_REPO_INTAKE.md`
+- `REPO_CAPABILITIES_INDEX.md`
+
+## If the user says “compare with another repo”
+
+Use:
+- `AI_FULL_REPO_AUDIT.md`
+- `templates/reports/ai-repo-audit-coverage-report.md`
+
+Do not compare full VCP maturity if VCP inspection was only `shallow` or `partial`.
+
 ## Token-aware discovery
 
 Do not read the whole repository blindly.
@@ -112,6 +150,7 @@ Read the smallest useful memory first:
 - `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
+- `FULL_REPO_INTAKE.md`
 - `.vcp/index.json`
 - `.vcp/cards/`
 
@@ -136,5 +175,6 @@ Stop and report instead of guessing when:
 - the evaluation is still README-only;
 - `TAKE_THIS_FIRST.md` was skipped for adoption-from-link requests;
 - manifests, index, or cards were skipped;
+- `FULL_REPO_INTAKE.md` or `.vcp/ai-audit-manifest.json` were skipped for a supposed full review;
 - a claim would imply endorsement, guaranteed safety, or official integration;
 - public proof is not supported by the repository.

@@ -19,12 +19,18 @@ Adoption-from-link entrypoint: `TAKE_THIS_FIRST.md`
 If the user asks you to evaluate VCP itself, start with:
 - `AGENTS.md`
 - `TAKE_THIS_FIRST.md`
+- `FULL_REPO_INTAKE.md`
+- `AI_FULL_REPO_AUDIT.md`
 - `AI_EVALUATION_GUIDE.md`
+- `.vcp/ai-audit-manifest.json`
+- `REPO_CAPABILITIES_INDEX.md`
 - `templates/prompts/evaluate-vcp-repository.md`
 - `python3 -m vcp_cli evaluate --json`
+- `python3 -m vcp_cli audit-plan --json`
 
 A README-only evaluation is partial.
 A README-only evaluation must be marked shallow.
+If `FULL_REPO_INTAKE.md` or `.vcp/ai-audit-manifest.json` was skipped, the evaluation cannot be called full.
 
 ## If the user says “study this repo and take what is useful”
 
@@ -95,6 +101,7 @@ Do not say “I evaluated VCP” unless you inspected at least:
 - `protocols/review/post-task-code-review.md` if meaningful AI-generated code changes are in scope
 
 If you skipped `.vcp/index.json`, `.vcp/cards/`, workflows, lifecycle docs, or CLI, mark the evaluation `shallow`.
+If you used only summarized content, disclose that and downgrade confidence.
 
 ## Required final statement format
 
@@ -111,3 +118,4 @@ Post-task review requirement:
 ```
 See also: [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) for minimum/full/skip paths.
 For adoption-from-link requests, use [TAKE_THIS_FIRST.md](./TAKE_THIS_FIRST.md).
+For full repository evaluation, use [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md) and [AI_FULL_REPO_AUDIT.md](./AI_FULL_REPO_AUDIT.md).

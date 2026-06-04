@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Payment and Fiscalization Checklist
 
 Практический checklist для проектов с онлайн-оплатой.

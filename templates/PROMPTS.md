@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # PROMPTS.md
 
 ## 2026-05-25 — Starter Protocol v1.4 — Prompt 0

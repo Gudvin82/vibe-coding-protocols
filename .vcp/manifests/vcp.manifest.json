@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.6.6",
+  "package_version": "v0.6.7",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,12 @@
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/release-readiness.md",
     "docs/architecture-drift.md",
-    "docs/release-v0.6.6.md"
+    "docs/release-v0.6.6.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    "REPO_CAPABILITIES_INDEX.md",
+    ".vcp/ai-audit-manifest.json",
+    "docs/release-v0.6.7.md"
   ],
   "core_docs": [
     "TAKE_THIS_FIRST.md",
@@ -116,7 +121,11 @@
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/release-readiness.md",
     "docs/architecture-drift.md",
-    "docs/release-v0.6.6.md"
+    "docs/release-v0.6.6.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    "REPO_CAPABILITIES_INDEX.md",
+    "docs/release-v0.6.7.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -161,7 +170,8 @@
     "spec",
     "version",
     "workflow",
-    "release-check"
+    "release-check",
+    "audit-plan"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",

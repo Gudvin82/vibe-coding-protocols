@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 <!-- vcp-artifact: BACKLOG_UPDATE_PROMPT -->
 <!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->

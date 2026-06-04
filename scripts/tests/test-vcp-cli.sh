@@ -7,6 +7,10 @@ python3 -m vcp_cli --help >/dev/null
 CURRENT_VERSION="$(cat VERSION)"
 python3 -m vcp_cli version | grep -F "$CURRENT_VERSION" >/dev/null
 test -f TAKE_THIS_FIRST.md
+test -f FULL_REPO_INTAKE.md
+test -f AI_FULL_REPO_AUDIT.md
+test -f REPO_CAPABILITIES_INDEX.md
+test -f .vcp/ai-audit-manifest.json
 test -f docs/visual-overview.md
 test -f docs/demo.md
 test -f docs/install.md
@@ -20,16 +24,24 @@ test -f docs/public-source-of-truth-audit.md
 python3 scripts/check-public-version-surfaces.py >/dev/null
 grep -ni "do not evaluate" README.md >/dev/null
 grep -n "не оценивайте" README_ru.md >/dev/null
+grep -n "FULL_REPO_INTAKE.md" README.md >/dev/null
+grep -n ".vcp/ai-audit-manifest.json" README_ru.md >/dev/null
 grep -n "TAKE_THIS_FIRST" AGENTS.md >/dev/null
 python3 scripts/check-readme-parity.py >/dev/null
 python3 -m vcp_cli doctor --json | grep -F '"manifest_directory":' >/dev/null
 python3 -m vcp_cli check --fast --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"evaluation_guide_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"full_repo_intake_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"ai_audit_manifest_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"repo_capabilities_index_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"audit_plan_command_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"shallow_evaluation_guard": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"adoption_entrypoint": "TAKE_THIS_FIRST.md"' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"evaluation_mode_guidance"' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"two_track_model_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"release_readiness_present": true' >/dev/null
+python3 -m vcp_cli audit-plan --json | grep -F '"report_template": "templates/reports/ai-repo-audit-coverage-report.md"' >/dev/null
 python3 -m vcp_cli evaluate --print-prompt | grep -F "Do not judge from README alone." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"llm_reference_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"progressive_disclosure_present": true' >/dev/null

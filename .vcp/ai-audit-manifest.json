@@ -1,0 +1,60 @@
+{
+  "version": "v0.6.7",
+  "methodology_version": "v1.4",
+  "purpose": "Required inspection manifest for AI agents evaluating VCP.",
+  "evaluation_modes": {
+    "shallow": "README or summarized WebFetch only.",
+    "partial": "Some entrypoints inspected, but required core layers missing.",
+    "strong": "Core docs, index, cards and workflows inspected.",
+    "full": "Clone/raw access, required docs, CLI, cards, manifests, templates and benchmarks inspected."
+  },
+  "required_for_full_evaluation": [
+    "README.md",
+    "README_ru.md",
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "AI_INTAKE.md",
+    "AI_EVALUATION_GUIDE.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    ".vcp/index.json",
+    ".vcp/catalog.json",
+    ".vcp/cards/",
+    ".vcp/manifests/",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md",
+    "docs/pr-gate.md",
+    "docs/version-semantics.md",
+    "docs/integrations/spec-kit-bridge.md",
+    "vcp_cli/",
+    "templates/",
+    "benchmarks/ai-adoption/scenarios/"
+  ],
+  "minimum_raw_files": [
+    "README.md",
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "FULL_REPO_INTAKE.md",
+    ".vcp/index.json",
+    ".vcp/ai-audit-manifest.json"
+  ],
+  "must_report": [
+    "access_method",
+    "files_opened",
+    "raw_or_summarized",
+    "line_counts_available",
+    "files_not_opened",
+    "evaluation_mode",
+    "confidence",
+    "limitations"
+  ],
+  "failure_contract": [
+    "Do not call a README-only review full.",
+    "Do not call VCP a prompt pack unless .vcp, CLI, workflows, benchmarks and review gates were inspected.",
+    "Do not assess CLI maturity unless vcp_cli or CLI docs were inspected.",
+    "Do not assess benchmark coverage unless benchmarks/manifests were inspected."
+  ]
+}

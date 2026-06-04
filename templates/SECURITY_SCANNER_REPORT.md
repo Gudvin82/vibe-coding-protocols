@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Security Scanner Report
 
 Практический шаблон отчета после запуска Trivy, OSV-Scanner, Gitleaks и смежных проверок.

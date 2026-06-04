@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # AUDIT_BACKLOG — русская версия
 
 Основной English-first шаблон находится здесь:

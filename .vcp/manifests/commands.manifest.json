@@ -577,6 +577,20 @@
         "cards validate",
         "index validate"
       ]
+    },
+    {
+      "id": "audit-plan",
+      "command_name": "vcp audit-plan",
+      "file": "FULL_REPO_INTAKE.md",
+      "route": "intake",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "evaluation modes, required files, and failure contract",
+      "validation": [
+        ".vcp/ai-audit-manifest.json parses",
+        "audit-plan --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [

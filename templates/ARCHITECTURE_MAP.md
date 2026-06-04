@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 # Architecture Map
 
 <!-- vcp-artifact: ARCHITECTURE_MAP -->

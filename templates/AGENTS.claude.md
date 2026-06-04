@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 <!-- vcp-artifact: AGENTS_CLAUDE -->
 <!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->

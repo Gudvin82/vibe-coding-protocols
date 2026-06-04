@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.6",
+  "version": "v0.6.7",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -100,6 +100,9 @@
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/release-readiness.md",
-    "docs/architecture-drift.md"
+    "docs/architecture-drift.md",
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    "REPO_CAPABILITIES_INDEX.md"
   ]
 }

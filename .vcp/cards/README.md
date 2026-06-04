@@ -6,8 +6,9 @@ They exist to support progressive disclosure for AI agents and humans.
 
 Read order:
 1. `.vcp/index.json`
-2. one or more relevant cards
-3. full docs only for the selected area
+2. `.vcp/ai-audit-manifest.json` when a full repository audit is requested
+3. one or more relevant cards
+4. full docs only for the selected area
 
 Card directories:
 - `routes/`

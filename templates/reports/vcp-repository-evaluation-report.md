@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 <!-- vcp-artifact: VCP_REPOSITORY_EVALUATION_REPORT -->
 <!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->

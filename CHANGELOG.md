@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.6.6
+## v0.6.7
 
 - Strengthened the two-track VCP model: New Project Track and Existing Project Track.
 - Added Spec Foundation, Spec Quality Gate, new-project and AI MVP hardening walkthroughs, release readiness, architecture drift, Brownfield Rescue Pack, and machine-readable sync for the new control surfaces.

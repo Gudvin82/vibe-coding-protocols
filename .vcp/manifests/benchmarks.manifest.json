@@ -1121,6 +1121,47 @@
         "do not re-run greenfield setup when the real problem is existing-repository control"
       ],
       "expected_first_action": "Choose Brownfield Rescue Pack when an existing repository has visible control debt."
+    },
+    {
+      "id": "full-repo-audit-coverage",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/full-repo-audit-coverage.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "FULL_REPO_INTAKE.md",
+        "AI_FULL_REPO_AUDIT.md",
+        ".vcp/ai-audit-manifest.json",
+        "REPO_CAPABILITIES_INDEX.md",
+        "templates/reports/ai-repo-audit-coverage-report.md"
+      ],
+      "expected_warnings": [
+        "full evaluation must disclose access method, inspected files, skipped files, and limitations",
+        "raw and summarized access must be distinguished"
+      ],
+      "expected_first_action": "Inspect FULL_REPO_INTAKE.md and the audit manifest before calling the evaluation full."
+    },
+    {
+      "id": "eight-url-partial-review-trap",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/eight-url-partial-review-trap.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "FULL_REPO_INTAKE.md",
+        ".vcp/ai-audit-manifest.json",
+        ".vcp/index.json",
+        ".vcp/cards/",
+        "vcp_cli/",
+        "templates/",
+        "benchmarks/ai-adoption/scenarios/"
+      ],
+      "expected_warnings": [
+        "5-8 URL reviews must be marked partial if core layers were skipped",
+        "raw vs summarized access must be disclosed",
+        "critical missing layers must be listed"
+      ],
+      "expected_first_action": "Mark the review partial and inspect the audit manifest before making stronger claims."
     }
   ]
 }

@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.6.7 -->
+
 <!-- vcp-artifact: PROMPT_EVALUATE_VCP_FOR_MY_REPO -->
 <!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->

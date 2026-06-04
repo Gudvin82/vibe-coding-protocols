@@ -7,9 +7,9 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.6`
+- Repository package: `v0.6.7`
 - Methodology version: `v1.4`
-- Do not confuse methodology version `v1.4` with repository package version `v0.6.6`.
+- Do not confuse methodology version `v1.4` with repository package version `v0.6.7`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path
@@ -20,6 +20,10 @@ Start with:
 - `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
 - `AI_INTAKE.md`
+- `REPO_CAPABILITIES_INDEX.md`
+- `.vcp/ai-audit-manifest.json`
+- `AI_FULL_REPO_AUDIT.md`
+- `FULL_REPO_INTAKE.md`
 - `START_HERE.md`
 - `docs/version-semantics.md`
 - `docs/two-track-model.md`
@@ -43,8 +47,10 @@ Then run:
 - `python3 -m vcp_cli index validate`
 - `python3 -m vcp_cli cards list --recommended`
 - `python3 -m vcp_cli diagnose --json`
+- `python3 -m vcp_cli audit-plan --json`
 
 If only `README.md` was inspected, the evaluation must be marked shallow.
+If you used WebFetch summaries or README-only inspection, the evaluation must be marked shallow or partial.
 
 ## Adoption from a repository link
 

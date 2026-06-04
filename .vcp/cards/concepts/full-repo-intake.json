@@ -1,0 +1,71 @@
+{
+  "id": "full-repo-intake",
+  "type": "concept",
+  "name": "Full Repo Intake",
+  "summary": "Canonical operating contract for AI agents that need to evaluate the whole VCP repository without confusing shallow summaries with full review.",
+  "use_when": [
+    "an AI agent is asked to evaluate, compare, or summarize VCP as a repository"
+  ],
+  "do_not_use_when": [
+    "the task is only to adopt selected files into another project"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "intake"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "README-only evaluation",
+      "summary inflation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust gap"
+    ]
+  },
+  "entry_files": [
+    "FULL_REPO_INTAKE.md",
+    "AI_FULL_REPO_AUDIT.md",
+    ".vcp/ai-audit-manifest.json"
+  ],
+  "related_files": [
+    "REPO_CAPABILITIES_INDEX.md",
+    "AI_EVALUATION_GUIDE.md",
+    "templates/reports/ai-repo-audit-coverage-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli audit-plan --json"
+  ],
+  "outputs": [
+    "evaluation mode contract and required evidence path"
+  ],
+  "stop_conditions": [
+    "do not call a shallow or partial review full"
+  ],
+  "validation": [
+    "python3 -m vcp_cli audit-plan --json"
+  ],
+  "version": "v0.6.7",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "audit"
+  ]
+}

@@ -8,6 +8,11 @@ Use this file when someone gives VCP to an AI agent and says:
 
 VCP is a source toolkit. Target projects should adopt only the route, pack, templates, and review gates they need.
 
+If you are also evaluating VCP itself, switch to:
+- `FULL_REPO_INTAKE.md`
+- `AI_FULL_REPO_AUDIT.md`
+- `REPO_CAPABILITIES_INDEX.md`
+
 ## Step 1 — classify the target project by track
 
 - New idea / founder brief -> New Project Track
@@ -85,6 +90,7 @@ If a working repository already exists but architecture, backlog, or release dis
 
 - Prompt: `templates/prompts/adopt-vcp-from-link.md`
 - Report: `templates/reports/vcp-adoption-decision-report.md`
+- Full repo audit report: `templates/reports/ai-repo-audit-coverage-report.md`
 - Brownfield report: `templates/reports/brownfield-rescue-report.md`
 - Two-track model: `docs/two-track-model.md`
 - Version semantics: `docs/version-semantics.md`

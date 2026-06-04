@@ -12,12 +12,21 @@ Do not judge the repository from README alone.
 
 If a user says “study this repo and take what is useful for my project,” start with `TAKE_THIS_FIRST.md`, not a whole-repo copy plan.
 
+For a full repository review, use:
+- `FULL_REPO_INTAKE.md`
+- `AI_FULL_REPO_AUDIT.md`
+- `.vcp/ai-audit-manifest.json`
+- `REPO_CAPABILITIES_INDEX.md`
+
 ## Minimum inspection path
 
 Inspect at least:
 - `AGENTS.md`
 - `TAKE_THIS_FIRST.md`
 - `AI_INTAKE.md`
+- `FULL_REPO_INTAKE.md`
+- `AI_FULL_REPO_AUDIT.md`
+- `.vcp/ai-audit-manifest.json`
 - `docs/version-semantics.md`
 - `docs/two-track-model.md`
 - `.vcp/index.json`
@@ -35,14 +44,18 @@ Inspect at least:
 - `docs/comparison.md`
 - `.vcp/manifests/`
 - `benchmarks/ai-adoption/`
+- `templates/reports/ai-repo-audit-coverage-report.md`
 
 If you have limited context, start with `.vcp/index.json` and relevant cards before loading full docs.
 If you skipped `TAKE_THIS_FIRST.md`, index, cards, walkthroughs, or CLI, mark the evaluation `partial / shallow`.
+
+Use `python3 -m vcp_cli audit-plan --json` before claiming a review is full.
 
 ## Recommended commands
 
 ```bash
 python3 -m vcp_cli cards validate
+python3 -m vcp_cli audit-plan --json
 python3 -m vcp_cli index validate
 python3 -m vcp_cli diagnose --json
 python3 -m vcp_cli evaluate --json
@@ -87,6 +100,21 @@ Score these separately:
 - public-proof maturity.
 
 If you skipped manifests, benchmarks, cards, walkthroughs, or release-control docs, mark the evaluation `partial / shallow`.
+
+## Required coverage report
+
+For a full comparison or deep audit, report:
+- access method;
+- files inspected;
+- raw vs summarized content;
+- line count availability;
+- files not inspected;
+- evaluation mode;
+- confidence;
+- limitations.
+
+Use:
+- `templates/reports/ai-repo-audit-coverage-report.md`
 
 ## Adoption from a repository link
 

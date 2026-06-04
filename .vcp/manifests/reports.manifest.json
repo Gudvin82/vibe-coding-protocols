@@ -409,6 +409,21 @@
         "Rescue plan",
         "Next safe step"
       ]
+    },
+    {
+      "id": "ai-repo-audit-coverage-report",
+      "file": "templates/reports/ai-repo-audit-coverage-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Evaluation mode",
+        "Files inspected",
+        "Required files not inspected",
+        "Capability coverage",
+        "Claims allowed",
+        "Claims not allowed",
+        "Limitations",
+        "Final confidence"
+      ]
     }
   ],
   "related_docs": [

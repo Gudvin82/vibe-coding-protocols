@@ -1,0 +1,68 @@
+{
+  "id": "ai-audit-coverage",
+  "type": "concept",
+  "name": "AI Audit Coverage",
+  "summary": "Coverage contract for reporting access method, inspected files, summarized vs raw access, and missing layers when evaluating VCP.",
+  "use_when": [
+    "an AI evaluator needs to disclose what was and was not actually inspected"
+  ],
+  "do_not_use_when": [
+    "the answer hides limitations or implies unavailable evidence"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "audit"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "hidden inspection gaps",
+      "false confidence"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust gap"
+    ]
+  },
+  "entry_files": [
+    "AI_FULL_REPO_AUDIT.md",
+    "templates/reports/ai-repo-audit-coverage-report.md"
+  ],
+  "related_files": [
+    ".vcp/ai-audit-manifest.json",
+    "FULL_REPO_INTAKE.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli audit-plan --json"
+  ],
+  "outputs": [
+    "coverage-aware audit report"
+  ],
+  "stop_conditions": [
+    "do not compare full maturity if major layers were skipped"
+  ],
+  "validation": [
+    "python3 -m vcp_cli audit-plan --json"
+  ],
+  "version": "v0.6.7",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "coverage"
+  ]
+}

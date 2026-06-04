@@ -37,11 +37,18 @@ def main() -> int:
     assert check['ok'] is True
     evaluate = json.loads(run('evaluate', '--json'))
     assert evaluate['evaluation_guide_present'] is True
+    assert evaluate['full_repo_intake_present'] is True
+    assert evaluate['ai_audit_manifest_present'] is True
+    assert evaluate['repo_capabilities_index_present'] is True
+    assert evaluate['audit_plan_command_present'] is True
     assert evaluate['progressive_disclosure_present'] is True
     assert evaluate['shallow_evaluation_guard'] is True
     assert evaluate['adoption_entrypoint'] == 'TAKE_THIS_FIRST.md'
+    assert evaluate['evaluation_mode_guidance'] == ['shallow', 'partial', 'strong', 'full']
     assert evaluate['two_track_model_present'] is True
     assert evaluate['release_readiness_present'] is True
+    audit_plan = json.loads(run('audit-plan', '--json'))
+    assert audit_plan['report_template'] == 'templates/reports/ai-repo-audit-coverage-report.md'
     review_diff = json.loads(run('review-diff', '--json'))
     assert 'risk_level' in review_diff
     release_check = json.loads(run('release-check', '--json'))
