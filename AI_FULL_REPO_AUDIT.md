@@ -2,7 +2,7 @@
 
 Use this file when an AI agent is asked to evaluate Vibe Coding Protocols fully.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.1`.
 
 ## Required contract
 

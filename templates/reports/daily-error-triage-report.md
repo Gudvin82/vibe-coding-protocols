@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 
 <!-- vcp-artifact: DAILY_ERROR_TRIAGE_REPORT -->
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Daily Error Triage Report

@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 
 <!-- vcp-artifact: AGENTS_WINDSURF -->
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 <!-- methodology-version: v1.4 -->
 
 # AGENTS for Windsurf

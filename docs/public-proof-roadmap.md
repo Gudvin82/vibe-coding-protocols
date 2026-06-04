@@ -1,6 +1,6 @@
 # Public Proof Roadmap
 
-`v0.7.0` improves proof surfaces, but VCP still avoids overclaiming broad external adoption.
+`v0.7.1` improves proof surfaces, but VCP still avoids overclaiming broad external adoption.
 
 ## What exists now
 

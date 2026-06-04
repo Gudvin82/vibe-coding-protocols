@@ -3,7 +3,7 @@
 Read this file before evaluating or applying VCP to a target repository.
 
 Adoption-from-link entrypoint: `TAKE_THIS_FIRST.md`
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.0`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.1`.
 
 ## Do not do this
 

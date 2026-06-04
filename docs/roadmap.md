@@ -8,7 +8,7 @@ Use this page when you want the roadmap in docs navigation without repeating rel
 
 - `v0.5.x`: product, evaluation, and developer-experience hardening
 - `v0.6.1`: distribution and hosted docs
-- `v0.7.0`: integrations and installers
+- `v0.7.1`: integrations and installers
 - `v0.8.0`: graph and project-map layer
 - `v1.0`: stable protocol and CLI contract
 

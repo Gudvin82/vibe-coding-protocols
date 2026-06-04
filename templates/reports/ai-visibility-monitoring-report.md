@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 
 <!-- vcp-artifact: AI_VISIBILITY_MONITORING_REPORT -->
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 <!-- methodology-version: v1.4 -->
 
 # AI Visibility Monitoring Report

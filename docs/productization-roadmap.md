@@ -1,6 +1,6 @@
 # Productization Roadmap
 
-`v0.7.0` is the first productization release, not the final distribution release.
+`v0.7.1` is the first productization release, not the final distribution release.
 
 ## What is practical now
 

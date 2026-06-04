@@ -53,7 +53,7 @@
   "validation": [
     "python3 -m vcp_cli release-check --json"
   ],
-  "version": "v0.7.0",
+  "version": "v0.7.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

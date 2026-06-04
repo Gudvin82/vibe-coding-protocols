@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.7.0",
+  "version": "v0.7.1",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.0.md",
+    "docs/release-v0.7.1.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -95,7 +95,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.0.md",
+    "docs/release-v0.7.1.md",
     "docs/review-diff.md",
     "docs/score-badge.md",
     "docs/spec-escape-hatch.md",
@@ -419,10 +419,10 @@
       ".vcp/cards/"
     ]
   },
-  "repository_package_version": "v0.7.0",
+  "repository_package_version": "v0.7.1",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.7.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.7.1. Do not present v1.4 as the current repository release."
   }
 }

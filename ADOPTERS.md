@@ -5,7 +5,7 @@ It is not an endorsement list and it is not proof of production safety.
 
 ## Current state
 
-Independent public adopters are not yet claimed in `v0.7.0`.
+Independent public adopters are not yet claimed in `v0.7.1`.
 Until they exist, VCP should say so honestly.
 
 ## Maintainer-known uses

@@ -1,6 +1,6 @@
 # Install
 
-VCP is a local repository toolkit in `v0.7.0`.
+VCP is a local repository toolkit in `v0.7.1`.
 It does not claim public PyPI, public npm, Homebrew, or native installer distribution unless those channels are actually released.
 
 ## Honest install table

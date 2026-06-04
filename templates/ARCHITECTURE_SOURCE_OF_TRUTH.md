@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 
 <!-- vcp-artifact: ARCHITECTURE_SOURCE_OF_TRUTH -->
-<!-- vcp-version: v0.7.0 -->
+<!-- vcp-version: v0.7.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Architecture Source of Truth

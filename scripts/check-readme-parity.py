@@ -14,7 +14,7 @@ CHECKS = [
     ('ai release naming guard', ['report the current GitHub repository release as', CURRENT], ['называй текущий GitHub-релиз репозитория как', CURRENT]),
     ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
     ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
-    ('practical adoption block', ['New in v0.7.0: practical adoption'], ['Новое в v0.7.0: практическое внедрение']),
+    ('public version clarity patch block', ['New in v0.7.1: public version clarity patch'], ['Новое в v0.7.1: patch для ясности публичной версии']),
     ('quick start by situation', ['Quick start by situation'], ['Быстрый старт по ситуации']),
     ('two tracks', ['New Project Track', 'Existing Project Track'], ['New Project Track', 'Existing Project Track']),
     ('adoption tiers', ['docs/adoption-tiers.md'], ['docs/adoption-tiers.md']),

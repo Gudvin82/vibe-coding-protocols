@@ -67,7 +67,7 @@
     "bash scripts/vibe-check.sh --audit --json",
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.7.0",
+  "version": "v0.7.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

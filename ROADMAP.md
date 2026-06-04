@@ -21,7 +21,7 @@ It does not promise dates that the repository cannot honestly support yet.
 - stronger release checklist automation
 - clearer documentation information architecture
 
-## v0.7.0 — Integrations and installers
+## v0.7.1 — Integrations and installers
 
 - per-IDE installer helpers or rule generators
 - Cursor and Windsurf rule-pack installer ideas

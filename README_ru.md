@@ -7,22 +7,20 @@ Build with AI. Ship with control.
 Vibe Coding Protocols — это практический локальный toolkit для AI-assisted delivery.
 Он помогает выбрать правильный трек, оценить риск, построить безопасный adoption plan и выпускать изменения с видимым review и release control.
 
-> Текущий пакет репозитория: `v0.7.0`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.7.0`.
+> Текущий пакет репозитория: `v0.7.1`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.7.1`.
 
-Repository package: `v0.7.0`
+Repository package: `v0.7.1`
 
-## Новое в v0.7.0: практическое внедрение
+## Новое в v0.7.1: patch для ясности публичной версии
 
-VCP теперь сильнее сфокусирован на реальном применении:
+v0.7.1 — это узкий patch release для public version clarity:
 
-- понятные Python/Node пути запуска;
-- классификация проекта перед внедрением;
-- безопасный adoption plan вместо слепого копирования;
-- copy/patch инструкции без разрушительных записей;
-- PR Gate, release readiness и score checks;
-- структурная оценка SEO/GEO/AI Public Growth;
-- unit-тесты для ключевой CLI-логики.
+- first-contact surfaces теперь называют текущий GitHub-релиз как `Vibe Coding Protocols v0.7.1`;
+- README и README_ru больше не подают `v1.4` как текущий релизный label;
+- AI-facing guidance оставляет `v1.4` только как internal stable methodology reference;
+- public version checkers и CLI headline output синхронизированы с repository package `v0.7.1`;
+- CHANGELOG и release metadata теперь выводят `v0.7.1` как текущий верхний package release.
 
 ## Для AI-агентов: не оценивайте VCP только по README
 
@@ -187,4 +185,4 @@ python3 -m vcp_cli workflow plan --json
 - [docs/adoption-tiers.md](./docs/adoption-tiers.md)
 - [docs/distribution.md](./docs/distribution.md)
 - [docs/proof-pack.md](./docs/proof-pack.md)
-- [docs/release-v0.7.0.md](./docs/release-v0.7.0.md)
+- [docs/release-v0.7.1.md](./docs/release-v0.7.1.md)

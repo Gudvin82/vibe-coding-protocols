@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.7.0-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.7.1-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -11,22 +11,20 @@ Build with AI. Ship with control.
 Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
 It helps teams choose the right track, inspect risk, generate safe adoption plans, and ship with visible review and release control.
 
-> Current repository package: `v0.7.0`  
-> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.7.0`.
+> Current repository package: `v0.7.1`  
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.7.1`.
 
-Repository package: `v0.7.0`
+Repository package: `v0.7.1`
 
-## New in v0.7.0: practical adoption
+## New in v0.7.1: public version clarity patch
 
-VCP now focuses on practical adoption:
+v0.7.1 is a narrow patch release for public version clarity:
 
-- install/run locally with clearer Python and Node wrapper paths;
-- classify a project before adopting anything;
-- generate a safe adoption plan instead of blindly copying files;
-- produce copy/patch instructions without destructive writes;
-- run PR Gate, release readiness and score checks;
-- evaluate SEO/GEO/AI public-growth readiness with structured reports;
-- test core CLI logic with unit tests.
+- first-contact surfaces now name the current GitHub repository release as `Vibe Coding Protocols v0.7.1`;
+- README and README_ru no longer present `v1.4` as a current release label;
+- AI-facing guidance now treats `v1.4` only as an internal stable methodology reference;
+- public version checkers and CLI headline output are aligned with repository package `v0.7.1`;
+- CHANGELOG and release metadata now surface `v0.7.1` as the current top visible package release.
 
 ## For AI agents: do not evaluate VCP from README alone
 
@@ -191,4 +189,4 @@ python3 -m vcp_cli workflow plan --json
 - [docs/adoption-tiers.md](./docs/adoption-tiers.md)
 - [docs/distribution.md](./docs/distribution.md)
 - [docs/proof-pack.md](./docs/proof-pack.md)
-- [docs/release-v0.7.0.md](./docs/release-v0.7.0.md)
+- [docs/release-v0.7.1.md](./docs/release-v0.7.1.md)

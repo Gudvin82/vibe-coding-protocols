@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.7.1
+
+- clarified public/current-version surfaces so AI agents report the current GitHub repository release as `Vibe Coding Protocols v0.7.1`;
+- removed first-contact `v1.4` release ambiguity from README, README_ru, CLI headline output, and AI-facing guidance;
+- relabeled `v1.4` as an internal stable methodology reference instead of a current repository release signal;
+- synced CHANGELOG, release metadata, manifests, cards, tests, and version checkers for the public version clarity patch;
+
 ## v0.7.0
 
 - productized practical adoption with onboard/classify/adopt plan/public-growth checks;

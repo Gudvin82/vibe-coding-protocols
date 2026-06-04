@@ -51,4 +51,5 @@ After publishing a release object:
 - [`../release-v0.6.5.md`](../release-v0.6.5.md)
 - [`../release-v0.6.7.md`](../release-v0.6.7.md)
 
+- [v0.7.1](../release-v0.7.1.md) — Public Version Clarity Patch
 - [v0.7.0](../release-v0.7.0.md) — Practical Adoption and Productization

@@ -56,7 +56,7 @@ required_files=(
   docs/spec-quality-gate.md
   docs/architecture-drift.md
   docs/release-v0.6.7.md
-  docs/release-v0.7.0.md
+  docs/release-v0.7.1.md
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/faq.md
