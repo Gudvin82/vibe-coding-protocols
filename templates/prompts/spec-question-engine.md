@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.8.1 -->
+<!-- vcp-version: v0.8.2 -->
 <!-- methodology-version: v1.4 -->
 
 Ask one clarifying question at a time.

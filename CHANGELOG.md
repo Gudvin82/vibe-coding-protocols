@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.8.2
+
+- added a precise integration status model and machine-readable `.vcp/integrations.json`;
+- added a local dashboard artifact generator plus metrics and audit-backlog visualization surfaces;
+- added plugin contract and plugin safety docs plus local metadata validation scaffold;
+- strengthened install reliability guidance for venv, build isolation, and no-build-isolation fallback;
+- kept hosted dashboard, VS Code extension, plugin marketplace, and public publication claims out of shipped scope.
+
 ## v0.8.1
 
 - synchronized public release and AI-facing version surfaces for `v0.8.1`;

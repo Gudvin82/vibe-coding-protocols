@@ -1,38 +1,25 @@
 # PyPI Publishing
 
-`v0.8.1` makes the Python package PyPI-ready, but publication remains a manual maintainer action.
+`v0.8.2` keeps PyPI publication as a manual maintainer action.
+It does not claim that VCP is already published publicly.
 
-## Before publishing
+## What is real in the repository
 
-1. Create or confirm a PyPI account.
-2. Check package name availability for `vcp-cli`.
-3. Create a PyPI API token or configure trusted publishing.
-4. Add `PYPI_API_TOKEN` only if token-based publication is chosen.
-5. Test the package locally:
+- local install metadata exists;
+- local build/install validation can be run;
+- a publication workflow scaffold exists;
+- documentation explains the approval path.
 
-```bash
-python3 -m pip install --upgrade build
-python3 -m build
-python3 -m pip install .
-vcp doctor
-```
+## What is not real by default
 
-## GitHub workflow
+- no automatic public publication;
+- no claim that `pip install vcp-cli` works today;
+- no claim that trusted publishing is already configured.
 
-This repository includes:
+## Safe maintainer checklist
 
-- `.github/workflows/publish-pypi.yml`
-
-It is intentionally conservative:
-- triggered on GitHub Release publication;
-- builds the package;
-- publishes only after maintainer configuration;
-- does not assume secrets already exist.
-
-## Important honesty rules
-
-Do not claim:
-- `pip install vcp-cli`
-- `pipx install vcp-cli`
-
-until public PyPI publication is real.
+1. Confirm package name availability.
+2. Choose token or trusted-publishing setup.
+3. Test `python3 -m build` locally if the environment supports it.
+4. Publish only after explicit maintainer approval.
+5. Update README/docs only after publication is actually live.

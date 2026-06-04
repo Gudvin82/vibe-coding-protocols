@@ -1,0 +1,69 @@
+{
+  "id": "local-dashboard-artifact",
+  "type": "concept",
+  "name": "Local Dashboard Artifact",
+  "summary": "Local static artifact path for metrics, readiness, backlog, and integration status without a hosted dashboard claim.",
+  "use_when": [
+    "a demo-friendly local dashboard is needed"
+  ],
+  "do_not_use_when": [
+    "a hosted dashboard or SaaS is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "dashboard"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "dashboard overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/dashboard.md",
+    "vcp_cli/dashboard_cmd.py"
+  ],
+  "related_files": [
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"
+  ],
+  "outputs": [
+    "local dashboard files"
+  ],
+  "stop_conditions": [
+    "no hosted server",
+    "no telemetry"
+  ],
+  "validation": [
+    "python3 -m vcp_cli dashboard build --output /tmp/vcp-dashboard-test --json"
+  ],
+  "version": "v0.8.2",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "dashboard",
+    "local"
+  ]
+}

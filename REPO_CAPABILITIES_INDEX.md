@@ -1,7 +1,7 @@
 # Repo Capabilities Index
 
 This is the compact capability map for VCP practical adoption.
-Name the current GitHub repository release as `Vibe Coding Protocols v0.8.1`.
+Name the current GitHub repository release as `Vibe Coding Protocols v0.8.2`.
 
 | Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|
@@ -17,5 +17,8 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.8.1`.
 | Proof layer | `docs/proof-layer.md`, `templates/reports/adoption-case-study.md`, `case-studies/raw-ai-mvp-synthetic.md` | that VCP proof is independent, complete, or guarantee-grade by default |
 | Workflow planning | `docs/workflows.md`, `.vcp/workflows/`, `vcp_cli/workflow_cmd.py` | that workflow JSON is an execution engine |
 | Integration roadmap | `docs/roadmap/integrations.md`, `docs/roadmap/vscode-extension.md`, `docs/distribution.md` | that roadmap-only integrations are already shipped or official |
+| Integration status model | `docs/integrations/status-model.md`, `.vcp/integrations.json`, `docs/dashboard.md` | that VCP already has hosted integrations or a marketplace |
+| Local dashboard artifact | `vcp_cli/dashboard_cmd.py`, `docs/dashboard.md`, `docs/metrics-board.md` | that dashboard means hosted SaaS or telemetry-backed control plane |
+| Plugin contract draft | `docs/plugins/plugin-contract-draft.md`, `docs/plugins/plugin-safety.md`, `examples/plugins/example-readiness-check.plugin.json` | stable official plugin API or remote plugin execution |
 | Version semantics | `docs/version-semantics.md`, `vcp_cli/version.py`, `README.md` | that methodology layer equals the repo release |
 | Unit-tested CLI logic | `tests/`, `python3 -m unittest discover -s tests` | that CLI logic is only smoke-tested |

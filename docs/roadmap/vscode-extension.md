@@ -1,19 +1,21 @@
 # VS Code Extension Roadmap
 
-Status: planned, not shipped.
+Status: roadmap, not shipped.
 
-`v0.8.1` does not ship a VS Code extension and does not claim a Marketplace listing.
+`v0.8.2` does not ship a VS Code extension and does not claim a Marketplace listing.
 
 ## Candidate future scope
 
-1. status bar VCP score;
-2. command `VCP: Check current diff`;
-3. stop-condition hints;
-4. run `vcp onboard`;
-5. run `vcp review-diff`.
+- route panel;
+- adoption path checklist;
+- dashboard preview;
+- PR Gate status;
+- proof and case-study helper;
+- plugin metadata validation helper.
 
 ## Boundaries
 
-- no extension code is shipped in `v0.8.1`;
+- no extension code is shipped in `v0.8.2`;
 - no Marketplace listing is claimed;
-- no extension install instructions should be shown as current availability.
+- no extension package is published;
+- no install instructions should be presented as current availability.

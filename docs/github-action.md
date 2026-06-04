@@ -1,41 +1,38 @@
 # GitHub Action and PR Gate
 
-VCP ships:
-- a real repository workflow in `.github/workflows/vibe-check.yml`;
-- a reusable workflow example in `ci-examples/github-actions/vcp-pr-gate.yml`;
-- a PyPI publishing scaffold in `.github/workflows/publish-pypi.yml`.
+VCP ships workflow files and workflow templates.
+It does not claim a GitHub Marketplace Action.
 
-These are workflow files, not a GitHub Marketplace Action claim.
+## Current surfaces
 
-## Recommended PR Gate workflow template
+- repository workflow: `.github/workflows/vibe-check.yml`
+- PyPI publish scaffold: `.github/workflows/publish-pypi.yml`
+- reusable adoption template: `ci-examples/github-actions/vcp-pr-gate.yml`
+
+## Recommended PR Gate template
 
 Use `ci-examples/github-actions/vcp-pr-gate.yml` for external repositories.
 
-The template:
-- checks out the caller repository;
-- installs VCP from a pinned Git tag;
-- runs `vcp review-diff --json`;
-- optionally runs `vcp classify --json`;
-- keeps failure behavior explicit.
+Expected outputs:
+- `review-diff` JSON;
+- optional `classify` JSON;
+- explicit pass/warn/block interpretation managed by the caller repository.
 
-## Safe default for other repositories
+## Warn vs fail guidance
 
-For a repository that has not fully adopted VCP assets yet, keep PR Gate narrow:
+- `pass`: proceed normally;
+- `warn`: repository can merge if maintainers choose, but follow-up is owed;
+- `block`: stop until the control gap is fixed.
+
+## Local equivalent
 
 ```bash
-vcp review-diff --json
-vcp classify --json
+python3 -m vcp_cli review-diff --json
+python3 -m vcp_cli classify --json
 ```
 
-Add stronger commands only after the repository has adopted matching VCP surfaces.
+## What is not claimed
 
-## Why this matters
-
-VCP is more trustworthy when the same diff-risk and release-control checks run in CI before merge, not only in chat or local development.
-
-## Related docs
-
-- `docs/pr-gate.md`
-- `docs/pr-gate-action.md`
-- `ci-examples/github-actions/vcp-pr-gate.yml`
-- `.github/workflows/vibe-check.yml`
+- marketplace action;
+- automatic merge blocking everywhere;
+- certification or security guarantee.

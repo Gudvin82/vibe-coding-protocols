@@ -1,0 +1,67 @@
+{
+  "id": "metrics-board",
+  "type": "concept",
+  "name": "Metrics Board",
+  "summary": "Local metrics board for conservative counts and readiness signals.",
+  "use_when": [
+    "demo or inspection needs one local summary"
+  ],
+  "do_not_use_when": [
+    "objective truth or launch guarantee is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "metrics"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "metrics overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/metrics-board.md",
+    "vcp_cli/metrics_cmd.py"
+  ],
+  "related_files": [
+    "docs/audit-backlog-visualization.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli metrics board --json"
+  ],
+  "outputs": [
+    "local metrics summary"
+  ],
+  "stop_conditions": [
+    "no launch guarantee"
+  ],
+  "validation": [
+    "python3 -m vcp_cli metrics board --json"
+  ],
+  "version": "v0.8.2",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "metrics",
+    "local"
+  ]
+}

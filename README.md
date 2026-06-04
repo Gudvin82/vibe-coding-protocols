@@ -2,28 +2,31 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.8.1-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.8.2-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
-Build with AI. Ship with control.
+Build with AI. Choose the right track. Adopt safely. Ship with control.
 
 Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
 It helps teams choose the right track, adopt safely, and ship with visible review and release control.
 
-> Current repository package: `v0.8.1`  
-> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.8.1`.
+> Current repository package: `v0.8.2`  
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.8.2`.
 
-Repository package: `v0.8.1`
+Repository package: `v0.8.2`
 
-## New in v0.8.1: 10-minute adoption path, killer demo, and product narrative sync
+## New in v0.8.2: integration scaffold, local dashboard artifacts, and plugin architecture prep
 
-`v0.8.1` tightens the first-user story:
+`v0.8.2` adds local-first integration scaffolding:
 
-- install -> onboard -> classify -> adopt plan -> launch check is now one short path;
-- a raw AI-MVP demo now shows route, risks, copy-list, dry-run apply, and launch check together;
-- proof language is clearer about what is real, sanitized, synthetic, maintainer-known, or still unknown;
-- integration roadmap surfaces are documented without pretending they are already shipped.
+- integration status model;
+- local dashboard/report artifact path;
+- plugin contract draft and safety boundary;
+- metrics and audit-backlog visualization docs;
+- clearer install reliability guidance.
+
+It does not ship a hosted dashboard, VS Code extension, plugin marketplace, PyPI publication, npm publication, or Go rewrite.
 
 ## Start here in 10 minutes
 
@@ -111,7 +114,8 @@ python3 -m vcp_cli release-check --json
 
 Current practical paths:
 - `python3 -m vcp_cli doctor`
-- `python3 -m pip install . && vcp doctor`
+- `python3 -m venv .venv && . .venv/bin/activate && python3 -m pip install --upgrade pip setuptools wheel && python3 -m pip install . && vcp doctor`
+- `python3 -m venv --system-site-packages .venv && . .venv/bin/activate && python3 -m pip install . --no-build-isolation && vcp doctor` for restricted environments with local build dependencies already available
 - optional local `pipx install . && vcp doctor` if it passes in your environment
 - `npm run vcp -- doctor`
 
@@ -170,6 +174,9 @@ Current stable local path:
 ```bash
 git clone https://github.com/Gudvin82/vibe-coding-protocols
 cd vibe-coding-protocols
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install .
 vcp doctor
 vcp evaluate
@@ -189,14 +196,22 @@ Use these together:
 - [templates/reports/adoption-case-study.md](./templates/reports/adoption-case-study.md)
 - [case-studies/README.md](./case-studies/README.md)
 
-## Integration roadmap
+## Integration status and local dashboard
 
-Roadmap and future-facing integration positioning live in:
+Shipped local-first scaffolds and their status live in:
+- [docs/integrations/status-model.md](./docs/integrations/status-model.md)
+- [.vcp/integrations.json](./.vcp/integrations.json)
+- [docs/dashboard.md](./docs/dashboard.md)
+- [docs/plugins/README.md](./docs/plugins/README.md)
+- [docs/metrics-board.md](./docs/metrics-board.md)
+- [docs/audit-backlog-visualization.md](./docs/audit-backlog-visualization.md)
+
+Roadmap-only and not-shipped surfaces still live in:
 - [docs/roadmap/integrations.md](./docs/roadmap/integrations.md)
 - [docs/roadmap/vscode-extension.md](./docs/roadmap/vscode-extension.md)
 
-These docs must not be read as proof that those integrations are already shipped.
+These docs must not be read as proof of hosted services, official integrations, or a plugin marketplace.
 
 ## Release notes
 
-- [docs/release-v0.8.1.md](./docs/release-v0.8.1.md)
+- [docs/release-v0.8.2.md](./docs/release-v0.8.2.md)

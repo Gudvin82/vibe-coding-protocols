@@ -2,24 +2,27 @@
 
 [English version](./README.md)
 
-Build with AI. Ship with control.
+Build with AI. Choose the right track. Adopt safely. Ship with control.
 
 Vibe Coding Protocols — это практический локальный toolkit для AI-assisted delivery.
 Он помогает выбрать правильный трек, безопасно внедрять нужные слои и выпускать изменения с видимым review и release control.
 
-> Текущий пакет репозитория: `v0.8.1`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.1`.
+> Текущий пакет репозитория: `v0.8.2`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.2`.
 
-Repository package: `v0.8.1`
+Repository package: `v0.8.2`
 
-## Новое в v0.8.1: 10-minute adoption path, killer demo и product narrative sync
+## Новое в v0.8.2: integration scaffold, local dashboard artifacts и plugin architecture prep
 
-`v0.8.1` делает первую пользовательскую историю короче и понятнее:
+`v0.8.2` добавляет local-first integration scaffolding:
 
-- install -> onboard -> classify -> adopt plan -> launch check теперь собраны в один короткий путь;
-- появился killer demo для raw AI-generated MVP с route, risks, copy-list, dry-run apply и launch check;
-- proof language теперь яснее разделяет real, sanitized, synthetic, maintainer-known и unknown;
-- integration roadmap описан без притворства, что он уже shipped.
+- integration status model;
+- local dashboard/report artifact path;
+- plugin contract draft и safety boundary;
+- metrics и audit-backlog visualization docs;
+- более честную install reliability guidance.
+
+При этом релиз не поставляет hosted dashboard, VS Code extension, plugin marketplace, PyPI publication, npm publication или Go rewrite.
 
 ## Старт за 10 минут
 
@@ -107,7 +110,8 @@ python3 -m vcp_cli release-check --json
 
 Практические пути сегодня:
 - `python3 -m vcp_cli doctor`
-- `python3 -m pip install . && vcp doctor`
+- `python3 -m venv .venv && . .venv/bin/activate && python3 -m pip install --upgrade pip setuptools wheel && python3 -m pip install . && vcp doctor`
+- `python3 -m venv --system-site-packages .venv && . .venv/bin/activate && python3 -m pip install . --no-build-isolation && vcp doctor` для restricted environments, где local build dependencies уже доступны
 - опционально локальный `pipx install . && vcp doctor`, если проходит в вашем окружении
 - `npm run vcp -- doctor`
 
@@ -166,6 +170,9 @@ Workflow JSON остается planning surface, а не hidden execution engine
 ```bash
 git clone https://github.com/Gudvin82/vibe-coding-protocols
 cd vibe-coding-protocols
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install .
 vcp doctor
 vcp evaluate
@@ -185,14 +192,22 @@ vcp evaluate
 - [templates/reports/adoption-case-study.md](./templates/reports/adoption-case-study.md)
 - [case-studies/README.md](./case-studies/README.md)
 
-## Integration roadmap
+## Integration status и local dashboard
 
-Roadmap и future-facing integration positioning лежат в:
+Шипнутые local-first scaffolds и их статусы лежат в:
+- [docs/integrations/status-model.md](./docs/integrations/status-model.md)
+- [.vcp/integrations.json](./.vcp/integrations.json)
+- [docs/dashboard.md](./docs/dashboard.md)
+- [docs/plugins/README.md](./docs/plugins/README.md)
+- [docs/metrics-board.md](./docs/metrics-board.md)
+- [docs/audit-backlog-visualization.md](./docs/audit-backlog-visualization.md)
+
+Roadmap-only и not-shipped surfaces по-прежнему лежат в:
 - [docs/roadmap/integrations.md](./docs/roadmap/integrations.md)
 - [docs/roadmap/vscode-extension.md](./docs/roadmap/vscode-extension.md)
 
-Эти docs нельзя читать как доказательство, что такие integrations уже shipped.
+Эти docs нельзя читать как доказательство hosted services, official integrations или plugin marketplace.
 
 ## Release notes
 
-- [docs/release-v0.8.1.md](./docs/release-v0.8.1.md)
+- [docs/release-v0.8.2.md](./docs/release-v0.8.2.md)

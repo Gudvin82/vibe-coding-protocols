@@ -24,6 +24,15 @@ If the project is already an AI-generated MVP, inspect:
 - `docs/mvp-adoption-track.md`
 - `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 
+## If the user asks about integrations or dashboard surfaces
+
+Inspect:
+- `docs/integrations/status-model.md`
+- `.vcp/integrations.json`
+- `docs/dashboard.md`
+- `docs/plugins/README.md`
+- `docs/metrics-board.md`
+
 ## Use safe adoption outputs
 
 ```bash

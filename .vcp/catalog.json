@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.1",
+  "version": "v0.8.2",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -116,6 +116,20 @@
     "docs/mvp-adoption-track.md",
     "docs/demos/raw-ai-mvp-to-controlled-launch.md",
     "docs/proof-layer.md",
-    "docs/roadmap/integrations.md"
+    "docs/roadmap/integrations.md",
+    "docs/integrations/status-model.md",
+    "docs/dashboard.md",
+    "docs/plugins/README.md",
+    "docs/plugins/plugin-contract-draft.md",
+    "docs/plugins/plugin-safety.md",
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md"
+  ],
+  "integration_status_labels": [
+    "shipped",
+    "local-template",
+    "experimental",
+    "roadmap",
+    "not-shipped"
   ]
 }

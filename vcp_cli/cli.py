@@ -13,6 +13,7 @@ from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import classify as classify_cmd
 from . import diagnose as diagnose_cmd
+from . import dashboard_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
 from . import evaluate as evaluate_cmd
@@ -20,7 +21,9 @@ from . import init_cmd
 from . import index_cmd
 from . import cards as cards_cmd
 from . import manifest as manifest_cmd
+from . import metrics_cmd
 from . import onboard as onboard_cmd
+from . import plugins_cmd
 from . import preset_cmd
 from . import public_growth as public_growth_cmd
 from . import review as review_cmd
@@ -260,6 +263,26 @@ def build_parser() -> argparse.ArgumentParser:
     public_growth_check.add_argument("--site")
     public_growth_check.add_argument("--json", action="store_true")
 
+    dashboard_p = sub.add_parser("dashboard")
+    dashboard_sub = dashboard_p.add_subparsers(dest="dashboard_command")
+    dashboard_build = dashboard_sub.add_parser("build")
+    dashboard_build.add_argument("--output", required=True)
+    dashboard_build.add_argument("--dry-run", action="store_true")
+    dashboard_build.add_argument("--json", action="store_true")
+
+    plugins_p = sub.add_parser("plugins")
+    plugins_sub = plugins_p.add_subparsers(dest="plugins_command")
+    plugins_list = plugins_sub.add_parser("list")
+    plugins_list.add_argument("--json", action="store_true")
+    plugins_validate = plugins_sub.add_parser("validate")
+    plugins_validate.add_argument("path")
+    plugins_validate.add_argument("--json", action="store_true")
+
+    metrics_p = sub.add_parser("metrics")
+    metrics_sub = metrics_p.add_subparsers(dest="metrics_command")
+    metrics_board = metrics_sub.add_parser("board")
+    metrics_board.add_argument("--json", action="store_true")
+
     diagnose_p = sub.add_parser("diagnose")
     diagnose_p.add_argument("--profile")
     diagnose_p.add_argument("--json", action="store_true")
@@ -467,6 +490,20 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "public-growth":
         if args.public_growth_command in {None, "check"}:
             return public_growth_cmd.run(getattr(args, "site", None), getattr(args, "json", False))
+    if args.command == "dashboard":
+        if args.dashboard_command is None:
+            print("Use `vcp dashboard build --output ./vcp-dashboard [--json]`.")
+            return 1
+        if args.dashboard_command == "build":
+            return dashboard_cmd.run_build(args.output, dry_run=getattr(args, "dry_run", False), json_mode=getattr(args, "json", False))
+    if args.command == "plugins":
+        if args.plugins_command in {None, "list"}:
+            return plugins_cmd.run_list(getattr(args, "json", False))
+        if args.plugins_command == "validate":
+            return plugins_cmd.run_validate(args.path, getattr(args, "json", False))
+    if args.command == "metrics":
+        if args.metrics_command in {None, "board"}:
+            return metrics_cmd.run_board(getattr(args, "json", False))
     if args.command == "diagnose":
         return diagnose_cmd.run(args.profile, getattr(args, "json", False))
     if args.command == "backlog":

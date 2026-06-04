@@ -16,4 +16,4 @@ Use this page when you want the roadmap in docs navigation without repeating rel
 
 For missing external proof layers, see [public-proof-roadmap.md](./public-proof-roadmap.md).
 
-- `v0.8.1`: 10-minute adoption path, killer demo, and product narrative sync
+- `v0.8.2`: 10-minute adoption path, killer demo, and product narrative sync

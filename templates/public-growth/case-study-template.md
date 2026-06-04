@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.8.1 -->
+<!-- vcp-version: v0.8.2 -->
 
 <!-- vcp-artifact: PUBLIC_GROWTH_CASE_STUDY -->
-<!-- vcp-version: v0.8.1 -->
+<!-- vcp-version: v0.8.2 -->
 <!-- methodology-version: v1.4 -->
 
 # Case Study Template

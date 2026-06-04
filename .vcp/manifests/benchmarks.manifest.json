@@ -1425,7 +1425,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.1.md"
+        "docs/release-v0.8.2.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -1464,6 +1464,117 @@
         "do not claim official extension, marketplace, dashboard, or public package availability unless real"
       ],
       "expected_first_action": "State which integration surfaces are shipped, local, template-based, or roadmap-only."
+    },
+    {
+      "id": "integration-status-model",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/integration-status-model.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/status-model.md",
+        ".vcp/integrations.json",
+        "docs/roadmap/integrations.md"
+      ],
+      "expected_warnings": [
+        "do not call roadmap or not-shipped surfaces implemented"
+      ],
+      "expected_first_action": "Inspect the status model and integration registry before claiming integrations are shipped."
+    },
+    {
+      "id": "local-dashboard-artifact",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/local-dashboard-artifact.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/dashboard.md",
+        "vcp_cli/dashboard_cmd.py",
+        "docs/metrics-board.md"
+      ],
+      "expected_warnings": [
+        "do not call the dashboard hosted or SaaS"
+      ],
+      "expected_first_action": "Generate the local artifact before describing dashboard behavior."
+    },
+    {
+      "id": "plugin-contract-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/plugin-contract-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/plugins/plugin-contract-draft.md",
+        "docs/plugins/plugin-safety.md",
+        "examples/plugins/example-readiness-check.plugin.json"
+      ],
+      "expected_warnings": [
+        "do not call the plugin draft a marketplace or stable API"
+      ],
+      "expected_first_action": "Inspect plugin metadata and safety boundaries before claiming plugin support."
+    },
+    {
+      "id": "metrics-board-local-only",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/metrics-board-local-only.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/metrics-board.md",
+        "docs/audit-backlog-visualization.md",
+        "vcp_cli/metrics_cmd.py"
+      ],
+      "expected_warnings": [
+        "do not describe local metrics as objective truth or launch guarantee"
+      ],
+      "expected_first_action": "Inspect local metrics outputs before making readiness claims."
+    },
+    {
+      "id": "audit-backlog-visualization",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/audit-backlog-visualization.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/audit-backlog-visualization.md",
+        "PROJECT_BACKLOG.md",
+        "vcp_cli/dashboard_cmd.py"
+      ],
+      "expected_warnings": [
+        "do not describe backlog visualization as a hosted board"
+      ],
+      "expected_first_action": "Use local metrics or dashboard artifacts to summarize backlog state."
+    },
+    {
+      "id": "install-reliability",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/install-reliability.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/install.md",
+        "docs/pip-install.md",
+        "docs/distribution.md"
+      ],
+      "expected_warnings": [
+        "do not hide build isolation, no-build-isolation fallback, or permission caveats"
+      ],
+      "expected_first_action": "Recommend the venv path before claiming install reliability."
+    },
+    {
+      "id": "vscode-roadmap-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/vscode-roadmap-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/roadmap/vscode-extension.md",
+        "docs/roadmap/integrations.md"
+      ],
+      "expected_warnings": [
+        "do not imply a shipped VS Code extension or marketplace listing"
+      ],
+      "expected_first_action": "Treat the VS Code extension as roadmap-only."
     }
   ]
 }

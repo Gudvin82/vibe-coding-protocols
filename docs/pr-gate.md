@@ -2,54 +2,41 @@
 
 Before merge, run VCP PR Gate.
 
-VCP PR Gate is one of the main adoption paths for teams that already have a repository and want trust signals before merge.
-
-It is a decision surface, not a security certification.
-It is also not a GitHub Marketplace Action unless that is explicitly published.
+VCP PR Gate is a decision surface for teams that want visible diff-risk and control signals before merge.
+It is not a security certification and not a GitHub Marketplace Action unless explicitly published.
 
 ## Easiest adoption path
 
 Use the workflow template in `ci-examples/github-actions/vcp-pr-gate.yml`.
 
-The safe default for general repositories is:
-- install VCP from a pinned Git tag;
+Safe default:
+- pin a stable tag such as `@v0.8.2`;
 - run `vcp review-diff --json`;
 - optionally run `vcp classify --json`;
-- add stricter VCP commands only after the repository has adopted matching VCP surfaces.
+- add stricter commands only after the repository has adopted matching VCP surfaces.
 
 ## PR Gate outcomes
 
 - `pass`: diff risk is visible and no unresolved control gap blocks merge.
-- `warn`: merge may still be allowed, but the repository owes follow-up work or stronger validation evidence.
+- `warn`: merge may still be allowed, but stronger validation or follow-up is owed.
 - `block`: merge should stop until the control gap is fixed.
+
+## Local dry-run equivalent
+
+```bash
+python3 -m vcp_cli review-diff --json
+python3 -m vcp_cli classify --json
+```
 
 ## Typical block conditions
 
-- `review-diff` shows high-risk or governed work without matching validation.
-- architecture drift is visible but project memory and backlog were not updated.
-- release-critical change has no PR Gate note, no rollback note, or no release-readiness evidence.
-- VCP-managed repo surfaces are red after VCP has been adopted into that repository.
+- governed or high-risk change without matching validation;
+- architecture drift without memory or backlog updates;
+- release-critical change without release-readiness evidence.
 
-## Pin stable versions
+## What PR Gate is not
 
-For adoption in another repository, prefer a pinned tag such as `@v0.8.1`.
-Use `main` only for experiments.
-
-## Fail-on behavior
-
-The workflow template documents simple modes:
-- fail on `block`;
-- fail on `warn`;
-- never fail, report only.
-
-Choose the strictness that matches your repository maturity.
-
-## Related files
-
-- `docs/github-action.md`
-- `docs/pr-gate-action.md`
-- `docs/release-readiness.md`
-- `docs/architecture-drift.md`
-- `ci-examples/github-actions/vcp-pr-gate.yml`
-- `.github/workflows/vibe-check.yml`
-- `templates/reports/pr-gate-report.md`
+- not a marketplace action;
+- not an enterprise-grade policy engine;
+- not an automatic merge block unless the target workflow is configured that way;
+- not a security certification.

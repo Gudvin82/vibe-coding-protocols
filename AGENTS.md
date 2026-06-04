@@ -3,7 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
-If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.1`.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.2`.
 
 Required inspection path:
 
@@ -39,6 +39,9 @@ Two-track model: `docs/two-track-model.md`
 MVP adoption track: `docs/mvp-adoption-track.md`
 Raw AI MVP demo: `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 Proof layer: `docs/proof-layer.md`
+Integration status model: `docs/integrations/status-model.md`
+Integration registry: `.vcp/integrations.json`
+Dashboard artifact: `docs/dashboard.md`
 Project memory: `docs/project-memory-model.md`
 PR Gate: `docs/pr-gate.md`
 Release readiness: `docs/release-readiness.md`
@@ -114,6 +117,7 @@ Route to:
 - `docs/mvp-adoption-track.md`
 - `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 - `TAKE_THIS_FIRST.md`
+- `docs/integrations/status-model.md`
 
 ## If the user says “Compare with Spec Kit”
 

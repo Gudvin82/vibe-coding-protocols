@@ -2,7 +2,7 @@
 
 Use this file before calling any VCP evaluation `full`.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.1`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.2`.
 
 ## Evaluation modes
 
@@ -25,6 +25,9 @@ If you are naming the current GitHub repository release, use `Vibe Coding Protoc
 - `README_ru.md`
 - `docs/distribution.md`
 - `docs/install.md`
+- `docs/integrations/status-model.md`
+- `docs/dashboard.md`
+- `docs/plugins/README.md`
 - `docs/adoption-tiers.md`
 - `docs/10-minute-adoption-path.md`
 - `docs/mvp-adoption-track.md`
@@ -56,3 +59,5 @@ If you are naming the current GitHub repository release, use `Vibe Coding Protoc
 ## Practical audit rule
 
 If you did not inspect onboarding/classify/adopt/release-check surfaces plus the 10-minute adoption path and raw AI-MVP demo, your review may describe the repo correctly, but not its first-user adoption maturity.
+
+If you skipped `.vcp/integrations.json`, dashboard build, metrics board, or plugin metadata validation, your review is not complete for `v0.8.2`.

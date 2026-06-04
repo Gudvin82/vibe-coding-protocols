@@ -11,7 +11,7 @@
     "README.md",
     "README_ru.md",
     "AGENTS.md",
-    "docs/release-v0.8.1.md"
+    "docs/release-v0.8.2.md"
   ],
   "expected_first_safe_action": "Summarize the repository around the two-track adoption story instead of historical feature fragments.",
   "expected_warnings": [

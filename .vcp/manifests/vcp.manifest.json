@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.8.1",
+  "package_version": "v0.8.2",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.1.md",
+    "docs/release-v0.8.2.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -63,7 +63,13 @@
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/workflows.md",
     "llms-full.txt",
-    "llms.txt"
+    "llms.txt",
+    ".vcp/integrations.json",
+    "docs/integrations/status-model.md",
+    "docs/dashboard.md",
+    "docs/plugins/README.md",
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -119,7 +125,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.1.md",
+    "docs/release-v0.8.2.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
@@ -139,7 +145,14 @@
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/windows.md",
-    "docs/workflows.md"
+    "docs/workflows.md",
+    "docs/integrations/status-model.md",
+    "docs/dashboard.md",
+    "docs/plugins/README.md",
+    "docs/plugins/plugin-contract-draft.md",
+    "docs/plugins/plugin-safety.md",
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -190,7 +203,10 @@
     "spec",
     "version",
     "workflow",
-    "workflow run"
+    "workflow run",
+    "dashboard",
+    "plugins",
+    "metrics"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",
@@ -215,7 +231,11 @@
     "tests/test_score_logic.py",
     "tests/test_spec_depth.py",
     "tests/test_version_semantics.py",
-    "tests/test_workflow_plan.py"
+    "tests/test_workflow_plan.py",
+    "tests/test_dashboard_cmd.py",
+    "tests/test_plugins_cmd.py",
+    "tests/test_metrics_board.py",
+    "tests/test_integrations_registry.py"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

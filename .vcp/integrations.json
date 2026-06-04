@@ -1,0 +1,155 @@
+{
+  "version": "v0.8.2",
+  "items": [
+    {
+      "id": "python-cli",
+      "name": "Python CLI",
+      "status": "shipped",
+      "surface": "cli",
+      "entrypoint": "python3 -m vcp_cli",
+      "docs": ["docs/cli.md", "docs/install.md"],
+      "claims": ["local"],
+      "not_claimed": ["hosted", "marketplace"]
+    },
+    {
+      "id": "installed-vcp-console-script",
+      "name": "Installed vcp console command",
+      "status": "shipped",
+      "surface": "cli",
+      "entrypoint": "vcp",
+      "docs": ["docs/install.md", "docs/pip-install.md"],
+      "claims": ["local-install"],
+      "not_claimed": ["public-pypi"]
+    },
+    {
+      "id": "npm-wrapper",
+      "name": "npm wrapper",
+      "status": "shipped",
+      "surface": "cli-wrapper",
+      "entrypoint": "npm run vcp -- evaluate",
+      "docs": ["docs/cli.md", "docs/distribution.md"],
+      "claims": ["local"],
+      "not_claimed": ["npm-publication"]
+    },
+    {
+      "id": "github-actions-pr-gate-template",
+      "name": "GitHub Actions PR Gate template",
+      "status": "local-template",
+      "surface": "workflow-template",
+      "entrypoint": "ci-examples/github-actions/vcp-pr-gate.yml",
+      "docs": ["docs/pr-gate.md", "docs/pr-gate-action.md", "docs/github-action.md"],
+      "claims": ["copy-paste-template"],
+      "not_claimed": ["marketplace-action", "merge-policy-engine"]
+    },
+    {
+      "id": "local-dashboard-artifact",
+      "name": "Local dashboard artifact",
+      "status": "shipped",
+      "surface": "local-artifact",
+      "entrypoint": "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json",
+      "docs": ["docs/dashboard.md", "docs/metrics-board.md"],
+      "claims": ["local-static-output"],
+      "not_claimed": ["hosted-dashboard", "saas"]
+    },
+    {
+      "id": "plugin-contract-draft",
+      "name": "Plugin contract draft",
+      "status": "experimental",
+      "surface": "metadata-scaffold",
+      "entrypoint": "python3 -m vcp_cli plugins validate examples/plugins/example-readiness-check.plugin.json --json",
+      "docs": ["docs/plugins/README.md", "docs/plugins/plugin-contract-draft.md", "docs/plugins/plugin-safety.md"],
+      "claims": ["local-metadata-validation"],
+      "not_claimed": ["plugin-marketplace", "remote-registry", "auto-execution"]
+    },
+    {
+      "id": "pypi-publication",
+      "name": "PyPI publication",
+      "status": "roadmap",
+      "surface": "distribution",
+      "entrypoint": "docs/pypi-publishing.md",
+      "docs": ["docs/pypi-publishing.md", "docs/distribution.md"],
+      "claims": ["manual-future-path"],
+      "not_claimed": ["already-published"]
+    },
+    {
+      "id": "npm-publication",
+      "name": "npm publication",
+      "status": "roadmap",
+      "surface": "distribution",
+      "entrypoint": "docs/distribution.md",
+      "docs": ["docs/distribution.md"],
+      "claims": ["manual-future-path"],
+      "not_claimed": ["already-published"]
+    },
+    {
+      "id": "vs-code-extension",
+      "name": "VS Code extension",
+      "status": "roadmap",
+      "surface": "editor",
+      "entrypoint": "docs/roadmap/vscode-extension.md",
+      "docs": ["docs/roadmap/vscode-extension.md", "docs/roadmap/integrations.md"],
+      "claims": ["future-direction"],
+      "not_claimed": ["marketplace-listing", "extension-package"]
+    },
+    {
+      "id": "hosted-dashboard",
+      "name": "Hosted dashboard",
+      "status": "not-shipped",
+      "surface": "web",
+      "entrypoint": "docs/dashboard.md",
+      "docs": ["docs/dashboard.md", "docs/roadmap/integrations.md"],
+      "claims": [],
+      "not_claimed": ["hosted", "telemetry", "cloud-sync"]
+    },
+    {
+      "id": "plugin-marketplace",
+      "name": "Plugin marketplace",
+      "status": "not-shipped",
+      "surface": "distribution",
+      "entrypoint": "docs/plugins/README.md",
+      "docs": ["docs/plugins/README.md", "docs/roadmap/integrations.md"],
+      "claims": [],
+      "not_claimed": ["marketplace", "registry"]
+    },
+    {
+      "id": "go-cli-rewrite",
+      "name": "Go CLI rewrite",
+      "status": "not-shipped",
+      "surface": "runtime",
+      "entrypoint": "docs/roadmap/integrations.md",
+      "docs": ["docs/roadmap/integrations.md"],
+      "claims": [],
+      "not_claimed": ["go-runtime"]
+    },
+    {
+      "id": "web-control-plane",
+      "name": "Web control plane",
+      "status": "not-shipped",
+      "surface": "web",
+      "entrypoint": "docs/roadmap/integrations.md",
+      "docs": ["docs/roadmap/integrations.md"],
+      "claims": [],
+      "not_claimed": ["hosted-control-plane"]
+    },
+    {
+      "id": "metrics-board",
+      "name": "Metrics board",
+      "status": "shipped",
+      "surface": "cli",
+      "entrypoint": "python3 -m vcp_cli metrics board --json",
+      "docs": ["docs/metrics-board.md", "docs/audit-backlog-visualization.md"],
+      "claims": ["local-readiness-signals"],
+      "not_claimed": ["objective-truth", "launch-guarantee"]
+    },
+    {
+      "id": "audit-backlog-visualization",
+      "name": "Audit backlog visualization",
+      "status": "shipped",
+      "surface": "local-artifact",
+      "entrypoint": "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json",
+      "docs": ["docs/audit-backlog-visualization.md", "docs/dashboard.md"],
+      "claims": ["local-summary"],
+      "not_claimed": ["hosted-board"]
+    }
+  ]
+}

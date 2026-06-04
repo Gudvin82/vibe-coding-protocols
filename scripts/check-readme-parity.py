@@ -14,7 +14,7 @@ CHECKS = [
     ('ai release naming guard', ['report the current GitHub repository release as', CURRENT], ['называй текущий GitHub-релиз репозитория как', CURRENT]),
     ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
     ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
-    ('v0.8.1 release block', ['New in v0.8.1: 10-minute adoption path, killer demo, and product narrative sync'], ['Новое в v0.8.1: 10-minute adoption path, killer demo и product narrative sync']),
+    ('v0.8.2 release block', ['New in v0.8.2: integration scaffold, local dashboard artifacts, and plugin architecture prep'], ['Новое в v0.8.2: integration scaffold, local dashboard artifacts и plugin architecture prep']),
     ('quick start by situation', ['Quick start by situation'], ['Быстрый старт по ситуации']),
     ('two tracks', ['New Project Track', 'Existing Project Track'], ['New Project Track', 'Existing Project Track']),
     ('adoption tiers', ['docs/adoption-tiers.md'], ['docs/adoption-tiers.md']),
@@ -25,6 +25,7 @@ CHECKS = [
     ('install and distribution links', ['docs/install.md', 'docs/distribution.md'], ['docs/install.md', 'docs/distribution.md']),
     ('install and run', ['Install and run', 'python3 -m pip install .', 'Public PyPI/npm packages are not claimed unless explicitly published.'], ['Установить и запустить', 'python3 -m pip install .', 'Публичные PyPI/npm пакеты не заявляются, пока они реально не опубликованы.']),
     ('pr gate workflow link', ['Add VCP to PRs', 'ci-examples/github-actions/vcp-pr-gate.yml'], ['Добавить VCP в PR', 'ci-examples/github-actions/vcp-pr-gate.yml']),
+    ('integration scaffold links', ['docs/integrations/status-model.md', 'docs/dashboard.md', 'docs/plugins/README.md'], ['docs/integrations/status-model.md', 'docs/dashboard.md', 'docs/plugins/README.md']),
 ]
 
 missing: list[str] = []

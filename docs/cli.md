@@ -9,15 +9,23 @@ It does not claim public PyPI or public npm publication unless those packages ar
 
 ## Install and run
 
+Recommended local path:
+
 ```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install --upgrade pip setuptools wheel
 python3 -m pip install .
 vcp doctor
-vcp evaluate --json
+```
+
+No-install fallback from a clone:
+
+```bash
+python3 -m vcp_cli doctor
 ```
 
 ## Productized starting commands
-
-For the shortest first-user flow, pair this page with `docs/10-minute-adoption-path.md` and `docs/demos/raw-ai-mvp-to-controlled-launch.md`.
 
 ```bash
 vcp onboard --json
@@ -28,26 +36,20 @@ vcp release-check --json
 vcp public-growth check --json
 ```
 
-## Main command surfaces
+## New local-first scaffold commands in `v0.8.2`
 
-- `onboard` — first practical next-step guide
-- `classify` — classify repo, track, risk, tier, and route
-- `adopt plan` — safe copy-list / patch preview planner
-- `adopt apply` — explicit safe apply with `--target`, `--confirm`, dry-run, conflicts, and adoption log
-- `spec quality-gate` — new-project entry check
-- `diagnose` — existing-repo readiness by layer
-- `review-diff` — pre-merge risk helper
-- `release-check` — release surface quick check
-- `public-growth check` — public-growth readiness check
-- `workflow plan` — planning view for workflow JSON
-- `workflow run --interactive --dry-run` — safe preview-only workflow runner
-- `score` — local readiness signal
+```bash
+python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json
+python3 -m vcp_cli metrics board --json
+python3 -m vcp_cli plugins list --json
+python3 -m vcp_cli plugins validate examples/plugins/example-readiness-check.plugin.json --json
+```
 
 ## Safety boundaries
 
 The CLI:
 - does not call external AI APIs;
 - does not auto-apply adoption packs silently;
-- does not silently write into another project;
 - does not overwrite existing files by default in `adopt apply`;
-- does not claim workflow JSON is an execution engine.
+- does not run plugins;
+- does not expose a hosted dashboard or hidden execution engine.

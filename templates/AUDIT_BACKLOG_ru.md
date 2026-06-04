@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.8.1 -->
+<!-- vcp-version: v0.8.2 -->
 
 # AUDIT_BACKLOG — русская версия
 

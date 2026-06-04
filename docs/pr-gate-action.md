@@ -1,32 +1,41 @@
 # PR Gate Workflow Template
 
-`v0.8.1` makes PR Gate easier to adopt through a workflow template first.
-
-This release does not claim a GitHub Marketplace Action and does not require a composite action.
+`v0.8.2` keeps PR Gate as a workflow template path, not a marketplace action claim.
 
 ## Recommended template
 
 Use:
-
 - `ci-examples/github-actions/vcp-pr-gate.yml`
 
-## What it does
+## Copy-paste path
 
-The workflow template:
-- checks out the caller repository;
-- installs VCP from a pinned Git tag;
-- runs `vcp review-diff --json`;
-- optionally runs `vcp classify --json`;
-- leaves fail-on behavior explicit.
+1. copy the workflow into `.github/workflows/` in the target repository;
+2. pin a stable tag such as `@v0.8.2`;
+3. start with `vcp review-diff --json`;
+4. add `vcp classify --json` only if the repository benefits from route output too;
+5. choose whether `warn` should fail the workflow or only annotate review.
 
-## Why template first
+## Expected outputs
 
-For `v0.8.1`, a workflow template is safer than a composite action because it avoids checkout ambiguity between:
-- the caller repository;
-- the VCP source used for installation.
+- JSON diff-risk output from `review-diff`;
+- optional route and tier context from `classify`;
+- a workflow artifact if the target repository enables artifact upload.
 
-## Stability guidance
+## Local dry-run equivalent
 
-- use a tag such as `@v0.8.1` for stable adoption;
-- use `main` only for experiments;
-- treat the workflow as decision support, not certification.
+```bash
+python3 -m vcp_cli review-diff --json
+python3 -m vcp_cli classify --json
+```
+
+## Limitations
+
+- not a GitHub Marketplace Action;
+- not an enterprise policy engine;
+- not a security certification;
+- does not auto-block merges unless the caller workflow is configured to do that.
+
+## Optional artifact upload
+
+If the caller repository already uploads CI artifacts, attach the JSON outputs from `review-diff` or `classify` there.
+`v0.8.2` does not add a special artifact service of its own.

@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.1",
+  "version": "v0.8.2",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {
@@ -36,7 +36,13 @@
     "docs/mvp-adoption-track.md",
     "docs/demos/raw-ai-mvp-to-controlled-launch.md",
     "docs/proof-layer.md",
-    "docs/roadmap/integrations.md"
+    "docs/roadmap/integrations.md",
+    ".vcp/integrations.json",
+    "docs/integrations/status-model.md",
+    "docs/dashboard.md",
+    "docs/plugins/README.md",
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md"
   ],
   "minimum_raw_files": [
     "README.md",
@@ -44,7 +50,8 @@
     "TAKE_THIS_FIRST.md",
     "FULL_REPO_INTAKE.md",
     ".vcp/index.json",
-    ".vcp/ai-audit-manifest.json"
+    ".vcp/ai-audit-manifest.json",
+    ".vcp/integrations.json"
   ],
   "must_report": [
     "access_method",
@@ -60,6 +67,8 @@
     "Do not call a README-only review full.",
     "Do not call VCP a prompt pack unless .vcp, CLI, workflows, benchmarks and review gates were inspected.",
     "Do not assess CLI maturity unless vcp_cli or CLI docs were inspected.",
-    "Do not assess benchmark coverage unless benchmarks/manifests were inspected."
+    "Do not assess benchmark coverage unless benchmarks/manifests were inspected.",
+    "Do not call the dashboard hosted or SaaS unless a hosted implementation exists.",
+    "Do not call the plugin scaffold a marketplace or stable official plugin API."
   ]
 }

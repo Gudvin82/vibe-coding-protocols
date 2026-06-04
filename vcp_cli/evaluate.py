@@ -69,6 +69,13 @@ KEY_FILES = [
     "docs/quickstart-walkthrough.md",
     "docs/demo-script.md",
     "docs/workflows.md",
+    "docs/integrations/status-model.md",
+    "docs/dashboard.md",
+    "docs/plugins/README.md",
+    "docs/plugins/plugin-contract-draft.md",
+    "docs/plugins/plugin-safety.md",
+    "docs/metrics-board.md",
+    "docs/audit-backlog-visualization.md",
     "docs/diagnostics.md",
     "docs/catalog.md",
     "docs/event-schema.md",
@@ -103,6 +110,9 @@ CLI_COMMANDS = [
     "preset",
     "review-diff",
     "release-check",
+    "dashboard",
+    "plugins",
+    "metrics",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -121,6 +131,7 @@ INSPECTION_PATH = [
     "docs/project-memory-model.md",
     "docs/principles.md",
     ".vcp/index.json",
+    ".vcp/integrations.json",
     ".vcp/cards/",
 ]
 
@@ -128,6 +139,7 @@ FULL_EVALUATION_REQUIRES = [
     "FULL_REPO_INTAKE.md",
     ".vcp/ai-audit-manifest.json",
     ".vcp/index.json",
+    ".vcp/integrations.json",
     ".vcp/cards/",
     "vcp_cli/",
     "templates/",
@@ -288,6 +300,20 @@ def evaluate_payload() -> dict[str, object]:
         "onboard_command_present": runtime_path_exists(root, "vcp_cli/onboard.py"),
         "classify_command_present": runtime_path_exists(root, "vcp_cli/classify.py"),
         "public_growth_check_present": runtime_path_exists(root, "vcp_cli/public_growth.py"),
+        "dashboard_command_present": runtime_path_exists(root, "vcp_cli/dashboard_cmd.py"),
+        "plugins_command_present": runtime_path_exists(root, "vcp_cli/plugins_cmd.py"),
+        "metrics_board_present": runtime_path_exists(root, "vcp_cli/metrics_cmd.py"),
+        "integration_status_model_present": (root / "docs/integrations/status-model.md").exists(),
+        "integration_registry_present": runtime_path_exists(root, ".vcp/integrations.json"),
+        "dashboard_doc_present": (root / "docs/dashboard.md").exists(),
+        "plugin_docs_present": all(
+            (root / rel).exists()
+            for rel in [
+                "docs/plugins/README.md",
+                "docs/plugins/plugin-contract-draft.md",
+                "docs/plugins/plugin-safety.md",
+            ]
+        ),
         "key_files": key_files,
         "manifest_directory": str(manifest_dir(root)),
         "benchmark_count": _benchmark_count(root),
@@ -379,6 +405,13 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Onboard command present: {'yes' if payload['onboard_command_present'] else 'no'}")
     print(f"Classify command present: {'yes' if payload['classify_command_present'] else 'no'}")
     print(f"Public growth check present: {'yes' if payload['public_growth_check_present'] else 'no'}")
+    print(f"Dashboard command present: {'yes' if payload['dashboard_command_present'] else 'no'}")
+    print(f"Plugins command present: {'yes' if payload['plugins_command_present'] else 'no'}")
+    print(f"Metrics board present: {'yes' if payload['metrics_board_present'] else 'no'}")
+    print(f"Integration status model present: {'yes' if payload['integration_status_model_present'] else 'no'}")
+    print(f"Integration registry present: {'yes' if payload['integration_registry_present'] else 'no'}")
+    print(f"Dashboard doc present: {'yes' if payload['dashboard_doc_present'] else 'no'}")
+    print(f"Plugin docs present: {'yes' if payload['plugin_docs_present'] else 'no'}")
     print(f"Two-track model present: {'yes' if payload['two_track_model_present'] else 'no'}")
     print(f"Spec foundation present: {'yes' if payload['spec_foundation_present'] else 'no'}")
     print(f"Spec quality gate present: {'yes' if payload['spec_quality_gate_present'] else 'no'}")
