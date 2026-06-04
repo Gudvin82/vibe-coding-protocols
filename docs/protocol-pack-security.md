@@ -1,7 +1,6 @@
 # Protocol Pack Security
 
-VCP packs should be inspectable before they are adopted.
-This page defines the trust model for adoption packs, protocol packs, command packs, and future external packs.
+VCP packs must be inspectable before they are adopted.
 
 ## Trust levels
 
@@ -12,42 +11,18 @@ This page defines the trust model for adoption packs, protocol packs, command pa
 - `experimental`
 - `deprecated`
 
-## Pack source
+## Safe adoption rule
 
-Each pack should state:
-- source;
-- owner;
-- version;
-- trust level;
-- intended use;
-- required files;
-- commands if any;
-- whether it modifies code, docs, CI, settings, or workflows.
+External or higher-risk packs must go through:
+- `vcp classify`;
+- `vcp adopt plan`;
+- manual review of files touched;
+- validation commands;
+- PR Gate or equivalent review path.
 
-## External pack rules
+## Never do this
 
-External packs:
-- must not be applied blindly;
-- must not require secrets in docs or prompts;
-- must not modify CI or release gates without review;
-- must not add network calls without an explicit note;
-- must not weaken VCP safety boundaries;
-- must go through PR Gate or `review-diff` before merge.
-
-## Pack mutation rules
-
-If a pack changes:
-- run cards, index, and manifests validation;
-- update version metadata;
-- update report templates if needed;
-- add a changelog note;
-- review source and scope.
-
-## CLI-friendly checklist
-
-- identify source and owner;
-- classify trust level;
-- list touched files;
-- note code, docs, CI, settings, and workflow impact;
-- validate cards, index, manifests, and benchmarks;
-- pass through review before merge.
+- do not apply packs blindly;
+- do not let a pack overwrite CI or release gates without explicit review;
+- do not hide network behavior;
+- do not weaken VCP safety boundaries.

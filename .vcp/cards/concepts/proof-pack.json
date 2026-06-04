@@ -1,0 +1,67 @@
+{
+  "id": "proof-pack",
+  "type": "concept",
+  "name": "Proof Pack",
+  "summary": "Labeled proof surfaces for case studies, adopters, and public evidence.",
+  "use_when": [
+    "proof is needed without fake metrics"
+  ],
+  "do_not_use_when": [
+    "unsupported KPI claims are being drafted"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "proof inflation"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust gap"
+    ]
+  },
+  "entry_files": [
+    "docs/proof-pack.md",
+    "case-studies/README.md",
+    "ADOPTERS.md"
+  ],
+  "related_files": [
+    "templates/reports/case-study-proof-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli public-growth check --json"
+  ],
+  "outputs": [
+    "proof boundaries and labeled evidence"
+  ],
+  "stop_conditions": [
+    "do not fake independent adopters or metrics"
+  ],
+  "validation": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "version": "v0.7.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "proof"
+  ]
+}

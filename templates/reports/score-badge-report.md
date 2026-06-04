@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.6.7 -->
+<!-- vcp-version: v0.7.0 -->
 <!-- methodology-version: v1.4 -->
 # Score Badge Report
 

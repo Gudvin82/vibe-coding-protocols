@@ -1,27 +1,27 @@
 # Version Semantics
 
-Vibe Coding Protocols uses two version concepts.
+Vibe Coding Protocols uses two labeled version concepts.
 
-## Repository package version
+## Repository package
 
-The repository package version describes the GitHub toolkit package: CLI, docs, templates, manifests, cards, benchmarks, reports, examples, and release packaging.
+The repository package describes the GitHub toolkit release: CLI, docs, templates, manifests, cards, benchmarks, reports, examples, tests, and release packaging.
 
-Current repository package version: `v0.6.7`.
+Current repository package version: `v0.7.0`.
 
-## Methodology version
+## Methodology layer
 
-The methodology version describes the stable protocol and methodology layer that can remain compatible across several repository package releases.
+The methodology layer describes the stable protocol and method layer that can remain compatible across several repository package releases.
 
-Current methodology version: `v1.4`.
+Current methodology layer: `v1.4`.
 
 ## How to cite VCP
 
-When referring to the current GitHub repository release, use:
+When referring to the GitHub release, use:
 
-`Vibe Coding Protocols v0.6.7`
+`Vibe Coding Protocols v0.7.0`
 
-When referring to the methodology layer, use:
+When referring to the stable method, use:
 
-`VCP methodology v1.4`
+`VCP methodology layer v1.4`
 
 Do not call the repository package `v1.4`.

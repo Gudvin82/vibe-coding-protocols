@@ -5,8 +5,8 @@ from pathlib import Path
 from .utils import print_output, repo_root
 
 
-def run(json_mode: bool = False) -> int:
-    root = repo_root()
+def payload(root: Path | None = None) -> dict[str, object]:
+    root = repo_root(root)
     checks = {
         "version": (root / "VERSION").exists(),
         "readme": (root / "README.md").exists(),
@@ -18,6 +18,9 @@ def run(json_mode: bool = False) -> int:
         "pr_gate_doc": (root / "docs/pr-gate.md").exists(),
         "release_readiness_doc": (root / "docs/release-readiness.md").exists(),
         "architecture_drift_doc": (root / "docs/architecture-drift.md").exists(),
+        "distribution_doc": (root / "docs/distribution.md").exists(),
+        "adoption_tiers_doc": (root / "docs/adoption-tiers.md").exists(),
+        "proof_pack_doc": (root / "docs/proof-pack.md").exists(),
         "project_backlog": (root / "PROJECT_BACKLOG.md").exists(),
         "project_map": (root / "PROJECT_MAP.md").exists(),
     }
@@ -25,7 +28,7 @@ def run(json_mode: bool = False) -> int:
     status = "pass"
     if missing:
         status = "block" if len(missing) >= 3 else "warn"
-    payload = {
+    return {
         "ok": status != "block",
         "status": status,
         "checked": checks,
@@ -44,5 +47,9 @@ def run(json_mode: bool = False) -> int:
         ),
         "note": "Release Check is a lightweight repository surface check. It does not replace full validation or clean-clone verification.",
     }
-    print_output(payload, json_mode)
-    return 0 if status != "block" else 1
+
+
+def run(json_mode: bool = False) -> int:
+    data = payload()
+    print_output(data, json_mode)
+    return 0 if data["status"] != "block" else 1

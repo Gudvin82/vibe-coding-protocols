@@ -519,7 +519,7 @@ def validate_version_consistency(root: Path) -> dict[str, Any]:
         (root / "README_ru.md", repo_ver, "README_ru repository package"),
         (root / "CHANGELOG.md", repo_ver, "CHANGELOG entry"),
         (root / "docs/versioning.md", f"Repository package `{repo_ver}`", "docs/versioning repo version"),
-        (root / "docs/versioning.md", f"Methodology version `{method_ver}`", "docs/versioning methodology version"),
+        (root / "docs/versioning.md", f"Methodology layer `{method_ver}`", "docs/versioning methodology layer"),
         (root / f"docs/release-{repo_ver}.md", repo_ver, "release notes title"),
         (vcp_manifest, f'"package_version": "{repo_ver}"', "vcp manifest package version"),
         (vcp_manifest, f'"methodology_version": "{method_ver}"', "vcp manifest methodology version"),

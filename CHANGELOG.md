@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.7.0
+
+- productized practical adoption with onboard/classify/adopt plan/public-growth checks;
+- added honest distribution and adoption tier surfaces;
+- added proof pack and labeled case-study surfaces;
+- added stdlib unittest coverage for CLI business logic;
+
 ## v0.6.7
 
 - Strengthened the two-track VCP model: New Project Track and Existing Project Track.

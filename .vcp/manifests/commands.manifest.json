@@ -1,6 +1,33 @@
 {
   "items": [
     {
+      "id": "adopt-plan",
+      "command_name": "vcp adopt plan",
+      "file": "docs/adoption-packs.md",
+      "route": "adoption",
+      "inputs": [
+        "pack id"
+      ],
+      "output": "non-destructive adoption plan",
+      "validation": [
+        "python3 -m vcp_cli adopt plan --pack production --json"
+      ]
+    },
+    {
+      "id": "audit-plan",
+      "command_name": "vcp audit-plan",
+      "file": "FULL_REPO_INTAKE.md",
+      "route": "intake",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "evaluation modes, required files, and failure contract",
+      "validation": [
+        ".vcp/ai-audit-manifest.json parses",
+        "audit-plan --json"
+      ]
+    },
+    {
       "id": "backlog-add",
       "command_name": "vcp backlog add",
       "file": "docs/project-backlog.md",
@@ -188,6 +215,19 @@
       ]
     },
     {
+      "id": "classify",
+      "command_name": "vcp classify",
+      "file": "docs/cli.md",
+      "route": "intake",
+      "inputs": [
+        "repository state"
+      ],
+      "output": "project classification payload",
+      "validation": [
+        "python3 -m vcp_cli classify --json"
+      ]
+    },
+    {
       "id": "daily-error-triage",
       "command_name": "/daily-error-triage",
       "file": "commands/daily-error-triage.md",
@@ -274,6 +314,19 @@
       ]
     },
     {
+      "id": "onboard",
+      "command_name": "vcp onboard",
+      "file": "docs/cli.md",
+      "route": "intake",
+      "inputs": [
+        "repository state"
+      ],
+      "output": "recommended track, tier, route, and next commands",
+      "validation": [
+        "python3 -m vcp_cli onboard --json"
+      ]
+    },
+    {
       "id": "preset-list",
       "command_name": "vcp preset list",
       "file": "docs/packs-and-presets.md",
@@ -326,6 +379,34 @@
       "validation": [
         "read-only evidence",
         "sanitized capture"
+      ]
+    },
+    {
+      "id": "public-growth-check",
+      "command_name": "vcp public-growth check",
+      "file": "docs/public-growth/geo-checks.md",
+      "route": "public-growth",
+      "inputs": [
+        "optional site"
+      ],
+      "output": "public growth readiness summary",
+      "validation": [
+        "python3 -m vcp_cli public-growth check --json"
+      ]
+    },
+    {
+      "id": "release-check",
+      "command_name": "vcp release-check",
+      "file": "docs/release-readiness.md",
+      "route": "release",
+      "inputs": [
+        "repository release-control surfaces"
+      ],
+      "output": "pass/warn/block release-control signal",
+      "validation": [
+        "check-version-consistency",
+        "cards validate",
+        "index validate"
       ]
     },
     {
@@ -394,6 +475,19 @@
       "output": "PRD draft plus open questions",
       "validation": [
         "PRD scope clarified"
+      ]
+    },
+    {
+      "id": "spec-quality-gate",
+      "command_name": "vcp spec quality-gate",
+      "file": "docs/spec-quality-gate.md",
+      "route": "spec-first",
+      "inputs": [
+        "local spec-foundation artifacts"
+      ],
+      "output": "pass/warn/block spec quality signal",
+      "validation": [
+        "spec validate"
       ]
     },
     {
@@ -551,45 +645,16 @@
       ]
     },
     {
-      "id": "spec-quality-gate",
-      "command_name": "vcp spec quality-gate",
-      "file": "docs/spec-quality-gate.md",
-      "route": "spec-first",
+      "id": "workflow-plan",
+      "command_name": "vcp workflow plan",
+      "file": "docs/workflows.md",
+      "route": "workflow",
       "inputs": [
-        "local spec-foundation artifacts"
+        "optional workflow id"
       ],
-      "output": "pass/warn/block spec quality signal",
+      "output": "workflow planning view",
       "validation": [
-        "spec validate"
-      ]
-    },
-    {
-      "id": "release-check",
-      "command_name": "vcp release-check",
-      "file": "docs/release-readiness.md",
-      "route": "release",
-      "inputs": [
-        "repository release-control surfaces"
-      ],
-      "output": "pass/warn/block release-control signal",
-      "validation": [
-        "check-version-consistency",
-        "cards validate",
-        "index validate"
-      ]
-    },
-    {
-      "id": "audit-plan",
-      "command_name": "vcp audit-plan",
-      "file": "FULL_REPO_INTAKE.md",
-      "route": "intake",
-      "inputs": [
-        "optional --json"
-      ],
-      "output": "evaluation modes, required files, and failure contract",
-      "validation": [
-        ".vcp/ai-audit-manifest.json parses",
-        "audit-plan --json"
+        "python3 -m vcp_cli workflow plan --json"
       ]
     }
   ],

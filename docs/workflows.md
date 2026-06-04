@@ -1,17 +1,23 @@
 # Workflows
 
-Repository package: `v0.6.1`
+Repository package: `v0.7.0`
 
-VCP workflows are structured guidance records, not an automation engine.
+VCP workflow JSON files are machine-readable planning and governance artifacts.
+They are **not** an execution engine.
 
-Each workflow defines:
-- trigger
-- route
-- ordered steps
-- required artifacts
-- outputs
-- validation
-- stop conditions
-- related cards
+## What workflow JSON is for
 
-Use workflows to keep AI-assisted delivery repeatable without pretending that the repository can execute production actions on its own.
+- capture trigger -> route -> steps -> validation -> stop conditions;
+- keep repeated AI delivery flows visible to humans, CLI, and CI;
+- help AI agents plan without pretending the repo can execute production actions.
+
+## Practical CLI surface
+
+```bash
+python3 -m vcp_cli workflow list --json
+python3 -m vcp_cli workflow validate --json
+python3 -m vcp_cli workflow plan --json
+```
+
+`workflow plan` prints steps and validation only.
+It does not run external actions.

@@ -1,89 +1,52 @@
-# FULL_REPO_INTAKE.md
+# Full Repo Intake
 
-Use this when a user says:
-
-- "evaluate this repository"
-- "study VCP"
-- "compare VCP with another project"
-- "what should I take from VCP?"
-- "is this just a prompt pack?"
-- "how mature is this repo?"
-
-## Do not evaluate from summaries alone
-
-If you used WebFetch summaries, GitHub HTML previews or README-only inspection, mark your evaluation as shallow or partial.
-Do not present it as full repository analysis.
+Use this file before calling any VCP evaluation `full`.
 
 ## Evaluation modes
 
-### shallow
+- `shallow`: README or WebFetch summary only.
+- `partial`: some entrypoints inspected, but CLI, `.vcp`, templates, or benchmarks missing.
+- `strong`: core docs, index, cards, and major tracks inspected.
+- `full`: raw repository access plus CLI, `.vcp`, templates, manifests, and benchmarks inspected.
 
-Criteria:
-- README only;
-- GitHub repo page only;
-- WebFetch summary only;
-- fewer than 5 required artifacts inspected.
+## Required path for a full practical audit
 
-Allowed claims:
-- high-level positioning only.
-
-Not allowed:
-- maturity score;
-- CLI quality assessment;
-- full repository conclusion;
-- "VCP is only X" claims.
-
-### partial
-
-Criteria:
-- README + AGENTS + TAKE_THIS_FIRST inspected;
-- some protocols/docs inspected;
-- `.vcp`, CLI, benchmarks, templates or manifests not inspected.
-
-Allowed claims:
-- preliminary assessment;
-- likely tracks or capabilities.
-
-Must say:
-- `partial evaluation`
-
-### strong
-
-Criteria:
-- required docs inspected;
-- `.vcp/index.json` inspected;
-- `.vcp/catalog.json` inspected;
-- representative cards inspected;
-- core protocols inspected;
-- key docs for both tracks inspected.
-
-Allowed claims:
-- strong architectural assessment.
-
-Still not allowed:
-- detailed code/tool maturity without CLI inspection.
-
-### full
-
-Criteria:
-- clone or raw file access;
-- required audit manifest completed;
-- CLI surface inspected;
-- cards/index/manifests inspected;
-- benchmarks inspected;
-- templates/prompts/reports sampled;
-- validation commands run or their absence disclosed.
-
-Allowed claims:
-- full evaluation with evidence.
-
-## Required audit manifest
-
-Use:
-- `.vcp/ai-audit-manifest.json`
+### Layer 1 — audit entrypoints
+- `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
+- `AI_INTAKE.md`
 - `AI_FULL_REPO_AUDIT.md`
-- `templates/reports/ai-repo-audit-coverage-report.md`
+- `.vcp/ai-audit-manifest.json`
 
-If you cannot inspect `FULL_REPO_INTAKE.md` and `.vcp/ai-audit-manifest.json`, mark your evaluation as partial.
+### Layer 2 — practical product surfaces
+- `README.md`
+- `README_ru.md`
+- `docs/distribution.md`
+- `docs/install.md`
+- `docs/adoption-tiers.md`
+- `docs/proof-pack.md`
 
-Do not present a WebFetch/README summary as a full repository audit.
+### Layer 3 — machine-readable and CLI
+- `.vcp/index.json`
+- `.vcp/catalog.json`
+- `.vcp/manifests/`
+- `.vcp/cards/`
+- `vcp_cli/`
+
+### Layer 4 — track and control surfaces
+- `docs/two-track-model.md`
+- `docs/spec-foundation.md`
+- `docs/spec-quality-gate.md`
+- `docs/release-readiness.md`
+- `docs/architecture-drift.md`
+- `docs/workflows.md`
+
+### Layer 5 — proof and validation
+- `case-studies/`
+- `benchmarks/ai-adoption/scenarios/`
+- `templates/reports/`
+- `python3 -m unittest discover -s tests`
+
+## Practical audit rule
+
+If you did not inspect onboarding/classify/adopt/public-growth/workflow planning surfaces, your review may describe the repo correctly, but not its practical adoption maturity.

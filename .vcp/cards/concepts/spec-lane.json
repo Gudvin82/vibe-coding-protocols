@@ -2,7 +2,7 @@
   "id": "spec-lane",
   "type": "concept",
   "name": "Spec Lane",
-  "summary": "Idea → PRD → feature spec → acceptance criteria → tasks → review.",
+  "summary": "Idea \u2192 PRD \u2192 feature spec \u2192 acceptance criteria \u2192 tasks \u2192 review.",
   "use_when": [
     "requirements need structure"
   ],
@@ -42,7 +42,7 @@
   ],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.6.7",
+  "version": "v0.7.0",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

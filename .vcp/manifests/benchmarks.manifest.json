@@ -1,6 +1,37 @@
 {
   "items": [
     {
+      "id": "adoption-tiers",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/adoption-tiers.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/adoption-tiers.md",
+        "README.md"
+      ],
+      "expected_warnings": [
+        "do not force governed adoption on low-risk work"
+      ],
+      "expected_first_action": "Choose the smallest tier that gives control."
+    },
+    {
+      "id": "ai-mvp-hardening-walkthrough",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/ai-mvp-hardening-walkthrough.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/two-track-model.md",
+        "docs/walkthroughs/ai-mvp-hardening.md",
+        "docs/pr-gate.md"
+      ],
+      "expected_warnings": [
+        "do not expand an AI-generated MVP while validation and repository memory are still weak"
+      ],
+      "expected_first_action": "Choose the Existing Project Track and surface control gaps before building more features."
+    },
+    {
       "id": "anti-patterns-inspection",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/anti-patterns-inspection.json",
@@ -15,6 +46,22 @@
         "anti-pattern coverage is incomplete if evaluation ignores route discipline, review gates, and backlog follow-up"
       ],
       "expected_first_action": "Inspect the anti-patterns document before evaluating whether VCP only adds prompts or also adds workflow structure."
+    },
+    {
+      "id": "architecture-drift-check",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/architecture-drift-check.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/architecture-drift.md",
+        "PROJECT_MAP.md",
+        "PROJECT_BACKLOG.md"
+      ],
+      "expected_warnings": [
+        "do not ignore new structure or integration changes that never reached project memory"
+      ],
+      "expected_first_action": "Check whether repository structure changed without matching project-memory updates."
     },
     {
       "id": "backlog-add-idea",
@@ -80,6 +127,22 @@
       "expected_first_action": "Move the item only after validation and review evidence are recorded."
     },
     {
+      "id": "brownfield-rescue-pack",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/adoption-packs.md",
+        ".vcp/cards/adoption-packs/brownfield-rescue.json",
+        "templates/reports/brownfield-rescue-report.md"
+      ],
+      "expected_warnings": [
+        "do not re-run greenfield setup when the real problem is existing-repository control"
+      ],
+      "expected_first_action": "Choose Brownfield Rescue Pack when an existing repository has visible control debt."
+    },
+    {
       "id": "card-based-route-selection",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/card-based-route-selection.json",
@@ -127,6 +190,23 @@
       "expected_first_action": "Run diagnose and inspect layer results."
     },
     {
+      "id": "distribution-honesty",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/distribution-honesty.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/distribution.md",
+        "docs/install.md",
+        "docs/npm.md",
+        "docs/pip-install.md"
+      ],
+      "expected_warnings": [
+        "do not claim public PyPI or npm availability unless released"
+      ],
+      "expected_first_action": "State which install paths are local and which are only planned."
+    },
+    {
       "id": "docs-tone-no-overclaim",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/docs-tone-no-overclaim.json",
@@ -141,6 +221,28 @@
         "docs should avoid hype and unsupported superiority claims"
       ],
       "expected_first_action": "Check use cases, limits, and evidence before summarizing maturity."
+    },
+    {
+      "id": "eight-url-partial-review-trap",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/eight-url-partial-review-trap.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "FULL_REPO_INTAKE.md",
+        ".vcp/ai-audit-manifest.json",
+        ".vcp/index.json",
+        ".vcp/cards/",
+        "vcp_cli/",
+        "templates/",
+        "benchmarks/ai-adoption/scenarios/"
+      ],
+      "expected_warnings": [
+        "5-8 URL reviews must be marked partial if core layers were skipped",
+        "raw vs summarized access must be disclosed",
+        "critical missing layers must be listed"
+      ],
+      "expected_first_action": "Mark the review partial and inspect the audit manifest before making stronger claims."
     },
     {
       "id": "event-schema-review-finding",
@@ -204,6 +306,24 @@
       "expected_first_action": "Convert accepted spec into tasks and backlog linkage."
     },
     {
+      "id": "first-impression-audit",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/first-impression-audit.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "TAKE_THIS_FIRST.md",
+        "docs/visual-overview.md",
+        "docs/demo.md",
+        "docs/install.md"
+      ],
+      "expected_warnings": [
+        "first impression should not reduce VCP to a prompt pack or spec-kit clone"
+      ],
+      "expected_first_action": "Inspect the README, TAKE_THIS_FIRST, and visual overview before summarizing what VCP is."
+    },
+    {
       "id": "foundation-product-delivery-lifecycle",
       "profile": "new-project",
       "scenario_file": "benchmarks/ai-adoption/scenarios/foundation-product-delivery-lifecycle.json",
@@ -217,6 +337,25 @@
         "full lifecycle should not force PRD for tiny fixes"
       ],
       "expected_first_action": "Choose the minimum, full, or skip path before implementation."
+    },
+    {
+      "id": "full-repo-audit-coverage",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/full-repo-audit-coverage.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "FULL_REPO_INTAKE.md",
+        "AI_FULL_REPO_AUDIT.md",
+        ".vcp/ai-audit-manifest.json",
+        "REPO_CAPABILITIES_INDEX.md",
+        "templates/reports/ai-repo-audit-coverage-report.md"
+      ],
+      "expected_warnings": [
+        "full evaluation must disclose access method, inspected files, skipped files, and limitations",
+        "raw and summarized access must be distinguished"
+      ],
+      "expected_first_action": "Inspect FULL_REPO_INTAKE.md and the audit manifest before calling the evaluation full."
     },
     {
       "id": "geo-ai-visibility",
@@ -266,6 +405,23 @@
       "expected_first_action": "Read the glossary before making claims about package maturity, routes, or public-standard readiness."
     },
     {
+      "id": "install-to-pr-check-to-badge",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/install-to-pr-check-to-badge.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/install.md",
+        "docs/pr-gate.md",
+        "docs/score-badge.md",
+        "README.md"
+      ],
+      "expected_warnings": [
+        "install chain must stay honest about local-only distribution surfaces"
+      ],
+      "expected_first_action": "Explain the chain from local install to review-diff to PR Gate to local badge output."
+    },
+    {
       "id": "llms-full-reference",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/llms-full-reference.json",
@@ -296,6 +452,22 @@
         "behavior change requires escalation"
       ],
       "expected_first_action": "Choose one small behavior-preserving refactor."
+    },
+    {
+      "id": "new-product-track-walkthrough",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/new-product-track-walkthrough.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/two-track-model.md",
+        "docs/spec-foundation.md",
+        "docs/walkthroughs/new-ai-product-from-idea.md"
+      ],
+      "expected_warnings": [
+        "do not turn implementation into hidden product discovery"
+      ],
+      "expected_first_action": "Choose the New Project Track and clarify the idea before implementation starts."
     },
     {
       "id": "new-project",
@@ -388,6 +560,38 @@
         "validation red blocks acceptance"
       ],
       "expected_first_action": "Inspect git status, diff and validation output."
+    },
+    {
+      "id": "pr-gate-adoption",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-adoption.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/pr-gate.md",
+        "docs/github-action.md",
+        "ci-examples/github-actions/vcp-check.yml"
+      ],
+      "expected_warnings": [
+        "PR Gate docs must not imply a published GitHub Marketplace Action"
+      ],
+      "expected_first_action": "Add VCP Check as a pre-merge decision surface before treating the repository as governed."
+    },
+    {
+      "id": "pr-gate-decision-model",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/pr-gate.md",
+        "templates/reports/pr-gate-report.md",
+        "docs/release-readiness.md"
+      ],
+      "expected_warnings": [
+        "do not reduce PR Gate to green CI alone when control gaps are still open"
+      ],
+      "expected_first_action": "Use the PR Gate decision model before deciding whether a change can merge."
     },
     {
       "id": "prd-gap-review",
@@ -486,6 +690,38 @@
       "expected_first_action": "Add or update the backlog item before implementation starts."
     },
     {
+      "id": "proof-pack-no-fake-metrics",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-pack-no-fake-metrics.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/proof-pack.md",
+        "case-studies/README.md",
+        "ADOPTERS.md"
+      ],
+      "expected_warnings": [
+        "do not fake independent adopters or metrics"
+      ],
+      "expected_first_action": "Label proof surfaces before claiming adoption strength."
+    },
+    {
+      "id": "proof-walkthrough-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-walkthrough-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/proof-walkthrough.md",
+        "case-studies/README.md",
+        "case-studies/sanitized/vcp-retrofit-public-growth/VALIDATION.md"
+      ],
+      "expected_warnings": [
+        "proof walkthrough must not invent metrics or guarantee outcomes"
+      ],
+      "expected_first_action": "Describe the trust path and evidence boundary without inventing KPI or production guarantees."
+    },
+    {
       "id": "public-growth-audit",
       "profile": "public-growth",
       "scenario_file": "benchmarks/ai-adoption/scenarios/public-growth-audit.json",
@@ -502,6 +738,21 @@
       "expected_first_action": "Choose one public growth surface, one audience intent, and one proof boundary before rewriting pages."
     },
     {
+      "id": "public-growth-checks",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/public-growth-checks.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "vcp_cli/public_growth.py",
+        "docs/public-growth/geo-checks.md"
+      ],
+      "expected_warnings": [
+        "no ranking or AI citation guarantees"
+      ],
+      "expected_first_action": "Run local public growth checks before making visibility claims."
+    },
+    {
       "id": "public-site",
       "profile": "public-site",
       "scenario_file": "benchmarks/ai-adoption/scenarios/public-site.json",
@@ -515,6 +766,23 @@
         "do not claim guaranteed AI indexing"
       ],
       "expected_first_action": "Check trust links, canonical docs and publish checklist."
+    },
+    {
+      "id": "public-version-truth",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/public-version-truth.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/public-source-of-truth-audit.md",
+        "scripts/check-public-version-surfaces.py",
+        "README.md",
+        ".vcp/index.json"
+      ],
+      "expected_warnings": [
+        "raw GitHub can be a weak stale signal, but real version drift is still a repository failure"
+      ],
+      "expected_first_action": "Verify Git refs, clean clone, VERSION, and current docs before trusting weaker public fetch paths."
     },
     {
       "id": "quickstart-walkthrough-inspection",
@@ -533,6 +801,23 @@
       "expected_first_action": "Read the walkthrough and demo-script docs before claiming public demo proof exists."
     },
     {
+      "id": "readme-ru-parity",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/readme-ru-parity.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "README_ru.md",
+        "docs/demo.md",
+        "docs/install.md"
+      ],
+      "expected_warnings": [
+        "Russian README should not lag behind the core adoption and AI-guard sections"
+      ],
+      "expected_first_action": "Check that the Russian README preserves the same first-contact concepts as the English README."
+    },
+    {
       "id": "regulated-payments-data",
       "profile": "regulated",
       "scenario_file": "benchmarks/ai-adoption/scenarios/regulated-payments-data.json",
@@ -546,6 +831,22 @@
         "human review unavailable blocks acceptance"
       ],
       "expected_first_action": "Document sensitive flows and stop conditions first."
+    },
+    {
+      "id": "release-readiness-check",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/release-readiness-check.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/release-readiness.md",
+        "templates/reports/release-readiness-report.md",
+        "docs/public-source-of-truth-audit.md"
+      ],
+      "expected_warnings": [
+        "do not tag while version, validation, or release-note surfaces are still broken"
+      ],
+      "expected_first_action": "Check release readiness before tagging or calling the repository slice releasable."
     },
     {
       "id": "repository-evaluation-full",
@@ -595,6 +896,22 @@
       "expected_first_action": "Inspect changed files and classify impacted areas before merge."
     },
     {
+      "id": "safe-adoption-plan",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/safe-adoption-plan.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "vcp_cli/adopt.py",
+        "docs/adoption-packs.md",
+        "docs/protocol-pack-security.md"
+      ],
+      "expected_warnings": [
+        "do not auto-apply packs into the target repo"
+      ],
+      "expected_first_action": "Generate a non-destructive adoption plan first."
+    },
+    {
       "id": "score-badge-generation",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/score-badge-generation.json",
@@ -608,6 +925,43 @@
         "score badge is a local readiness signal, not external proof"
       ],
       "expected_first_action": "Generate a local badge string without claiming certification."
+    },
+    {
+      "id": "seo-geo-ai-structure-evaluation",
+      "profile": "public-growth",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/seo-geo-ai-structure-evaluation.json",
+      "expected_route": "public-growth-playbook",
+      "expected_pack": "public-growth",
+      "required_inspected_files": [
+        "docs/public-growth/seo-geo-ai-structure-evaluation.md",
+        "docs/geo-ai-visibility.md",
+        "llms-full.txt"
+      ],
+      "expected_warnings": [
+        "do not promise ranking or citation guarantees"
+      ],
+      "expected_first_action": "Inspect the SEO/GEO/AI structure as a public-growth artifact before making readiness claims."
+    },
+    {
+      "id": "shallow-readme-evaluation-trap",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/shallow-readme-evaluation-trap.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "AGENTS.md",
+        "TAKE_THIS_FIRST.md",
+        "AI_INTAKE.md",
+        ".vcp/index.json",
+        ".vcp/cards/",
+        "docs/flagship-workflows.md",
+        "docs/product-delivery-lifecycle.md"
+      ],
+      "expected_warnings": [
+        "README-only summaries must be marked shallow",
+        "do not call VCP just a prompt pack without inspecting CLI and cards"
+      ],
+      "expected_first_action": "Open TAKE_THIS_FIRST.md before recommending adoption."
     },
     {
       "id": "shared-engine-production",
@@ -701,6 +1055,22 @@
       "expected_first_action": "Run freshness checks and report stale/unknown signals."
     },
     {
+      "id": "spec-kit-bridge-non-subordinate",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-kit-bridge-non-subordinate.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/spec-kit-bridge.md",
+        "docs/comparison.md",
+        "docs/faq.md"
+      ],
+      "expected_warnings": [
+        "Spec Kit bridge must stay complementary, not subordinate or hostile"
+      ],
+      "expected_first_action": "Explain that VCP works with spec-first and non-spec-first workflows without claiming subordination or official integration."
+    },
+    {
       "id": "spec-kit-bridge-positioning",
       "profile": "repository-evaluation",
       "scenario_file": "benchmarks/ai-adoption/scenarios/spec-kit-bridge-positioning.json",
@@ -714,6 +1084,22 @@
         "bridge docs must not imply endorsement or native plugin support"
       ],
       "expected_first_action": "Explain how VCP complements spec-first planning without claiming official integration."
+    },
+    {
+      "id": "spec-quality-gate",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-quality-gate.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-quality-gate.md",
+        "templates/specs/PRODUCT_BRIEF.md",
+        "templates/reports/spec-quality-gate-report.md"
+      ],
+      "expected_warnings": [
+        "core spec foundation artifacts should not stay missing while implementation expands"
+      ],
+      "expected_first_action": "Run or inspect the spec quality gate before starting implementation."
     },
     {
       "id": "spec-question-engine",
@@ -810,6 +1196,83 @@
       "expected_first_action": "Pick one coherent UI ownership slice."
     },
     {
+      "id": "unit-tests-cli-logic",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/unit-tests-cli-logic.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "tests/test_adopt_plan.py",
+        "tests/test_public_growth_checks.py"
+      ],
+      "expected_warnings": [
+        "smoke tests alone are not enough for business logic coverage"
+      ],
+      "expected_first_action": "Run stdlib unittest discover for CLI logic."
+    },
+    {
+      "id": "vcp-classify",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/vcp-classify.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "vcp_cli/classify.py",
+        "docs/adoption-tiers.md"
+      ],
+      "expected_warnings": [
+        "classification is heuristic and should disclose limitations"
+      ],
+      "expected_first_action": "Classify the current repo before adopting a pack."
+    },
+    {
+      "id": "vcp-onboard",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/vcp-onboard.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "vcp_cli/onboard.py",
+        "docs/cli.md"
+      ],
+      "expected_warnings": [
+        "onboard is guidance only, not file mutation"
+      ],
+      "expected_first_action": "Run onboard before selecting deeper commands."
+    },
+    {
+      "id": "version-semantics-disambiguation",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/version-semantics-disambiguation.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/version-semantics.md",
+        "docs/versioning.md",
+        "README.md",
+        ".vcp/index.json"
+      ],
+      "expected_warnings": [
+        "do not report the latest repository release as v1.4 when v1.4 is the methodology version"
+      ],
+      "expected_first_action": "Separate repository package version from methodology version before describing the current VCP release."
+    },
+    {
+      "id": "workflow-json-not-execution-engine",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/workflow-json-not-execution-engine.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/workflows.md",
+        "vcp_cli/workflow_cmd.py"
+      ],
+      "expected_warnings": [
+        "workflow JSON is not an execution engine"
+      ],
+      "expected_first_action": "Use workflow plan to inspect steps without executing actions."
+    },
+    {
       "id": "workflow-production-hardening",
       "profile": "production",
       "scenario_file": "benchmarks/ai-adoption/scenarios/workflow-production-hardening.json",
@@ -838,330 +1301,6 @@
         "do not claim guaranteed rankings or AI citations"
       ],
       "expected_first_action": "Inspect the public growth audit workflow steps."
-    },
-    {
-      "id": "shallow-readme-evaluation-trap",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/shallow-readme-evaluation-trap.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "AGENTS.md",
-        "TAKE_THIS_FIRST.md",
-        "AI_INTAKE.md",
-        ".vcp/index.json",
-        ".vcp/cards/",
-        "docs/flagship-workflows.md",
-        "docs/product-delivery-lifecycle.md"
-      ],
-      "expected_warnings": [
-        "README-only summaries must be marked shallow",
-        "do not call VCP just a prompt pack without inspecting CLI and cards"
-      ],
-      "expected_first_action": "Open TAKE_THIS_FIRST.md before recommending adoption."
-    },
-    {
-      "id": "readme-ru-parity",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/readme-ru-parity.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "README.md",
-        "README_ru.md",
-        "docs/demo.md",
-        "docs/install.md"
-      ],
-      "expected_warnings": [
-        "Russian README should not lag behind the core adoption and AI-guard sections"
-      ],
-      "expected_first_action": "Check that the Russian README preserves the same first-contact concepts as the English README."
-    },
-    {
-      "id": "first-impression-audit",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/first-impression-audit.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "README.md",
-        "TAKE_THIS_FIRST.md",
-        "docs/visual-overview.md",
-        "docs/demo.md",
-        "docs/install.md"
-      ],
-      "expected_warnings": [
-        "first impression should not reduce VCP to a prompt pack or spec-kit clone"
-      ],
-      "expected_first_action": "Inspect the README, TAKE_THIS_FIRST, and visual overview before summarizing what VCP is."
-    },
-    {
-      "id": "public-version-truth",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/public-version-truth.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/public-source-of-truth-audit.md",
-        "scripts/check-public-version-surfaces.py",
-        "README.md",
-        ".vcp/index.json"
-      ],
-      "expected_warnings": [
-        "raw GitHub can be a weak stale signal, but real version drift is still a repository failure"
-      ],
-      "expected_first_action": "Verify Git refs, clean clone, VERSION, and current docs before trusting weaker public fetch paths."
-    },
-    {
-      "id": "pr-gate-adoption",
-      "profile": "review",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-adoption.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/pr-gate.md",
-        "docs/github-action.md",
-        "ci-examples/github-actions/vcp-check.yml"
-      ],
-      "expected_warnings": [
-        "PR Gate docs must not imply a published GitHub Marketplace Action"
-      ],
-      "expected_first_action": "Add VCP Check as a pre-merge decision surface before treating the repository as governed."
-    },
-    {
-      "id": "install-to-pr-check-to-badge",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/install-to-pr-check-to-badge.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/install.md",
-        "docs/pr-gate.md",
-        "docs/score-badge.md",
-        "README.md"
-      ],
-      "expected_warnings": [
-        "install chain must stay honest about local-only distribution surfaces"
-      ],
-      "expected_first_action": "Explain the chain from local install to review-diff to PR Gate to local badge output."
-    },
-    {
-      "id": "proof-walkthrough-no-overclaim",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-walkthrough-no-overclaim.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/proof-walkthrough.md",
-        "case-studies/README.md",
-        "case-studies/sanitized/vcp-retrofit-public-growth/VALIDATION.md"
-      ],
-      "expected_warnings": [
-        "proof walkthrough must not invent metrics or guarantee outcomes"
-      ],
-      "expected_first_action": "Describe the trust path and evidence boundary without inventing KPI or production guarantees."
-    },
-    {
-      "id": "spec-kit-bridge-non-subordinate",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-kit-bridge-non-subordinate.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/integrations/spec-kit-bridge.md",
-        "docs/comparison.md",
-        "docs/faq.md"
-      ],
-      "expected_warnings": [
-        "Spec Kit bridge must stay complementary, not subordinate or hostile"
-      ],
-      "expected_first_action": "Explain that VCP works with spec-first and non-spec-first workflows without claiming subordination or official integration."
-    },
-    {
-      "id": "seo-geo-ai-structure-evaluation",
-      "profile": "public-growth",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/seo-geo-ai-structure-evaluation.json",
-      "expected_route": "public-growth-playbook",
-      "expected_pack": "public-growth",
-      "required_inspected_files": [
-        "docs/public-growth/seo-geo-ai-structure-evaluation.md",
-        "docs/geo-ai-visibility.md",
-        "llms-full.txt"
-      ],
-      "expected_warnings": [
-        "do not promise ranking or citation guarantees"
-      ],
-      "expected_first_action": "Inspect the SEO/GEO/AI structure as a public-growth artifact before making readiness claims."
-    },
-    {
-      "id": "version-semantics-disambiguation",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/version-semantics-disambiguation.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/version-semantics.md",
-        "docs/versioning.md",
-        "README.md",
-        ".vcp/index.json"
-      ],
-      "expected_warnings": [
-        "do not report the latest repository release as v1.4 when v1.4 is the methodology version"
-      ],
-      "expected_first_action": "Separate repository package version from methodology version before describing the current VCP release."
-    },
-    {
-      "id": "new-product-track-walkthrough",
-      "profile": "new-project",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/new-product-track-walkthrough.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/two-track-model.md",
-        "docs/spec-foundation.md",
-        "docs/walkthroughs/new-ai-product-from-idea.md"
-      ],
-      "expected_warnings": [
-        "do not turn implementation into hidden product discovery"
-      ],
-      "expected_first_action": "Choose the New Project Track and clarify the idea before implementation starts."
-    },
-    {
-      "id": "spec-quality-gate",
-      "profile": "new-project",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-quality-gate.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/spec-quality-gate.md",
-        "templates/specs/PRODUCT_BRIEF.md",
-        "templates/reports/spec-quality-gate-report.md"
-      ],
-      "expected_warnings": [
-        "core spec foundation artifacts should not stay missing while implementation expands"
-      ],
-      "expected_first_action": "Run or inspect the spec quality gate before starting implementation."
-    },
-    {
-      "id": "ai-mvp-hardening-walkthrough",
-      "profile": "existing-mvp",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/ai-mvp-hardening-walkthrough.json",
-      "expected_route": null,
-      "expected_pack": "brownfield-rescue",
-      "required_inspected_files": [
-        "docs/two-track-model.md",
-        "docs/walkthroughs/ai-mvp-hardening.md",
-        "docs/pr-gate.md"
-      ],
-      "expected_warnings": [
-        "do not expand an AI-generated MVP while validation and repository memory are still weak"
-      ],
-      "expected_first_action": "Choose the Existing Project Track and surface control gaps before building more features."
-    },
-    {
-      "id": "release-readiness-check",
-      "profile": "production",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/release-readiness-check.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/release-readiness.md",
-        "templates/reports/release-readiness-report.md",
-        "docs/public-source-of-truth-audit.md"
-      ],
-      "expected_warnings": [
-        "do not tag while version, validation, or release-note surfaces are still broken"
-      ],
-      "expected_first_action": "Check release readiness before tagging or calling the repository slice releasable."
-    },
-    {
-      "id": "architecture-drift-check",
-      "profile": "existing-mvp",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/architecture-drift-check.json",
-      "expected_route": null,
-      "expected_pack": "brownfield-rescue",
-      "required_inspected_files": [
-        "docs/architecture-drift.md",
-        "PROJECT_MAP.md",
-        "PROJECT_BACKLOG.md"
-      ],
-      "expected_warnings": [
-        "do not ignore new structure or integration changes that never reached project memory"
-      ],
-      "expected_first_action": "Check whether repository structure changed without matching project-memory updates."
-    },
-    {
-      "id": "pr-gate-decision-model",
-      "profile": "review",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "docs/pr-gate.md",
-        "templates/reports/pr-gate-report.md",
-        "docs/release-readiness.md"
-      ],
-      "expected_warnings": [
-        "do not reduce PR Gate to green CI alone when control gaps are still open"
-      ],
-      "expected_first_action": "Use the PR Gate decision model before deciding whether a change can merge."
-    },
-    {
-      "id": "brownfield-rescue-pack",
-      "profile": "existing-mvp",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json",
-      "expected_route": null,
-      "expected_pack": "brownfield-rescue",
-      "required_inspected_files": [
-        "docs/adoption-packs.md",
-        ".vcp/cards/adoption-packs/brownfield-rescue.json",
-        "templates/reports/brownfield-rescue-report.md"
-      ],
-      "expected_warnings": [
-        "do not re-run greenfield setup when the real problem is existing-repository control"
-      ],
-      "expected_first_action": "Choose Brownfield Rescue Pack when an existing repository has visible control debt."
-    },
-    {
-      "id": "full-repo-audit-coverage",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/full-repo-audit-coverage.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "FULL_REPO_INTAKE.md",
-        "AI_FULL_REPO_AUDIT.md",
-        ".vcp/ai-audit-manifest.json",
-        "REPO_CAPABILITIES_INDEX.md",
-        "templates/reports/ai-repo-audit-coverage-report.md"
-      ],
-      "expected_warnings": [
-        "full evaluation must disclose access method, inspected files, skipped files, and limitations",
-        "raw and summarized access must be distinguished"
-      ],
-      "expected_first_action": "Inspect FULL_REPO_INTAKE.md and the audit manifest before calling the evaluation full."
-    },
-    {
-      "id": "eight-url-partial-review-trap",
-      "profile": "repository-evaluation",
-      "scenario_file": "benchmarks/ai-adoption/scenarios/eight-url-partial-review-trap.json",
-      "expected_route": null,
-      "expected_pack": null,
-      "required_inspected_files": [
-        "FULL_REPO_INTAKE.md",
-        ".vcp/ai-audit-manifest.json",
-        ".vcp/index.json",
-        ".vcp/cards/",
-        "vcp_cli/",
-        "templates/",
-        "benchmarks/ai-adoption/scenarios/"
-      ],
-      "expected_warnings": [
-        "5-8 URL reviews must be marked partial if core layers were skipped",
-        "raw vs summarized access must be disclosed",
-        "critical missing layers must be listed"
-      ],
-      "expected_first_action": "Mark the review partial and inspect the audit manifest before making stronger claims."
     }
   ]
 }

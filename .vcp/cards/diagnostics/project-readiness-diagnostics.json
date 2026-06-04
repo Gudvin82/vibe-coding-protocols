@@ -53,7 +53,7 @@
     "python3 -m vcp_cli workflow validate",
     "python3 -m vcp_cli diagnose --json"
   ],
-  "version": "v0.6.7",
+  "version": "v0.7.0",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

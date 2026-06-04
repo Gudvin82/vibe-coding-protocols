@@ -1,0 +1,68 @@
+{
+  "id": "vcp-adopt-plan",
+  "type": "command",
+  "name": "Adopt Plan",
+  "summary": "Generates a safe adoption plan, copy-list, or patch preview without destructive writes.",
+  "use_when": [
+    "VCP files must be adopted selectively"
+  ],
+  "do_not_use_when": [
+    "destructive auto-apply is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "blind copying"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change safety"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/adopt.py"
+  ],
+  "related_files": [
+    "docs/adoption-packs.md",
+    "docs/protocol-pack-security.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt plan --json"
+  ],
+  "outputs": [
+    "safe adoption plan"
+  ],
+  "stop_conditions": [
+    "do not enable adopt --apply by default"
+  ],
+  "validation": [
+    "python3 -m vcp_cli adopt plan --pack production --json"
+  ],
+  "version": "v0.7.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "adoption",
+    "safe"
+  ]
+}

@@ -56,6 +56,7 @@ required_files=(
   docs/spec-quality-gate.md
   docs/architecture-drift.md
   docs/release-v0.6.7.md
+  docs/release-v0.7.0.md
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/faq.md
@@ -79,6 +80,10 @@ required_files=(
   docs/vcp-mappings.md
   docs/cli.md
   docs/install.md
+  docs/distribution.md
+  docs/adoption-tiers.md
+  docs/proof-pack.md
+  docs/productization-roadmap.md
   docs/pip-install.md
   docs/glossary.md
   docs/scoring.md
@@ -93,24 +98,51 @@ required_files=(
   benchmarks/ai-adoption/scenarios/architecture-drift-check.json
   benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json
   benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json
+  benchmarks/ai-adoption/scenarios/adoption-tiers.json
+  benchmarks/ai-adoption/scenarios/vcp-onboard.json
+  benchmarks/ai-adoption/scenarios/vcp-classify.json
+  benchmarks/ai-adoption/scenarios/safe-adoption-plan.json
+  benchmarks/ai-adoption/scenarios/public-growth-checks.json
+  benchmarks/ai-adoption/scenarios/proof-pack-no-fake-metrics.json
+  benchmarks/ai-adoption/scenarios/unit-tests-cli-logic.json
+  benchmarks/ai-adoption/scenarios/workflow-json-not-execution-engine.json
+  benchmarks/ai-adoption/scenarios/distribution-honesty.json
   benchmarks/ai-adoption/scenarios/full-repo-audit-coverage.json
   benchmarks/ai-adoption/scenarios/eight-url-partial-review-trap.json
   schemas/vcp-pack-security.schema.json
   templates/prompts/evaluate-seo-geo-ai-structure.md
   templates/reports/seo-geo-ai-structure-evaluation-report.md
   templates/reports/ai-repo-audit-coverage-report.md
+  templates/reports/adoption-tier-report.md
+  templates/reports/public-growth-check-report.md
+  templates/reports/case-study-proof-report.md
+  templates/reports/adopter-submission.md
   templates/reports/proactive-routine-report.md
   templates/reports/protocol-pack-security-review.md
   docs/site-version-sync-checklist.md
   docs/public-growth/seo-geo-ai-structure-evaluation.md
   docs/public-growth/README.md
+  docs/public-growth/geo-checks.md
+  docs/public-growth/public-growth-checklist.md
   docs/walkthroughs/new-ai-product-from-idea.md
   docs/walkthroughs/ai-mvp-hardening.md
+  case-studies/sanitized/new-project-from-idea/README.md
+  case-studies/sanitized/ai-mvp-hardening/README.md
+  case-studies/sanitized/public-growth-geo/README.md
   docs/proactive-vcp-routines.md
   docs/protocol-pack-security.md
   docs/principles.md
   docs/project-memory-model.md
   docs/version-semantics.md
+  tests/test_adopt_plan.py
+  tests/test_audit_plan.py
+  tests/test_public_growth_checks.py
+  tests/test_release_check.py
+  tests/test_review_diff_risk.py
+  tests/test_route_selection.py
+  tests/test_score_logic.py
+  tests/test_spec_depth.py
+  tests/test_version_semantics.py
   docs/windows.md
   docs/platforms/README.md
   docs/platforms/claude-code.md
@@ -562,6 +594,7 @@ bash scripts/check-ide-rules-consistency.sh
 python3 scripts/check-newlines.py
 python3 scripts/check-readme-parity.py
 python3 scripts/check-public-version-surfaces.py
+python3 -m unittest discover -s tests
 python3 -m vcp_cli manifest validate
 python3 -m vcp_cli cards validate
 python3 -m vcp_cli index validate

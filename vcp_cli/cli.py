@@ -11,6 +11,7 @@ from . import audit_plan as audit_plan_cmd
 from . import backlog as backlog_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
+from . import classify as classify_cmd
 from . import diagnose as diagnose_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
@@ -19,7 +20,9 @@ from . import init_cmd
 from . import index_cmd
 from . import cards as cards_cmd
 from . import manifest as manifest_cmd
+from . import onboard as onboard_cmd
 from . import preset_cmd
+from . import public_growth as public_growth_cmd
 from . import review as review_cmd
 from . import release_check as release_check_cmd
 from . import review_diff as review_diff_cmd
@@ -81,12 +84,21 @@ def build_parser() -> argparse.ArgumentParser:
     route_p.add_argument("--json", action="store_true")
 
     adopt_p = sub.add_parser("adopt")
+    adopt_sub = adopt_p.add_subparsers(dest="adopt_command")
     adopt_p.add_argument("--pack", default="production")
     adopt_p.add_argument("--dry-run", action="store_true", default=True)
     adopt_p.add_argument("--json", action="store_true")
     adopt_p.add_argument("--output")
     adopt_p.add_argument("--apply", action="store_true")
     adopt_p.add_argument("--yes", action="store_true")
+    adopt_p.add_argument("--copy-list", action="store_true")
+    adopt_p.add_argument("--patch", action="store_true")
+    adopt_plan = adopt_sub.add_parser("plan")
+    adopt_plan.add_argument("--pack", default="production")
+    adopt_plan.add_argument("--json", action="store_true")
+    adopt_plan.add_argument("--output")
+    adopt_plan.add_argument("--copy-list", action="store_true")
+    adopt_plan.add_argument("--patch", action="store_true")
 
     evaluate_p = sub.add_parser("evaluate")
     evaluate_p.add_argument("--json", action="store_true")
@@ -94,6 +106,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit_plan_p = sub.add_parser("audit-plan")
     audit_plan_p.add_argument("--json", action="store_true")
+
+    onboard_p = sub.add_parser("onboard")
+    onboard_p.add_argument("--json", action="store_true")
+
+    classify_p = sub.add_parser("classify")
+    classify_p.add_argument("--json", action="store_true")
 
     index_p = sub.add_parser("index")
     index_sub = index_p.add_subparsers(dest="index_command")
@@ -218,6 +236,15 @@ def build_parser() -> argparse.ArgumentParser:
     workflow_search = workflow_sub.add_parser("search")
     workflow_search.add_argument("query")
     workflow_search.add_argument("--json", action="store_true")
+    workflow_plan = workflow_sub.add_parser("plan")
+    workflow_plan.add_argument("--id")
+    workflow_plan.add_argument("--json", action="store_true")
+
+    public_growth_p = sub.add_parser("public-growth")
+    public_growth_sub = public_growth_p.add_subparsers(dest="public_growth_command")
+    public_growth_check = public_growth_sub.add_parser("check")
+    public_growth_check.add_argument("--site")
+    public_growth_check.add_argument("--json", action="store_true")
 
     diagnose_p = sub.add_parser("diagnose")
     diagnose_p.add_argument("--profile")
@@ -300,11 +327,32 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "route":
         return route_cmd.run(args.profile, args.json)
     if args.command == "adopt":
-        return adopt_cmd.run(args.pack, args.dry_run, args.json, args.output, args.apply, args.yes)
+        if getattr(args, "adopt_command", None) == "plan":
+            return adopt_cmd.run_plan(
+                args.pack,
+                json_mode=args.json,
+                output=args.output,
+                copy_list=getattr(args, "copy_list", False),
+                patch=getattr(args, "patch", False),
+            )
+        return adopt_cmd.run(
+            args.pack,
+            args.dry_run,
+            args.json,
+            args.output,
+            args.apply,
+            args.yes,
+            copy_list=getattr(args, "copy_list", False),
+            patch=getattr(args, "patch", False),
+        )
     if args.command == "evaluate":
         return evaluate_cmd.run(args.json, args.print_prompt)
     if args.command == "audit-plan":
         return audit_plan_cmd.run(args.json)
+    if args.command == "onboard":
+        return onboard_cmd.run(args.json)
+    if args.command == "classify":
+        return classify_cmd.run(args.json)
     if args.command == "index":
         if args.index_command in {None, "show"}:
             return index_cmd.show(getattr(args, "json", False))
@@ -382,6 +430,11 @@ def main(argv: list[str] | None = None) -> int:
             return workflow_cmd.validate_workflows(getattr(args, "json", False))
         if args.workflow_command == "search":
             return workflow_cmd.search_workflows(args.query, getattr(args, "json", False))
+        if args.workflow_command == "plan":
+            return workflow_cmd.plan_workflow(getattr(args, "id", None), getattr(args, "json", False))
+    if args.command == "public-growth":
+        if args.public_growth_command in {None, "check"}:
+            return public_growth_cmd.run(getattr(args, "site", None), getattr(args, "json", False))
     if args.command == "diagnose":
         return diagnose_cmd.run(args.profile, getattr(args, "json", False))
     if args.command == "backlog":

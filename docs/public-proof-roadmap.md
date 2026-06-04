@@ -1,35 +1,22 @@
 # Public Proof Roadmap
 
-This page tracks which proof layers still need work before VCP should be described as broadly proven.
+`v0.7.0` improves proof surfaces, but VCP still avoids overclaiming broad external adoption.
 
-## Missing proof layers
+## What exists now
 
-- public npm package;
-- hosted docs site;
-- more real or sanitized case studies;
-- broader measured adoption notes;
-- demo media captured from real workflow runs;
-- external user feedback;
-- stronger public discussion history.
+- labeled sanitized case studies;
+- proof-pack documentation;
+- maintainer-known usage notes;
+- public-growth checks and trust pages;
+- source-of-truth and release evidence.
 
-## What exists today
+## What still needs stronger proof
 
-- real repository structure;
-- local CLI and npm wrapper;
-- manifests, cards, workflows, diagnostics, and benchmarks;
-- review-diff, PR Gate, and score badge surfaces;
-- public source-of-truth audit guidance;
-- sanitized, synthetic, and template proof assets with explicit labels;
-- maintainer-known adoption notes with non-endorsement wording.
+- independent public adopters;
+- more real or sanitized case packets with commands and validation;
+- cleaner public release objects and distribution paths;
+- more contributor-submitted adoption reports.
 
-## What does not exist yet
+## Rule
 
-- broad outside adoption proof;
-- marketplace plugin claims;
-- guaranteed safety or visibility evidence;
-- industry-standard status.
-
-
-## Public Growth evaluation
-
-Public Growth should also be inspectable through [docs/public-growth/seo-geo-ai-structure-evaluation.md](./public-growth/seo-geo-ai-structure-evaluation.md) without turning readiness into ranking or citation promises.
+If proof is not public or not independently verifiable, label it clearly instead of inflating it.

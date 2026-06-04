@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .utils import load_json, print_output, repo_root
+from .utils import load_json, print_output, repo_root, repo_version
 
 REQUIRED_FIELDS = [
     "id",
@@ -58,11 +58,12 @@ def validate_workflows(json_mode: bool = False) -> int:
     root = repo_root()
     errors: list[str] = []
     workflows = load_workflows(root)
+    current_version = repo_version(root)
     for workflow in workflows:
         for field in REQUIRED_FIELDS:
             if field not in workflow:
                 errors.append(f"Missing field {field} in {workflow['__path']}")
-        if workflow.get("version") != "v0.6.1":
+        if workflow.get("version") != current_version:
             errors.append(f"Workflow version mismatch in {workflow['__path']}: {workflow.get('version')}")
         steps = workflow.get("steps", [])
         if not isinstance(steps, list) or not steps:
@@ -101,4 +102,63 @@ def search_workflows(query: str, json_mode: bool = False) -> int:
         if needle in haystack:
             matches.append({"id": workflow["id"], "name": workflow["name"], "route": workflow["route"], "path": workflow["__path"]})
     print_output({"query": query, "count": len(matches), "results": matches}, json_mode)
+    return 0
+
+
+def workflow_plan_payload(workflow_id: str | None = None, root: Path | None = None) -> dict[str, Any]:
+    root = repo_root(root)
+    workflows = load_workflows(root)
+    selected = workflows
+    if workflow_id:
+        selected = [item for item in workflows if item.get("id") == workflow_id]
+        if not selected:
+            return {
+                "ok": False,
+                "requested_workflow": workflow_id,
+                "error": f"Workflow not found: {workflow_id}",
+                "note": "Workflow JSON files are planning artifacts, not an execution engine.",
+            }
+
+    plans = []
+    for workflow in selected:
+        plans.append(
+            {
+                "id": workflow["id"],
+                "name": workflow["name"],
+                "route": workflow["route"],
+                "trigger": workflow["trigger"],
+                "steps": workflow.get("steps", []),
+                "validation": workflow.get("validation", []),
+                "stop_conditions": workflow.get("stop_conditions", []),
+            }
+        )
+
+    return {
+        "ok": True,
+        "requested_workflow": workflow_id,
+        "plans": plans,
+        "note": "Workflow JSON files are machine-readable planning/governance artifacts. They do not execute external actions.",
+    }
+
+
+def plan_workflow(workflow_id: str | None = None, json_mode: bool = False) -> int:
+    payload = workflow_plan_payload(workflow_id)
+    if json_mode:
+        print_output(payload, True)
+        return 0 if payload.get("ok") else 1
+    if not payload.get("ok"):
+        print(payload["error"])
+        return 1
+    for plan in payload["plans"]:
+        print(f"{plan['name']} ({plan['id']})")
+        print(f"Route: {plan['route']}")
+        print(f"Trigger: {plan['trigger']}")
+        print("Steps:")
+        for step in plan["steps"]:
+            print(f"- {step.get('name')} [{step.get('action')}]")
+        print("Validation:")
+        for item in plan["validation"]:
+            print(f"- {item}")
+        print()
+    print(payload["note"])
     return 0

@@ -1,0 +1,68 @@
+{
+  "id": "safe-adoption-plan",
+  "type": "concept",
+  "name": "Safe Adoption Plan",
+  "summary": "Non-destructive copy-list and patch-preview plan for adopting VCP slices safely.",
+  "use_when": [
+    "files must be adopted selectively"
+  ],
+  "do_not_use_when": [
+    "blind auto-apply is requested"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "blind copying"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change safety"
+    ]
+  },
+  "entry_files": [
+    "docs/adoption-packs.md",
+    "docs/protocol-pack-security.md"
+  ],
+  "related_files": [
+    "templates/reports/vcp-adoption-decision-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt plan --json"
+  ],
+  "outputs": [
+    "files to copy/review/not copy"
+  ],
+  "stop_conditions": [
+    "do not enable destructive apply by default"
+  ],
+  "validation": [
+    "python3 -m vcp_cli adopt plan --pack production --json"
+  ],
+  "version": "v0.7.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "adoption",
+    "safe"
+  ]
+}

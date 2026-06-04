@@ -41,12 +41,20 @@ python3 -m vcp_cli evaluate --json | grep -F '"adoption_entrypoint": "TAKE_THIS_
 python3 -m vcp_cli evaluate --json | grep -F '"evaluation_mode_guidance"' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"two_track_model_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"release_readiness_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"onboard_command_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"classify_command_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"public_growth_check_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"distribution_doc_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"adoption_tiers_present": true' >/dev/null
 python3 -m vcp_cli audit-plan --json | grep -F '"report_template": "templates/reports/ai-repo-audit-coverage-report.md"' >/dev/null
+python3 -m vcp_cli onboard --json | grep -F '"recommended_track"' >/dev/null
+python3 -m vcp_cli classify --json | grep -F '"suggested_route"' >/dev/null
 python3 -m vcp_cli evaluate --print-prompt | grep -F "Do not judge from README alone." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"llm_reference_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"progressive_disclosure_present": true' >/dev/null
 python3 -m vcp_cli review-diff --json | grep -F '"risk_level"' >/dev/null
 python3 -m vcp_cli release-check --json | grep -F '"status"' >/dev/null
+python3 -m vcp_cli public-growth check --json | grep -F '"repository_package_version":' >/dev/null
 python3 -m vcp_cli score --badge markdown | grep -F 'https://img.shields.io/badge/VCP_score-' >/dev/null
 python3 -m vcp_cli score --badge json | grep -F '"badge": "https://img.shields.io/badge/VCP_score-' >/dev/null
 python3 -m vcp_cli route --profile production --json | grep -F '"selected_route": "Full Hardening"' >/dev/null
@@ -54,8 +62,11 @@ python3 -m vcp_cli route --profile third-party-api --json | grep -F '"manifest_r
 python3 -m vcp_cli route --profile public-growth --json | grep -F '"manifest_route_id": "public-growth-playbook"' >/dev/null
 python3 -m vcp_cli route --profile spec-first --json | grep -F '"manifest_route_id": "spec-first-feature"' >/dev/null
 python3 -m vcp_cli adopt --pack third-party-api --dry-run --json | grep -F '"review_gate_requirement": "Required before production integration merge or release."' >/dev/null
-python3 -m vcp_cli adopt --pack public-growth --dry-run --json | grep -F '"pack": "public-growth"' >/dev/null
-python3 -m vcp_cli adopt --pack spec-first --dry-run --json | grep -F '"pack": "spec-first"' >/dev/null
+python3 -m vcp_cli adopt --pack public-growth --dry-run --json | grep -F '"selected_pack": "public-growth"' >/dev/null
+python3 -m vcp_cli adopt --pack spec-first --dry-run --json | grep -F '"selected_pack": "spec-first"' >/dev/null
+python3 -m vcp_cli adopt plan --json | grep -F '"writes_by_default": false' >/dev/null
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --json | grep -F '"selected_pack": "brownfield-rescue"' >/dev/null
+python3 -m vcp_cli adopt plan --pack spec-foundation --copy-list | grep -F 'templates/specs/PRD.md -> PRD.md' >/dev/null
 python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/prompts/loop-code-review.md"' >/dev/null
 python3 -m vcp_cli index validate >/dev/null
 python3 -m vcp_cli index show --json | grep -F "\"version\": \"$CURRENT_VERSION\"" >/dev/null
@@ -80,6 +91,7 @@ python3 -m vcp_cli preset show solo-founder --json | grep -F '"id": "solo-founde
 python3 -m vcp_cli preset validate --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli cards list --type platform --json | grep -F '"total": 27' >/dev/null
 python3 -m vcp_cli workflow list --json | grep -F '"items"' >/dev/null
+python3 -m vcp_cli workflow plan --id production-hardening --json | grep -F '"requested_workflow": "production-hardening"' >/dev/null
 python3 -m vcp_cli workflow validate --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli workflow show production-hardening --json | grep -F '"id": "production-hardening"' >/dev/null
 python3 -m vcp_cli workflow search hardening --json | grep -F '"query": "hardening"' >/dev/null
@@ -96,6 +108,7 @@ python3 -m vcp_cli backlog add --title "Synthetic backlog test item" --type idea
 python3 -m vcp_cli backlog move --id VCP-001 --status doing --dry-run --json | grep -F '"dry_run": true' >/dev/null
 python3 -m vcp_cli backlog done --id VCP-001 --validation "tests green" --review "accepted" --dry-run --json | grep -F '"dry_run": true' >/dev/null
 python3 -m vcp_cli backlog archive --id VCP-002 --reason "Synthetic archive path" --dry-run --json | grep -F '"dry_run": true' >/dev/null
+python3 -m unittest discover -s tests >/dev/null
 npm run vcp -- doctor >/dev/null
 npm run vcp -- evaluate >/dev/null
 npm run vcp -- route --profile production >/dev/null

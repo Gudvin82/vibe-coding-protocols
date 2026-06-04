@@ -92,6 +92,21 @@ jobs:
       - name: CLI evaluate smoke
         run: python3 -m vcp_cli evaluate --json
 
+      - name: CLI onboard smoke
+        run: python3 -m vcp_cli onboard --json
+
+      - name: CLI classify smoke
+        run: python3 -m vcp_cli classify --json
+
+      - name: CLI public growth smoke
+        run: python3 -m vcp_cli public-growth check --json
+
+      - name: CLI adopt plan smoke
+        run: python3 -m vcp_cli adopt plan --json
+
+      - name: CLI workflow plan smoke
+        run: python3 -m vcp_cli workflow plan --id production-hardening --json
+
       - name: CLI spec quality gate smoke
         run: python3 -m vcp_cli spec quality-gate --json || true
 
@@ -169,6 +184,7 @@ jobs:
           node-version: '20'
       - name: Script tests
         run: |
+          python3 -m unittest discover -s tests
           bash scripts/tests/test-vibe-check-basic.sh
           bash scripts/tests/test-vcp-cli.sh
           python3 scripts/tests/test-vcp-cli-windows-parity.py
@@ -219,6 +235,21 @@ jobs:
       - name: CLI evaluate
         shell: pwsh
         run: py -m vcp_cli evaluate --json
+      - name: CLI onboard
+        shell: pwsh
+        run: py -m vcp_cli onboard --json
+      - name: CLI classify
+        shell: pwsh
+        run: py -m vcp_cli classify --json
+      - name: CLI public-growth
+        shell: pwsh
+        run: py -m vcp_cli public-growth check --json
+      - name: CLI adopt plan
+        shell: pwsh
+        run: py -m vcp_cli adopt plan --json
+      - name: CLI workflow plan
+        shell: pwsh
+        run: py -m vcp_cli workflow plan --id production-hardening --json
       - name: CLI review-diff
         shell: pwsh
         run: py -m vcp_cli review-diff --json

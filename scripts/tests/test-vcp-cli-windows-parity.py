@@ -41,6 +41,11 @@ def main() -> int:
     assert evaluate['ai_audit_manifest_present'] is True
     assert evaluate['repo_capabilities_index_present'] is True
     assert evaluate['audit_plan_command_present'] is True
+    assert evaluate['onboard_command_present'] is True
+    assert evaluate['classify_command_present'] is True
+    assert evaluate['public_growth_check_present'] is True
+    assert evaluate['distribution_doc_present'] is True
+    assert evaluate['adoption_tiers_present'] is True
     assert evaluate['progressive_disclosure_present'] is True
     assert evaluate['shallow_evaluation_guard'] is True
     assert evaluate['adoption_entrypoint'] == 'TAKE_THIS_FIRST.md'
@@ -49,10 +54,16 @@ def main() -> int:
     assert evaluate['release_readiness_present'] is True
     audit_plan = json.loads(run('audit-plan', '--json'))
     assert audit_plan['report_template'] == 'templates/reports/ai-repo-audit-coverage-report.md'
+    onboard = json.loads(run('onboard', '--json'))
+    assert 'recommended_track' in onboard
+    classify = json.loads(run('classify', '--json'))
+    assert 'suggested_route' in classify
     review_diff = json.loads(run('review-diff', '--json'))
     assert 'risk_level' in review_diff
     release_check = json.loads(run('release-check', '--json'))
     assert 'status' in release_check
+    public_growth = json.loads(run('public-growth', 'check', '--json'))
+    assert 'repository_package_version' in public_growth
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
     assert route['adoption_pack'] == 'third-party-api'
     public_growth_route = json.loads(run('route', '--profile', 'public-growth', '--json'))
@@ -60,11 +71,17 @@ def main() -> int:
     spec_first_route = json.loads(run('route', '--profile', 'spec-first', '--json'))
     assert spec_first_route['adoption_pack'] == 'spec-first'
     adopt = json.loads(run('adopt', '--pack', 'third-party-api', '--dry-run', '--json'))
-    assert adopt['pack'] == 'third-party-api'
+    assert adopt['selected_pack'] == 'third-party-api'
     public_growth_adopt = json.loads(run('adopt', '--pack', 'public-growth', '--dry-run', '--json'))
-    assert public_growth_adopt['pack'] == 'public-growth'
+    assert public_growth_adopt['selected_pack'] == 'public-growth'
     spec_first_adopt = json.loads(run('adopt', '--pack', 'spec-first', '--dry-run', '--json'))
-    assert spec_first_adopt['pack'] == 'spec-first'
+    assert spec_first_adopt['selected_pack'] == 'spec-first'
+    adopt_plan = json.loads(run('adopt', 'plan', '--json'))
+    assert adopt_plan['writes_by_default'] is False
+    brownfield_plan = json.loads(run('adopt', 'plan', '--pack', 'brownfield-rescue', '--json'))
+    assert brownfield_plan['selected_pack'] == 'brownfield-rescue'
+    spec_foundation_copy = run('adopt', 'plan', '--pack', 'spec-foundation', '--copy-list')
+    assert 'templates/specs/PRD.md -> PRD.md' in spec_foundation_copy
     manifest = json.loads(run('manifest', 'validate', '--json'))
     assert manifest['ok'] is True
     index_validate = json.loads(run('index', 'validate', '--json'))
@@ -117,6 +134,8 @@ def main() -> int:
     assert workflow_list['total'] > 0
     workflow_validate = json.loads(run('workflow', 'validate', '--json'))
     assert workflow_validate['ok'] is True
+    workflow_plan = json.loads(run('workflow', 'plan', '--id', 'production-hardening', '--json'))
+    assert workflow_plan['requested_workflow'] == 'production-hardening'
     workflow_show = json.loads(run('workflow', 'show', 'production-hardening', '--json'))
     assert workflow_show['id'] == 'production-hardening'
     workflow_search = json.loads(run('workflow', 'search', 'hardening', '--json'))

@@ -2,7 +2,7 @@
   "id": "spec-driven-development",
   "type": "protocol",
   "name": "Spec-driven Development",
-  "summary": "First-class VCP lane for idea → PRD → feature spec → tasks → review.",
+  "summary": "First-class VCP lane for idea \u2192 PRD \u2192 feature spec \u2192 tasks \u2192 review.",
   "use_when": [
     "non-trivial feature planning",
     "founder brief needs structure"
@@ -51,7 +51,7 @@
   "validation": [
     "python3 -m vcp_cli spec validate"
   ],
-  "version": "v0.6.7",
+  "version": "v0.7.0",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

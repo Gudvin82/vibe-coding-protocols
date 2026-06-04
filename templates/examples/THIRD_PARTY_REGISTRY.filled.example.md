@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.6.7 -->
+<!-- vcp-version: v0.7.0 -->
 
 <!-- vcp-artifact: THIRD_PARTY_REGISTRY_FILLED_EXAMPLE -->
-<!-- vcp-version: v0.6.6 -->
+<!-- vcp-version: v0.7.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Filled Third-Party Registry Example

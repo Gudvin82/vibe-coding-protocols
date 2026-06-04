@@ -26,7 +26,7 @@ def run(json_mode: bool = False) -> int:
         return 0
 
     print(f"Repository package: {data['repository_package_version']}")
-    print(f"Methodology version: {data['methodology_version']}")
+    print(f"Methodology layer: {data['methodology_version']}")
     print("Evaluation modes:")
     for name, description in data["evaluation_modes"].items():
         print(f"- {name}: {description}")

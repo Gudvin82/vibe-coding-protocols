@@ -1,0 +1,65 @@
+{
+  "id": "vcp-workflow-plan",
+  "type": "command",
+  "name": "Workflow Plan",
+  "summary": "Prints workflow JSON steps and validation without executing actions.",
+  "use_when": [
+    "workflow JSON needs a planning view"
+  ],
+  "do_not_use_when": [
+    "execution engine behavior is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "workflow"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "workflow confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/workflow_cmd.py"
+  ],
+  "related_files": [
+    "docs/workflows.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow plan --json"
+  ],
+  "outputs": [
+    "workflow plan"
+  ],
+  "stop_conditions": [
+    "do not call workflow JSON executable automation"
+  ],
+  "validation": [
+    "python3 -m vcp_cli workflow plan --json"
+  ],
+  "version": "v0.7.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "workflow"
+  ]
+}

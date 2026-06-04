@@ -1,33 +1,22 @@
 # Adopters and Known Uses
 
-This file lists public or maintainer-known uses of Vibe Coding Protocols.
-It is not an endorsement list, certification, or guarantee of production safety.
+This file lists public or maintainer-known uses of VCP.
+It is not an endorsement list and it is not proof of production safety.
 
-Entries here are lightweight usage references only.
-They are not the same as measured case studies.
-They may be updated, sanitized, or removed.
+## Current state
 
-## Known uses
+Independent public adopters are not yet claimed in `v0.7.0`.
+Until they exist, VCP should say so honestly.
+
+## Maintainer-known uses
 
 | Project / site | Usage area | Status |
 |---|---|---|
-| anmalishev.ru | Full VCP stack, AI visibility, Public Growth, evaluation guidance | Maintainer site |
-| sitepravo.ru | Public Growth Playbook / public-site readiness | Maintainer-known use |
-| auditguard.ru | Hardening + Public Growth / production-readiness workflow | Maintainer-known use |
+| anmalishev.ru | evaluation, public-growth, source-of-truth surfaces | Maintainer site |
+| sitepravo.ru | public-growth and public-site readiness patterns | Maintainer-known |
+| auditguard.ru | hardening and release-readiness patterns | Maintainer-known |
 
-## Important notes
+## Submit an adopter
 
-- These entries are not endorsements unless explicitly stated elsewhere.
-- They are not proof of security, compliance, or production safety.
-- They do not imply affiliation with VCP-adjacent tools or vendors.
-- A listed project may use only part of VCP, not the full toolkit.
-- Case-study proof should use `case-studies/` labels such as `sanitized`, `real`, or `synthetic`.
-
-## How to add an adopter
-
-Open a PR with:
-- project or site name;
-- public URL if allowed;
-- which VCP route or Adoption Pack was used;
-- whether the entry is public, sanitized, or maintainer-known;
-- no secrets, customer data, or unsupported performance claims.
+Use [templates/reports/adopter-submission.md](./templates/reports/adopter-submission.md).
+Do not submit unsupported metrics, hidden customer names, or certification claims.

@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli score --badge json"
   ],
-  "version": "v0.6.7",
+  "version": "v0.7.0",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

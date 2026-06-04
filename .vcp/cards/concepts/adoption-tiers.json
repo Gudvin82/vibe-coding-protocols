@@ -1,0 +1,68 @@
+{
+  "id": "adoption-tiers",
+  "type": "concept",
+  "name": "Adoption Tiers",
+  "summary": "Lite, Team, and Governed tiers for practical VCP adoption.",
+  "use_when": [
+    "a team needs a right-sized adoption level"
+  ],
+  "do_not_use_when": [
+    "one-size-fits-all copying is being proposed"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "adoption confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/adoption-tiers.md"
+  ],
+  "related_files": [
+    "README.md",
+    "README_ru.md",
+    "templates/reports/adoption-tier-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli onboard --json",
+    "python3 -m vcp_cli classify --json"
+  ],
+  "outputs": [
+    "recommended tier"
+  ],
+  "stop_conditions": [
+    "do not force governed adoption on low-risk work"
+  ],
+  "validation": [
+    "python3 -m vcp_cli classify --json"
+  ],
+  "version": "v0.7.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "adoption"
+  ]
+}

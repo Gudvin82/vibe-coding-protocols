@@ -1,28 +1,28 @@
-<!-- vcp-version: v0.6.7 -->
+<!-- vcp-version: v0.7.0 -->
 <!-- methodology-version: v1.4 -->
 
 # VCP Adoption Decision Report
 
 ## Target project summary
 
-## Route decision
+## Classification
 
-## Adoption pack
+## Recommended track
 
-## Spec depth
+## Recommended tier
 
-## Selected files
+## Recommended pack
 
-## Files intentionally skipped
+## Files to copy
 
-## Expected workflow
+## Files to review
 
-## Validation
+## Files intentionally not copied
+
+## Validation commands
 
 ## Stop conditions
 
-## Confidence
+## Confidence and limitations
 
-## Evaluation completeness
-
-State whether the intake was shallow or full and why.
+State whether the intake was shallow, partial, strong, or full.

@@ -1,0 +1,66 @@
+{
+  "id": "unit-tests",
+  "type": "concept",
+  "name": "Unit Tests",
+  "summary": "Stdlib unittest coverage for VCP CLI business logic.",
+  "use_when": [
+    "CLI logic needs direct regression checks"
+  ],
+  "do_not_use_when": [
+    "smoke tests alone are treated as enough evidence"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "testing"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "logic drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "quality control"
+    ]
+  },
+  "entry_files": [
+    "tests/",
+    ".github/workflows/vibe-check.yml"
+  ],
+  "related_files": [
+    "scripts/check-toolkit.sh"
+  ],
+  "cli": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "outputs": [
+    "business logic regression coverage"
+  ],
+  "stop_conditions": [
+    "do not require pytest if stdlib coverage is enough"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.7.0",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "testing"
+  ]
+}

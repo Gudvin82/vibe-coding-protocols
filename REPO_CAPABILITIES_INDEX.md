@@ -1,40 +1,16 @@
-# REPO_CAPABILITIES_INDEX.md
+# Repo Capabilities Index
 
-## What VCP is
+This is the compact capability map for VCP practical adoption.
 
-Vibe Coding Protocols is a two-track operating layer for AI-assisted delivery: New Project Track and Existing Project Track. It helps teams build new products from idea to controlled implementation and helps existing repositories add hardening, review gates, release discipline, and public-proof boundaries without pretending every project needs the same process depth.
-
-## Capability map
-
-| Capability | What it does | Evidence files |
+| Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|
-| Two-track model | New projects + existing projects | `docs/two-track-model.md` |
-| Spec Foundation | idea -> PRD/spec/backlog | `docs/spec-foundation.md` |
-| Spec Quality Gate | checks if specs are implementation-ready | `docs/spec-quality-gate.md` |
-| Brownfield hardening | controls AI-generated MVPs | `docs/walkthroughs/ai-mvp-hardening.md` |
-| Review Diff | checks changed surfaces before merge | `vcp_cli/review_diff.py`, `docs/review-diff.md` |
-| PR Gate | decision surface before merge | `docs/pr-gate.md` |
-| Release Readiness | release checks | `docs/release-readiness.md` |
-| Architecture Drift | catches memory/architecture mismatch | `docs/architecture-drift.md` |
-| Score Badge | local readiness signal | `docs/score-badge.md` |
-| Public Growth | SEO/GEO/AI visibility structure | `docs/public-growth/` |
-| Project Memory | file-backed project memory | `docs/project-memory-model.md` |
-| Pack Security | trust model for packs | `docs/protocol-pack-security.md` |
-| Cards/Index | machine-readable discovery | `.vcp/index.json`, `.vcp/cards/` |
-| Benchmarks | scenario validation | `benchmarks/ai-adoption/scenarios/` |
-
-## What not to miss
-
-- `.vcp/`
-- `vcp_cli/`
-- `templates/`
-- `benchmarks/`
-- `docs/walkthroughs/`
-- `docs/public-growth/`
-
-## What cannot be claimed without inspection
-
-- no CLI maturity claim without CLI code/docs;
-- no benchmark claim without benchmark inspection;
-- no full evaluation without the audit manifest;
-- no "just a prompt pack" claim without `.vcp`, CLI, workflows, benchmarks, review gates, and manifests inspection.
+| Full repo audit discipline | `FULL_REPO_INTAKE.md`, `AI_FULL_REPO_AUDIT.md`, `.vcp/ai-audit-manifest.json` | full understanding from README-only review |
+| Two-track model | `docs/two-track-model.md`, `docs/spec-foundation.md`, `docs/release-readiness.md` | that VCP is only for greenfield or only for hardening |
+| CLI onboarding | `vcp_cli/onboard.py`, `vcp_cli/classify.py`, `docs/cli.md` | that VCP lacks a practical entry command |
+| Safe adoption planning | `vcp_cli/adopt.py`, `docs/adoption-packs.md`, `docs/protocol-pack-security.md` | destructive auto-apply or blind copy behavior |
+| Adoption tiers | `docs/adoption-tiers.md`, `templates/reports/adoption-tier-report.md` | one-size-fits-all adoption guidance |
+| Public growth checks | `vcp_cli/public_growth.py`, `docs/public-growth/geo-checks.md`, `templates/reports/public-growth-check-report.md` | ranking, citation, or GEO guarantees |
+| Proof pack | `docs/proof-pack.md`, `case-studies/README.md`, `ADOPTERS.md` | fake independent adoption or unsupported metrics |
+| Workflow planning | `docs/workflows.md`, `.vcp/workflows/`, `vcp_cli/workflow_cmd.py` | that workflow JSON is an execution engine |
+| Version semantics | `docs/version-semantics.md`, `vcp_cli/version.py`, `README.md` | that methodology layer equals the repo release |
+| Unit-tested CLI logic | `tests/`, `python3 -m unittest discover -s tests` | that CLI logic is only smoke-tested |

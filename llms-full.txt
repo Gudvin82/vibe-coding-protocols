@@ -7,9 +7,9 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.7`
-- Methodology version: `v1.4`
-- Do not confuse methodology version `v1.4` with repository package version `v0.6.7`.
+- Repository package: `v0.7.0`
+- Methodology layer: `v1.4`
+- Do not confuse methodology version `v1.4` with repository package version `v0.7.0`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path

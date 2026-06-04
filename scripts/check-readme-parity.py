@@ -10,86 +10,19 @@ README_RU = (ROOT / 'README_ru.md').read_text(encoding='utf-8')
 CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 CHECKS = [
-    (
-        'repository package version',
-        ['Repository package:', CURRENT],
-        ['Repository package:', CURRENT],
-    ),
-    (
-        'AI shallow evaluation warning',
-        ['do not evaluate VCP from README alone'],
-        ['не оценивайте VCP только по README'],
-    ),
-    (
-        'TAKE_THIS_FIRST entrypoint',
-        ['TAKE_THIS_FIRST.md'],
-        ['TAKE_THIS_FIRST.md'],
-    ),
-    (
-        'full repo intake marker',
-        ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'],
-        ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'],
-    ),
-    (
-        'two-track model',
-        ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
-        ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
-    ),
-    (
-        'audit coverage wording',
-        ['mark your evaluation as partial', 'WebFetch/README summary as a full repository audit'],
-        ['пометь оценку как partial', 'WebFetch/README-пересказ за полный аудит репозитория'],
-    ),
-    (
-        'new product walkthrough',
-        ['docs/walkthroughs/new-ai-product-from-idea.md'],
-        ['docs/walkthroughs/new-ai-product-from-idea.md'],
-    ),
-    (
-        'existing project walkthrough',
-        ['docs/walkthroughs/ai-mvp-hardening.md'],
-        ['docs/walkthroughs/ai-mvp-hardening.md'],
-    ),
-    (
-        'spec foundation block',
-        ['docs/spec-foundation.md', 'docs/spec-quality-gate.md'],
-        ['docs/spec-foundation.md', 'docs/spec-quality-gate.md'],
-    ),
-    (
-        'release readiness block',
-        ['docs/release-readiness.md', 'docs/architecture-drift.md'],
-        ['docs/release-readiness.md', 'docs/architecture-drift.md'],
-    ),
-    (
-        '2-minute demo',
-        ['Try VCP in 2 minutes'],
-        ['Попробовать VCP за 2 минуты'],
-    ),
-    (
-        'what VCP covers table',
-        ['What VCP actually covers'],
-        ['Что реально покрывает VCP'],
-    ),
-    (
-        'install link',
-        ['docs/install.md'],
-        ['docs/install.md'],
-    ),
-    (
-        'score badge mention',
-        ['score --badge markdown', 'local readiness signal'],
-        ['score --badge markdown', 'локальный readiness-сигнал'],
-    ),
-    (
-        'PR Gate block',
-        ['Add VCP to pull requests', 'docs/pr-gate.md'],
-        ['Добавить VCP в pull request', 'docs/pr-gate.md'],
-    ),
-    (
-        'source-of-truth marker',
-        ['docs/public-source-of-truth-audit.md'],
-        ['docs/public-source-of-truth-audit.md'],
-    ),
+    ('repository package version', ['Repository package:', CURRENT], ['Repository package:', CURRENT]),
+    ('methodology layer label', ['Methodology layer:'], ['Methodology layer:']),
+    ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
+    ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
+    ('practical adoption block', ['New in v0.7.0: practical adoption'], ['Новое в v0.7.0: практическое внедрение']),
+    ('quick start by situation', ['Quick start by situation'], ['Быстрый старт по ситуации']),
+    ('two tracks', ['New Project Track', 'Existing Project Track'], ['New Project Track', 'Existing Project Track']),
+    ('adoption tiers', ['docs/adoption-tiers.md'], ['docs/adoption-tiers.md']),
+    ('safe adoption plan', ['adopt plan --json', 'adopt plan --pack production --patch'], ['adopt plan --json', 'adopt plan --pack production --patch']),
+    ('public growth check', ['public-growth check --json'], ['public-growth check --json']),
+    ('proof pack', ['docs/proof-pack.md', 'case-studies/README.md'], ['docs/proof-pack.md', 'case-studies/README.md']),
+    ('workflow planning note', ['workflow plan --json'], ['workflow plan --json']),
+    ('install and distribution links', ['docs/install.md', 'docs/distribution.md'], ['docs/install.md', 'docs/distribution.md']),
 ]
 
 missing: list[str] = []

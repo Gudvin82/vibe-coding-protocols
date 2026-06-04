@@ -1,10 +1,46 @@
 {
   "items": [
     {
+      "id": "adoption-tier-report",
+      "file": "templates/reports/adoption-tier-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Project snapshot",
+        "Recommended tier",
+        "What to adopt now"
+      ]
+    },
+    {
+      "id": "ai-repo-audit-coverage-report",
+      "file": "templates/reports/ai-repo-audit-coverage-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Evaluation mode",
+        "Files inspected",
+        "Required files not inspected",
+        "Capability coverage",
+        "Claims allowed",
+        "Claims not allowed",
+        "Limitations",
+        "Final confidence"
+      ]
+    },
+    {
       "id": "ai-visibility-monitoring-report",
       "file": "templates/reports/ai-visibility-monitoring-report.md",
       "intended_route": "public-growth",
       "purpose": "repeatable AI visibility and GEO monitoring notes without claiming ranking guarantees"
+    },
+    {
+      "id": "architecture-drift-report",
+      "file": "templates/reports/architecture-drift-report.md",
+      "intended_route": "hardening",
+      "required_sections": [
+        "Scope",
+        "Observed drift",
+        "Required memory updates",
+        "Next action"
+      ]
     },
     {
       "id": "audit-backlog",
@@ -25,6 +61,27 @@
         "Items added or changed",
         "Validation path",
         "Next step"
+      ]
+    },
+    {
+      "id": "brownfield-rescue-report",
+      "file": "templates/reports/brownfield-rescue-report.md",
+      "intended_route": "hardening",
+      "required_sections": [
+        "Repository state",
+        "Control gaps",
+        "Rescue plan",
+        "Next safe step"
+      ]
+    },
+    {
+      "id": "case-study-proof-report",
+      "file": "templates/reports/case-study-proof-report.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Case label",
+        "Validation evidence",
+        "Unknowns and limitations"
       ]
     },
     {
@@ -63,6 +120,19 @@
       ]
     },
     {
+      "id": "first-impression-audit-report",
+      "file": "templates/reports/first-impression-audit-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Scenario",
+        "First thing understood",
+        "What remained unclear",
+        "AI shallow-evaluation risk",
+        "Recommended next document",
+        "Confidence"
+      ]
+    },
+    {
       "id": "pr-gate-report",
       "file": "templates/reports/pr-gate-report.md",
       "intended_route": "review",
@@ -71,6 +141,17 @@
         "Checks run",
         "Review-diff result",
         "Merge note"
+      ]
+    },
+    {
+      "id": "proactive-routine-report",
+      "file": "templates/reports/proactive-routine-report.md",
+      "intended_route": "operations",
+      "required_sections": [
+        "Routine",
+        "Commands run",
+        "Findings",
+        "Backlog or review follow-up"
       ]
     },
     {
@@ -86,10 +167,57 @@
       ]
     },
     {
+      "id": "proof-walkthrough-report",
+      "file": "templates/reports/proof-walkthrough-report.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Initial state",
+        "Route and trust path",
+        "Commands run",
+        "Evidence created",
+        "What remains unknown",
+        "What VCP does not guarantee"
+      ]
+    },
+    {
+      "id": "protocol-pack-security-review",
+      "file": "templates/reports/protocol-pack-security-review.md",
+      "intended_route": "adoption",
+      "required_sections": [
+        "Pack identity",
+        "Touched surfaces",
+        "Security boundaries",
+        "Required validation",
+        "Merge recommendation"
+      ]
+    },
+    {
       "id": "public-growth-audit-report",
       "file": "templates/reports/public-growth-audit-report.md",
       "intended_route": "public-growth",
       "purpose": "public growth audit findings, priority, proof gaps, and next actions"
+    },
+    {
+      "id": "public-growth-check-report",
+      "file": "templates/reports/public-growth-check-report.md",
+      "intended_route": "public-growth",
+      "required_sections": [
+        "Scope",
+        "Local signals present",
+        "Recommended next actions"
+      ]
+    },
+    {
+      "id": "public-source-of-truth-audit-report",
+      "file": "templates/reports/public-source-of-truth-audit-report.md",
+      "intended_route": "release",
+      "required_sections": [
+        "Scope",
+        "Strong signals checked",
+        "Weak public signals checked",
+        "Findings",
+        "Trust conclusion"
+      ]
     },
     {
       "id": "refactoring-report",
@@ -100,6 +228,17 @@
         "Risk level",
         "Challenge decision",
         "Validation run"
+      ]
+    },
+    {
+      "id": "release-readiness-report",
+      "file": "templates/reports/release-readiness-report.md",
+      "intended_route": "release",
+      "required_sections": [
+        "Release scope",
+        "Checks run",
+        "Open warnings",
+        "Decision"
       ]
     },
     {
@@ -137,6 +276,20 @@
       ]
     },
     {
+      "id": "seo-geo-ai-structure-evaluation-report",
+      "file": "templates/reports/seo-geo-ai-structure-evaluation-report.md",
+      "intended_route": "public-growth",
+      "required_sections": [
+        "Project or site",
+        "Overall readiness",
+        "Technical SEO",
+        "GEO readiness",
+        "AI visibility",
+        "Risks",
+        "What cannot be guaranteed"
+      ]
+    },
+    {
       "id": "spec-depth-decision-report",
       "file": "templates/reports/spec-depth-decision-report.md",
       "intended_route": "spec-first",
@@ -144,6 +297,18 @@
         "Decision",
         "Reason",
         "Required artifacts",
+        "Validation path"
+      ]
+    },
+    {
+      "id": "spec-foundation-report",
+      "file": "templates/reports/spec-foundation-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Source brief",
+        "Chosen spec path",
+        "Required artifacts",
+        "Backlog linkage",
         "Validation path"
       ]
     },
@@ -156,6 +321,17 @@
         "Observed statuses",
         "Missing or stale evidence",
         "Next action"
+      ]
+    },
+    {
+      "id": "spec-quality-gate-report",
+      "file": "templates/reports/spec-quality-gate-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Status",
+        "Clear goal",
+        "Acceptance criteria quality",
+        "Next actions"
       ]
     },
     {
@@ -236,6 +412,24 @@
       ]
     },
     {
+      "id": "vcp-adoption-decision-report",
+      "file": "templates/reports/vcp-adoption-decision-report.md",
+      "intended_route": "intake",
+      "required_sections": [
+        "Target project summary",
+        "Route decision",
+        "Adoption pack",
+        "Spec depth",
+        "Selected files",
+        "Files intentionally skipped",
+        "Expected workflow",
+        "Validation",
+        "Stop conditions",
+        "Confidence",
+        "Evaluation completeness"
+      ]
+    },
+    {
       "id": "vcp-event-entry",
       "file": "templates/reports/vcp-event-entry.md",
       "intended_route": "events",
@@ -259,170 +453,6 @@
         "Scores",
         "Confidence",
         "Evaluation completeness"
-      ]
-    },
-    {
-      "id": "vcp-adoption-decision-report",
-      "file": "templates/reports/vcp-adoption-decision-report.md",
-      "intended_route": "intake",
-      "required_sections": [
-        "Target project summary",
-        "Route decision",
-        "Adoption pack",
-        "Spec depth",
-        "Selected files",
-        "Files intentionally skipped",
-        "Expected workflow",
-        "Validation",
-        "Stop conditions",
-        "Confidence",
-        "Evaluation completeness"
-      ]
-    },
-    {
-      "id": "first-impression-audit-report",
-      "file": "templates/reports/first-impression-audit-report.md",
-      "intended_route": "intake",
-      "required_sections": [
-        "Scenario",
-        "First thing understood",
-        "What remained unclear",
-        "AI shallow-evaluation risk",
-        "Recommended next document",
-        "Confidence"
-      ]
-    },
-    {
-      "id": "public-source-of-truth-audit-report",
-      "file": "templates/reports/public-source-of-truth-audit-report.md",
-      "intended_route": "release",
-      "required_sections": [
-        "Scope",
-        "Strong signals checked",
-        "Weak public signals checked",
-        "Findings",
-        "Trust conclusion"
-      ]
-    },
-    {
-      "id": "proof-walkthrough-report",
-      "file": "templates/reports/proof-walkthrough-report.md",
-      "intended_route": "proof",
-      "required_sections": [
-        "Initial state",
-        "Route and trust path",
-        "Commands run",
-        "Evidence created",
-        "What remains unknown",
-        "What VCP does not guarantee"
-      ]
-    },
-    {
-      "id": "protocol-pack-security-review",
-      "file": "templates/reports/protocol-pack-security-review.md",
-      "intended_route": "adoption",
-      "required_sections": [
-        "Pack identity",
-        "Touched surfaces",
-        "Security boundaries",
-        "Required validation",
-        "Merge recommendation"
-      ]
-    },
-    {
-      "id": "proactive-routine-report",
-      "file": "templates/reports/proactive-routine-report.md",
-      "intended_route": "operations",
-      "required_sections": [
-        "Routine",
-        "Commands run",
-        "Findings",
-        "Backlog or review follow-up"
-      ]
-    },
-    {
-      "id": "seo-geo-ai-structure-evaluation-report",
-      "file": "templates/reports/seo-geo-ai-structure-evaluation-report.md",
-      "intended_route": "public-growth",
-      "required_sections": [
-        "Project or site",
-        "Overall readiness",
-        "Technical SEO",
-        "GEO readiness",
-        "AI visibility",
-        "Risks",
-        "What cannot be guaranteed"
-      ]
-    },
-    {
-      "id": "spec-foundation-report",
-      "file": "templates/reports/spec-foundation-report.md",
-      "intended_route": "spec-first",
-      "required_sections": [
-        "Source brief",
-        "Chosen spec path",
-        "Required artifacts",
-        "Backlog linkage",
-        "Validation path"
-      ]
-    },
-    {
-      "id": "spec-quality-gate-report",
-      "file": "templates/reports/spec-quality-gate-report.md",
-      "intended_route": "spec-first",
-      "required_sections": [
-        "Status",
-        "Clear goal",
-        "Acceptance criteria quality",
-        "Next actions"
-      ]
-    },
-    {
-      "id": "release-readiness-report",
-      "file": "templates/reports/release-readiness-report.md",
-      "intended_route": "release",
-      "required_sections": [
-        "Release scope",
-        "Checks run",
-        "Open warnings",
-        "Decision"
-      ]
-    },
-    {
-      "id": "architecture-drift-report",
-      "file": "templates/reports/architecture-drift-report.md",
-      "intended_route": "hardening",
-      "required_sections": [
-        "Scope",
-        "Observed drift",
-        "Required memory updates",
-        "Next action"
-      ]
-    },
-    {
-      "id": "brownfield-rescue-report",
-      "file": "templates/reports/brownfield-rescue-report.md",
-      "intended_route": "hardening",
-      "required_sections": [
-        "Repository state",
-        "Control gaps",
-        "Rescue plan",
-        "Next safe step"
-      ]
-    },
-    {
-      "id": "ai-repo-audit-coverage-report",
-      "file": "templates/reports/ai-repo-audit-coverage-report.md",
-      "intended_route": "intake",
-      "required_sections": [
-        "Evaluation mode",
-        "Files inspected",
-        "Required files not inspected",
-        "Capability coverage",
-        "Claims allowed",
-        "Claims not allowed",
-        "Limitations",
-        "Final confidence"
       ]
     }
   ],

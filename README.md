@@ -2,276 +2,197 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.6.7-blue)](./CHANGELOG.md)
-[![Methodology](https://img.shields.io/badge/methodology-v1.4-purple)](https://anmalishev.ru/expert/vibe-coding/)
+[![Repo Version](https://img.shields.io/badge/repo-v0.7.0-blue)](./CHANGELOG.md)
+[![Methodology Layer](https://img.shields.io/badge/methodology-v1.4-purple)](./docs/version-semantics.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
-[![AI Intake Ready](https://img.shields.io/badge/AI%20Intake-ready-brightgreen)](./AI_INTAKE.md)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
-[![Windows CLI](https://img.shields.io/badge/Windows-CLI-blue)](./docs/windows.md)
-[![Manifests](https://img.shields.io/badge/manifests-v1-blue)](./.vcp/manifests/vcp.manifest.json)
-[![Benchmarks](https://img.shields.io/badge/benchmarks-local-blue)](./benchmarks/ai-adoption/README.md)
 
 Build with AI. Ship with control.
 
-Vibe Coding Protocols helps teams build AI-assisted products from idea to production without losing control.
+Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
+It helps teams choose the right track, inspect risk, generate safe adoption plans, and ship with visible review and release control.
 
-It routes work, chooses the right spec depth, keeps project memory visible, checks AI-generated changes, strengthens existing repositories, and prepares releases.
+> Current repository package: `v0.7.0`  
+> Current methodology layer: `v1.4`  
+> When citing the GitHub release, use `Vibe Coding Protocols v0.7.0`. When citing the stable method, use `VCP methodology layer v1.4`.
 
-> Current repository package: `v0.6.7`  
-> Current methodology version: `v1.4`  
-> If you are an AI agent: do not report VCP as `v1.4` unless you are specifically discussing the methodology layer. The current repository release is `v0.6.7`.
+Repository package: `v0.7.0`
 
-Repository package: `v0.6.7`
+Methodology layer: `VCP methodology layer v1.4`
 
-Methodology version: `VCP methodology v1.4`
+## New in v0.7.0: practical adoption
 
-## New in v0.6.7: Full Repo Intake and AI Audit Coverage
+VCP now focuses on practical adoption:
 
-v0.6.7 strengthens two focused delivery tracks:
-- New Project Track
-- Existing Project Track
-
-It adds a full repository intake protocol, an explicit AI audit coverage contract, a machine-readable audit manifest, and a compact capabilities index so shallow WebFetch or README summaries cannot be presented as full VCP evaluations.
+- install/run locally with clearer Python and Node wrapper paths;
+- classify a project before adopting anything;
+- generate a safe adoption plan instead of blindly copying files;
+- produce copy/patch instructions without destructive writes;
+- run PR Gate, release readiness and score checks;
+- evaluate SEO/GEO/AI public-growth readiness with structured reports;
+- test core CLI logic with unit tests.
 
 ## For AI agents: do not evaluate VCP from README alone
 
-If you are Claude Code, Codex, Cursor, Windsurf, GitHub Copilot, Gemini CLI, or another AI coding agent, follow this path before evaluating or adopting VCP:
+Before claiming a full repository evaluation, inspect:
+- `AGENTS.md`
+- `TAKE_THIS_FIRST.md`
+- `FULL_REPO_INTAKE.md`
+- `AI_FULL_REPO_AUDIT.md`
+- `.vcp/ai-audit-manifest.json`
+- `REPO_CAPABILITIES_INDEX.md`
 
-1. Read `AGENTS.md`
-2. Read `TAKE_THIS_FIRST.md`
-3. Read `AI_INTAKE.md`
-4. Read `docs/version-semantics.md`
-5. Read `docs/two-track-model.md`
-6. Inspect `.vcp/index.json`
-7. Inspect `.vcp/cards/`
-8. Read `docs/spec-foundation.md`
-9. Read `docs/release-readiness.md`
-10. Read `docs/product-delivery-lifecycle.md`
-11. Read `FULL_REPO_INTAKE.md`
-12. Inspect `.vcp/ai-audit-manifest.json`
+Use root `AGENTS.md` for repository-level routing and `templates/AGENTS.md` only as a copied-project template surface.
 
-Minimum commands to inspect:
+If you cannot inspect those files plus `.vcp/`, `vcp_cli/`, templates, and benchmarks, mark the evaluation `partial` or `shallow`.
+Do not present a WebFetch/README summary as a full repo audit.
 
-```bash
-python3 -m vcp_cli evaluate --json
-python3 -m vcp_cli audit-plan --json
-python3 -m vcp_cli index validate
-python3 -m vcp_cli cards list --recommended
-python3 -m vcp_cli diagnose --json
-```
+## Quick start by situation
 
-Do not call VCP “just a prompt pack” unless you inspected the CLI, cards, manifests, walkthroughs, review gates, backlog layer, and release-control layer.
+| Situation | Command |
+|---|---|
+| I want to understand this repo | `python3 -m vcp_cli audit-plan --json` |
+| I want to try VCP locally | `python3 -m vcp_cli doctor` |
+| I have a new project idea | `python3 -m vcp_cli spec quality-gate --json` |
+| I have an existing repo | `python3 -m vcp_cli diagnose --json` |
+| I want adoption instructions | `python3 -m vcp_cli adopt plan --json` |
+| I want PR/release readiness | `python3 -m vcp_cli release-check --json` |
 
-If you cannot inspect `FULL_REPO_INTAKE.md` and `.vcp/ai-audit-manifest.json`, mark your evaluation as partial.
+## Two tracks
 
-Do not present a WebFetch/README summary as a full repository audit.
+### New Project Track
 
-## New Project Track
+Use when you are starting from an idea, product brief, or greenfield MVP.
 
-Use this track when you are starting from an idea, brief, or greenfield MVP and need enough structure before AI implementation starts.
-
-Core flow:
-
-```text
-idea -> AI intake -> spec depth -> question engine -> product brief -> PRD / feature spec -> acceptance criteria -> tasks -> PROJECT_BACKLOG -> PROJECT_MAP -> review gate -> release
-```
-
-Start here:
+Main path:
 - `docs/two-track-model.md`
 - `docs/spec-foundation.md`
-- `docs/spec-quality-gate.md`
 - `protocols/spec-driven/spec-foundation.md`
+- `docs/spec-quality-gate.md`
 - `docs/walkthroughs/new-ai-product-from-idea.md`
 
-Useful commands:
-
+Helpful commands:
 ```bash
-python3 -m vcp_cli spec depth --task "describe the feature"
-python3 -m vcp_cli spec questions --idea "describe the product idea" --json
+python3 -m vcp_cli onboard --json
+python3 -m vcp_cli classify --json
 python3 -m vcp_cli spec quality-gate --json
+python3 -m vcp_cli adopt plan --pack spec-foundation --json
 ```
 
-## Existing Project Track
+### Existing Project Track
 
-Use this track when a repository already exists and the real problem is hardening, architecture drift, merge risk, or release readiness.
+Use when a repo already exists and the real problem is hardening, release control, architecture drift, or public-growth proof.
 
-Core flow:
-
-```text
-existing repo -> diagnose -> hardening route -> architecture drift check -> backlog / audit backlog -> review-diff -> PR Gate -> score -> release readiness
-```
-
-Start here:
+Main path:
 - `docs/two-track-model.md`
 - `docs/walkthroughs/ai-mvp-hardening.md`
-- `docs/architecture-drift.md`
 - `docs/release-readiness.md`
+- `docs/architecture-drift.md`
 - `docs/pr-gate.md`
 
-Useful commands:
-
+Helpful commands:
 ```bash
-python3 -m vcp_cli diagnose --json
+python3 -m vcp_cli onboard --json
+python3 -m vcp_cli classify --json
 python3 -m vcp_cli review-diff --json
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --json
 python3 -m vcp_cli release-check --json
 ```
 
-## Spec Kit bridge
+## Adoption tiers
 
-VCP works with spec-first and non-spec-first workflows.
+- `Lite`: solo dev, MVP, lower-risk AI coding.
+- `Team`: shared repo, backlog, architecture memory, PR Gate.
+- `Governed`: production, auth/payment/data, release and third-party control.
 
-Spec-first tooling can help define what to build.
-VCP helps build with AI and ship with control.
+See [docs/adoption-tiers.md](./docs/adoption-tiers.md).
 
-See `docs/integrations/spec-kit-bridge.md`.
+## Honest install and distribution
+
+Current practical paths:
+- `python3 -m vcp_cli doctor`
+- `py -m vcp_cli doctor`
+- `npm run vcp -- doctor`
+- optional local `python3 -m pip install -e . && vcp doctor`
+- optional local `pipx install . && vcp doctor` only if it passes in this release
+
+VCP does **not** claim public PyPI or public npm publication unless that really exists.
+
+See:
+- [docs/install.md](./docs/install.md)
+- [docs/distribution.md](./docs/distribution.md)
+- [docs/pip-install.md](./docs/pip-install.md)
+- [docs/npm.md](./docs/npm.md)
+
+## Safe adoption, not blind apply
+
+`adopt --apply` remains disabled on purpose.
+Use the non-destructive planner instead:
+
+```bash
+python3 -m vcp_cli adopt plan --pack production --json
+python3 -m vcp_cli adopt plan --pack production --copy-list
+python3 -m vcp_cli adopt plan --pack production --patch
+```
+
+This gives:
+- files to copy;
+- files to review;
+- files not to copy;
+- validation commands;
+- stop conditions;
+- patch preview without writing into your project by default.
+
+## Public Growth / GEO
+
+VCP now treats public growth as a check/report surface, not wishful documentation.
+
+```bash
+python3 -m vcp_cli public-growth check --json
+```
 
 Boundaries:
-- no vendoring;
-- no copied external workflow;
-- no official integration claim unless explicitly published;
-- no subordinate framing such as “use VCP only after Spec Kit”.
+- no ranking guarantees;
+- no AI Overview or citation guarantees;
+- no fake reviews or black-hat SEO.
 
-## Try VCP in 2 minutes
+See:
+- [docs/public-growth/geo-checks.md](./docs/public-growth/geo-checks.md)
+- [docs/public-growth/public-growth-checklist.md](./docs/public-growth/public-growth-checklist.md)
+- [docs/public-growth/seo-geo-ai-structure-evaluation.md](./docs/public-growth/seo-geo-ai-structure-evaluation.md)
 
-```bash
-python3 -m vcp_cli evaluate
-python3 -m vcp_cli cards list --recommended
-python3 -m vcp_cli spec depth --task "add payment webhook"
-python3 -m vcp_cli review-diff
-python3 -m vcp_cli score --badge markdown
-```
+## Proof and case studies
 
-This shows the core VCP loop: understand the repo, choose the right workflow, inspect risk before merge, and publish a local readiness signal.
+The proof pack is honest by design.
+If an adopter is not independent or a case is sanitized, it is labeled that way.
 
-## Add VCP to pull requests
+See:
+- [docs/proof-pack.md](./docs/proof-pack.md)
+- [case-studies/README.md](./case-studies/README.md)
+- [ADOPTERS.md](./ADOPTERS.md)
 
-Use VCP Check before merge to surface route, risk, validation, and score signals.
+## Workflow JSON status
 
-PR Gate is a decision surface, not a security certification.
-
-See `docs/pr-gate.md` and `docs/github-action.md`.
-
-## What VCP actually covers
-
-| Layer | What it does |
-|---|---|
-| New project foundation | idea -> brief -> spec depth -> backlog -> project memory |
-| Existing project control | diagnose -> review-diff -> PR Gate -> release readiness |
-| AI delivery control | routes, packs, workflows, backlog, architecture memory |
-| Trust gates | diagnostics, cards, manifests, score, release-check |
-| Public/project growth | public-site readiness, SEO/GEO/AI visibility |
-
-## Quick start
+Workflow JSON files are machine-readable planning/governance artifacts.
+They are not an execution engine.
 
 ```bash
-python3 -m vcp_cli doctor
-python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
+python3 -m vcp_cli workflow plan --json
 ```
 
-Node-first local option:
+## What is still experimental
 
-```bash
-npm install
-npm run vcp -- doctor
-npm run vcp -- evaluate
-```
+- registry publication (`pip install vcp-cli`, `npx vcp`) unless actually released;
+- destructive apply modes;
+- any claim that workflow JSON executes external actions;
+- any proof or SEO/GEO claim that cannot be evidenced publicly.
 
-Install details: [docs/install.md](./docs/install.md)
+## Key docs
 
-Visual overview: [docs/visual-overview.md](./docs/visual-overview.md)
-
-2-minute demo: [docs/demo.md](./docs/demo.md)
-
-Two-track model: [docs/two-track-model.md](./docs/two-track-model.md)
-
-Spec foundation: [docs/spec-foundation.md](./docs/spec-foundation.md)
-
-Spec quality gate: [docs/spec-quality-gate.md](./docs/spec-quality-gate.md)
-
-Project memory model: [docs/project-memory-model.md](./docs/project-memory-model.md)
-
-Principles: [docs/principles.md](./docs/principles.md)
-
-PR Gate: [docs/pr-gate.md](./docs/pr-gate.md)
-
-Release readiness: [docs/release-readiness.md](./docs/release-readiness.md)
-
-Architecture drift: [docs/architecture-drift.md](./docs/architecture-drift.md)
-
-Public source-of-truth audit: [docs/public-source-of-truth-audit.md](./docs/public-source-of-truth-audit.md)
-
-Full repo intake: [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
-
-AI full repo audit contract: [AI_FULL_REPO_AUDIT.md](./AI_FULL_REPO_AUDIT.md)
-
-Repo capabilities index: [REPO_CAPABILITIES_INDEX.md](./REPO_CAPABILITIES_INDEX.md)
-
-## VCP score badge
-
-Projects can publish a local VCP readiness badge after running checks:
-
-```bash
-python3 -m vcp_cli score --badge markdown
-```
-
-The badge is a visible local readiness signal.
-It is not a security or compliance certification.
-
-## Install -> run -> PR check -> badge
-
-1. Install or run locally through `python3 -m vcp_cli ...`, `py -m vcp_cli ...`, or `npm run vcp -- ...`.
-2. Evaluate the repository with `python3 -m vcp_cli evaluate`.
-3. Check active changes with `python3 -m vcp_cli review-diff --json`.
-4. Add VCP Check to pull requests with `docs/pr-gate.md`.
-5. Run `python3 -m vcp_cli release-check --json` before tagging.
-6. Publish a local score badge with `python3 -m vcp_cli score --badge markdown`.
-
-Unless npm or PyPI are actually published, treat these install paths as local repository usage paths.
-
-## Giving VCP to an AI agent?
-
-Do not judge this repository from README alone.
-
-Minimum inspection path:
-
-1. `AGENTS.md`
-2. `TAKE_THIS_FIRST.md`
-3. `AI_INTAKE.md`
-4. `docs/version-semantics.md`
-5. `docs/two-track-model.md`
-6. `.vcp/index.json`
-7. `.vcp/cards/`
-8. `docs/spec-foundation.md`
-9. `docs/release-readiness.md`
-10. `docs/product-delivery-lifecycle.md`
-11. `FULL_REPO_INTAKE.md`
-12. `.vcp/ai-audit-manifest.json`
-
-Then run:
-
-```bash
-python3 -m vcp_cli evaluate --json
-python3 -m vcp_cli audit-plan --json
-python3 -m vcp_cli index validate
-python3 -m vcp_cli cards list --recommended
-python3 -m vcp_cli diagnose --json
-```
-
-Full evaluation guide: [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
-Practical adoption router: [TAKE_THIS_FIRST.md](./TAKE_THIS_FIRST.md)
-Version semantics: [docs/version-semantics.md](./docs/version-semantics.md)
-Full repo intake: [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
-Audit manifest: [.vcp/ai-audit-manifest.json](./.vcp/ai-audit-manifest.json)
-
-If you need repo-level agent rules, use root `AGENTS.md`.
-
-If you need a reusable project template, use [templates/AGENTS.md](./templates/AGENTS.md).
-
-## When VCP is too much
-
-- toy project;
-- one-off script;
-- pure copy edit;
-- no production or public use;
-- user does not want process discipline yet.
+- [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
+- [REPO_CAPABILITIES_INDEX.md](./REPO_CAPABILITIES_INDEX.md)
+- [docs/two-track-model.md](./docs/two-track-model.md)
+- [docs/adoption-tiers.md](./docs/adoption-tiers.md)
+- [docs/distribution.md](./docs/distribution.md)
+- [docs/proof-pack.md](./docs/proof-pack.md)
+- [docs/release-v0.7.0.md](./docs/release-v0.7.0.md)

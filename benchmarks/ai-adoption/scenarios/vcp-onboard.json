@@ -1,0 +1,16 @@
+{
+  "scenario_id": "vcp-onboard",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "onboarding",
+    "next commands"
+  ],
+  "required_files_to_inspect": [
+    "vcp_cli/onboard.py",
+    "docs/cli.md"
+  ],
+  "expected_first_safe_action": "Run onboard before selecting deeper commands.",
+  "expected_warnings": [
+    "onboard is guidance only, not file mutation"
+  ]
+}

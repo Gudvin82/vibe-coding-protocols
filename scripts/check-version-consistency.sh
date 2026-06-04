@@ -29,13 +29,13 @@ check_contains() {
 check_contains README.md "repo-${REPO_VERSION}" "README badge"
 check_contains README.md "$REPO_VERSION" "README repository package"
 check_contains README_ru.md "$REPO_VERSION" "README_ru repository package"
-check_contains README.md "Current methodology version: \`$METHODOLOGY_VERSION\`" "README methodology version block"
-check_contains README_ru.md "Текущая версия методологии: \`$METHODOLOGY_VERSION\`" "README_ru methodology version block"
+check_contains README.md "Current methodology layer: \`$METHODOLOGY_VERSION\`" "README methodology layer block"
+check_contains README_ru.md "Текущий слой методологии: \`$METHODOLOGY_VERSION\`" "README_ru methodology layer block"
 check_contains docs/version-semantics.md "Current repository package version: \`$REPO_VERSION\`" "version semantics package version"
-check_contains docs/version-semantics.md "Current methodology version: \`$METHODOLOGY_VERSION\`" "version semantics methodology version"
+check_contains docs/version-semantics.md "Current methodology layer: \`$METHODOLOGY_VERSION\`" "version semantics methodology layer"
 check_contains CHANGELOG.md "$REPO_VERSION" "CHANGELOG entry"
 check_contains docs/versioning.md "Repository package \`$REPO_VERSION\`" "docs/versioning repo version"
-check_contains docs/versioning.md "Methodology version \`$METHODOLOGY_VERSION\`" "docs/versioning methodology version"
+check_contains docs/versioning.md "Methodology layer \`$METHODOLOGY_VERSION\`" "docs/versioning methodology layer"
 check_contains "docs/release-${REPO_VERSION}.md" "$REPO_VERSION" "release notes title"
 check_contains "$VCP_MANIFEST" "\"package_version\": \"$REPO_VERSION\"" "vcp manifest package version"
 check_contains "$VCP_MANIFEST" "\"methodology_version\": \"$METHODOLOGY_VERSION\"" "vcp manifest methodology version"
@@ -96,6 +96,8 @@ stale_versions=(
   "v0.6.2"
   "v0.6.4"
   "v0.6.5"
+  "v0.6.6"
+  "v0.6.7"
 )
 
 entry_files=(

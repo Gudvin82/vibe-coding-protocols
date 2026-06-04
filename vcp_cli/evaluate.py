@@ -40,6 +40,9 @@ KEY_FILES = [
     "docs/adoption-packs.md",
     "docs/cli.md",
     "docs/install.md",
+    "docs/distribution.md",
+    "docs/adoption-tiers.md",
+    "docs/proof-pack.md",
     "docs/glossary.md",
     "docs/progressive-disclosure.md",
     "docs/vcp-cards.md",
@@ -60,6 +63,8 @@ KEY_FILES = [
     "docs/architecture-drift.md",
     "docs/public-source-of-truth-audit.md",
     "docs/proof-walkthrough.md",
+    "docs/public-growth/geo-checks.md",
+    "docs/public-growth/public-growth-checklist.md",
     "docs/case-study-guidelines.md",
     "docs/quickstart-walkthrough.md",
     "docs/demo-script.md",
@@ -75,12 +80,15 @@ KEY_FILES = [
 
 CLI_COMMANDS = [
     "audit-plan",
+    "onboard",
+    "classify",
     "version",
     "doctor",
     "check",
     "init",
     "route",
     "adopt",
+    "public-growth",
     "score",
     "manifest",
     "benchmark",
@@ -106,6 +114,7 @@ INSPECTION_PATH = [
     "FULL_REPO_INTAKE.md",
     ".vcp/ai-audit-manifest.json",
     "docs/version-semantics.md",
+    "docs/adoption-tiers.md",
     "docs/two-track-model.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
@@ -162,6 +171,8 @@ def evaluate_payload() -> dict[str, object]:
             "protocols/public-growth/public-growth-playbook.md",
             "protocols/public-growth/seo-geo-ai-visibility.md",
             "docs/geo-ai-visibility.md",
+            "docs/public-growth/geo-checks.md",
+            "docs/public-growth/public-growth-checklist.md",
             "docs/page-templates.md",
             "templates/public-growth/public-growth-checklist.md",
         ]
@@ -258,6 +269,7 @@ def evaluate_payload() -> dict[str, object]:
         for rel in [
             "ADOPTERS.md",
             "case-studies/README.md",
+            "docs/proof-pack.md",
             "docs/case-study-guidelines.md",
             "docs/public-proof-roadmap.md",
         ]
@@ -267,12 +279,16 @@ def evaluate_payload() -> dict[str, object]:
         "repository_package": repo_version(root),
         "repository_package_version": repo_version(root),
         "methodology_version": "v1.4",
+        "methodology_layer_version": "v1.4",
         "version_semantics_warning": "Do not confuse methodology version with repository package version.",
         "evaluation_guide_present": (root / "AI_EVALUATION_GUIDE.md").exists(),
         "full_repo_intake_present": (root / "FULL_REPO_INTAKE.md").exists(),
         "ai_audit_manifest_present": (root / ".vcp" / "ai-audit-manifest.json").exists(),
         "repo_capabilities_index_present": (root / "REPO_CAPABILITIES_INDEX.md").exists(),
         "audit_plan_command_present": (root / "vcp_cli" / "audit_plan.py").exists(),
+        "onboard_command_present": (root / "vcp_cli" / "onboard.py").exists(),
+        "classify_command_present": (root / "vcp_cli" / "classify.py").exists(),
+        "public_growth_check_present": (root / "vcp_cli" / "public_growth.py").exists(),
         "key_files": key_files,
         "manifest_directory": str(manifest_dir(root)),
         "benchmark_count": _benchmark_count(root),
@@ -320,6 +336,8 @@ def evaluate_payload() -> dict[str, object]:
         "adopters_doc_present": (root / "ADOPTERS.md").exists(),
         "glossary_present": (root / "docs/glossary.md").exists(),
         "install_doc_present": (root / "docs/install.md").exists(),
+        "distribution_doc_present": (root / "docs/distribution.md").exists(),
+        "adoption_tiers_present": (root / "docs/adoption-tiers.md").exists(),
         "pr_gate_present": (root / "docs/pr-gate.md").exists(),
         "public_source_of_truth_audit_present": (root / "docs/public-source-of-truth-audit.md").exists(),
         "proof_walkthrough_present": (root / "docs/proof-walkthrough.md").exists(),
@@ -353,13 +371,16 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
         return 0
 
     print(f"Repository package: {payload['repository_package']}")
-    print(f"Methodology version: {payload['methodology_version']}")
+    print(f"Methodology layer: {payload['methodology_layer_version']}")
     print(payload["version_semantics_warning"])
     print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
     print(f"Full repo intake present: {'yes' if payload['full_repo_intake_present'] else 'no'}")
     print(f"AI audit manifest present: {'yes' if payload['ai_audit_manifest_present'] else 'no'}")
     print(f"Repo capabilities index present: {'yes' if payload['repo_capabilities_index_present'] else 'no'}")
     print(f"Audit plan command present: {'yes' if payload['audit_plan_command_present'] else 'no'}")
+    print(f"Onboard command present: {'yes' if payload['onboard_command_present'] else 'no'}")
+    print(f"Classify command present: {'yes' if payload['classify_command_present'] else 'no'}")
+    print(f"Public growth check present: {'yes' if payload['public_growth_check_present'] else 'no'}")
     print(f"Two-track model present: {'yes' if payload['two_track_model_present'] else 'no'}")
     print(f"Spec foundation present: {'yes' if payload['spec_foundation_present'] else 'no'}")
     print(f"Spec quality gate present: {'yes' if payload['spec_quality_gate_present'] else 'no'}")
@@ -390,6 +411,8 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Adopters doc present: {'yes' if payload['adopters_doc_present'] else 'no'}")
     print(f"Glossary present: {'yes' if payload['glossary_present'] else 'no'}")
     print(f"Install doc present: {'yes' if payload['install_doc_present'] else 'no'}")
+    print(f"Distribution doc present: {'yes' if payload['distribution_doc_present'] else 'no'}")
+    print(f"Adoption tiers present: {'yes' if payload['adoption_tiers_present'] else 'no'}")
     print(f"PR Gate present: {'yes' if payload['pr_gate_present'] else 'no'}")
     print(f"Public source-of-truth audit present: {'yes' if payload['public_source_of_truth_audit_present'] else 'no'}")
     print(f"Proof walkthrough present: {'yes' if payload['proof_walkthrough_present'] else 'no'}")

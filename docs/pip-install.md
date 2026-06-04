@@ -1,35 +1,29 @@
-# Editable Python Install
+# Python Install Paths
 
-This page documents the local editable install path for VCP.
-It is not a claim that VCP is already published to PyPI.
-
-Status:
-- environment-dependent local development path;
-- may require standard Python packaging/build tooling such as `setuptools` and `wheel`;
-- in restricted or offline environments, prefer `python3 -m vcp_cli ...`.
-
-## macOS / Linux
+The most reliable current path is still repository-local execution:
 
 ```bash
-python3 -m venv .venv
-. .venv/bin/activate
+python3 -m vcp_cli doctor
+```
+
+## Editable install
+
+Use only if it passes in this release:
+
+```bash
 python3 -m pip install -e .
-vcp evaluate
-vcp score --badge markdown
+vcp doctor
+vcp evaluate --json
+vcp onboard --json
 ```
 
-## Windows PowerShell
+## `pipx` local install
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-py -m pip install -e .
-vcp evaluate
-vcp score --badge markdown
+If `pipx` is available, local path testing can use:
+
+```bash
+pipx install .
+vcp doctor
 ```
 
-## What this means
-
-- local development path when packaging prerequisites are available;
-- convenient if you want a `vcp` command in a checked-out repo;
-- not the same as public `pip install` from PyPI.
+This is still a local repository install, not a PyPI release claim.
