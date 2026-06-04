@@ -20,6 +20,7 @@ from .utils import (
     methodology_version,
     repo_root,
     repo_version,
+    resolve_runtime_path,
     run_command,
 )
 
@@ -453,7 +454,7 @@ def windows_path_mode() -> bool:
 
 
 def powershell_first_supported(root: Path) -> bool:
-    return (root / "bin/vcp.ps1").exists() and (root / "vcp_cli/cli.py").exists()
+    return resolve_runtime_path(root, "bin/vcp.ps1").exists() and resolve_runtime_path(root, "vcp_cli/cli.py").exists()
 
 
 def full_bash_checks_available(root: Path) -> bool:
@@ -494,13 +495,13 @@ def _skip_result(name: str, runner: str, reason: str) -> dict[str, Any]:
 def validate_required_files(root: Path) -> dict[str, Any]:
     missing: list[str] = []
     for rel in FAST_REQUIRED_FILES:
-        if not (root / rel).exists():
+        if not resolve_runtime_path(root, rel).exists():
             missing.append(rel)
     for _, path in manifest_paths(root).items():
         if not path.exists():
             missing.append(str(path.relative_to(root)))
     for rel in FAST_REQUIRED_DIRS:
-        if not (root / rel).is_dir():
+        if not resolve_runtime_path(root, rel).is_dir():
             missing.append(f"{rel}/")
     if missing:
         return _fail_result("required-files", "python", errors=missing)
@@ -525,14 +526,15 @@ def validate_version_consistency(root: Path) -> dict[str, Any]:
         (vcp_manifest, f'"methodology_version": "{method_ver}"', "vcp manifest methodology version"),
         (root / "package.json", f'"version": "{repo_ver.removeprefix("v")}"', "package.json version"),
         (root / "pyproject.toml", f'version = "{repo_ver.removeprefix("v")}"', "pyproject.toml version"),
-        (root / "vcp_cli/__init__.py", f'__version__ = "{repo_ver.removeprefix("v")}"', "vcp_cli version"),
+        (resolve_runtime_path(root, "vcp_cli/__init__.py"), f'__version__ = "{repo_ver.removeprefix("v")}"', "vcp_cli version"),
     ]
     for path, needle, label in checks:
+        path_label = path.relative_to(root).as_posix() if path.is_relative_to(root) else path.as_posix()
         if not path.exists():
-            problems.append(f"Missing file: {path.relative_to(root)}")
+            problems.append(f"Missing file: {path_label}")
             continue
         if needle not in path.read_text(encoding="utf-8"):
-            problems.append(f"Version mismatch in {path.relative_to(root)}: missing {label} -> {needle}")
+            problems.append(f"Version mismatch in {path_label}: missing {label} -> {needle}")
 
     for path in sorted((root / "templates").rglob("*.md")):
         rel = path.relative_to(root).as_posix()
@@ -545,7 +547,7 @@ def validate_version_consistency(root: Path) -> dict[str, Any]:
             problems.append(f"Methodology marker missing in {rel}: <!-- methodology-version: {method_ver} -->")
 
     for rel in ENTRY_FILES_FOR_STALE_SCAN:
-        path = root / rel
+        path = resolve_runtime_path(root, rel)
         if not path.exists():
             continue
         text = path.read_text(encoding="utf-8")

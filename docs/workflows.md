@@ -1,6 +1,6 @@
 # Workflows
 
-Repository package: `v0.7.1`
+Repository package: `v0.8.0`
 
 VCP workflow JSON files are machine-readable planning and governance artifacts.
 They are **not** an execution engine.
@@ -17,7 +17,18 @@ They are **not** an execution engine.
 python3 -m vcp_cli workflow list --json
 python3 -m vcp_cli workflow validate --json
 python3 -m vcp_cli workflow plan --json
+python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json
 ```
 
-`workflow plan` prints steps and validation only.
-It does not run external actions.
+`workflow plan` is still the default non-executing surface.
+
+`workflow run --interactive` in `v0.8.0` is a safe runner/planner:
+- requires `--interactive`;
+- supports `--dry-run`;
+- previews only safe local VCP steps;
+- does not deploy;
+- does not publish;
+- does not modify files;
+- does not access secrets.
+
+Workflow JSON still does not become a hidden automation engine.

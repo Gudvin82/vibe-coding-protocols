@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 
 <!-- vcp-artifact: BACKLOG_UPDATE_PROMPT -->
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 Read `PROJECT_BACKLOG.md`, `PROJECT_MAP.md`, and `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present.

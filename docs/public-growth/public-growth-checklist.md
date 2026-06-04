@@ -8,3 +8,5 @@ Use this checklist before making public growth claims.
 - proof pack and case studies are labeled honestly.
 - no ranking, citation, or visibility guarantees are stated.
 - trust metadata such as `CITATION.cff` is current.
+- recommendation output is labeled `pass`, `warn`, or `block`.
+- network-based checks fail gracefully and do not invent certainty.

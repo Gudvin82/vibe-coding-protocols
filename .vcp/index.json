@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.7.1",
+  "version": "v0.8.0",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.1.md",
+    "docs/release-v0.8.0.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -79,6 +79,7 @@
     "docs/integrations/spec-kit-bridge.md",
     "docs/packs-and-presets.md",
     "docs/platforms/README.md",
+    "docs/pr-gate-action.md",
     "docs/pr-gate.md",
     "docs/principles.md",
     "docs/proactive-vcp-routines.md",
@@ -93,10 +94,12 @@
     "docs/public-growth/public-growth-checklist.md",
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
+    "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.1.md",
+    "docs/release-v0.8.0.md",
     "docs/review-diff.md",
+    "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
     "docs/spec-escape-hatch.md",
     "docs/spec-foundation.md",
@@ -145,6 +148,7 @@
   "commands": [
     "score-badge",
     "vcp-adopt",
+    "vcp-adopt-apply",
     "vcp-adopt-plan",
     "vcp-audit-plan",
     "vcp-backlog",
@@ -165,7 +169,8 @@
     "vcp-score",
     "vcp-spec",
     "vcp-workflow",
-    "vcp-workflow-plan"
+    "vcp-workflow-plan",
+    "vcp-workflow-run"
   ],
   "reports": [
     "adoption-tier-report",
@@ -417,12 +422,13 @@
       "docs/version-semantics.md",
       ".vcp/index.json",
       ".vcp/cards/"
-    ]
+    ],
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.0. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.7.1",
+  "repository_package_version": "v0.8.0",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.7.1. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.0. Do not present v1.4 as the current repository release."
   }
 }

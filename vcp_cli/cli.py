@@ -99,6 +99,15 @@ def build_parser() -> argparse.ArgumentParser:
     adopt_plan.add_argument("--output")
     adopt_plan.add_argument("--copy-list", action="store_true")
     adopt_plan.add_argument("--patch", action="store_true")
+    adopt_apply = adopt_sub.add_parser("apply")
+    adopt_apply.add_argument("--pack", required=True)
+    adopt_apply.add_argument("--target", required=True)
+    adopt_apply.add_argument("--confirm", action="store_true")
+    adopt_apply.add_argument("--dry-run", action="store_true")
+    adopt_apply.add_argument("--create-target", action="store_true")
+    adopt_apply.add_argument("--log")
+    adopt_apply.add_argument("--force", action="store_true")
+    adopt_apply.add_argument("--json", action="store_true")
 
     evaluate_p = sub.add_parser("evaluate")
     evaluate_p.add_argument("--json", action="store_true")
@@ -239,6 +248,11 @@ def build_parser() -> argparse.ArgumentParser:
     workflow_plan = workflow_sub.add_parser("plan")
     workflow_plan.add_argument("--id")
     workflow_plan.add_argument("--json", action="store_true")
+    workflow_run = workflow_sub.add_parser("run")
+    workflow_run.add_argument("--id", required=True)
+    workflow_run.add_argument("--interactive", action="store_true")
+    workflow_run.add_argument("--dry-run", action="store_true")
+    workflow_run.add_argument("--json", action="store_true")
 
     public_growth_p = sub.add_parser("public-growth")
     public_growth_sub = public_growth_p.add_subparsers(dest="public_growth_command")
@@ -334,6 +348,17 @@ def main(argv: list[str] | None = None) -> int:
                 output=args.output,
                 copy_list=getattr(args, "copy_list", False),
                 patch=getattr(args, "patch", False),
+            )
+        if getattr(args, "adopt_command", None) == "apply":
+            return adopt_cmd.run_apply(
+                args.pack,
+                target=args.target,
+                confirm=args.confirm,
+                dry_run=args.dry_run,
+                create_target=args.create_target,
+                log_path=args.log,
+                force=args.force,
+                json_mode=args.json,
             )
         return adopt_cmd.run(
             args.pack,
@@ -432,6 +457,13 @@ def main(argv: list[str] | None = None) -> int:
             return workflow_cmd.search_workflows(args.query, getattr(args, "json", False))
         if args.workflow_command == "plan":
             return workflow_cmd.plan_workflow(getattr(args, "id", None), getattr(args, "json", False))
+        if args.workflow_command == "run":
+            return workflow_cmd.run_workflow(
+                args.id,
+                interactive=args.interactive,
+                dry_run=args.dry_run,
+                json_mode=args.json,
+            )
     if args.command == "public-growth":
         if args.public_growth_command in {None, "check"}:
             return public_growth_cmd.run(getattr(args, "site", None), getattr(args, "json", False))

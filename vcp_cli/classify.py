@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .utils import print_output, repo_root
+from .utils import print_output, project_root
 
 PACKAGE_MARKERS = [
     "pyproject.toml",
@@ -70,7 +70,7 @@ def _scan_sensitive_paths(root: Path) -> list[str]:
 
 
 def classify_payload(root: Path | None = None) -> dict[str, Any]:
-    root = repo_root(root)
+    root = project_root(root)
     package_files = [rel for rel in PACKAGE_MARKERS if (root / rel).exists()]
     project_memory_files = [rel for rel in PROJECT_MEMORY_MARKERS if (root / rel).exists()]
     spec_files = [rel for rel in SPEC_MARKERS if (root / rel).exists()]
@@ -135,6 +135,7 @@ def classify_payload(root: Path | None = None) -> dict[str, Any]:
         "suggested_route": suggested_route,
         "confidence": "medium" if sensitive_hits else "high",
         "signals": {
+            "scanned_root": root.as_posix(),
             "package_files": package_files,
             "project_memory_files": project_memory_files,
             "spec_files": spec_files,

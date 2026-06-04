@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .utils import print_output, repo_root, run_command
+from .utils import print_output, project_root, run_command
 
 DEFAULT_VALIDATION_COMMANDS = [
     "python3 -m vcp_cli cards validate",
@@ -152,7 +152,7 @@ def _validation_commands(impacted_areas: list[str], changed_files: list[str]) ->
 
 
 def build_payload(base: str | None = None, head: str | None = None) -> dict[str, object]:
-    root = repo_root()
+    root = project_root()
     changed_files, diff_source = _git_changed_files(root, base, head)
     impacted_areas = _classify_areas(changed_files)
     risk_level, risk_reasons = _estimate_risk(changed_files, impacted_areas)

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import difflib
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from .utils import load_json, manifest_path, print_output, repo_root
+from .utils import load_json, manifest_path, print_output, runtime_root
 
 PACK_ALIASES = {
     "spec-foundation": "spec-first",
@@ -23,6 +24,7 @@ PROTECTED_FILES = [
 
 SAFE_TEMPLATE_TARGETS = {
     "templates/AGENTS.md": "AGENTS.md",
+    "templates/ARCHITECTURE_MAP.md": "ARCHITECTURE_MAP.md",
     "templates/PROJECT_MAP.md": "PROJECT_MAP.md",
     "templates/PROJECT_BACKLOG.md": "PROJECT_BACKLOG.md",
     "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md": "ARCHITECTURE_SOURCE_OF_TRUTH.md",
@@ -34,6 +36,10 @@ SAFE_TEMPLATE_TARGETS = {
     "templates/specs/PRODUCT_BRIEF.md": "PRODUCT_BRIEF.md",
     "templates/specs/PRD.md": "PRD.md",
     "templates/specs/FEATURE_SPEC.md": "FEATURE_SPEC.md",
+    "templates/specs/ACCEPTANCE_CRITERIA.md": "ACCEPTANCE_CRITERIA.md",
+    "templates/specs/TASKS.md": "TASKS.md",
+    "templates/specs/SPEC_REVIEW.md": "SPEC_REVIEW.md",
+    "templates/specs/SPEC_CHANGELOG.md": "SPEC_CHANGELOG.md",
     "templates/specs/SPEC_TO_BACKLOG.md": "SPEC_TO_BACKLOG.md",
     "templates/specs/OBSERVED_SPEC.md": "OBSERVED_SPEC.md",
     "templates/specs/SPEC_GAPS.md": "SPEC_GAPS.md",
@@ -80,8 +86,8 @@ def _canonical_pack_id(pack_id: str) -> str:
     return PACK_ALIASES.get(pack_id, pack_id)
 
 
-def load_pack(pack_id: str) -> dict[str, Any]:
-    data = load_json(manifest_path(repo_root(), "adoption-packs"))
+def load_pack(pack_id: str, root: Path | None = None) -> dict[str, Any]:
+    data = load_json(manifest_path(runtime_root(root), "adoption-packs"))
     canonical = _canonical_pack_id(pack_id)
     for item in data.get("items", []):
         if item.get("id") == canonical:
@@ -128,8 +134,8 @@ def _build_copy_map(pack_data: dict[str, Any]) -> tuple[list[dict[str, str]], li
 
 
 def plan_payload(pack: str, root: Path | None = None) -> dict[str, Any]:
-    root = repo_root(root)
-    pack_data = load_pack(pack)
+    root = runtime_root(root)
+    pack_data = load_pack(pack, root)
     files_to_copy, files_to_review, files_not_to_copy = _build_copy_map(pack_data)
     canonical_pack = pack_data["id"]
     expected_reports = pack_data.get("expected_report_template", [])
@@ -174,7 +180,7 @@ def _copy_list_text(plan: dict[str, Any]) -> str:
 
 
 def _patch_preview(plan: dict[str, Any], root: Path | None = None) -> str:
-    root = repo_root(root)
+    root = runtime_root(root)
     chunks: list[str] = []
     for item in plan["files_to_copy"]:
         source = root / item["source"]
@@ -235,6 +241,170 @@ def run_plan(
     return 0
 
 
+def _safe_apply_entries(pack_data: dict[str, Any]) -> list[dict[str, str]]:
+    entries: list[dict[str, str]] = []
+    for rel in pack_data.get("safe_apply_files", []):
+        destination = _copy_destination(rel)
+        if destination:
+            entries.append({"source": rel, "destination": destination})
+    if entries:
+        return entries
+    files_to_copy, _, _ = _build_copy_map(pack_data)
+    return files_to_copy
+
+
+def _target_log_path(target: Path, log_path: str | None) -> Path:
+    return Path(log_path).resolve() if log_path else target / "vcp-adopt-log.md"
+
+
+def _log_markdown(payload: dict[str, Any]) -> str:
+    lines = [
+        "# VCP Adopt Apply Log",
+        "",
+        f"- Timestamp: `{payload['timestamp']}`",
+        f"- Repository package: `{payload['repository_package_version']}`",
+        f"- Pack: `{payload['selected_pack']}`",
+        f"- Target: `{payload['target']}`",
+        f"- Dry run: `{str(payload['dry_run']).lower()}`",
+        "",
+        "## Copied",
+    ]
+    lines += [f"- `{item}`" for item in payload["copied"]] or ["- none"]
+    lines += ["", "## Skipped"]
+    lines += [f"- `{item}`" for item in payload["skipped"]] or ["- none"]
+    lines += ["", "## Conflicts"]
+    lines += [f"- `{item}`" for item in payload["conflicts"]] or ["- none"]
+    lines += ["", "## Manual next steps"]
+    lines += [f"- {item}" for item in payload["manual_next_steps"]] or ["- none"]
+    lines += ["", "## Rollback guidance", "- Remove copied files listed above if you decide not to keep the pack.", "- Re-run with `--dry-run --json` before any repeated apply."]
+    return "\n".join(lines) + "\n"
+
+
+def apply_payload(
+    pack: str,
+    *,
+    target: str | None,
+    confirm: bool,
+    dry_run: bool = False,
+    create_target: bool = False,
+    log_path: str | None = None,
+    force: bool = False,
+    root: Path | None = None,
+) -> tuple[int, dict[str, Any]]:
+    runtime = runtime_root(root)
+    timestamp = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    if force:
+        return 1, {
+            "ok": False,
+            "status": "blocked",
+            "error": "--force is intentionally not implemented in v0.8.0 because overwrite safety is not yet strong enough.",
+        }
+    if not target:
+        return 1, {"ok": False, "status": "blocked", "error": "--target is required for adopt apply."}
+    if not confirm and not dry_run:
+        return 1, {"ok": False, "status": "blocked", "error": "--confirm is required unless --dry-run is used."}
+
+    target_path = Path(target).expanduser().resolve()
+    if not target_path.exists():
+        if create_target:
+            if not dry_run:
+                target_path.mkdir(parents=True, exist_ok=True)
+        else:
+            return 1, {
+                "ok": False,
+                "status": "blocked",
+                "error": f"Target path does not exist: {target_path}. Use --create-target if you want VCP to create it.",
+            }
+
+    pack_data = load_pack(pack, runtime)
+    entries = _safe_apply_entries(pack_data)
+    copied: list[str] = []
+    skipped: list[str] = []
+    conflicts: list[str] = []
+
+    for entry in entries:
+        source = runtime / entry["source"]
+        destination = target_path / entry["destination"]
+        rel_destination = destination.relative_to(target_path).as_posix() if destination.is_relative_to(target_path) else str(destination)
+        if not source.exists():
+            skipped.append(f"{entry['source']} -> {rel_destination} (missing source)")
+            continue
+        if destination.exists():
+            conflicts.append(f"{entry['source']} -> {rel_destination}")
+            continue
+        copied.append(rel_destination)
+        if dry_run:
+            continue
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
+
+    payload = {
+        "ok": True,
+        "status": "dry_run" if dry_run else "applied",
+        "selected_pack": pack_data["id"],
+        "repository_package_version": (runtime / "VERSION").read_text(encoding="utf-8").strip(),
+        "target": str(target_path),
+        "dry_run": dry_run,
+        "timestamp": timestamp,
+        "copied": copied,
+        "skipped": skipped,
+        "conflicts": conflicts,
+        "manual_next_steps": [
+            pack_data.get("next_safe_step", "Review the adopted files before using them."),
+            "Run the pack validation commands manually after you review copied files.",
+            "Resolve conflicts manually; existing files were not overwritten.",
+        ],
+        "validation_commands": pack_data.get("validation_commands", []),
+        "review_gate_requirement": pack_data.get("review_gate_requirement"),
+        "log_path": str(_target_log_path(target_path, log_path)),
+    }
+    if not dry_run:
+        log_target = _target_log_path(target_path, log_path)
+        log_target.parent.mkdir(parents=True, exist_ok=True)
+        log_target.write_text(_log_markdown(payload), encoding="utf-8")
+        payload["log_written"] = str(log_target)
+    else:
+        payload["log_written"] = None
+    return 0, payload
+
+
+def run_apply(
+    pack: str,
+    *,
+    target: str | None,
+    confirm: bool,
+    dry_run: bool = False,
+    create_target: bool = False,
+    log_path: str | None = None,
+    force: bool = False,
+    json_mode: bool = False,
+) -> int:
+    code, payload = apply_payload(
+        pack,
+        target=target,
+        confirm=confirm,
+        dry_run=dry_run,
+        create_target=create_target,
+        log_path=log_path,
+        force=force,
+    )
+    if json_mode:
+        print_output(payload, True)
+        return code
+    if code != 0:
+        print(payload["error"])
+        return code
+    print(f"Pack: {payload['selected_pack']}")
+    print(f"Target: {payload['target']}")
+    print(f"Status: {payload['status']}")
+    print(f"Copied: {len(payload['copied'])}")
+    print(f"Skipped: {len(payload['skipped'])}")
+    print(f"Conflicts: {len(payload['conflicts'])}")
+    if payload["log_written"]:
+        print(f"Log: {payload['log_written']}")
+    return code
+
+
 def run(
     pack: str,
     dry_run: bool = True,
@@ -248,6 +418,6 @@ def run(
 ) -> int:
     del dry_run, yes
     if apply:
-        print("adopt --apply remains intentionally disabled. Use `vcp adopt plan` for safe copy-list or patch previews.")
+        print("adopt --apply is replaced by `vcp adopt apply --pack ... --target ... --confirm`.")
         return 1
     return run_plan(pack, json_mode=json_mode, output=output, copy_list=copy_list, patch=patch)

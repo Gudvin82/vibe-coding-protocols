@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 
 <!-- vcp-artifact: THIRD_PARTY_REGISTRY -->
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 # THIRD_PARTY_REGISTRY.md

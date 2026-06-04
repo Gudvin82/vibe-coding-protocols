@@ -1,0 +1,71 @@
+{
+  "id": "safe-adopt-apply",
+  "type": "concept",
+  "name": "Safe Adopt Apply",
+  "summary": "Explicit non-destructive apply mode for adoption packs with target, confirm, conflicts, and log output.",
+  "use_when": [
+    "selected pack files should be copied safely into a target project"
+  ],
+  "do_not_use_when": [
+    "blind overwrite or destructive apply is expected"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "concept",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "blind copying"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change safety"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/adopt.py",
+    "docs/adoption-packs.md"
+  ],
+  "related_files": [
+    "docs/protocol-pack-security.md",
+    "templates/reports/vcp-adoption-decision-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-project --dry-run --json"
+  ],
+  "outputs": [
+    "copied/skipped/conflicts summary",
+    "adoption log"
+  ],
+  "stop_conditions": [
+    "do not overwrite existing files by default",
+    "never copy .env or secrets"
+  ],
+  "validation": [
+    "python3 -m vcp_cli adopt apply --pack brownfield-rescue --target /tmp/vcp-adopt-test --dry-run --json"
+  ],
+  "version": "v0.8.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "adoption",
+    "safe"
+  ]
+}

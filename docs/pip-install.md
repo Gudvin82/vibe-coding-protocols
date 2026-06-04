@@ -1,14 +1,20 @@
 # Python Install Paths
 
-The most reliable current path is still repository-local execution:
+`v0.8.0` is the first release that treats `python3 -m pip install .` as a first-class local install path.
+
+## Install from local clone
 
 ```bash
-python3 -m vcp_cli doctor
+git clone https://github.com/Gudvin82/vibe-coding-protocols
+cd vibe-coding-protocols
+python3 -m pip install .
+vcp doctor
+vcp evaluate --json
+vcp audit-plan --json
+vcp onboard --json
 ```
 
 ## Editable install
-
-Use only if it passes in this release:
 
 ```bash
 python3 -m pip install -e .
@@ -26,4 +32,10 @@ pipx install .
 vcp doctor
 ```
 
-This is still a local repository install, not a PyPI release claim.
+This remains a local repository install path, not a public PyPI claim.
+
+Do not say:
+- `pip install vcp-cli`
+- `pipx install vcp-cli`
+
+unless the package is actually published to PyPI.

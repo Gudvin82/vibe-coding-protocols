@@ -16,9 +16,20 @@ VCP packs must be inspectable before they are adopted.
 External or higher-risk packs must go through:
 - `vcp classify`;
 - `vcp adopt plan`;
+- `vcp adopt apply --dry-run`;
 - manual review of files touched;
 - validation commands;
 - PR Gate or equivalent review path.
+
+## Safe apply rule
+
+For `v0.8.0`, safe apply means:
+- explicit `--target`;
+- explicit `--confirm` for real writes;
+- no overwrite by default;
+- no `.env` copy;
+- no hidden CI mutation by default;
+- adoption log written for confirmed apply.
 
 ## Never do this
 

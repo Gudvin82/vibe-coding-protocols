@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vcp-cli"
-version = "0.7.1"
+version = "0.8.0"
 description = "Local Python CLI and packaging surface for Vibe Coding Protocols"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -12,6 +12,16 @@ license = { text = "CC-BY-4.0" }
 authors = [
   { name = "Anatoliy Malyshev" },
 ]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: Other/Proprietary License",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+]
 
 [project.scripts]
 vcp = "vcp_cli.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vcp_cli*"]

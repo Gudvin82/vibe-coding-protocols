@@ -1,5 +1,5 @@
 {
-  "version": "v0.7.1",
+  "version": "v0.8.0",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -89,6 +89,7 @@
     "docs/distribution.md",
     "docs/flagship-workflows.md",
     "docs/install.md",
+    "docs/pr-gate-action.md",
     "docs/pr-gate.md",
     "docs/principles.md",
     "docs/proactive-vcp-routines.md",
@@ -101,7 +102,9 @@
     "docs/public-growth/public-growth-checklist.md",
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
+    "docs/pypi-publishing.md",
     "docs/release-readiness.md",
+    "docs/roadmap/vscode-extension.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",

@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .utils import load_json, print_output, repo_root, repo_version
+from .utils import load_json, print_output, runtime_root, repo_version
 
 REQUIRED_FIELDS = [
     "id",
@@ -21,7 +21,7 @@ REQUIRED_FIELDS = [
 
 
 def workflows_root(root: Path | None = None) -> Path:
-    return repo_root(root) / ".vcp" / "workflows"
+    return runtime_root(root) / ".vcp" / "workflows"
 
 
 def workflow_paths(root: Path | None = None) -> list[Path]:
@@ -29,7 +29,7 @@ def workflow_paths(root: Path | None = None) -> list[Path]:
 
 
 def load_workflows(root: Path | None = None) -> list[dict[str, Any]]:
-    root = repo_root(root)
+    root = runtime_root(root)
     items = []
     for path in workflow_paths(root):
         data = load_json(path)
@@ -55,7 +55,7 @@ def show_workflow(workflow_id: str, json_mode: bool = False) -> int:
 
 
 def validate_workflows(json_mode: bool = False) -> int:
-    root = repo_root()
+    root = runtime_root()
     errors: list[str] = []
     workflows = load_workflows(root)
     current_version = repo_version(root)
@@ -106,7 +106,7 @@ def search_workflows(query: str, json_mode: bool = False) -> int:
 
 
 def workflow_plan_payload(workflow_id: str | None = None, root: Path | None = None) -> dict[str, Any]:
-    root = repo_root(root)
+    root = runtime_root(root)
     workflows = load_workflows(root)
     selected = workflows
     if workflow_id:
@@ -141,6 +141,60 @@ def workflow_plan_payload(workflow_id: str | None = None, root: Path | None = No
     }
 
 
+SAFE_WORKFLOW_ACTIONS = {"route", "review", "plan", "artifact"}
+
+
+def workflow_run_payload(
+    workflow_id: str,
+    *,
+    interactive: bool,
+    dry_run: bool = False,
+    root: Path | None = None,
+) -> dict[str, Any]:
+    payload = workflow_plan_payload(workflow_id, root=root)
+    if not payload.get("ok"):
+        return payload
+    if not interactive:
+        return {
+            "ok": False,
+            "requested_workflow": workflow_id,
+            "error": "workflow run requires --interactive. Use workflow plan for the default non-executing view.",
+            "note": "Workflow JSON remains planning/governance metadata, not a hidden automation engine.",
+        }
+
+    plan = payload["plans"][0]
+    step_results = []
+    for step in plan.get("steps", []):
+        action = step.get("action", "unknown")
+        command = step.get("command")
+        step_results.append(
+            {
+                "id": step.get("id"),
+                "name": step.get("name"),
+                "action": action,
+                "safe_action": action in SAFE_WORKFLOW_ACTIONS,
+                "command": command,
+                "executed": False,
+                "status": "planned" if action in SAFE_WORKFLOW_ACTIONS else "blocked",
+                "reason": (
+                    "Interactive workflow run in v0.8.0 is a safe preview surface and does not execute external actions."
+                    if action in SAFE_WORKFLOW_ACTIONS
+                    else "Action is outside the safe preview allowlist."
+                ),
+            }
+        )
+
+    return {
+        "ok": True,
+        "requested_workflow": workflow_id,
+        "interactive": True,
+        "dry_run": dry_run,
+        "plan": plan,
+        "steps": step_results,
+        "note": "workflow run is an interactive safe runner/planner. In v0.8.0 it previews only safe local VCP steps and never deploys, publishes, modifies files, or accesses secrets.",
+    }
+
+
 def plan_workflow(workflow_id: str | None = None, json_mode: bool = False) -> int:
     payload = workflow_plan_payload(workflow_id)
     if json_mode:
@@ -160,5 +214,26 @@ def plan_workflow(workflow_id: str | None = None, json_mode: bool = False) -> in
         for item in plan["validation"]:
             print(f"- {item}")
         print()
+    print(payload["note"])
+    return 0
+
+
+def run_workflow(workflow_id: str, *, interactive: bool, dry_run: bool = False, json_mode: bool = False) -> int:
+    payload = workflow_run_payload(workflow_id, interactive=interactive, dry_run=dry_run)
+    if json_mode:
+        print_output(payload, True)
+        return 0 if payload.get("ok") else 1
+    if not payload.get("ok"):
+        print(payload["error"])
+        return 1
+    print(f"{payload['plan']['name']} ({payload['plan']['id']})")
+    print(f"Interactive: {'yes' if payload['interactive'] else 'no'}")
+    print(f"Dry run: {'yes' if payload['dry_run'] else 'no'}")
+    print("Steps:")
+    for step in payload["steps"]:
+        print(f"- {step['name']} [{step['action']}] -> {step['status']}")
+        if step.get("command"):
+            print(f"  Command: {step['command']}")
+        print(f"  Reason: {step['reason']}")
     print(payload["note"])
     return 0

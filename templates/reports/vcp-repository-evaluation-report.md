@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 
 <!-- vcp-artifact: VCP_REPOSITORY_EVALUATION_REPORT -->
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 # VCP Repository Evaluation Report

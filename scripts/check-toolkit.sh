@@ -56,7 +56,7 @@ required_files=(
   docs/spec-quality-gate.md
   docs/architecture-drift.md
   docs/release-v0.6.7.md
-  docs/release-v0.7.1.md
+  docs/release-v0.8.0.md
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/faq.md
@@ -208,7 +208,12 @@ required_files=(
   docs/vibe-check-reference.md
   docs/npm-wrapper.md
   docs/python-wrapper.md
-  docs/vscode-extension.md
+  docs/roadmap/vscode-extension.md
+  docs/pr-gate-action.md
+  docs/pypi-publishing.md
+  ci-examples/github-actions/vcp-pr-gate.yml
+  .github/workflows/publish-pypi.yml
+  MANIFEST.in
   docs/release-v0.4.2.md
   docs/release-v0.4.3.md
   docs/release-v0.4.4.md
@@ -335,9 +340,6 @@ required_files=(
   vcp_cli/review.py
   vcp_cli/demo.py
   vcp_cli/utils.py
-  vscode-extension/package.json
-  vscode-extension/README.md
-  vscode-extension/src/extension.ts
   assets/social-preview.svg
   assets/demo/README.md
   templates/ARCHITECTURE_MAP.md

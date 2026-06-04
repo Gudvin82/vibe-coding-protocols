@@ -1,0 +1,39 @@
+include VERSION
+include METHODOLOGY_VERSION
+include ROADMAP.md
+include README.md
+include README_ru.md
+include CHANGELOG.md
+include AGENTS.md
+include AI_EVALUATION_GUIDE.md
+include AI_FULL_REPO_AUDIT.md
+include AI_INTAKE.md
+include FULL_REPO_INTAKE.md
+include REPO_CAPABILITIES_INDEX.md
+include TAKE_THIS_FIRST.md
+include START_HERE.md
+include CITATION.cff
+include ADOPTERS.md
+include PROJECT_BACKLOG.md
+include PROJECT_MAP.md
+include package.json
+include pyproject.toml
+include setup.py
+include llms.txt
+include llms-full.txt
+include ai.txt
+recursive-include .vcp *
+recursive-include .github *
+recursive-include assets *
+recursive-include benchmarks *
+recursive-include bin *
+recursive-include case-studies *
+recursive-include ci-examples *
+recursive-include commands *
+recursive-include docs *
+recursive-include examples *
+recursive-include protocols *
+recursive-include schemas *
+recursive-include scripts *
+recursive-include templates *
+recursive-include tests *

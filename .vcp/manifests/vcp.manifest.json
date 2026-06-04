@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.7.1",
+  "package_version": "v0.8.0",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -36,6 +36,7 @@
     "docs/install.md",
     "docs/packs-and-presets.md",
     "docs/pip-install.md",
+    "docs/pr-gate-action.md",
     "docs/pr-gate.md",
     "docs/principles.md",
     "docs/proactive-vcp-routines.md",
@@ -48,8 +49,10 @@
     "docs/public-growth/public-growth-checklist.md",
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
+    "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.1.md",
+    "docs/release-v0.8.0.md",
+    "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
@@ -94,6 +97,7 @@
     "docs/page-templates.md",
     "docs/pip-install.md",
     "docs/platforms/README.md",
+    "docs/pr-gate-action.md",
     "docs/pr-gate.md",
     "docs/principles.md",
     "docs/proactive-vcp-routines.md",
@@ -111,11 +115,13 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-proof-roadmap.md",
     "docs/public-source-of-truth-audit.md",
+    "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.7.1.md",
+    "docs/release-v0.8.0.md",
     "docs/review-diff.md",
+    "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
     "docs/score-badge.md",
     "docs/scoring.md",
@@ -161,6 +167,7 @@
   ],
   "cli_commands": [
     "adopt",
+    "adopt apply",
     "audit-plan",
     "backlog",
     "benchmark",
@@ -182,7 +189,8 @@
     "score",
     "spec",
     "version",
-    "workflow"
+    "workflow",
+    "workflow run"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",
@@ -195,15 +203,19 @@
     "scripts/check-version-consistency.sh",
     "scripts/validate-links.sh",
     "scripts/vibe-check.sh",
+    "tests/test_adopt_apply.py",
     "tests/test_adopt_plan.py",
     "tests/test_audit_plan.py",
+    "tests/test_packaging_paths.py",
+    "tests/test_pr_gate_action_docs.py",
     "tests/test_public_growth_checks.py",
     "tests/test_release_check.py",
     "tests/test_review_diff_risk.py",
     "tests/test_route_selection.py",
     "tests/test_score_logic.py",
     "tests/test_spec_depth.py",
-    "tests/test_version_semantics.py"
+    "tests/test_version_semantics.py",
+    "tests/test_workflow_plan.py"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

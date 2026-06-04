@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 
 # Legal Checklist
 

@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 from urllib import error, request
 
-from .utils import print_output, repo_root
+from .utils import print_output, project_root
 
 LOCAL_CHECKS = {
     "llms_txt": "llms.txt",
@@ -30,7 +30,7 @@ def _bool_check(root: Path, rel: str) -> dict[str, object]:
 
 
 def payload(site: str | None = None, root: Path | None = None) -> dict[str, Any]:
-    root = repo_root(root)
+    root = project_root(root)
     checks = {name: _bool_check(root, rel) for name, rel in LOCAL_CHECKS.items()}
     sitemap = (root / "sitemap.xml").exists()
     robots = (root / "robots.txt").exists()
@@ -39,6 +39,9 @@ def payload(site: str | None = None, root: Path | None = None) -> dict[str, Any]
 
     ready = [name for name, result in checks.items() if result["present"]]
     missing = [name for name, result in checks.items() if not result["present"]]
+    status = "pass"
+    if missing:
+        status = "warn" if len(missing) <= 4 else "block"
 
     network: dict[str, object] = {"requested": bool(site), "status": "not_requested"}
     if site:
@@ -62,6 +65,8 @@ def payload(site: str | None = None, root: Path | None = None) -> dict[str, Any]
             }
 
     return {
+        "ok": status != "block",
+        "status": status,
         "repository_package_version": (root / "VERSION").read_text(encoding="utf-8").strip(),
         "legacy_methodology_reference": (root / "METHODOLOGY_VERSION").read_text(encoding="utf-8").strip(),
         "technical_seo_readiness": {
@@ -88,6 +93,11 @@ def payload(site: str | None = None, root: Path | None = None) -> dict[str, Any]
         "network": network,
         "ready_signals": ready,
         "missing_signals": missing,
+        "recommendations": [
+            "Keep llms.txt, llms-full.txt, ai.txt, README positioning, proof surfaces, and source-of-truth docs aligned.",
+            "Treat missing robots or sitemap as a readiness warning, not a ranking guarantee.",
+            "Do not claim GEO/SEO outcomes that you cannot evidence publicly.",
+        ],
         "guarantees": [
             "No ranking guarantees.",
             "No AI overview or citation guarantees.",
@@ -108,8 +118,9 @@ def run(site: str | None = None, json_mode: bool = False) -> int:
     else:
         print("Public Growth Check")
         print(f"Repository package: {data['repository_package_version']}")
+        print(f"Status: {data['status']}")
         print(f"Ready signals: {len(data['ready_signals'])}")
         print(f"Missing signals: {len(data['missing_signals'])}")
         if site:
             print(f"Network status: {data['network']['status']}")
-    return 0
+    return 0 if data["status"] != "block" else 1

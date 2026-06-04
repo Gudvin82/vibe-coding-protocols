@@ -53,7 +53,7 @@
   "validation": [
     "python3 scripts/check-public-version-surfaces.py"
   ],
-  "version": "v0.7.1",
+  "version": "v0.8.0",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

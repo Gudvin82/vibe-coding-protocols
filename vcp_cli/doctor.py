@@ -15,7 +15,7 @@ from .fast_checks import (
     validate_required_files,
     windows_path_mode,
 )
-from .utils import git_status_short, manifest_paths, print_output, repo_root, repo_version, relative_to_root
+from .utils import git_status_short, manifest_paths, print_output, repo_root, repo_version, relative_to_root, runtime_path_exists
 
 CORE_FILES = [
     "AI_EVALUATION_GUIDE.md",
@@ -146,7 +146,7 @@ def run(json_mode: bool = False) -> int:
     root = repo_root()
     checks = []
     for rel in CORE_FILES:
-        checks.append({"item": rel, "status": "PASS" if (root / rel).exists() else "FAIL"})
+        checks.append({"item": rel, "status": "PASS" if runtime_path_exists(root, rel) else "FAIL"})
     for _, path in manifest_paths(root).items():
         checks.append({"item": relative_to_root(root, path), "status": "PASS" if path.exists() else "FAIL"})
 
@@ -176,13 +176,13 @@ def run(json_mode: bool = False) -> int:
         "windows_path_mode": windows_path_mode(),
         "powershell_first_mode_supported": powershell_first_supported(root),
         "full_bash_checks_available": full_bash_checks_available(root),
-        "third_party_registry_template_exists": (root / "templates/THIRD_PARTY_REGISTRY.md").exists(),
-        "third_party_api_intake_protocol_exists": (root / "protocols/integrations/third-party-api-intake.md").exists(),
-        "operations_protocol_exists": (root / "protocols/operations/production-error-capture.md").exists(),
-        "public_growth_protocol_exists": (root / "protocols/public-growth/public-growth-playbook.md").exists(),
-        "public_growth_templates_exist": (root / "templates/public-growth/public-growth-checklist.md").exists(),
+        "third_party_registry_template_exists": runtime_path_exists(root, "templates/THIRD_PARTY_REGISTRY.md"),
+        "third_party_api_intake_protocol_exists": runtime_path_exists(root, "protocols/integrations/third-party-api-intake.md"),
+        "operations_protocol_exists": runtime_path_exists(root, "protocols/operations/production-error-capture.md"),
+        "public_growth_protocol_exists": runtime_path_exists(root, "protocols/public-growth/public-growth-playbook.md"),
+        "public_growth_templates_exist": runtime_path_exists(root, "templates/public-growth/public-growth-checklist.md"),
         "adaptive_spec_layer_exists": all(
-            (root / rel).exists()
+            runtime_path_exists(root, rel)
             for rel in [
                 "docs/adaptive-spec-depth.md",
                 "docs/spec-escape-hatch.md",
@@ -197,7 +197,7 @@ def run(json_mode: bool = False) -> int:
             ]
         ),
         "preset_layer_exists": all(
-            (root / rel).exists()
+            runtime_path_exists(root, rel)
             for rel in [
                 "docs/packs-and-presets.md",
                 ".vcp/presets/README.md",

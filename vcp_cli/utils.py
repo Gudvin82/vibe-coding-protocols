@@ -8,6 +8,16 @@ from typing import Any
 
 MANIFEST_SCHEMA_VERSION = "v1"
 REPO_NAME = "vibe-coding-protocols"
+PROJECT_ROOT_MARKERS = (
+    ".git",
+    "pyproject.toml",
+    "package.json",
+    "requirements.txt",
+    "go.mod",
+    "Cargo.toml",
+    "Gemfile",
+    "composer.json",
+)
 MANIFEST_FILENAMES = {
     "vcp": "vcp.manifest.json",
     "protocols": "protocols.manifest.json",
@@ -18,12 +28,64 @@ MANIFEST_FILENAMES = {
 }
 
 
-def repo_root(start: Path | None = None) -> Path:
+def _candidate_paths(start: Path | None = None) -> list[Path]:
     cwd = (start or Path.cwd()).resolve()
-    for base in [cwd, *cwd.parents, Path(__file__).resolve().parents[1]]:
-        if (base / "VERSION").is_file() and (base / "METHODOLOGY_VERSION").is_file():
-            return base
+    return [cwd, *cwd.parents]
+
+
+def is_vcp_runtime_root(path: Path) -> bool:
+    return (path / "VERSION").is_file() and (path / "METHODOLOGY_VERSION").is_file()
+
+
+def source_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def bundled_root() -> Path:
+    return Path(__file__).resolve().parent / "_assets"
+
+
+def find_vcp_repo_root(start: Path | None = None) -> Path | None:
+    for base in [*_candidate_paths(start), source_root()]:
+        if is_vcp_runtime_root(base):
+            return base
+    return None
+
+
+def runtime_root(start: Path | None = None) -> Path:
+    detected = find_vcp_repo_root(start)
+    if detected is not None:
+        return detected
+    bundle = bundled_root()
+    if is_vcp_runtime_root(bundle):
+        return bundle
+    raise FileNotFoundError(
+        "VCP runtime assets were not found. Run inside a VCP repository checkout or reinstall the package so bundled assets are included."
+    )
+
+
+def repo_root(start: Path | None = None) -> Path:
+    return runtime_root(start)
+
+
+def project_root(start: Path | None = None) -> Path:
+    cwd = (start or Path.cwd()).resolve()
+    for base in _candidate_paths(cwd):
+        if any((base / marker).exists() for marker in PROJECT_ROOT_MARKERS):
+            return base
+    return cwd
+
+
+def resolve_runtime_path(root: Path, rel: str) -> Path:
+    candidate = root / rel
+    if candidate.exists():
+        return candidate
+    source_candidate = source_root() / rel
+    return source_candidate if source_candidate.exists() else candidate
+
+
+def runtime_path_exists(root: Path, rel: str) -> bool:
+    return resolve_runtime_path(root, rel).exists()
 
 
 def read_trimmed(path: Path) -> str:
@@ -31,11 +93,11 @@ def read_trimmed(path: Path) -> str:
 
 
 def repo_version(root: Path | None = None) -> str:
-    return read_trimmed(repo_root(root) / "VERSION")
+    return read_trimmed(runtime_root(root) / "VERSION")
 
 
 def methodology_version(root: Path | None = None) -> str:
-    return read_trimmed(repo_root(root) / "METHODOLOGY_VERSION")
+    return read_trimmed(runtime_root(root) / "METHODOLOGY_VERSION")
 
 
 def load_json(path: Path) -> Any:

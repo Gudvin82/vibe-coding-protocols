@@ -74,6 +74,13 @@
         "python3 -m vcp_cli diagnose --json",
         "python3 -m vcp_cli release-check --json"
       ],
+      "safe_apply_files": [
+        "templates/PROJECT_MAP.md",
+        "templates/PROJECT_BACKLOG.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md",
+        "templates/AUDIT_BACKLOG.md",
+        "templates/SECURITY_BASELINE.md"
+      ],
       "expected_report_template": [
         "templates/reports/brownfield-rescue-report.md"
       ],
@@ -111,6 +118,11 @@
       "validation_commands": [
         "bash scripts/vibe-check.sh --hardening",
         "python3 -m vcp_cli review plan --json"
+      ],
+      "safe_apply_files": [
+        "templates/AUDIT_BACKLOG.md",
+        "templates/SECURITY_BASELINE.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
       ],
       "expected_report_template": [
         "templates/reports/vcp-adoption-assessment.md"
@@ -188,6 +200,10 @@
       ],
       "validation_commands": [
         "bash scripts/vibe-check.sh --starter"
+      ],
+      "safe_apply_files": [
+        "templates/AGENTS.md",
+        "templates/PROJECT_MAP.md"
       ],
       "expected_report_template": [],
       "review_gate_requirement": "Recommended for meaningful changes before merge.",
@@ -320,6 +336,12 @@
         "bash scripts/vibe-check.sh --audit --json",
         "python3 -m vcp_cli review plan --json"
       ],
+      "safe_apply_files": [
+        "templates/SECURITY_OPERATIONS_BASELINE.md",
+        "templates/INCIDENT_RECOVERY_RUNBOOK.md",
+        "templates/THIRD_PARTY_REGISTRY.md",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md"
+      ],
       "expected_report_template": [
         "templates/reports/vcp-adoption-assessment.md",
         "templates/reports/code-review-report.md"
@@ -355,6 +377,11 @@
         "templates/reports/ai-visibility-monitoring-report.md",
         "docs/public-site-readiness.md",
         "llms.txt"
+      ],
+      "safe_apply_files": [
+        "templates/public-growth/page-brief.md",
+        "templates/public-growth/public-growth-checklist.md",
+        "templates/public-growth/ai-visibility-queries.md"
       ],
       "merge_only_files": [
         "llms.txt"
@@ -563,6 +590,14 @@
       "validation_commands": [
         "python3 -m vcp_cli spec validate",
         "python3 -m vcp_cli backlog validate"
+      ],
+      "safe_apply_files": [
+        "templates/specs/PRD.md",
+        "templates/specs/FEATURE_SPEC.md",
+        "templates/specs/ACCEPTANCE_CRITERIA.md",
+        "templates/specs/TASKS.md",
+        "templates/specs/SPEC_REVIEW.md",
+        "templates/specs/SPEC_CHANGELOG.md"
       ],
       "expected_report_template": [
         "templates/specs/SPEC_REVIEW.md"

@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Growth Check Report
@@ -12,5 +12,9 @@
 ## Public proof and trust surfaces
 
 ## No-overclaim boundaries
+
+## Recommendation status
+
+Mark each recommendation as `pass`, `warn`, or `block`.
 
 ## Recommended next actions

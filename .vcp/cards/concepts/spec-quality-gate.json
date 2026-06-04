@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli spec quality-gate --json"
   ],
-  "version": "v0.7.1",
+  "version": "v0.8.0",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

@@ -1,6 +1,21 @@
 {
   "items": [
     {
+      "id": "adopt-apply",
+      "command_name": "vcp adopt apply",
+      "file": "docs/adoption-packs.md",
+      "route": "adoption",
+      "inputs": [
+        "pack id",
+        "target path",
+        "confirm/dry-run"
+      ],
+      "output": "non-destructive apply summary with adoption log",
+      "validation": [
+        "python3 -m vcp_cli adopt apply --pack brownfield-rescue --target /tmp/vcp-adopt-test --dry-run --json"
+      ]
+    },
+    {
       "id": "adopt-plan",
       "command_name": "vcp adopt plan",
       "file": "docs/adoption-packs.md",
@@ -655,6 +670,21 @@
       "output": "workflow planning view",
       "validation": [
         "python3 -m vcp_cli workflow plan --json"
+      ]
+    },
+    {
+      "id": "workflow-run",
+      "command_name": "vcp workflow run",
+      "file": "docs/workflows.md",
+      "route": "workflow",
+      "inputs": [
+        "workflow id",
+        "--interactive",
+        "optional --dry-run"
+      ],
+      "output": "interactive safe workflow preview",
+      "validation": [
+        "python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json"
       ]
     }
   ],

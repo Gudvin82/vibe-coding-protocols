@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import tempfile
 import subprocess
 import sys
 from pathlib import Path
@@ -82,6 +83,9 @@ def main() -> int:
     assert brownfield_plan['selected_pack'] == 'brownfield-rescue'
     spec_foundation_copy = run('adopt', 'plan', '--pack', 'spec-foundation', '--copy-list')
     assert 'templates/specs/PRD.md -> PRD.md' in spec_foundation_copy
+    with tempfile.TemporaryDirectory() as tmpdir:
+        adopt_apply = json.loads(run('adopt', 'apply', '--pack', 'brownfield-rescue', '--target', tmpdir, '--dry-run', '--json'))
+    assert adopt_apply['dry_run'] is True
     manifest = json.loads(run('manifest', 'validate', '--json'))
     assert manifest['ok'] is True
     index_validate = json.loads(run('index', 'validate', '--json'))
@@ -136,6 +140,8 @@ def main() -> int:
     assert workflow_validate['ok'] is True
     workflow_plan = json.loads(run('workflow', 'plan', '--id', 'production-hardening', '--json'))
     assert workflow_plan['requested_workflow'] == 'production-hardening'
+    workflow_run = json.loads(run('workflow', 'run', '--id', 'production-hardening', '--interactive', '--dry-run', '--json'))
+    assert workflow_run['interactive'] is True
     workflow_show = json.loads(run('workflow', 'show', 'production-hardening', '--json'))
     assert workflow_show['id'] == 'production-hardening'
     workflow_search = json.loads(run('workflow', 'search', 'hardening', '--json'))

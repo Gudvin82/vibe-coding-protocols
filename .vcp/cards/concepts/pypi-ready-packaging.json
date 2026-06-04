@@ -1,0 +1,68 @@
+{
+  "id": "pypi-ready-packaging",
+  "type": "concept",
+  "name": "PyPI-ready Packaging",
+  "summary": "Packaging and publication surfaces are ready for manual PyPI release without claiming public availability yet.",
+  "use_when": [
+    "maintainer wants a manual publication path"
+  ],
+  "do_not_use_when": [
+    "publication is being claimed as already done"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "distribution"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "publication overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "release clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/pypi-publishing.md",
+    ".github/workflows/publish-pypi.yml",
+    "docs/distribution.md"
+  ],
+  "related_files": [
+    "pyproject.toml",
+    "MANIFEST.in"
+  ],
+  "cli": [
+    "python3 -m pip install ."
+  ],
+  "outputs": [
+    "manual publication checklist"
+  ],
+  "stop_conditions": [
+    "do not publish without maintainer approval and PyPI credentials"
+  ],
+  "validation": [
+    "python3 -m pip install ."
+  ],
+  "version": "v0.8.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "distribution",
+    "release"
+  ]
+}

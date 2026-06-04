@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_MAP_REPOSITORY -->
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 # PROJECT_MAP.md

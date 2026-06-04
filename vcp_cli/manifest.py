@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .utils import dump_json, load_json, manifest_path, manifest_paths, print_output, repo_root
+from .utils import dump_json, load_json, manifest_path, manifest_paths, print_output, repo_root, resolve_runtime_path
 
 REQUIRED_API_INTAKE_PROTOCOL_ID = "third-party-api-intake"
 REQUIRED_API_INTAKE_COMMAND_ID = "third-party-api-intake"
@@ -152,26 +152,26 @@ def validate_manifests(json_mode: bool = False) -> int:
         details[key] = {"path": str(path), "status": "ok"}
         for item in data.get("items", []):
             file_path = item.get("file")
-            if file_path and not (root / file_path).exists():
+            if file_path and not resolve_runtime_path(root, file_path).exists():
                 errors.append(f"Missing file for {key}:{item.get('id')}: {file_path}")
             for linked in item.get("related_docs", []):
-                if not (root / linked).exists():
+                if not resolve_runtime_path(root, linked).exists():
                     errors.append(f"Missing related doc for {key}:{item.get('id')}: {linked}")
             report_template = item.get("report_template")
             if isinstance(report_template, list):
                 for template in report_template:
-                    if not (root / template).exists():
+                    if not resolve_runtime_path(root, template).exists():
                         errors.append(f"Missing report template for {key}:{item.get('id')}: {template}")
-            elif isinstance(report_template, str) and report_template and not (root / report_template).exists():
+            elif isinstance(report_template, str) and report_template and not resolve_runtime_path(root, report_template).exists():
                 errors.append(f"Missing report template for {key}:{item.get('id')}: {report_template}")
             if key == "adoption-packs":
                 for field in ["recommended_files", "optional_files", "merge_only_files"]:
                     for rel in item.get(field, []):
-                        if rel.endswith((".md", ".json", ".sh", ".py", ".txt", ".ps1", ".cmd", ".yml", ".yaml")) and not (root / rel).exists():
+                        if rel.endswith((".md", ".json", ".sh", ".py", ".txt", ".ps1", ".cmd", ".yml", ".yaml")) and not resolve_runtime_path(root, rel).exists():
                             errors.append(f"Missing pack path for {item.get('id')}:{field}: {rel}")
             if key == "benchmarks":
                 scenario_file = item.get("scenario_file")
-                if scenario_file and not (root / scenario_file).exists():
+                if scenario_file and not resolve_runtime_path(root, scenario_file).exists():
                     errors.append(f"Missing benchmark scenario for {item.get('id')}: {scenario_file}")
                 expected_route = item.get("expected_route")
                 expected_pack = item.get("expected_pack")
@@ -181,7 +181,7 @@ def validate_manifests(json_mode: bool = False) -> int:
                     errors.append(f"Unknown expected pack in benchmarks:{item.get('id')}: {item.get('expected_pack')}")
         for top_key in ["entrypoints", "core_docs", "validation_scripts", "safety_boundaries", "route_docs", "known_limitations"]:
             for rel in data.get(top_key, []):
-                if rel.endswith((".md", ".json", ".sh", ".py", ".yml", ".yaml", ".txt", ".ps1", ".cmd")) and not (root / rel).exists():
+                if rel.endswith((".md", ".json", ".sh", ".py", ".yml", ".yaml", ".txt", ".ps1", ".cmd")) and not resolve_runtime_path(root, rel).exists():
                     errors.append(f"Missing manifest path in {path.name}: {rel}")
 
     if REQUIRED_API_INTAKE_PROTOCOL_ID not in protocol_ids:

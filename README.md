@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.7.1-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.8.0-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -11,20 +11,20 @@ Build with AI. Ship with control.
 Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
 It helps teams choose the right track, inspect risk, generate safe adoption plans, and ship with visible review and release control.
 
-> Current repository package: `v0.7.1`  
-> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.7.1`.
+> Current repository package: `v0.8.0`  
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.8.0`.
 
-Repository package: `v0.7.1`
+Repository package: `v0.8.0`
 
-## New in v0.7.1: public version clarity patch
+## New in v0.8.0: installable CLI, safe apply, and PR Gate action
 
-v0.7.1 is a narrow patch release for public version clarity:
+v0.8.0 removes the next practical adoption barriers:
 
-- first-contact surfaces now name the current GitHub repository release as `Vibe Coding Protocols v0.7.1`;
-- README and README_ru no longer present `v1.4` as a current release label;
-- AI-facing guidance now treats `v1.4` only as an internal stable methodology reference;
-- public version checkers and CLI headline output are aligned with repository package `v0.7.1`;
-- CHANGELOG and release metadata now surface `v0.7.1` as the current top visible package release.
+- `python3 -m pip install .` is a first-class local install path;
+- `vcp` works as a console command after local install;
+- `adopt apply` is now an explicit, safe, non-destructive mode with dry-run, conflicts, and adoption log;
+- PR Gate is easier to add through a pinned GitHub Actions workflow template;
+- public-growth checks are more check/report-driven without ranking or citation guarantees.
 
 ## For AI agents: do not evaluate VCP from README alone
 
@@ -105,10 +105,9 @@ See [docs/adoption-tiers.md](./docs/adoption-tiers.md).
 
 Current practical paths:
 - `python3 -m vcp_cli doctor`
-- `py -m vcp_cli doctor`
+- `python3 -m pip install . && vcp doctor`
+- optional local `pipx install . && vcp doctor` if it passes in this release
 - `npm run vcp -- doctor`
-- optional local `python3 -m pip install -e . && vcp doctor`
-- optional local `pipx install . && vcp doctor` only if it passes in this release
 
 VCP does **not** claim public PyPI or public npm publication unless that really exists.
 
@@ -118,15 +117,33 @@ See:
 - [docs/pip-install.md](./docs/pip-install.md)
 - [docs/npm.md](./docs/npm.md)
 
-## Safe adoption, not blind apply
+## Install and run
 
-`adopt --apply` remains disabled on purpose.
-Use the non-destructive planner instead:
+Current stable local path:
 
 ```bash
-python3 -m vcp_cli adopt plan --pack production --json
-python3 -m vcp_cli adopt plan --pack production --copy-list
-python3 -m vcp_cli adopt plan --pack production --patch
+git clone https://github.com/Gudvin82/vibe-coding-protocols
+cd vibe-coding-protocols
+python3 -m pip install .
+vcp doctor
+vcp evaluate
+```
+
+Public PyPI/npm packages are not claimed unless explicitly published.
+
+## Add VCP to PRs
+
+Use the workflow example in `ci-examples/github-actions/vcp-pr-gate.yml`.
+
+## Safe adoption, not blind apply
+
+Use the planner first:
+
+```bash
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --json
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --copy-list
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --patch
+python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-project --dry-run --json
 ```
 
 This gives:
@@ -135,7 +152,8 @@ This gives:
 - files not to copy;
 - validation commands;
 - stop conditions;
-- patch preview without writing into your project by default.
+- patch preview without writing into your project by default;
+- explicit safe apply only after `--target` and `--confirm`.
 
 ## Public Growth / GEO
 
@@ -189,4 +207,4 @@ python3 -m vcp_cli workflow plan --json
 - [docs/adoption-tiers.md](./docs/adoption-tiers.md)
 - [docs/distribution.md](./docs/distribution.md)
 - [docs/proof-pack.md](./docs/proof-pack.md)
-- [docs/release-v0.7.1.md](./docs/release-v0.7.1.md)
+- [docs/release-v0.8.0.md](./docs/release-v0.8.0.md)

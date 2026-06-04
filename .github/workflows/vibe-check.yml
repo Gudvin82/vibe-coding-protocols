@@ -104,8 +104,16 @@ jobs:
       - name: CLI adopt plan smoke
         run: python3 -m vcp_cli adopt plan --json
 
+      - name: CLI adopt apply dry-run smoke
+        run: |
+          target_dir="$(mktemp -d)"
+          python3 -m vcp_cli adopt apply --pack brownfield-rescue --target "$target_dir" --dry-run --json
+
       - name: CLI workflow plan smoke
         run: python3 -m vcp_cli workflow plan --id production-hardening --json
+
+      - name: CLI workflow run dry-run smoke
+        run: python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json
 
       - name: CLI spec quality gate smoke
         run: python3 -m vcp_cli spec quality-gate --json || true
@@ -247,9 +255,17 @@ jobs:
       - name: CLI adopt plan
         shell: pwsh
         run: py -m vcp_cli adopt plan --json
+      - name: CLI adopt apply dry-run
+        shell: pwsh
+        run: |
+          $target = New-Item -ItemType Directory -Path (Join-Path $env:RUNNER_TEMP "vcp-adopt-test") -Force
+          py -m vcp_cli adopt apply --pack brownfield-rescue --target $target.FullName --dry-run --json
       - name: CLI workflow plan
         shell: pwsh
         run: py -m vcp_cli workflow plan --id production-hardening --json
+      - name: CLI workflow run dry-run
+        shell: pwsh
+        run: py -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json
       - name: CLI review-diff
         shell: pwsh
         run: py -m vcp_cli review-diff --json

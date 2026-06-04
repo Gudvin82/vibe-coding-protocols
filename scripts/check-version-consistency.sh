@@ -98,6 +98,8 @@ stale_versions=(
   "v0.6.5"
   "v0.6.6"
   "v0.6.7"
+  "v0.7.0"
+  "v0.7.1"
 )
 
 entry_files=(

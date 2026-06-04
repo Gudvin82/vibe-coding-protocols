@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .utils import load_json, manifest_path, print_output, repo_root
+from .utils import load_json, manifest_path, print_output, repo_root, resolve_runtime_path
 
 
 def scenario_paths() -> list[Path]:
@@ -37,7 +37,7 @@ def run(scenario: str | None = None, json_mode: bool = False) -> int:
         if expected_pack and expected_pack not in pack_ids:
             scenario_errors.append(f"Unknown pack: {data.get('expected_adoption_pack')}")
         for rel in data.get("required_files_to_inspect", []):
-            if not (root / rel).exists():
+            if not resolve_runtime_path(root, rel).exists():
                 scenario_errors.append(f"Missing required file: {rel}")
         results.append(
             {

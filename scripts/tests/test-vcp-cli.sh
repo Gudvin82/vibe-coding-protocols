@@ -67,6 +67,8 @@ python3 -m vcp_cli adopt --pack spec-first --dry-run --json | grep -F '"selected
 python3 -m vcp_cli adopt plan --json | grep -F '"writes_by_default": false' >/dev/null
 python3 -m vcp_cli adopt plan --pack brownfield-rescue --json | grep -F '"selected_pack": "brownfield-rescue"' >/dev/null
 python3 -m vcp_cli adopt plan --pack spec-foundation --copy-list | grep -F 'templates/specs/PRD.md -> PRD.md' >/dev/null
+ADOPT_TARGET="$(mktemp -d)"
+python3 -m vcp_cli adopt apply --pack brownfield-rescue --target "$ADOPT_TARGET" --dry-run --json | grep -F '"dry_run": true' >/dev/null
 python3 -m vcp_cli review plan --json | grep -F '"prompt_path": "templates/prompts/loop-code-review.md"' >/dev/null
 python3 -m vcp_cli index validate >/dev/null
 python3 -m vcp_cli index show --json | grep -F "\"version\": \"$CURRENT_VERSION\"" >/dev/null
@@ -92,6 +94,7 @@ python3 -m vcp_cli preset validate --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli cards list --type platform --json | grep -F '"total": 27' >/dev/null
 python3 -m vcp_cli workflow list --json | grep -F '"items"' >/dev/null
 python3 -m vcp_cli workflow plan --id production-hardening --json | grep -F '"requested_workflow": "production-hardening"' >/dev/null
+python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json | grep -F '"interactive": true' >/dev/null
 python3 -m vcp_cli workflow validate --json | grep -F '"ok": true' >/dev/null
 python3 -m vcp_cli workflow show production-hardening --json | grep -F '"id": "production-hardening"' >/dev/null
 python3 -m vcp_cli workflow search hardening --json | grep -F '"query": "hardening"' >/dev/null

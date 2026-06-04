@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.7.1 -->
+<!-- vcp-version: v0.8.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Adoption Tier Report
@@ -14,3 +14,10 @@
 ## What to defer
 
 ## Risk if under-adopted
+
+## Safe apply note
+
+State whether adoption should stay at:
+- plan only;
+- dry-run apply;
+- confirmed safe apply.

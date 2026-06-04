@@ -1,0 +1,71 @@
+{
+  "id": "installable-cli",
+  "type": "concept",
+  "name": "Installable CLI",
+  "summary": "Local clone installation path for VCP with a working `vcp` console command.",
+  "use_when": [
+    "someone wants to run VCP outside a source checkout"
+  ],
+  "do_not_use_when": [
+    "public package publication is being implied without evidence"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "distribution"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea"
+    ],
+    "ai_failure_modes": [
+      "distribution overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/install.md",
+    "docs/pip-install.md",
+    "pyproject.toml",
+    "setup.py"
+  ],
+  "related_files": [
+    "docs/distribution.md",
+    "docs/cli.md"
+  ],
+  "cli": [
+    "python3 -m pip install .",
+    "vcp doctor"
+  ],
+  "outputs": [
+    "installed local CLI"
+  ],
+  "stop_conditions": [
+    "do not claim public PyPI or npm publication unless released"
+  ],
+  "validation": [
+    "python3 -m pip install .",
+    "vcp doctor"
+  ],
+  "version": "v0.8.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "distribution",
+    "cli"
+  ]
+}

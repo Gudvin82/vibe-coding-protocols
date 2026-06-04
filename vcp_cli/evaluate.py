@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .utils import load_json, manifest_dir, manifest_paths, print_output, repo_root, repo_version
+from .utils import load_json, manifest_dir, manifest_paths, print_output, repo_root, repo_version, runtime_path_exists
 
 KEY_FILES = [
     "AI_EVALUATION_GUIDE.md",
@@ -153,11 +153,11 @@ def evaluate_payload() -> dict[str, object]:
     commands_manifest = load_json(manifests["commands"])
     reports_manifest = load_json(manifests["reports"])
 
-    key_files = [{"path": rel, "present": (root / rel).exists()} for rel in KEY_FILES]
+    key_files = [{"path": rel, "present": runtime_path_exists(root, rel)} for rel in KEY_FILES]
     protocols_dir = root / "protocols"
     commands_dir = root / "commands"
     operations_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "protocols/operations/production-error-capture.md",
             "protocols/operations/daily-error-triage.md",
@@ -166,7 +166,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     public_growth_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "protocols/public-growth/public-growth-playbook.md",
             "protocols/public-growth/seo-geo-ai-visibility.md",
@@ -178,7 +178,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     spec_lane_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "protocols/spec-driven/README.md",
             "protocols/spec-driven/spec-foundation.md",
@@ -187,7 +187,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     two_track_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "docs/two-track-model.md",
             "docs/spec-foundation.md",
@@ -199,7 +199,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     adaptive_spec_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "docs/adaptive-spec-depth.md",
             "docs/spec-escape-hatch.md",
@@ -214,7 +214,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     presets_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             ".vcp/presets/README.md",
             "docs/packs-and-presets.md",
@@ -223,7 +223,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     workflow_layer_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             ".vcp/workflows/README.md",
             "docs/workflows.md",
@@ -231,7 +231,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     diagnostics_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             ".vcp/diagnostics/layers.json",
             "docs/diagnostics.md",
@@ -239,7 +239,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     catalog_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             ".vcp/catalog.json",
             "docs/catalog.md",
@@ -247,7 +247,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     event_schema_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "schemas/vcp-event.schema.json",
             "docs/event-schema.md",
@@ -255,7 +255,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     trust_layer_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "docs/product-delivery-lifecycle.md",
             "docs/flagship-workflows.md",
@@ -265,7 +265,7 @@ def evaluate_payload() -> dict[str, object]:
         ]
     )
     proof_surfaces_ready = all(
-        (root / rel).exists()
+        runtime_path_exists(root, rel)
         for rel in [
             "ADOPTERS.md",
             "case-studies/README.md",
@@ -282,12 +282,12 @@ def evaluate_payload() -> dict[str, object]:
         "version_semantics_warning": f"If you are naming the current GitHub repository release, use Vibe Coding Protocols {repo_version(root)}.",
         "evaluation_guide_present": (root / "AI_EVALUATION_GUIDE.md").exists(),
         "full_repo_intake_present": (root / "FULL_REPO_INTAKE.md").exists(),
-        "ai_audit_manifest_present": (root / ".vcp" / "ai-audit-manifest.json").exists(),
+        "ai_audit_manifest_present": runtime_path_exists(root, ".vcp/ai-audit-manifest.json"),
         "repo_capabilities_index_present": (root / "REPO_CAPABILITIES_INDEX.md").exists(),
-        "audit_plan_command_present": (root / "vcp_cli" / "audit_plan.py").exists(),
-        "onboard_command_present": (root / "vcp_cli" / "onboard.py").exists(),
-        "classify_command_present": (root / "vcp_cli" / "classify.py").exists(),
-        "public_growth_check_present": (root / "vcp_cli" / "public_growth.py").exists(),
+        "audit_plan_command_present": runtime_path_exists(root, "vcp_cli/audit_plan.py"),
+        "onboard_command_present": runtime_path_exists(root, "vcp_cli/onboard.py"),
+        "classify_command_present": runtime_path_exists(root, "vcp_cli/classify.py"),
+        "public_growth_check_present": runtime_path_exists(root, "vcp_cli/public_growth.py"),
         "key_files": key_files,
         "manifest_directory": str(manifest_dir(root)),
         "benchmark_count": _benchmark_count(root),
@@ -329,7 +329,7 @@ def evaluate_payload() -> dict[str, object]:
         "platform_doc_count": len(list((root / "docs" / "platforms").glob("*.md"))) if (root / "docs" / "platforms").exists() else 0,
         "platform_card_count": len(list((root / ".vcp" / "cards" / "platforms").glob("*.json"))) if (root / ".vcp" / "cards" / "platforms").exists() else 0,
         "llm_reference_present": all(
-            (root / rel).exists()
+            runtime_path_exists(root, rel)
             for rel in ["AGENTS.md", "llms.txt", "llms-full.txt", "ai.txt", "CITATION.cff"]
         ),
         "adopters_doc_present": (root / "ADOPTERS.md").exists(),
@@ -341,7 +341,7 @@ def evaluate_payload() -> dict[str, object]:
         "public_source_of_truth_audit_present": (root / "docs/public-source-of-truth-audit.md").exists(),
         "proof_walkthrough_present": (root / "docs/proof-walkthrough.md").exists(),
         "progressive_disclosure_present": all(
-            (root / rel).exists()
+            runtime_path_exists(root, rel)
             for rel in [
                 ".vcp/index.json",
                 ".vcp/cards/README.md",
