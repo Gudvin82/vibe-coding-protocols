@@ -1,0 +1,63 @@
+{
+  "id": "integration-roadmap",
+  "type": "concept",
+  "name": "Integration Roadmap",
+  "summary": "Roadmap-only integration positioning for VCP without implementation overclaim.",
+  "use_when": [
+    "someone asks about future integrations or extension surfaces"
+  ],
+  "do_not_use_when": [
+    "roadmap language would be reported as shipped capability"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "roadmap"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea"
+    ],
+    "ai_failure_modes": [
+      "integration overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "product honesty"
+    ]
+  },
+  "entry_files": [
+    "docs/roadmap/integrations.md"
+  ],
+  "related_files": [
+    "docs/roadmap/vscode-extension.md",
+    "docs/distribution.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "safe integration positioning"
+  ],
+  "stop_conditions": [
+    "do not claim official extensions or marketplaces unless published"
+  ],
+  "validation": [
+    "docs mention roadmap only"
+  ],
+  "version": "v0.8.1",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "roadmap"
+  ]
+}

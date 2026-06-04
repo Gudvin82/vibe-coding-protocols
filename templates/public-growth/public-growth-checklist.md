@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 
 <!-- vcp-artifact: PUBLIC_GROWTH_CHECKLIST -->
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Public Growth Checklist

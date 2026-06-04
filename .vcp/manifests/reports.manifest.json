@@ -454,6 +454,19 @@
         "Confidence",
         "Evaluation completeness"
       ]
+    },
+    {
+      "id": "adoption-case-study",
+      "file": "templates/reports/adoption-case-study.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Case label",
+        "Initial state",
+        "Route decision",
+        "Risks surfaced",
+        "Validation evidence",
+        "Limitations and unknowns"
+      ]
     }
   ],
   "related_docs": [

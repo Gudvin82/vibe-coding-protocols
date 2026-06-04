@@ -2,7 +2,7 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.7.1`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.1`.
 
 ## Core positioning
 
@@ -10,14 +10,18 @@ VCP is both:
 - a foundation for new AI-assisted products;
 - a control layer for existing repositories, PR gates, release readiness, and safe adoption.
 
-## New in v0.7.1
+## New in v0.8.1
 
-External evaluators should now inspect practical productization surfaces too:
+External evaluators should now inspect the short adoption path, MVP route, and proof-layer surfaces too:
 - `vcp onboard`
 - `vcp classify`
 - `vcp adopt plan`
 - `vcp public-growth check`
 - `vcp workflow plan`
+- `docs/10-minute-adoption-path.md`
+- `docs/mvp-adoption-track.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
+- `docs/proof-layer.md`
 - `docs/distribution.md`
 - `docs/adoption-tiers.md`
 - `docs/proof-pack.md`
@@ -35,6 +39,10 @@ Inspect at least:
 - `docs/two-track-model.md`
 - `docs/spec-foundation.md`
 - `docs/release-readiness.md`
+- `docs/10-minute-adoption-path.md`
+- `docs/mvp-adoption-track.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
+- `docs/proof-layer.md`
 - `docs/distribution.md`
 - `docs/adoption-tiers.md`
 - `docs/proof-pack.md`

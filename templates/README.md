@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 
 # Templates
 
@@ -10,7 +10,7 @@ If the user only shared a link to VCP and asked what to take, start with `../TAK
 
 ```html
 <!-- vcp-artifact: AGENTS -->
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 <!-- methodology-version: v1.4 -->
 ```
 

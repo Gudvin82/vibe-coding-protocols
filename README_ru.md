@@ -5,22 +5,28 @@
 Build with AI. Ship with control.
 
 Vibe Coding Protocols — это практический локальный toolkit для AI-assisted delivery.
-Он помогает выбрать правильный трек, оценить риск, построить безопасный adoption plan и выпускать изменения с видимым review и release control.
+Он помогает выбрать правильный трек, безопасно внедрять нужные слои и выпускать изменения с видимым review и release control.
 
-> Текущий пакет репозитория: `v0.8.0`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.0`.
+> Текущий пакет репозитория: `v0.8.1`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.1`.
 
-Repository package: `v0.8.0`
+Repository package: `v0.8.1`
 
-## Новое в v0.8.0: installable CLI, safe apply и PR Gate action
+## Новое в v0.8.1: 10-minute adoption path, killer demo и product narrative sync
 
-v0.8.0 снимает следующие практические adoption barriers:
+`v0.8.1` делает первую пользовательскую историю короче и понятнее:
 
-- `python3 -m pip install .` становится first-class local install path;
-- `vcp` работает как console command после локальной установки;
-- `adopt apply` теперь explicit safe non-destructive mode с dry-run, conflicts и adoption log;
-- PR Gate проще добавить через pinned GitHub Actions workflow template;
-- public-growth checks стали более check/report-driven без ranking или citation guarantees.
+- install -> onboard -> classify -> adopt plan -> launch check теперь собраны в один короткий путь;
+- появился killer demo для raw AI-generated MVP с route, risks, copy-list, dry-run apply и launch check;
+- proof language теперь яснее разделяет real, sanitized, synthetic, maintainer-known и unknown;
+- integration roadmap описан без притворства, что он уже shipped.
+
+## Старт за 10 минут
+
+Используй самый короткий практический путь:
+- [docs/10-minute-adoption-path.md](./docs/10-minute-adoption-path.md)
+- [docs/demos/raw-ai-mvp-to-controlled-launch.md](./docs/demos/raw-ai-mvp-to-controlled-launch.md)
+- [docs/mvp-adoption-track.md](./docs/mvp-adoption-track.md)
 
 ## Для AI-агентов: не оценивайте VCP только по README
 
@@ -37,6 +43,13 @@ v0.8.0 снимает следующие практические adoption barri
 Если вы не можете проверить эти файлы плюс `.vcp/`, `vcp_cli/`, templates и benchmarks, помечайте оценку как `partial` или `shallow`.
 Не выдавайте WebFetch/README summary за полный аудит репозитория.
 
+## Главная история
+
+- build with AI;
+- choose the right track;
+- adopt safely;
+- ship with control.
+
 ## Быстрый старт по ситуации
 
 | Ситуация | Команда |
@@ -44,9 +57,9 @@ v0.8.0 снимает следующие практические adoption barri
 | Я хочу понять этот репозиторий | `python3 -m vcp_cli audit-plan --json` |
 | Я хочу попробовать VCP локально | `python3 -m vcp_cli doctor` |
 | У меня новая идея проекта | `python3 -m vcp_cli spec quality-gate --json` |
-| У меня уже есть репозиторий | `python3 -m vcp_cli diagnose --json` |
+| У меня AI-generated MVP | `python3 -m vcp_cli onboard --json` |
 | Мне нужны инструкции по внедрению | `python3 -m vcp_cli adopt plan --json` |
-| Мне нужна PR/release readiness проверка | `python3 -m vcp_cli release-check --json` |
+| Мне нужна launch/release readiness проверка | `python3 -m vcp_cli release-check --json` |
 
 ## Два трека
 
@@ -71,38 +84,31 @@ python3 -m vcp_cli adopt plan --pack spec-foundation --json
 
 ### Existing Project Track
 
-Используй, когда репозиторий уже существует, а реальная проблема — hardening, release control, architecture drift или public-growth proof.
+Используй, когда репозиторий уже существует, а реальная проблема — hardening, release control, architecture drift или launch clarity.
 
 Основной путь:
-- `docs/two-track-model.md`
+- `docs/mvp-adoption-track.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 - `docs/walkthroughs/ai-mvp-hardening.md`
-- `docs/release-readiness.md`
 - `docs/architecture-drift.md`
+- `docs/release-readiness.md`
 - `docs/pr-gate.md`
 
 Полезные команды:
 ```bash
 python3 -m vcp_cli onboard --json
 python3 -m vcp_cli classify --json
-python3 -m vcp_cli review-diff --json
 python3 -m vcp_cli adopt plan --pack brownfield-rescue --json
+python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-project --dry-run --json
 python3 -m vcp_cli release-check --json
 ```
-
-## Тиры внедрения
-
-- `Lite`: solo dev, MVP, низкий или умеренный риск.
-- `Team`: shared repo, backlog, architecture memory, PR Gate.
-- `Governed`: production, auth/payment/data, release и third-party control.
-
-Смотри [docs/adoption-tiers.md](./docs/adoption-tiers.md).
 
 ## Честная установка и distribution
 
 Практические пути сегодня:
 - `python3 -m vcp_cli doctor`
 - `python3 -m pip install . && vcp doctor`
-- опционально локальный `pipx install . && vcp doctor`, если проходит в этом релизе
+- опционально локальный `pipx install . && vcp doctor`, если проходит в вашем окружении
 - `npm run vcp -- doctor`
 
 VCP **не** заявляет о public PyPI или public npm publication, пока этого реально нет.
@@ -111,7 +117,47 @@ VCP **не** заявляет о public PyPI или public npm publication, по
 - [docs/install.md](./docs/install.md)
 - [docs/distribution.md](./docs/distribution.md)
 - [docs/pip-install.md](./docs/pip-install.md)
-- [docs/npm.md](./docs/npm.md)
+- [docs/pypi-publishing.md](./docs/pypi-publishing.md)
+
+## Тиры внедрения
+
+- `Lite`: solo dev, MVP, lower-risk AI coding.
+- `Team`: shared repo, backlog, architecture memory, PR Gate.
+- `Governed`: production, auth/payment/data, release и third-party control.
+
+Смотри [docs/adoption-tiers.md](./docs/adoption-tiers.md).
+
+## Безопасное внедрение, а не blind apply
+
+Сначала используй planner и dry-run:
+
+```bash
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --json
+python3 -m vcp_cli adopt plan --pack brownfield-rescue --copy-list
+python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-project --dry-run --json
+```
+
+Не воспринимай apply как guarantee и не используй confirmed apply на production-репозитории без review.
+
+## Public growth check
+
+Если MVP уже публично доступен, добавь:
+
+```bash
+python3 -m vcp_cli public-growth check --json
+```
+
+Это local readiness и visibility check, а не ranking или citation guarantee.
+
+## Workflow planning note
+
+Используй:
+
+```bash
+python3 -m vcp_cli workflow plan --json
+```
+
+Workflow JSON остается planning surface, а не hidden execution engine.
 
 ## Установить и запустить
 
@@ -131,76 +177,22 @@ vcp evaluate
 
 Используйте workflow example в `ci-examples/github-actions/vcp-pr-gate.yml`.
 
-## Безопасное внедрение, а не blind apply
+## Proof layer
 
-Сначала используйте planner:
-
-```bash
-python3 -m vcp_cli adopt plan --pack brownfield-rescue --json
-python3 -m vcp_cli adopt plan --pack brownfield-rescue --copy-list
-python3 -m vcp_cli adopt plan --pack brownfield-rescue --patch
-python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-project --dry-run --json
-```
-
-Он дает:
-- files to copy;
-- files to review;
-- files not to copy;
-- validation commands;
-- stop conditions;
-- patch preview без записи в проект по умолчанию;
-- explicit safe apply только после `--target` и `--confirm`.
-
-## Public Growth / GEO
-
-Теперь VCP трактует public growth как check/report surface, а не как wishful documentation.
-
-```bash
-python3 -m vcp_cli public-growth check --json
-```
-
-Границы:
-- никаких гарантий ranking;
-- никаких гарантий AI Overview или citation;
-- никаких fake reviews или black-hat SEO.
-
-Смотри:
-- [docs/public-growth/geo-checks.md](./docs/public-growth/geo-checks.md)
-- [docs/public-growth/public-growth-checklist.md](./docs/public-growth/public-growth-checklist.md)
-- [docs/public-growth/seo-geo-ai-structure-evaluation.md](./docs/public-growth/seo-geo-ai-structure-evaluation.md)
-
-## Proof и case studies
-
-Proof pack здесь честный по умолчанию.
-Если adopter не независимый или кейс sanitized, это явно помечено.
-
-Смотри:
+Используй вместе:
 - [docs/proof-pack.md](./docs/proof-pack.md)
+- [docs/proof-layer.md](./docs/proof-layer.md)
+- [templates/reports/adoption-case-study.md](./templates/reports/adoption-case-study.md)
 - [case-studies/README.md](./case-studies/README.md)
-- [ADOPTERS.md](./ADOPTERS.md)
 
-## Статус workflow JSON
+## Integration roadmap
 
-Workflow JSON — это machine-readable planning/governance artifacts.
-Это не execution engine.
+Roadmap и future-facing integration positioning лежат в:
+- [docs/roadmap/integrations.md](./docs/roadmap/integrations.md)
+- [docs/roadmap/vscode-extension.md](./docs/roadmap/vscode-extension.md)
 
-```bash
-python3 -m vcp_cli workflow plan --json
-```
+Эти docs нельзя читать как доказательство, что такие integrations уже shipped.
 
-## Что пока остается experimental
+## Release notes
 
-- registry publication (`pip install vcp-cli`, `npx vcp`), если реально не выпущено;
-- destructive apply modes;
-- любые claims, что workflow JSON выполняет внешние действия;
-- любые proof или SEO/GEO claims без публичного evidence.
-
-## Ключевые документы
-
-- [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
-- [REPO_CAPABILITIES_INDEX.md](./REPO_CAPABILITIES_INDEX.md)
-- [docs/two-track-model.md](./docs/two-track-model.md)
-- [docs/adoption-tiers.md](./docs/adoption-tiers.md)
-- [docs/distribution.md](./docs/distribution.md)
-- [docs/proof-pack.md](./docs/proof-pack.md)
-- [docs/release-v0.8.0.md](./docs/release-v0.8.0.md)
+- [docs/release-v0.8.1.md](./docs/release-v0.8.1.md)

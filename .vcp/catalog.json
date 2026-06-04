@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.0",
+  "version": "v0.8.1",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -111,6 +111,11 @@
     "docs/version-semantics.md",
     "docs/visual-overview.md",
     "docs/walkthroughs/ai-mvp-hardening.md",
-    "docs/walkthroughs/new-ai-product-from-idea.md"
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/10-minute-adoption-path.md",
+    "docs/mvp-adoption-track.md",
+    "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+    "docs/proof-layer.md",
+    "docs/roadmap/integrations.md"
   ]
 }

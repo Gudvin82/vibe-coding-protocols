@@ -14,7 +14,7 @@ CHECKS = [
     ('ai release naming guard', ['report the current GitHub repository release as', CURRENT], ['называй текущий GitHub-релиз репозитория как', CURRENT]),
     ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
     ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
-    ('v0.8.0 release block', ['New in v0.8.0: installable CLI, safe apply, and PR Gate action'], ['Новое в v0.8.0: installable CLI, safe apply и PR Gate action']),
+    ('v0.8.1 release block', ['New in v0.8.1: 10-minute adoption path, killer demo, and product narrative sync'], ['Новое в v0.8.1: 10-minute adoption path, killer demo и product narrative sync']),
     ('quick start by situation', ['Quick start by situation'], ['Быстрый старт по ситуации']),
     ('two tracks', ['New Project Track', 'Existing Project Track'], ['New Project Track', 'Existing Project Track']),
     ('adoption tiers', ['docs/adoption-tiers.md'], ['docs/adoption-tiers.md']),

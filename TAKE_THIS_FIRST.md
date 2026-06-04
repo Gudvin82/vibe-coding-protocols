@@ -12,9 +12,17 @@ python3 -m vcp_cli adopt plan --json
 
 ## Tracks
 
+If the user asks for the fastest first path, start with `docs/10-minute-adoption-path.md` before expanding into deeper packs.
+
 - new idea or founder brief -> New Project Track
 - existing repo or MVP -> Existing Project Track
 - public-facing growth work -> Existing Project Track + public-growth checks
+
+## MVP shortcut
+
+If the project is already an AI-generated MVP, inspect:
+- `docs/mvp-adoption-track.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 
 ## Use safe adoption outputs
 

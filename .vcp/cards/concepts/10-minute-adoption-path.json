@@ -1,0 +1,73 @@
+{
+  "id": "10-minute-adoption-path",
+  "type": "concept",
+  "name": "10-Minute Adoption Path",
+  "summary": "Shortest install-to-launch-check route for first-time VCP adoption.",
+  "use_when": [
+    "someone wants the fastest practical first pass"
+  ],
+  "do_not_use_when": [
+    "broad framework adoption is being attempted before route selection"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "adoption sprawl"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "first-user clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/10-minute-adoption-path.md"
+  ],
+  "related_files": [
+    "README.md",
+    "docs/install.md",
+    "docs/release-readiness.md"
+  ],
+  "cli": [
+    "vcp doctor",
+    "vcp onboard --json",
+    "vcp classify --json",
+    "vcp release-check --json"
+  ],
+  "outputs": [
+    "route selection",
+    "copy-list preview",
+    "launch-check result"
+  ],
+  "stop_conditions": [
+    "do not use confirmed apply on production without review"
+  ],
+  "validation": [
+    "python3 -m vcp_cli onboard --json",
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "version": "v0.8.1",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "adoption"
+  ]
+}

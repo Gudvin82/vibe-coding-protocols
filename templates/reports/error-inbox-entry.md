@@ -1,7 +1,7 @@
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 
 <!-- vcp-artifact: ERROR_INBOX_ENTRY -->
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.8.1 -->
 <!-- methodology-version: v1.4 -->
 
 # Error Inbox Entry

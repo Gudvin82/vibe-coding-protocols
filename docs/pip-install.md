@@ -1,6 +1,6 @@
 # Python Install Paths
 
-`v0.8.0` is the first release that treats `python3 -m pip install .` as a first-class local install path.
+`v0.8.1` is the first release that treats `python3 -m pip install .` as a first-class local install path.
 
 ## Install from local clone
 

@@ -32,7 +32,7 @@ The safe default for general repositories is:
 
 ## Pin stable versions
 
-For adoption in another repository, prefer a pinned tag such as `@v0.8.0`.
+For adoption in another repository, prefer a pinned tag such as `@v0.8.1`.
 Use `main` only for experiments.
 
 ## Fail-on behavior

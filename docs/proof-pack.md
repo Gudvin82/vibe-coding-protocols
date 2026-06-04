@@ -29,3 +29,6 @@ Use one or more of:
 - invent before/after metrics;
 - imply SEO/GEO/AI visibility guarantees;
 - hide what is still unverified.
+
+
+Use `docs/proof-layer.md` and `templates/reports/adoption-case-study.md` when the goal is to show what VCP detected, prevented, and still cannot prove.

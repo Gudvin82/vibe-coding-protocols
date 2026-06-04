@@ -52,7 +52,7 @@
   "validation": [
     "python3 -m vcp_cli audit-plan --json"
   ],
-  "version": "v0.8.0",
+  "version": "v0.8.1",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

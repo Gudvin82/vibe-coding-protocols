@@ -52,5 +52,6 @@ After publishing a release object:
 - [`../release-v0.6.7.md`](../release-v0.6.7.md)
 
 - [v0.8.0](../release-v0.8.0.md) — Installable CLI, Safe Apply, and PR Gate Action
-- [v0.8.0](../release-v0.8.0.md) — Public Version Clarity Patch
 - [v0.7.0](../release-v0.7.0.md) — Practical Adoption and Productization
+
+- [v0.8.1](../release-v0.8.1.md) — 10-Minute Adoption Path, Killer Demo, and Product Narrative Sync

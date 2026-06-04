@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.0",
+  "version": "v0.8.1",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {
@@ -31,7 +31,12 @@
     "docs/integrations/spec-kit-bridge.md",
     "vcp_cli/",
     "templates/",
-    "benchmarks/ai-adoption/scenarios/"
+    "benchmarks/ai-adoption/scenarios/",
+    "docs/10-minute-adoption-path.md",
+    "docs/mvp-adoption-track.md",
+    "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+    "docs/proof-layer.md",
+    "docs/roadmap/integrations.md"
   ],
   "minimum_raw_files": [
     "README.md",

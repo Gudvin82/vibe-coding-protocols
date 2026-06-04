@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.8.0",
+  "version": "v0.8.1",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.0.md",
+    "docs/release-v0.8.1.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -43,7 +43,13 @@
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "llms-full.txt",
-    "llms.txt"
+    "llms.txt",
+    "docs/10-minute-adoption-path.md",
+    "docs/mvp-adoption-track.md",
+    "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+    "docs/proof-layer.md",
+    "docs/roadmap/integrations.md",
+    "docs/release-v0.8.1.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -97,7 +103,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.0.md",
+    "docs/release-v0.8.1.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -113,7 +119,13 @@
     "docs/visual-overview.md",
     "docs/walkthroughs/ai-mvp-hardening.md",
     "docs/walkthroughs/new-ai-product-from-idea.md",
-    "docs/workflows.md"
+    "docs/workflows.md",
+    "docs/10-minute-adoption-path.md",
+    "docs/mvp-adoption-track.md",
+    "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+    "docs/proof-layer.md",
+    "docs/roadmap/integrations.md",
+    "docs/release-v0.8.1.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -192,7 +204,8 @@
     "seo-geo-ai-structure-evaluation-report",
     "spec-foundation-report",
     "spec-quality-gate-report",
-    "third-party-api-intake-report"
+    "third-party-api-intake-report",
+    "adoption-case-study"
   ],
   "concepts": [
     "acceptance-criteria",
@@ -257,7 +270,12 @@
     "version-semantics",
     "visual-overview",
     "workflow",
-    "workflow-plan"
+    "workflow-plan",
+    "10-minute-adoption-path",
+    "mvp-adoption-track",
+    "raw-ai-mvp-killer-demo",
+    "proof-layer",
+    "integration-roadmap"
   ],
   "benchmarks_list": [
     "adoption-tiers",
@@ -331,7 +349,12 @@
     "version-semantics-disambiguation",
     "workflow-json-not-execution-engine",
     "workflow-production-hardening",
-    "workflow-public-growth-audit"
+    "workflow-public-growth-audit",
+    "10-minute-adoption-path",
+    "raw-ai-mvp-to-controlled-launch",
+    "product-narrative-sync",
+    "proof-layer-honesty",
+    "integration-roadmap-no-overclaim"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -423,12 +446,12 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.1. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.8.0",
+  "repository_package_version": "v0.8.1",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.1. Do not present v1.4 as the current repository release."
   }
 }

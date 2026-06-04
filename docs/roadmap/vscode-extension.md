@@ -2,7 +2,7 @@
 
 Status: planned, not shipped.
 
-`v0.8.0` does not ship a VS Code extension and does not claim a Marketplace listing.
+`v0.8.1` does not ship a VS Code extension and does not claim a Marketplace listing.
 
 ## Candidate future scope
 
@@ -14,6 +14,6 @@ Status: planned, not shipped.
 
 ## Boundaries
 
-- no extension code is shipped in `v0.8.0`;
+- no extension code is shipped in `v0.8.1`;
 - no Marketplace listing is claimed;
 - no extension install instructions should be shown as current availability.

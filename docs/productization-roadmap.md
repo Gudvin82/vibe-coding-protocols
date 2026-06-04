@@ -1,6 +1,6 @@
 # Productization Roadmap
 
-`v0.8.0` moves VCP from clone-only usage toward an installable CLI without pretending that every distribution channel is already live.
+`v0.8.1` moves VCP from clone-only usage toward an installable CLI without pretending that every distribution channel is already live.
 
 ## What is practical now
 

@@ -3,7 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
-If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.7.1`.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.1`.
 
 Required inspection path:
 
@@ -35,8 +35,10 @@ Full repo intake: `FULL_REPO_INTAKE.md`
 AI full repo audit contract: `AI_FULL_REPO_AUDIT.md`
 Repo capabilities index: `REPO_CAPABILITIES_INDEX.md`
 Two-track model: `docs/two-track-model.md`
-Spec foundation: `docs/spec-foundation.md`
-Spec quality gate: `docs/spec-quality-gate.md`
+10-minute adoption path: `docs/10-minute-adoption-path.md`
+MVP adoption track: `docs/mvp-adoption-track.md`
+Raw AI MVP demo: `docs/demos/raw-ai-mvp-to-controlled-launch.md`
+Proof layer: `docs/proof-layer.md`
 Project memory: `docs/project-memory-model.md`
 PR Gate: `docs/pr-gate.md`
 Release readiness: `docs/release-readiness.md`
@@ -63,7 +65,7 @@ Use:
 Route to the Existing Project Track.
 
 Use:
-- `docs/two-track-model.md`
+- `docs/mvp-adoption-track.md`
 - `docs/walkthroughs/ai-mvp-hardening.md`
 - `docs/architecture-drift.md`
 - `docs/pr-gate.md`
@@ -77,6 +79,9 @@ Use:
 Default to hardening and brownfield rescue, not feature expansion.
 
 Use:
+- `docs/10-minute-adoption-path.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
+- `docs/mvp-adoption-track.md`
 - `docs/walkthroughs/ai-mvp-hardening.md`
 - `docs/adoption-packs.md`
 - `.vcp/cards/adoption-packs/brownfield-rescue.json`
@@ -101,6 +106,14 @@ Inspect:
 - `docs/architecture-drift.md`
 - `python3 -m vcp_cli release-check --json`
 - `docs/public-source-of-truth-audit.md`
+
+## If the user says “what should I do first?” or “how do I adopt this?”
+
+Route to:
+- `docs/10-minute-adoption-path.md`
+- `docs/mvp-adoption-track.md`
+- `docs/demos/raw-ai-mvp-to-controlled-launch.md`
+- `TAKE_THIS_FIRST.md`
 
 ## If the user says “Compare with Spec Kit”
 

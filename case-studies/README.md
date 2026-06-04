@@ -36,3 +36,9 @@ Do not infer:
 - metrics that are not explicitly shown;
 - SEO/GEO/AI visibility guarantees;
 - security or compliance certification.
+
+
+Suggested first proof-reading path:
+- `docs/proof-layer.md`
+- `templates/reports/adoption-case-study.md`
+- `case-studies/raw-ai-mvp-synthetic.md`

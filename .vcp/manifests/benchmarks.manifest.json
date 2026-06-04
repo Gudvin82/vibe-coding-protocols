@@ -1382,6 +1382,88 @@
         "workflow JSON is not a hidden automation engine"
       ],
       "expected_first_action": "Use workflow run only with interactive dry-run style preview and disclose that no external actions execute."
+    },
+    {
+      "id": "10-minute-adoption-path",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/10-minute-adoption-path.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/10-minute-adoption-path.md",
+        "docs/install.md",
+        "docs/release-readiness.md"
+      ],
+      "expected_warnings": [
+        "do not use confirmed apply on production without review"
+      ],
+      "expected_first_action": "Run the short adoption path from install through release-check before broad repo changes."
+    },
+    {
+      "id": "raw-ai-mvp-to-controlled-launch",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/raw-ai-mvp-to-controlled-launch.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+        "docs/mvp-adoption-track.md",
+        "docs/walkthroughs/ai-mvp-hardening.md"
+      ],
+      "expected_warnings": [
+        "do not present a working MVP as controlled production readiness"
+      ],
+      "expected_first_action": "Surface route, copy-list, and dry-run apply before treating the raw AI MVP as launchable."
+    },
+    {
+      "id": "product-narrative-sync",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/product-narrative-sync.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "README_ru.md",
+        "AGENTS.md",
+        "docs/release-v0.8.1.md"
+      ],
+      "expected_warnings": [
+        "do not flatten VCP into a vague prompt pack or everything-framework story"
+      ],
+      "expected_first_action": "Summarize the repository around the two-track adoption story instead of historical feature fragments."
+    },
+    {
+      "id": "proof-layer-honesty",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-layer-honesty.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/proof-layer.md",
+        "docs/proof-pack.md",
+        "templates/reports/adoption-case-study.md",
+        "case-studies/README.md"
+      ],
+      "expected_warnings": [
+        "do not invent independent adopters, metrics, or guarantees"
+      ],
+      "expected_first_action": "Label the proof surface and describe limitations before making trust claims."
+    },
+    {
+      "id": "integration-roadmap-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/integration-roadmap-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/roadmap/integrations.md",
+        "docs/roadmap/vscode-extension.md",
+        "docs/distribution.md"
+      ],
+      "expected_warnings": [
+        "do not claim official extension, marketplace, dashboard, or public package availability unless real"
+      ],
+      "expected_first_action": "State which integration surfaces are shipped, local, template-based, or roadmap-only."
     }
   ]
 }

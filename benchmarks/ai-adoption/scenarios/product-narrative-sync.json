@@ -1,0 +1,20 @@
+{
+  "scenario_id": "product-narrative-sync",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "build with AI",
+    "choose track",
+    "adopt safely",
+    "ship with control"
+  ],
+  "required_files_to_inspect": [
+    "README.md",
+    "README_ru.md",
+    "AGENTS.md",
+    "docs/release-v0.8.1.md"
+  ],
+  "expected_first_safe_action": "Summarize the repository around the two-track adoption story instead of historical feature fragments.",
+  "expected_warnings": [
+    "do not flatten VCP into a vague prompt pack or everything-framework story"
+  ]
+}

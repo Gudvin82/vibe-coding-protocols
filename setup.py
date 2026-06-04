@@ -3,11 +3,13 @@ from __future__ import annotations
 from pathlib import Path
 from shutil import copy2, copytree, rmtree
 
-from setuptools import setup
+from setuptools import find_packages, setup
 from setuptools.command.build_py import build_py as _build_py
 
 PACKAGE_NAME = "vcp_cli"
+REPO_ROOT = Path(__file__).resolve().parent
 ASSET_ROOT = Path(PACKAGE_NAME) / "_assets"
+PACKAGE_VERSION = (REPO_ROOT / "VERSION").read_text(encoding="utf-8").strip().lstrip("v")
 TOP_LEVEL_FILES = [
     "VERSION",
     "METHODOLOGY_VERSION",
@@ -56,7 +58,6 @@ ASSET_DIRS = [
 class build_py(_build_py):
     def run(self) -> None:
         super().run()
-        repo_root = Path(__file__).resolve().parent
         build_root = Path(self.build_lib).resolve()
         target_root = build_root / ASSET_ROOT
 
@@ -65,16 +66,24 @@ class build_py(_build_py):
         target_root.mkdir(parents=True, exist_ok=True)
 
         for rel in TOP_LEVEL_FILES:
-            source = repo_root / rel
+            source = REPO_ROOT / rel
             if source.exists():
                 destination = target_root / rel
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 copy2(source, destination)
 
         for rel in ASSET_DIRS:
-            source_dir = repo_root / rel
+            source_dir = REPO_ROOT / rel
             if source_dir.exists():
                 copytree(source_dir, target_root / rel, dirs_exist_ok=True)
 
 
-setup(cmdclass={"build_py": build_py})
+setup(
+    name="vcp-cli",
+    version=PACKAGE_VERSION,
+    description="Local Python CLI and packaging surface for Vibe Coding Protocols",
+    packages=find_packages(include=["vcp_cli", "vcp_cli.*"]),
+    include_package_data=True,
+    entry_points={"console_scripts": ["vcp=vcp_cli.cli:main"]},
+    cmdclass={"build_py": build_py},
+)

@@ -1,7 +1,9 @@
 # Install
 
-VCP `v0.8.0` is designed to be installable from a local clone as a real CLI.
+VCP `v0.8.1` is designed to be installable from a local clone as a real CLI.
 It still does not claim public PyPI, public npm, Homebrew, or native installer distribution unless those channels are actually published.
+
+If you want the fastest first-use route after install, continue with `docs/10-minute-adoption-path.md`.
 
 ## Install from local clone
 
@@ -27,7 +29,7 @@ If `pipx` is unavailable in the validation environment, treat this as packaging-
 | Path | Status | Command | Notes |
 |---|---|---|---|
 | Clone + Python module | Stable | `python3 -m vcp_cli doctor` | Works without installation |
-| Local package install | Stable if validation passes | `python3 -m pip install . && vcp doctor` | Main `v0.8.0` install path |
+| Local package install | Stable if validation passes | `python3 -m pip install . && vcp doctor` | Main `v0.8.1` install path |
 | Editable install | Dev path | `python3 -m pip install -e . && vcp doctor` | Useful for contributors |
 | `pipx` local path | Supported if available and validation passes | `pipx install . && vcp doctor` | Local path only, not PyPI |
 | Node local wrapper | Stable local wrapper | `npm run vcp -- doctor` | Local repo path |

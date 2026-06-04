@@ -1,6 +1,6 @@
 # PyPI Publishing
 
-`v0.8.0` makes the Python package PyPI-ready, but publication remains a manual maintainer action.
+`v0.8.1` makes the Python package PyPI-ready, but publication remains a manual maintainer action.
 
 ## Before publishing
 

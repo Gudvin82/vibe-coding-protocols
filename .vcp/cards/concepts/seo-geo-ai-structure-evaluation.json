@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli benchmark run --scenario seo-geo-ai-structure-evaluation"
   ],
-  "version": "v0.8.0",
+  "version": "v0.8.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -1,11 +1,21 @@
 # Changelog
 
+## v0.8.1
+
+- synchronized public release and AI-facing version surfaces for `v0.8.1`;
+- added a 10-minute adoption path from install to launch check;
+- added a raw AI-MVP to controlled-launch demo and MVP adoption track;
+- strengthened product narrative across README, AGENTS, intake guidance, and machine-readable surfaces;
+- strengthened proof/case-study guidance without inventing adoption or safety claims;
+- documented integration roadmap surfaces without implementation overclaim.
+
 ## v0.8.0
 
-- clarified public/current-version surfaces so AI agents report the current GitHub repository release as `Vibe Coding Protocols v0.8.0`;
-- removed first-contact `v1.4` release ambiguity from README, README_ru, CLI headline output, and AI-facing guidance;
-- relabeled `v1.4` as an internal stable methodology reference instead of a current repository release signal;
-- synced CHANGELOG, release metadata, manifests, cards, tests, and version checkers for the public version clarity patch;
+- introduced installable local CLI packaging and the `vcp` console command;
+- added safe non-destructive `adopt apply` with dry-run and target confirmation;
+- added PR Gate workflow/action template surfaces;
+- added interactive safe workflow previewing and stronger Public Growth checks.
+
 
 ## v0.7.0
 

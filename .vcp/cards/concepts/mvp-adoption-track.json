@@ -1,0 +1,69 @@
+{
+  "id": "mvp-adoption-track",
+  "type": "concept",
+  "name": "MVP Adoption Track",
+  "summary": "Control-first path for an existing or AI-generated MVP.",
+  "use_when": [
+    "an MVP exists and needs route, scope, and launch control"
+  ],
+  "do_not_use_when": [
+    "the project is still an idea only"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "hardening"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "premature launch"
+    ],
+    "project_state": [
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "scope control"
+    ]
+  },
+  "entry_files": [
+    "docs/mvp-adoption-track.md"
+  ],
+  "related_files": [
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/10-minute-adoption-path.md"
+  ],
+  "cli": [
+    "vcp onboard --json",
+    "vcp classify --json",
+    "vcp adopt plan --json",
+    "vcp release-check --json"
+  ],
+  "outputs": [
+    "route decision",
+    "active surface map",
+    "launch-check path"
+  ],
+  "stop_conditions": [
+    "do not expand features before control gaps are visible"
+  ],
+  "validation": [
+    "python3 -m vcp_cli classify --json"
+  ],
+  "version": "v0.8.1",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "mvp"
+  ]
+}

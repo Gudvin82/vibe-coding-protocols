@@ -1,6 +1,8 @@
 # Distribution
 
-VCP `v0.8.0` makes the Python package PyPI-ready without pretending that public publication already exists.
+VCP `v0.8.1` makes the Python package PyPI-ready without pretending that public publication already exists.
+
+For the shortest practical install-to-launch path after local setup, pair this page with `docs/10-minute-adoption-path.md`.
 
 ## Current honest distribution status
 
@@ -16,7 +18,7 @@ VCP `v0.8.0` makes the Python package PyPI-ready without pretending that public 
 
 ## PyPI-ready, not auto-published
 
-`v0.8.0` includes:
+`v0.8.1` includes:
 - Python packaging metadata suitable for local build/install;
 - a `vcp` console script entrypoint;
 - a GitHub workflow scaffold for PyPI publication after maintainer approval;

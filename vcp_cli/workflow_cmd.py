@@ -177,7 +177,7 @@ def workflow_run_payload(
                 "executed": False,
                 "status": "planned" if action in SAFE_WORKFLOW_ACTIONS else "blocked",
                 "reason": (
-                    "Interactive workflow run in v0.8.0 is a safe preview surface and does not execute external actions."
+                    "Interactive workflow run in v0.8.1 is a safe preview surface and does not execute external actions."
                     if action in SAFE_WORKFLOW_ACTIONS
                     else "Action is outside the safe preview allowlist."
                 ),
@@ -191,7 +191,7 @@ def workflow_run_payload(
         "dry_run": dry_run,
         "plan": plan,
         "steps": step_results,
-        "note": "workflow run is an interactive safe runner/planner. In v0.8.0 it previews only safe local VCP steps and never deploys, publishes, modifies files, or accesses secrets.",
+        "note": "workflow run is an interactive safe runner/planner. In v0.8.1 it previews only safe local VCP steps and never deploys, publishes, modifies files, or accesses secrets.",
     }
 
 

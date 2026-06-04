@@ -17,6 +17,8 @@ vcp evaluate --json
 
 ## Productized starting commands
 
+For the shortest first-user flow, pair this page with `docs/10-minute-adoption-path.md` and `docs/demos/raw-ai-mvp-to-controlled-launch.md`.
+
 ```bash
 vcp onboard --json
 vcp classify --json

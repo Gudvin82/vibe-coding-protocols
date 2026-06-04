@@ -23,7 +23,7 @@ External or higher-risk packs must go through:
 
 ## Safe apply rule
 
-For `v0.8.0`, safe apply means:
+For `v0.8.1`, safe apply means:
 - explicit `--target`;
 - explicit `--confirm` for real writes;
 - no overwrite by default;
