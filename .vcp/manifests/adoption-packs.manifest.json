@@ -610,6 +610,45 @@
       ],
       "review_gate_requirement": "Required after component extraction or ownership cleanup.",
       "next_safe_step": "Pick one coherent UI ownership slice."
+    },
+    {
+      "id": "brownfield-rescue",
+      "name": "Brownfield Rescue Pack",
+      "use_when": [
+        "existing repository control debt is visible"
+      ],
+      "do_not_use_when": [
+        "the project is still only an idea"
+      ],
+      "recommended_files": [
+        "docs/adoption-packs.md",
+        "docs/walkthroughs/ai-mvp-hardening.md",
+        "docs/architecture-drift.md",
+        "docs/release-readiness.md",
+        "templates/reports/brownfield-rescue-report.md"
+      ],
+      "optional_files": [
+        "PROJECT_MAP.md",
+        "PROJECT_BACKLOG.md"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        "root AGENTS.md"
+      ],
+      "skip_conditions": [
+        "Do not use this pack when the project is still greenfield only."
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli diagnose --json",
+        "python3 -m vcp_cli release-check --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/brownfield-rescue-report.md"
+      ],
+      "review_gate_requirement": "Required before merge for meaningful risky changes.",
+      "next_safe_step": "Make repository control debt visible before expanding features."
     }
   ],
   "progressive_disclosure_entrypoints": [

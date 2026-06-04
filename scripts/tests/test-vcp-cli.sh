@@ -10,7 +10,12 @@ test -f TAKE_THIS_FIRST.md
 test -f docs/visual-overview.md
 test -f docs/demo.md
 test -f docs/install.md
+test -f docs/two-track-model.md
+test -f docs/spec-foundation.md
+test -f docs/spec-quality-gate.md
 test -f docs/pr-gate.md
+test -f docs/release-readiness.md
+test -f docs/architecture-drift.md
 test -f docs/public-source-of-truth-audit.md
 python3 scripts/check-public-version-surfaces.py >/dev/null
 grep -ni "do not evaluate" README.md >/dev/null
@@ -23,10 +28,13 @@ python3 -m vcp_cli init --print-prompt | grep -F "Read START_HERE.md first." >/d
 python3 -m vcp_cli evaluate --json | grep -F '"evaluation_guide_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"shallow_evaluation_guard": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"adoption_entrypoint": "TAKE_THIS_FIRST.md"' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"two_track_model_present": true' >/dev/null
+python3 -m vcp_cli evaluate --json | grep -F '"release_readiness_present": true' >/dev/null
 python3 -m vcp_cli evaluate --print-prompt | grep -F "Do not judge from README alone." >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"llm_reference_present": true' >/dev/null
 python3 -m vcp_cli evaluate --json | grep -F '"progressive_disclosure_present": true' >/dev/null
 python3 -m vcp_cli review-diff --json | grep -F '"risk_level"' >/dev/null
+python3 -m vcp_cli release-check --json | grep -F '"status"' >/dev/null
 python3 -m vcp_cli score --badge markdown | grep -F 'https://img.shields.io/badge/VCP_score-' >/dev/null
 python3 -m vcp_cli score --badge json | grep -F '"badge": "https://img.shields.io/badge/VCP_score-' >/dev/null
 python3 -m vcp_cli route --profile production --json | grep -F '"selected_route": "Full Hardening"' >/dev/null
@@ -54,6 +62,7 @@ python3 -m vcp_cli spec skip-check --task "copy-only docs fix" --json | grep -F 
 python3 -m vcp_cli spec questions --idea "build a customer portal" --json | grep -F '"one_question_at_a_time": true' >/dev/null
 python3 -m vcp_cli spec retrofit --scope auth --dry-run --json | grep -F '"writes_source_code": false' >/dev/null
 python3 -m vcp_cli spec freshness --json | grep -F '"summary"' >/dev/null
+(python3 -m vcp_cli spec quality-gate --json || true) | grep -F '"status"' >/dev/null
 python3 -m vcp_cli preset list --json | grep -F '"total": 5' >/dev/null
 python3 -m vcp_cli preset show solo-founder --json | grep -F '"id": "solo-founder"' >/dev/null
 python3 -m vcp_cli preset validate --json | grep -F '"ok": true' >/dev/null
@@ -79,6 +88,7 @@ npm run vcp -- doctor >/dev/null
 npm run vcp -- evaluate >/dev/null
 npm run vcp -- route --profile production >/dev/null
 npm run vcp -- route --profile public-growth >/dev/null
+npm run vcp -- release-check >/dev/null
 npm run vcp -- workflow validate >/dev/null
 npm run vcp -- spec validate >/dev/null
 npm run vcp -- index validate >/dev/null

@@ -1,0 +1,18 @@
+{
+  "scenario_id": "brownfield-rescue-pack",
+  "target_profile": "existing-mvp",
+  "target_signals": [
+    "brownfield rescue",
+    "existing repository control",
+    "hardening before feature expansion"
+  ],
+  "required_files_to_inspect": [
+    "docs/adoption-packs.md",
+    ".vcp/cards/adoption-packs/brownfield-rescue.json",
+    "templates/reports/brownfield-rescue-report.md"
+  ],
+  "expected_first_safe_action": "Choose Brownfield Rescue Pack when an existing repository has visible control debt.",
+  "expected_warnings": [
+    "do not re-run greenfield setup when the real problem is existing-repository control"
+  ]
+}

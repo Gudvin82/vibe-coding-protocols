@@ -6,7 +6,7 @@ Vibe Coding Protocols uses two version concepts.
 
 The repository package version describes the GitHub toolkit package: CLI, docs, templates, manifests, cards, benchmarks, reports, examples, and release packaging.
 
-Current repository package version: `v0.6.5`.
+Current repository package version: `v0.6.6`.
 
 ## Methodology version
 
@@ -18,7 +18,7 @@ Current methodology version: `v1.4`.
 
 When referring to the current GitHub repository release, use:
 
-`Vibe Coding Protocols v0.6.5`
+`Vibe Coding Protocols v0.6.6`
 
 When referring to the methodology layer, use:
 

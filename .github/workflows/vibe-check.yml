@@ -86,8 +86,14 @@ jobs:
       - name: CLI review-diff smoke
         run: python3 -m vcp_cli review-diff --json
 
+      - name: CLI release-check smoke
+        run: python3 -m vcp_cli release-check --json
+
       - name: CLI evaluate smoke
         run: python3 -m vcp_cli evaluate --json
+
+      - name: CLI spec quality gate smoke
+        run: python3 -m vcp_cli spec quality-gate --json || true
 
       - name: Manifest validation
         run: python3 -m vcp_cli manifest validate
@@ -216,6 +222,9 @@ jobs:
       - name: CLI review-diff
         shell: pwsh
         run: py -m vcp_cli review-diff --json
+      - name: CLI release-check
+        shell: pwsh
+        run: py -m vcp_cli release-check --json
       - name: Manifest validation
         shell: pwsh
         run: py -m vcp_cli manifest validate

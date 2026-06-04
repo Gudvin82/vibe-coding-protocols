@@ -57,7 +57,7 @@
     "bash scripts/vibe-check.sh --audit --json",
     "python3 -m vcp_cli benchmark run --scenario shared-engine-production"
   ],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

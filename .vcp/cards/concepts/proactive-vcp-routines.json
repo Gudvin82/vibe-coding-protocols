@@ -54,7 +54,7 @@
   "validation": [
     "python3 -m vcp_cli diagnose --json"
   ],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

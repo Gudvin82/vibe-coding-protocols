@@ -353,6 +353,62 @@
         "Risks",
         "What cannot be guaranteed"
       ]
+    },
+    {
+      "id": "spec-foundation-report",
+      "file": "templates/reports/spec-foundation-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Source brief",
+        "Chosen spec path",
+        "Required artifacts",
+        "Backlog linkage",
+        "Validation path"
+      ]
+    },
+    {
+      "id": "spec-quality-gate-report",
+      "file": "templates/reports/spec-quality-gate-report.md",
+      "intended_route": "spec-first",
+      "required_sections": [
+        "Status",
+        "Clear goal",
+        "Acceptance criteria quality",
+        "Next actions"
+      ]
+    },
+    {
+      "id": "release-readiness-report",
+      "file": "templates/reports/release-readiness-report.md",
+      "intended_route": "release",
+      "required_sections": [
+        "Release scope",
+        "Checks run",
+        "Open warnings",
+        "Decision"
+      ]
+    },
+    {
+      "id": "architecture-drift-report",
+      "file": "templates/reports/architecture-drift-report.md",
+      "intended_route": "hardening",
+      "required_sections": [
+        "Scope",
+        "Observed drift",
+        "Required memory updates",
+        "Next action"
+      ]
+    },
+    {
+      "id": "brownfield-rescue-report",
+      "file": "templates/reports/brownfield-rescue-report.md",
+      "intended_route": "hardening",
+      "required_sections": [
+        "Repository state",
+        "Control gaps",
+        "Rescue plan",
+        "Next safe step"
+      ]
     }
   ],
   "related_docs": [

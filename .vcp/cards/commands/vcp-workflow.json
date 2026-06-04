@@ -48,7 +48,7 @@
   "validation": [
     "python3 -m vcp_cli --help"
   ],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

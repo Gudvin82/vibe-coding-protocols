@@ -1,88 +1,63 @@
 # Adoption Packs
 
-An Adoption Pack is a small recommended file set for one situation.
-It is not a command to copy the whole toolkit.
-It is a scoped recommendation for humans and AI agents.
+Adoption packs help teams take a focused slice of VCP instead of copying the whole repository.
 
-If a user shares VCP by link and says “take what is useful,” start with `TAKE_THIS_FIRST.md` before choosing a pack.
+## Core packs
 
-For trust and mutation rules, also inspect `docs/protocol-pack-security.md`.
+### New Project Pack
 
-## Quick examples
+Use when:
+- idea stage;
+- founder brief;
+- greenfield MVP;
+- new AI-assisted product needs structure before implementation.
 
-- Production Pack = hardening docs + audit backlog + security baseline + review gate.
-- Shared Engine Pack = project map + architecture source of truth + cross-product release checks.
-- Public Site Pack = `llms.txt` + `robots.txt` + schema.org + site-readiness checklist.
-- Public Growth Pack = page brief + page templates + GEO/AI visibility guidance + schema honesty checks.
-- Spec-first Pack = PRD + feature spec + acceptance criteria + tasks + spec review before coding.
-- Third-party API Pack = API intake protocol + registry + intake report + review gate.
-- Operations Pack = read-only capture workflow + daily triage + observability boundaries + backlog follow-up.
-- Backlog Pack = `PROJECT_BACKLOG.md` + update prompt + backlog report + review trigger.
+Start with:
+- `docs/two-track-model.md`
+- `docs/spec-foundation.md`
+- `protocols/spec-driven/spec-foundation.md`
+- `docs/walkthroughs/new-ai-product-from-idea.md`
 
-## Packs
+### Existing MVP Pack
 
-| Pack | Use when | Review gate |
-|---|---|---|
-| `new-project` | new project or idea stage | recommended for meaningful changes |
-| `spec-first` | requirements are unclear and the feature needs PRD / feature spec / acceptance criteria first | recommended before implementation; required once the feature turns into meaningful code work |
-| `existing-mvp` | working MVP before production | run before merge |
-| `production` | real users or public production | required before merge or release |
-| `regulated` | payments, personal data or compliance | required with independent review |
-| `shared-engine` | one engine powers multiple products | required for cross-product regression risk |
-| `maintenance` | working code is hard to change | required after refactoring slice |
-| `ui-ownership` | pages own final component appearance | required after ownership cleanup |
-| `third-party-api` | an external API, SDK, webhook, or SaaS integration is being proposed | required before production integration merge or release |
-| `operations` | production observations must be captured and triaged without mutation | required only when follow-up becomes code work |
-| `backlog` | ongoing delivery work needs one shared kanban/backlog | required once meaningful implementation starts |
-| `public-site` | public docs or marketing surfaces | lighter review for meaningful changes |
-| `public-growth` | public-facing growth pages, SEO/GEO, AI visibility, or content structure work | recommended for meaningful page changes; required when trust or commercial claims change |
-| `post-task-review` | active diff needs acceptance | this pack is the gate itself |
+Use when:
+- there is already a working app before production;
+- validation exists, but architecture and review control are weak.
 
-## Dry-run first
+Start with:
+- `docs/walkthroughs/ai-mvp-hardening.md`
+- `docs/pr-gate.md`
+- `docs/release-readiness.md`
 
-```bash
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli adopt --pack spec-first --dry-run --json
-python3 -m vcp_cli adopt --pack public-growth --dry-run --json
-python3 -m vcp_cli adopt --pack operations --dry-run --json
-python3 -m vcp_cli adopt --pack backlog --dry-run --json
-npm run vcp -- adopt --pack public-growth --dry-run
-```
+### Brownfield Rescue Pack
 
-Use dry-run to see:
-- files to copy;
-- files to merge manually;
-- protected files to avoid overwriting;
-- review-gate requirement;
-- validation commands.
+Use when:
+- a repository already exists;
+- AI-generated changes are real but discipline is weak;
+- architecture drift, hidden backlog, or release confusion are already visible.
 
-## Protected files
+Start with:
+- `docs/walkthroughs/ai-mvp-hardening.md`
+- `docs/architecture-drift.md`
+- `docs/release-readiness.md`
+- `templates/reports/brownfield-rescue-report.md`
 
-Do not overwrite blindly:
-- `AGENTS.md`
-- `CLAUDE.md`
-- `PROJECT_MAP.md`
-- `SECURITY.md`
-- `.env`
-- package files
-- CI files
-- project-specific architecture docs
+Do not use when:
+- the project is still only an idea and no repository exists yet.
 
-## Machine-readable catalog
+### Production Pack
 
-The CLI reads pack metadata from:
-- [../.vcp/manifests/adoption-packs.manifest.json](../.vcp/manifests/adoption-packs.manifest.json)
+Use when:
+- real users exist;
+- release pressure exists;
+- PR Gate and release-control discipline must be visible.
 
-## Related docs
+## Selection principle
 
-- [adoption-packs.quickstart.md](./adoption-packs.quickstart.md)
-- [../TAKE_THIS_FIRST.md](../TAKE_THIS_FIRST.md)
-- [protocol-pack-security.md](./protocol-pack-security.md)
-- [project-backlog.md](./project-backlog.md)
-- [../protocols/spec-driven/README.md](../protocols/spec-driven/README.md)
-- [production-observability.md](./production-observability.md)
-- [geo-ai-visibility.md](./geo-ai-visibility.md)
-- [page-templates.md](./page-templates.md)
-- [../AI_INTAKE.md](../AI_INTAKE.md)
-- [../START_HERE.md](../START_HERE.md)
-- [../templates/prompts/adopt-vcp-from-link.md](../templates/prompts/adopt-vcp-from-link.md)
+Pick the smallest pack that gives you control.
+
+If you are not sure, first classify the repository by track:
+- New Project Track
+- Existing Project Track
+
+Then choose the pack.

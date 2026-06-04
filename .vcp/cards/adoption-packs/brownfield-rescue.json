@@ -1,0 +1,77 @@
+{
+  "id": "brownfield-rescue",
+  "type": "adoption_pack",
+  "name": "Brownfield Rescue Pack",
+  "summary": "Scoped adoption pack for existing repositories that need control before more AI implementation is safe.",
+  "use_when": [
+    "architecture drift is visible",
+    "release pressure exists but repository discipline is weak",
+    "AI-generated MVP needs hardening before expansion"
+  ],
+  "do_not_use_when": [
+    "the project is still only an idea with no repository"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "adoption-pack",
+    "hardening"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "implementation",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "architecture drift",
+      "hidden backlog",
+      "release without control"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos",
+      "security"
+    ]
+  },
+  "entry_files": [
+    "docs/adoption-packs.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "templates/reports/brownfield-rescue-report.md"
+  ],
+  "related_files": [
+    "docs/architecture-drift.md",
+    "docs/release-readiness.md",
+    "docs/pr-gate.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli diagnose --json",
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "outputs": [
+    "brownfield rescue plan"
+  ],
+  "stop_conditions": [
+    "do not keep expanding features before control debt is visible and assigned"
+  ],
+  "validation": [
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "adoption_pack",
+    "hardening"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -93,6 +93,13 @@
     "docs/principles.md",
     "docs/protocol-pack-security.md",
     "docs/proactive-vcp-routines.md",
-    "docs/public-growth/seo-geo-ai-structure-evaluation.md"
+    "docs/public-growth/seo-geo-ai-structure-evaluation.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
   ]
 }

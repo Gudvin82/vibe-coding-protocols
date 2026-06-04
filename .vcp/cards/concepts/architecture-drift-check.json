@@ -1,0 +1,70 @@
+{
+  "id": "architecture-drift-check",
+  "type": "concept",
+  "name": "Architecture Drift Check",
+  "summary": "Control surface for detecting when AI-assisted repository changes outpace project memory and architecture notes.",
+  "use_when": [
+    "a repository already exists and structure changed across layers"
+  ],
+  "do_not_use_when": [
+    "the change is purely local and does not alter repository structure or behavior"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "concept",
+    "architecture"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "implementation",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "architecture drift",
+      "stale project memory"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/architecture-drift.md",
+    "templates/reports/architecture-drift-report.md"
+  ],
+  "related_files": [
+    "docs/project-memory-model.md",
+    "PROJECT_MAP.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli review-diff --json"
+  ],
+  "outputs": [
+    "drift-aware follow-up"
+  ],
+  "stop_conditions": [
+    "do not ignore new structure or integration changes that never reached project memory"
+  ],
+  "validation": [
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "architecture"
+  ]
+}

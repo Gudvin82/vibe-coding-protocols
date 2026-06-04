@@ -15,7 +15,7 @@ Check public website pages that mention VCP:
 
 Required wording:
 
-- Current VCP repository package: `v0.6.5`
+- Current VCP repository package: `v0.6.6`
 - Current VCP methodology version: `v1.4`
 
 Do not call the VCP repository release `v1.4`.

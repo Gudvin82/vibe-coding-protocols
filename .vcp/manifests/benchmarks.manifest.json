@@ -1009,6 +1009,118 @@
         "do not report the latest repository release as v1.4 when v1.4 is the methodology version"
       ],
       "expected_first_action": "Separate repository package version from methodology version before describing the current VCP release."
+    },
+    {
+      "id": "new-product-track-walkthrough",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/new-product-track-walkthrough.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/two-track-model.md",
+        "docs/spec-foundation.md",
+        "docs/walkthroughs/new-ai-product-from-idea.md"
+      ],
+      "expected_warnings": [
+        "do not turn implementation into hidden product discovery"
+      ],
+      "expected_first_action": "Choose the New Project Track and clarify the idea before implementation starts."
+    },
+    {
+      "id": "spec-quality-gate",
+      "profile": "new-project",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/spec-quality-gate.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/spec-quality-gate.md",
+        "templates/specs/PRODUCT_BRIEF.md",
+        "templates/reports/spec-quality-gate-report.md"
+      ],
+      "expected_warnings": [
+        "core spec foundation artifacts should not stay missing while implementation expands"
+      ],
+      "expected_first_action": "Run or inspect the spec quality gate before starting implementation."
+    },
+    {
+      "id": "ai-mvp-hardening-walkthrough",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/ai-mvp-hardening-walkthrough.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/two-track-model.md",
+        "docs/walkthroughs/ai-mvp-hardening.md",
+        "docs/pr-gate.md"
+      ],
+      "expected_warnings": [
+        "do not expand an AI-generated MVP while validation and repository memory are still weak"
+      ],
+      "expected_first_action": "Choose the Existing Project Track and surface control gaps before building more features."
+    },
+    {
+      "id": "release-readiness-check",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/release-readiness-check.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/release-readiness.md",
+        "templates/reports/release-readiness-report.md",
+        "docs/public-source-of-truth-audit.md"
+      ],
+      "expected_warnings": [
+        "do not tag while version, validation, or release-note surfaces are still broken"
+      ],
+      "expected_first_action": "Check release readiness before tagging or calling the repository slice releasable."
+    },
+    {
+      "id": "architecture-drift-check",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/architecture-drift-check.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/architecture-drift.md",
+        "PROJECT_MAP.md",
+        "PROJECT_BACKLOG.md"
+      ],
+      "expected_warnings": [
+        "do not ignore new structure or integration changes that never reached project memory"
+      ],
+      "expected_first_action": "Check whether repository structure changed without matching project-memory updates."
+    },
+    {
+      "id": "pr-gate-decision-model",
+      "profile": "review",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/pr-gate.md",
+        "templates/reports/pr-gate-report.md",
+        "docs/release-readiness.md"
+      ],
+      "expected_warnings": [
+        "do not reduce PR Gate to green CI alone when control gaps are still open"
+      ],
+      "expected_first_action": "Use the PR Gate decision model before deciding whether a change can merge."
+    },
+    {
+      "id": "brownfield-rescue-pack",
+      "profile": "existing-mvp",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json",
+      "expected_route": null,
+      "expected_pack": "brownfield-rescue",
+      "required_inspected_files": [
+        "docs/adoption-packs.md",
+        ".vcp/cards/adoption-packs/brownfield-rescue.json",
+        "templates/reports/brownfield-rescue-report.md"
+      ],
+      "expected_warnings": [
+        "do not re-run greenfield setup when the real problem is existing-repository control"
+      ],
+      "expected_first_action": "Choose Brownfield Rescue Pack when an existing repository has visible control debt."
     }
   ]
 }

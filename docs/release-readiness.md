@@ -1,32 +1,44 @@
 # Release Readiness
 
-Before publishing a release:
+Release Readiness is the top-level check before calling a repository slice ready for release.
 
-- [ ] `VERSION` updated
-- [ ] `CHANGELOG.md` updated
-- [ ] release notes created
-- [ ] `SHA256SUMS` updated
-- [ ] `bash scripts/check-version-consistency.sh` passed
-- [ ] `python3 scripts/check-newlines.py` passed
-- [ ] `bash scripts/vibe-check.sh --audit --json` passed
-- [ ] script tests passed
-- [ ] example tests passed
-- [ ] release gates reviewed in `docs/hardening-thresholds.md`
-- [ ] no fake metrics
-- [ ] no fake real case study
-- [ ] no guaranteed security claims
-- [ ] tag points to the final commit
-- [ ] release object created manually
+It is not a production safety guarantee.
 
-## Status language
+## Output
 
-Use one of these when summarizing readiness:
-- `READY`
-- `READY WITH RISKS`
-- `BLOCKED`
-- `NOT ASSESSED`
+- `pass`
+- `warn`
+- `block`
 
-## Reminder
+## Checks
 
-A release can be technically tidy and still require risk acceptance.
-Do not turn a clean markdown/tooling pass into a fake production guarantee.
+- version surfaces are consistent;
+- README and README_ru parity passes;
+- public source-of-truth checker passes;
+- review-diff has been reviewed;
+- diagnostics are clear or accepted;
+- cards, index, and manifests validate;
+- benchmarks pass;
+- architecture memory is updated;
+- backlog is updated;
+- third-party changes were reviewed;
+- score was generated;
+- PR Gate passed or accepted risk is recorded;
+- release notes exist;
+- manual GitHub Release checklist exists.
+
+## When to block
+
+- version surfaces disagree;
+- release notes are missing;
+- production-critical changes have no PR Gate or rollback note;
+- architecture memory is stale and ignored;
+- validation evidence is missing for risky changes.
+
+## Related files
+
+- `templates/reports/release-readiness-report.md`
+- `docs/pr-gate.md`
+- `docs/architecture-drift.md`
+- `docs/public-source-of-truth-audit.md`
+- `python3 -m vcp_cli release-check --json`

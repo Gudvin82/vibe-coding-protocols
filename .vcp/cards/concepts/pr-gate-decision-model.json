@@ -1,0 +1,69 @@
+{
+  "id": "pr-gate-decision-model",
+  "type": "concept",
+  "name": "PR Gate Decision Model",
+  "summary": "Pass/warn/block merge model for AI-assisted repository changes.",
+  "use_when": [
+    "someone asks whether a change can merge safely"
+  ],
+  "do_not_use_when": [
+    "there is no diff or validation context yet"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "concept",
+    "review"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "merge without validation",
+      "ignored review debt"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos",
+      "security"
+    ]
+  },
+  "entry_files": [
+    "docs/pr-gate.md",
+    "templates/reports/pr-gate-report.md"
+  ],
+  "related_files": [
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli review-diff --json",
+    "python3 -m vcp_cli score --json"
+  ],
+  "outputs": [
+    "merge decision signal"
+  ],
+  "stop_conditions": [
+    "do not reduce PR Gate to green CI alone when control gaps are still open"
+  ],
+  "validation": [
+    "python3 -m vcp_cli review-diff --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "review-gate"
+  ]
+}

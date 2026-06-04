@@ -618,6 +618,34 @@
       "related_docs": [
         "protocols/maintenance/README.md"
       ]
+    },
+    {
+      "id": "spec-foundation",
+      "name": "Spec Foundation",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/spec-foundation.md",
+      "command": "python3 -m vcp_cli spec quality-gate --json",
+      "use_when": [
+        "a new product or major feature needs controlled foundation before implementation"
+      ],
+      "do_not_use_when": [
+        "tiny no-spec work already has clear validation"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or rough brief"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec quality-gate --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-foundation-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-foundation.md",
+        "docs/two-track-model.md"
+      ]
     }
   ],
   "progressive_disclosure_entrypoints": [

@@ -20,6 +20,7 @@ from . import cards as cards_cmd
 from . import manifest as manifest_cmd
 from . import preset_cmd
 from . import review as review_cmd
+from . import release_check as release_check_cmd
 from . import review_diff as review_diff_cmd
 from . import route as route_cmd
 from . import score as score_cmd
@@ -124,6 +125,9 @@ def build_parser() -> argparse.ArgumentParser:
     review_diff_p.add_argument("--head")
     review_diff_p.add_argument("--json", action="store_true")
 
+    release_check_p = sub.add_parser("release-check")
+    release_check_p.add_argument("--json", action="store_true")
+
     manifest_p = sub.add_parser("manifest")
     manifest_sub = manifest_p.add_subparsers(dest="manifest_command")
     manifest_sub.add_parser("show")
@@ -157,7 +161,7 @@ def build_parser() -> argparse.ArgumentParser:
     spec_p = sub.add_parser("spec")
     spec_sub = spec_p.add_subparsers(dest="spec_command")
     spec_template = spec_sub.add_parser("template")
-    spec_template.add_argument("kind", choices=["prd", "feature", "tasks"])
+    spec_template.add_argument("kind", choices=["brief", "prd", "feature", "tasks"])
     spec_template.add_argument("--write", action="store_true")
     spec_template.add_argument("--output")
     spec_template.add_argument("--json", action="store_true")
@@ -185,6 +189,8 @@ def build_parser() -> argparse.ArgumentParser:
     spec_retrofit.add_argument("--json", action="store_true")
     spec_freshness = spec_sub.add_parser("freshness")
     spec_freshness.add_argument("--json", action="store_true")
+    spec_quality_gate = spec_sub.add_parser("quality-gate")
+    spec_quality_gate.add_argument("--json", action="store_true")
 
     preset_p = sub.add_parser("preset")
     preset_sub = preset_p.add_subparsers(dest="preset_command")
@@ -318,6 +324,8 @@ def main(argv: list[str] | None = None) -> int:
         return score_cmd.run(args.json, getattr(args, "badge", None))
     if args.command == "review-diff":
         return review_diff_cmd.run(args.base, args.head, getattr(args, "json", False))
+    if args.command == "release-check":
+        return release_check_cmd.run(getattr(args, "json", False))
     if args.command == "manifest":
         if args.manifest_command in {None, "show"}:
             print(manifest_cmd.dump_json(manifest_cmd.show_manifest()))
@@ -350,6 +358,8 @@ def main(argv: list[str] | None = None) -> int:
             return spec_cmd.retrofit(args.scope, getattr(args, "dry_run", False), getattr(args, "json", False))
         if args.spec_command == "freshness":
             return spec_cmd.freshness(getattr(args, "json", False))
+        if args.spec_command == "quality-gate":
+            return spec_cmd.quality_gate(getattr(args, "json", False))
     if args.command == "preset":
         if args.preset_command in {None, "list"}:
             return preset_cmd.list_presets(getattr(args, "json", False))

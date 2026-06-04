@@ -1,5 +1,5 @@
 <!-- vcp-artifact: LOOP_CODE_REVIEW_PROMPT -->
-<!-- vcp-version: v0.6.5 -->
+<!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->
 
 # Loop Code Review Prompt

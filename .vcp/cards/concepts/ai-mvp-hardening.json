@@ -1,0 +1,71 @@
+{
+  "id": "ai-mvp-hardening",
+  "type": "concept",
+  "name": "AI MVP Hardening",
+  "summary": "Walkthrough for stabilizing an AI-generated MVP before merge and release pressure turn into control debt.",
+  "use_when": [
+    "a working repository exists but validation, architecture memory, or release discipline are weak"
+  ],
+  "do_not_use_when": [
+    "the project is still only an idea with no repository"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "walkthrough",
+    "existing-project"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "implementation",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "architecture drift",
+      "release without control"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos",
+      "security"
+    ]
+  },
+  "entry_files": [
+    "docs/walkthroughs/ai-mvp-hardening.md"
+  ],
+  "related_files": [
+    "docs/pr-gate.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli diagnose --json",
+    "python3 -m vcp_cli review-diff --json"
+  ],
+  "outputs": [
+    "existing-project control walkthrough"
+  ],
+  "stop_conditions": [
+    "do not expand features before the repository control gaps are visible"
+  ],
+  "validation": [
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "walkthrough",
+    "hardening"
+  ]
+}

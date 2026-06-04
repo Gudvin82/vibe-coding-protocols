@@ -47,6 +47,10 @@ required_files=(
   docs/ide-rules-dry-policy.md
   docs/self-dogfooding.md
   docs/release-readiness.md
+  docs/two-track-model.md
+  docs/spec-foundation.md
+  docs/spec-quality-gate.md
+  docs/architecture-drift.md
   docs/adoption-feedback.md
   docs/known-limitations.md
   docs/faq.md
@@ -77,6 +81,13 @@ required_files=(
   docs/public-proof-roadmap.md
   benchmarks/ai-adoption/scenarios/version-semantics-disambiguation.json
   benchmarks/ai-adoption/scenarios/seo-geo-ai-structure-evaluation.json
+  benchmarks/ai-adoption/scenarios/new-product-track-walkthrough.json
+  benchmarks/ai-adoption/scenarios/spec-quality-gate.json
+  benchmarks/ai-adoption/scenarios/ai-mvp-hardening-walkthrough.json
+  benchmarks/ai-adoption/scenarios/release-readiness-check.json
+  benchmarks/ai-adoption/scenarios/architecture-drift-check.json
+  benchmarks/ai-adoption/scenarios/pr-gate-decision-model.json
+  benchmarks/ai-adoption/scenarios/brownfield-rescue-pack.json
   schemas/vcp-pack-security.schema.json
   templates/prompts/evaluate-seo-geo-ai-structure.md
   templates/reports/seo-geo-ai-structure-evaluation-report.md
@@ -85,6 +96,8 @@ required_files=(
   docs/site-version-sync-checklist.md
   docs/public-growth/seo-geo-ai-structure-evaluation.md
   docs/public-growth/README.md
+  docs/walkthroughs/new-ai-product-from-idea.md
+  docs/walkthroughs/ai-mvp-hardening.md
   docs/proactive-vcp-routines.md
   docs/protocol-pack-security.md
   docs/principles.md
@@ -189,6 +202,7 @@ required_files=(
   protocols/operations/daily-error-triage.md
   protocols/spec-driven/README.md
   protocols/spec-driven/adaptive-spec-depth.md
+  protocols/spec-driven/spec-foundation.md
   protocols/spec-driven/product-brief-to-prd.md
   protocols/spec-driven/feature-spec.md
   protocols/spec-driven/question-engine.md
@@ -275,6 +289,7 @@ required_files=(
   vcp_cli/workflow_cmd.py
   vcp_cli/diagnose.py
   vcp_cli/score.py
+  vcp_cli/release_check.py
   vcp_cli/manifest.py
   vcp_cli/benchmark.py
   vcp_cli/review.py
@@ -300,6 +315,8 @@ required_files=(
   templates/prompts/spec-question-engine.md
   templates/prompts/spec-retrofit.md
   templates/prompts/spec-to-tasks.md
+  templates/prompts/spec-intake-questionnaire.md
+  templates/prompts/evaluate-spec-artifacts.md
   templates/reports/vcp-adoption-assessment.md
   templates/reports/vcp-repository-evaluation-report.md
   templates/reports/third-party-api-intake-report.md
@@ -317,7 +334,13 @@ required_files=(
   templates/reports/spec-retrofit-report.md
   templates/reports/spec-skip-check-report.md
   templates/reports/spec-to-backlog-report.md
+  templates/reports/spec-foundation-report.md
+  templates/reports/spec-quality-gate-report.md
+  templates/reports/release-readiness-report.md
+  templates/reports/architecture-drift-report.md
+  templates/reports/brownfield-rescue-report.md
   templates/PROJECT_BACKLOG.md
+  templates/specs/PRODUCT_BRIEF.md
   templates/specs/PRD.md
   templates/specs/FEATURE_SPEC.md
   templates/specs/OBSERVED_SPEC.md
@@ -431,6 +454,17 @@ required_files=(
   benchmarks/ai-adoption/scenarios/ui-ownership.json
   benchmarks/ai-adoption/scenarios/public-site.json
   benchmarks/ai-adoption/scenarios/post-task-review.json
+  .vcp/cards/concepts/two-track-model.json
+  .vcp/cards/concepts/spec-foundation.json
+  .vcp/cards/concepts/spec-quality-gate.json
+  .vcp/cards/concepts/new-ai-product-from-idea.json
+  .vcp/cards/concepts/ai-mvp-hardening.json
+  .vcp/cards/concepts/release-readiness.json
+  .vcp/cards/concepts/architecture-drift-check.json
+  .vcp/cards/concepts/pr-gate-decision-model.json
+  .vcp/cards/concepts/brownfield-rescue.json
+  .vcp/cards/adoption-packs/brownfield-rescue.json
+  .vcp/cards/commands/vcp-release-check.json
   examples/bad-to-good/README.md
   examples/bad-to-good/maintenance-refactor-before.md
   examples/bad-to-good/maintenance-refactor-after.md

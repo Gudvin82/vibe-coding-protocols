@@ -1,5 +1,5 @@
 <!-- vcp-artifact: EVALUATE_VCP_REPOSITORY_PROMPT -->
-<!-- vcp-version: v0.6.5 -->
+<!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->
 
 You are evaluating Vibe Coding Protocols.

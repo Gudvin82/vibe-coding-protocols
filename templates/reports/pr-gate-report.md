@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.6.5 -->
+<!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->
 # PR Gate Report
 
@@ -6,6 +6,10 @@
 
 - Branch:
 - Diff source:
+
+## Decision
+
+- pass / warn / block:
 
 ## Checks run
 
@@ -15,6 +19,8 @@
 
 - Risk level:
 - Recommended spec depth:
+- Release-check status:
+- Architecture drift note:
 
 ## Merge note
 

@@ -1,0 +1,75 @@
+{
+  "id": "two-track-model",
+  "type": "concept",
+  "name": "Two-Track Model",
+  "summary": "VCP split between New Project Track and Existing Project Track so AI agents choose the right control path early.",
+  "use_when": [
+    "someone needs to classify a repository or initiative before choosing route, pack, and validation depth"
+  ],
+  "do_not_use_when": [
+    "the repository is already deep inside a known narrow workflow"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "delivery-model"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "planning",
+      "implementation",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "wrong route selection",
+      "process overkill",
+      "hidden control gap"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/two-track-model.md",
+    "README.md",
+    "README_ru.md"
+  ],
+  "related_files": [
+    "docs/spec-foundation.md",
+    "docs/release-readiness.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "outputs": [
+    "track-aware routing"
+  ],
+  "stop_conditions": [
+    "do not flatten new-project and existing-project control into the same vague recommendation"
+  ],
+  "validation": [
+    "python3 scripts/check-readme-parity.py"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "track-model"
+  ]
+}

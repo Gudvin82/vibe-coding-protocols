@@ -7,9 +7,9 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.6.5`
+- Repository package: `v0.6.6`
 - Methodology version: `v1.4`
-- Do not confuse methodology version `v1.4` with repository package version `v0.6.5`.
+- Do not confuse methodology version `v1.4` with repository package version `v0.6.6`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path
@@ -22,6 +22,9 @@ Start with:
 - `AI_INTAKE.md`
 - `START_HERE.md`
 - `docs/version-semantics.md`
+- `docs/two-track-model.md`
+- `docs/spec-foundation.md`
+- `docs/spec-quality-gate.md`
 - `docs/project-memory-model.md`
 - `docs/principles.md`
 - `docs/protocol-pack-security.md`
@@ -50,6 +53,7 @@ If the user says “study this repo and take what is useful for my project,” d
 Use:
 - `TAKE_THIS_FIRST.md`
 - `AI_INTAKE.md`
+- `docs/two-track-model.md`
 - `docs/adoption-packs.md`
 - `templates/prompts/adopt-vcp-from-link.md`
 - `templates/reports/vcp-adoption-decision-report.md`
@@ -61,6 +65,12 @@ Use:
 1. Build an AI-assisted product from idea.
 2. Harden an AI-generated MVP.
 3. Review ongoing AI-driven changes before merge.
+
+## Two-track model
+
+- New Project Track: idea -> brief -> spec foundation -> backlog -> review.
+- Existing Project Track: diagnose -> hardening -> architecture drift -> PR Gate -> release readiness.
+- VCP works with spec-first and non-spec-first workflows.
 
 ## Trust surfaces
 

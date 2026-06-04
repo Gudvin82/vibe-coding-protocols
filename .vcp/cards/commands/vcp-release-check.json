@@ -1,0 +1,65 @@
+{
+  "id": "vcp-release-check",
+  "type": "command",
+  "name": "Release Check",
+  "summary": "Lightweight release-control helper for current repository surfaces before tagging.",
+  "use_when": [
+    "someone asks whether the repository slice is ready for release"
+  ],
+  "do_not_use_when": [
+    "full validation or clean-clone checks should be skipped"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli",
+    "release"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "release"
+    ],
+    "ai_failure_modes": [
+      "tag before control evidence"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/release_check.py"
+  ],
+  "related_files": [
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "outputs": [
+    "release-control surface summary"
+  ],
+  "stop_conditions": [
+    "do not use this helper as a substitute for full validation or clean clone"
+  ],
+  "validation": [
+    "python3 -m vcp_cli release-check --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "release"
+  ]
+}

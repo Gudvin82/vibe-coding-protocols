@@ -549,6 +549,34 @@
       "validation": [
         "python3 -m vcp_cli workflow validate"
       ]
+    },
+    {
+      "id": "spec-quality-gate",
+      "command_name": "vcp spec quality-gate",
+      "file": "docs/spec-quality-gate.md",
+      "route": "spec-first",
+      "inputs": [
+        "local spec-foundation artifacts"
+      ],
+      "output": "pass/warn/block spec quality signal",
+      "validation": [
+        "spec validate"
+      ]
+    },
+    {
+      "id": "release-check",
+      "command_name": "vcp release-check",
+      "file": "docs/release-readiness.md",
+      "route": "release",
+      "inputs": [
+        "repository release-control surfaces"
+      ],
+      "output": "pass/warn/block release-control signal",
+      "validation": [
+        "check-version-consistency",
+        "cards validate",
+        "index validate"
+      ]
     }
   ],
   "progressive_disclosure_docs": [

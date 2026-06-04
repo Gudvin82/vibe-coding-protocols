@@ -11,6 +11,9 @@ KEY_FILES = [
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
     "docs/version-semantics.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
     "docs/project-memory-model.md",
     "docs/principles.md",
     "START_HERE.md",
@@ -49,6 +52,8 @@ KEY_FILES = [
     "docs/score-badge.md",
     "docs/github-action.md",
     "docs/pr-gate.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md",
     "docs/public-source-of-truth-audit.md",
     "docs/proof-walkthrough.md",
     "docs/case-study-guidelines.md",
@@ -84,6 +89,7 @@ CLI_COMMANDS = [
     "diagnose",
     "preset",
     "review-diff",
+    "release-check",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -93,6 +99,9 @@ INSPECTION_PATH = [
     "TAKE_THIS_FIRST.md",
     "AI_INTAKE.md",
     "docs/version-semantics.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
     "docs/project-memory-model.md",
     "docs/principles.md",
     ".vcp/index.json",
@@ -144,8 +153,21 @@ def evaluate_payload() -> dict[str, object]:
         (root / rel).exists()
         for rel in [
             "protocols/spec-driven/README.md",
+            "protocols/spec-driven/spec-foundation.md",
             "templates/specs/PRD.md",
             "vcp_cli/spec_cmd.py",
+        ]
+    )
+    two_track_ready = all(
+        (root / rel).exists()
+        for rel in [
+            "docs/two-track-model.md",
+            "docs/spec-foundation.md",
+            "docs/spec-quality-gate.md",
+            "docs/walkthroughs/new-ai-product-from-idea.md",
+            "docs/walkthroughs/ai-mvp-hardening.md",
+            "docs/release-readiness.md",
+            "docs/architecture-drift.md",
         ]
     )
     adaptive_spec_ready = all(
@@ -243,6 +265,11 @@ def evaluate_payload() -> dict[str, object]:
         "shallow_evaluation_guard": True,
         "adoption_entrypoint": "TAKE_THIS_FIRST.md",
         "version_semantics_doc": "docs/version-semantics.md",
+        "two_track_model_present": (root / "docs/two-track-model.md").exists(),
+        "spec_foundation_present": (root / "docs/spec-foundation.md").exists(),
+        "spec_quality_gate_present": (root / "docs/spec-quality-gate.md").exists(),
+        "release_readiness_present": (root / "docs/release-readiness.md").exists(),
+        "architecture_drift_present": (root / "docs/architecture-drift.md").exists(),
         "project_memory_model_present": (root / "docs/project-memory-model.md").exists(),
         "principles_present": (root / "docs/principles.md").exists(),
         "protocol_pack_security_present": (root / "docs/protocol-pack-security.md").exists(),
@@ -252,6 +279,7 @@ def evaluate_payload() -> dict[str, object]:
         "operations_workflow_present": operations_ready,
         "public_growth_layer_present": public_growth_ready,
         "spec_lane_present": spec_lane_ready,
+        "two_track_model_layer_present": two_track_ready,
         "adaptive_spec_depth_present": adaptive_spec_ready,
         "presets_layer_present": presets_ready,
         "workflow_layer_present": workflow_layer_ready,
@@ -305,6 +333,11 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Methodology version: {payload['methodology_version']}")
     print(payload["version_semantics_warning"])
     print("For external AI evaluation, do not stop at README. Use AGENTS.md and TAKE_THIS_FIRST.md first.")
+    print(f"Two-track model present: {'yes' if payload['two_track_model_present'] else 'no'}")
+    print(f"Spec foundation present: {'yes' if payload['spec_foundation_present'] else 'no'}")
+    print(f"Spec quality gate present: {'yes' if payload['spec_quality_gate_present'] else 'no'}")
+    print(f"Release readiness present: {'yes' if payload['release_readiness_present'] else 'no'}")
+    print(f"Architecture drift present: {'yes' if payload['architecture_drift_present'] else 'no'}")
     print(f"Evaluation guide present: {'yes' if payload['evaluation_guide_present'] else 'no'}")
     print(f"Manifest directory: {payload['manifest_directory']}")
     print(f"Benchmark scenarios: {payload['benchmark_count']}")
@@ -315,6 +348,7 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Operations workflow present: {'yes' if payload['operations_workflow_present'] else 'no'}")
     print(f"Public growth layer present: {'yes' if payload['public_growth_layer_present'] else 'no'}")
     print(f"Spec lane present: {'yes' if payload['spec_lane_present'] else 'no'}")
+    print(f"Two-track model layer present: {'yes' if payload['two_track_model_layer_present'] else 'no'}")
     print(f"Adaptive spec depth present: {'yes' if payload['adaptive_spec_depth_present'] else 'no'}")
     print(f"Presets layer present: {'yes' if payload['presets_layer_present'] else 'no'}")
     print(f"Workflow layer present: {'yes' if payload['workflow_layer_present'] else 'no'}")

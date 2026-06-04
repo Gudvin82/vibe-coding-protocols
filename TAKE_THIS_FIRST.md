@@ -6,15 +6,15 @@ Use this file when someone gives VCP to an AI agent and says:
 
 ## Do not copy the whole repository
 
-VCP is a source toolkit. Target projects should adopt only the route, pack, templates and review gates they need.
+VCP is a source toolkit. Target projects should adopt only the route, pack, templates, and review gates they need.
 
-## Step 1 — classify the target project
+## Step 1 — classify the target project by track
 
-- New product from idea -> Spec-first / Starter
-- Existing AI-generated MVP -> Hardening
-- Production project -> Production diagnostics + review gates
+- New idea / founder brief -> New Project Track
+- Existing AI-generated MVP -> Existing Project Track
+- Production repo near release -> Existing Project Track with release readiness
 - Public website/product -> Public Growth
-- Ongoing AI changes -> Review Diff + Backlog
+- Ongoing AI changes -> Review Diff + PR Gate
 - Tiny change -> No-spec + validation
 
 ## Step 2 — choose route and pack
@@ -27,18 +27,18 @@ python3 -m vcp_cli adopt --pack production --dry-run --json
 python3 -m vcp_cli spec depth --task "describe the task" --json
 ```
 
-Visual overview: `docs/visual-overview.md`
-Version semantics: `docs/version-semantics.md`
-Project memory: `docs/project-memory-model.md`
-Protocol-pack security: `docs/protocol-pack-security.md`
-2-minute demo: `docs/demo.md`
-PR Gate: `docs/pr-gate.md`
-Public source-of-truth audit: `docs/public-source-of-truth-audit.md`
+Track docs:
+- `docs/two-track-model.md`
+- `docs/spec-foundation.md`
+- `docs/spec-quality-gate.md`
+- `docs/walkthroughs/new-ai-product-from-idea.md`
+- `docs/walkthroughs/ai-mvp-hardening.md`
+- `docs/release-readiness.md`
+- `docs/architecture-drift.md`
 
 ## Step 3 — copy only selected files
 
 Usually copy:
-
 - relevant templates;
 - selected protocol;
 - selected command prompt;
@@ -47,7 +47,6 @@ Usually copy:
 - backlog/report files if needed.
 
 Do not copy:
-
 - VCP repository internals;
 - release docs;
 - benchmarks unless you are extending VCP;
@@ -57,7 +56,6 @@ Do not copy:
 ## Step 4 — explain what not to take
 
 A good adoption answer must include:
-
 - what to copy;
 - what not to copy;
 - why;
@@ -68,8 +66,8 @@ A good adoption answer must include:
 ## Output format for AI agents
 
 Return:
-
 - Target project type
+- Track
 - Recommended route
 - Recommended adoption pack
 - Spec depth
@@ -79,15 +77,20 @@ Return:
 - Required validation
 - Risks / stop conditions
 
+## Brownfield note
+
+If a working repository already exists but architecture, backlog, or release discipline is weak, prefer the Brownfield Rescue Pack instead of re-running greenfield setup.
+
 ## Related prompt and report
 
 - Prompt: `templates/prompts/adopt-vcp-from-link.md`
 - Report: `templates/reports/vcp-adoption-decision-report.md`
-- Visual overview: `docs/visual-overview.md`
-Version semantics: `docs/version-semantics.md`
-Project memory: `docs/project-memory-model.md`
-Protocol-pack security: `docs/protocol-pack-security.md`
+- Brownfield report: `templates/reports/brownfield-rescue-report.md`
+- Two-track model: `docs/two-track-model.md`
+- Version semantics: `docs/version-semantics.md`
+- Project memory: `docs/project-memory-model.md`
+- Protocol-pack security: `docs/protocol-pack-security.md`
 
 ## Кратко по-русски
 
-Если пользователь дал ссылку на VCP и сказал "возьми лучшее", не копируй весь репозиторий. Сначала определи тип проекта, выбери route, adoption pack и spec depth, а потом перечисли только нужные файлы и объясни, что не нужно брать.
+Если пользователь дал ссылку на VCP и сказал «возьми лучшее», не копируй весь репозиторий. Сначала определи track, потом route, adoption pack и spec depth, и только после этого перечисли нужные файлы и объясни, что брать не надо.

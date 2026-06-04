@@ -1,10 +1,10 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
-  "purpose": "Foundation and trust layer for AI-assisted product delivery.",
+  "purpose": "Foundation and control layer for AI-assisted product delivery across new-project and existing-project tracks.",
   "entrypoints": [
     ".vcp/presets/README.md",
     "TAKE_THIS_FIRST.md",
@@ -25,7 +25,14 @@
     "docs/principles.md",
     "docs/protocol-pack-security.md",
     "docs/proactive-vcp-routines.md",
-    "docs/public-growth/seo-geo-ai-structure-evaluation.md"
+    "docs/public-growth/seo-geo-ai-structure-evaluation.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -75,7 +82,14 @@
     "docs/principles.md",
     "docs/protocol-pack-security.md",
     "docs/proactive-vcp-routines.md",
-    "docs/public-growth/seo-geo-ai-structure-evaluation.md"
+    "docs/public-growth/seo-geo-ai-structure-evaluation.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -104,7 +118,8 @@
     "shared-engine",
     "spec-first",
     "third-party-api",
-    "ui-ownership"
+    "ui-ownership",
+    "brownfield-rescue"
   ],
   "commands": [
     "score-badge",
@@ -122,7 +137,8 @@
     "vcp-route",
     "vcp-score",
     "vcp-spec",
-    "vcp-workflow"
+    "vcp-workflow",
+    "vcp-release-check"
   ],
   "reports": [
     "code-review-report",
@@ -135,7 +151,12 @@
     "third-party-api-intake-report",
     "protocol-pack-security-review",
     "proactive-routine-report",
-    "seo-geo-ai-structure-evaluation-report"
+    "seo-geo-ai-structure-evaluation-report",
+    "spec-foundation-report",
+    "spec-quality-gate-report",
+    "release-readiness-report",
+    "architecture-drift-report",
+    "brownfield-rescue-report"
   ],
   "concepts": [
     "acceptance-criteria",
@@ -181,7 +202,16 @@
     "proactive-vcp-routines",
     "seo-geo-ai-structure-evaluation",
     "ecosystem-vellum-reference",
-    "version-semantics"
+    "version-semantics",
+    "two-track-model",
+    "spec-foundation",
+    "spec-quality-gate",
+    "new-ai-product-from-idea",
+    "ai-mvp-hardening",
+    "release-readiness",
+    "architecture-drift-check",
+    "pr-gate-decision-model",
+    "brownfield-rescue-concept"
   ],
   "benchmarks_list": [
     "anti-patterns-inspection",
@@ -237,13 +267,21 @@
     "proof-walkthrough-no-overclaim",
     "spec-kit-bridge-non-subordinate",
     "seo-geo-ai-structure-evaluation",
-    "version-semantics-disambiguation"
+    "version-semantics-disambiguation",
+    "new-product-track-walkthrough",
+    "spec-quality-gate",
+    "ai-mvp-hardening-walkthrough",
+    "release-readiness-check",
+    "architecture-drift-check",
+    "pr-gate-decision-model",
+    "brownfield-rescue-pack"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
     "docs/version-semantics.md",
     "docs/project-memory-model.md",
     "TAKE_THIS_FIRST.md",
+    "docs/two-track-model.md",
     "AI_INTAKE.md",
     ".vcp/index.json",
     ".vcp/cards/README.md",
@@ -251,7 +289,9 @@
     "docs/demo.md",
     "docs/flagship-workflows.md",
     "docs/product-delivery-lifecycle.md",
-    "llms.txt"
+    "llms.txt",
+    "docs/spec-foundation.md",
+    "docs/release-readiness.md"
   ],
   "not": [
     "Not a destructive preset engine",
@@ -319,10 +359,10 @@
       ".vcp/cards/"
     ]
   },
-  "repository_package_version": "v0.6.5",
+  "repository_package_version": "v0.6.6",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Stable VCP methodology and protocol layer.",
-    "ai_instruction": "Do not confuse methodology version v1.4 with repository package version v0.6.5."
+    "ai_instruction": "Do not confuse methodology version v1.4 with repository package version v0.6.6."
   }
 }

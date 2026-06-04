@@ -1,0 +1,18 @@
+{
+  "scenario_id": "spec-quality-gate",
+  "target_profile": "new-project",
+  "target_signals": [
+    "spec quality gate",
+    "missing artifact warning",
+    "planning discipline"
+  ],
+  "required_files_to_inspect": [
+    "docs/spec-quality-gate.md",
+    "templates/specs/PRODUCT_BRIEF.md",
+    "templates/reports/spec-quality-gate-report.md"
+  ],
+  "expected_first_safe_action": "Run or inspect the spec quality gate before starting implementation.",
+  "expected_warnings": [
+    "core spec foundation artifacts should not stay missing while implementation expands"
+  ]
+}

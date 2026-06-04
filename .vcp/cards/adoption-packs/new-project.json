@@ -38,7 +38,10 @@
   "related_files": [
     "docs/lite-adoption-path.md",
     "templates/ARCHITECTURE_MAP.md",
-    "protocols/integrations/third-party-api-intake.md"
+    "protocols/integrations/third-party-api-intake.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md"
   ],
   "cli": [
     "python3 -m vcp_cli adopt --pack new-project --dry-run"
@@ -53,7 +56,7 @@
   "validation": [
     "bash scripts/vibe-check.sh --starter"
   ],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

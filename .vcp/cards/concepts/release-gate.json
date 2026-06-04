@@ -31,16 +31,20 @@
     ]
   },
   "entry_files": [
-    "templates/reports/code-review-report.md"
+    "templates/reports/code-review-report.md",
+    "docs/release-readiness.md"
   ],
-  "related_files": [],
+  "related_files": [
+    "docs/pr-gate.md",
+    "docs/architecture-drift.md"
+  ],
   "cli": [],
   "outputs": [
     "shared terminology"
   ],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

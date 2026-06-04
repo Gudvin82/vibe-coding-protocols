@@ -1,0 +1,18 @@
+{
+  "scenario_id": "pr-gate-decision-model",
+  "target_profile": "review",
+  "target_signals": [
+    "pr gate",
+    "pass warn block",
+    "merge decision"
+  ],
+  "required_files_to_inspect": [
+    "docs/pr-gate.md",
+    "templates/reports/pr-gate-report.md",
+    "docs/release-readiness.md"
+  ],
+  "expected_first_safe_action": "Use the PR Gate decision model before deciding whether a change can merge.",
+  "expected_warnings": [
+    "do not reduce PR Gate to green CI alone when control gaps are still open"
+  ]
+}

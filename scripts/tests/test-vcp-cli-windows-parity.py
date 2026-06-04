@@ -17,6 +17,10 @@ def run(*args: str) -> str:
     return proc.stdout
 
 
+def run_allow_nonzero(*args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run([PYTHON, '-m', 'vcp_cli', *args], cwd=ROOT, text=True, capture_output=True, check=False)
+
+
 def run_npm(*args: str) -> str:
     proc = subprocess.run(['npm', 'run', 'vcp', '--', *args], cwd=ROOT, text=True, capture_output=True, check=False)
     if proc.returncode != 0:
@@ -36,8 +40,12 @@ def main() -> int:
     assert evaluate['progressive_disclosure_present'] is True
     assert evaluate['shallow_evaluation_guard'] is True
     assert evaluate['adoption_entrypoint'] == 'TAKE_THIS_FIRST.md'
+    assert evaluate['two_track_model_present'] is True
+    assert evaluate['release_readiness_present'] is True
     review_diff = json.loads(run('review-diff', '--json'))
     assert 'risk_level' in review_diff
+    release_check = json.loads(run('release-check', '--json'))
+    assert 'status' in release_check
     route = json.loads(run('route', '--profile', 'third-party-api', '--json'))
     assert route['adoption_pack'] == 'third-party-api'
     public_growth_route = json.loads(run('route', '--profile', 'public-growth', '--json'))
@@ -86,6 +94,10 @@ def main() -> int:
     assert spec_retrofit['writes_source_code'] is False
     spec_freshness = json.loads(run('spec', 'freshness', '--json'))
     assert 'summary' in spec_freshness
+    spec_quality_gate_proc = run_allow_nonzero('spec', 'quality-gate', '--json')
+    assert spec_quality_gate_proc.returncode in {0, 1}
+    spec_quality_gate = json.loads(spec_quality_gate_proc.stdout)
+    assert 'status' in spec_quality_gate
     preset_list = json.loads(run('preset', 'list', '--json'))
     assert preset_list['total'] == 5
     preset_show = json.loads(run('preset', 'show', 'solo-founder', '--json'))

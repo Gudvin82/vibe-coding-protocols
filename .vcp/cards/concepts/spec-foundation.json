@@ -1,0 +1,67 @@
+{
+  "id": "spec-foundation",
+  "type": "concept",
+  "name": "Spec Foundation",
+  "summary": "VCP-native path from idea or brief into product brief, PRD, tasks, backlog, memory, and review gates.",
+  "use_when": [
+    "a new AI-assisted product or major feature needs controlled foundation before implementation"
+  ],
+  "do_not_use_when": [
+    "tiny local fixes already fit no-spec with validation"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "spec-driven-delivery"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "implementation before scope clarity"
+    ],
+    "project_state": [
+      "new"
+    ],
+    "risk_categories": [
+      "delivery chaos"
+    ]
+  },
+  "entry_files": [
+    "docs/spec-foundation.md",
+    "protocols/spec-driven/spec-foundation.md"
+  ],
+  "related_files": [
+    "templates/specs/PRODUCT_BRIEF.md",
+    "templates/specs/PRD.md",
+    "templates/reports/spec-foundation-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli spec depth --task \"describe the feature\""
+  ],
+  "outputs": [
+    "scoped spec foundation artifacts"
+  ],
+  "stop_conditions": [
+    "do not treat implementation as substitute product discovery when core brief is still missing"
+  ],
+  "validation": [
+    "python3 -m vcp_cli spec quality-gate --json"
+  ],
+  "version": "v0.6.6",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "claude-code",
+    "codex-cli",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "spec"
+  ]
+}

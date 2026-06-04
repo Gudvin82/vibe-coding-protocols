@@ -7,12 +7,14 @@ from typing import Any
 from .utils import print_output, repo_root
 
 TEMPLATES = {
+    "brief": ("templates/specs/PRODUCT_BRIEF.md", "PRODUCT_BRIEF.md"),
     "prd": ("templates/specs/PRD.md", "PRD.md"),
     "feature": ("templates/specs/FEATURE_SPEC.md", "FEATURE_SPEC.md"),
     "tasks": ("templates/specs/TASKS.md", "TASKS.md"),
 }
 
 SPEC_FILES = {
+    "PRODUCT_BRIEF.md": ["# Product Brief", "## Problem", "## Desired outcome"],
     "PRD.md": ["# Product Requirements Document", "## Problem statement", "## Validation plan"],
     "FEATURE_SPEC.md": ["# Feature Spec", "## User flow", "## Validation plan"],
     "ACCEPTANCE_CRITERIA.md": ["# Acceptance Criteria", "## Acceptance criteria"],
@@ -509,3 +511,53 @@ def freshness(json_mode: bool = False) -> int:
     }
     print_output(payload, json_mode)
     return 0
+
+
+def quality_gate(json_mode: bool = False) -> int:
+    root = repo_root()
+    required = {
+        "PRODUCT_BRIEF.md": "product brief",
+        "PRD.md": "PRD",
+        "FEATURE_SPEC.md": "feature spec",
+        "ACCEPTANCE_CRITERIA.md": "acceptance criteria",
+        "TASKS.md": "tasks",
+        "PROJECT_BACKLOG.md": "project backlog",
+    }
+    optional = {
+        "PROJECT_MAP.md": "project map",
+        "templates/ARCHITECTURE_SOURCE_OF_TRUTH.md": "architecture source-of-truth template",
+        "SPEC_REVIEW.md": "spec review",
+    }
+    present_required = [label for rel, label in required.items() if (root / rel).exists()]
+    missing_required = [label for rel, label in required.items() if not (root / rel).exists()]
+    present_optional = [label for rel, label in optional.items() if (root / rel).exists()]
+    status = "pass"
+    next_action = "Spec foundation is ready for implementation planning."
+    if missing_required:
+        if len(missing_required) >= 3:
+            status = "block"
+            next_action = "Add the missing core spec foundation artifacts before implementation."
+        else:
+            status = "warn"
+            next_action = "Fill the remaining spec foundation gaps before the implementation slice expands."
+    payload = {
+        "ok": status != "block",
+        "status": status,
+        "present_required": present_required,
+        "missing_required": missing_required,
+        "present_optional": present_optional,
+        "recommended_follow_up": [
+            "Run vcp spec review once the core artifacts exist.",
+            "Link open work into PROJECT_BACKLOG.md.",
+            "Record architecture impact when implementation changes repository structure.",
+        ],
+        "stop_conditions": [
+            "Implementation starts while core scope artifacts are still missing.",
+            "Validation plan is absent for behavior-changing work.",
+            "Release pressure is used to skip review or backlog linkage.",
+        ],
+        "note": "Quality gate is a lightweight local helper. It does not replace product judgment.",
+        "next_action": next_action,
+    }
+    print_output(payload, json_mode)
+    return 0 if status != "block" else 1

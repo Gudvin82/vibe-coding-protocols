@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROD_LOG_MONITOR_PROMPT -->
-<!-- vcp-version: v0.6.5 -->
+<!-- vcp-version: v0.6.6 -->
 <!-- methodology-version: v1.4 -->
 
 Read the project-specific operations docs first.

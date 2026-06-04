@@ -26,6 +26,31 @@ CHECKS = [
         ['TAKE_THIS_FIRST.md'],
     ),
     (
+        'two-track model',
+        ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
+        ['New Project Track', 'Existing Project Track', 'docs/two-track-model.md'],
+    ),
+    (
+        'new product walkthrough',
+        ['docs/walkthroughs/new-ai-product-from-idea.md'],
+        ['docs/walkthroughs/new-ai-product-from-idea.md'],
+    ),
+    (
+        'existing project walkthrough',
+        ['docs/walkthroughs/ai-mvp-hardening.md'],
+        ['docs/walkthroughs/ai-mvp-hardening.md'],
+    ),
+    (
+        'spec foundation block',
+        ['docs/spec-foundation.md', 'docs/spec-quality-gate.md'],
+        ['docs/spec-foundation.md', 'docs/spec-quality-gate.md'],
+    ),
+    (
+        'release readiness block',
+        ['docs/release-readiness.md', 'docs/architecture-drift.md'],
+        ['docs/release-readiness.md', 'docs/architecture-drift.md'],
+    ),
+    (
         '2-minute demo',
         ['Try VCP in 2 minutes'],
         ['Попробовать VCP за 2 минуты'],

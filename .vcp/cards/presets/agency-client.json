@@ -52,7 +52,7 @@
   "validation": [
     "python3 -m vcp_cli preset validate"
   ],
-  "version": "v0.6.5",
+  "version": "v0.6.6",
   "maturity": "stable",
   "recommended": false,
   "platforms": [

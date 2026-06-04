@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.6.5",
+  "package_version": "v0.6.6",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -43,7 +43,15 @@
     "docs/protocol-pack-security.md",
     "docs/proactive-vcp-routines.md",
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
-    "docs/site-version-sync-checklist.md"
+    "docs/site-version-sync-checklist.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md",
+    "docs/release-v0.6.6.md"
   ],
   "core_docs": [
     "TAKE_THIS_FIRST.md",
@@ -100,7 +108,15 @@
     "docs/protocol-pack-security.md",
     "docs/proactive-vcp-routines.md",
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
-    "docs/site-version-sync-checklist.md"
+    "docs/site-version-sync-checklist.md",
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/spec-quality-gate.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md",
+    "docs/walkthroughs/ai-mvp-hardening.md",
+    "docs/release-readiness.md",
+    "docs/architecture-drift.md",
+    "docs/release-v0.6.6.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -123,7 +139,8 @@
     "protocols/spec-driven/spec-freshness.md",
     "protocols/spec-driven/spec-retrofit.md",
     "protocols/spec-driven/spec-review.md",
-    "protocols/spec-driven/spec-to-tasks.md"
+    "protocols/spec-driven/spec-to-tasks.md",
+    "protocols/spec-driven/spec-foundation.md"
   ],
   "cli_commands": [
     "adopt",
@@ -143,7 +160,8 @@
     "score",
     "spec",
     "version",
-    "workflow"
+    "workflow",
+    "release-check"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",

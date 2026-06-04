@@ -1,0 +1,18 @@
+{
+  "scenario_id": "architecture-drift-check",
+  "target_profile": "existing-mvp",
+  "target_signals": [
+    "architecture drift",
+    "project memory mismatch",
+    "brownfield control"
+  ],
+  "required_files_to_inspect": [
+    "docs/architecture-drift.md",
+    "PROJECT_MAP.md",
+    "PROJECT_BACKLOG.md"
+  ],
+  "expected_first_safe_action": "Check whether repository structure changed without matching project-memory updates.",
+  "expected_warnings": [
+    "do not ignore new structure or integration changes that never reached project memory"
+  ]
+}
