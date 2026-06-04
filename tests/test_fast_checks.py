@@ -6,6 +6,9 @@ from types import SimpleNamespace
 from vcp_cli import fast_checks
 
 
+CURRENT_VERSION = Path("VERSION").read_text(encoding="utf-8").strip()
+
+
 def test_run_python_script_uses_runpy_for_non_py_extensions(monkeypatch, tmp_path: Path) -> None:
     captured: dict[str, object] = {}
     monkeypatch.setattr(fast_checks, "current_python", lambda: "py.exe")
@@ -35,7 +38,7 @@ def test_validate_cli_smoke_uses_windows_py_launcher_for_module_calls(monkeypatc
 
     def fake_run_command(command: list[str], cwd: Path, capture: bool = True) -> SimpleNamespace:
         commands.append(command)
-        return SimpleNamespace(returncode=0, stdout='{"version": "v0.5.9"}\n', stderr="")
+        return SimpleNamespace(returncode=0, stdout=f'{{"version": "{CURRENT_VERSION}"}}\n', stderr="")
 
     monkeypatch.setattr(fast_checks, "run_command", fake_run_command)
 

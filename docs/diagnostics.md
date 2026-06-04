@@ -1,6 +1,6 @@
 # Diagnostics
 
-Repository package: `v0.6.1`
+Repository package: `v0.8.0`
 
 `doctor` checks the local toolkit environment.
 
