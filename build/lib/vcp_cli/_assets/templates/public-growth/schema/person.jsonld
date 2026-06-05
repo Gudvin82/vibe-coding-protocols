@@ -1,8 +1,0 @@
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "{{ person_name }}",
-  "jobTitle": "{{ job_title }}",
-  "url": "{{ canonical_url }}",
-  "sameAs": ["{{ profile_url }}"]
-}

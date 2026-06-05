@@ -1,1 +1,0 @@
-# Outdated Artifact Version Fixture

@@ -1,8 +1,0 @@
-flowchart LR
-    change["AI change"] --> review["review-diff"]
-    review --> spec["spec depth check"]
-    spec --> backlog["backlog sync"]
-    backlog --> architecture["architecture impact"]
-    architecture --> validation["validation"]
-    validation --> score["score"]
-    score --> decision["merge / release decision"]

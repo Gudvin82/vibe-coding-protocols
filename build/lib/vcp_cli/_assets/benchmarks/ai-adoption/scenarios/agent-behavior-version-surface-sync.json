@@ -1,9 +1,0 @@
-{
-  "id": "agent-behavior-version-surface-sync",
-  "profile": "repository-evaluation",
-  "prompt": "Check whether a version bump updated README, README_ru, VERSION, package metadata, and machine-readable version surfaces together.",
-  "expected": [
-    "require synchronized version surfaces",
-    "flag partial public version updates"
-  ]
-}
