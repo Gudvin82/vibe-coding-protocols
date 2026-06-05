@@ -2,7 +2,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.8.2-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.8.3-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -11,22 +11,30 @@ Build with AI. Choose the right track. Adopt safely. Ship with control.
 Vibe Coding Protocols is a practical local toolkit for AI-assisted delivery.
 It helps teams choose the right track, adopt safely, and ship with visible review and release control.
 
-> Current repository package: `v0.8.2`  
-> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.8.2`.
+> Current repository package: `v0.8.3`  
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.8.3`.
 
-Repository package: `v0.8.2`
+Repository package: `v0.8.3`
 
-## New in v0.8.2: integration scaffold, local dashboard artifacts, and plugin architecture prep
+## New in v0.8.3
 
-`v0.8.2` adds local-first integration scaffolding:
+`v0.8.3` adds the next VCP control layer:
 
-- integration status model;
-- local dashboard/report artifact path;
-- plugin contract draft and safety boundary;
-- metrics and audit-backlog visualization docs;
-- clearer install reliability guidance.
+- spec-driven adoption track;
+- integrations list command;
+- contracts-first AI-MVP demo;
+- project memory and decision log;
+- fail-closed safety boundary;
+- generated agent instruction templates;
+- SaaS AI-MVP hardening pack;
+- starter control layer;
+- run state and checkpoint model;
+- audit backlog dedup and staleness;
+- batch evaluation mode;
+- docs-site scaffold;
+- agent behavior quality gate.
 
-It does not ship a hosted dashboard, VS Code extension, plugin marketplace, PyPI publication, npm publication, or Go rewrite.
+This release does not ship a hosted dashboard, plugin marketplace, VS Code extension, Go rewrite, public PyPI/npm publication, telemetry, cloud sync, personal assistant memory, or autonomous notifications.
 
 ## Start here in 10 minutes
 
@@ -188,6 +196,22 @@ Public PyPI/npm packages are not claimed unless explicitly published.
 
 Use the workflow example in `ci-examples/github-actions/vcp-pr-gate.yml`.
 
+
+## Agent control and project memory
+
+Key surfaces:
+- [docs/spec-driven-adoption.md](./docs/spec-driven-adoption.md)
+- [docs/project-memory.md](./docs/project-memory.md)
+- [docs/decision-log.md](./docs/decision-log.md)
+- [docs/safety/fail-closed.md](./docs/safety/fail-closed.md)
+- [docs/agent-instructions.md](./docs/agent-instructions.md)
+- [docs/agent-behavior-gate.md](./docs/agent-behavior-gate.md)
+- [docs/starter-control-layer.md](./docs/starter-control-layer.md)
+- [docs/run-state.md](./docs/run-state.md)
+- [docs/audit-backlog.md](./docs/audit-backlog.md)
+- [docs/batch-evaluation.md](./docs/batch-evaluation.md)
+- [docs/docs-site.md](./docs/docs-site.md)
+
 ## Proof layer
 
 Use these together:
@@ -214,4 +238,4 @@ These docs must not be read as proof of hosted services, official integrations, 
 
 ## Release notes
 
-- [docs/release-v0.8.2.md](./docs/release-v0.8.2.md)
+- [docs/release-v0.8.3.md](./docs/release-v0.8.3.md)

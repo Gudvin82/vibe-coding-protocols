@@ -48,3 +48,7 @@ It does not:
 - modify source code by default;
 - access secrets;
 - silently create a destructive migration path.
+
+## SaaS AI-MVP hardening
+
+Use `python3 -m vcp_cli adopt plan --pack saas-ai-mvp-hardening --json` when an AI-generated SaaS MVP needs auth, billing, contracts, release readiness, and PR Gate made explicit.

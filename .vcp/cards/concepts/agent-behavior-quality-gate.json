@@ -1,0 +1,62 @@
+{
+  "id": "agent-behavior-quality-gate",
+  "type": "concept",
+  "name": "Agent Behavior Quality Gate",
+  "summary": "A local quality gate for checking whether agent behavior stayed honest and reviewable.",
+  "use_when": [
+    "the control surface must stay explicit and honest"
+  ],
+  "do_not_use_when": [
+    "vague claims are acceptable"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea"
+    ],
+    "ai_failure_modes": [
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/agent-behavior-gate.md"
+  ],
+  "related_files": [
+    "tests/fixtures/agent-report.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented control surface"
+  ],
+  "stop_conditions": [
+    "do not claim hosted or autonomous behavior unless implemented"
+  ],
+  "validation": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "control"
+  ]
+}

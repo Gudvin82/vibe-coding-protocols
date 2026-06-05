@@ -1,0 +1,8 @@
+{
+  "title": "VCP Audit Backlog",
+  "type": "object",
+  "required": [
+    "version",
+    "items"
+  ]
+}

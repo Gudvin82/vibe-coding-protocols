@@ -7,8 +7,11 @@ import sys
 from pathlib import Path
 
 from . import adopt as adopt_cmd
+from . import agent_behavior_cmd
+from . import agent_templates_cmd
 from . import audit_plan as audit_plan_cmd
 from . import backlog as backlog_cmd
+from . import batch_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import classify as classify_cmd
@@ -19,8 +22,10 @@ from . import doctor as doctor_cmd
 from . import evaluate as evaluate_cmd
 from . import init_cmd
 from . import index_cmd
+from . import integrations_cmd
 from . import cards as cards_cmd
 from . import manifest as manifest_cmd
+from . import memory_cmd
 from . import metrics_cmd
 from . import onboard as onboard_cmd
 from . import plugins_cmd
@@ -30,10 +35,13 @@ from . import review as review_cmd
 from . import release_check as release_check_cmd
 from . import review_diff as review_diff_cmd
 from . import route as route_cmd
+from . import runs_cmd
+from . import safety_cmd
 from . import score as score_cmd
 from . import spec_cmd
 from . import version as version_cmd
 from . import workflow_cmd
+from . import pr_gate_cmd
 from .utils import repo_root
 
 LEGACY_VIBE_CHECK = {"audit", "starter", "hardening", "init-report", "update-advice"}
@@ -283,6 +291,67 @@ def build_parser() -> argparse.ArgumentParser:
     metrics_board = metrics_sub.add_parser("board")
     metrics_board.add_argument("--json", action="store_true")
 
+    integrations_p = sub.add_parser("integrations")
+    integrations_sub = integrations_p.add_subparsers(dest="integrations_command")
+    integrations_list = integrations_sub.add_parser("list")
+    integrations_list.add_argument("--status")
+    integrations_list.add_argument("--json", action="store_true")
+
+    memory_p = sub.add_parser("memory")
+    memory_sub = memory_p.add_subparsers(dest="memory_command")
+    memory_init = memory_sub.add_parser("init")
+    memory_init.add_argument("--target", required=True)
+    memory_init.add_argument("--json", action="store_true")
+    memory_show = memory_sub.add_parser("show")
+    memory_show.add_argument("path", nargs="?")
+    memory_show.add_argument("--json", action="store_true")
+    memory_validate = memory_sub.add_parser("validate")
+    memory_validate.add_argument("path")
+    memory_validate.add_argument("--json", action="store_true")
+
+    runs_p = sub.add_parser("runs")
+    runs_sub = runs_p.add_subparsers(dest="runs_command")
+    runs_list = runs_sub.add_parser("list")
+    runs_list.add_argument("--json", action="store_true")
+    runs_show = runs_sub.add_parser("show")
+    runs_show.add_argument("run_id")
+    runs_show.add_argument("--json", action="store_true")
+    runs_validate = runs_sub.add_parser("validate")
+    runs_validate.add_argument("path")
+    runs_validate.add_argument("--json", action="store_true")
+
+    agents_p = sub.add_parser("agents")
+    agents_sub = agents_p.add_subparsers(dest="agents_command")
+    agents_template = agents_sub.add_parser("template")
+    agents_template.add_argument("--agent", required=True, choices=["claude", "codex", "cursor", "agents"])
+    agents_template.add_argument("--output")
+    agents_template.add_argument("--confirm", action="store_true")
+    agents_template.add_argument("--json", action="store_true")
+
+    agent_behavior_p = sub.add_parser("agent-behavior")
+    agent_behavior_sub = agent_behavior_p.add_subparsers(dest="agent_behavior_command")
+    agent_behavior_check = agent_behavior_sub.add_parser("check")
+    agent_behavior_check.add_argument("--report", required=True)
+    agent_behavior_check.add_argument("--json", action="store_true")
+
+    safety_p = sub.add_parser("safety")
+    safety_sub = safety_p.add_subparsers(dest="safety_command")
+    safety_check = safety_sub.add_parser("check")
+    safety_check.add_argument("--json", action="store_true")
+
+    pr_gate_p = sub.add_parser("pr-gate")
+    pr_gate_sub = pr_gate_p.add_subparsers(dest="pr_gate_command")
+    pr_gate_explain = pr_gate_sub.add_parser("explain")
+    pr_gate_explain.add_argument("--json", action="store_true")
+
+    batch_p = sub.add_parser("batch")
+    batch_sub = batch_p.add_subparsers(dest="batch_command")
+    batch_evaluate = batch_sub.add_parser("evaluate")
+    batch_evaluate.add_argument("--targets")
+    batch_evaluate.add_argument("--target", action="append", dest="target_list")
+    batch_evaluate.add_argument("--fail-fast", action="store_true")
+    batch_evaluate.add_argument("--json", action="store_true")
+
     diagnose_p = sub.add_parser("diagnose")
     diagnose_p.add_argument("--profile")
     diagnose_p.add_argument("--json", action="store_true")
@@ -333,7 +402,11 @@ def build_parser() -> argparse.ArgumentParser:
     backlog_report = backlog_sub.add_parser("report")
     backlog_report.add_argument("--json", action="store_true")
     backlog_validate = backlog_sub.add_parser("validate")
+    backlog_validate.add_argument("path", nargs="?")
     backlog_validate.add_argument("--json", action="store_true")
+    backlog_summarize = backlog_sub.add_parser("summarize")
+    backlog_summarize.add_argument("path", nargs="?")
+    backlog_summarize.add_argument("--json", action="store_true")
     backlog_sub.add_parser("template")
 
     for legacy in sorted(LEGACY_VIBE_CHECK):
@@ -504,6 +577,48 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "metrics":
         if args.metrics_command in {None, "board"}:
             return metrics_cmd.run_board(getattr(args, "json", False))
+    if args.command == "integrations":
+        if args.integrations_command in {None, "list"}:
+            return integrations_cmd.run_list(getattr(args, "status", None), getattr(args, "json", False))
+    if args.command == "memory":
+        if args.memory_command == "init":
+            return memory_cmd.run_init(args.target, getattr(args, "json", False))
+        if args.memory_command == "show":
+            return memory_cmd.run_show(getattr(args, "path", None), getattr(args, "json", False))
+        if args.memory_command == "validate":
+            return memory_cmd.run_validate(args.path, getattr(args, "json", False))
+    if args.command == "runs":
+        if args.runs_command in {None, "list"}:
+            return runs_cmd.run_list(getattr(args, "json", False))
+        if args.runs_command == "show":
+            return runs_cmd.run_show(args.run_id, getattr(args, "json", False))
+        if args.runs_command == "validate":
+            return runs_cmd.run_validate(args.path, getattr(args, "json", False))
+    if args.command == "agents":
+        if args.agents_command == "template":
+            return agent_templates_cmd.run_template(
+                args.agent,
+                output=getattr(args, "output", None),
+                confirm=getattr(args, "confirm", False),
+                json_mode=getattr(args, "json", False),
+            )
+    if args.command == "agent-behavior":
+        if args.agent_behavior_command == "check":
+            return agent_behavior_cmd.run_check(args.report, getattr(args, "json", False))
+    if args.command == "safety":
+        if args.safety_command in {None, "check"}:
+            return safety_cmd.run_check(getattr(args, "json", False))
+    if args.command == "pr-gate":
+        if args.pr_gate_command in {None, "explain"}:
+            return pr_gate_cmd.run_explain(getattr(args, "json", False))
+    if args.command == "batch":
+        if args.batch_command == "evaluate":
+            return batch_cmd.run_evaluate(
+                targets=getattr(args, "target_list", None),
+                targets_file=getattr(args, "targets", None),
+                fail_fast=getattr(args, "fail_fast", False),
+                json_mode=getattr(args, "json", False),
+            )
     if args.command == "diagnose":
         return diagnose_cmd.run(args.profile, getattr(args, "json", False))
     if args.command == "backlog":
@@ -560,8 +675,10 @@ def main(argv: list[str] | None = None) -> int:
             )
         if args.backlog_command == "report":
             return backlog_cmd.report(args.json)
+        if args.backlog_command == "summarize":
+            return backlog_cmd.summarize(getattr(args, "path", None), getattr(args, "json", False))
         if args.backlog_command in {None, "validate"}:
-            return backlog_cmd.validate(getattr(args, "json", False))
+            return backlog_cmd.validate(getattr(args, "json", False), path=getattr(args, "path", None))
         if args.backlog_command == "template":
             return backlog_cmd.template()
     if args.command == "review":

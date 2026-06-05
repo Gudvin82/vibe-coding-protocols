@@ -496,6 +496,47 @@
       "next_safe_step": "Document sensitive flows and stop conditions first."
     },
     {
+      "id": "saas-ai-mvp-hardening",
+      "name": "SaaS AI-MVP Hardening Pack",
+      "use_when": [
+        "AI-generated SaaS MVP needs auth, billing, contracts, and release control surfaced"
+      ],
+      "do_not_use_when": [
+        "the project is still only an idea with no product shape"
+      ],
+      "recommended_files": [
+        "docs/adoption-packs/saas-ai-mvp-hardening.md",
+        "docs/demos/contracts-first-ai-mvp.md",
+        "docs/pr-gate-approval-model.md",
+        "templates/reports/adoption-case-study.md"
+      ],
+      "optional_files": [
+        "templates/starter-control-layer/README.md",
+        "templates/reports/decision-log.md",
+        ".vcp/project-memory.example.json"
+      ],
+      "merge_only_files": [
+        "PROJECT_MAP.md"
+      ],
+      "skip_files": [
+        ".env",
+        "SECURITY.md"
+      ],
+      "skip_conditions": [
+        "Auth, billing, or contract ownership is still unknown"
+      ],
+      "validation_commands": [
+        "python3 -m vcp_cli classify --json",
+        "python3 -m vcp_cli release-check --json"
+      ],
+      "expected_report_template": [
+        "templates/reports/adoption-case-study.md",
+        "templates/reports/decision-log.md"
+      ],
+      "review_gate_requirement": "Required before merge when auth, contracts, or billing logic changes.",
+      "next_safe_step": "Make the SaaS boundaries explicit before expanding features."
+    },
+    {
       "id": "shared-engine",
       "name": "Shared Engine / Multi-product Pack",
       "use_when": [

@@ -29,6 +29,35 @@
       ]
     },
     {
+      "id": "agent-behavior-check",
+      "command_name": "vcp agent-behavior check",
+      "file": "docs/agent-behavior-gate.md",
+      "route": "review",
+      "inputs": [
+        "report path",
+        "optional --json"
+      ],
+      "output": "local heuristic behavior-gate result",
+      "validation": [
+        "python3 -m vcp_cli agent-behavior check --report tests/fixtures/agent-report.md --json"
+      ]
+    },
+    {
+      "id": "agents-template",
+      "command_name": "vcp agents template",
+      "file": "docs/agent-instructions.md",
+      "route": "governance",
+      "inputs": [
+        "agent id",
+        "optional output path",
+        "confirm"
+      ],
+      "output": "copyable agent instruction template",
+      "validation": [
+        "python3 -m vcp_cli agents template --agent codex --json"
+      ]
+    },
+    {
       "id": "audit-plan",
       "command_name": "vcp audit-plan",
       "file": "FULL_REPO_INTAKE.md",
@@ -134,6 +163,19 @@
       ]
     },
     {
+      "id": "backlog-summarize",
+      "command_name": "vcp backlog summarize",
+      "file": "docs/audit-backlog.md",
+      "route": "review",
+      "inputs": [
+        "optional backlog path"
+      ],
+      "output": "audit backlog summary",
+      "validation": [
+        "python3 -m vcp_cli backlog summarize .vcp/audit-backlog.example.json --json"
+      ]
+    },
+    {
       "id": "backlog-template",
       "command_name": "vcp backlog template",
       "file": "templates/PROJECT_BACKLOG.md",
@@ -165,14 +207,28 @@
     {
       "id": "backlog-validate",
       "command_name": "vcp backlog validate",
-      "file": "docs/project-backlog.md",
-      "route": "backlog",
+      "file": "docs/audit-backlog.md",
+      "route": "review",
       "inputs": [
         "backlog path"
       ],
-      "output": "backlog structure validation",
+      "output": "audit backlog validation result",
       "validation": [
-        "required sections present"
+        "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json"
+      ]
+    },
+    {
+      "id": "batch-evaluate",
+      "command_name": "vcp batch evaluate",
+      "file": "docs/batch-evaluation.md",
+      "route": "intake",
+      "inputs": [
+        "targets file or repeated --target",
+        "optional --fail-fast"
+      ],
+      "output": "per-target local evaluation plus aggregate summary",
+      "validation": [
+        "python3 -m vcp_cli batch evaluate --targets /tmp/vcp-targets.txt --json"
       ]
     },
     {
@@ -259,6 +315,20 @@
       ]
     },
     {
+      "id": "dashboard-build",
+      "command_name": "vcp dashboard build",
+      "file": "docs/dashboard.md",
+      "route": "intake",
+      "inputs": [
+        "output directory",
+        "optional dry-run"
+      ],
+      "output": "local static dashboard artifact and JSON summaries",
+      "validation": [
+        "python3 -m vcp_cli dashboard build --output /tmp/vcp-dashboard-test --json"
+      ]
+    },
+    {
       "id": "evaluate",
       "command_name": "vcp evaluate",
       "file": "AI_EVALUATION_GUIDE.md",
@@ -314,6 +384,20 @@
       ]
     },
     {
+      "id": "integrations-list",
+      "command_name": "vcp integrations list",
+      "file": "docs/integrations/status-model.md",
+      "route": "intake",
+      "inputs": [
+        "optional --status",
+        "optional --json"
+      ],
+      "output": "integration registry items and counts",
+      "validation": [
+        "python3 -m vcp_cli integrations list --json"
+      ]
+    },
+    {
       "id": "loop-code-review",
       "command_name": "/loop-code-review",
       "file": "commands/loop-code-review.md",
@@ -329,6 +413,58 @@
       ]
     },
     {
+      "id": "memory-init",
+      "command_name": "vcp memory init",
+      "file": "docs/project-memory.md",
+      "route": "governance",
+      "inputs": [
+        "target path"
+      ],
+      "output": "local project memory example file",
+      "validation": [
+        "python3 -m vcp_cli memory validate .vcp/project-memory.example.json --json"
+      ]
+    },
+    {
+      "id": "memory-show",
+      "command_name": "vcp memory show",
+      "file": "docs/project-memory.md",
+      "route": "governance",
+      "inputs": [
+        "optional memory path"
+      ],
+      "output": "project memory view",
+      "validation": [
+        "python3 -m vcp_cli memory show .vcp/project-memory.example.json --json"
+      ]
+    },
+    {
+      "id": "memory-validate",
+      "command_name": "vcp memory validate",
+      "file": "docs/project-memory.md",
+      "route": "governance",
+      "inputs": [
+        "memory path"
+      ],
+      "output": "project memory validation result",
+      "validation": [
+        "python3 -m vcp_cli memory validate .vcp/project-memory.example.json --json"
+      ]
+    },
+    {
+      "id": "metrics-board",
+      "command_name": "vcp metrics board",
+      "file": "docs/metrics-board.md",
+      "route": "intake",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "local counts and readiness summary",
+      "validation": [
+        "python3 -m vcp_cli metrics board --json"
+      ]
+    },
+    {
       "id": "onboard",
       "command_name": "vcp onboard",
       "file": "docs/cli.md",
@@ -339,6 +475,45 @@
       "output": "recommended track, tier, route, and next commands",
       "validation": [
         "python3 -m vcp_cli onboard --json"
+      ]
+    },
+    {
+      "id": "plugins-list",
+      "command_name": "vcp plugins list",
+      "file": "docs/plugins/README.md",
+      "route": "intake",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "built-in local plugin metadata list",
+      "validation": [
+        "python3 -m vcp_cli plugins list --json"
+      ]
+    },
+    {
+      "id": "plugins-validate",
+      "command_name": "vcp plugins validate",
+      "file": "docs/plugins/plugin-contract-draft.md",
+      "route": "intake",
+      "inputs": [
+        "path to plugin metadata json"
+      ],
+      "output": "plugin metadata validation result without execution",
+      "validation": [
+        "python3 -m vcp_cli plugins validate examples/plugins/example-readiness-check.plugin.json --json"
+      ]
+    },
+    {
+      "id": "pr-gate-explain",
+      "command_name": "vcp pr-gate explain",
+      "file": "docs/pr-gate-approval-model.md",
+      "route": "review",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "PR Gate approval model states and examples",
+      "validation": [
+        "python3 -m vcp_cli pr-gate explain --json"
       ]
     },
     {
@@ -436,6 +611,56 @@
       "output": "changed-file summary, risk, spec recommendation, validation path",
       "validation": [
         "python3 -m vcp_cli review-diff --json"
+      ]
+    },
+    {
+      "id": "runs-list",
+      "command_name": "vcp runs list",
+      "file": "docs/run-state.md",
+      "route": "governance",
+      "inputs": [],
+      "output": "known run state files",
+      "validation": [
+        "python3 -m vcp_cli runs list --json"
+      ]
+    },
+    {
+      "id": "runs-show",
+      "command_name": "vcp runs show",
+      "file": "docs/run-state.md",
+      "route": "governance",
+      "inputs": [
+        "run id"
+      ],
+      "output": "run state details",
+      "validation": [
+        "python3 -m vcp_cli runs show example-run-001 --json"
+      ]
+    },
+    {
+      "id": "runs-validate",
+      "command_name": "vcp runs validate",
+      "file": "docs/run-state.md",
+      "route": "governance",
+      "inputs": [
+        "run state path"
+      ],
+      "output": "run state validation result",
+      "validation": [
+        "python3 -m vcp_cli runs validate .vcp/runs/example-run-state.json --json"
+      ]
+    },
+    {
+      "id": "safety-check",
+      "command_name": "vcp safety check",
+      "file": "docs/safety/fail-closed.md",
+      "route": "review",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "fail-closed safety summary",
+      "validation": [
+        "python3 -m vcp_cli safety check --json"
       ]
     },
     {
@@ -686,64 +911,15 @@
       "validation": [
         "python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json"
       ]
-    },
-    {
-      "id": "dashboard-build",
-      "command_name": "vcp dashboard build",
-      "file": "docs/dashboard.md",
-      "route": "intake",
-      "inputs": [
-        "output directory",
-        "optional dry-run"
-      ],
-      "output": "local static dashboard artifact and JSON summaries",
-      "validation": [
-        "python3 -m vcp_cli dashboard build --output /tmp/vcp-dashboard-test --json"
-      ]
-    },
-    {
-      "id": "plugins-list",
-      "command_name": "vcp plugins list",
-      "file": "docs/plugins/README.md",
-      "route": "intake",
-      "inputs": [
-        "optional --json"
-      ],
-      "output": "built-in local plugin metadata list",
-      "validation": [
-        "python3 -m vcp_cli plugins list --json"
-      ]
-    },
-    {
-      "id": "plugins-validate",
-      "command_name": "vcp plugins validate",
-      "file": "docs/plugins/plugin-contract-draft.md",
-      "route": "intake",
-      "inputs": [
-        "path to plugin metadata json"
-      ],
-      "output": "plugin metadata validation result without execution",
-      "validation": [
-        "python3 -m vcp_cli plugins validate examples/plugins/example-readiness-check.plugin.json --json"
-      ]
-    },
-    {
-      "id": "metrics-board",
-      "command_name": "vcp metrics board",
-      "file": "docs/metrics-board.md",
-      "route": "intake",
-      "inputs": [
-        "optional --json"
-      ],
-      "output": "local counts and readiness summary",
-      "validation": [
-        "python3 -m vcp_cli metrics board --json"
-      ]
     }
   ],
   "progressive_disclosure_docs": [
     "docs/progressive-disclosure.md",
     "docs/vcp-cards.md",
-    "docs/vcp-mappings.md"
+    "docs/vcp-mappings.md",
+    "docs/project-memory.md",
+    "docs/agent-instructions.md",
+    "docs/run-state.md",
+    "docs/audit-backlog.md"
   ]
 }

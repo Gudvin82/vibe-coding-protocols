@@ -1,0 +1,12 @@
+{
+  "title": "VCP Project Memory",
+  "type": "object",
+  "required": [
+    "version",
+    "project",
+    "decisions",
+    "risks",
+    "blockers",
+    "proof_history"
+  ]
+}

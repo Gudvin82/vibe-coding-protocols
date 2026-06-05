@@ -1,0 +1,68 @@
+{
+  "id": "vcp-memory-init",
+  "type": "command",
+  "name": "Memory Init",
+  "summary": "Copy the local project-memory example into an explicit target path without hidden background state.",
+  "use_when": [
+    "a project wants a local file-based memory baseline"
+  ],
+  "do_not_use_when": [
+    "personal memory or autonomous notifications are expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "governance drift"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/memory_cmd.py"
+  ],
+  "related_files": [
+    "docs/project-memory.md",
+    "docs/decision-log.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli memory init --target ./.vcp/project-memory.json --json"
+  ],
+  "outputs": [
+    "local project memory file"
+  ],
+  "stop_conditions": [
+    "do not overwrite without explicit target change"
+  ],
+  "validation": [
+    "python3 -m vcp_cli memory validate .vcp/project-memory.example.json --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "local",
+    "governance"
+  ]
+}

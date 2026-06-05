@@ -1,21 +1,21 @@
 # Metrics Board
 
-The metrics board is a conservative local summary surface.
+The metrics board is a local summary of repository counts and readiness signals.
 
-Use:
+## Command
 
 ```bash
 python3 -m vcp_cli metrics board --json
 ```
 
-Current local signals include:
-- card count;
-- benchmark scenario count;
+## Signals
+
+- number of cards;
+- number of benchmark scenarios;
 - report template count;
 - command count;
-- release-readiness status;
-- audit backlog counts;
+- release readiness;
+- audit backlog summary;
 - integration status counts.
 
-These metrics are useful for demos, local review, and repository inspection.
-They are not objective truth and not a production readiness guarantee.
+It is not objective truth and not a launch guarantee.

@@ -1,0 +1,15 @@
+{
+  "id": "audit-backlog-dedup-staleness",
+  "profile": "maintenance",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/audit-backlog-dedup-staleness.json",
+  "expected_route": "project-backlog-workflow",
+  "expected_pack": "backlog",
+  "required_inspected_files": [
+    "docs/audit-backlog.md",
+    ".vcp/audit-backlog.example.json"
+  ],
+  "expected_warnings": [
+    "stale findings should not be presented as fresh blockers"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

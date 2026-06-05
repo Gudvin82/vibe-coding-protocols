@@ -29,3 +29,7 @@ It does not:
 - contact a registry.
 
 This keeps the feature in scaffold territory instead of turning it into a hidden execution engine.
+
+## Fail-closed reminder
+
+Plugin metadata is scaffold-only in `v0.8.3`. No auto-execution, remote registry, or marketplace behavior is shipped. Write-capable or network-capable plugins must stay opt-in and human-reviewed.

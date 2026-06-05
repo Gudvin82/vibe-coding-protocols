@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli workflow plan --id production-hardening --json"
   ],
-  "version": "v0.8.2",
+  "version": "v0.8.3",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

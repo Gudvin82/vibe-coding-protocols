@@ -2,7 +2,7 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.2`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.3`.
 
 ## Core positioning
 
@@ -10,7 +10,7 @@ VCP is both:
 - a foundation for new AI-assisted products;
 - a control layer for existing repositories, PR gates, release readiness, and safe adoption.
 
-## New in v0.8.2
+## New in v0.8.3
 
 External evaluators should now inspect the local-first integration and dashboard scaffolds too:
 - `python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json`

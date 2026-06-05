@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.8.3 -->
+
 <!-- vcp-version: v0.8.2 -->
 
 <!-- vcp-artifact: PRODUCTION_ERROR_CAPTURE_REPORT -->

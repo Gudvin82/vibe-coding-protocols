@@ -120,6 +120,7 @@ def backlog_path(root: Path | None = None) -> Path:
 
 
 TEMPLATE_PATH = Path("templates/PROJECT_BACKLOG.md")
+AUDIT_BACKLOG_EXAMPLE_PATH = Path(".vcp/audit-backlog.example.json")
 
 
 def backups_dir(root: Path) -> Path:
@@ -156,7 +157,7 @@ def _section_heading(status: str) -> str:
 def _build_preamble() -> list[str]:
     return [
         "<!-- vcp-artifact: PROJECT_BACKLOG -->",
-        "<!-- vcp-version: v0.6.0 -->",
+        "<!-- vcp-version: v0.8.3 -->",
         "<!-- methodology-version: v1.4 -->",
         "",
         "# Project Backlog",
@@ -333,7 +334,49 @@ def validate_document(doc: BacklogDocument) -> list[str]:
     return errors
 
 
-def validate(json_mode: bool = False, root: Path | None = None) -> int:
+def _validate_audit_backlog_json(path: Path) -> dict[str, Any]:
+    import json
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    errors: list[str] = []
+    if not isinstance(data, dict):
+        errors.append("Audit backlog payload must be a JSON object.")
+    items = data.get("items", [])
+    if not isinstance(items, list):
+        errors.append("items must be a list")
+        items = []
+    fingerprints: set[str] = set()
+    allowed_status = {"active", "resolved", "stale", "superseded", "accepted-risk"}
+    for idx, item in enumerate(items):
+        if not isinstance(item, dict):
+            errors.append(f"items[{idx}] must be an object")
+            continue
+        for field in ["id", "fingerprint", "title", "source", "severity", "status", "first_seen", "last_seen"]:
+            if field not in item:
+                errors.append(f"items[{idx}] missing field: {field}")
+        fingerprint = item.get("fingerprint")
+        if fingerprint in fingerprints:
+            errors.append(f"duplicate fingerprint: {fingerprint}")
+        if fingerprint:
+            fingerprints.add(fingerprint)
+        if item.get("status") not in allowed_status:
+            errors.append(f"items[{idx}] invalid status: {item.get('status')}")
+    return {
+        "ok": not errors,
+        "path": str(path),
+        "errors": errors,
+        "count": len(items),
+    }
+
+
+def validate(json_mode: bool = False, root: Path | None = None, path: str | None = None) -> int:
+    if path:
+        target = Path(path)
+        if not target.is_absolute():
+            target = (Path.cwd() / target).resolve()
+        payload = _validate_audit_backlog_json(target)
+        print_output(payload, json_mode)
+        return 0 if payload["ok"] else 1
     base = repo_root(root)
     path = backlog_path(base)
     errors: list[str] = []
@@ -356,6 +399,35 @@ def validate(json_mode: bool = False, root: Path | None = None) -> int:
     }
     print_output(payload, json_mode)
     return 0 if not errors else 1
+
+
+def summarize(path: str | None = None, json_mode: bool = False, root: Path | None = None) -> int:
+    base = repo_root(root)
+    target = Path(path).resolve() if path else (base / AUDIT_BACKLOG_EXAMPLE_PATH)
+    if not target.exists():
+        payload = {"ok": False, "error": f"Audit backlog file not found: {target}"}
+        print_output(payload, json_mode)
+        return 1
+    import json
+
+    data = json.loads(target.read_text(encoding="utf-8"))
+    items = data.get("items", [])
+    status_counts: dict[str, int] = {}
+    severity_counts: dict[str, int] = {}
+    for item in items:
+        status = item.get("status", "unknown")
+        severity = item.get("severity", "unknown")
+        status_counts[status] = status_counts.get(status, 0) + 1
+        severity_counts[severity] = severity_counts.get(severity, 0) + 1
+    payload = {
+        "ok": True,
+        "path": str(target),
+        "count": len(items),
+        "status_counts": status_counts,
+        "severity_counts": severity_counts,
+    }
+    print_output(payload, json_mode)
+    return 0
 
 
 def template(root: Path | None = None) -> int:

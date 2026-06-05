@@ -7,22 +7,30 @@ Build with AI. Choose the right track. Adopt safely. Ship with control.
 Vibe Coding Protocols — это практический локальный toolkit для AI-assisted delivery.
 Он помогает выбрать правильный трек, безопасно внедрять нужные слои и выпускать изменения с видимым review и release control.
 
-> Текущий пакет репозитория: `v0.8.2`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.2`.
+> Текущий пакет репозитория: `v0.8.3`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.3`.
 
-Repository package: `v0.8.2`
+Repository package: `v0.8.3`
 
-## Новое в v0.8.2: integration scaffold, local dashboard artifacts и plugin architecture prep
+## Новое в v0.8.3
 
-`v0.8.2` добавляет local-first integration scaffolding:
+`v0.8.3` добавляет следующий control layer VCP:
 
-- integration status model;
-- local dashboard/report artifact path;
-- plugin contract draft и safety boundary;
-- metrics и audit-backlog visualization docs;
-- более честную install reliability guidance.
+- spec-driven adoption track;
+- integrations list command;
+- contracts-first AI-MVP demo;
+- project memory и decision log;
+- fail-closed safety boundary;
+- generated agent instruction templates;
+- SaaS AI-MVP hardening pack;
+- starter control layer;
+- run state и checkpoint model;
+- audit backlog dedup и staleness;
+- batch evaluation mode;
+- docs-site scaffold;
+- agent behavior quality gate.
 
-При этом релиз не поставляет hosted dashboard, VS Code extension, plugin marketplace, PyPI publication, npm publication или Go rewrite.
+Релиз не поставляет hosted dashboard, plugin marketplace, VS Code extension, Go rewrite, public PyPI/npm publication, telemetry, cloud sync, personal assistant memory или autonomous notifications.
 
 ## Старт за 10 минут
 
@@ -184,6 +192,22 @@ vcp evaluate
 
 Используйте workflow example в `ci-examples/github-actions/vcp-pr-gate.yml`.
 
+
+## Agent control и project memory
+
+Ключевые поверхности:
+- [docs/spec-driven-adoption.md](./docs/spec-driven-adoption.md)
+- [docs/project-memory.md](./docs/project-memory.md)
+- [docs/decision-log.md](./docs/decision-log.md)
+- [docs/safety/fail-closed.md](./docs/safety/fail-closed.md)
+- [docs/agent-instructions.md](./docs/agent-instructions.md)
+- [docs/agent-behavior-gate.md](./docs/agent-behavior-gate.md)
+- [docs/starter-control-layer.md](./docs/starter-control-layer.md)
+- [docs/run-state.md](./docs/run-state.md)
+- [docs/audit-backlog.md](./docs/audit-backlog.md)
+- [docs/batch-evaluation.md](./docs/batch-evaluation.md)
+- [docs/docs-site.md](./docs/docs-site.md)
+
 ## Proof layer
 
 Используй вместе:
@@ -210,4 +234,4 @@ Roadmap-only и not-shipped surfaces по-прежнему лежат в:
 
 ## Release notes
 
-- [docs/release-v0.8.2.md](./docs/release-v0.8.2.md)
+- [docs/release-v0.8.3.md](./docs/release-v0.8.3.md)

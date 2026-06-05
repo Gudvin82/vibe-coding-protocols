@@ -1,16 +1,7 @@
 # Audit Backlog Visualization
 
-`v0.8.2` keeps backlog visualization local.
-It does not introduce a hosted board.
+Dashboard and metrics surfaces can summarize audit backlog status locally.
 
-Current local path:
-- `python3 -m vcp_cli metrics board --json`
-- `python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json`
+Use [docs/audit-backlog.md](./audit-backlog.md) and `.vcp/audit-backlog.example.json` to model deduplication and staleness.
 
-The dashboard artifact and metrics board summarize:
-- backlog totals;
-- status counts;
-- priority counts when available;
-- release-readiness context.
-
-This is intended for inspection and review, not for workflow automation guarantees.
+No hosted board or cloud sync is shipped.

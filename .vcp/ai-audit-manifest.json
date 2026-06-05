@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.2",
+  "version": "v0.8.3",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {
@@ -42,7 +42,13 @@
     "docs/dashboard.md",
     "docs/plugins/README.md",
     "docs/metrics-board.md",
-    "docs/audit-backlog-visualization.md"
+    "docs/audit-backlog-visualization.md",
+    "docs/spec-driven-adoption.md",
+    ".vcp/project-memory.example.json",
+    "docs/safety/fail-closed.md",
+    "templates/agents/CODEX.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
+    "docs/batch-evaluation.md"
   ],
   "minimum_raw_files": [
     "README.md",
@@ -69,6 +75,9 @@
     "Do not assess CLI maturity unless vcp_cli or CLI docs were inspected.",
     "Do not assess benchmark coverage unless benchmarks/manifests were inspected.",
     "Do not call the dashboard hosted or SaaS unless a hosted implementation exists.",
-    "Do not call the plugin scaffold a marketplace or stable official plugin API."
+    "Do not call the plugin scaffold a marketplace or stable official plugin API.",
+    "Do not call project memory personal assistant memory or autonomous memory.",
+    "Do not call docs-site scaffold a hosted docs platform.",
+    "Do not call starter control layer an app starter or SaaS starter."
   ]
 }

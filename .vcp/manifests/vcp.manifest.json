@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.8.2",
+  "package_version": "v0.8.3",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.2.md",
+    "docs/release-v0.8.3.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -69,7 +69,22 @@
     "docs/dashboard.md",
     "docs/plugins/README.md",
     "docs/metrics-board.md",
-    "docs/audit-backlog-visualization.md"
+    "docs/audit-backlog-visualization.md",
+    "docs/spec-driven-adoption.md",
+    "docs/pr-gate-approval-model.md",
+    "docs/project-memory.md",
+    "docs/decision-log.md",
+    "docs/safety/fail-closed.md",
+    "docs/agent-instructions.md",
+    "docs/agent-behavior-gate.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
+    "docs/starter-control-layer.md",
+    "docs/run-state.md",
+    "docs/audit-backlog.md",
+    "docs/batch-evaluation.md",
+    "docs/docs-site.md",
+    "docs/demos/contracts-first-ai-mvp.md",
+    "docs/project-map.md"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -125,7 +140,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.2.md",
+    "docs/release-v0.8.3.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
@@ -152,7 +167,22 @@
     "docs/plugins/plugin-contract-draft.md",
     "docs/plugins/plugin-safety.md",
     "docs/metrics-board.md",
-    "docs/audit-backlog-visualization.md"
+    "docs/audit-backlog-visualization.md",
+    "docs/spec-driven-adoption.md",
+    "docs/pr-gate-approval-model.md",
+    "docs/project-memory.md",
+    "docs/decision-log.md",
+    "docs/safety/fail-closed.md",
+    "docs/agent-instructions.md",
+    "docs/agent-behavior-gate.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
+    "docs/starter-control-layer.md",
+    "docs/run-state.md",
+    "docs/audit-backlog.md",
+    "docs/batch-evaluation.md",
+    "docs/docs-site.md",
+    "docs/demos/contracts-first-ai-mvp.md",
+    "docs/project-map.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -206,7 +236,15 @@
     "workflow run",
     "dashboard",
     "plugins",
-    "metrics"
+    "metrics",
+    "integrations",
+    "memory",
+    "runs",
+    "agents",
+    "agent-behavior",
+    "safety",
+    "pr-gate",
+    "batch"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",
@@ -235,7 +273,16 @@
     "tests/test_dashboard_cmd.py",
     "tests/test_plugins_cmd.py",
     "tests/test_metrics_board.py",
-    "tests/test_integrations_registry.py"
+    "tests/test_integrations_registry.py",
+    "python3 -m vcp_cli integrations list --json",
+    "python3 -m vcp_cli memory validate .vcp/project-memory.example.json --json",
+    "python3 -m vcp_cli runs validate .vcp/runs/example-run-state.json --json",
+    "python3 -m vcp_cli safety check --json",
+    "python3 -m vcp_cli pr-gate explain --json",
+    "python3 -m vcp_cli batch evaluate --targets /tmp/vcp-targets.txt --json",
+    "python3 -m vcp_cli agents template --agent codex --json",
+    "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json",
+    "python3 -m vcp_cli backlog summarize .vcp/audit-backlog.example.json --json"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

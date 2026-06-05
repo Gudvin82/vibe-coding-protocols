@@ -1,0 +1,9 @@
+{
+  "version": "v0.8.3",
+  "items": [
+    {
+      "id": "python-cli",
+      "status": "shipped"
+    }
+  ]
+}

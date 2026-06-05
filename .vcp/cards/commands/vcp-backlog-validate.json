@@ -1,0 +1,66 @@
+{
+  "id": "vcp-backlog-validate",
+  "type": "command",
+  "name": "Backlog Validate",
+  "summary": "Validate the audit backlog example or target file against the dedup/staleness model.",
+  "use_when": [
+    "audit backlog structure needs a deterministic check"
+  ],
+  "do_not_use_when": [
+    "backlog mutation is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "review"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "schema drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "auditability"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/backlog.py"
+  ],
+  "related_files": [
+    "docs/audit-backlog.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json"
+  ],
+  "outputs": [
+    "audit backlog validation result"
+  ],
+  "stop_conditions": [
+    "validation is local and deterministic"
+  ],
+  "validation": [
+    "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "local",
+    "audit"
+  ]
+}

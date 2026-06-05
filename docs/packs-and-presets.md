@@ -1,9 +1,15 @@
 # Packs and Presets
 
-Adoption Packs answer: which files should I bring into the project?
-Presets answer: which defaults fit this kind of project?
+VCP packs and presets help you choose the minimum control layer that matches the project state.
 
-Packs stay scoped to files and workflow slices.
-Presets stay scoped to defaults, gates, and recommended routes.
+## Copyable starter control layer
 
-This release keeps presets non-destructive and guidance-only.
+Use `templates/starter-control-layer/` when you want a lightweight folder to copy into a target repository.
+
+## Spec-driven adoption
+
+Use `docs/spec-driven-adoption.md` when the project needs a visible bridge from spec to adoption and release control.
+
+## SaaS AI-MVP hardening
+
+Use `python3 -m vcp_cli adopt plan --pack saas-ai-mvp-hardening --json` when the project is an AI-generated SaaS MVP that needs auth, billing, contracts, and release control made explicit.

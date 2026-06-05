@@ -1,6 +1,19 @@
 {
   "items": [
     {
+      "id": "adoption-case-study",
+      "file": "templates/reports/adoption-case-study.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Case label",
+        "Initial state",
+        "Route decision",
+        "Risks surfaced",
+        "Validation evidence",
+        "Limitations and unknowns"
+      ]
+    },
+    {
       "id": "adoption-tier-report",
       "file": "templates/reports/adoption-tier-report.md",
       "intended_route": "intake",
@@ -106,6 +119,22 @@
         "Grouped incidents",
         "Backlog updates",
         "Escalations or stop conditions"
+      ]
+    },
+    {
+      "id": "decision-log",
+      "file": "templates/reports/decision-log.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Date",
+        "Decision",
+        "Alternatives considered",
+        "Reason",
+        "Risk",
+        "Owner",
+        "Status",
+        "Follow-up",
+        "Evidence / proof"
       ]
     },
     {
@@ -453,19 +482,6 @@
         "Scores",
         "Confidence",
         "Evaluation completeness"
-      ]
-    },
-    {
-      "id": "adoption-case-study",
-      "file": "templates/reports/adoption-case-study.md",
-      "intended_route": "proof",
-      "required_sections": [
-        "Case label",
-        "Initial state",
-        "Route decision",
-        "Risks surfaced",
-        "Validation evidence",
-        "Limitations and unknowns"
       ]
     }
   ],

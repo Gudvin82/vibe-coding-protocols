@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.8.3
+
+- Added agent control, project memory, spec adoption, and starter pack scaffolds.
+- Added integrations list command, batch evaluation, PR Gate approval model, and fail-closed safety guidance.
+- Added starter control layer, docs-site scaffold, project memory examples, run state examples, and SaaS AI-MVP hardening pack.
+
 ## v0.8.2
 
 - added a precise integration status model and machine-readable `.vcp/integrations.json`;

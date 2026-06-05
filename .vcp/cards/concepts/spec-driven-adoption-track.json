@@ -1,0 +1,63 @@
+{
+  "id": "spec-driven-adoption-track",
+  "type": "concept",
+  "name": "Spec-driven Adoption Track",
+  "summary": "Spec-guided VCP adoption flow from idea or feature scope into adoption plan, PR Gate, and release control.",
+  "use_when": [
+    "the control surface must stay explicit and honest"
+  ],
+  "do_not_use_when": [
+    "vague claims are acceptable"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "idea"
+    ],
+    "ai_failure_modes": [
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/spec-driven-adoption.md"
+  ],
+  "related_files": [
+    "docs/spec-foundation.md",
+    "docs/pr-gate-approval-model.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented control surface"
+  ],
+  "stop_conditions": [
+    "do not claim hosted or autonomous behavior unless implemented"
+  ],
+  "validation": [
+    "python3 -m vcp_cli evaluate --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "control"
+  ]
+}

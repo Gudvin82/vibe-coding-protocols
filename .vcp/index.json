@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.8.2",
+  "version": "v0.8.3",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.2.md",
+    "docs/release-v0.8.3.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -49,13 +49,15 @@
     "docs/demos/raw-ai-mvp-to-controlled-launch.md",
     "docs/proof-layer.md",
     "docs/roadmap/integrations.md",
-    "docs/release-v0.8.2.md",
     ".vcp/integrations.json",
     "docs/integrations/status-model.md",
     "docs/dashboard.md",
     "docs/plugins/README.md",
     "docs/metrics-board.md",
-    "docs/audit-backlog-visualization.md"
+    "docs/audit-backlog-visualization.md",
+    ".vcp/project-memory.example.json",
+    ".vcp/audit-backlog.example.json",
+    ".vcp/runs/example-run-state.json"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -109,7 +111,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.2.md",
+    "docs/release-v0.8.3.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -131,14 +133,28 @@
     "docs/demos/raw-ai-mvp-to-controlled-launch.md",
     "docs/proof-layer.md",
     "docs/roadmap/integrations.md",
-    "docs/release-v0.8.2.md",
     "docs/integrations/status-model.md",
     "docs/dashboard.md",
     "docs/plugins/README.md",
     "docs/plugins/plugin-contract-draft.md",
     "docs/plugins/plugin-safety.md",
     "docs/metrics-board.md",
-    "docs/audit-backlog-visualization.md"
+    "docs/audit-backlog-visualization.md",
+    "docs/spec-driven-adoption.md",
+    "docs/pr-gate-approval-model.md",
+    "docs/project-memory.md",
+    "docs/decision-log.md",
+    "docs/safety/fail-closed.md",
+    "docs/agent-instructions.md",
+    "docs/agent-behavior-gate.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
+    "docs/starter-control-layer.md",
+    "docs/run-state.md",
+    "docs/audit-backlog.md",
+    "docs/batch-evaluation.md",
+    "docs/docs-site.md",
+    "docs/demos/contracts-first-ai-mvp.md",
+    "docs/project-map.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -168,7 +184,8 @@
     "spec-first",
     "third-party-api",
     "ui-ownership",
-    "brownfield-rescue"
+    "brownfield-rescue",
+    "saas-ai-mvp-hardening"
   ],
   "commands": [
     "score-badge",
@@ -199,7 +216,26 @@
     "vcp-dashboard-build",
     "vcp-plugins-list",
     "vcp-plugins-validate",
-    "vcp-metrics-board"
+    "vcp-metrics-board",
+    "vcp-integrations-list",
+    "vcp-pr-gate-explain",
+    "vcp-safety-check",
+    "vcp-agent-behavior-check",
+    "vcp-batch-evaluate",
+    "integrations-list",
+    "memory-init",
+    "memory-show",
+    "memory-validate",
+    "agents-template",
+    "runs-list",
+    "runs-show",
+    "runs-validate",
+    "backlog-summarize",
+    "backlog-validate",
+    "pr-gate-explain",
+    "safety-check",
+    "agent-behavior-check",
+    "batch-evaluate"
   ],
   "reports": [
     "adoption-tier-report",
@@ -299,7 +335,21 @@
     "plugin-safety-boundary",
     "metrics-board",
     "audit-backlog-visualization",
-    "install-reliability"
+    "install-reliability",
+    "spec-driven-adoption-track",
+    "contracts-first-ai-mvp-demo",
+    "project-memory",
+    "decision-log",
+    "fail-closed-safety-boundary",
+    "agent-instruction-templates",
+    "agent-behavior-quality-gate",
+    "saas-ai-mvp-hardening",
+    "starter-control-layer",
+    "run-state-checkpoint-model",
+    "audit-backlog-dedup-staleness",
+    "batch-evaluation",
+    "docs-site-scaffold",
+    "pr-gate-approval-model"
   ],
   "benchmarks_list": [
     "adoption-tiers",
@@ -378,7 +428,21 @@
     "raw-ai-mvp-to-controlled-launch",
     "product-narrative-sync",
     "proof-layer-honesty",
-    "integration-roadmap-no-overclaim"
+    "integration-roadmap-no-overclaim",
+    "spec-driven-adoption-track",
+    "contracts-first-ai-mvp",
+    "project-memory-decision-log",
+    "fail-closed-safety-boundary",
+    "agent-instruction-templates",
+    "agent-behavior-quality-gate",
+    "saas-ai-mvp-hardening",
+    "starter-control-layer",
+    "run-state-checkpoint-model",
+    "audit-backlog-dedup-staleness",
+    "batch-evaluation",
+    "docs-site-scaffold",
+    "pr-gate-approval-model",
+    "integrations-list-command"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -470,12 +534,12 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.2. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.3. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.8.2",
+  "repository_package_version": "v0.8.3",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.2. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.3. Do not present v1.4 as the current repository release."
   }
 }

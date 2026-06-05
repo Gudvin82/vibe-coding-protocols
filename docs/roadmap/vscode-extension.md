@@ -19,3 +19,7 @@ Status: roadmap, not shipped.
 - no Marketplace listing is claimed;
 - no extension package is published;
 - no install instructions should be presented as current availability.
+
+## v0.8.3 boundary
+
+No VS Code extension is shipped in `v0.8.3`. This remains roadmap-only.

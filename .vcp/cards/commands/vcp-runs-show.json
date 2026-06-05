@@ -1,0 +1,66 @@
+{
+  "id": "vcp-runs-show",
+  "type": "command",
+  "name": "Runs Show",
+  "summary": "Show a local run-state record by run id.",
+  "use_when": [
+    "a specific evaluation run needs to be inspected"
+  ],
+  "do_not_use_when": [
+    "background process execution is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "lost state"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "auditability"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/runs_cmd.py"
+  ],
+  "related_files": [
+    "docs/run-state.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli runs show example-run-001 --json"
+  ],
+  "outputs": [
+    "run state details"
+  ],
+  "stop_conditions": [
+    "local example data must exist or the command fails closed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli runs show example-run-001 --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "local",
+    "audit"
+  ]
+}

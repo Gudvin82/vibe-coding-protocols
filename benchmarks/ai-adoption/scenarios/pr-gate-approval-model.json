@@ -1,0 +1,14 @@
+{
+  "id": "pr-gate-approval-model",
+  "profile": "production",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/pr-gate-approval-model.json",
+  "expected_route": null,
+  "expected_pack": "post-task-review",
+  "required_inspected_files": [
+    "docs/pr-gate-approval-model.md"
+  ],
+  "expected_warnings": [
+    "pass/warn/block states still require human interpretation"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

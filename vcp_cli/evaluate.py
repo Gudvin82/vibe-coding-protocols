@@ -71,11 +71,26 @@ KEY_FILES = [
     "docs/workflows.md",
     "docs/integrations/status-model.md",
     "docs/dashboard.md",
+    "docs/project-map.md",
     "docs/plugins/README.md",
     "docs/plugins/plugin-contract-draft.md",
     "docs/plugins/plugin-safety.md",
     "docs/metrics-board.md",
     "docs/audit-backlog-visualization.md",
+    "docs/spec-driven-adoption.md",
+    "docs/pr-gate-approval-model.md",
+    "docs/project-memory.md",
+    "docs/decision-log.md",
+    "docs/safety/fail-closed.md",
+    "docs/agent-instructions.md",
+    "docs/agent-behavior-gate.md",
+    "docs/starter-control-layer.md",
+    "docs/run-state.md",
+    "docs/audit-backlog.md",
+    "docs/batch-evaluation.md",
+    "docs/docs-site.md",
+    "docs/demos/contracts-first-ai-mvp.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
     "docs/diagnostics.md",
     "docs/catalog.md",
     "docs/event-schema.md",
@@ -113,6 +128,14 @@ CLI_COMMANDS = [
     "dashboard",
     "plugins",
     "metrics",
+    "integrations",
+    "memory",
+    "runs",
+    "agents",
+    "agent-behavior",
+    "safety",
+    "pr-gate",
+    "batch",
 ]
 
 PROMPT_PATH = "templates/prompts/evaluate-vcp-repository.md"
@@ -129,9 +152,11 @@ INSPECTION_PATH = [
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/project-memory-model.md",
+    "docs/project-memory.md",
     "docs/principles.md",
     ".vcp/index.json",
     ".vcp/integrations.json",
+    ".vcp/project-memory.example.json",
     ".vcp/cards/",
 ]
 
@@ -140,6 +165,7 @@ FULL_EVALUATION_REQUIRES = [
     ".vcp/ai-audit-manifest.json",
     ".vcp/index.json",
     ".vcp/integrations.json",
+    ".vcp/project-memory.example.json",
     ".vcp/cards/",
     "vcp_cli/",
     "templates/",
@@ -158,8 +184,8 @@ def _benchmark_count(root: Path) -> int:
     return len(benchmarks_manifest.get("items", []))
 
 
-def evaluate_payload() -> dict[str, object]:
-    root = repo_root()
+def evaluate_payload(root: Path | None = None) -> dict[str, object]:
+    root = repo_root(root)
     manifests = manifest_paths(root)
     protocols_manifest = load_json(manifests["protocols"])
     commands_manifest = load_json(manifests["commands"])
@@ -303,9 +329,38 @@ def evaluate_payload() -> dict[str, object]:
         "dashboard_command_present": runtime_path_exists(root, "vcp_cli/dashboard_cmd.py"),
         "plugins_command_present": runtime_path_exists(root, "vcp_cli/plugins_cmd.py"),
         "metrics_board_present": runtime_path_exists(root, "vcp_cli/metrics_cmd.py"),
+        "integrations_command_present": runtime_path_exists(root, "vcp_cli/integrations_cmd.py"),
+        "memory_command_present": runtime_path_exists(root, "vcp_cli/memory_cmd.py"),
+        "runs_command_present": runtime_path_exists(root, "vcp_cli/runs_cmd.py"),
+        "agents_template_command_present": runtime_path_exists(root, "vcp_cli/agent_templates_cmd.py"),
+        "agent_behavior_command_present": runtime_path_exists(root, "vcp_cli/agent_behavior_cmd.py"),
+        "safety_check_command_present": runtime_path_exists(root, "vcp_cli/safety_cmd.py"),
+        "pr_gate_explain_command_present": runtime_path_exists(root, "vcp_cli/pr_gate_cmd.py"),
+        "batch_command_present": runtime_path_exists(root, "vcp_cli/batch_cmd.py"),
         "integration_status_model_present": (root / "docs/integrations/status-model.md").exists(),
         "integration_registry_present": runtime_path_exists(root, ".vcp/integrations.json"),
         "dashboard_doc_present": (root / "docs/dashboard.md").exists(),
+        "spec_driven_adoption_present": (root / "docs/spec-driven-adoption.md").exists(),
+        "project_memory_present": (root / "docs/project-memory.md").exists() and runtime_path_exists(root, ".vcp/project-memory.example.json"),
+        "decision_log_present": (root / "docs/decision-log.md").exists() and runtime_path_exists(root, "templates/reports/decision-log.md"),
+        "fail_closed_safety_present": (root / "docs/safety/fail-closed.md").exists(),
+        "agent_instruction_templates_present": all(
+            runtime_path_exists(root, rel)
+            for rel in [
+                "templates/agents/CLAUDE.md",
+                "templates/agents/CODEX.md",
+                "templates/agents/CURSOR_RULES.md",
+                "templates/agents/AGENTS.md",
+            ]
+        ),
+        "agent_behavior_gate_present": (root / "docs/agent-behavior-gate.md").exists(),
+        "starter_control_layer_present": (root / "templates/starter-control-layer/README.md").exists(),
+        "run_state_present": (root / "docs/run-state.md").exists() and runtime_path_exists(root, ".vcp/runs/example-run-state.json"),
+        "audit_backlog_model_present": (root / "docs/audit-backlog.md").exists() and runtime_path_exists(root, ".vcp/audit-backlog.example.json"),
+        "batch_evaluation_present": (root / "docs/batch-evaluation.md").exists(),
+        "docs_site_scaffold_present": (root / "docs/docs-site.md").exists() and (root / "docs-site/README.md").exists(),
+        "contracts_first_demo_present": (root / "docs/demos/contracts-first-ai-mvp.md").exists(),
+        "saas_ai_mvp_pack_present": (root / "docs/adoption-packs/saas-ai-mvp-hardening.md").exists(),
         "plugin_docs_present": all(
             (root / rel).exists()
             for rel in [
@@ -408,9 +463,30 @@ def run(json_mode: bool = False, print_prompt: bool = False) -> int:
     print(f"Dashboard command present: {'yes' if payload['dashboard_command_present'] else 'no'}")
     print(f"Plugins command present: {'yes' if payload['plugins_command_present'] else 'no'}")
     print(f"Metrics board present: {'yes' if payload['metrics_board_present'] else 'no'}")
+    print(f"Integrations command present: {'yes' if payload['integrations_command_present'] else 'no'}")
+    print(f"Memory command present: {'yes' if payload['memory_command_present'] else 'no'}")
+    print(f"Runs command present: {'yes' if payload['runs_command_present'] else 'no'}")
+    print(f"Agents template command present: {'yes' if payload['agents_template_command_present'] else 'no'}")
+    print(f"Agent behavior command present: {'yes' if payload['agent_behavior_command_present'] else 'no'}")
+    print(f"Safety check command present: {'yes' if payload['safety_check_command_present'] else 'no'}")
+    print(f"PR Gate explain command present: {'yes' if payload['pr_gate_explain_command_present'] else 'no'}")
+    print(f"Batch command present: {'yes' if payload['batch_command_present'] else 'no'}")
     print(f"Integration status model present: {'yes' if payload['integration_status_model_present'] else 'no'}")
     print(f"Integration registry present: {'yes' if payload['integration_registry_present'] else 'no'}")
     print(f"Dashboard doc present: {'yes' if payload['dashboard_doc_present'] else 'no'}")
+    print(f"Spec-driven adoption present: {'yes' if payload['spec_driven_adoption_present'] else 'no'}")
+    print(f"Project memory present: {'yes' if payload['project_memory_present'] else 'no'}")
+    print(f"Decision log present: {'yes' if payload['decision_log_present'] else 'no'}")
+    print(f"Fail-closed safety present: {'yes' if payload['fail_closed_safety_present'] else 'no'}")
+    print(f"Agent instruction templates present: {'yes' if payload['agent_instruction_templates_present'] else 'no'}")
+    print(f"Agent behavior gate present: {'yes' if payload['agent_behavior_gate_present'] else 'no'}")
+    print(f"Starter control layer present: {'yes' if payload['starter_control_layer_present'] else 'no'}")
+    print(f"Run state present: {'yes' if payload['run_state_present'] else 'no'}")
+    print(f"Audit backlog model present: {'yes' if payload['audit_backlog_model_present'] else 'no'}")
+    print(f"Batch evaluation present: {'yes' if payload['batch_evaluation_present'] else 'no'}")
+    print(f"Docs-site scaffold present: {'yes' if payload['docs_site_scaffold_present'] else 'no'}")
+    print(f"Contracts-first demo present: {'yes' if payload['contracts_first_demo_present'] else 'no'}")
+    print(f"SaaS AI MVP pack present: {'yes' if payload['saas_ai_mvp_pack_present'] else 'no'}")
     print(f"Plugin docs present: {'yes' if payload['plugin_docs_present'] else 'no'}")
     print(f"Two-track model present: {'yes' if payload['two_track_model_present'] else 'no'}")
     print(f"Spec foundation present: {'yes' if payload['spec_foundation_present'] else 'no'}")

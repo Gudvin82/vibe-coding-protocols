@@ -1,0 +1,65 @@
+{
+  "id": "vcp-safety-check",
+  "type": "command",
+  "name": "Safety Check",
+  "summary": "Summarize the fail-closed default policy for local VCP surfaces.",
+  "use_when": [
+    "a local control/report command is needed"
+  ],
+  "do_not_use_when": [
+    "a hosted or remote service is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling clarity"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/safety_cmd.py"
+  ],
+  "related_files": [
+    "docs/safety/fail-closed.md",
+    "docs/plugins/plugin-safety.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli safety check --json"
+  ],
+  "outputs": [
+    "local safety summary"
+  ],
+  "stop_conditions": [
+    "heuristic local summary only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli safety check --json"
+  ],
+  "version": "v0.8.3",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "local"
+  ]
+}

@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.8.3 -->
+
 <!-- vcp-version: v0.8.2 -->
 <!-- methodology-version: v1.4 -->
 # Evaluate SEO/GEO/AI Structure

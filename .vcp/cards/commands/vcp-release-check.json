@@ -48,7 +48,7 @@
   "validation": [
     "python3 -m vcp_cli release-check --json"
   ],
-  "version": "v0.8.2",
+  "version": "v0.8.3",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [
