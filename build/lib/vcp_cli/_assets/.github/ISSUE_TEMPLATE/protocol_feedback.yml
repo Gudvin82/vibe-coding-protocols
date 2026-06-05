@@ -1,0 +1,42 @@
+name: Protocol feedback
+description: Share feedback after using the toolkit.
+title: "[Feedback]: "
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, private runbooks, customer data or confidential architecture details.
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Which protocol or area did you use?
+      options:
+        - Hub / routing
+        - Lite path
+        - Starter
+        - Hardening
+        - Templates
+        - Agents / AI IDE setup
+        - Checklists
+    validations:
+      required: true
+  - type: input
+    id: ide
+    attributes:
+      label: AI IDE used
+      placeholder: Claude Code, Codex, Cursor, Windsurf, other
+  - type: input
+    id: stage
+    attributes:
+      label: Project stage
+      placeholder: idea, first slice, existing MVP, pre-production, production review
+  - type: textarea
+    id: worked
+    attributes:
+      label: What worked?
+    validations:
+      required: true
+  - type: textarea
+    id: confusing
+    attributes:
+      label: What was confusing or missing?

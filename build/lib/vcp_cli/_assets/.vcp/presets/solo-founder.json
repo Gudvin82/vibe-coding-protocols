@@ -1,0 +1,25 @@
+{
+  "id": "solo-founder",
+  "name": "Solo Founder",
+  "default_spec_depth": "spec-lite",
+  "recommended_routes": [
+    "spec-first-feature",
+    "project-backlog",
+    "post-task-code-review"
+  ],
+  "recommended_packs": [
+    "new-project",
+    "post-task-review"
+  ],
+  "required_gates": [
+    "validation",
+    "post-task-review"
+  ],
+  "public_growth_options": [
+    "lightweight"
+  ],
+  "risk_defaults": [
+    "avoid README-only delivery"
+  ],
+  "notes": "Keeps workflow lightweight while preserving validation and review."
+}

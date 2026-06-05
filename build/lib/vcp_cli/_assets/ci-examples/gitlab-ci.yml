@@ -1,0 +1,12 @@
+stages:
+  - checks
+
+vcp_checks:
+  stage: checks
+  image: python:3.12
+  before_script:
+    - apt-get update && apt-get install -y bash git ripgrep nodejs npm
+  script:
+    - bash scripts/vibe-check.sh --audit
+    - python3 scripts/validate-links.sh
+    - bash scripts/scan-placeholders.sh

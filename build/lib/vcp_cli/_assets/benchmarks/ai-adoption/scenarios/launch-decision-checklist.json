@@ -1,0 +1,18 @@
+{
+  "scenario_id": "launch-decision-checklist",
+  "target_profile": "existing-mvp",
+  "target_signals": [
+    "go/no-go question",
+    "human owner",
+    "known blockers"
+  ],
+  "required_files_to_inspect": [
+    "docs/launch-decision-checklist.md",
+    "templates/reports/launch-decision.md",
+    "docs/pr-gate-approval-model.md"
+  ],
+  "expected_first_safe_action": "Use the local checklist as a decision aid after route, proof, and PR Gate review.",
+  "expected_warnings": [
+    "do not present the checklist as production certification"
+  ]
+}

@@ -1,0 +1,304 @@
+name: vibe-check
+
+on:
+  push:
+  pull_request:
+
+env:
+  MAX_CHANGED_FILES: ${{ vars.MAX_CHANGED_FILES }}
+
+jobs:
+  vibe-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - name: Toolkit structure check
+        run: bash scripts/check-toolkit.sh
+
+      - name: Version consistency check
+        run: bash scripts/check-version-consistency.sh
+
+      - name: IDE rules consistency check
+        run: bash scripts/check-ide-rules-consistency.sh
+
+      - name: Newline check
+        run: python3 scripts/check-newlines.py
+
+      - name: Placeholder scan
+        run: bash scripts/scan-placeholders.sh
+
+      - name: Validate links
+        run: python3 scripts/validate-links.sh
+
+      - name: Public version surface check
+        run: python3 scripts/check-public-version-surfaces.py
+
+      - name: Vibe check audit JSON
+        run: bash scripts/vibe-check.sh --audit --json
+
+      - name: CLI help
+        run: python3 -m vcp_cli --help
+
+      - name: CLI version
+        run: python3 -m vcp_cli version
+
+      - name: CLI doctor
+        run: python3 -m vcp_cli doctor
+
+      - name: CLI fast check
+        run: python3 -m vcp_cli check --fast --json
+
+      - name: CLI init prompt
+        run: python3 -m vcp_cli init --print-prompt
+
+      - name: CLI route smoke
+        run: python3 -m vcp_cli route --profile production --json
+
+      - name: CLI third-party API route smoke
+        run: python3 -m vcp_cli route --profile third-party-api --json
+
+      - name: CLI public-growth route smoke
+        run: python3 -m vcp_cli route --profile public-growth --json
+
+      - name: CLI adopt smoke
+        run: python3 -m vcp_cli adopt --pack production --dry-run --json
+
+      - name: CLI third-party API adopt smoke
+        run: python3 -m vcp_cli adopt --pack third-party-api --dry-run --json
+
+      - name: CLI public-growth adopt smoke
+        run: python3 -m vcp_cli adopt --pack public-growth --dry-run --json
+
+      - name: CLI review smoke
+        run: python3 -m vcp_cli review plan --json
+
+      - name: CLI review-diff smoke
+        run: python3 -m vcp_cli review-diff --json
+
+      - name: CLI release-check smoke
+        run: python3 -m vcp_cli release-check --json
+
+      - name: CLI evaluate smoke
+        run: python3 -m vcp_cli evaluate --json
+
+      - name: CLI onboard smoke
+        run: python3 -m vcp_cli onboard --json
+
+      - name: CLI classify smoke
+        run: python3 -m vcp_cli classify --json
+
+      - name: CLI public growth smoke
+        run: python3 -m vcp_cli public-growth check --json
+
+      - name: CLI adopt plan smoke
+        run: python3 -m vcp_cli adopt plan --json
+
+      - name: CLI adopt apply dry-run smoke
+        run: |
+          target_dir="$(mktemp -d)"
+          python3 -m vcp_cli adopt apply --pack brownfield-rescue --target "$target_dir" --dry-run --json
+
+      - name: CLI workflow plan smoke
+        run: python3 -m vcp_cli workflow plan --id production-hardening --json
+
+      - name: CLI workflow run dry-run smoke
+        run: python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json
+
+      - name: CLI spec quality gate smoke
+        run: python3 -m vcp_cli spec quality-gate --json || true
+
+      - name: Manifest validation
+        run: python3 -m vcp_cli manifest validate
+
+      - name: Cards validation
+        run: python3 -m vcp_cli cards validate
+
+      - name: Index validation
+        run: python3 -m vcp_cli index validate
+
+      - name: Workflow validation
+        run: python3 -m vcp_cli workflow validate
+
+      - name: Benchmark validation
+        run: python3 -m vcp_cli benchmark run
+
+      - name: Score JSON
+        run: python3 -m vcp_cli score --json
+
+      - name: Score badge JSON
+        run: python3 -m vcp_cli score --badge json
+
+      - name: npm wrapper doctor
+        run: npm run vcp -- doctor
+
+      - name: npm wrapper route
+        run: npm run vcp -- route --profile production
+
+      - name: npm wrapper manifest validate
+        run: npm run vcp -- manifest validate
+
+      - name: npm wrapper evaluate
+        run: npm run vcp -- evaluate
+
+      - name: Todo app starter tests
+        run: npm test --prefix examples/todo-app-starter
+
+      - name: Job summary
+        run: |
+          echo "## VCP self-check" >> "$GITHUB_STEP_SUMMARY"
+          echo "- VERSION: $(cat VERSION)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Methodology: $(cat METHODOLOGY_VERSION)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- vibe-check: completed" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Diff size guardrail
+        if: github.event_name == 'pull_request'
+        run: |
+          MAX_CHANGED_FILES="${MAX_CHANGED_FILES:-15}"
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
+          if [ "$CHANGED" -le "$MAX_CHANGED_FILES" ]; then
+            exit 0
+          fi
+
+          NON_DOCS=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -Ev '^(docs/|commands/|checklists/|templates/|protocols/|prompts/|case-studies/|examples/.+/README\.md$|README.*\.md$|START_HERE\.md$|CHANGELOG\.md$|ANTI_PATTERNS\.md$|CONTRIBUTING\.md$)' || true)
+
+          if [ -z "$NON_DOCS" ]; then
+            echo "::warning::Docs-heavy PR changes $CHANGED files. Consider splitting it, but it will not fail."
+            exit 0
+          fi
+
+          echo "::error::PR changes $CHANGED files. Consider splitting into smaller PRs or raise repository variable MAX_CHANGED_FILES for planned larger changes."
+          exit 1
+
+  vibe-check-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+      - name: Script tests
+        run: |
+          python3 -m unittest discover -s tests
+          bash scripts/tests/test-vibe-check-basic.sh
+          bash scripts/tests/test-vcp-cli.sh
+          python3 scripts/tests/test-vcp-cli-windows-parity.py
+
+  windows-cli-parity:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+      - name: CLI help
+        shell: pwsh
+        run: py -m vcp_cli --help
+      - name: CLI version
+        shell: pwsh
+        run: py -m vcp_cli version
+      - name: CLI doctor
+        shell: pwsh
+        run: py -m vcp_cli doctor
+      - name: CLI fast check
+        shell: pwsh
+        run: py -m vcp_cli check --fast --json
+      - name: CLI init prompt
+        shell: pwsh
+        run: py -m vcp_cli init --print-prompt
+      - name: CLI production route
+        shell: pwsh
+        run: py -m vcp_cli route --profile production --json
+      - name: CLI third-party API route
+        shell: pwsh
+        run: py -m vcp_cli route --profile third-party-api --json
+      - name: CLI public-growth route
+        shell: pwsh
+        run: py -m vcp_cli route --profile public-growth --json
+      - name: CLI adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack production --dry-run --json
+      - name: CLI third-party API adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack third-party-api --dry-run --json
+      - name: CLI public-growth adopt dry-run
+        shell: pwsh
+        run: py -m vcp_cli adopt --pack public-growth --dry-run --json
+      - name: CLI evaluate
+        shell: pwsh
+        run: py -m vcp_cli evaluate --json
+      - name: CLI onboard
+        shell: pwsh
+        run: py -m vcp_cli onboard --json
+      - name: CLI classify
+        shell: pwsh
+        run: py -m vcp_cli classify --json
+      - name: CLI public-growth
+        shell: pwsh
+        run: py -m vcp_cli public-growth check --json
+      - name: CLI adopt plan
+        shell: pwsh
+        run: py -m vcp_cli adopt plan --json
+      - name: CLI adopt apply dry-run
+        shell: pwsh
+        run: |
+          $target = New-Item -ItemType Directory -Path (Join-Path $env:RUNNER_TEMP "vcp-adopt-test") -Force
+          py -m vcp_cli adopt apply --pack brownfield-rescue --target $target.FullName --dry-run --json
+      - name: CLI workflow plan
+        shell: pwsh
+        run: py -m vcp_cli workflow plan --id production-hardening --json
+      - name: CLI workflow run dry-run
+        shell: pwsh
+        run: py -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json
+      - name: CLI review-diff
+        shell: pwsh
+        run: py -m vcp_cli review-diff --json
+      - name: CLI release-check
+        shell: pwsh
+        run: py -m vcp_cli release-check --json
+      - name: Manifest validation
+        shell: pwsh
+        run: py -m vcp_cli manifest validate
+      - name: Cards validation
+        shell: pwsh
+        run: py -m vcp_cli cards validate
+      - name: Index validation
+        shell: pwsh
+        run: py -m vcp_cli index validate
+      - name: Workflow validation
+        shell: pwsh
+        run: py -m vcp_cli workflow validate
+      - name: Benchmark validation
+        shell: pwsh
+        run: py -m vcp_cli benchmark run
+      - name: Score JSON
+        shell: pwsh
+        run: py -m vcp_cli score --json
+      - name: Score badge JSON
+        shell: pwsh
+        run: py -m vcp_cli score --badge json
+      - name: npm wrapper doctor
+        shell: pwsh
+        run: npm run vcp -- doctor
+      - name: npm wrapper manifest validate
+        shell: pwsh
+        run: npm run vcp -- manifest validate
+      - name: npm wrapper evaluate
+        shell: pwsh
+        run: npm run vcp -- evaluate

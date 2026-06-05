@@ -1,0 +1,10 @@
+image: python:3.12
+pipelines:
+  default:
+    - step:
+        name: VCP checks
+        script:
+          - apt-get update && apt-get install -y bash git ripgrep nodejs npm
+          - bash scripts/vibe-check.sh --audit
+          - python3 scripts/validate-links.sh
+          - bash scripts/scan-placeholders.sh

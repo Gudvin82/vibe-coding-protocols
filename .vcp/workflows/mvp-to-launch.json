@@ -1,0 +1,92 @@
+{
+  "id": "mvp-to-launch",
+  "name": "MVP-to-Launch Workflow",
+  "trigger": "A raw or semi-working AI-generated MVP already exists and needs launch control before demo, PR, release, or wider rollout.",
+  "route": "hardening-light",
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Intake",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli doctor --json"
+    },
+    {
+      "id": "classify",
+      "name": "Classify",
+      "action": "route",
+      "command": "python3 -m vcp_cli classify --json"
+    },
+    {
+      "id": "surface-scan",
+      "name": "Surface scan",
+      "action": "review",
+      "command": "python3 -m vcp_cli onboard --json"
+    },
+    {
+      "id": "adoption-plan",
+      "name": "Adoption plan",
+      "action": "plan",
+      "command": "python3 -m vcp_cli adopt plan --pack brownfield-rescue --copy-list"
+    },
+    {
+      "id": "risk-backlog",
+      "name": "Risk backlog",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli adopt plan --pack saas-ai-mvp-hardening --json"
+    },
+    {
+      "id": "proof-check",
+      "name": "Proof check",
+      "action": "review",
+      "command": "python3 -m vcp_cli release-check --json"
+    },
+    {
+      "id": "pr-gate-approval",
+      "name": "PR Gate approval",
+      "action": "review",
+      "command": "python3 -m vcp_cli pr-gate explain --json"
+    },
+    {
+      "id": "dashboard-build",
+      "name": "Dashboard build",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"
+    },
+    {
+      "id": "launch-decision",
+      "name": "Launch decision",
+      "action": "review",
+      "notes": "Use docs/launch-decision-checklist.md and templates/reports/launch-decision.md as the final human-reviewed decision aid."
+    }
+  ],
+  "required_artifacts": [
+    "docs/mvp-to-launch-path.md",
+    "docs/launch-decision-checklist.md",
+    "templates/reports/launch-decision.md",
+    "docs/demos/raw-ai-mvp-to-controlled-launch.md",
+    "docs/adoption-packs/saas-ai-mvp-hardening.md",
+    "docs/demos/contracts-first-ai-mvp.md"
+  ],
+  "outputs": [
+    "route decision",
+    "adoption copy-list",
+    "launch-control dashboard",
+    "launch decision aid"
+  ],
+  "validation": [
+    "python3 -m vcp_cli workflow plan --id mvp-to-launch --json",
+    "python3 -m vcp_cli release-check --json",
+    "python3 -m vcp_cli pr-gate explain --json"
+  ],
+  "stop_conditions": [
+    "install/run path still fails",
+    "env or data-risk boundaries remain unknown",
+    "PR Gate status still blocks launch interpretation"
+  ],
+  "related_cards": [
+    "mvp-to-launch-path",
+    "launch-decision-checklist",
+    "pr-gate-approval-model"
+  ],
+  "version": "v0.8.4"
+}

@@ -1,0 +1,17 @@
+{
+  "scenario_id": "prd-gap-review",
+  "target_profile": "spec-first",
+  "target_signals": [
+    "PRD exists but still has gaps"
+  ],
+  "expected_route": "spec-first-feature",
+  "expected_adoption_pack": "spec-first",
+  "required_files_to_inspect": [
+    "templates/prompts/review-prd-for-gaps.md",
+    "templates/specs/SPEC_REVIEW.md"
+  ],
+  "expected_first_safe_action": "Write or refine the PRD and acceptance criteria before implementation starts.",
+  "expected_warnings": [
+    "ask clarifying questions before coding"
+  ]
+}

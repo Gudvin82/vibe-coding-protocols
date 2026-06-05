@@ -1,0 +1,14 @@
+{
+  "scenario_id": "workflow-production-hardening",
+  "target_profile": "production",
+  "target_signals": [
+    "workflow discovery needed"
+  ],
+  "required_files_to_inspect": [
+    ".vcp/workflows/production-hardening.json",
+    "docs/workflows.md"
+  ],
+  "expected_warnings": [
+    "workflow catalog is guidance, not automation"
+  ]
+}

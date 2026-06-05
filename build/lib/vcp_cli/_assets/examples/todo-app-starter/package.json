@@ -1,0 +1,10 @@
+{
+  "name": "todo-app-starter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Synthetic runnable todo starter example for Vibe Coding Protocols",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test tests/smoke.test.js"
+  }
+}

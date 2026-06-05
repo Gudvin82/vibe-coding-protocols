@@ -1,0 +1,19 @@
+{
+  "scenario_id": "install-to-pr-check-to-badge",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "installation",
+    "review gate",
+    "score badge"
+  ],
+  "required_files_to_inspect": [
+    "docs/install.md",
+    "docs/pr-gate.md",
+    "docs/score-badge.md",
+    "README.md"
+  ],
+  "expected_first_safe_action": "Explain the chain from local install to review-diff to PR Gate to local badge output.",
+  "expected_warnings": [
+    "install chain must stay honest about local-only distribution surfaces"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "mvp-launch-dashboard-view",
+  "type": "concept",
+  "name": "MVP Launch Dashboard View",
+  "summary": "Dashboard view that highlights track model, MVP-to-Launch path, workflow id, recommended command flow, packs, proof, backlog, and limitations.",
+  "use_when": [
+    "a local launch-control summary is needed for a raw or semi-working MVP"
+  ],
+  "do_not_use_when": [
+    "a hosted release cockpit is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "dashboard"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "hidden launch risk",
+      "hosted platform overclaim"
+    ],
+    "project_state": [
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "visibility"
+    ]
+  },
+  "entry_files": [
+    "docs/dashboard.md",
+    "docs/project-map.md"
+  ],
+  "related_files": [
+    "docs/mvp-to-launch-path.md",
+    "docs/launch-decision-checklist.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"
+  ],
+  "outputs": [
+    "MVP-to-Launch dashboard section"
+  ],
+  "stop_conditions": [
+    "do not imply dashboard output equals launch approval"
+  ],
+  "validation": [
+    "generated dashboard includes MVP-to-Launch section"
+  ],
+  "version": "v0.8.4",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "dashboard",
+    "mvp"
+  ]
+}

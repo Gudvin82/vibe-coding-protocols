@@ -1,0 +1,26 @@
+{
+  "scenario_id": "anti-patterns-inspection",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "workflow failure modes matter",
+    "countermeasures should be explicit",
+    "public-growth and review boundaries should stay honest"
+  ],
+  "expected_route": null,
+  "expected_adoption_pack": null,
+  "required_files_to_inspect": [
+    "docs/anti-patterns.md",
+    "AGENTS.md",
+    "AI_EVALUATION_GUIDE.md"
+  ],
+  "files_not_to_copy": [
+    "generic AI workflow advice without repository context"
+  ],
+  "expected_warnings": [
+    "anti-pattern coverage is incomplete if evaluation ignores route discipline, review gates, and backlog follow-up"
+  ],
+  "expected_first_safe_action": "Inspect the anti-patterns document before evaluating whether VCP only adds prompts or also adds workflow structure.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli evaluate --json"
+  ]
+}

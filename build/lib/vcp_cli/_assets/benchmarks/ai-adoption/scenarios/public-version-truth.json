@@ -1,0 +1,18 @@
+{
+  "scenario_id": "public-version-truth",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "version truth",
+    "public release surfaces"
+  ],
+  "required_files_to_inspect": [
+    "docs/public-source-of-truth-audit.md",
+    "scripts/check-public-version-surfaces.py",
+    "README.md",
+    ".vcp/index.json"
+  ],
+  "expected_first_safe_action": "Verify Git refs, clean clone, VERSION, and current docs before trusting weaker public fetch paths.",
+  "expected_warnings": [
+    "raw GitHub can be a weak stale signal, but real version drift is still a repository failure"
+  ]
+}

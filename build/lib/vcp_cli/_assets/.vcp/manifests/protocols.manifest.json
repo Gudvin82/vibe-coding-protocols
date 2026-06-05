@@ -1,0 +1,656 @@
+{
+  "items": [
+    {
+      "id": "adaptive-spec-depth",
+      "name": "Adaptive Spec Depth",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/adaptive-spec-depth.md",
+      "command": "python3 -m vcp_cli spec depth --task \"example\" --json",
+      "use_when": [
+        "choosing smallest safe spec depth before implementation"
+      ],
+      "do_not_use_when": [
+        "spec depth is already explicit and agreed"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "task description or source file"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec depth --task \"copy-only docs fix\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-depth-decision-report.md"
+      ],
+      "related_docs": [
+        "docs/adaptive-spec-depth.md"
+      ]
+    },
+    {
+      "id": "ai-intake",
+      "name": "AI Intake",
+      "route": "intake",
+      "domain": "adoption-classification",
+      "file": "AI_INTAKE.md",
+      "command": null,
+      "use_when": [
+        "AI agent is evaluating VCP for a target repo"
+      ],
+      "do_not_use_when": [
+        "route is already explicitly known"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo stage",
+        "risk signals"
+      ],
+      "validation": [
+        "route selection quality"
+      ],
+      "report_template": [
+        "templates/reports/vcp-adoption-assessment.md"
+      ],
+      "related_docs": [
+        "docs/target-project-classifier.md"
+      ]
+    },
+    {
+      "id": "hardening-full",
+      "name": "Hardening Full",
+      "route": "hardening",
+      "domain": "production-readiness",
+      "file": "protocols/ai-project-extended-protocol.md",
+      "command": null,
+      "use_when": [
+        "production",
+        "payments",
+        "personal data",
+        "shared engine"
+      ],
+      "do_not_use_when": [
+        "local toy project"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "security scope",
+        "operations evidence"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --audit --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/security-review-scope.md"
+      ],
+      "related_docs": [
+        "docs/security-methodology-scope.md"
+      ]
+    },
+    {
+      "id": "hardening-light",
+      "name": "Hardening Light",
+      "route": "hardening",
+      "domain": "readiness",
+      "file": "protocols/ai-project-hardening-protocol.md",
+      "command": null,
+      "use_when": [
+        "existing MVP before production"
+      ],
+      "do_not_use_when": [
+        "new idea only"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo state",
+        "dependencies"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --hardening"
+      ],
+      "report_template": [
+        "templates/AUDIT_BACKLOG.md"
+      ],
+      "related_docs": [
+        "docs/adoption-packs.md"
+      ]
+    },
+    {
+      "id": "hardening-standard",
+      "name": "Hardening Standard",
+      "route": "hardening",
+      "domain": "readiness",
+      "file": "protocols/ai-project-hardening-protocol.md",
+      "command": null,
+      "use_when": [
+        "existing AI-generated project"
+      ],
+      "do_not_use_when": [
+        "tiny typo-only docs fix"
+      ],
+      "risk_level": "medium-to-high",
+      "required_inputs": [
+        "architecture",
+        "deploy evidence"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --audit --json"
+      ],
+      "report_template": [
+        "templates/AUDIT_BACKLOG.md"
+      ],
+      "related_docs": [
+        "docs/release-readiness.md"
+      ]
+    },
+    {
+      "id": "maintenance-refactoring",
+      "name": "Maintenance Refactoring",
+      "route": "maintenance",
+      "domain": "maintainability",
+      "file": "protocols/maintenance/care-refactoring.md",
+      "command": "commands/care-refactoring.md",
+      "use_when": [
+        "working code is hard to change"
+      ],
+      "do_not_use_when": [
+        "intentional behavior change is required"
+      ],
+      "risk_level": "low-to-high",
+      "required_inputs": [
+        "scope",
+        "validation path"
+      ],
+      "validation": [
+        "focused tests",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/refactoring-report.md"
+      ],
+      "related_docs": [
+        "protocols/maintenance/README.md"
+      ]
+    },
+    {
+      "id": "post-task-code-review",
+      "name": "Post-Task Code Review",
+      "route": "review",
+      "domain": "acceptance-gate",
+      "file": "protocols/review/post-task-code-review.md",
+      "command": "commands/loop-code-review.md",
+      "use_when": [
+        "meaningful AI-generated changes need acceptance"
+      ],
+      "do_not_use_when": [
+        "full security audit is required"
+      ],
+      "risk_level": "medium-to-high",
+      "required_inputs": [
+        "active diff",
+        "validation output",
+        "reviewer path"
+      ],
+      "validation": [
+        "python3 -m vcp_cli review plan --json",
+        "python3 -m vcp_cli check --fast"
+      ],
+      "report_template": [
+        "templates/reports/code-review-report.md"
+      ],
+      "related_docs": [
+        "protocols/review/README.md"
+      ]
+    },
+    {
+      "id": "production-error-capture",
+      "name": "Production Error Capture",
+      "route": "operations",
+      "domain": "observability-and-feedback",
+      "file": "protocols/operations/production-error-capture.md",
+      "command": "commands/prod-log-monitor.md",
+      "use_when": [
+        "production errors must be observed without changing system state"
+      ],
+      "do_not_use_when": [
+        "the task expects remediation or deploy changes"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "authorized log path",
+        "time window",
+        "privacy boundaries"
+      ],
+      "validation": [
+        "python3 -m vcp_cli doctor",
+        "capture report present"
+      ],
+      "report_template": [
+        "templates/reports/production-error-capture-report.md"
+      ],
+      "related_docs": [
+        "protocols/operations/README.md",
+        "docs/production-observability.md"
+      ]
+    },
+    {
+      "id": "project-backlog-workflow",
+      "name": "Project Backlog Workflow",
+      "route": "backlog",
+      "domain": "delivery-tracking",
+      "file": "docs/project-backlog.md",
+      "command": "commands/backlog-update.md",
+      "use_when": [
+        "tasks, follow-up work, and implementation state need one visible queue"
+      ],
+      "do_not_use_when": [
+        "hardening findings belong in AUDIT_BACKLOG only"
+      ],
+      "risk_level": "low-to-medium",
+      "required_inputs": [
+        "current work item",
+        "owner",
+        "status",
+        "validation path"
+      ],
+      "validation": [
+        "python3 -m vcp_cli backlog validate"
+      ],
+      "report_template": [
+        "templates/reports/backlog-update-report.md"
+      ],
+      "related_docs": [
+        "PROJECT_BACKLOG.md",
+        "templates/PROJECT_BACKLOG.md"
+      ]
+    },
+    {
+      "id": "public-growth-playbook",
+      "name": "Public Growth Playbook",
+      "route": "public-growth",
+      "domain": "public-discoverability",
+      "file": "protocols/public-growth/public-growth-playbook.md",
+      "command": null,
+      "use_when": [
+        "service pages",
+        "article/case templates",
+        "GEO or AI visibility work"
+      ],
+      "do_not_use_when": [
+        "the strategy depends on spam, fake proof, or guaranteed rankings"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "audience intent",
+        "proof boundary",
+        "page brief"
+      ],
+      "validation": [
+        "python3 scripts/check-newlines.py",
+        "python3 scripts/validate-links.sh",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/public-growth-audit-report.md",
+        "templates/reports/ai-visibility-monitoring-report.md"
+      ],
+      "related_docs": [
+        "protocols/public-growth/README.md",
+        "protocols/public-growth/seo-geo-ai-visibility.md",
+        "protocols/public-growth/page-template-system.md",
+        "protocols/public-growth/public-growth-risk-control.md",
+        "docs/geo-ai-visibility.md",
+        "docs/page-templates.md"
+      ]
+    },
+    {
+      "id": "public-site-readiness",
+      "name": "Public Site Readiness",
+      "route": "public-site",
+      "domain": "docs-and-trust",
+      "file": "docs/public-site-readiness.md",
+      "command": null,
+      "use_when": [
+        "public site or docs are being published"
+      ],
+      "do_not_use_when": [
+        "no public docs surface exists"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "canonical docs",
+        "publish checklist"
+      ],
+      "validation": [
+        "python3 scripts/check-newlines.py",
+        "python3 scripts/validate-links.sh"
+      ],
+      "report_template": [],
+      "related_docs": [
+        "docs/seo-ai-crawler-readiness.md"
+      ]
+    },
+    {
+      "id": "question-engine",
+      "name": "Question Engine",
+      "route": "spec-first-feature",
+      "domain": "clarification",
+      "file": "protocols/spec-driven/question-engine.md",
+      "command": "python3 -m vcp_cli spec questions --idea \"example\" --json",
+      "use_when": [
+        "product idea or task framing is still ambiguous"
+      ],
+      "do_not_use_when": [
+        "scope and acceptance criteria are already explicit"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or source notes"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec questions --idea \"example\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-questions-report.md"
+      ],
+      "related_docs": [
+        "docs/question-engine.md"
+      ]
+    },
+    {
+      "id": "security-review-scope",
+      "name": "Security Review Scope",
+      "route": "security",
+      "domain": "authorization-and-scope",
+      "file": "templates/reports/security-review-scope.md",
+      "command": null,
+      "use_when": [
+        "defensive security review needs explicit authorization"
+      ],
+      "do_not_use_when": [
+        "scope is still unknown"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "authorized systems",
+        "stop conditions"
+      ],
+      "validation": [
+        "manual review"
+      ],
+      "report_template": [
+        "templates/reports/security-review-scope.md"
+      ],
+      "related_docs": [
+        "docs/security-methodology-scope.md"
+      ]
+    },
+    {
+      "id": "spec-driven-development",
+      "name": "Spec-driven Development",
+      "route": "spec-first",
+      "domain": "spec-driven-delivery",
+      "file": "protocols/spec-driven/feature-spec.md",
+      "command": "commands/spec-review.md",
+      "use_when": [
+        "the team needs PRD → feature spec → tasks discipline"
+      ],
+      "do_not_use_when": [
+        "mechanical formatting only"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "PRD",
+        "constraints",
+        "acceptance boundaries"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec review --json"
+      ],
+      "report_template": [
+        "templates/specs/SPEC_REVIEW.md"
+      ],
+      "related_docs": [
+        "protocols/spec-driven/product-brief-to-prd.md",
+        "protocols/spec-driven/spec-to-tasks.md"
+      ]
+    },
+    {
+      "id": "spec-escape-hatch",
+      "name": "Spec Escape Hatch",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/spec-escape-hatch.md",
+      "command": "python3 -m vcp_cli spec skip-check --task \"copy-only docs fix\" --json",
+      "use_when": [
+        "a task may be small enough to skip full spec work"
+      ],
+      "do_not_use_when": [
+        "auth, payments, migrations, user data, or external APIs are involved"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "task description"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec skip-check --task \"copy-only docs fix\" --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-skip-check-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-escape-hatch.md"
+      ]
+    },
+    {
+      "id": "spec-first-feature",
+      "name": "Spec-first Feature",
+      "route": "spec-first",
+      "domain": "spec-driven-delivery",
+      "file": "protocols/spec-driven/README.md",
+      "command": "commands/spec-intake.md",
+      "use_when": [
+        "feature scope is unclear",
+        "PRD and acceptance criteria are needed before coding"
+      ],
+      "do_not_use_when": [
+        "tiny one-line fix",
+        "emergency production incident"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or brief",
+        "constraints",
+        "validation expectations"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec validate",
+        "python3 -m vcp_cli backlog validate"
+      ],
+      "report_template": [
+        "templates/specs/SPEC_REVIEW.md"
+      ],
+      "related_docs": [
+        "docs/adoption-packs.md",
+        "docs/workflows.md"
+      ]
+    },
+    {
+      "id": "spec-freshness",
+      "name": "Spec Freshness",
+      "route": "spec-first-feature",
+      "domain": "spec-maintenance",
+      "file": "protocols/spec-driven/spec-freshness.md",
+      "command": "python3 -m vcp_cli spec freshness --json",
+      "use_when": [
+        "spec artifacts may have drifted from backlog, architecture, or validation evidence"
+      ],
+      "do_not_use_when": [
+        "spec artifacts do not exist and the check would be misread as a hard failure"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo context"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec freshness --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-freshness-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-freshness.md"
+      ]
+    },
+    {
+      "id": "spec-retrofit",
+      "name": "Spec Retrofit",
+      "route": "spec-first-feature",
+      "domain": "retrofit",
+      "file": "protocols/spec-driven/spec-retrofit.md",
+      "command": "python3 -m vcp_cli spec retrofit --scope auth --dry-run --json",
+      "use_when": [
+        "code exists but spec memory is missing or weak"
+      ],
+      "do_not_use_when": [
+        "the team expects automatic code rewriting from this lane"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "repo docs",
+        "scope"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec retrofit --scope auth --dry-run --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-retrofit-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-retrofit.md"
+      ]
+    },
+    {
+      "id": "starter",
+      "name": "Starter Protocol",
+      "route": "starter",
+      "domain": "project-bootstrap",
+      "file": "protocols/ai-project-starter-protocol.md",
+      "command": null,
+      "use_when": [
+        "new project",
+        "new MVP"
+      ],
+      "do_not_use_when": [
+        "production repo already exists"
+      ],
+      "risk_level": "low-to-medium",
+      "required_inputs": [
+        "product brief",
+        "scope"
+      ],
+      "validation": [
+        "bash scripts/vibe-check.sh --starter"
+      ],
+      "report_template": [],
+      "related_docs": [
+        "START_HERE.md"
+      ]
+    },
+    {
+      "id": "third-party-api-intake",
+      "name": "Third-party API Intake",
+      "route": "integrations",
+      "domain": "third-party-dependencies",
+      "file": "protocols/integrations/third-party-api-intake.md",
+      "command": "commands/third-party-api-intake.md",
+      "use_when": [
+        "an external API, SDK or webhook is proposed"
+      ],
+      "do_not_use_when": [
+        "no third-party system is involved"
+      ],
+      "risk_level": "medium-to-high",
+      "required_inputs": [
+        "provider name",
+        "feature purpose",
+        "data flow",
+        "validation path"
+      ],
+      "validation": [
+        "python3 -m vcp_cli check --fast --json",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/third-party-api-intake-report.md"
+      ],
+      "related_docs": [
+        "protocols/integrations/README.md",
+        "templates/THIRD_PARTY_REGISTRY.md"
+      ]
+    },
+    {
+      "id": "ui-ownership",
+      "name": "UI Component Ownership",
+      "route": "ui-ownership",
+      "domain": "frontend",
+      "file": "protocols/maintenance/ui-refactoring.md",
+      "command": "commands/ui-refactoring.md",
+      "use_when": [
+        "page-level visual styling drift"
+      ],
+      "do_not_use_when": [
+        "broad redesign"
+      ],
+      "risk_level": "low-to-high",
+      "required_inputs": [
+        "target slice",
+        "current UI behavior"
+      ],
+      "validation": [
+        "typecheck",
+        "lint",
+        "python3 -m vcp_cli review plan --json"
+      ],
+      "report_template": [
+        "templates/reports/ui-refactoring-report.md"
+      ],
+      "related_docs": [
+        "protocols/maintenance/README.md"
+      ]
+    },
+    {
+      "id": "spec-foundation",
+      "name": "Spec Foundation",
+      "route": "spec-first-feature",
+      "domain": "spec-governance",
+      "file": "protocols/spec-driven/spec-foundation.md",
+      "command": "python3 -m vcp_cli spec quality-gate --json",
+      "use_when": [
+        "a new product or major feature needs controlled foundation before implementation"
+      ],
+      "do_not_use_when": [
+        "tiny no-spec work already has clear validation"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "idea or rough brief"
+      ],
+      "validation": [
+        "python3 -m vcp_cli spec quality-gate --json"
+      ],
+      "report_template": [
+        "templates/reports/spec-foundation-report.md"
+      ],
+      "related_docs": [
+        "docs/spec-foundation.md",
+        "docs/two-track-model.md"
+      ]
+    }
+  ],
+  "progressive_disclosure_entrypoints": [
+    ".vcp/index.json",
+    ".vcp/cards/",
+    "docs/progressive-disclosure.md"
+  ]
+}

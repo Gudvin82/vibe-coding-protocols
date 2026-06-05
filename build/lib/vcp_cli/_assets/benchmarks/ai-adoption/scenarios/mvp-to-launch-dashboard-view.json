@@ -1,0 +1,18 @@
+{
+  "scenario_id": "mvp-to-launch-dashboard-view",
+  "target_profile": "existing-mvp",
+  "target_signals": [
+    "local dashboard",
+    "launch view",
+    "proof and backlog visibility"
+  ],
+  "required_files_to_inspect": [
+    "docs/dashboard.md",
+    "docs/project-map.md",
+    "vcp_cli/dashboard_cmd.py"
+  ],
+  "expected_first_safe_action": "Build a local dashboard artifact and inspect the MVP-to-Launch section before talking about launch readiness.",
+  "expected_warnings": [
+    "do not describe the dashboard as hosted or telemetry-backed"
+  ]
+}

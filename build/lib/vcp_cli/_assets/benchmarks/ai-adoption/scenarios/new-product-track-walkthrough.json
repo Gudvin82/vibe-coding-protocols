@@ -1,0 +1,18 @@
+{
+  "scenario_id": "new-product-track-walkthrough",
+  "target_profile": "new-project",
+  "target_signals": [
+    "new project track",
+    "spec foundation",
+    "brief before implementation"
+  ],
+  "required_files_to_inspect": [
+    "docs/two-track-model.md",
+    "docs/spec-foundation.md",
+    "docs/walkthroughs/new-ai-product-from-idea.md"
+  ],
+  "expected_first_safe_action": "Choose the New Project Track and clarify the idea before implementation starts.",
+  "expected_warnings": [
+    "do not turn implementation into hidden product discovery"
+  ]
+}

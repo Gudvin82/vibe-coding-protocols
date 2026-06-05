@@ -1,0 +1,22 @@
+{
+  "scenario_id": "first-impression-audit",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "two-minute human impression",
+    "adoption-from-link clarity",
+    "comparison without overclaim"
+  ],
+  "required_files_to_inspect": [
+    "README.md",
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "docs/visual-overview.md",
+    "docs/demo.md",
+    "docs/install.md",
+    "AI_EVALUATION_GUIDE.md"
+  ],
+  "expected_warnings": [
+    "first impression should not reduce VCP to a prompt pack or spec-kit clone"
+  ],
+  "expected_first_safe_action": "Inspect the README, TAKE_THIS_FIRST, and visual overview before summarizing what VCP is."
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Gudvin82/vibe-coding-protocols/schemas/vcp-workflow.schema.json",
+  "title": "VCP Workflow",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "trigger",
+    "route",
+    "steps",
+    "required_artifacts",
+    "outputs",
+    "validation",
+    "stop_conditions",
+    "related_cards",
+    "version"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "trigger": {"type": "string", "minLength": 1},
+    "route": {"type": "string", "minLength": 1},
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "action"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "action": {"type": "string"},
+          "command": {"type": "string"},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "required_artifacts": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "validation": {"type": "array", "items": {"type": "string"}},
+    "stop_conditions": {"type": "array", "items": {"type": "string"}},
+    "related_cards": {"type": "array", "items": {"type": "string"}},
+    "version": {"type": "string", "const": "v0.6.1"}
+  },
+  "additionalProperties": false
+}

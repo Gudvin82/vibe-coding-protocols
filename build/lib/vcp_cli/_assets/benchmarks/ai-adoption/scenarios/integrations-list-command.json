@@ -1,0 +1,15 @@
+{
+  "id": "integrations-list-command",
+  "profile": "intake",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/integrations-list-command.json",
+  "expected_route": null,
+  "expected_pack": "existing-mvp",
+  "required_inspected_files": [
+    ".vcp/integrations.json",
+    "docs/integrations/status-model.md"
+  ],
+  "expected_warnings": [
+    "integration list is a local registry reader, not a remote marketplace"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

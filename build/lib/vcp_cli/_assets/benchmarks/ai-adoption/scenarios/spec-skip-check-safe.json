@@ -1,0 +1,15 @@
+{
+  "scenario_id": "spec-skip-check-safe",
+  "target_profile": "maintenance",
+  "target_signals": [
+    "copy-only docs fix"
+  ],
+  "required_files_to_inspect": [
+    "docs/spec-escape-hatch.md",
+    "protocols/spec-driven/spec-escape-hatch.md"
+  ],
+  "expected_first_safe_action": "Allow spec skip but keep validation.",
+  "expected_warnings": [
+    "skipping spec never means skipping validation"
+  ]
+}

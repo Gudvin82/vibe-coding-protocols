@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VCP Pack Security",
+  "type": "object",
+  "required": [
+    "source",
+    "owner",
+    "version",
+    "trust_level",
+    "intended_use"
+  ],
+  "properties": {
+    "source": {"type": "string"},
+    "owner": {"type": "string"},
+    "version": {"type": "string"},
+    "trust_level": {
+      "type": "string",
+      "enum": ["core", "local", "workspace", "external", "experimental", "deprecated"]
+    },
+    "intended_use": {"type": "string"},
+    "required_files": {"type": "array", "items": {"type": "string"}},
+    "commands": {"type": "array", "items": {"type": "string"}},
+    "mutates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["code", "docs", "ci", "settings", "workflows"]
+      }
+    }
+  },
+  "additionalProperties": true
+}

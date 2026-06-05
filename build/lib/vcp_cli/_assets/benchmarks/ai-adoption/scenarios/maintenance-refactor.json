@@ -1,0 +1,25 @@
+{
+  "scenario_id": "maintenance-refactor",
+  "target_profile": "maintenance",
+  "target_signals": [
+    "working code",
+    "hard to change"
+  ],
+  "expected_route": "maintenance-refactoring",
+  "expected_adoption_pack": "maintenance",
+  "required_files_to_inspect": [
+    "protocols/maintenance/care-refactoring.md",
+    "protocols/review/post-task-code-review.md"
+  ],
+  "files_not_to_copy": [
+    "SECURITY.md"
+  ],
+  "expected_stop_conditions": [
+    "behavior change is required"
+  ],
+  "expected_review_gate": "Required after the refactoring slice.",
+  "expected_first_safe_action": "Choose one small behavior-preserving refactor.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli review plan --json"
+  ]
+}

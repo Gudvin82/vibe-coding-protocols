@@ -1,0 +1,14 @@
+{
+  "id": "saas-ai-mvp-hardening",
+  "profile": "existing-mvp",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/saas-ai-mvp-hardening.json",
+  "expected_route": "hardening-light",
+  "expected_pack": "saas-ai-mvp-hardening",
+  "required_inspected_files": [
+    "docs/adoption-packs/saas-ai-mvp-hardening.md"
+  ],
+  "expected_warnings": [
+    "do not call a SaaS MVP production-ready just because the pack exists"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

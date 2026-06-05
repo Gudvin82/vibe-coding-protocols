@@ -1,0 +1,18 @@
+{
+  "scenario_id": "release-readiness-check",
+  "target_profile": "production",
+  "target_signals": [
+    "release readiness",
+    "pass warn block",
+    "tag discipline"
+  ],
+  "required_files_to_inspect": [
+    "docs/release-readiness.md",
+    "templates/reports/release-readiness-report.md",
+    "docs/public-source-of-truth-audit.md"
+  ],
+  "expected_first_safe_action": "Check release readiness before tagging or calling the repository slice releasable.",
+  "expected_warnings": [
+    "do not tag while version, validation, or release-note surfaces are still broken"
+  ]
+}

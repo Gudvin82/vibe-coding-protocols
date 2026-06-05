@@ -1,0 +1,31 @@
+{
+  "scenario_id": "page-template-selection",
+  "target_profile": "public-growth",
+  "target_signals": [
+    "one new service page is planned",
+    "intent and proof need structure before drafting",
+    "schema choice must be explicit"
+  ],
+  "expected_route": "public-growth-playbook",
+  "expected_adoption_pack": "public-growth",
+  "required_files_to_inspect": [
+    "docs/page-templates.md",
+    "templates/public-growth/page-brief.md",
+    "templates/public-growth/service-page-template.md",
+    "templates/public-growth/article-template.md",
+    "templates/public-growth/schema/service.jsonld"
+  ],
+  "files_not_to_copy": [
+    "placeholder testimonials",
+    "unverified aggregate ratings"
+  ],
+  "expected_warnings": [
+    "pick one template that matches user intent instead of mixing all formats",
+    "do not add schema that the visible page does not support"
+  ],
+  "expected_first_safe_action": "Write a page brief first, then choose the narrowest matching template and schema.",
+  "expected_validation_commands": [
+    "python3 scripts/check-newlines.py",
+    "python3 scripts/validate-links.sh"
+  ]
+}

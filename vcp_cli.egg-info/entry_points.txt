@@ -1,0 +1,2 @@
+[console_scripts]
+vcp = vcp_cli.cli:main

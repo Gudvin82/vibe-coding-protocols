@@ -1,0 +1,16 @@
+{
+  "scenario_id": "public-growth-checks",
+  "target_profile": "public-growth",
+  "target_signals": [
+    "public growth checks",
+    "no guarantees"
+  ],
+  "required_files_to_inspect": [
+    "vcp_cli/public_growth.py",
+    "docs/public-growth/geo-checks.md"
+  ],
+  "expected_first_safe_action": "Run local public growth checks before making visibility claims.",
+  "expected_warnings": [
+    "no ranking or AI citation guarantees"
+  ]
+}

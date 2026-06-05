@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Website
+    url: https://anmalishev.ru/
+    about: Official website of Анатолий Малышев.
+  - name: Vibe Coding Hub
+    url: https://anmalishev.ru/expert/vibe-coding/
+    about: Public web version of the methodology.

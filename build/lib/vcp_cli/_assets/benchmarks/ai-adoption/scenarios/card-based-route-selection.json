@@ -1,0 +1,27 @@
+{
+  "scenario_id": "card-based-route-selection",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "production repo",
+    "select relevant route cards first",
+    "avoid blind scan"
+  ],
+  "expected_route": null,
+  "expected_adoption_pack": null,
+  "required_files_to_inspect": [
+    ".vcp/cards/routes/production-hardening.json",
+    ".vcp/cards/routes/third-party-api-intake.json",
+    ".vcp/cards/routes/public-growth.json"
+  ],
+  "files_not_to_copy": [
+    "all route docs at once"
+  ],
+  "expected_warnings": [
+    "AI agent should choose relevant cards first instead of reading every route"
+  ],
+  "expected_first_safe_action": "Use cards to narrow route candidates before loading full docs.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli cards list --type route",
+    "python3 -m vcp_cli cards show production-hardening"
+  ]
+}

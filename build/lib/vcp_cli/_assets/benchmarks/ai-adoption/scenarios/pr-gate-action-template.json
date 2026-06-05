@@ -1,0 +1,17 @@
+{
+  "scenario_id": "pr-gate-action-template",
+  "target_profile": "production",
+  "target_signals": [
+    "pr gate workflow",
+    "pinned install from GitHub"
+  ],
+  "required_files_to_inspect": [
+    "docs/pr-gate.md",
+    "docs/pr-gate-action.md",
+    "ci-examples/github-actions/vcp-pr-gate.yml"
+  ],
+  "expected_first_safe_action": "Pin VCP by tag in the PR Gate workflow template before relying on it in CI.",
+  "expected_warnings": [
+    "PR Gate is decision support, not certification"
+  ]
+}

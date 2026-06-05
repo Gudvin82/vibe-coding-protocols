@@ -1,0 +1,21 @@
+name: Example request
+description: Request a new synthetic example, walkthrough or anonymized case-study direction.
+title: "[Example]: "
+labels: [examples]
+body:
+  - type: markdown
+    attributes:
+      value: Requests should stay synthetic or sanitized. Do not submit real client data or private architectures.
+  - type: input
+    id: stack
+    attributes:
+      label: Stack or project type
+      placeholder: Laravel, Telegram Mini App, internal dashboard, mobile app, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: What should the example demonstrate?
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+{
+  "scenario_id": "backlog-move-done-with-review",
+  "target_profile": "backlog",
+  "target_signals": [
+    "an item is ready to close",
+    "validation and review evidence exist"
+  ],
+  "expected_route": "project-backlog-workflow",
+  "expected_adoption_pack": "backlog",
+  "required_files_to_inspect": [
+    "PROJECT_BACKLOG.md",
+    "templates/reports/backlog-update-report.md",
+    "templates/reports/code-review-report.md"
+  ],
+  "files_not_to_copy": [],
+  "expected_stop_conditions": [
+    "validation evidence is missing",
+    "review evidence is missing for meaningful implementation work"
+  ],
+  "expected_review_gate": "Required before an implementation item moves to DONE.",
+  "expected_first_safe_action": "Record validation and review evidence, then move the item to DONE.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli backlog done --id VCP-001 --validation \"tests green\" --review \"accepted\" --dry-run --json",
+    "python3 -m vcp_cli backlog report --json"
+  ]
+}

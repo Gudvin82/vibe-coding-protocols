@@ -1,0 +1,28 @@
+{
+  "id": "saas",
+  "name": "SaaS",
+  "default_spec_depth": "full-spec",
+  "recommended_routes": [
+    "spec-first-feature",
+    "production-hardening",
+    "post-task-code-review"
+  ],
+  "recommended_packs": [
+    "production",
+    "shared-engine"
+  ],
+  "required_gates": [
+    "validation",
+    "review",
+    "release-gate"
+  ],
+  "public_growth_options": [
+    "public-growth"
+  ],
+  "risk_defaults": [
+    "auth",
+    "persistence",
+    "customer-data"
+  ],
+  "notes": "Biases toward full-spec and stronger release discipline."
+}

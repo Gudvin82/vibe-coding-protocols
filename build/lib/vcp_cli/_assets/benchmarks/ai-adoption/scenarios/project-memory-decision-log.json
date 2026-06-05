@@ -1,0 +1,15 @@
+{
+  "id": "project-memory-decision-log",
+  "profile": "existing-mvp",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/project-memory-decision-log.json",
+  "expected_route": "hardening-light",
+  "expected_pack": "brownfield-rescue",
+  "required_inspected_files": [
+    "docs/project-memory.md",
+    "docs/decision-log.md"
+  ],
+  "expected_warnings": [
+    "project memory is not personal assistant memory"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

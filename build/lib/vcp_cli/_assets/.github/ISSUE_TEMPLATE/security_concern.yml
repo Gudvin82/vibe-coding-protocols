@@ -1,0 +1,15 @@
+name: Security concern
+description: Report a potential security concern without posting secrets publicly.
+title: "[Security]: "
+labels: [security]
+body:
+  - type: markdown
+    attributes:
+      value: Do not post secrets, tokens, customer data or exploit details in a public issue. See SECURITY.md for the responsible reporting route.
+  - type: textarea
+    id: summary
+    attributes:
+      label: High-level summary
+      description: Share only enough to route the concern safely.
+    validations:
+      required: true

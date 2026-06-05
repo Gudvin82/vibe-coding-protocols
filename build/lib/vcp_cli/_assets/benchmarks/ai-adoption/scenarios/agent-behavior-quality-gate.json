@@ -1,0 +1,14 @@
+{
+  "id": "agent-behavior-quality-gate",
+  "profile": "production",
+  "scenario_file": "benchmarks/ai-adoption/scenarios/agent-behavior-quality-gate.json",
+  "expected_route": null,
+  "expected_pack": "post-task-review",
+  "required_inspected_files": [
+    "docs/agent-behavior-gate.md"
+  ],
+  "expected_warnings": [
+    "heuristic gate cannot prove safe behavior on its own"
+  ],
+  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+}

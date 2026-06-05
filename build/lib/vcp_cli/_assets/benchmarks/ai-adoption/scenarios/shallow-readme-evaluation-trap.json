@@ -1,0 +1,35 @@
+{
+  "scenario_id": "shallow-readme-evaluation-trap",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "README-only skim",
+    "prompt-pack misclassification",
+    "whole-repo copy recommendation"
+  ],
+  "expected_route": null,
+  "expected_adoption_pack": null,
+  "required_files_to_inspect": [
+    "AGENTS.md",
+    "TAKE_THIS_FIRST.md",
+    "AI_INTAKE.md",
+    ".vcp/index.json",
+    ".vcp/cards/",
+    "docs/flagship-workflows.md",
+    "docs/product-delivery-lifecycle.md"
+  ],
+  "files_not_to_copy": [
+    "the whole VCP repository"
+  ],
+  "expected_warnings": [
+    "a README-only summary must be marked shallow",
+    "do not call VCP just a prompt pack without inspecting CLI, cards, workflows, diagnostics, score, backlog, and review gates",
+    "do not recommend copying the whole repository"
+  ],
+  "expected_first_safe_action": "Follow TAKE_THIS_FIRST.md before recommending what to copy into a target project.",
+  "expected_validation_commands": [
+    "python3 -m vcp_cli evaluate --json",
+    "python3 -m vcp_cli index validate",
+    "python3 -m vcp_cli cards list --recommended",
+    "python3 -m vcp_cli diagnose --json"
+  ]
+}

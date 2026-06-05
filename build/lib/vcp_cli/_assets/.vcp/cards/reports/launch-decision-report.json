@@ -1,0 +1,66 @@
+{
+  "id": "launch-decision-report",
+  "type": "report",
+  "name": "Launch Decision Report",
+  "summary": "Report template for a local launch decision aid using go / go-with-warnings / no-go / needs-human-review states.",
+  "use_when": [
+    "a human-reviewed launch decision artifact is needed for an MVP"
+  ],
+  "do_not_use_when": [
+    "production certification or deployment approval is expected"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "report",
+    "launch-control"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "premature launch",
+      "overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "launch readiness"
+    ]
+  },
+  "entry_files": [
+    "templates/reports/launch-decision.md"
+  ],
+  "related_files": [
+    "docs/launch-decision-checklist.md",
+    "docs/mvp-to-launch-path.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli release-check --json",
+    "python3 -m vcp_cli pr-gate explain --json"
+  ],
+  "outputs": [
+    "launch decision artifact"
+  ],
+  "stop_conditions": [
+    "do not present this report as production certification"
+  ],
+  "validation": [
+    "templates/reports/launch-decision.md exists"
+  ],
+  "version": "v0.8.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "report",
+    "launch"
+  ]
+}
