@@ -1,3 +1,6 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.2 -->
 
 # AUDIT_BACKLOG — русская версия

@@ -10,11 +10,15 @@ from .utils import dump_json, load_json, methodology_version, print_output, repo
 
 OUTPUT_FILES = [
     "index.html",
+    "README.md",
     "dashboard.md",
     "metrics.json",
     "audit-backlog-summary.json",
     "release-readiness.json",
+    "launch-readiness.json",
     "integration-status.json",
+    "project-map.json",
+    "run-history.json",
 ]
 
 
@@ -53,7 +57,77 @@ def _run_history_payload(root: Path) -> dict[str, Any]:
     runs_dir = root / ".vcp" / "runs"
     items = sorted(runs_dir.glob("*.json")) if runs_dir.exists() else []
     latest = items[-1].name if items else None
-    return {"present": runs_dir.exists(), "count": len(items), "latest": latest}
+    source = "live" if items and any(path.name != "example-run-state.json" for path in items) else "example-only" if items else "missing"
+    return {"present": runs_dir.exists(), "count": len(items), "latest": latest, "source": source}
+
+
+def _project_map_payload(root: Path, metrics: dict[str, Any], integrations: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "repository_package_version": metrics["repository_package_version"],
+        "methodology_version": metrics["methodology_version"],
+        "core_story": "Build with AI. Choose the right track. Adopt safely. Ship with control.",
+        "tracks": {
+            "core": ["New Project Track", "Existing Project Track"],
+            "guided_paths": ["MVP-to-Launch Path"],
+        },
+        "key_docs": [
+            "docs/10-minute-adoption-path.md",
+            "docs/mvp-to-launch-path.md",
+            "docs/local-platform-flow.md",
+            "docs/launch-decision-checklist.md",
+            "docs/integration-packs.md",
+            "docs/dashboard.md",
+        ],
+        "workflows": [
+            ".vcp/workflows/mvp-to-launch.json",
+        ],
+        "project_memory_source": metrics["project_memory"]["source"],
+        "run_history_source": metrics["run_history"]["source"],
+        "cards_count": metrics["cards_count"],
+        "benchmark_scenario_count": metrics["benchmark_scenario_count"],
+        "command_count": metrics["command_count"],
+        "integration_entry_count": len(integrations.get("items", [])),
+        "dashboard_artifacts": OUTPUT_FILES,
+    }
+
+
+def _russian_docs_payload(root: Path) -> dict[str, Any]:
+    index = root / "docs_ru" / "README.md"
+    return {
+        "present": index.exists(),
+        "index": "docs_ru/README.md" if index.exists() else None,
+    }
+
+
+def _dashboard_readme(metrics: dict[str, Any], root: Path) -> str:
+    russian = _russian_docs_payload(root)
+    lines = [
+        "# VCP Dashboard Artifact",
+        "",
+        "This folder is a local, static dashboard artifact generated from repository data already present on disk.",
+        "",
+        f"- Repository package: `{metrics['repository_package_version']}`",
+        f"- Methodology version: `{metrics['methodology_version']}`",
+        "- Local-only: yes",
+        "- Hosted dashboard: no",
+        "- Telemetry: no",
+        "- Cloud sync: no",
+        "- Launch guarantee: no",
+        "",
+        "## Included files",
+        "- `index.html`: local dashboard homepage",
+        "- `dashboard.md`: markdown view of the same control surfaces",
+        "- `metrics.json`: local readiness and coverage summary",
+        "- `audit-backlog-summary.json`: backlog snapshot",
+        "- `release-readiness.json`: release readiness payload",
+        "- `launch-readiness.json`: launch-decision alias payload",
+        "- `integration-status.json`: shipped/template/roadmap integration registry view",
+        "- `project-map.json`: local platform/project map summary",
+        "- `run-history.json`: run/checkpoint summary",
+    ]
+    if russian["present"]:
+        lines.extend(["", "## Russian docs", f"- `{russian['index']}`"])
+    return "\n".join(lines) + "\n"
 
 
 def _dashboard_markdown(metrics: dict[str, Any], integrations: dict[str, Any], root: Path) -> str:
@@ -76,6 +150,7 @@ def _dashboard_markdown(metrics: dict[str, Any], integrations: dict[str, Any], r
     run_history = metrics["run_history"]
     selected_route = metrics["selected_route"] or "not-detected"
     proof_layer_status = "present" if (root / "docs" / "proof-layer.md").exists() else "missing"
+    russian = _russian_docs_payload(root)
     return "\n".join(
         [
             "# VCP Local Dashboard Artifact",
@@ -84,6 +159,10 @@ def _dashboard_markdown(metrics: dict[str, Any], integrations: dict[str, Any], r
             "",
             f"Repository package: `{metrics['repository_package_version']}`",
             f"Methodology version: `{metrics['methodology_version']}`",
+            "",
+            "## Local platform flow",
+            "- `intake -> classify -> plan -> memory/backlog -> PR gate -> dashboard -> launch decision`",
+            "- Flow doc: `docs/local-platform-flow.md`",
             "",
             "## Track model",
             "- Core tracks: `New Project Track`, `Existing Project Track`",
@@ -134,14 +213,20 @@ def _dashboard_markdown(metrics: dict[str, Any], integrations: dict[str, Any], r
             f"- Present: `{run_history['present']}`",
             f"- Run files: `{run_history['count']}`",
             f"- Latest: `{run_history['latest']}`",
+            f"- Source: `{run_history['source']}`",
             "",
             "## Integration status counts",
             f"- `{metrics['integration_status_counts']}`",
+            "- Integration packs doc: `docs/integration-packs.md`",
             "",
             "## Proof layer links",
             "- `docs/proof-layer.md`",
             "- `docs/proof-pack.md`",
             f"- Status: `{proof_layer_status}`",
+            "",
+            "## Russian docs",
+            f"- Present: `{russian['present']}`",
+            f"- Index: `{russian['index']}`",
             "",
             "## Known limitations",
             "- local artifact only;",
@@ -161,6 +246,7 @@ def _dashboard_html(metrics: dict[str, Any], integrations: dict[str, Any], root:
     run_history = metrics["run_history"]
     selected_route = metrics["selected_route"] or "not-detected"
     proof_layer_status = "present" if (root / "docs" / "proof-layer.md").exists() else "missing"
+    russian = _russian_docs_payload(root)
     integration_rows = "\n".join(
         f"<tr><td>{html.escape(item.get('name', ''))}</td><td>{html.escape(item.get('status', ''))}</td><td>{html.escape(item.get('surface', ''))}</td><td>{html.escape(', '.join(item.get('claims', [])))}</td></tr>"
         for item in integrations.get("items", [])
@@ -196,6 +282,11 @@ def _dashboard_html(metrics: dict[str, Any], integrations: dict[str, Any], root:
       <section class=\"card\"><h2>Backlog</h2><p>Total items: <code>{metrics['audit_backlog']['total']}</code><br>Status counts: <code>{html.escape(str(metrics['audit_backlog']['status_counts']))}</code></p></section>
       <section class=\"card\"><h2>Limits</h2><ul>{''.join(f'<li>{html.escape(item)}</li>' for item in metrics['limits'])}</ul></section>
     </div>
+    <section class=\"card\">
+      <h2>Local platform flow</h2>
+      <p><code>intake -&gt; classify -&gt; plan -&gt; memory/backlog -&gt; PR gate -&gt; dashboard -&gt; launch decision</code><br>
+      Doc: <code>docs/local-platform-flow.md</code></p>
+    </section>
     <section class=\"card\">
       <h2>Track model</h2>
       <p>Core tracks: <code>New Project Track</code>, <code>Existing Project Track</code><br>
@@ -236,7 +327,13 @@ def _dashboard_html(metrics: dict[str, Any], integrations: dict[str, Any], root:
       Risks: <code>{project_memory['risk_count']}</code><br>
       Proof layer: <code>{html.escape(proof_layer_status)}</code><br>
       Run files: <code>{run_history['count']}</code><br>
-      Latest run: <code>{html.escape(str(run_history['latest']))}</code></p>
+      Latest run: <code>{html.escape(str(run_history['latest']))}</code><br>
+      Run source: <code>{html.escape(str(run_history['source']))}</code></p>
+    </section>
+    <section class=\"card\" style=\"margin-top: 18px;\">
+      <h2>Russian docs</h2>
+      <p>Present: <code>{html.escape(str(russian['present']))}</code><br>
+      Index: <code>{html.escape(str(russian['index']))}</code></p>
     </section>
     <section style=\"margin-top: 18px;\">
       <h2>Integration status</h2>
@@ -265,11 +362,16 @@ def build_payload(output: str, dry_run: bool = False, root: Path | None = None) 
     integrations = _integration_payload(root)
     release = _release_payload(metrics)
     backlog = _backlog_payload(metrics)
+    project_map = _project_map_payload(root, metrics, integrations)
     files = {
+        "README.md": _dashboard_readme(metrics, root),
         "metrics.json": dump_json(metrics),
         "audit-backlog-summary.json": dump_json(backlog),
         "release-readiness.json": dump_json(release),
+        "launch-readiness.json": dump_json(release),
         "integration-status.json": dump_json(integrations),
+        "project-map.json": dump_json(project_map),
+        "run-history.json": dump_json(metrics["run_history"]),
         "dashboard.md": _dashboard_markdown(metrics, integrations, root),
         "index.html": _dashboard_html(metrics, integrations, root),
     }

@@ -43,5 +43,5 @@
     "production-hardening",
     "release-gate"
   ],
-  "version": "v0.8.4"
+  "version": "v0.8.5"
 }

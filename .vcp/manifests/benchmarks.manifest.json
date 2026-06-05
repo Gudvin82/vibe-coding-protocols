@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.4.md"
+        "docs/release-v0.8.5.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -1935,6 +1935,112 @@
         "workflow JSON is planning metadata, not an execution engine"
       ],
       "expected_first_action": "Use workflow plan --id mvp-to-launch to inspect steps without execution."
+    },
+    {
+      "id": "local-platform-flow",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/local-platform-flow.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/local-platform-flow.md",
+        "docs/dashboard.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Use the local platform flow and disclose that it is local-only."
+    },
+    {
+      "id": "dashboard-ux-local-only",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/dashboard-ux-local-only.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/dashboard.md",
+        "vcp_cli/dashboard_cmd.py"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Build the local dashboard artifact and avoid hosted-dashboard claims."
+    },
+    {
+      "id": "integration-packs-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/integration-packs-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integration-packs.md",
+        ".vcp/integration-packs.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Describe integration packs as local/template bundles, not official integrations."
+    },
+    {
+      "id": "ide-roadmap-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/ide-roadmap-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/roadmap/vscode-extension.md",
+        "docs/roadmap/integrations.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Keep the IDE story roadmap-only."
+    },
+    {
+      "id": "russian-docs-parity",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/russian-docs-parity.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README_ru.md",
+        "docs_ru/README.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Check that Russian docs match the current release and key user-facing flows."
+    },
+    {
+      "id": "workspace-batch-flow",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/workspace-batch-flow.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/batch-evaluation.md",
+        "vcp_cli/batch_cmd.py"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Use the batch flow for multiple targets without mutating them."
+    },
+    {
+      "id": "ai-readable-docs-current-release",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/ai-readable-docs-current-release.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "llms.txt",
+        "llms-full.txt",
+        "ai.txt"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or official integration behavior"
+      ],
+      "expected_first_action": "Name the current release correctly and disclose local-only boundaries."
     }
   ]
 }

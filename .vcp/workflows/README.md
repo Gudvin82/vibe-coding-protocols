@@ -1,6 +1,6 @@
 # VCP Workflows
 
-`vcp-version: v0.8.4`
+`vcp-version: v0.8.5`
 
 These JSON files describe repeatable VCP flows.
 

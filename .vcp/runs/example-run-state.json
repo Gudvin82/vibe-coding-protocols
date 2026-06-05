@@ -1,6 +1,6 @@
 {
   "run_id": "example-run-001",
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "created_at": "2026-06-05T00:00:00Z",
   "command": "vcp evaluate --json",
   "status": "completed",

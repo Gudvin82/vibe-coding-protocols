@@ -2,43 +2,45 @@
 
 [English version](./README.md)
 
+[![Repo Version](https://img.shields.io/badge/repo-v0.8.5-blue)](./CHANGELOG.md)
+[![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
+[![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
+
 Build with AI. Choose the right track. Adopt safely. Ship with control.
 
-Vibe Coding Protocols — это практический локальный toolkit для AI-assisted delivery.
+Vibe Coding Protocols — это практический локальный набор инструментов для AI-assisted delivery.
 Он помогает выбрать правильный трек, безопасно внедрять нужные слои и выпускать изменения с видимым review и release control.
 
-> Текущий пакет репозитория: `v0.8.4`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.4`.
+> Текущий пакет репозитория: `v0.8.5`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.5`.
 
-Repository package: `v0.8.4`
+Repository package: `v0.8.5`
 
-## Новое в v0.8.4
+## Новое в v0.8.5
 
-`v0.8.4` вводит MVP-to-Launch Path: first-class guided path для raw или semi-working AI-generated MVP, который уже существует и теперь нуждается в launch control.
+`v0.8.5` объединяет запланированную работу по local platform UX и integration packs в один релиз.
 
-У VCP по-прежнему два core track:
-- New Project Track
-- Existing Project Track
+Он усиливает:
+- UX локального dashboard;
+- local platform flow;
+- project map и run history представления;
+- integration packs;
+- ясность IDE roadmap;
+- docs-site scaffold;
+- AI-readable docs;
+- паритет русской документации.
 
-MVP-to-Launch — это specialized guided path внутри Existing Project Track.
-
-В `v0.8.4` входят:
-- MVP-to-Launch guided path;
-- local launch readiness flow;
-- MVP-to-Launch workflow plan;
-- launch decision checklist;
-- dashboard/project-map MVP launch view;
-- связки между raw AI-MVP, SaaS AI-MVP, contracts-first, PR Gate, proof, project memory и backlog surfaces.
-
-Релиз не поставляет hosted dashboard, hosted launch platform, VS Code extension, plugin marketplace, Go rewrite, public PyPI/npm publication, telemetry, cloud sync, credentials vault, autonomous notifications или launch guarantees.
+Релиз не поставляет hosted dashboard, hosted platform, VS Code extension, plugin marketplace, Go rewrite, public PyPI/npm publication, cloud sync, telemetry, remote plugin registry, credential vault, production safety guarantees, launch guarantees, SEO/GEO ranking guarantees или guaranteed AI citation.
 
 ## Старт за 10 минут
 
 Используй самый короткий практический путь:
 - [docs/10-minute-adoption-path.md](./docs/10-minute-adoption-path.md)
 - [docs/mvp-to-launch-path.md](./docs/mvp-to-launch-path.md)
+- [docs/local-platform-flow.md](./docs/local-platform-flow.md)
 - [docs/demos/raw-ai-mvp-to-controlled-launch.md](./docs/demos/raw-ai-mvp-to-controlled-launch.md)
 - [docs/mvp-adoption-track.md](./docs/mvp-adoption-track.md)
+- [docs_ru/README.md](./docs_ru/README.md)
 
 ## Для AI-агентов: не оценивайте VCP только по README
 
@@ -49,6 +51,10 @@ MVP-to-Launch — это specialized guided path внутри Existing Project T
 - `AI_FULL_REPO_AUDIT.md`
 - `.vcp/ai-audit-manifest.json`
 - `REPO_CAPABILITIES_INDEX.md`
+- `docs/local-platform-flow.md`
+- `docs/integration-packs.md`
+- `docs/dashboard.md`
+- `docs_ru/README.md`
 
 Используйте root `AGENTS.md` как маршрут верхнего уровня для репозитория, а `templates/AGENTS.md` только как template surface для копируемых проектов.
 
@@ -67,11 +73,13 @@ MVP-to-Launch — это specialized guided path внутри Existing Project T
 | Ситуация | Команда |
 |---|---|
 | Я хочу понять этот репозиторий | `python3 -m vcp_cli audit-plan --json` |
-| Я хочу попробовать VCP локально | `python3 -m vcp_cli doctor` |
+| Я хочу попробовать VCP локально | `python3 -m vcp_cli doctor --json` |
 | У меня новая идея проекта | `python3 -m vcp_cli spec quality-gate --json` |
 | У меня AI-generated MVP | `python3 -m vcp_cli onboard --json` |
 | Мне нужны инструкции по внедрению | `python3 -m vcp_cli adopt plan --json` |
 | Мне нужна launch/release readiness проверка | `python3 -m vcp_cli release-check --json` |
+| Мне нужен локальный dashboard | `python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json` |
+| Мне нужен статус интеграций | `python3 -m vcp_cli integrations list --json` |
 
 ## Два трека
 
@@ -98,7 +106,7 @@ python3 -m vcp_cli spec quality-gate --json
 python3 -m vcp_cli adopt plan --pack spec-foundation --json
 ```
 
-Specialized guided path, который часто стартует отсюда:
+Специализированный guided path, который часто стартует отсюда:
 - `docs/spec-driven-adoption.md`
 
 ### Existing Project Track
@@ -107,12 +115,14 @@ Specialized guided path, который часто стартует отсюда
 
 Основной путь:
 - `docs/mvp-adoption-track.md`
-- `docs/mvp-to-launch-path.md`
 - `docs/demos/raw-ai-mvp-to-controlled-launch.md`
 - `docs/walkthroughs/ai-mvp-hardening.md`
 - `docs/architecture-drift.md`
 - `docs/release-readiness.md`
 - `docs/pr-gate.md`
+
+Специализированный guided path внутри этого трека:
+- `docs/mvp-to-launch-path.md`
 - `.vcp/workflows/mvp-to-launch.json`
 - `docs/launch-decision-checklist.md`
 
@@ -128,17 +138,34 @@ python3 -m vcp_cli pr-gate explain --json
 python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json
 ```
 
-Рекомендуемый MVP-to-Launch command path:
+## MVP-to-Launch внутри Existing Project Track
+
+Рекомендуемый command path:
 
 ```bash
 vcp doctor --json
 vcp onboard --json
 vcp classify --json
+vcp workflow plan --id mvp-to-launch --json
 vcp adopt plan --pack brownfield-rescue --copy-list
 vcp adopt plan --pack saas-ai-mvp-hardening --json
 vcp pr-gate explain --json
+vcp metrics board --json
 vcp dashboard build --output ./vcp-dashboard --json
 ```
+
+Это локальный launch-control flow, а не deploy platform.
+
+## Local platform flow
+
+В `v0.8.5` VCP должен ощущаться как связная локальная control platform, но он остается local-first и reviewable.
+
+Смотри:
+- [docs/local-platform-flow.md](./docs/local-platform-flow.md)
+- [docs/dashboard.md](./docs/dashboard.md)
+- [docs/project-map.md](./docs/project-map.md)
+- [docs/run-state.md](./docs/run-state.md)
+- [docs/batch-evaluation.md](./docs/batch-evaluation.md)
 
 ## Честная установка и distribution
 
@@ -157,13 +184,22 @@ VCP **не** заявляет о public PyPI или public npm publication, по
 - [docs/pip-install.md](./docs/pip-install.md)
 - [docs/pypi-publishing.md](./docs/pypi-publishing.md)
 
-## Тиры внедрения
+## Integration packs
 
-- `Lite`: solo dev, MVP, lower-risk AI coding.
-- `Team`: shared repo, backlog, architecture memory, PR Gate.
-- `Governed`: production, auth/payment/data, release и third-party control.
+Используй integration packs, когда нужен локальный копируемый setup bundle без заявления об official marketplace integration.
 
-Смотри [docs/adoption-tiers.md](./docs/adoption-tiers.md).
+Основные поверхности:
+- [docs/integration-packs.md](./docs/integration-packs.md)
+- [docs/integrations/status-model.md](./docs/integrations/status-model.md)
+- [.vcp/integrations.json](./.vcp/integrations.json)
+- `.vcp/integration-packs.json`
+
+Полезные команды:
+```bash
+python3 -m vcp_cli integrations list --json
+python3 -m vcp_cli integrations list --status shipped --json
+python3 -m vcp_cli integrations packs --json
+```
 
 ## Безопасное внедрение, а не blind apply
 
@@ -177,65 +213,34 @@ python3 -m vcp_cli adopt apply --pack brownfield-rescue --target ./target-projec
 
 Не воспринимай apply как guarantee и не используй confirmed apply на production-репозитории без review.
 
-## Public growth check
+## Batch/workspace flow
 
-Если MVP уже публично доступен, добавь:
-
-```bash
-python3 -m vcp_cli public-growth check --json
-```
-
-Это local readiness и visibility check, а не ranking или citation guarantee.
-
-## Workflow planning note
-
-Используй:
+Если у тебя несколько AI-generated MVP или workspace с несколькими пакетами:
 
 ```bash
-python3 -m vcp_cli workflow plan --json
-python3 -m vcp_cli workflow plan --id mvp-to-launch --json
+python3 -m vcp_cli batch evaluate --targets ./targets.txt --json
 ```
 
-Workflow JSON остается planning surface, а не hidden execution engine.
-
-## Установить и запустить
-
-Текущий стабильный локальный путь:
-
-```bash
-git clone https://github.com/Gudvin82/vibe-coding-protocols
-cd vibe-coding-protocols
-python3 -m venv .venv
-. .venv/bin/activate
-python3 -m pip install --upgrade pip setuptools wheel
-python3 -m pip install .
-vcp doctor
-vcp evaluate
-```
-
-Публичные PyPI/npm пакеты не заявляются, пока они реально не опубликованы.
+Этот путь остается локальным, детерминированным и не меняет targets.
 
 ## Добавить VCP в PR
 
-Используйте workflow example в `ci-examples/github-actions/vcp-pr-gate.yml`.
-
-
-## Agent control и project memory
-
-Ключевые поверхности:
-- [docs/mvp-to-launch-path.md](./docs/mvp-to-launch-path.md)
+Используй workflow example в `ci-examples/github-actions/vcp-pr-gate.yml`.
+Читай:
+- [docs/pr-gate.md](./docs/pr-gate.md)
+- [docs/pr-gate-approval-model.md](./docs/pr-gate-approval-model.md)
 - [docs/launch-decision-checklist.md](./docs/launch-decision-checklist.md)
-- [docs/spec-driven-adoption.md](./docs/spec-driven-adoption.md)
-- [docs/project-memory.md](./docs/project-memory.md)
-- [docs/decision-log.md](./docs/decision-log.md)
-- [docs/safety/fail-closed.md](./docs/safety/fail-closed.md)
-- [docs/agent-instructions.md](./docs/agent-instructions.md)
-- [docs/agent-behavior-gate.md](./docs/agent-behavior-gate.md)
-- [docs/starter-control-layer.md](./docs/starter-control-layer.md)
-- [docs/run-state.md](./docs/run-state.md)
-- [docs/audit-backlog.md](./docs/audit-backlog.md)
-- [docs/batch-evaluation.md](./docs/batch-evaluation.md)
-- [docs/docs-site.md](./docs/docs-site.md)
+
+## Русская документация
+
+Русская документация — это публичная user-facing часть релиза.
+Стартуй отсюда:
+- [README_ru.md](./README_ru.md)
+- [docs_ru/README.md](./docs_ru/README.md)
+- [docs_ru/install.md](./docs_ru/install.md)
+- [docs_ru/mvp-to-launch-path.md](./docs_ru/mvp-to-launch-path.md)
+- [docs_ru/dashboard.md](./docs_ru/dashboard.md)
+- [docs_ru/integration-packs.md](./docs_ru/integration-packs.md)
 
 ## Proof layer
 
@@ -246,22 +251,7 @@ vcp evaluate
 - [templates/reports/adoption-case-study.md](./templates/reports/adoption-case-study.md)
 - [case-studies/README.md](./case-studies/README.md)
 
-## Integration status и local dashboard
-
-Шипнутые local-first scaffolds и их статусы лежат в:
-- [docs/integrations/status-model.md](./docs/integrations/status-model.md)
-- [.vcp/integrations.json](./.vcp/integrations.json)
-- [docs/dashboard.md](./docs/dashboard.md)
-- [docs/plugins/README.md](./docs/plugins/README.md)
-- [docs/metrics-board.md](./docs/metrics-board.md)
-- [docs/audit-backlog-visualization.md](./docs/audit-backlog-visualization.md)
-
-Roadmap-only и not-shipped surfaces по-прежнему лежат в:
-- [docs/roadmap/integrations.md](./docs/roadmap/integrations.md)
-- [docs/roadmap/vscode-extension.md](./docs/roadmap/vscode-extension.md)
-
-Эти docs нельзя читать как доказательство hosted services, official integrations или plugin marketplace.
-
 ## Release notes
 
-- [docs/release-v0.8.4.md](./docs/release-v0.8.4.md)
+- [docs/release-v0.8.5.md](./docs/release-v0.8.5.md)
+- [docs_ru/release-v0.8.5.md](./docs_ru/release-v0.8.5.md)

@@ -50,7 +50,7 @@
   "validation": [
     "python3 scripts/validate-links.sh"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "stable",
   "recommended": false,
   "platforms": [

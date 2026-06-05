@@ -3,7 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
-If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.4`.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
 
 VCP project memory is explicit, local, file-based, and not personal assistant memory or autonomous notification behavior.
 

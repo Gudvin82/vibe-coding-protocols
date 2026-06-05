@@ -1,34 +1,23 @@
 # PR Gate Approval Model
 
-PR Gate is an approval model, not only a workflow file.
+PR Gate is part of the local launch-control flow.
 
-## States
+It helps a team decide whether a change is:
+- pass;
+- warn;
+- block.
 
-- `pass`: core evidence is present and no material blocker is open.
-- `warn`: the change can move forward only if the team consciously accepts visible gaps.
-- `block`: do not merge or release until the mismatch is fixed.
-- `needs-human-review`: automation is insufficient for the final decision.
-- `not-applicable`: the gate does not apply to this slice.
+## Human review remains required
 
-## Examples
+Examples where human review is required:
+- payment or auth paths;
+- user data handling;
+- release blocker exceptions;
+- AI-generated MVP changes with unclear blast radius.
 
-- AI-generated changes without tests: `warn` or `block` depending on scope.
-- Public release docs mismatch: `block`.
-- Missing proof layer on a risky external claim: `warn`.
-- Destructive apply without confirmation: `block`.
-- Roadmap overclaim presented as shipped: `block`.
-- Unrun tests claimed as passed: `block`.
+## Use with launch decision
 
-## Command surface
-
-```bash
-python3 -m vcp_cli pr-gate explain --json
-```
-
-This model is one of the final human review surfaces inside `docs/mvp-to-launch-path.md`.
-
-## Boundaries
-
-- not a GitHub Marketplace Action;
-- not a policy engine;
-- not a security certification.
+Pair PR Gate with:
+- [launch decision checklist](./launch-decision-checklist.md)
+- [local platform flow](./local-platform-flow.md)
+- [dashboard](./dashboard.md)

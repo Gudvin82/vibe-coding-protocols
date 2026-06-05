@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "items": [
     {
       "id": "python-cli",
@@ -70,7 +70,8 @@
       "not_claimed": [
         "marketplace-action",
         "merge-policy-engine"
-      ]
+      ],
+      "pack_id": "github-actions-pr-gate-pack"
     },
     {
       "id": "local-dashboard-artifact",
@@ -88,7 +89,8 @@
       "not_claimed": [
         "hosted-dashboard",
         "saas"
-      ]
+      ],
+      "pack_id": "dashboard-artifact-pack"
     },
     {
       "id": "plugin-contract-draft",
@@ -125,7 +127,8 @@
       ],
       "not_claimed": [
         "already-published"
-      ]
+      ],
+      "pack_id": "pypi-readiness-pack"
     },
     {
       "id": "npm-publication",
@@ -159,7 +162,8 @@
       "not_claimed": [
         "marketplace-listing",
         "extension-package"
-      ]
+      ],
+      "pack_id": "future-ide-pack"
     },
     {
       "id": "hosted-dashboard",
@@ -324,6 +328,23 @@
       "not_claimed": [
         "hosted-docs",
         "npm-tested-site"
+      ]
+    },
+    {
+      "id": "integration-packs-registry",
+      "name": "Integration packs registry",
+      "status": "shipped",
+      "surface": "cli",
+      "entrypoint": "python3 -m vcp_cli integrations packs --json",
+      "docs": [
+        "docs/integration-packs.md"
+      ],
+      "claims": [
+        "local-read-only-registry"
+      ],
+      "not_claimed": [
+        "marketplace",
+        "remote-registry"
       ]
     }
   ]

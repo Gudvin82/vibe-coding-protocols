@@ -296,6 +296,9 @@ def build_parser() -> argparse.ArgumentParser:
     integrations_list = integrations_sub.add_parser("list")
     integrations_list.add_argument("--status")
     integrations_list.add_argument("--json", action="store_true")
+    integrations_packs = integrations_sub.add_parser("packs")
+    integrations_packs.add_argument("--status")
+    integrations_packs.add_argument("--json", action="store_true")
 
     memory_p = sub.add_parser("memory")
     memory_sub = memory_p.add_subparsers(dest="memory_command")
@@ -580,6 +583,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "integrations":
         if args.integrations_command in {None, "list"}:
             return integrations_cmd.run_list(getattr(args, "status", None), getattr(args, "json", False))
+        if args.integrations_command == "packs":
+            return integrations_cmd.run_packs(getattr(args, "status", None), getattr(args, "json", False))
     if args.command == "memory":
         if args.memory_command == "init":
             return memory_cmd.run_init(args.target, getattr(args, "json", False))

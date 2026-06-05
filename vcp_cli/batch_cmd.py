@@ -26,35 +26,69 @@ def _collect_targets(targets: list[str] | None = None, targets_file: str | None 
 def evaluate_payload(targets: list[str] | None = None, targets_file: str | None = None, fail_fast: bool = False) -> dict[str, Any]:
     collected = _collect_targets(targets, targets_file)
     if not collected:
-        return {"ok": False, "error": "No targets provided.", "results": []}
+        return {
+            "ok": False,
+            "error": "No targets provided.",
+            "results": [],
+            "summary": {"passed": 0, "warn": 0, "failed": 0, "not_run": 0},
+            "warnings": [],
+            "not_run_reasons": ["No targets were provided to batch evaluate."],
+        }
     results: list[dict[str, Any]] = []
     summary = {"passed": 0, "warn": 0, "failed": 0, "not_run": 0}
+    warnings: list[str] = []
+    not_run_reasons: list[str] = []
     for raw in collected:
         target = Path(raw)
         if not target.is_absolute():
             target = (Path.cwd() / target).resolve()
         if not target.exists():
-            item = {"target": str(target), "status": "failed", "error": "Target does not exist."}
+            item = {
+                "target": str(target),
+                "status": "failed",
+                "error": "Target does not exist.",
+                "warning": "Missing target path.",
+            }
             summary["failed"] += 1
+            warnings.append(f"Missing target: {target}")
             results.append(item)
             if fail_fast:
+                not_run_reasons.append("Stopped after the first missing target because --fail-fast was set.")
                 break
             continue
         try:
             payload = evaluate_cmd.evaluate_payload(target)
+            benchmark_count = payload.get("benchmark_count")
+            command_count = payload.get("command_count")
             item = {
                 "target": str(target),
                 "status": "passed",
                 "repository_package": payload.get("repository_package_version"),
-                "benchmark_count": payload.get("benchmark_count"),
-                "command_count": payload.get("command_count"),
+                "benchmark_count": benchmark_count,
+                "command_count": command_count,
             }
+            local_warnings: list[str] = []
+            if benchmark_count in (None, 0):
+                local_warnings.append("No benchmark coverage reported.")
+            if command_count in (None, 0):
+                local_warnings.append("No command coverage reported.")
+            if local_warnings:
+                item["warning"] = "; ".join(local_warnings)
+                warnings.extend(f"{target}: {warning}" for warning in local_warnings)
+                summary["warn"] += 1
             summary["passed"] += 1
         except Exception as exc:  # noqa: BLE001
-            item = {"target": str(target), "status": "failed", "error": str(exc)}
+            item = {
+                "target": str(target),
+                "status": "failed",
+                "error": str(exc),
+                "warning": "Target could not be evaluated.",
+            }
             summary["failed"] += 1
+            warnings.append(f"Evaluation failed for {target}: {exc}")
             if fail_fast:
                 results.append(item)
+                not_run_reasons.append("Stopped after the first evaluation failure because --fail-fast was set.")
                 break
         results.append(item)
     return {
@@ -62,6 +96,8 @@ def evaluate_payload(targets: list[str] | None = None, targets_file: str | None 
         "mode": "batch-evaluate",
         "results": results,
         "summary": summary,
+        "warnings": warnings,
+        "not_run_reasons": not_run_reasons,
         "note": "Batch mode is local-only and non-mutating. It does not use network calls or background execution.",
     }
 

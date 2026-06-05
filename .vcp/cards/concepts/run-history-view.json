@@ -1,0 +1,68 @@
+{
+  "id": "run-history-view",
+  "type": "concept",
+  "name": "Run History View",
+  "summary": "Local run-history summary that distinguishes example-only data from live runs.",
+  "use_when": [
+    "someone wants platform-like control visibility without a hosted platform claim"
+  ],
+  "do_not_use_when": [
+    "a hosted dashboard, cloud sync, or telemetry product is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "local-tooling"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "hosted-platform overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "platform overclaim"
+    ]
+  },
+  "entry_files": [
+    "docs/run-state.md",
+    ".vcp/runs/example-run-state.json"
+  ],
+  "related_files": [
+    "docs/mvp-to-launch-path.md",
+    "docs/project-memory.md",
+    "docs/audit-backlog.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json",
+    "python3 -m vcp_cli metrics board --json"
+  ],
+  "outputs": [
+    "local dashboard artifact",
+    "local launch view"
+  ],
+  "stop_conditions": [
+    "do not call this a hosted platform"
+  ],
+  "validation": [
+    "python3 -m vcp_cli dashboard build --output /tmp/vcp-dashboard-test --json"
+  ],
+  "version": "v0.8.5",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "local"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "version": "v0.8.5",
+  "items": [
+    {
+      "id": "github-actions-pr-gate-pack",
+      "name": "GitHub Actions PR Gate Pack",
+      "status": "local-template",
+      "docs": [
+        "docs/integration-packs.md",
+        "docs/pr-gate.md"
+      ],
+      "entrypoint": "ci-examples/github-actions/vcp-pr-gate.yml"
+    },
+    {
+      "id": "agent-instructions-pack",
+      "name": "Agent Instructions Pack",
+      "status": "shipped",
+      "docs": [
+        "docs/agent-instructions.md"
+      ],
+      "entrypoint": "templates/agents/AGENTS.md"
+    },
+    {
+      "id": "dashboard-artifact-pack",
+      "name": "Dashboard Artifact Pack",
+      "status": "shipped",
+      "docs": [
+        "docs/dashboard.md"
+      ],
+      "entrypoint": "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"
+    },
+    {
+      "id": "docs-site-scaffold-pack",
+      "name": "Docs Site Scaffold Pack",
+      "status": "experimental",
+      "docs": [
+        "docs/docs-site.md",
+        "docs-site/README.md"
+      ],
+      "entrypoint": "docs-site/README.md"
+    },
+    {
+      "id": "saas-ai-mvp-hardening-pack",
+      "name": "SaaS AI-MVP Hardening Pack",
+      "status": "shipped",
+      "docs": [
+        "docs/adoption-packs/saas-ai-mvp-hardening.md"
+      ],
+      "entrypoint": "python3 -m vcp_cli adopt plan --pack saas-ai-mvp-hardening --json"
+    },
+    {
+      "id": "contracts-first-ai-mvp-pack",
+      "name": "Contracts-first AI-MVP Pack",
+      "status": "local-template",
+      "docs": [
+        "docs/demos/contracts-first-ai-mvp.md"
+      ],
+      "entrypoint": "docs/demos/contracts-first-ai-mvp.md"
+    },
+    {
+      "id": "future-ide-pack",
+      "name": "Future IDE Pack",
+      "status": "roadmap",
+      "docs": [
+        "docs/roadmap/vscode-extension.md",
+        "docs/roadmap/integrations.md"
+      ],
+      "entrypoint": "docs/roadmap/vscode-extension.md"
+    },
+    {
+      "id": "pypi-readiness-pack",
+      "name": "PyPI Readiness Pack",
+      "status": "local-template",
+      "docs": [
+        "docs/pypi-publishing.md",
+        "docs/distribution.md"
+      ],
+      "entrypoint": "docs/pypi-publishing.md"
+    }
+  ]
+}

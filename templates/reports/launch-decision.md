@@ -1,39 +1,30 @@
-<!-- vcp-version: v0.8.4 -->
+<!-- vcp-version: v0.8.5 -->
 <!-- methodology-version: v1.4 -->
-# Launch Decision
+
+# Launch Decision Report
+
+This is a local launch decision aid and not a production certification.
 
 ## Context
-- Repository / MVP:
+- Repository package:
+- Guided path:
 - Reviewer:
 - Date:
-- Decision owner:
 
-## Status
-- Overall status: `go | go-with-warnings | no-go | needs-human-review | not-applicable`
+## Signals
+- PR Gate result:
+- Dashboard artifact reviewed:
+- Project map status:
+- Run history source:
+- Integration status summary:
+- Proof summary:
 
-## Checklist
-1. Product intent clear:
-2. First user journey documented:
-3. Install/run path works:
-4. Environment variables documented:
-5. Tests or checks are present:
-6. API/contracts risks reviewed if applicable:
-7. Auth/billing/data boundaries reviewed if applicable:
-8. Proof layer present or explicitly missing:
-9. PR Gate status reviewed:
-10. Release version surfaces synchronized:
-11. Known blockers listed:
-12. Human owner assigned:
-13. Next action selected:
+## Warn vs block
+- Warn items:
+- Block items:
+- Human review required for:
 
-## Known blockers
-- 
-
-## Warnings
-- 
-
-## Next action
-- 
-
-## Boundaries
-This is a local launch decision aid, not a production certification.
+## Final decision
+- Decision:
+- Rationale:
+- Follow-up required before launch:

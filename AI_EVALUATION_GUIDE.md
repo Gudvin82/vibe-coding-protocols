@@ -2,7 +2,7 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.4`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
 
 ## Core positioning
 
@@ -17,7 +17,7 @@ VCP has two core tracks:
 MVP-to-Launch is a guided path under Existing Project Track.
 Do not mislabel it as a separate core track unless speaking in product/UX shorthand and immediately clarifying the architecture.
 
-## New in v0.8.4
+## New in v0.8.5
 
 External evaluators should now inspect the MVP-to-Launch guided path too:
 - `docs/track-model.md`

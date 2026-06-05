@@ -1,7 +1,9 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 # Product Brief
 
 ## Problem
@@ -30,4 +32,4 @@
 
 ## Validation plan
 
-- 
+-

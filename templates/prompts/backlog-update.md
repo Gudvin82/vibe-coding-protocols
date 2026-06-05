@@ -1,10 +1,12 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
 
 <!-- vcp-artifact: BACKLOG_UPDATE_PROMPT -->
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 
 Read `PROJECT_BACKLOG.md`, `PROJECT_MAP.md`, and `ARCHITECTURE_SOURCE_OF_TRUTH.md` if present.
 Check for duplicate backlog items before adding a new one.

@@ -2,7 +2,7 @@
   "id": "vscode-extension-roadmap",
   "type": "concept",
   "name": "VS Code Extension Roadmap",
-  "summary": "Roadmap-only placeholder for a future VS Code extension without shipping it in v0.8.4.",
+  "summary": "Roadmap-only placeholder for a future VS Code extension without shipping it in v0.8.5.",
   "use_when": [
     "someone asks whether a VS Code extension exists yet"
   ],
@@ -46,7 +46,7 @@
   "validation": [
     "docs/roadmap/vscode-extension.md exists"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "experimental",
   "recommended": false,
   "platforms": [

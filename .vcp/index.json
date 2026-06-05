@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.4.md",
+    "docs/release-v0.8.5.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -61,7 +61,11 @@
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
     "docs/launch-decision-checklist.md",
-    ".vcp/workflows/mvp-to-launch.json"
+    ".vcp/workflows/mvp-to-launch.json",
+    "docs/local-platform-flow.md",
+    "docs/integration-packs.md",
+    "docs_ru/README.md",
+    "docs_ru/release-v0.8.5.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -115,7 +119,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.4.md",
+    "docs/release-v0.8.5.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -161,7 +165,11 @@
     "docs/project-map.md",
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
-    "docs/launch-decision-checklist.md"
+    "docs/launch-decision-checklist.md",
+    "docs/local-platform-flow.md",
+    "docs/integration-packs.md",
+    "docs_ru/README.md",
+    "docs_ru/release-v0.8.5.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -242,7 +250,8 @@
     "pr-gate-explain",
     "safety-check",
     "agent-behavior-check",
-    "batch-evaluate"
+    "batch-evaluate",
+    "vcp-integrations-packs"
   ],
   "reports": [
     "adoption-tier-report",
@@ -541,12 +550,12 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.4. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.5. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.8.4",
+  "repository_package_version": "v0.8.5",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.4. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.5. Do not present v1.4 as the current repository release."
   }
 }

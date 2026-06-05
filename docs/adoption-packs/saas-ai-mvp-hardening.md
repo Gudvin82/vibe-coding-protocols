@@ -2,7 +2,7 @@
 
 Use this pack when an AI-generated SaaS MVP needs visible control surfaces before wider rollout.
 
-In `v0.8.4`, this is a specialized pack inside `docs/mvp-to-launch-path.md`.
+In `v0.8.5`, this is a specialized pack inside `docs/mvp-to-launch-path.md`.
 
 ## Checklist focus
 

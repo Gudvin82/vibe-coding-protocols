@@ -46,8 +46,8 @@ This file does not guarantee indexing, ranking, citation, or model inclusion.
 
 ## Version semantics
 
-Current repository package version: `v0.8.4`.
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.4`.
+Current repository package version: `v0.8.5`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
 Internal stable methodology reference: `v1.4`.
 Do not confuse the internal stable methodology reference with the current repository release.
 

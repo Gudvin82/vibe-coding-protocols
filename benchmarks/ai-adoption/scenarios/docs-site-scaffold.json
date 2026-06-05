@@ -1,15 +1,15 @@
 {
-  "id": "docs-site-scaffold",
-  "profile": "public-site",
-  "scenario_file": "benchmarks/ai-adoption/scenarios/docs-site-scaffold.json",
-  "expected_route": null,
-  "expected_pack": "public-site",
-  "required_inspected_files": [
+  "scenario_id": "docs-site-scaffold",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "docs site scaffold"
+  ],
+  "required_files_to_inspect": [
     "docs/docs-site.md",
     "docs-site/README.md"
   ],
+  "expected_first_safe_action": "Treat docs-site as optional scaffold, not hosted docs.",
   "expected_warnings": [
-    "docs-site scaffold is optional and not a hosted docs claim"
-  ],
-  "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    "do not overclaim hosted or official integration behavior"
+  ]
 }

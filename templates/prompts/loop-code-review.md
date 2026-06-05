@@ -1,10 +1,12 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
 
 <!-- vcp-artifact: LOOP_CODE_REVIEW_PROMPT -->
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 
 # Loop Code Review Prompt
 

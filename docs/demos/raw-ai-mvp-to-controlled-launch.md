@@ -2,7 +2,7 @@
 
 This is the short killer demo for VCP practical adoption.
 
-In `v0.8.4`, this demo is the short practical story for `docs/mvp-to-launch-path.md`.
+In `v0.8.5`, this demo is the short practical story for `docs/mvp-to-launch-path.md`.
 
 Scenario:
 “I have a raw AI-generated MVP. I need to understand what it is, what I should adopt first, what can break, and whether I can launch it with control.”

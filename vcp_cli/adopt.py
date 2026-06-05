@@ -297,7 +297,7 @@ def apply_payload(
         return 1, {
             "ok": False,
             "status": "blocked",
-            "error": "--force is intentionally not implemented in v0.8.2 because overwrite safety is not yet strong enough.",
+            "error": "--force is intentionally not implemented in v0.8.5 because overwrite safety is not yet strong enough.",
         }
     if not target:
         return 1, {"ok": False, "status": "blocked", "error": "--target is required for adopt apply."}

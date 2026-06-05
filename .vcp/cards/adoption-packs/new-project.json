@@ -56,7 +56,7 @@
   "validation": [
     "bash scripts/vibe-check.sh --starter"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

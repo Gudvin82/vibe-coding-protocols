@@ -1,3 +1,6 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
@@ -6,7 +9,6 @@
 
 <!-- vcp-artifact: METRICS_BOARD -->
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 
 Use this to track whether VCP helps your project.
 Do not invent numbers.

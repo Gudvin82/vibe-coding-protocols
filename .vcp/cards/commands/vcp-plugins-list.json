@@ -48,7 +48,7 @@
   "validation": [
     "python3 -m vcp_cli plugins list --json"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "experimental",
   "recommended": true,
   "platforms": [

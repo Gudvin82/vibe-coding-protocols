@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -126,7 +126,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.4.md",
+    "docs/release-v0.8.5.md",
     "docs/roadmap/integrations.md",
     "docs/roadmap/vscode-extension.md",
     "docs/run-state.md",
@@ -142,7 +142,11 @@
     "docs/walkthroughs/new-ai-product-from-idea.md",
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
-    "docs/launch-decision-checklist.md"
+    "docs/launch-decision-checklist.md",
+    "docs/local-platform-flow.md",
+    "docs/integration-packs.md",
+    "docs_ru/README.md",
+    "docs_ru/release-v0.8.5.md"
   ],
   "integration_status_labels": [
     "shipped",

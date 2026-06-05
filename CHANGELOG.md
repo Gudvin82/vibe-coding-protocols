@@ -1,3 +1,13 @@
+## v0.8.5
+
+- local platform UX and dashboard polish
+- local platform flow doc
+- project map and run history improvements
+- integration packs structure and registry
+- IDE roadmap hardening without extension overclaim
+- docs-site scaffold and AI-readable docs improvements
+- Russian documentation parity
+
 # Changelog
 
 ## v0.8.4

@@ -1,7 +1,9 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 # Evaluate Spec Artifacts
 
 Review the available spec artifacts and decide whether they are good enough to drive AI implementation.

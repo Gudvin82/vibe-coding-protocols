@@ -1,26 +1,8 @@
 # Version Semantics
 
-Vibe Coding Protocols uses one public repository-release version and one internal stable-method reference.
+Current repository package version: `v0.8.5`
 
-## Repository package
+Internal stable methodology reference: `v1.4`
 
-The repository package describes the current GitHub toolkit release: CLI, docs, templates, manifests, cards, benchmarks, reports, examples, tests, and release packaging.
-
-Current repository package version: `v0.8.4`.
-
-If you are naming the current repository on GitHub, use:
-
-`Vibe Coding Protocols v0.8.4`
-
-## Stable methodology reference
-
-The stable methodology reference describes an internal legacy method/protocol layer that can remain compatible across several repository package releases.
-
-Internal stable methodology reference: `v1.4`.
-
-## How to cite VCP
-
-- For the current GitHub repository release: `Vibe Coding Protocols v0.8.4`
-- For internal/stable method discussions only: `VCP stable methodology reference v1.4`
-
-Do not call the current repository package `v1.4`.
+Repository package version names the current public toolkit release.
+Methodology reference is a stable internal layer and must not be presented as the current GitHub release.

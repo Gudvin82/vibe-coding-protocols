@@ -6,10 +6,18 @@ VCP batch evaluation is local and non-mutating.
 python3 -m vcp_cli batch evaluate --targets ./targets.txt --json
 ```
 
-Behavior:
-- evaluates multiple target directories locally;
+Use when you have multiple AI-generated MVPs or multiple packages in a workspace and want a summary without mutating targets.
+
+## Expected output
+
+- per-target result;
+- aggregate summary;
+- failed or missing targets called out explicitly;
+- warnings or not-run reasons when applicable.
+
+## Boundaries
+
+- local only;
 - no network;
 - no mutation;
-- per-target results plus aggregate summary;
-- missing targets fail clearly;
-- `--fail-fast` is optional.
+- no recursive scanning outside the target list.

@@ -1,33 +1,20 @@
 # Raw AI MVP Synthetic Case
 
-Label: `synthetic`
+This case study is synthetic.
+It exists to show how a raw AI-generated MVP can move from unstable demo state into a reviewable launch-control flow.
 
-This case exists to demonstrate the first-user journey for a raw AI-generated MVP without claiming that it is an external production deployment.
+## Before
 
-## Initial state
+- project has unclear route;
+- launch readiness is guessed;
+- integration expectations are vague;
+- no project map or run summary exists.
 
-- working MVP exists;
-- repository control is weak;
-- release/readiness path is unclear;
-- adoption boundaries are undefined.
+## After
 
-## Route decision
-
-VCP selects Existing Project Track plus Brownfield Rescue Pack.
-
-## What VCP detects
-
-- control debt;
-- missing launch-check path;
-- unclear copy boundary;
-- need for safe dry-run adoption first.
-
-## What VCP prevents
-
-- blind destructive adoption;
-- shipping from a raw MVP without launch checks;
-- confusing a working demo with a controlled release path.
-
-## Boundary
-
-This is not an independent adopter and not a production proof claim.
+- route is explicit;
+- dashboard artifact exists;
+- launch checklist exists;
+- PR Gate result is visible;
+- integration-pack story is documented;
+- release blockers are reviewable by a human.

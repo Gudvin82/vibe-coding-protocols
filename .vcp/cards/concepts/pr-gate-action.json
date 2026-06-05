@@ -50,7 +50,7 @@
   "validation": [
     "ci-examples/github-actions/vcp-pr-gate.yml exists"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

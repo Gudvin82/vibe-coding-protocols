@@ -1,0 +1,15 @@
+{
+  "scenario_id": "russian-docs-parity",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "russian docs parity"
+  ],
+  "required_files_to_inspect": [
+    "README_ru.md",
+    "docs_ru/README.md"
+  ],
+  "expected_first_safe_action": "Check that Russian docs match the current release and key user-facing flows.",
+  "expected_warnings": [
+    "do not overclaim hosted or official integration behavior"
+  ]
+}

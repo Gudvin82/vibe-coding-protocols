@@ -911,6 +911,19 @@
       "validation": [
         "python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json"
       ]
+    },
+    {
+      "id": "integrations-packs",
+      "command_name": "vcp integrations packs",
+      "file": "docs/integration-packs.md",
+      "route": "intake",
+      "inputs": [
+        "optional status filter"
+      ],
+      "output": "local integration pack registry view",
+      "validation": [
+        "python3 -m vcp_cli integrations packs --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import subprocess
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -22,6 +21,13 @@ class IntegrationsCommandTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stderr)
         payload = json.loads(proc.stdout)
         self.assertEqual(payload['status_filter'], 'shipped')
+
+    def test_packs_list(self) -> None:
+        proc = subprocess.run(['python3', '-m', 'vcp_cli', 'integrations', 'packs', '--json'], cwd=ROOT, text=True, capture_output=True, check=False)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        payload = json.loads(proc.stdout)
+        self.assertIn('count', payload)
+        self.assertIn('items', payload)
 
     def test_invalid_status_fails(self) -> None:
         proc = subprocess.run(['python3', '-m', 'vcp_cli', 'integrations', 'list', '--status', 'bogus', '--json'], cwd=ROOT, text=True, capture_output=True, check=False)

@@ -2,7 +2,7 @@
   "id": "docs-site-scaffold",
   "type": "concept",
   "name": "Docs-site Scaffold",
-  "summary": "Optional documentation scaffold for future publication without turning VCP into a hosted docs platform.",
+  "summary": "Optional docs-site scaffold that remains local and non-required.",
   "use_when": [
     "the control surface must stay explicit and honest"
   ],
@@ -46,7 +46,7 @@
   "validation": [
     "python3 -m vcp_cli evaluate --json"
   ],
-  "version": "v0.8.4",
+  "version": "v0.8.5",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

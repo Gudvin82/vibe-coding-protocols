@@ -1,50 +1,34 @@
 # Launch Decision Checklist
 
-Repository package: `v0.8.4`
+Use this checklist when a project is close to launch but still needs visible review and control.
 
-This checklist is a local launch decision aid.
-It is not a production certification.
-
-## Status labels
-
+Status labels:
 - `go`
 - `go-with-warnings`
+- `warn`
+- `block`
 - `no-go`
 - `needs-human-review`
 - `not-applicable`
 
-## Checklist
+## Minimum path
 
-1. Product intent clear.
-2. First user journey documented.
-3. Install/run path works.
-4. Environment variables documented.
-5. Tests or checks are present.
-6. API/contracts risks reviewed if applicable.
-7. Auth/billing/data boundaries reviewed if applicable.
-8. Proof layer present or explicitly missing.
-9. PR Gate status reviewed.
-10. Release version surfaces synchronized.
-11. Known blockers listed.
-12. Human owner assigned.
-13. Next action selected.
+- `vcp doctor --json`
+- `vcp classify --json`
+- `vcp pr-gate explain --json`
+- `vcp dashboard build --output ./vcp-dashboard --json`
 
-## How to use it
+## Checkpoints
 
-Use this after route selection, proof review, backlog review, PR Gate review, and dashboard generation.
+- current route is understood;
+- known blockers are visible;
+- PR Gate outcome is explicit;
+- dashboard/project map reflects the current state;
+- run history source is clear;
+- proof layer is honest;
+- integration status does not overclaim;
+- human launch decision is still explicit.
 
-Recommended companion docs:
-- `docs/mvp-to-launch-path.md`
-- `docs/pr-gate-approval-model.md`
-- `docs/proof-layer.md`
-- `docs/project-memory.md`
-- `docs/audit-backlog.md`
-- `docs/dashboard.md`
+## Non-goals
 
-## Boundaries
-
-- local review aid only;
-- no deploy action;
-- no publish action;
-- no readiness guarantee;
-- no production certification.
+This checklist does not certify production safety, launch success, or security compliance.

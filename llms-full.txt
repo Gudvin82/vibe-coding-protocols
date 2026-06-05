@@ -7,10 +7,10 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.8.4`
-- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.4`.
+- Repository package: `v0.8.5`
+- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.5`.
 - Internal stable methodology reference: `v1.4`
-- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.4`.
+- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.5`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path

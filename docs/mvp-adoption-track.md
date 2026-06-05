@@ -2,7 +2,7 @@
 
 Use this track when a repo already exists and the work is about making an AI-generated MVP easier to review, release, and harden.
 
-The clearest guided path for that situation in `v0.8.4` is `docs/mvp-to-launch-path.md`.
+The clearest guided path for that situation in `v0.8.5` is `docs/mvp-to-launch-path.md`.
 
 Pair it with:
 - `docs/mvp-to-launch-path.md`

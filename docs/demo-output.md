@@ -24,7 +24,7 @@ Sample score: 90/100 local framework readiness
 
 ```text
 $ npm run vcp -- doctor
-Repository package: v0.8.2
+Repository package: v0.8.5
 Worktree clean: yes
 Manifest directory: .../.vcp/manifests
 ```

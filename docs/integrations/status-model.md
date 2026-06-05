@@ -28,9 +28,11 @@ There is no implementation claim yet.
 Use `not-shipped` when the repository explicitly does not provide the surface today.
 This is useful when users might otherwise assume it exists.
 
-## Current integration matrix summary
+## Current summary
 
-The machine-readable source of truth lives in `.vcp/integrations.json`.
+Machine-readable sources of truth:
+- `.vcp/integrations.json`
+- `.vcp/integration-packs.json`
 
 Key examples:
 - Python CLI: `shipped`
@@ -38,25 +40,21 @@ Key examples:
 - npm wrapper: `shipped`
 - GitHub Actions PR Gate workflow example: `local-template`
 - local dashboard artifact: `shipped`
-- plugin CLI and contract draft: `experimental`
-- PyPI publication: `roadmap`
-- npm publication: `roadmap`
-- VS Code extension: `roadmap`
+- Agent Instructions Pack: `shipped`
+- Docs Site Scaffold Pack: `experimental`
+- Future IDE Pack: `roadmap`
 - hosted dashboard: `not-shipped`
 - plugin marketplace: `not-shipped`
-- Go CLI rewrite: `not-shipped`
-- web control plane: `not-shipped`
-- metrics board: `shipped`
-- audit backlog visualization: `shipped`
 
 ## How to describe VCP safely
 
 Say:
 - local CLI;
 - local template;
-- experimental plugin scaffold;
+- experimental scaffold;
 - roadmap-only extension concept;
-- local dashboard artifact.
+- local dashboard artifact;
+- local integration pack.
 
 Do not say:
 - official integration unless one exists;

@@ -1,10 +1,12 @@
+<!-- vcp-version: v0.8.5 -->
+<!-- methodology-version: v1.4 -->
+
 <!-- vcp-version: v0.8.4 -->
 
 <!-- vcp-version: v0.8.2 -->
 
 <!-- vcp-artifact: THIRD_PARTY_API_INTAKE_PROMPT -->
 <!-- vcp-version: v0.8.2 -->
-<!-- methodology-version: v1.4 -->
 
 Read `protocols/integrations/third-party-api-intake.md` first.
 Do not write integration code yet.
