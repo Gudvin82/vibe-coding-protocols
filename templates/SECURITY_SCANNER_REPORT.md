@@ -1,3 +1,4 @@
+<!-- vcp-version: v0.9.2 -->
 <!-- vcp-version: v0.8.2 -->
 
 # Security Scanner Report
