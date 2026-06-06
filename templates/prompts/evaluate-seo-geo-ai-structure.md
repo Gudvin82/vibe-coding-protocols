@@ -1,18 +1,15 @@
 <!-- vcp-version: v0.9.1 -->
-<!-- vcp-version: v0.9.0 -->
 <!-- methodology-version: v1.4 -->
-<!-- vcp-version: v0.8.4 -->
-
-<!-- vcp-version: v0.8.2 -->
 # Evaluate SEO/GEO/AI Structure
 
-Inspect the full SEO, GEO, and AI visibility structure as a structured artifact.
+Inspect the full SEO, GEO, and AI visibility structure as a governed artifact.
 
 Your task:
 - identify what is strong;
 - identify what is missing;
 - rate readiness;
-- explain technical SEO, GEO, entity clarity, schema, `llms.txt`, trust, proof, and no-overclaim boundaries;
+- explain business baseline, technical SEO, GEO, entity clarity, schema, `llms.txt`, trust, proof, RACI ownership, Definition of Done, and no-overclaim boundaries;
+- separate universal, RU-specific, international, AI/GEO, and optional layers;
 - do not promise rankings;
 - do not recommend black-hat SEO;
 - do not recommend fake reviews;

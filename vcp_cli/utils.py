@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
+import errno
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +28,7 @@ MANIFEST_FILENAMES = {
     "reports": "reports.manifest.json",
     "benchmarks": "benchmarks.manifest.json",
 }
+RETRYABLE_SUBPROCESS_ERRNOS = {errno.EAGAIN, errno.ENOMEM}
 
 
 def _candidate_paths(start: Path | None = None) -> list[Path]:
@@ -118,13 +121,27 @@ def print_output(data: Any, json_mode: bool) -> None:
 
 
 def run_command(command: list[str], cwd: Path, capture: bool = True) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(
-        command,
-        cwd=cwd,
-        text=True,
-        capture_output=capture,
-        check=False,
-    )
+    last_error: OSError | None = None
+    for attempt in range(3):
+        try:
+            return subprocess.run(
+                command,
+                cwd=cwd,
+                text=True,
+                capture_output=capture,
+                check=False,
+            )
+        except BlockingIOError as exc:
+            if exc.errno not in RETRYABLE_SUBPROCESS_ERRNOS or attempt == 2:
+                raise
+            last_error = exc
+        except OSError as exc:
+            if exc.errno not in RETRYABLE_SUBPROCESS_ERRNOS or attempt == 2:
+                raise
+            last_error = exc
+        time.sleep(0.2 * (attempt + 1))
+    assert last_error is not None
+    raise last_error
 
 
 def git_head(root: Path) -> str | None:

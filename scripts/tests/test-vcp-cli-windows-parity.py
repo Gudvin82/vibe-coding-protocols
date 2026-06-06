@@ -2,35 +2,61 @@
 from __future__ import annotations
 
 import json
+import errno
 import tempfile
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PYTHON = sys.executable
+RETRYABLE_ERRNOS = {errno.EAGAIN, errno.ENOMEM}
+
+
+def _run_subprocess(args: list[str], *, retries: int = 3, delay: float = 0.2) -> subprocess.CompletedProcess[str]:
+    last_error: BaseException | None = None
+    for attempt in range(retries):
+        try:
+            return subprocess.run(args, cwd=ROOT, text=True, capture_output=True, check=False)
+        except BlockingIOError as exc:
+            if exc.errno not in RETRYABLE_ERRNOS or attempt == retries - 1:
+                raise
+            last_error = exc
+        except OSError as exc:
+            if exc.errno not in RETRYABLE_ERRNOS or attempt == retries - 1:
+                raise
+            last_error = exc
+        time.sleep(delay * (attempt + 1))
+    assert last_error is not None
+    raise last_error
 
 
 def run(*args: str) -> str:
-    proc = subprocess.run([PYTHON, '-m', 'vcp_cli', *args], cwd=ROOT, text=True, capture_output=True, check=False)
+    proc = _run_subprocess([PYTHON, '-m', 'vcp_cli', *args])
     if proc.returncode != 0:
         raise SystemExit(f"Command failed: {' '.join(args)}\nSTDOUT:\n{proc.stdout}\nSTDERR:\n{proc.stderr}")
     return proc.stdout
 
 
 def run_allow_nonzero(*args: str) -> subprocess.CompletedProcess[str]:
-    return subprocess.run([PYTHON, '-m', 'vcp_cli', *args], cwd=ROOT, text=True, capture_output=True, check=False)
+    return _run_subprocess([PYTHON, '-m', 'vcp_cli', *args])
 
 
 def run_npm(*args: str) -> str:
-    proc = subprocess.run(['npm', 'run', 'vcp', '--', *args], cwd=ROOT, text=True, capture_output=True, check=False)
+    proc = _run_subprocess(['npm', 'run', 'vcp', '--', *args])
     if proc.returncode != 0:
         raise SystemExit(f"npm wrapper failed: {' '.join(args)}\nSTDOUT:\n{proc.stdout}\nSTDERR:\n{proc.stderr}")
     return proc.stdout
 
 
 def main() -> int:
-    subprocess.run([PYTHON, 'scripts/check-public-version-surfaces.py'], cwd=ROOT, text=True, capture_output=True, check=True)
+    check_public = _run_subprocess([PYTHON, 'scripts/check-public-version-surfaces.py'])
+    if check_public.returncode != 0:
+        raise SystemExit(
+            "check-public-version-surfaces failed\n"
+            f"STDOUT:\n{check_public.stdout}\nSTDERR:\n{check_public.stderr}"
+        )
     doctor = json.loads(run('doctor', '--json'))
     assert 'powershell_first_mode_supported' in doctor
     assert '.vcp/manifests' in doctor['manifest_directory']
