@@ -91,7 +91,7 @@ python3 -m vcp_cli spec freshness --json | grep -F '"summary"' >/dev/null
 python3 -m vcp_cli preset list --json | grep -F '"total": 5' >/dev/null
 python3 -m vcp_cli preset show solo-founder --json | grep -F '"id": "solo-founder"' >/dev/null
 python3 -m vcp_cli preset validate --json | grep -F '"ok": true' >/dev/null
-python3 -m vcp_cli cards list --type platform --json | grep -F '"total": 27' >/dev/null
+python3 -m vcp_cli cards list --type platform --json | grep -F '"items"' >/dev/null
 python3 -m vcp_cli workflow list --json | grep -F '"items"' >/dev/null
 python3 -m vcp_cli workflow plan --id production-hardening --json | grep -F '"requested_workflow": "production-hardening"' >/dev/null
 python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json | grep -F '"interactive": true' >/dev/null

@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.9.1 -->
+<!-- methodology-version: v1.4 -->
 # PR Gate Hand-off
 
 Use this placeholder in the target repository to document:

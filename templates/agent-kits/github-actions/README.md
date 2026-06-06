@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.9.1 -->
+<!-- methodology-version: v1.4 -->
 # GitHub Actions PR Gate Kit
 
 This is a copy-ready VCP setup kit for GitHub Actions.

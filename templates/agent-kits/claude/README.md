@@ -1,3 +1,5 @@
+<!-- vcp-version: v0.9.1 -->
+<!-- methodology-version: v1.4 -->
 # Claude Code Agent Kit
 
 This is a copy-ready VCP setup kit for Claude Code.
