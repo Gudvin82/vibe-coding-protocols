@@ -1,0 +1,17 @@
+{
+  "scenario_id": "visual-proof-layer",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "visual proof layer",
+    "diagram assets"
+  ],
+  "required_files_to_inspect": [
+    "docs/visuals.md",
+    "docs/visual-spec.md",
+    "assets/diagrams/README.md"
+  ],
+  "expected_first_safe_action": "Inspect the visual proof docs before judging whether visual assets are shipped or only specified.",
+  "expected_warnings": [
+    "do not overclaim PNG or polished art if only SVG/spec is shipped"
+  ]
+}

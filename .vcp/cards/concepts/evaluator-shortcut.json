@@ -15,10 +15,22 @@
     "evaluation"
   ],
   "maps_to": {
-    "sdlc_phase": ["intake", "review"],
-    "ai_failure_modes": ["shallow evaluation", "category confusion"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["external misread"]
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "category confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "external misread"
+    ]
   },
   "entry_files": [
     "EVALUATE_THIS_REPO.md"
@@ -39,9 +51,17 @@
   "validation": [
     "python3 scripts/check-evaluator-pack.py"
   ],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["concept", "evaluation"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "evaluation"
+  ]
 }

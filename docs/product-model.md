@@ -1,6 +1,6 @@
 # Product Model
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Use this mental model to understand VCP quickly.
 
@@ -57,3 +57,9 @@ This keeps VCP understandable:
 - Guided Paths explain how to use it.
 - Optional Layers explain what can be added later.
 - Roadmap-only explains what should not be overclaimed.
+
+## Visual layer
+
+- [Visual proof assets](../assets/diagrams/vcp-product-model.svg)
+- [Visual proof doc](./visuals.md)
+- [Visual generation spec](./visual-spec.md)

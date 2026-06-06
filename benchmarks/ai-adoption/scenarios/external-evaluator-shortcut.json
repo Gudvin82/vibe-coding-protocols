@@ -1,7 +1,10 @@
 {
   "scenario_id": "external-evaluator-shortcut",
   "target_profile": "repository-evaluation",
-  "target_signals": ["external evaluation", "repo shortcut"],
+  "target_signals": [
+    "external evaluation",
+    "repo shortcut"
+  ],
   "required_files_to_inspect": [
     "EVALUATE_THIS_REPO.md",
     ".vcp/evaluator-pack.json"

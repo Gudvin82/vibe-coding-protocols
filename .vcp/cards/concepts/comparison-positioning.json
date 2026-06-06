@@ -3,20 +3,61 @@
   "type": "concept",
   "name": "Comparison Positioning",
   "summary": "Honest positioning of VCP versus spec-driven toolkits, app templates, AI agents, and CI-only gates.",
-  "use_when": ["someone asks what VCP is relative to adjacent tools"],
-  "do_not_use_when": ["the goal is to attack other projects or claim VCP is better at everything"],
+  "use_when": [
+    "someone asks what VCP is relative to adjacent tools"
+  ],
+  "do_not_use_when": [
+    "the goal is to attack other projects or claim VCP is better at everything"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "docs"],
-  "maps_to": {"sdlc_phase": ["intake"], "ai_failure_modes": ["adjacent-tool overclaim"], "project_state": ["new", "existing MVP"], "risk_categories": ["positioning drift"]},
-  "entry_files": ["docs/comparisons.md"],
-  "related_files": ["docs/product-model.md", "README.md"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["clear positioning"],
-  "stop_conditions": ["stay complementary, not adversarial"],
-  "validation": ["python3 scripts/check-roadmap-overclaim.py"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "docs"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake"
+    ],
+    "ai_failure_modes": [
+      "adjacent-tool overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "positioning drift"
+    ]
+  },
+  "entry_files": [
+    "docs/comparisons.md"
+  ],
+  "related_files": [
+    "docs/product-model.md",
+    "README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "clear positioning"
+  ],
+  "stop_conditions": [
+    "stay complementary, not adversarial"
+  ],
+  "validation": [
+    "python3 scripts/check-roadmap-overclaim.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor"],
-  "badges": ["concept", "positioning"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "positioning"
+  ]
 }

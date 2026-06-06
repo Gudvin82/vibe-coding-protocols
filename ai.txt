@@ -46,8 +46,8 @@ This file does not guarantee indexing, ranking, citation, or model inclusion.
 
 ## Version semantics
 
-Current repository package version: `v0.8.7`.
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.7`.
+Current repository package version: `v0.8.8`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.8`.
 Internal stable methodology reference: `v1.4`.
 Do not confuse the internal stable methodology reference with the current repository release.
 
@@ -56,3 +56,9 @@ MVP-to-Launch is a guided path under Existing Project Track, not a separate core
 Core / Guided Paths / Optional Layers / Roadmap-only is the preferred mental model for evaluating current scope.
 Use `docs/comparisons.md`, `docs/killer-workflow.md`, `docs/benchmark-report.md`, `docs/trust-check.md`, and `docs/ai-tooling.md` before making broad product claims.
 For external evaluation, start with `EVALUATE_THIS_REPO.md`, `docs/anti-misread-guide.md`, `docs/evaluator-architecture-map.md`, `docs/proof-snapshot.md`, and `.vcp/evaluator-pack.json`.
+
+
+Additional v0.8.8 routing/visual surfaces:
+- `docs/agent-model-routing.md`
+- `docs/evaluator-token-budget.md`
+- `docs/visuals.md`

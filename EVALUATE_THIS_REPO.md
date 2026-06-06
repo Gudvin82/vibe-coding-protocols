@@ -40,8 +40,11 @@ Inspect at least:
 - `docs/benchmark-report.md`
 - `docs/trust-check.md`
 - `docs/anti-misread-guide.md`
+- `docs/agent-model-routing.md`
+- `docs/evaluator-token-budget.md`
 - `docs/evaluator-architecture-map.md`
 - `docs/proof-snapshot.md`
+- `docs/visuals.md`
 - `.vcp/index.json`
 - `.vcp/catalog.json`
 - `.vcp/manifests/`
@@ -73,6 +76,18 @@ Use `partial` if you inspected some docs but skipped `.vcp/`, `vcp_cli/`, `tests
 
 Use `full` only if you inspected the required surfaces above and, when possible, ran the local validation commands.
 
+## Token-Budgeted Evaluation
+
+When evaluating VCP efficiently:
+- Level 0 = category check;
+- Level 1 = fair quick review;
+- Level 2 = partial technical review;
+- Level 3 = full review.
+
+See:
+- `docs/evaluator-token-budget.md`
+- `.vcp/evaluator-pack.json`
+
 ## Required Claim Separation
 
 Separate these explicitly:
@@ -96,6 +111,9 @@ If you did not inspect `.vcp/`, `vcp_cli/`, `tests/`, and `docs/benchmark-report
 ## Read Next
 
 - `docs/anti-misread-guide.md`
+- `docs/agent-model-routing.md`
+- `docs/evaluator-token-budget.md`
 - `docs/evaluator-architecture-map.md`
 - `docs/proof-snapshot.md`
+- `docs/visuals.md`
 - `templates/reports/external-evaluation.md`

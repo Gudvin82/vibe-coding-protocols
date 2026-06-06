@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.8.7",
+  "package_version": "v0.8.8",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.7.md",
+    "docs/release-v0.8.8.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -100,7 +100,16 @@
     "docs_ru/proof-snapshot.md",
     "docs_ru/external-evaluation.md",
     "docs_ru/public-surfaces.md",
-    ".vcp/evaluator-pack.json"
+    ".vcp/evaluator-pack.json",
+    "docs/agent-model-routing.md",
+    "docs/evaluator-token-budget.md",
+    "docs/visuals.md",
+    "docs/visual-spec.md",
+    "docs_ru/agent-model-routing.md",
+    "docs_ru/evaluator-token-budget.md",
+    "docs_ru/visuals.md",
+    "docs_ru/visual-spec.md",
+    "docs_ru/release-v0.8.8.md"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -156,7 +165,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.7.md",
+    "docs/release-v0.8.8.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
@@ -214,7 +223,11 @@
     "docs_ru/proof-snapshot.md",
     "docs_ru/external-evaluation.md",
     "docs_ru/public-surfaces.md",
-    ".vcp/evaluator-pack.json"
+    ".vcp/evaluator-pack.json",
+    "docs/agent-model-routing.md",
+    "docs/evaluator-token-budget.md",
+    "docs/visuals.md",
+    "assets/diagrams/vcp-control-layer-map.svg"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -319,7 +332,9 @@
     "python3 -m vcp_cli backlog summarize .vcp/audit-backlog.example.json --json",
     "scripts/check-evaluator-pack.py",
     "tests/test_evaluator_surfaces.py",
-    "python3 -m vcp_cli evaluator pack --json"
+    "python3 -m vcp_cli evaluator pack --json",
+    "tests/test_model_routing_docs.py",
+    "tests/test_visual_assets.py"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

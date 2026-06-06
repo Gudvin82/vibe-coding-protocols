@@ -1,0 +1,67 @@
+{
+  "id": "visual-proof-layer",
+  "type": "concept",
+  "name": "Visual Proof Layer",
+  "summary": "Lightweight visual proof layer with shipped SVG diagrams and a fallback visual spec for later image generation.",
+  "use_when": [
+    "README and docs need a quick visual orientation layer",
+    "evaluators need a compact architecture picture"
+  ],
+  "do_not_use_when": [
+    "visual assets would overclaim product polish or hosted functionality"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "docs"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "framework confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "first-contact clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/visuals.md"
+  ],
+  "related_files": [
+    "docs/visual-spec.md",
+    "assets/diagrams/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "SVG architecture diagrams",
+    "fallback visual generation brief"
+  ],
+  "stop_conditions": [
+    "do not treat weak visuals as final polished assets"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.8",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "visual"
+  ]
+}

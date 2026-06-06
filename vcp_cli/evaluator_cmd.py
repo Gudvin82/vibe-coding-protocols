@@ -29,6 +29,7 @@ REQUIRED_COMMANDS = [
     "python3 -m vcp_cli benchmark run --json",
     "python3 -m vcp_cli cards validate --json",
     "python3 -m vcp_cli index validate --json",
+    "python3 -m vcp_cli evaluator pack --json",
 ]
 
 
@@ -43,6 +44,7 @@ def payload(root: Path | None = None) -> dict[str, Any]:
         "required_commands": pack.get("required_commands", REQUIRED_COMMANDS),
         "inspection_depths": pack.get("inspection_depths", ["shallow", "partial", "full"]),
         "comparison_category": pack.get("comparison_category", {}),
+        "token_budget_levels": pack.get("token_budget_levels", []),
     }
 
 
@@ -66,6 +68,14 @@ def validate(root: Path | None = None) -> list[str]:
     for key in ("vcp", "spec_kit", "full_stack_templates", "ai_agents"):
         if key not in compare:
             problems.append(f"missing comparison category: {key}")
+    levels = data.get("token_budget_levels", [])
+    expected_levels = {0, 1, 2, 3}
+    found_levels = {item.get("level") for item in levels}
+    if found_levels != expected_levels:
+        problems.append("token_budget_levels must define levels 0, 1, 2, and 3")
+    for item in levels:
+        if not item.get("surfaces"):
+            problems.append(f"token budget level {item.get('level')} missing surfaces")
     return problems
 
 

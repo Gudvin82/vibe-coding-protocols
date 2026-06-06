@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">VCP product model</title>
+  <desc id="desc">Four-lane diagram showing Core, Guided Paths, Optional Layers, and Roadmap-only.</desc>
+  <rect width="1600" height="1000" fill="#f8fafc"/>
+  <text x="800" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#0f172a">VCP Product Model</text>
+  <text x="800" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">what ships now, what guides usage, and what stays roadmap-only</text>
+  <g font-family="Arial, sans-serif" fill="#111827">
+    <rect x="70" y="160" width="330" height="720" rx="26" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="235" y="218" text-anchor="middle" font-size="32" font-weight="700">Core</text>
+    <text x="105" y="280" font-size="24">• CLI</text>
+    <text x="105" y="330" font-size="24">• version surfaces</text>
+    <text x="105" y="380" font-size="24">• trust-check</text>
+    <text x="105" y="430" font-size="24">• benchmark report</text>
+    <text x="105" y="480" font-size="24">• manifests/tests</text>
+
+    <rect x="440" y="160" width="330" height="720" rx="26" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+    <text x="605" y="218" text-anchor="middle" font-size="32" font-weight="700">Guided Paths</text>
+    <text x="475" y="280" font-size="24">• 10-minute path</text>
+    <text x="475" y="330" font-size="24">• MVP-to-Launch</text>
+    <text x="475" y="380" font-size="24">• spec-driven adoption</text>
+    <text x="475" y="430" font-size="24">• SaaS hardening</text>
+
+    <rect x="810" y="160" width="330" height="720" rx="26" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="975" y="218" text-anchor="middle" font-size="32" font-weight="700">Optional Layers</text>
+    <text x="845" y="280" font-size="24">• dashboard</text>
+    <text x="845" y="330" font-size="24">• project memory</text>
+    <text x="845" y="380" font-size="24">• audit backlog</text>
+    <text x="845" y="430" font-size="24">• integration packs</text>
+    <text x="845" y="480" font-size="24">• agent templates</text>
+
+    <rect x="1180" y="160" width="350" height="720" rx="26" fill="#f1f5f9" stroke="#64748b" stroke-width="3"/>
+    <text x="1355" y="218" text-anchor="middle" font-size="32" font-weight="700">Roadmap-only</text>
+    <text x="1215" y="280" font-size="24">• hosted dashboard</text>
+    <text x="1215" y="330" font-size="24">• VS Code extension</text>
+    <text x="1215" y="380" font-size="24">• marketplace</text>
+    <text x="1215" y="430" font-size="24">• PyPI/npm publication</text>
+    <text x="1215" y="470" font-size="20" fill="#475569">if not actually done</text>
+  </g>
+</svg>

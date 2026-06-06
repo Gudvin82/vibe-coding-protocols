@@ -1,7 +1,10 @@
 {
   "scenario_id": "anti-misread-guide",
   "target_profile": "repository-evaluation",
-  "target_signals": ["misread correction", "category guard"],
+  "target_signals": [
+    "misread correction",
+    "category guard"
+  ],
   "required_files_to_inspect": [
     "docs/anti-misread-guide.md",
     "docs_ru/anti-misread-guide.md"

@@ -1,6 +1,6 @@
 # Сравнения
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -103,3 +103,13 @@ VCP не утверждает, что он лучше во всем.
 - replacement for Spec Kit или других spec-driven toolkits.
 
 Практическое позиционирование простое: VCP — это control layer, который можно запускать рядом с AI agents, spec-driven planning, templates и CI gates.
+
+## Visual layer
+
+- [Comparison diagram](../assets/diagrams/vcp-comparison-map.svg)
+- [Visual proof doc](./visuals.md)
+
+
+## Model routing тоже не меняет категорию VCP
+
+Fast/cheap vs strong/reasoning routing помогает тратить AI-токены осознанно, но не превращает VCP в provider integration или app template.

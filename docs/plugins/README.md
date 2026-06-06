@@ -1,6 +1,6 @@
 # Plugins
 
-`v0.8.7` introduces plugin architecture preparation, not a plugin marketplace.
+`v0.8.8` introduces plugin architecture preparation, not a plugin marketplace.
 
 Today VCP includes:
 - a draft local plugin metadata contract;

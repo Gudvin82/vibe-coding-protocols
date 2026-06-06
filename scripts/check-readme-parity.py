@@ -20,6 +20,8 @@ CHECKS = [
     ('comparison links', ['docs/comparisons.md', 'docs/product-model.md', 'docs/killer-workflow.md'], ['docs_ru/comparisons.md', 'docs_ru/product-model.md', 'docs_ru/killer-workflow.md']),
     ('trust-check link', ['docs/trust-check.md'], ['docs_ru/trust-check.md']),
     ('evaluator shortcut', ['EVALUATE_THIS_REPO.md', 'docs/anti-misread-guide.md', 'docs/evaluator-architecture-map.md', 'docs/proof-snapshot.md'], ['EVALUATE_THIS_REPO.md', 'docs_ru/anti-misread-guide.md', 'docs_ru/evaluator-architecture-map.md', 'docs_ru/proof-snapshot.md']),
+    ('token saving docs', ['docs/agent-model-routing.md', 'docs/evaluator-token-budget.md', 'docs/visuals.md'], ['docs_ru/agent-model-routing.md', 'docs_ru/evaluator-token-budget.md', 'docs_ru/visuals.md']),
+    ('visual layer', ['assets/diagrams/vcp-control-layer-map.svg'], ['assets/diagrams/vcp-control-layer-map.svg']),
     ('russian docs index', ['docs_ru/README.md'], ['docs_ru/README.md']),
     ('local platform flow', ['docs/local-platform-flow.md'], ['docs/local-platform-flow.md']),
     ('mvp to launch', ['docs/mvp-to-launch-path.md'], ['docs/mvp-to-launch-path.md']),
@@ -27,6 +29,7 @@ CHECKS = [
     ('public methodology hub', ['Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/'], ['Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/']),
     ('readme warning', [], ['Не оценивайте VCP только по `README_ru.md`']),
     ('inspection depth note', ['mark your review as `shallow`'], ['помечайте такую оценку как `shallow`']),
+    ('token save block', ['## Save AI tokens'], ['## Экономьте AI-токены']),
 ]
 
 missing: list[str] = []

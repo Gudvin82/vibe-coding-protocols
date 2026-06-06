@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.7.md",
+    "docs/release-v0.8.8.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -65,7 +65,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.8.7.md",
+    "docs_ru/release-v0.8.8.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -83,7 +83,15 @@
     "docs_ru/proof-snapshot.md",
     "docs_ru/external-evaluation.md",
     "docs_ru/public-surfaces.md",
-    ".vcp/evaluator-pack.json"
+    ".vcp/evaluator-pack.json",
+    "docs/agent-model-routing.md",
+    "docs/evaluator-token-budget.md",
+    "docs/visuals.md",
+    "docs/visual-spec.md",
+    "docs_ru/agent-model-routing.md",
+    "docs_ru/evaluator-token-budget.md",
+    "docs_ru/visuals.md",
+    "docs_ru/visual-spec.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -137,7 +145,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.7.md",
+    "docs/release-v0.8.8.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -187,7 +195,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.8.7.md",
+    "docs_ru/release-v0.8.8.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -213,7 +221,15 @@
     "docs_ru/proof-snapshot.md",
     "docs_ru/external-evaluation.md",
     "docs_ru/public-surfaces.md",
-    ".vcp/evaluator-pack.json"
+    ".vcp/evaluator-pack.json",
+    "docs/agent-model-routing.md",
+    "docs/evaluator-token-budget.md",
+    "docs/visuals.md",
+    "docs/visual-spec.md",
+    "docs_ru/agent-model-routing.md",
+    "docs_ru/evaluator-token-budget.md",
+    "docs_ru/visuals.md",
+    "docs_ru/visual-spec.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -419,7 +435,13 @@
     "evaluator-architecture-map",
     "proof-snapshot",
     "russian-evaluator-guide",
-    "comparison-category-clarity"
+    "comparison-category-clarity",
+    "agent-model-routing",
+    "evaluator-token-budget",
+    "visual-proof-layer",
+    "vcp-control-layer-map",
+    "vcp-product-model-diagram",
+    "vcp-comparison-map"
   ],
   "benchmarks_list": [
     "adoption-tiers",
@@ -512,7 +534,12 @@
     "batch-evaluation",
     "docs-site-scaffold",
     "pr-gate-approval-model",
-    "integrations-list-command"
+    "integrations-list-command",
+    "agent-model-routing",
+    "evaluator-token-budget",
+    "visual-proof-layer",
+    "visual-assets-links",
+    "model-routing-no-overclaim"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -604,12 +631,12 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.7. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.8. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.8.7",
+  "repository_package_version": "v0.8.8",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.7. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.8.8. Do not present v1.4 as the current repository release."
   }
 }

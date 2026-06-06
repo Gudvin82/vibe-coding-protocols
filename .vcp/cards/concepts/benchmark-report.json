@@ -3,20 +3,61 @@
   "type": "concept",
   "name": "Benchmark Report",
   "summary": "Public benchmark-report surface that explains what local benchmark coverage means and how to reproduce it.",
-  "use_when": ["someone asks how VCP proves consistency without overclaiming safety"],
-  "do_not_use_when": ["production certification is expected"],
+  "use_when": [
+    "someone asks how VCP proves consistency without overclaiming safety"
+  ],
+  "do_not_use_when": [
+    "production certification is expected"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "docs"],
-  "maps_to": {"sdlc_phase": ["review"], "ai_failure_modes": ["benchmark overclaim"], "project_state": ["existing MVP", "production"], "risk_categories": ["trust drift"]},
-  "entry_files": ["docs/benchmark-report.md"],
-  "related_files": ["benchmarks/ai-adoption/scenarios/benchmark-report.json"],
-  "cli": ["python3 -m vcp_cli benchmark run --json"],
-  "outputs": ["benchmark summary"],
-  "stop_conditions": ["do not call local benchmark pass a production guarantee"],
-  "validation": ["python3 -m vcp_cli benchmark run --json"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "docs"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "benchmark overclaim"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust drift"
+    ]
+  },
+  "entry_files": [
+    "docs/benchmark-report.md"
+  ],
+  "related_files": [
+    "benchmarks/ai-adoption/scenarios/benchmark-report.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli benchmark run --json"
+  ],
+  "outputs": [
+    "benchmark summary"
+  ],
+  "stop_conditions": [
+    "do not call local benchmark pass a production guarantee"
+  ],
+  "validation": [
+    "python3 -m vcp_cli benchmark run --json"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
-  "badges": ["concept", "trust"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "trust"
+  ]
 }

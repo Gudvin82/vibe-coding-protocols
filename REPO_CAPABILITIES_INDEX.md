@@ -1,7 +1,7 @@
 # Repo Capabilities Index
 
 This is the compact capability map for VCP practical adoption.
-Name the current GitHub repository release as `Vibe Coding Protocols v0.8.7`.
+Name the current GitHub repository release as `Vibe Coding Protocols v0.8.8`.
 
 | Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|

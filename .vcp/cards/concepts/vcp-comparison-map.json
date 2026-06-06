@@ -1,0 +1,63 @@
+{
+  "id": "vcp-comparison-map",
+  "type": "concept",
+  "name": "VCP Comparison Map",
+  "summary": "Comparison diagram clarifying VCP versus spec kits, full-stack templates, and AI coding agents.",
+  "use_when": [
+    "an evaluator keeps comparing VCP to the wrong category"
+  ],
+  "do_not_use_when": [
+    "a detailed comparison table is already enough"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "visual"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "category confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "positioning"
+    ]
+  },
+  "entry_files": [
+    "assets/diagrams/vcp-comparison-map.svg"
+  ],
+  "related_files": [
+    "docs/comparisons.md",
+    "docs/visual-spec.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "comparison diagram"
+  ],
+  "stop_conditions": [
+    "do not reduce VCP to stars or README-only similarity"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.8",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "visual"
+  ]
+}

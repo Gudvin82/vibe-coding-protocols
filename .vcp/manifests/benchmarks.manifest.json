@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.7.md"
+        "docs/release-v0.8.8.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2239,6 +2239,71 @@
       ],
       "expected_warnings": [],
       "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "agent-model-routing",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/agent-model-routing.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/agent-model-routing.md",
+        "templates/agents/CLAUDE.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
+    },
+    {
+      "id": "evaluator-token-budget",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/evaluator-token-budget.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/evaluator-token-budget.md",
+        ".vcp/evaluator-pack.json"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
+    },
+    {
+      "id": "visual-proof-layer",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/visual-proof-layer.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/visuals.md",
+        "assets/diagrams/vcp-control-layer-map.svg"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
+    },
+    {
+      "id": "visual-assets-links",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/visual-assets-links.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/visuals.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
+    },
+    {
+      "id": "model-routing-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/model-routing-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/agent-model-routing.md",
+        "docs/ai-tooling.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
     }
   ]
 }

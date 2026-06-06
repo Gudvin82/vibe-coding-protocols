@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">VCP control layer map</title>
+  <desc id="desc">Flow from raw AI MVP or existing project through onboarding, workflow planning, adoption, metrics, and trust-check.</desc>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="800" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#0f172a">VCP Control Layer Map</text>
+  <text x="800" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#475569">local-first route, adoption, proof, and trust surfaces</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="500" y="150" rx="24" ry="24" width="600" height="92" fill="#e0e7ff" stroke="#4f46e5" stroke-width="3"/>
+    <text x="800" y="205" font-size="30" font-weight="700" fill="#111827">Raw AI MVP / Existing Project</text>
+    <rect x="560" y="290" rx="24" ry="24" width="480" height="78" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="800" y="338" font-size="28" font-weight="700" fill="#111827">onboard / classify</text>
+    <rect x="560" y="416" rx="24" ry="24" width="480" height="78" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+    <text x="800" y="464" font-size="28" font-weight="700" fill="#111827">workflow plan</text>
+    <rect x="520" y="542" rx="24" ry="24" width="560" height="78" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="800" y="590" font-size="28" font-weight="700" fill="#111827">adopt plan / PR Gate</text>
+    <rect x="520" y="668" rx="24" ry="24" width="560" height="78" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+    <text x="800" y="716" font-size="28" font-weight="700" fill="#111827">metrics / dashboard</text>
+    <rect x="430" y="794" rx="24" ry="24" width="740" height="78" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+    <text x="800" y="842" font-size="28" font-weight="700" fill="#111827">launch decision / trust-check</text>
+  </g>
+  <g stroke="#6366f1" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M800 242 L800 284"/>
+    <path d="M800 368 L800 410"/>
+    <path d="M800 494 L800 536"/>
+    <path d="M800 620 L800 662"/>
+    <path d="M800 746 L800 788"/>
+  </g>
+  <g fill="#6366f1">
+    <polygon points="800,284 786,258 814,258"/>
+    <polygon points="800,410 786,384 814,384"/>
+    <polygon points="800,536 786,510 814,510"/>
+    <polygon points="800,662 786,636 814,636"/>
+    <polygon points="800,788 786,762 814,762"/>
+  </g>
+</svg>

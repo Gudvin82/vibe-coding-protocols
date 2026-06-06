@@ -7,10 +7,10 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.8.7`
-- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.7`.
+- Repository package: `v0.8.8`
+- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.8`.
 - Internal stable methodology reference: `v1.4`
-- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.7`.
+- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.8`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path
@@ -138,3 +138,9 @@ See `docs/integrations/spec-kit-bridge.md`.
 - not a guarantee of production safety;
 - not a guarantee of AI citation, indexing, or ranking;
 - not an official plugin suite unless explicitly stated.
+
+
+Additional v0.8.8 routing/visual surfaces:
+- `docs/agent-model-routing.md`
+- `docs/evaluator-token-budget.md`
+- `docs/visuals.md`

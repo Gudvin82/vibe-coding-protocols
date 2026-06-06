@@ -28,7 +28,11 @@ required = [
     'docs_ru/benchmark-report.md',
     'docs_ru/trust-check.md',
     'docs_ru/ai-tooling.md',
-    'docs_ru/release-v0.8.7.md',
+    'docs_ru/agent-model-routing.md',
+    'docs_ru/evaluator-token-budget.md',
+    'docs_ru/visuals.md',
+    'docs_ru/visual-spec.md',
+    'docs_ru/release-v0.8.8.md',
 ]
 issues = []
 for rel in required:
@@ -37,7 +41,7 @@ for rel in required:
         issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.8.7.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.8.8.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
     if rel == 'docs_ru/README.md':
         for needle in (
@@ -58,6 +62,8 @@ for rel in required:
             'partial',
             'full',
             'английских docs',
+            'agent-model-routing.md',
+            'evaluator-token-budget.md',
         ):
             if needle not in text:
                 issues.append(f'docs_ru/README.md missing required guidance: {needle}')

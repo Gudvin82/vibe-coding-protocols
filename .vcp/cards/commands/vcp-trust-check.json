@@ -3,20 +3,64 @@
   "type": "command",
   "name": "Trust Check",
   "summary": "Run a read-only repository trust and consistency audit.",
-  "use_when": ["a release or public summary needs one final local trust check"],
-  "do_not_use_when": ["production safety certification is expected"],
+  "use_when": [
+    "a release or public summary needs one final local trust check"
+  ],
+  "do_not_use_when": [
+    "production safety certification is expected"
+  ],
   "risk_level": "medium",
-  "domains": ["cli"],
-  "maps_to": {"sdlc_phase": ["review", "release"], "ai_failure_modes": ["version drift", "overclaim"], "project_state": ["new", "existing MVP", "production"], "risk_categories": ["trust drift"]},
-  "entry_files": ["vcp_cli/trust_check_cmd.py"],
-  "related_files": ["docs/trust-check.md", "scripts/check-roadmap-overclaim.py"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["trust-check summary"],
-  "stop_conditions": ["does not certify production safety"],
-  "validation": ["python3 -m vcp_cli trust-check --json"],
-  "version": "v0.8.7",
+  "domains": [
+    "cli"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "version drift",
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust drift"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/trust_check_cmd.py"
+  ],
+  "related_files": [
+    "docs/trust-check.md",
+    "scripts/check-roadmap-overclaim.py"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "trust-check summary"
+  ],
+  "stop_conditions": [
+    "does not certify production safety"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
-  "badges": ["command", "trust"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "trust"
+  ]
 }

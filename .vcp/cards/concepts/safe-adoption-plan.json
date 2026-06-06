@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli adopt plan --pack production --json"
   ],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -3,25 +3,64 @@
   "type": "command",
   "name": "Evaluator Pack",
   "summary": "Read-only evaluator shortcut payload for external AI and human reviewers.",
-  "use_when": ["an evaluator wants the canonical surfaces and commands in one deterministic payload"],
-  "do_not_use_when": ["network or repo mutation is expected"],
+  "use_when": [
+    "an evaluator wants the canonical surfaces and commands in one deterministic payload"
+  ],
+  "do_not_use_when": [
+    "network or repo mutation is expected"
+  ],
   "risk_level": "low",
-  "domains": ["cli"],
+  "domains": [
+    "cli"
+  ],
   "maps_to": {
-    "sdlc_phase": ["intake", "review"],
-    "ai_failure_modes": ["shallow evaluation", "category confusion"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["evaluation quality"]
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "category confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "evaluation quality"
+    ]
   },
-  "entry_files": ["vcp_cli/evaluator_cmd.py"],
-  "related_files": ["EVALUATE_THIS_REPO.md", ".vcp/evaluator-pack.json"],
-  "cli": ["python3 -m vcp_cli evaluator pack --json"],
-  "outputs": ["machine-readable evaluator guidance"],
-  "stop_conditions": ["read-only only"],
-  "validation": ["python3 -m vcp_cli evaluator pack --json"],
-  "version": "v0.8.7",
+  "entry_files": [
+    "vcp_cli/evaluator_cmd.py"
+  ],
+  "related_files": [
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "outputs": [
+    "machine-readable evaluator guidance"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["command", "evaluation"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "evaluation"
+  ]
 }

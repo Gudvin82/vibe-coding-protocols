@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli agents template --agent codex --json"
   ],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

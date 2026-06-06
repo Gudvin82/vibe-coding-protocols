@@ -1,7 +1,10 @@
 {
   "scenario_id": "comparison-category-clarity",
   "target_profile": "repository-evaluation",
-  "target_signals": ["comparison framing", "category clarity"],
+  "target_signals": [
+    "comparison framing",
+    "category clarity"
+  ],
   "required_files_to_inspect": [
     "docs/comparisons.md",
     "docs_ru/comparisons.md"

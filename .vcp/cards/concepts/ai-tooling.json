@@ -3,20 +3,66 @@
   "type": "concept",
   "name": "AI Tooling Guidance",
   "summary": "How to use VCP alongside Cursor, Claude Code, Codex, GitHub Copilot, and other agents without claiming official integrations.",
-  "use_when": ["a user asks how VCP works with coding agents"],
-  "do_not_use_when": ["official extension or marketplace behavior is expected"],
+  "use_when": [
+    "a user asks how VCP works with coding agents"
+  ],
+  "do_not_use_when": [
+    "official extension or marketplace behavior is expected"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "docs"],
-  "maps_to": {"sdlc_phase": ["intake", "review"], "ai_failure_modes": ["official integration overclaim"], "project_state": ["new", "existing MVP", "production"], "risk_categories": ["tooling overclaim"]},
-  "entry_files": ["docs/ai-tooling.md"],
-  "related_files": ["templates/agents/CLAUDE.md", "templates/agents/CODEX.md", "templates/agents/CURSOR_RULES.md"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["safe agent guidance"],
-  "stop_conditions": ["do not imply official vendor partnerships"],
-  "validation": ["python3 scripts/check-roadmap-overclaim.py"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "docs"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "official integration overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "tooling overclaim"
+    ]
+  },
+  "entry_files": [
+    "docs/ai-tooling.md"
+  ],
+  "related_files": [
+    "templates/agents/CLAUDE.md",
+    "templates/agents/CODEX.md",
+    "templates/agents/CURSOR_RULES.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "safe agent guidance"
+  ],
+  "stop_conditions": [
+    "do not imply official vendor partnerships"
+  ],
+  "validation": [
+    "python3 scripts/check-roadmap-overclaim.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot", "gemini-cli"],
-  "badges": ["concept", "agents"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "github-copilot",
+    "gemini-cli"
+  ],
+  "badges": [
+    "concept",
+    "agents"
+  ]
 }

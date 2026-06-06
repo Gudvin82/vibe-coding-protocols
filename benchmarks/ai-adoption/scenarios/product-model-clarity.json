@@ -1,8 +1,15 @@
 {
   "scenario_id": "product-model-clarity",
   "target_profile": "repository-evaluation",
-  "target_signals": ["core guided paths optional layers roadmap"],
-  "required_files_to_inspect": ["docs/product-model.md", "README.md"],
+  "target_signals": [
+    "core guided paths optional layers roadmap"
+  ],
+  "required_files_to_inspect": [
+    "docs/product-model.md",
+    "README.md"
+  ],
   "expected_first_safe_action": "Explain the Core / Guided Paths / Optional Layers / Roadmap-only model.",
-  "expected_warnings": ["do not treat roadmap-only items as shipped"]
+  "expected_warnings": [
+    "do not treat roadmap-only items as shipped"
+  ]
 }

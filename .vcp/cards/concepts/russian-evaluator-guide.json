@@ -3,25 +3,66 @@
   "type": "concept",
   "name": "Russian Evaluator Guide",
   "summary": "Russian guided layer for fair AI evaluation and anti-misread onboarding.",
-  "use_when": ["a Russian-speaking evaluator or user wants to hand VCP to AI safely"],
-  "do_not_use_when": ["English/machine-readable source surfaces are required exclusively"],
+  "use_when": [
+    "a Russian-speaking evaluator or user wants to hand VCP to AI safely"
+  ],
+  "do_not_use_when": [
+    "English/machine-readable source surfaces are required exclusively"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "russian-docs"],
+  "domains": [
+    "concept",
+    "russian-docs"
+  ],
   "maps_to": {
-    "sdlc_phase": ["intake", "review"],
-    "ai_failure_modes": ["translation-only understanding", "shallow evaluation"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["public trust"]
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "translation-only understanding",
+      "shallow evaluation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "public trust"
+    ]
   },
-  "entry_files": ["docs_ru/README.md"],
-  "related_files": ["README_ru.md", "docs_ru/anti-misread-guide.md", "docs_ru/external-evaluation.md"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["fair AI handoff prompt"],
-  "stop_conditions": ["do not use Russian docs alone for a full repo review"],
-  "validation": ["python3 scripts/check-russian-docs-parity.py"],
-  "version": "v0.8.7",
+  "entry_files": [
+    "docs_ru/README.md"
+  ],
+  "related_files": [
+    "README_ru.md",
+    "docs_ru/anti-misread-guide.md",
+    "docs_ru/external-evaluation.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "fair AI handoff prompt"
+  ],
+  "stop_conditions": [
+    "do not use Russian docs alone for a full repo review"
+  ],
+  "validation": [
+    "python3 scripts/check-russian-docs-parity.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["concept", "ru"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "ru"
+  ]
 }

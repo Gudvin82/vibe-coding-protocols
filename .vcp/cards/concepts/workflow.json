@@ -2,7 +2,7 @@
   "id": "workflow",
   "type": "concept",
   "name": "Workflow",
-  "summary": "Trigger \u2192 route \u2192 steps \u2192 artifacts \u2192 validation \u2192 report.",
+  "summary": "Trigger → route → steps → artifacts → validation → report.",
   "use_when": [
     "repeatable execution paths need documentation"
   ],
@@ -47,7 +47,7 @@
   ],
   "stop_conditions": [],
   "validation": [],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

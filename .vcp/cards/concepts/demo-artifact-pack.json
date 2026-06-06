@@ -3,20 +3,61 @@
   "type": "concept",
   "name": "Demo Artifact Pack",
   "summary": "A local snapshot of expected route, PR Gate, metrics, dashboard, and launch-decision outputs.",
-  "use_when": ["someone wants to see VCP value without reading the whole repo"],
-  "do_not_use_when": ["a hosted or executable demo environment is expected"],
+  "use_when": [
+    "someone wants to see VCP value without reading the whole repo"
+  ],
+  "do_not_use_when": [
+    "a hosted or executable demo environment is expected"
+  ],
   "risk_level": "low",
-  "domains": ["concept", "examples"],
-  "maps_to": {"sdlc_phase": ["intake", "review"], "ai_failure_modes": ["demo ambiguity"], "project_state": ["existing MVP"], "risk_categories": ["story drift"]},
-  "entry_files": ["docs/demo-artifacts.md", "examples/killer-workflow/README.md"],
-  "related_files": ["docs/killer-workflow.md"],
-  "cli": ["python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"],
-  "outputs": ["example packet"],
-  "stop_conditions": ["do not call this a hosted demo"],
-  "validation": ["test -s examples/killer-workflow/expected-route.json"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "examples"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "demo ambiguity"
+    ],
+    "project_state": [
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "story drift"
+    ]
+  },
+  "entry_files": [
+    "docs/demo-artifacts.md",
+    "examples/killer-workflow/README.md"
+  ],
+  "related_files": [
+    "docs/killer-workflow.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"
+  ],
+  "outputs": [
+    "example packet"
+  ],
+  "stop_conditions": [
+    "do not call this a hosted demo"
+  ],
+  "validation": [
+    "test -s examples/killer-workflow/expected-route.json"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor"],
-  "badges": ["concept", "examples"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "examples"
+  ]
 }

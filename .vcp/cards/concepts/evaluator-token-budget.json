@@ -1,0 +1,69 @@
+{
+  "id": "evaluator-token-budget",
+  "type": "concept",
+  "name": "Evaluator Token Budget",
+  "summary": "Level-based token budget for external evaluators so shallow and partial reviews are labeled honestly.",
+  "use_when": [
+    "an external AI or human reviewer needs a bounded inspection path",
+    "a team wants to avoid README-only false full reviews"
+  ],
+  "do_not_use_when": [
+    "you need adopter-facing in-repo model routing instead of evaluator guidance"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "repository-evaluation"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "token waste"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "evaluation honesty"
+    ]
+  },
+  "entry_files": [
+    "docs/evaluator-token-budget.md"
+  ],
+  "related_files": [
+    "docs_ru/evaluator-token-budget.md",
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json",
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "level-based evaluator budget"
+  ],
+  "stop_conditions": [
+    "do not call Level 0 or Level 1 a full review"
+  ],
+  "validation": [
+    "python3 scripts/check-evaluator-pack.py"
+  ],
+  "version": "v0.8.8",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "evaluation"
+  ]
+}

@@ -1,8 +1,14 @@
 {
   "scenario_id": "comparison-positioning",
   "target_profile": "repository-evaluation",
-  "target_signals": ["vcp vs spec kit vs templates"],
-  "required_files_to_inspect": ["docs/comparisons.md"],
+  "target_signals": [
+    "vcp vs spec kit vs templates"
+  ],
+  "required_files_to_inspect": [
+    "docs/comparisons.md"
+  ],
   "expected_first_safe_action": "Describe VCP as complementary to spec-driven toolkits, templates, AI agents, and CI gates.",
-  "expected_warnings": ["do not claim VCP is better at everything"]
+  "expected_warnings": [
+    "do not claim VCP is better at everything"
+  ]
 }

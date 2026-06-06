@@ -50,7 +50,7 @@
     "python3 -m vcp_cli classify --json",
     "python3 -m vcp_cli release-check --json"
   ],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

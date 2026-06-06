@@ -23,6 +23,8 @@ class RussianDocsParityTests(unittest.TestCase):
         self.assertIn('full', text)
         self.assertIn('Как не дать ИИ неправильно оценить VCP', text)
         self.assertIn('EVALUATE_THIS_REPO.md', text)
+        self.assertIn('agent-model-routing.md', text)
+        self.assertIn('evaluator-token-budget.md', text)
 
 
 if __name__ == '__main__':

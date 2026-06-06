@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -35,5 +35,54 @@
     "spec_kit": "spec-driven development toolkit",
     "full_stack_templates": "application starters",
     "ai_agents": "code generation/editing tools"
-  }
+  },
+  "token_budget_levels": [
+    {
+      "level": 0,
+      "name": "category-check",
+      "surfaces": [
+        "README.md",
+        "EVALUATE_THIS_REPO.md",
+        ".vcp/evaluator-pack.json"
+      ]
+    },
+    {
+      "level": 1,
+      "name": "fair-quick-review",
+      "surfaces": [
+        "PROJECT_MAP.md",
+        "REPO_CAPABILITIES_INDEX.md",
+        "docs/product-model.md",
+        "docs/proof-snapshot.md",
+        "docs/benchmark-report.md"
+      ]
+    },
+    {
+      "level": 2,
+      "name": "partial-technical-review",
+      "surfaces": [
+        "AGENTS.md",
+        "AI_EVALUATION_GUIDE.md",
+        ".vcp/index.json",
+        ".vcp/catalog.json",
+        ".vcp/manifests/",
+        ".vcp/workflows/",
+        "vcp_cli/",
+        "tests/"
+      ]
+    },
+    {
+      "level": 3,
+      "name": "full-review",
+      "surfaces": [
+        ".vcp/cards/",
+        "benchmarks/",
+        "docs/",
+        "docs_ru/",
+        "templates/",
+        "release notes",
+        "website surfaces"
+      ]
+    }
+  ]
 }

@@ -1,12 +1,13 @@
 # Benchmark Report
 
-Release: v0.8.7
+Release: v0.8.8
 Methodology: v1.4
 
 ## Summary
 
 - source command: `python3 -m vcp_cli benchmark run --json`
-- release context: `v0.8.7`
+- release context: `v0.8.8`
+- additions in this release: cost-aware model routing, evaluator token budget, visual proof layer
 - status source: local repository benchmark output
 - scenarios: 140
 - status: pass

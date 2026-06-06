@@ -1,0 +1,62 @@
+{
+  "id": "vcp-control-layer-map",
+  "type": "concept",
+  "name": "VCP Control Layer Map",
+  "summary": "Control-layer flow diagram from raw AI MVP through workflow, PR Gate, dashboard, and trust-check.",
+  "use_when": [
+    "a reader needs the shortest visual model of the VCP flow"
+  ],
+  "do_not_use_when": [
+    "a detailed implementation or workflow spec is required"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "visual"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "flow confusion"
+    ],
+    "project_state": [
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "orientation"
+    ]
+  },
+  "entry_files": [
+    "assets/diagrams/vcp-control-layer-map.svg"
+  ],
+  "related_files": [
+    "docs/evaluator-architecture-map.md",
+    "docs/visual-spec.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "control-layer overview diagram"
+  ],
+  "stop_conditions": [
+    "do not imply hosted or automated execution"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.8",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "visual"
+  ]
+}

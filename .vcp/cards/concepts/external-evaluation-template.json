@@ -3,25 +3,64 @@
   "type": "concept",
   "name": "External Evaluation Template",
   "summary": "Structured template for bounded external reviews of VCP.",
-  "use_when": ["a human or AI evaluator needs a report structure"],
-  "do_not_use_when": ["the evaluation skipped core surfaces but still wants full status"],
+  "use_when": [
+    "a human or AI evaluator needs a report structure"
+  ],
+  "do_not_use_when": [
+    "the evaluation skipped core surfaces but still wants full status"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "reports"],
+  "domains": [
+    "concept",
+    "reports"
+  ],
   "maps_to": {
-    "sdlc_phase": ["review"],
-    "ai_failure_modes": ["missing limitations", "evaluation drift"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["evaluation quality"]
+    "sdlc_phase": [
+      "review"
+    ],
+    "ai_failure_modes": [
+      "missing limitations",
+      "evaluation drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "evaluation quality"
+    ]
   },
-  "entry_files": ["templates/reports/external-evaluation.md"],
-  "related_files": ["docs/external-evaluation.md", "docs_ru/external-evaluation.md"],
-  "cli": ["python3 -m vcp_cli evaluator pack --json"],
-  "outputs": ["external evaluation report"],
-  "stop_conditions": ["do not mark as full if .vcp or tests were skipped"],
-  "validation": ["python3 scripts/check-evaluator-pack.py"],
-  "version": "v0.8.7",
+  "entry_files": [
+    "templates/reports/external-evaluation.md"
+  ],
+  "related_files": [
+    "docs/external-evaluation.md",
+    "docs_ru/external-evaluation.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "outputs": [
+    "external evaluation report"
+  ],
+  "stop_conditions": [
+    "do not mark as full if .vcp or tests were skipped"
+  ],
+  "validation": [
+    "python3 scripts/check-evaluator-pack.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["concept", "report"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "report"
+  ]
 }

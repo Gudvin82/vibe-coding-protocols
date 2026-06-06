@@ -3,25 +3,64 @@
   "type": "concept",
   "name": "Comparison Category Clarity",
   "summary": "Category guard for comparing VCP against Spec Kit, templates, and AI agents fairly.",
-  "use_when": ["someone is comparing VCP to adjacent tools"],
-  "do_not_use_when": ["the comparison ignores category boundaries"],
+  "use_when": [
+    "someone is comparing VCP to adjacent tools"
+  ],
+  "do_not_use_when": [
+    "the comparison ignores category boundaries"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "comparison"],
+  "domains": [
+    "concept",
+    "comparison"
+  ],
   "maps_to": {
-    "sdlc_phase": ["intake", "review"],
-    "ai_failure_modes": ["category flattening"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["positioning"]
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "category flattening"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "positioning"
+    ]
   },
-  "entry_files": ["docs/comparisons.md"],
-  "related_files": ["docs_ru/comparisons.md", "EVALUATE_THIS_REPO.md"],
-  "cli": ["python3 -m vcp_cli evaluator pack --json"],
-  "outputs": ["category-aware comparison framing"],
-  "stop_conditions": ["do not compare by stars alone"],
-  "validation": ["python3 scripts/check-evaluator-pack.py"],
-  "version": "v0.8.7",
+  "entry_files": [
+    "docs/comparisons.md"
+  ],
+  "related_files": [
+    "docs_ru/comparisons.md",
+    "EVALUATE_THIS_REPO.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "outputs": [
+    "category-aware comparison framing"
+  ],
+  "stop_conditions": [
+    "do not compare by stars alone"
+  ],
+  "validation": [
+    "python3 scripts/check-evaluator-pack.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["concept", "comparison"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "comparison"
+  ]
 }

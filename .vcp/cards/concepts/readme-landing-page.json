@@ -3,20 +3,65 @@
   "type": "concept",
   "name": "README Landing Page",
   "summary": "A first-screen landing surface that explains VCP in 30 seconds instead of acting like internal notes.",
-  "use_when": ["a first-time visitor needs quick positioning clarity"],
-  "do_not_use_when": ["a full repository audit has already happened and only deep internal docs are needed"],
+  "use_when": [
+    "a first-time visitor needs quick positioning clarity"
+  ],
+  "do_not_use_when": [
+    "a full repository audit has already happened and only deep internal docs are needed"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "docs"],
-  "maps_to": {"sdlc_phase": ["intake"], "ai_failure_modes": ["shallow understanding"], "project_state": ["new", "existing MVP"], "risk_categories": ["positioning drift"]},
-  "entry_files": ["README.md", "README_ru.md"],
-  "related_files": ["docs/comparisons.md", "docs/product-model.md", "docs/killer-workflow.md"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["clear positioning", "short demo route"],
-  "stop_conditions": ["do not let README become a fake hosted-platform claim"],
-  "validation": ["python3 scripts/check-readme-parity.py"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "docs"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake"
+    ],
+    "ai_failure_modes": [
+      "shallow understanding"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "positioning drift"
+    ]
+  },
+  "entry_files": [
+    "README.md",
+    "README_ru.md"
+  ],
+  "related_files": [
+    "docs/comparisons.md",
+    "docs/product-model.md",
+    "docs/killer-workflow.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "clear positioning",
+    "short demo route"
+  ],
+  "stop_conditions": [
+    "do not let README become a fake hosted-platform claim"
+  ],
+  "validation": [
+    "python3 scripts/check-readme-parity.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
-  "badges": ["concept", "docs"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "github-copilot"
+  ],
+  "badges": [
+    "concept",
+    "docs"
+  ]
 }

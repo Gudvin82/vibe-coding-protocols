@@ -1,6 +1,6 @@
 # Trust Check
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Используй trust check, когда нужен локальный read-only audit на согласованность репозитория.
 
@@ -25,7 +25,8 @@ vcp trust-check --json
 - sync между workflow и docs;
 - корректность integration statuses;
 - наличие benchmark report;
-- наличие evaluator shortcut, anti-misread guide, proof snapshot и evaluator-pack;
+- наличие evaluator shortcut, anti-misread guide, proof snapshot, evaluator token budget и evaluator-pack;
+- наличие visual proof docs и SVG assets;
 - hygiene CHANGELOG;
 - наличие release notes.
 
@@ -41,5 +42,5 @@ Trust Check не доказывает:
 
 ## Evaluator-proof note
 
-В `v0.8.7` trust-check также входит в public proof layer.
+В `v0.8.8` trust-check также входит в public proof layer.
 Он помогает внешним evaluators проверять, что evaluator shortcut surfaces, anti-misread docs и current release signals синхронизированы.

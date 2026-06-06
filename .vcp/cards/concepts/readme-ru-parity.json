@@ -46,7 +46,7 @@
   "validation": [
     "python3 scripts/check-readme-parity.py"
   ],
-  "version": "v0.8.7",
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -1,6 +1,6 @@
 # Version Semantics
 
-Current repository package version: `v0.8.7`
+Current repository package version: `v0.8.8`
 
 Internal stable methodology reference: `v1.4`
 

@@ -1,6 +1,6 @@
 # Архитектурная карта для evaluators
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Используй эту карту, если нужно быстро понять структуру VCP.
 
@@ -44,3 +44,8 @@ Roadmap-only:
 - `docs_ru/product-model.md`
 - `docs_ru/killer-workflow.md`
 - `docs_ru/proof-snapshot.md`
+
+## Visual layer
+
+- [Control-layer diagram](../assets/diagrams/vcp-control-layer-map.svg)
+- [Evaluator token budget](./evaluator-token-budget.md)

@@ -1,7 +1,9 @@
 {
   "scenario_id": "evaluator-pack",
   "target_profile": "repository-evaluation",
-  "target_signals": ["machine-readable evaluation guidance"],
+  "target_signals": [
+    "machine-readable evaluation guidance"
+  ],
   "required_files_to_inspect": [
     ".vcp/evaluator-pack.json",
     "vcp_cli/evaluator_cmd.py"

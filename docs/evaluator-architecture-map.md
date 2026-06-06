@@ -1,6 +1,6 @@
 # Evaluator Architecture Map
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Use this map when you need a quick structural reading of VCP.
 
@@ -44,3 +44,8 @@ Roadmap-only:
 - `docs/product-model.md`
 - `docs/killer-workflow.md`
 - `docs/proof-snapshot.md`
+
+## Visual layer
+
+- [Control-layer diagram](../assets/diagrams/vcp-control-layer-map.svg)
+- [Evaluator token budget](./evaluator-token-budget.md)

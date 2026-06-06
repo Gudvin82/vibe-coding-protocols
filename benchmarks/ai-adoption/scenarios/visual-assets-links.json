@@ -1,0 +1,17 @@
+{
+  "scenario_id": "visual-assets-links",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "visual links",
+    "readme orientation layer"
+  ],
+  "required_files_to_inspect": [
+    "README.md",
+    "README_ru.md",
+    "docs/visuals.md"
+  ],
+  "expected_first_safe_action": "Verify that README and docs point to the shipped visual assets before describing the visual layer.",
+  "expected_warnings": [
+    "do not report broken image links as shipped visual proof"
+  ]
+}

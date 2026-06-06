@@ -8,6 +8,14 @@ Available templates:
 - `templates/agents/CURSOR_RULES.md`
 - `templates/agents/AGENTS.md`
 
+## Cost-aware model routing
+
+These templates now separate:
+- fast/cheap discovery work;
+- strong/reasoning mutation work.
+
+They do not claim automatic model switching, provider API automation, or official IDE integrations.
+
 Optional command surface:
 
 ```bash

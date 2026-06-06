@@ -4,7 +4,11 @@ import re
 import sys
 
 root = Path(__file__).resolve().parent.parent
-md_files = list(root.rglob('*.md'))
+IGNORE_PARTS = {'build', 'dist'}
+md_files = [
+    path for path in root.rglob('*.md')
+    if not any(part in IGNORE_PARTS or part.endswith('.egg-info') for part in path.parts)
+]
 pattern = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
 errors = []
 

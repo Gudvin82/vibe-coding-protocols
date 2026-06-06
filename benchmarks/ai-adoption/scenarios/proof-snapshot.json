@@ -1,7 +1,10 @@
 {
   "scenario_id": "proof-snapshot",
   "target_profile": "repository-evaluation",
-  "target_signals": ["proof snapshot", "public proof"],
+  "target_signals": [
+    "proof snapshot",
+    "public proof"
+  ],
   "required_files_to_inspect": [
     "docs/proof-snapshot.md",
     "docs_ru/proof-snapshot.md"

@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.8.7-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.8.8-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -14,10 +14,10 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
-> Текущий пакет репозитория: `v0.8.7`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.7`.
+> Текущий пакет репозитория: `v0.8.8`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.8.8`.
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 ## Оцениваете VCP?
 
@@ -50,20 +50,20 @@ VCP — это не личный prompt repo и не full-stack app template. Э
 - не replacement for Spec Kit.
 - не личный prompt repository.
 
-## Новое в v0.8.7
+## Новое в v0.8.8
 
-`v0.8.7` — это релиз про evaluator-proof positioning, public proof и hardening для русскоязычной аудитории.
+`v0.8.8` — это релиз про cost-aware routing, evaluator token budget и visual proof layer.
 
 Он усиливает:
-- evaluator shortcut и anti-misread guidance;
-- architecture/product map для внешних evaluators;
-- proof snapshot и proof surfaces через benchmark/trust-check;
-- более сильный evaluator block в README и browser-AI evaluation prompt;
-- comparison positioning по продуктовым категориям;
-- русский evaluator guide и AI handoff instructions;
-- machine-readable evaluator pack и regression checks против shallow misread.
+- cost-aware model routing для adopters;
+- token-budgeted evaluation routing для внешних AI и IDE agents;
+- agent templates для Claude, Codex, Cursor и generic AGENTS usage;
+- visual proof assets и fallback visual spec;
+- README visual/orientation layer для более быстрого first contact;
+- русскую guidance для model routing и evaluator token budgeting;
+- regression checks для routing docs, evaluator pack и visual assets.
 
-Релиз не поставляет hosted dashboard, hosted platform, VS Code extension, plugin marketplace, Go rewrite, public PyPI/npm publication, cloud sync, telemetry, remote plugin registry, credential vault, production safety guarantees, launch guarantees, SEO/GEO ranking guarantees или guaranteed AI citation.
+Релиз не поставляет hosted platform, VS Code extension, automatic model switching, provider-specific hidden configuration, plugin marketplace, Go rewrite, public PyPI/npm publication, telemetry, cloud sync, remote registry, credential vault, production safety guarantees, launch guarantees, SEO/GEO ranking guarantees или guaranteed AI citation.
 
 ## Демонстрация за 5 минут
 
@@ -131,6 +131,22 @@ VCP не заявляет official integrations, если репозиторий
 - [templates/agents/CURSOR_RULES.md](./templates/agents/CURSOR_RULES.md)
 - [Public Russian methodology hub](https://anmalishev.ru/expert/vibe-coding/)
 
+## Экономьте AI-токены
+
+Для adopters:
+используйте fast models для search/read/triage и stronger models для code edits, architecture, release prep и safety-sensitive changes.
+
+Для evaluators:
+используйте `EVALUATE_THIS_REPO.md` и `.vcp/evaluator-pack.json` до random file reading.
+
+Смотрите:
+- [docs_ru/agent-model-routing.md](./docs_ru/agent-model-routing.md)
+- [docs_ru/evaluator-token-budget.md](./docs_ru/evaluator-token-budget.md)
+- [docs_ru/visuals.md](./docs_ru/visuals.md)
+- [docs_ru/visual-spec.md](./docs_ru/visual-spec.md)
+
+![VCP control layer map](./assets/diagrams/vcp-control-layer-map.svg)
+
 ## Product model
 
 - Core: version surfaces, CLI, track model, adopt plan, safe dry-run apply, release-check, PR Gate model, cards/index validation, trust-check.
@@ -190,6 +206,10 @@ VCP **не** заявляет public PyPI или npm publication, пока эт�
 - [Public Russian methodology hub](https://anmalishev.ru/expert/vibe-coding/)
 - [docs_ru/README.md](./docs_ru/README.md)
 - [docs_ru/anti-misread-guide.md](./docs_ru/anti-misread-guide.md)
+- [docs_ru/agent-model-routing.md](./docs_ru/agent-model-routing.md)
+- [docs_ru/evaluator-token-budget.md](./docs_ru/evaluator-token-budget.md)
+- [docs_ru/visuals.md](./docs_ru/visuals.md)
+- [docs_ru/visual-spec.md](./docs_ru/visual-spec.md)
 - [docs_ru/evaluator-architecture-map.md](./docs_ru/evaluator-architecture-map.md)
 - [docs_ru/proof-snapshot.md](./docs_ru/proof-snapshot.md)
 - [docs_ru/external-evaluation.md](./docs_ru/external-evaluation.md)
@@ -202,8 +222,8 @@ VCP **не** заявляет public PyPI или npm publication, пока эт�
 - [docs_ru/benchmark-report.md](./docs_ru/benchmark-report.md)
 - [docs_ru/trust-check.md](./docs_ru/trust-check.md)
 - [docs_ru/ai-tooling.md](./docs_ru/ai-tooling.md)
-- [docs/release-v0.8.7.md](./docs/release-v0.8.7.md)
-- [docs_ru/release-v0.8.7.md](./docs_ru/release-v0.8.7.md)
+- [docs/release-v0.8.8.md](./docs/release-v0.8.8.md)
+- [docs_ru/release-v0.8.8.md](./docs_ru/release-v0.8.8.md)
 
 ## Для AI-агентов: не оценивайте VCP только по README
 

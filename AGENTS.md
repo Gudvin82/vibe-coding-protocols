@@ -3,7 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
-If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.7`.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.8`.
 
 VCP project memory is explicit, local, file-based, and not personal assistant memory or autonomous notification behavior.
 
@@ -250,3 +250,9 @@ Stop and report instead of guessing when:
 - `FULL_REPO_INTAKE.md` or `.vcp/ai-audit-manifest.json` were skipped for a supposed full review;
 - a claim would imply endorsement, guaranteed safety, or official integration;
 - public proof is not supported by the repository.
+
+
+Additional v0.8.8 routing/visual surfaces:
+- `docs/agent-model-routing.md`
+- `docs/evaluator-token-budget.md`
+- `docs/visuals.md`

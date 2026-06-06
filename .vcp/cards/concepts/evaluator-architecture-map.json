@@ -3,25 +3,63 @@
   "type": "concept",
   "name": "Evaluator Architecture Map",
   "summary": "Compact architecture/product map for people who need to classify VCP correctly before comparing it.",
-  "use_when": ["someone needs a fast structural reading of VCP"],
-  "do_not_use_when": ["you need detailed implementation internals"],
+  "use_when": [
+    "someone needs a fast structural reading of VCP"
+  ],
+  "do_not_use_when": [
+    "you need detailed implementation internals"
+  ],
   "risk_level": "low",
-  "domains": ["concept", "architecture"],
+  "domains": [
+    "concept",
+    "architecture"
+  ],
   "maps_to": {
-    "sdlc_phase": ["intake"],
-    "ai_failure_modes": ["structure blindness"],
-    "project_state": ["new", "existing MVP", "production"],
-    "risk_categories": ["external misread"]
+    "sdlc_phase": [
+      "intake"
+    ],
+    "ai_failure_modes": [
+      "structure blindness"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "external misread"
+    ]
   },
-  "entry_files": ["docs/evaluator-architecture-map.md"],
-  "related_files": ["docs_ru/evaluator-architecture-map.md", "docs/product-model.md"],
-  "cli": ["python3 -m vcp_cli onboard --json"],
-  "outputs": ["visual category map"],
-  "stop_conditions": ["do not treat as full proof by itself"],
-  "validation": ["python3 scripts/check-evaluator-pack.py"],
-  "version": "v0.8.7",
+  "entry_files": [
+    "docs/evaluator-architecture-map.md"
+  ],
+  "related_files": [
+    "docs_ru/evaluator-architecture-map.md",
+    "docs/product-model.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli onboard --json"
+  ],
+  "outputs": [
+    "visual category map"
+  ],
+  "stop_conditions": [
+    "do not treat as full proof by itself"
+  ],
+  "validation": [
+    "python3 scripts/check-evaluator-pack.py"
+  ],
+  "version": "v0.8.8",
   "maturity": "stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
-  "badges": ["concept", "map"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "map"
+  ]
 }

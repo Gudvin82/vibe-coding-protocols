@@ -1,0 +1,74 @@
+{
+  "id": "agent-model-routing",
+  "type": "concept",
+  "name": "Agent Model Routing",
+  "summary": "Provider-neutral cost-aware routing guidance for adopters using fast models for discovery and stronger models for mutation.",
+  "use_when": [
+    "a team wants to reduce token waste during repository work",
+    "an adopter needs a clear split between discovery and mutation work"
+  ],
+  "do_not_use_when": [
+    "you are claiming automatic model switching or provider integration"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "ai-tooling"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "implementation",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "token waste",
+      "unsafe cheap-model edits"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "cost control",
+      "mutation safety"
+    ]
+  },
+  "entry_files": [
+    "docs/agent-model-routing.md"
+  ],
+  "related_files": [
+    "docs_ru/agent-model-routing.md",
+    "docs/ai-tooling.md",
+    "templates/agents/CLAUDE.md",
+    "templates/agents/CODEX.md",
+    "templates/agents/CURSOR_RULES.md",
+    "templates/agents/AGENTS.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "manual fast-vs-strong routing policy"
+  ],
+  "stop_conditions": [
+    "do not claim automatic model switching"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.8",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "routing"
+  ]
+}

@@ -1,6 +1,6 @@
 # Русская документация VCP
 
-Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.8.7`.
+Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.8.8`.
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -22,9 +22,13 @@ Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 - [benchmark report](./benchmark-report.md)
 - [trust check](./trust-check.md)
 - [AI tooling](./ai-tooling.md)
+- [agent model routing](./agent-model-routing.md)
+- [evaluator token budget](./evaluator-token-budget.md)
+- [visuals](./visuals.md)
+- [visual spec](./visual-spec.md)
 - [install](./install.md)
 - [public surfaces](./public-surfaces.md)
-- [release note](./release-v0.8.7.md)
+- [release note](./release-v0.8.8.md)
 
 ## Что важно понять быстро
 
@@ -76,6 +80,11 @@ AI должен:
 Глубокий technical source of truth остается в английских docs, CLI surfaces и machine-readable артефактах репозитория.
 
 ## Как не дать ИИ неправильно оценить VCP
+
+Для своей работы внутри репозитория также разделяйте user-facing model routing и evaluator token budget:
+- adopters экономят токены через fast/cheap vs strong/reasoning tier policy;
+- evaluators экономят токены через Level 0-3 inspection depth.
+
 
 - дай AI GitHub repo, а не только сайт;
 - попроси его inspect exact files, а не только landing page;

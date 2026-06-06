@@ -3,20 +3,67 @@
   "type": "concept",
   "name": "Trust Check",
   "summary": "A local repository trust and consistency audit for version surfaces, docs parity, roadmap boundaries, and release hygiene.",
-  "use_when": ["a user wants a single self-audit command before release claims"],
-  "do_not_use_when": ["production safety certification is expected"],
+  "use_when": [
+    "a user wants a single self-audit command before release claims"
+  ],
+  "do_not_use_when": [
+    "production safety certification is expected"
+  ],
   "risk_level": "medium",
-  "domains": ["concept", "cli"],
-  "maps_to": {"sdlc_phase": ["review", "release"], "ai_failure_modes": ["overclaim", "version drift"], "project_state": ["new", "existing MVP", "production"], "risk_categories": ["trust drift"]},
-  "entry_files": ["docs/trust-check.md", "vcp_cli/trust_check_cmd.py"],
-  "related_files": ["scripts/check-public-version-surfaces.py", "scripts/check-roadmap-overclaim.py"],
-  "cli": ["python3 -m vcp_cli trust-check --json"],
-  "outputs": ["trust summary", "pass/warn/fail checks"],
-  "stop_conditions": ["do not present this as security or production certification"],
-  "validation": ["python3 -m vcp_cli trust-check --json"],
-  "version": "v0.8.7",
+  "domains": [
+    "concept",
+    "cli"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "version drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "trust drift"
+    ]
+  },
+  "entry_files": [
+    "docs/trust-check.md",
+    "vcp_cli/trust_check_cmd.py"
+  ],
+  "related_files": [
+    "scripts/check-public-version-surfaces.py",
+    "scripts/check-roadmap-overclaim.py"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "trust summary",
+    "pass/warn/fail checks"
+  ],
+  "stop_conditions": [
+    "do not present this as security or production certification"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.8.8",
   "maturity": "local-stable",
   "recommended": true,
-  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
-  "badges": ["command", "trust"]
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "github-copilot"
+  ],
+  "badges": [
+    "command",
+    "trust"
+  ]
 }

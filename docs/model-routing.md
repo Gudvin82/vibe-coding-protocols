@@ -91,3 +91,6 @@ Model routing does not automatically fix:
 - missing tests;
 - missing security review;
 - bad approval discipline.
+
+
+For the current packaged adopter guidance, see `docs/agent-model-routing.md`.

@@ -25,6 +25,7 @@ else:
         'python3 -m vcp_cli benchmark run --json',
         'python3 -m vcp_cli cards validate --json',
         'python3 -m vcp_cli index validate --json',
+        'python3 -m vcp_cli evaluator pack --json',
     ):
         if cmd not in payload.get('required_commands', []):
             issues.append(f'missing required command: {cmd}')
@@ -35,6 +36,12 @@ else:
     for key in ('vcp', 'spec_kit', 'full_stack_templates', 'ai_agents'):
         if key not in compare:
             issues.append(f'missing comparison category: {key}')
+    levels = payload.get('token_budget_levels', [])
+    if [item.get('level') for item in levels] != [0, 1, 2, 3]:
+        issues.append('token_budget_levels must list levels 0, 1, 2, 3 in order')
+    for item in levels:
+        if not item.get('name') or not item.get('surfaces'):
+            issues.append(f'incomplete token budget entry: {item!r}')
 
 if issues:
     print('Evaluator pack check failed:')

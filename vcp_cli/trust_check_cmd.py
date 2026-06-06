@@ -13,7 +13,7 @@ SCRIPT_CHECKS = [
     ("readme-parity", ["python3", "scripts/check-readme-parity.py"], "README.md and README_ru.md expose the same current-release and route signals."),
     ("russian-docs-parity", ["python3", "scripts/check-russian-docs-parity.py"], "Russian docs index and release surfaces are present and synchronized."),
     ("roadmap-overclaim", ["python3", "scripts/check-roadmap-overclaim.py"], "Roadmap-only surfaces are not described as shipped."),
-    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, and machine-readable evaluator pack are synchronized."),
+    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, token-budget levels, and machine-readable evaluator pack are synchronized."),
 ]
 
 
@@ -129,13 +129,19 @@ def _evaluator_surface_check(root: Path) -> dict[str, Any]:
         "docs_ru/proof-snapshot.md",
         "templates/reports/external-evaluation.md",
         ".vcp/evaluator-pack.json",
+        "docs/agent-model-routing.md",
+        "docs_ru/agent-model-routing.md",
+        "docs/evaluator-token-budget.md",
+        "docs_ru/evaluator-token-budget.md",
+        "docs/visuals.md",
+        "docs_ru/visuals.md",
     ]
     missing = [rel for rel in required if not (root / rel).exists()]
     status = "pass" if not missing else "fail"
     return {
         "id": "evaluator-surfaces",
         "status": status,
-        "summary": "Evaluator shortcut, anti-misread docs, proof snapshot, architecture map, and machine-readable evaluator pack exist.",
+        "summary": "Evaluator shortcut, anti-misread docs, proof snapshot, architecture map, token-budget docs, and machine-readable evaluator pack exist.",
         "details": [f"missing {rel}" for rel in missing] or ["Evaluator-proof surfaces are present."],
     }
 

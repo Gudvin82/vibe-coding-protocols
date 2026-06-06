@@ -1,0 +1,17 @@
+{
+  "scenario_id": "evaluator-token-budget",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "level-based evaluator routing",
+    "token budgeting"
+  ],
+  "required_files_to_inspect": [
+    "docs/evaluator-token-budget.md",
+    "docs_ru/evaluator-token-budget.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "expected_first_safe_action": "Start from the evaluator token-budget guide before reading random files.",
+  "expected_warnings": [
+    "do not call Level 0 or Level 1 a full review"
+  ]
+}

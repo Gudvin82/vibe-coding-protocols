@@ -1,6 +1,6 @@
 # AI Tooling
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -35,3 +35,11 @@ VCP is meant to be used alongside AI coding agents, not as a claim of official i
 - do not overclaim shipped surfaces;
 - do not say tests passed unless they ran;
 - update machine-readable surfaces together with docs.
+
+
+## Cost-aware routing
+
+Use fast/cheap model tiers for search, reading, and low-risk discovery.
+Use strong/reasoning model tiers for edits, manifests, tests, architecture, release prep, and safety-sensitive decisions.
+
+See `docs/agent-model-routing.md` for adopter-facing routing and `docs/evaluator-token-budget.md` for evaluator-facing token budgeting.

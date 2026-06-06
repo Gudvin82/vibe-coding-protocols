@@ -1,0 +1,63 @@
+{
+  "id": "vcp-product-model-diagram",
+  "type": "concept",
+  "name": "VCP Product Model Diagram",
+  "summary": "Product model diagram showing Core, Guided Paths, Optional Layers, and Roadmap-only surfaces.",
+  "use_when": [
+    "a reader needs the product-model buckets at a glance"
+  ],
+  "do_not_use_when": [
+    "someone needs a text-only explanation first"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "visual"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "framework confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "scope clarity"
+    ]
+  },
+  "entry_files": [
+    "assets/diagrams/vcp-product-model.svg"
+  ],
+  "related_files": [
+    "docs/product-model.md",
+    "docs/visual-spec.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "product-model diagram"
+  ],
+  "stop_conditions": [
+    "do not describe roadmap-only boxes as shipped"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.8",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor"
+  ],
+  "badges": [
+    "concept",
+    "visual"
+  ]
+}

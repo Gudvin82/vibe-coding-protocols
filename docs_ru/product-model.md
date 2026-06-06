@@ -1,6 +1,6 @@
 # Product Model
 
-Repository package: `v0.8.7`
+Repository package: `v0.8.8`
 
 Используй эту модель, чтобы быстро понять VCP.
 
@@ -57,3 +57,9 @@ Repository package: `v0.8.7`
 - Guided Paths показывают, как им пользоваться.
 - Optional Layers показывают, что можно подключать позже.
 - Roadmap-only фиксирует, что нельзя overclaim.
+
+## Visual layer
+
+- [Product model diagram](../assets/diagrams/vcp-product-model.svg)
+- [Visual proof doc](./visuals.md)
+- [Visual generation spec](./visual-spec.md)
