@@ -1,0 +1,69 @@
+{
+  "version": "v0.9.3",
+  "items": [
+    {
+      "id": "claude-code-mode",
+      "tool": "Claude Code",
+      "best_commands": [
+        "python3 -m vcp_cli route recommend --scenario existing-project --json",
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "best_routing": "use for guided implementation with explicit review",
+      "known_limitations": [
+        "not official integration"
+      ],
+      "safe_usage_pattern": "copy local kit then review evidence",
+      "review_pattern": "pair with PR readiness",
+      "recommended_agent_rule_profile": "mini",
+      "recommended_kit": "claude"
+    },
+    {
+      "id": "codex-mode",
+      "tool": "Codex",
+      "best_commands": [
+        "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json",
+        "python3 -m vcp_cli scorecard --json"
+      ],
+      "best_routing": "use for repo-wide inspection plus local controls",
+      "known_limitations": [
+        "not official integration"
+      ],
+      "safe_usage_pattern": "route first, then inspect proof surfaces",
+      "review_pattern": "pair with trust-check",
+      "recommended_agent_rule_profile": "mini",
+      "recommended_kit": "codex"
+    },
+    {
+      "id": "cursor-mode",
+      "tool": "Cursor",
+      "best_commands": [
+        "python3 -m vcp_cli route recommend --scenario new-project --json",
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "best_routing": "use for edit-heavy local loops",
+      "known_limitations": [
+        "not official integration"
+      ],
+      "safe_usage_pattern": "keep PR Gate and scorecard visible",
+      "review_pattern": "pair with handoff template",
+      "recommended_agent_rule_profile": "mini",
+      "recommended_kit": "cursor"
+    },
+    {
+      "id": "copilot-mode",
+      "tool": "GitHub Copilot",
+      "best_commands": [
+        "python3 -m vcp_cli agents template --agent copilot --json",
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "best_routing": "use for repo rules plus human review",
+      "known_limitations": [
+        "not official integration"
+      ],
+      "safe_usage_pattern": "export instructions, then validate locally",
+      "review_pattern": "pair with evidence summary",
+      "recommended_agent_rule_profile": "nano",
+      "recommended_kit": "copilot"
+    }
+  ]
+}

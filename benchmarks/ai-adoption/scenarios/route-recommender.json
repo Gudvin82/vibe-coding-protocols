@@ -1,0 +1,13 @@
+{
+  "scenario_id": "route-recommender",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "README.md",
+    "docs/current-limitations.md",
+    ".vcp/proof-counts.json"
+  ],
+  "expected_first_safe_action": "route recommendation stays deterministic",
+  "expected_warnings": [
+    "do not overclaim hosted or automated behavior"
+  ]
+}

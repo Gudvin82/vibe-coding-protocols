@@ -1,0 +1,70 @@
+{
+  "version": "v0.9.3",
+  "items": [
+    {
+      "id": "5-minute",
+      "goal": "pick a safe starting path",
+      "required_files": [
+        "START_HERE.md",
+        "docs/route-recommender.md"
+      ],
+      "required_commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "expected_output": "next route selected",
+      "what_not_to_do": [
+        "do not claim full understanding"
+      ],
+      "next_step": "30-minute"
+    },
+    {
+      "id": "30-minute",
+      "goal": "understand the core surfaces",
+      "required_files": [
+        "docs/control-spine.md",
+        "docs/proof-counts.md"
+      ],
+      "required_commands": [
+        "python3 -m vcp_cli route recommend --scenario new-project --json"
+      ],
+      "expected_output": "route + scorecard context",
+      "what_not_to_do": [
+        "do not skip limitations"
+      ],
+      "next_step": "half-day"
+    },
+    {
+      "id": "half-day",
+      "goal": "prepare evidence for real work",
+      "required_files": [
+        "docs/evidence-bundle.md",
+        "docs/pr-readiness.md"
+      ],
+      "required_commands": [
+        "python3 -m vcp_cli scorecard --json",
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "expected_output": "evidence-ready local bundle",
+      "what_not_to_do": [
+        "do not present as release guarantee"
+      ],
+      "next_step": "full-audit"
+    },
+    {
+      "id": "full-audit",
+      "goal": "deep repository evaluation",
+      "required_files": [
+        "EVALUATE_THIS_REPO.md",
+        ".vcp/evaluator-pack.json"
+      ],
+      "required_commands": [
+        "python3 -m vcp_cli benchmark run --json"
+      ],
+      "expected_output": "full evaluator path",
+      "what_not_to_do": [
+        "do not label shallow review as full"
+      ],
+      "next_step": "human decision"
+    }
+  ]
+}

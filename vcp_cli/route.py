@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-from .utils import print_output
+from pathlib import Path
+
+from .utils import load_json, print_output, repo_root
 
 ROUTES = {
     "spec-first": {
@@ -202,6 +204,15 @@ ROUTES = {
 }
 
 
+def _recommender_payload() -> dict[str, object]:
+    root = repo_root()
+    return load_json(root / ".vcp" / "route-recommender.json")
+
+
+def _scenario_ids() -> list[str]:
+    return [item["scenario"] for item in _recommender_payload().get("scenarios", [])]
+
+
 def run(profile: str, json_mode: bool = False) -> int:
     if profile not in ROUTES:
         print(f"Unknown profile: {profile}", flush=True)
@@ -216,4 +227,55 @@ def run(profile: str, json_mode: bool = False) -> int:
         print(f"Confidence: {data['confidence']}")
         print(f"First action: {data['first_safe_action']}")
         print(f"Review gate: {data['post_task_review_gate']}")
+    return 0
+
+
+def run_list(json_mode: bool = False) -> int:
+    payload = _recommender_payload()
+    scenarios = []
+    for item in payload.get("scenarios", []):
+        scenarios.append(
+            {
+                "scenario": item["scenario"],
+                "route_profile": item["route_profile"],
+                "recommended_track": item["recommended_track"],
+                "recommended_rigor_mode": item["recommended_rigor_mode"],
+                "agent_kit": item["agent_kit"],
+            }
+        )
+    if json_mode:
+        print_output({"version": payload.get("version"), "count": len(scenarios), "items": scenarios}, True)
+    else:
+        for item in scenarios:
+            print(f"{item['scenario']}: {item['recommended_track']} ({item['recommended_rigor_mode']})")
+    return 0
+
+
+def run_recommend(scenario: str, json_mode: bool = False) -> int:
+    payload = _recommender_payload()
+    match = next((item for item in payload.get("scenarios", []) if item.get("scenario") == scenario), None)
+    if match is None:
+        print(f"Unknown scenario: {scenario}")
+        print(f"Available scenarios: {', '.join(_scenario_ids())}")
+        return 1
+    route_profile = match["route_profile"]
+    profile_details = ROUTES.get(route_profile, {})
+    result = {
+        "version": payload.get("version"),
+        "scenario": scenario,
+        "route_profile": route_profile,
+        "recommended_track": match["recommended_track"],
+        "recommended_rigor_mode": match["recommended_rigor_mode"],
+        "agent_kit": match["agent_kit"],
+        "required_surfaces": match["required_surfaces"],
+        "optional_surfaces": match.get("optional_surfaces", []),
+        "first_commands": match.get("first_commands", []),
+        "evidence_expectations": match.get("evidence_expectations", []),
+        "stop_conditions": match.get("stop_conditions", []),
+        "next_path": match.get("next_path"),
+        "selected_route": profile_details.get("selected_route"),
+        "confidence": profile_details.get("confidence", "High"),
+        "first_safe_action": profile_details.get("first_safe_action"),
+    }
+    print_output(result, json_mode)
     return 0

@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
   ],
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

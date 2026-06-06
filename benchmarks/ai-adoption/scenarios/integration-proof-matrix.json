@@ -1,0 +1,13 @@
+{
+  "scenario_id": "integration-proof-matrix",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "README.md",
+    "docs/current-limitations.md",
+    ".vcp/proof-counts.json"
+  ],
+  "expected_first_safe_action": "integration proof stays copy-ready only",
+  "expected_warnings": [
+    "do not overclaim hosted or automated behavior"
+  ]
+}

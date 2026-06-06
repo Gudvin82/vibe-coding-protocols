@@ -1,0 +1,64 @@
+{
+  "version": "v0.9.3",
+  "states": [
+    {
+      "id": "can-demo",
+      "required_evidence": [
+        "route",
+        "trust-check summary"
+      ],
+      "blocking_risks": [
+        "unmapped production claims"
+      ]
+    },
+    {
+      "id": "can-test-privately",
+      "required_evidence": [
+        "scorecard",
+        "proof counts"
+      ],
+      "blocking_risks": [
+        "missing human owner"
+      ]
+    },
+    {
+      "id": "can-merge",
+      "required_evidence": [
+        "PR readiness",
+        "tests run or explicitly not run"
+      ],
+      "blocking_risks": [
+        "no reviewer path"
+      ]
+    },
+    {
+      "id": "can-ship-beta",
+      "required_evidence": [
+        "release decision",
+        "evidence bundle"
+      ],
+      "blocking_risks": [
+        "trust-check fail"
+      ]
+    },
+    {
+      "id": "can-ship-public",
+      "required_evidence": [
+        "human approval",
+        "limitations acknowledged"
+      ],
+      "blocking_risks": [
+        "overclaim"
+      ]
+    },
+    {
+      "id": "cannot-release-yet",
+      "required_evidence": [
+        "blocking list"
+      ],
+      "blocking_risks": [
+        "active blockers remain"
+      ]
+    }
+  ]
+}

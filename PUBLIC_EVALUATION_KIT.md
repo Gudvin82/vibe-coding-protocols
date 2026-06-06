@@ -1,6 +1,6 @@
 # Public Evaluation Kit
 
-<!-- vcp-version: v0.9.2 -->
+<!-- vcp-version: v0.9.3 -->
 <!-- methodology-version: v1.4 -->
 
 Read these 7 files.
@@ -35,3 +35,5 @@ Rubric:
 - limitations
 
 Do not call the AI-tooling layer an official plugin suite unless the repository explicitly ships one.
+
+- route recommender, scorecard, evidence bundle, PR readiness, and current limitations are part of the public evaluation path.

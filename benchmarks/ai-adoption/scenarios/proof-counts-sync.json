@@ -1,0 +1,13 @@
+{
+  "scenario_id": "proof-counts-sync",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "README.md",
+    "docs/current-limitations.md",
+    ".vcp/proof-counts.json"
+  ],
+  "expected_first_safe_action": "proof counts link to canonical snapshot",
+  "expected_warnings": [
+    "do not overclaim hosted or automated behavior"
+  ]
+}

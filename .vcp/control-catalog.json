@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "title": "VCP Control Catalog",
   "statuses": [
     "shipped",
@@ -227,7 +227,7 @@
       ],
       "docs": "docs/roadmap/vscode-extension.md",
       "docs_ru": "docs_ru/README.md",
-      "roadmap_boundary": "No official VS Code extension ships in v0.9.2."
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.3."
     },
     {
       "id": "product-spine",
@@ -557,7 +557,7 @@
         "public-evaluation-kit"
       ],
       "docs": "docs/docs-site.md",
-      "docs_ru": "docs_ru/release-v0.9.2.md"
+      "docs_ru": "docs_ru/release-v0.9.3.md"
     },
     {
       "id": "agent-kits",
@@ -614,6 +614,211 @@
       ],
       "docs": "docs/client-adoption-playbook.md",
       "docs_ru": "docs_ru/client-adoption-playbook.md"
+    },
+    {
+      "id": "route-recommender",
+      "title": "Route Recommender",
+      "category": "intake",
+      "status": "shipped",
+      "summary": "Deterministic route guidance for common repo states.",
+      "primary_files": [
+        "docs/route-recommender.md",
+        ".vcp/route-recommender.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli route list --json",
+        "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json"
+      ],
+      "when_to_use": [
+        "you do not know which VCP path to choose"
+      ],
+      "not_for": [
+        "hosted workflow automation"
+      ],
+      "related_entries": [
+        "guided-adoption-modes",
+        "control-scorecard"
+      ],
+      "docs": "docs/route-recommender.md",
+      "docs_ru": "docs_ru/route-recommender.md"
+    },
+    {
+      "id": "guided-adoption-modes",
+      "title": "Guided Adoption Modes",
+      "category": "intake",
+      "status": "shipped",
+      "summary": "Bounded 5-minute to full-audit onboarding modes.",
+      "primary_files": [
+        "docs/guided-adoption-modes.md",
+        ".vcp/guided-adoption-modes.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli route list --json"
+      ],
+      "when_to_use": [
+        "you need a bounded first pass"
+      ],
+      "not_for": [
+        "pretending partial review is full"
+      ],
+      "related_entries": [
+        "route-recommender"
+      ],
+      "docs": "docs/guided-adoption-modes.md",
+      "docs_ru": "docs_ru/guided-adoption-modes.md"
+    },
+    {
+      "id": "control-scorecard",
+      "title": "Control Scorecard",
+      "category": "governance",
+      "status": "shipped",
+      "summary": "Local heuristic scorecard for clarity, control, proof, adoption, and launch readiness.",
+      "primary_files": [
+        "docs/control-scorecard.md",
+        ".vcp/control-scorecard.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli scorecard --json"
+      ],
+      "when_to_use": [
+        "you need a quick readiness summary"
+      ],
+      "not_for": [
+        "certification claims"
+      ],
+      "related_entries": [
+        "evidence-bundle",
+        "pr-readiness"
+      ],
+      "docs": "docs/control-scorecard.md",
+      "docs_ru": "docs_ru/control-scorecard.md"
+    },
+    {
+      "id": "evidence-bundle",
+      "title": "Evidence Bundle",
+      "category": "proof",
+      "status": "shipped",
+      "summary": "Portable bundle for PR, release, consulting, and handoff review.",
+      "primary_files": [
+        "docs/evidence-bundle.md",
+        ".vcp/evidence-bundle.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": [
+        "you need one proof packet"
+      ],
+      "not_for": [
+        "automatic PR creation"
+      ],
+      "related_entries": [
+        "pr-readiness",
+        "release-decision-matrix"
+      ],
+      "docs": "docs/evidence-bundle.md",
+      "docs_ru": "docs_ru/evidence-bundle.md"
+    },
+    {
+      "id": "release-decision-matrix",
+      "title": "Release Decision Matrix",
+      "category": "release",
+      "status": "shipped",
+      "summary": "Audience-safe release decision model without release guarantees.",
+      "primary_files": [
+        "docs/release-decision-matrix.md",
+        ".vcp/release-decision-matrix.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "when_to_use": [
+        "a team must decide demo/private/beta/public state"
+      ],
+      "not_for": [
+        "guaranteeing safety"
+      ],
+      "related_entries": [
+        "pr-readiness"
+      ],
+      "docs": "docs/release-decision-matrix.md",
+      "docs_ru": "docs_ru/release-decision-matrix.md"
+    },
+    {
+      "id": "anti-chaos-recovery-kit",
+      "title": "Anti-Chaos Recovery Kit",
+      "category": "recovery",
+      "status": "shipped",
+      "summary": "Recovery path for messy AI-generated repositories.",
+      "primary_files": [
+        "docs/anti-chaos-recovery-kit.md",
+        ".vcp/workflows/anti-chaos-recovery.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli route recommend --scenario ai-chaos-recovery --json"
+      ],
+      "when_to_use": [
+        "AI output already outran control"
+      ],
+      "not_for": [
+        "automatic cleanup"
+      ],
+      "related_entries": [
+        "evidence-bundle"
+      ],
+      "docs": "docs/anti-chaos-recovery-kit.md",
+      "docs_ru": "docs_ru/anti-chaos-recovery-kit.md"
+    },
+    {
+      "id": "pr-readiness",
+      "title": "PR Readiness",
+      "category": "review",
+      "status": "shipped",
+      "summary": "Local PR checklist and evidence view without auto-PR.",
+      "primary_files": [
+        "docs/pr-readiness.md",
+        ".vcp/pr-readiness.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "when_to_use": [
+        "changes are close to PR"
+      ],
+      "not_for": [
+        "GitHub API automation"
+      ],
+      "related_entries": [
+        "integration-proof-matrix",
+        "evidence-bundle"
+      ],
+      "docs": "docs/pr-readiness.md",
+      "docs_ru": "docs_ru/pr-readiness.md"
+    },
+    {
+      "id": "integration-proof-matrix",
+      "title": "Integration Proof Matrix",
+      "category": "integration",
+      "status": "shipped",
+      "summary": "Proof table for shipped copy-ready kits and their limits.",
+      "primary_files": [
+        "docs/integrations/proof-matrix.md",
+        ".vcp/integration-proof-matrix.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli agents kit --target copilot --json"
+      ],
+      "when_to_use": [
+        "you need to prove what integration kits are real"
+      ],
+      "not_for": [
+        "claiming official integrations"
+      ],
+      "related_entries": [
+        "agent-kits"
+      ],
+      "docs": "docs/integrations/proof-matrix.md",
+      "docs_ru": "docs_ru/integration-proof-matrix.md"
     }
   ]
 }

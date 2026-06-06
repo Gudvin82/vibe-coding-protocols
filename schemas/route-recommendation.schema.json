@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "scenario",
+    "recommended_track",
+    "recommended_rigor_mode",
+    "next_step"
+  ],
+  "properties": {
+    "scenario": {
+      "type": "string"
+    },
+    "recommended_track": {
+      "type": "string"
+    },
+    "recommended_rigor_mode": {
+      "type": "string"
+    },
+    "next_step": {
+      "type": "string"
+    }
+  }
+}

@@ -42,7 +42,20 @@ required = [
     'docs_ru/ecosystem-map.md',
     'docs_ru/agent-rule-provenance.md',
     'docs_ru/ai-augmented-solo-squad-path.md',
-    'docs_ru/release-v0.9.2.md',
+    'docs_ru/current-limitations.md',
+    'docs_ru/proof-counts.md',
+    'docs_ru/route-recommender.md',
+    'docs_ru/guided-adoption-modes.md',
+    'docs_ru/control-scorecard.md',
+    'docs_ru/evidence-bundle.md',
+    'docs_ru/release-decision-matrix.md',
+    'docs_ru/anti-chaos-recovery-kit.md',
+    'docs_ru/pr-readiness.md',
+    'docs_ru/github-pr-gate.md',
+    'docs_ru/integration-proof-matrix.md',
+    'docs_ru/ai-tool-mode-packs.md',
+    'docs_ru/evaluation-status-badges.md',
+    'docs_ru/release-v0.9.3.md',
 ]
 issues = []
 for rel in required:
@@ -51,7 +64,7 @@ for rel in required:
         issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.2.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.3.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
     if rel == 'docs_ru/README.md':
         for needle in (
@@ -81,9 +94,41 @@ for rel in required:
             'project-control-charter.md',
             'ecosystem-map.md',
             'ai-augmented-solo-squad-path.md',
+            'docs_ru/current-limitations.md',
+            'docs_ru/route-recommender.md',
+            'docs_ru/evidence-bundle.md',
+            'docs_ru/pr-readiness.md',
         ):
             if needle not in text:
                 issues.append(f'docs_ru/README.md missing required guidance: {needle}')
+    if rel == 'docs_ru/current-limitations.md':
+        for needle in (
+            'VCP специально остаётся local-first.',
+            'Это не SaaS, не hosted dashboard, не marketplace и не official IDE extension.',
+            'VCP не создаёт PR автоматически, не делает auto-merge и не является',
+            'VCP даёт local artifacts, CLI checks, agent kits, PR Gate, proof',
+        ):
+            if needle not in text:
+                issues.append(f'docs_ru/current-limitations.md missing required phrase: {needle}')
+    if rel == 'docs_ru/route-recommender.md':
+        for needle in ('быстрый MVP', 'новый проект', 'текущий проект', 'raw AI MVP', 'release decision', 'brownfield rescue', 'client rollout', 'AI chaos recovery', 'deep hardening'):
+            if needle not in text:
+                issues.append(f'docs_ru/route-recommender.md missing scenario: {needle}')
+    if rel == 'docs_ru/evidence-bundle.md':
+        for needle in ('ревьюеру', 'техлиду', 'клиенту', 'внешнему evaluator', 'AI-агенту', 'команде перед PR/release'):
+            if needle not in text:
+                issues.append(f'docs_ru/evidence-bundle.md missing audience: {needle}')
+    if rel == 'docs_ru/pr-readiness.md':
+        if 'PR Readiness не создаёт PR автоматически.' not in text:
+            issues.append('docs_ru/pr-readiness.md missing no-auto-PR guard')
+    if rel == 'docs_ru/integration-proof-matrix.md':
+        for needle in ('Integration Proof Matrix не означает official integrations.', 'Claude Code', 'Codex', 'Cursor', 'GitHub Copilot', 'GitHub Actions'):
+            if needle not in text:
+                issues.append(f'docs_ru/integration-proof-matrix.md missing: {needle}')
+    if rel == 'docs_ru/evaluation-status-badges.md':
+        for needle in ('честные внутренние status labels', 'не сертификаты и не гарантии', 'не означают production safety, compliance или launch success'):
+            if needle not in text:
+                issues.append(f'docs_ru/evaluation-status-badges.md missing: {needle}')
 if issues:
     print('Russian docs parity check failed:')
     for issue in issues:

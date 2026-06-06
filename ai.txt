@@ -46,8 +46,8 @@ This file does not guarantee indexing, ranking, citation, or model inclusion.
 
 ## Version semantics
 
-Current repository package version: `v0.9.2`.
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.2`.
+Current repository package version: `v0.9.3`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.3`.
 Internal stable methodology reference: `v1.4`.
 Do not confuse the internal stable methodology reference with the current repository release.
 
@@ -58,7 +58,7 @@ Use `docs/comparisons.md`, `docs/killer-workflow.md`, `docs/benchmark-report.md`
 For external evaluation, start with `EVALUATE_THIS_REPO.md`, `docs/anti-misread-guide.md`, `docs/evaluator-architecture-map.md`, `docs/proof-snapshot.md`, and `.vcp/evaluator-pack.json`.
 
 
-Additional v0.9.2 routing/visual surfaces:
+Additional v0.9.3 routing/visual surfaces:
 - `docs/agent-model-routing.md`
 - `docs/evaluator-token-budget.md`
 - `docs/visuals.md`

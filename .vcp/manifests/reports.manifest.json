@@ -564,6 +564,82 @@
         "Impact",
         "Suggested next step"
       ]
+    },
+    {
+      "id": "control-scorecard",
+      "file": "templates/reports/control-scorecard.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Clarity",
+        "Control",
+        "Proof",
+        "Adoption readiness"
+      ]
+    },
+    {
+      "id": "evidence-bundle",
+      "file": "templates/reports/evidence-bundle.md",
+      "intended_route": "proof",
+      "required_sections": [
+        "Route recommendation",
+        "Trust-check summary",
+        "Proof counts",
+        "Release decision"
+      ]
+    },
+    {
+      "id": "release-decision-matrix",
+      "file": "templates/reports/release-decision-matrix.md",
+      "intended_route": "release",
+      "required_sections": [
+        "State",
+        "Required evidence",
+        "Blocking risks",
+        "Next step"
+      ]
+    },
+    {
+      "id": "anti-chaos-recovery-plan",
+      "file": "templates/reports/anti-chaos-recovery-plan.md",
+      "intended_route": "maintenance",
+      "required_sections": [
+        "Freeze changes",
+        "Snapshot current state",
+        "Risk register",
+        "Recovery track"
+      ]
+    },
+    {
+      "id": "pr-readiness-checklist",
+      "file": "templates/reports/pr-readiness-checklist.md",
+      "intended_route": "review",
+      "required_sections": [
+        "change intent exists",
+        "trust-check status visible",
+        "release decision state visible"
+      ]
+    },
+    {
+      "id": "pr-handoff",
+      "file": "templates/reports/pr-handoff.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Scope",
+        "Validation",
+        "Risks",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "pr-evidence-summary",
+      "file": "templates/reports/pr-evidence-summary.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Route",
+        "Trust-check",
+        "Proof counts",
+        "Release decision"
+      ]
     }
   ],
   "related_docs": [
@@ -576,7 +652,7 @@
     "docs/review-accept-merge.md",
     "docs/mission-retrospective.md"
   ],
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "files": [
     "templates/reports/change-intent.md",
     "templates/project-control-charter.md",

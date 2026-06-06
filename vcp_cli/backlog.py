@@ -157,7 +157,7 @@ def _section_heading(status: str) -> str:
 def _build_preamble() -> list[str]:
     return [
         "<!-- vcp-artifact: PROJECT_BACKLOG -->",
-        "<!-- vcp-version: v0.9.0 -->",
+        "<!-- vcp-version: v0.9.3 -->",
         "<!-- methodology-version: v1.4 -->",
         "",
         "# Project Backlog",

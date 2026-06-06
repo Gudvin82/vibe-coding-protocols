@@ -1,11 +1,11 @@
-# VCP Diagrams
 
-This folder contains lightweight source diagrams for the VCP visual proof layer.
+# VCP diagrams
 
-Canonical assets:
-- `vcp-control-layer-map.svg`
-- `vcp-product-model.svg`
-- `vcp-comparison-map.svg`
+This folder stores local SVG diagrams for documentation and proof surfaces.
 
-PNG exports are optional.
-If PNG rendering is unavailable or visually weak, keep SVG as source of truth and use `docs/visual-spec.md` for a later polished image-generation pass.
+Current `v0.9.3` additions:
+- `vcp-route-selector.svg`
+- `vcp-evidence-bundle.svg`
+- `vcp-pr-readiness-flow.svg`
+- `vcp-release-decision-matrix.svg`
+- `vcp-anti-chaos-recovery.svg`

@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.9.2 -->
+<!-- vcp-version: v0.9.3 -->
 <!-- methodology-version: v1.4 -->
 # Client Adoption Playbook
 
@@ -6,7 +6,7 @@ Use this playbook when VCP is being introduced into a real client, team, or port
 
 ## Definition of success
 
-After `v0.9.2`, client/team adoption should feel more practical and less ambiguous.
+After `v0.9.3`, client/team adoption should feel more practical and less ambiguous.
 
 Success means:
 - a consultant or tech lead can explain where VCP starts and where it stops;

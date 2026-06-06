@@ -1,6 +1,5 @@
-<!-- vcp-version: v0.9.2 -->
+<!-- vcp-version: v0.9.3 -->
 <!-- vcp-artifact: COPILOT_INSTRUCTIONS -->
-<!-- vcp-version: v0.9.1 -->
 <!-- methodology-version: v1.4 -->
 
 # GitHub Copilot Instructions

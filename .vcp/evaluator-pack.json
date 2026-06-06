@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -47,7 +47,15 @@
     "docs_ru/client-adoption-playbook.md",
     "docs_ru/consulting-offers.md",
     "docs_ru/customer-repo-scaffold.md",
-    "docs_ru/executive-reporting.md"
+    "docs_ru/executive-reporting.md",
+    "docs/current-limitations.md",
+    "docs/proof-counts.md",
+    "docs/route-recommender.md",
+    "docs/control-scorecard.md",
+    "docs/evidence-bundle.md",
+    "docs/pr-readiness.md",
+    "docs/integrations/proof-matrix.md",
+    "docs/visuals.md"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",
@@ -63,7 +71,11 @@
     "python3 -m vcp_cli profiles show --id mini --json",
     "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json",
     "python3 -m vcp_cli agents template --agent copilot --json",
-    "python3 -m vcp_cli agents kit --target copilot --json"
+    "python3 -m vcp_cli agents kit --target copilot --json",
+    "python3 -m vcp_cli route list --json",
+    "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json",
+    "python3 -m vcp_cli scorecard --json",
+    "python3 -m vcp_cli pr readiness --json"
   ],
   "inspection_depths": [
     "shallow",
@@ -142,12 +154,13 @@
   ],
   "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
   "proof_numbers": {
-    "benchmark_scenarios": 167,
-    "cards": 311,
-    "cli_commands_in_manifest": 77,
-    "tests": 118,
-    "report_templates": 48,
-    "visual_diagrams": 3,
+    "benchmark_scenarios": 179,
+    "cards": 323,
+    "cli_commands_in_manifest": 81,
+    "tests": 132,
+    "report_templates": 55,
+    "visual_diagrams": 8,
+    "agent_kits": 5,
     "russian_docs": true
   },
   "license_model": {

@@ -1,0 +1,97 @@
+{
+  "version": "v0.9.3",
+  "status": "local-heuristic",
+  "dimensions": [
+    {
+      "name": "clarity",
+      "score": 4,
+      "evidence": [
+        "README",
+        "START_HERE"
+      ],
+      "missing_evidence": [
+        "none"
+      ],
+      "recommended_next_action": "keep route guidance current"
+    },
+    {
+      "name": "control",
+      "score": 4,
+      "evidence": [
+        "trust-check",
+        "control spine"
+      ],
+      "missing_evidence": [
+        "none"
+      ],
+      "recommended_next_action": "preserve local-first boundaries"
+    },
+    {
+      "name": "proof",
+      "score": 4,
+      "evidence": [
+        "proof counts",
+        "proof snapshot"
+      ],
+      "missing_evidence": [
+        "more public case studies"
+      ],
+      "recommended_next_action": "expand external proof gradually"
+    },
+    {
+      "name": "adoption readiness",
+      "score": 4,
+      "evidence": [
+        "client adoption playbook"
+      ],
+      "missing_evidence": [
+        "none"
+      ],
+      "recommended_next_action": "keep agent kits synced"
+    },
+    {
+      "name": "launch readiness",
+      "score": 3,
+      "evidence": [
+        "release decision matrix"
+      ],
+      "missing_evidence": [
+        "named production evidence"
+      ],
+      "recommended_next_action": "require human release approval"
+    },
+    {
+      "name": "evaluator readiness",
+      "score": 4,
+      "evidence": [
+        "evaluator pack"
+      ],
+      "missing_evidence": [
+        "none"
+      ],
+      "recommended_next_action": "keep counts synced"
+    },
+    {
+      "name": "integration readiness",
+      "score": 4,
+      "evidence": [
+        "integration proof matrix"
+      ],
+      "missing_evidence": [
+        "no official integrations"
+      ],
+      "recommended_next_action": "stay explicit about boundaries"
+    },
+    {
+      "name": "client rollout readiness",
+      "score": 4,
+      "evidence": [
+        "VCP-Audit/Pilot/Scale"
+      ],
+      "missing_evidence": [
+        "none"
+      ],
+      "recommended_next_action": "keep rollout docs current"
+    }
+  ]
+}

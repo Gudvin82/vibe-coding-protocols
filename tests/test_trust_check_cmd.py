@@ -14,20 +14,20 @@ class TrustCheckCommandTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         payload = json.loads(proc.stdout)
         self.assertIn(payload['status'], {'pass', 'warn', 'fail'})
-        self.assertEqual(payload['version'], 'v0.9.2')
+        self.assertEqual(payload['version'], 'v0.9.3')
         self.assertIn('checks', payload)
         self.assertIn('summary', payload)
         check_ids = {item['id'] for item in payload['checks']}
         self.assertIn('version-surfaces', check_ids)
         self.assertIn('roadmap-overclaim', check_ids)
-        self.assertIn('changelog-hygiene', check_ids)
         self.assertIn('evaluator-pack', check_ids)
-        self.assertIn('evaluator-surfaces', check_ids)
-        self.assertIn('v091-product-spine', check_ids)
-        self.assertIn('agent-kits', check_ids)
+        self.assertIn('route-recommender', check_ids)
+        self.assertIn('proof-counts', check_ids)
+        self.assertIn('pr-readiness-pack', check_ids)
+        self.assertIn('integration-proof-matrix', check_ids)
         details = {item['id']: item for item in payload['checks']}
         self.assertIn('token-budget', details['evaluator-surfaces']['summary'])
-        self.assertIn('Copy-ready AI tool agent kits', details['agent-kits']['summary'])
+        self.assertIn('proof count', details['proof-counts']['summary'].lower())
 
 
 if __name__ == '__main__':

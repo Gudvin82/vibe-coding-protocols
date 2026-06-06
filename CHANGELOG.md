@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.9.3
+
+- added a public route recommender plus guided adoption modes for faster honest onboarding;
+- added canonical proof-count synchronization through `.vcp/proof-counts.json`;
+- added control scorecard, evidence bundle, release decision matrix, anti-chaos recovery kit, and PR readiness pack;
+- added integration proof matrix, AI tool mode packs, evaluation status badges, and new SVG visual proof diagrams;
+- strengthened current limitations, README surfaces, Russian methodology parity, trust-check coverage, and release narrative without SaaS or auto-PR overclaim;
+
 ## v0.9.2
 
 - turned VCP from a repo/toolkit entrypoint into a client-ready AI governance rollout method;

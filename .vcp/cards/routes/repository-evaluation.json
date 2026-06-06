@@ -55,7 +55,7 @@
     "python3 -m vcp_cli manifest validate",
     "python3 -m vcp_cli benchmark run"
   ],
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

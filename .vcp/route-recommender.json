@@ -1,0 +1,227 @@
+{
+  "version": "v0.9.3",
+  "methodology_version": "v1.4",
+  "canonical_source": "docs/route-recommender.md",
+  "scenarios": [
+    {
+      "scenario": "fast-mvp",
+      "route_profile": "new-project",
+      "recommended_track": "starter",
+      "recommended_rigor_mode": "5-minute",
+      "agent_kit": "codex",
+      "required_surfaces": [
+        "START_HERE.md",
+        "docs/route-recommender.md"
+      ],
+      "optional_surfaces": [
+        "docs/guided-adoption-modes.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario fast-mvp --json",
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "evidence_expectations": [
+        "basic route selection",
+        "trust-check snapshot"
+      ],
+      "stop_conditions": [
+        "project already has production users"
+      ],
+      "next_path": "docs/first-time-adoption.md"
+    },
+    {
+      "scenario": "new-project",
+      "route_profile": "new-project",
+      "recommended_track": "starter",
+      "recommended_rigor_mode": "30-minute",
+      "agent_kit": "claude",
+      "required_surfaces": [
+        "START_HERE.md",
+        "docs/client-adoption-playbook.md"
+      ],
+      "optional_surfaces": [
+        "docs/integrations/agent-kits.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario new-project --json"
+      ],
+      "evidence_expectations": [
+        "starter route chosen"
+      ],
+      "stop_conditions": [
+        "existing production code already dominates"
+      ],
+      "next_path": "docs/portable-control-pack.md"
+    },
+    {
+      "scenario": "existing-project",
+      "route_profile": "existing-mvp",
+      "recommended_track": "hardening-light",
+      "recommended_rigor_mode": "30-minute",
+      "agent_kit": "cursor",
+      "required_surfaces": [
+        "docs/mvp-to-launch-path.md",
+        "docs/pr-readiness.md"
+      ],
+      "optional_surfaces": [
+        "docs/evidence-bundle.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario existing-project --json"
+      ],
+      "evidence_expectations": [
+        "control gaps listed"
+      ],
+      "stop_conditions": [
+        "payments or sensitive data changed without scope"
+      ],
+      "next_path": "docs/control-scorecard.md"
+    },
+    {
+      "scenario": "raw-ai-mvp",
+      "route_profile": "existing-mvp",
+      "recommended_track": "brownfield-rescue",
+      "recommended_rigor_mode": "half-day",
+      "agent_kit": "codex",
+      "required_surfaces": [
+        "docs/anti-chaos-recovery-kit.md",
+        "docs/current-limitations.md"
+      ],
+      "optional_surfaces": [
+        "docs/evidence-bundle.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json",
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "evidence_expectations": [
+        "risk register",
+        "audit backlog"
+      ],
+      "stop_conditions": [
+        "no validation path exists"
+      ],
+      "next_path": "docs/anti-chaos-recovery-kit.md"
+    },
+    {
+      "scenario": "release-decision",
+      "route_profile": "production",
+      "recommended_track": "full-hardening",
+      "recommended_rigor_mode": "half-day",
+      "agent_kit": "github-actions",
+      "required_surfaces": [
+        "docs/release-decision-matrix.md",
+        "docs/pr-readiness.md"
+      ],
+      "optional_surfaces": [
+        "docs/evidence-bundle.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "evidence_expectations": [
+        "release decision state"
+      ],
+      "stop_conditions": [
+        "trust-check fail"
+      ],
+      "next_path": "docs/release-decision-matrix.md"
+    },
+    {
+      "scenario": "brownfield-rescue",
+      "route_profile": "maintenance",
+      "recommended_track": "brownfield-rescue",
+      "recommended_rigor_mode": "half-day",
+      "agent_kit": "cursor",
+      "required_surfaces": [
+        "docs/anti-chaos-recovery-kit.md",
+        "docs/control-scorecard.md"
+      ],
+      "optional_surfaces": [
+        "docs/evidence-bundle.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario brownfield-rescue --json"
+      ],
+      "evidence_expectations": [
+        "recovery plan"
+      ],
+      "stop_conditions": [
+        "no owner for risk backlog"
+      ],
+      "next_path": "docs/anti-chaos-recovery-kit.md"
+    },
+    {
+      "scenario": "client-rollout",
+      "route_profile": "production",
+      "recommended_track": "client-rollout",
+      "recommended_rigor_mode": "full-audit",
+      "agent_kit": "copilot",
+      "required_surfaces": [
+        "docs/client-adoption-playbook.md",
+        "docs/integrations/agent-kits.md"
+      ],
+      "optional_surfaces": [
+        "docs/integrations/proof-matrix.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario client-rollout --json"
+      ],
+      "evidence_expectations": [
+        "client rollout pack"
+      ],
+      "stop_conditions": [
+        "no named owner for rollout"
+      ],
+      "next_path": "docs/client-adoption-playbook.md"
+    },
+    {
+      "scenario": "ai-chaos-recovery",
+      "route_profile": "maintenance",
+      "recommended_track": "anti-chaos-recovery",
+      "recommended_rigor_mode": "full-audit",
+      "agent_kit": "codex",
+      "required_surfaces": [
+        "docs/anti-chaos-recovery-kit.md",
+        "docs/current-limitations.md"
+      ],
+      "optional_surfaces": [
+        "docs/evidence-bundle.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario ai-chaos-recovery --json"
+      ],
+      "evidence_expectations": [
+        "recovery backlog"
+      ],
+      "stop_conditions": [
+        "repo state still changing"
+      ],
+      "next_path": "docs/anti-chaos-recovery-kit.md"
+    },
+    {
+      "scenario": "deep-hardening",
+      "route_profile": "production",
+      "recommended_track": "full-hardening",
+      "recommended_rigor_mode": "full-audit",
+      "agent_kit": "github-actions",
+      "required_surfaces": [
+        "docs/control-scorecard.md",
+        "docs/release-decision-matrix.md"
+      ],
+      "optional_surfaces": [
+        "docs/integrations/proof-matrix.md"
+      ],
+      "first_commands": [
+        "python3 -m vcp_cli route recommend --scenario deep-hardening --json"
+      ],
+      "evidence_expectations": [
+        "full proof chain"
+      ],
+      "stop_conditions": [
+        "human review unavailable"
+      ],
+      "next_path": "docs/release-decision-matrix.md"
+    }
+  ]
+}

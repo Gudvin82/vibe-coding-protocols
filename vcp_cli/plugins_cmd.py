@@ -73,7 +73,7 @@ def validate_payload(plugin_path: str, root: Path | None = None) -> dict[str, An
     if data.get("writes") is True:
         warnings.append("Plugin declares write capability. Do not auto-execute it.")
     if data.get("execution") == "write-capable":
-        warnings.append("Write-capable plugins are scaffold-only in v0.9.0 and must remain opt-in.")
+        warnings.append("Write-capable plugins are scaffold-only in v0.9.3 and must remain opt-in.")
     return {
         "ok": not errors,
         "path": str(path),

@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need the documented surface"
+  ],
+  "do_not_use_when": [
+    "you want hosted automation"
+  ],
+  "entry_files": [
+    "docs/current-limitations.md",
+    "docs_ru/current-limitations.md"
+  ],
+  "related_files": [
+    "docs/scope-boundary.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "limits acknowledged"
+  ],
+  "stop_conditions": [
+    "stop if surface is treated as hosted automation"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.3",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "current-limitations",
+  "name": "Current Limitations",
+  "summary": "Honest local-first limitations surface"
+}

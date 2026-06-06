@@ -1,0 +1,13 @@
+{
+  "scenario_id": "v093-no-overclaim",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "README.md",
+    "docs/current-limitations.md",
+    ".vcp/proof-counts.json"
+  ],
+  "expected_first_safe_action": "v0.9.3 public story stays inside honest boundaries",
+  "expected_warnings": [
+    "do not overclaim hosted or automated behavior"
+  ]
+}

@@ -14,7 +14,7 @@ class StarterAdoptionMatrixTests(unittest.TestCase):
 
     def test_matrix_shape_and_boundaries(self) -> None:
         payload = json.loads((ROOT / '.vcp/starter-adoption-matrix.json').read_text(encoding='utf-8'))
-        self.assertEqual(payload['version'], 'v0.9.2')
+        self.assertEqual(payload['version'], 'v0.9.3')
         self.assertFalse(payload['official_integrations_claimed'])
         self.assertGreaterEqual(len(payload['items']), 10)
         for item in payload['items']:

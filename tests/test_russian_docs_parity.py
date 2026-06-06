@@ -25,6 +25,10 @@ class RussianDocsParityTests(unittest.TestCase):
         self.assertIn('EVALUATE_THIS_REPO.md', text)
         self.assertIn('agent-model-routing.md', text)
         self.assertIn('evaluator-token-budget.md', text)
+        self.assertIn('docs_ru/current-limitations.md', text)
+        self.assertIn('docs_ru/route-recommender.md', text)
+        self.assertIn('docs_ru/evidence-bundle.md', text)
+        self.assertIn('docs_ru/pr-readiness.md', text)
 
 
 if __name__ == '__main__':

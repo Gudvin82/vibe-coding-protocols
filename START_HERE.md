@@ -1,6 +1,8 @@
+
 # Start Here
 
-Use this file to choose the correct VCP path before copying artifacts or writing code.
+Use this file to choose the correct VCP path before copying artifacts or
+writing code.
 
 ## VCP in 60 seconds
 
@@ -12,50 +14,48 @@ It helps teams:
 - add PR Gate, proof, trust-check, and release evidence;
 - avoid pretending a local toolkit is a hosted platform.
 
-## Fast path
+## Choose your adoption mode
 
-If you want the shortest honest start:
+- 5 minutes
+- 30 minutes
+- half day
+- full audit
+
+See [docs/guided-adoption-modes.md](./docs/guided-adoption-modes.md).
+
+## Fast path
 
 ```bash
 python3 -m vcp_cli doctor --json
-python3 -m vcp_cli onboard --json
-python3 -m vcp_cli route --profile production --json
-python3 -m vcp_cli catalog list --json
+python3 -m vcp_cli route list --json
+python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json
 python3 -m vcp_cli trust-check --json
-```
-
-If you are evaluating the repository itself:
-
-```bash
-python3 -m vcp_cli evaluate --json
-python3 -m vcp_cli evaluator pack --json
-python3 -m vcp_cli benchmark run --json
-python3 -m vcp_cli trust-check --json
-```
-
-Node wrapper from this same repo:
-
-```bash
-npm run vcp -- doctor
-npm run vcp -- evaluate
 ```
 
 ## Route selector
 
-| If this is your situation | Start here |
-|---|---|
-| I am brand new to VCP | [docs/first-time-adoption.md](./docs/first-time-adoption.md) |
-| I need the product spine first | [docs/product-spine.md](./docs/product-spine.md) |
-| I want the core control chain | [docs/control-spine.md](./docs/control-spine.md) |
-| I already have an AI-built MVP and need control before release | [docs/mvp-to-launch-path.md](./docs/mvp-to-launch-path.md) |
-| I want the fastest end-to-end walkthrough | [docs/flagship-demo.md](./docs/flagship-demo.md) |
-| I need to know which surfaces matter first | [docs/surface-priority-model.md](./docs/surface-priority-model.md) |
-| I need a copyable local governance starter | [docs/portable-control-pack.md](./docs/portable-control-pack.md) |
-| I need copy-ready AI tool setup kits | [docs/integrations/agent-kits.md](./docs/integrations/agent-kits.md) |
-| I want to roll out VCP with a team/client | [docs/client-adoption-playbook.md](./docs/client-adoption-playbook.md) |
-| I need the work unit / review / release chain | [docs/work-package-lifecycle.md](./docs/work-package-lifecycle.md) |
-| I am evaluating VCP itself | [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md) |
-| I want the classic route chooser | [AI_INTAKE.md](./AI_INTAKE.md) |
+- I am brand new to VCP:
+  [docs/first-time-adoption.md](./docs/first-time-adoption.md)
+- I do not know which VCP path to choose:
+  [docs/route-recommender.md](./docs/route-recommender.md)
+- I need the product spine first:
+  [docs/product-spine.md](./docs/product-spine.md)
+- I already have an AI-built MVP and need control before release:
+  [docs/mvp-to-launch-path.md](./docs/mvp-to-launch-path.md)
+- I want the fastest end-to-end walkthrough:
+  [docs/flagship-demo.md](./docs/flagship-demo.md)
+- I need a copy-ready local governance starter:
+  [docs/portable-control-pack.md](./docs/portable-control-pack.md)
+- I need copy-ready AI tool setup kits:
+  [docs/integrations/agent-kits.md](./docs/integrations/agent-kits.md)
+- I want to roll out VCP with a team/client:
+  [docs/client-adoption-playbook.md](./docs/client-adoption-playbook.md)
+- I need to prepare a PR:
+  [docs/pr-readiness.md](./docs/pr-readiness.md)
+- AI already created chaos in my repo:
+  [docs/anti-chaos-recovery-kit.md](./docs/anti-chaos-recovery-kit.md)
+- I am evaluating VCP itself:
+  [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md)
 
 ## Required / recommended / optional
 
@@ -64,29 +64,22 @@ Required first:
 - `docs/first-time-adoption.md`
 - `docs/control-spine.md`
 - `docs/scope-boundary.md`
+- `docs/current-limitations.md`
 - `python3 -m vcp_cli trust-check --json`
 
 Recommended next:
 - `docs/flagship-demo.md`
 - `docs/control-catalog.md`
-- `docs/adaptive-rigor-modes.md`
-- `docs/client-adoption-playbook.md`
+- `docs/route-recommender.md`
+- `docs/guided-adoption-modes.md`
+- `docs/evidence-bundle.md`
+- `docs/integrations/proof-matrix.md`
 - `PUBLIC_EVALUATION_KIT.md`
-- `docs/integrations/setup-playbook.md`
-- `docs/integrations/agent-kits.md`
 
 If you are rolling VCP out with a team or client, start with these three files:
 - `START_HERE.md`
 - `docs/client-adoption-playbook.md`
 - `docs/integrations/agent-kits.md`
-
-For the client/team route, inspect next:
-- `docs/consulting-offers.md`
-- `docs/client-discovery.md`
-- `docs/technical-intake-workshop.md`
-- `docs/track-selection-for-clients.md`
-- `docs/customer-repo-scaffold.md`
-- `docs/executive-reporting.md`
 
 When you adopt VCP into another repo, do not copy root `AGENTS.md` blindly.
 Prefer `templates/AGENTS.md` or the more specific agent templates first.
@@ -95,7 +88,7 @@ Optional layers:
 - dashboard artifact
 - docs-site scaffold
 - presentations destination
-- public proof demo
+- visual proof diagrams
 
 Roadmap-only, not shipped:
 - hosted dashboard

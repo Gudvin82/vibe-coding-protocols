@@ -43,11 +43,13 @@ from . import route as route_cmd
 from . import runs_cmd
 from . import safety_cmd
 from . import score as score_cmd
+from . import scorecard_cmd
 from . import spec_cmd
 from . import trust_check_cmd
 from . import version as version_cmd
 from . import workflow_cmd
 from . import pr_gate_cmd
+from . import pr_readiness_cmd
 from . import catalog_cmd
 from .utils import repo_root
 
@@ -98,7 +100,9 @@ def build_parser() -> argparse.ArgumentParser:
     init_p.add_argument("--apply", action="store_true")
 
     route_p = sub.add_parser("route")
+    route_p.add_argument("route_command", nargs="?", choices=["list", "recommend"])
     route_p.add_argument("--profile", default="production")
+    route_p.add_argument("--scenario", default="raw-ai-mvp")
     route_p.add_argument("--json", action="store_true")
 
     adopt_p = sub.add_parser("adopt")
@@ -199,6 +203,9 @@ def build_parser() -> argparse.ArgumentParser:
     score_p = sub.add_parser("score")
     score_p.add_argument("--json", action="store_true")
     score_p.add_argument("--badge", nargs="?", const="text", choices=["text", "markdown", "json"])
+
+    scorecard_p = sub.add_parser("scorecard")
+    scorecard_p.add_argument("--json", action="store_true")
 
     review_diff_p = sub.add_parser("review-diff")
     review_diff_p.add_argument("--base")
@@ -387,6 +394,11 @@ def build_parser() -> argparse.ArgumentParser:
     safety_check = safety_sub.add_parser("check")
     safety_check.add_argument("--json", action="store_true")
 
+    pr_p = sub.add_parser("pr")
+    pr_sub = pr_p.add_subparsers(dest="pr_command")
+    pr_readiness = pr_sub.add_parser("readiness")
+    pr_readiness.add_argument("--json", action="store_true")
+
     pr_gate_p = sub.add_parser("pr-gate")
     pr_gate_sub = pr_gate_p.add_subparsers(dest="pr_gate_command")
     pr_gate_explain = pr_gate_sub.add_parser("explain")
@@ -497,6 +509,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "init":
         return init_cmd.run(args.target, args.print_prompt, args.json, args.apply)
     if args.command == "route":
+        if getattr(args, "route_command", None) == "list":
+            return route_cmd.run_list(args.json)
+        if getattr(args, "route_command", None) == "recommend":
+            return route_cmd.run_recommend(args.scenario, args.json)
         return route_cmd.run(args.profile, args.json)
     if args.command == "adopt":
         if getattr(args, "adopt_command", None) == "plan":
@@ -577,6 +593,8 @@ def main(argv: list[str] | None = None) -> int:
             return cards_cmd.validate_cards(getattr(args, "json", False))
     if args.command == "score":
         return score_cmd.run(args.json, getattr(args, "badge", None))
+    if args.command == "scorecard":
+        return scorecard_cmd.run(getattr(args, "json", False))
     if args.command == "review-diff":
         return review_diff_cmd.run(args.base, args.head, getattr(args, "json", False))
     if args.command == "release-check":
@@ -702,6 +720,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "pr-gate":
         if args.pr_gate_command in {None, "explain"}:
             return pr_gate_cmd.run_explain(getattr(args, "json", False))
+    if args.command == "pr":
+        if args.pr_command == "readiness":
+            return pr_readiness_cmd.run_readiness(getattr(args, "json", False))
     if args.command == "batch":
         if args.batch_command == "evaluate":
             return batch_cmd.run_evaluate(

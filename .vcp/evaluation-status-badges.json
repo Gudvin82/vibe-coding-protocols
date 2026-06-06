@@ -1,0 +1,77 @@
+{
+  "version": "v0.9.3",
+  "items": [
+    {
+      "id": "shallow-evaluable",
+      "criteria": [
+        "README and evaluator shortcut exist"
+      ],
+      "limitations": [
+        "not a full repo review"
+      ],
+      "does_not_mean": [
+        "no production safety guarantee"
+      ]
+    },
+    {
+      "id": "evaluator-ready",
+      "criteria": [
+        "evaluator pack and proof surfaces exist"
+      ],
+      "limitations": [
+        "still requires human judgment"
+      ],
+      "does_not_mean": [
+        "no certification"
+      ]
+    },
+    {
+      "id": "trust-check-ready",
+      "criteria": [
+        "trust-check passes"
+      ],
+      "limitations": [
+        "trust-check is repository consistency, not security"
+      ],
+      "does_not_mean": [
+        "no compliance guarantee"
+      ]
+    },
+    {
+      "id": "adoption-ready",
+      "criteria": [
+        "route recommender and kits exist"
+      ],
+      "limitations": [
+        "still local-first"
+      ],
+      "does_not_mean": [
+        "no hosted onboarding"
+      ]
+    },
+    {
+      "id": "launch-control-ready",
+      "criteria": [
+        "release decision matrix and PR readiness exist"
+      ],
+      "limitations": [
+        "needs human approval"
+      ],
+      "does_not_mean": [
+        "no launch success guarantee"
+      ]
+    },
+    {
+      "id": "client-rollout-ready",
+      "criteria": [
+        "client adoption playbook exists"
+      ],
+      "limitations": [
+        "not a managed service"
+      ],
+      "does_not_mean": [
+        "no compliance certification"
+      ]
+    }
+  ]
+}

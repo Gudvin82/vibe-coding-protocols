@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.9.2.md"
+        "docs/release-v0.9.3.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2442,7 +2442,7 @@
       "required_inspected_files": [
         "docs/scope-boundary.md",
         "docs/control-spine.md",
-        "docs/release-v0.9.2.md"
+        "docs/release-v0.9.3.md"
       ],
       "expected_warnings": [
         "do not overclaim hosted/cloud/autonomous functionality"
@@ -2472,7 +2472,7 @@
       "expected_route": null,
       "expected_pack": null,
       "required_inspected_files": [
-        "docs/release-v0.9.2.md",
+        "docs/release-v0.9.3.md",
         "docs/scope-boundary.md",
         "docs/public-evaluation-kit.md"
       ],
@@ -2557,9 +2557,201 @@
         "do not copy the entire toolkit into the target repository"
       ],
       "expected_first_action": "Choose the smallest matching kit instead of broad copying."
+    },
+    {
+      "id": "proof-counts-sync",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-counts-sync.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "proof counts link to canonical snapshot"
+    },
+    {
+      "id": "current-limitations",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/current-limitations.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "public limits stay explicit"
+    },
+    {
+      "id": "route-recommender",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/route-recommender.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "route recommendation stays deterministic"
+    },
+    {
+      "id": "guided-adoption-modes",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/guided-adoption-modes.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "guided adoption mode selection stays bounded"
+    },
+    {
+      "id": "control-scorecard",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/control-scorecard.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "scorecard stays heuristic"
+    },
+    {
+      "id": "evidence-bundle",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/evidence-bundle.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "evidence bundle stays local-first"
+    },
+    {
+      "id": "release-decision-matrix",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/release-decision-matrix.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "release decisions stay non-guaranteed"
+    },
+    {
+      "id": "anti-chaos-recovery",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/anti-chaos-recovery.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "chaos recovery does not claim auto-cleanup"
+    },
+    {
+      "id": "pr-readiness",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/pr-readiness.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "PR readiness avoids auto-PR"
+    },
+    {
+      "id": "integration-proof-matrix",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/integration-proof-matrix.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "integration proof stays copy-ready only"
+    },
+    {
+      "id": "visual-proof-layer-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/visual-proof-layer-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "visual layer stays documentation-first"
+    },
+    {
+      "id": "v093-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/v093-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "docs/current-limitations.md",
+        ".vcp/proof-counts.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted or automated behavior"
+      ],
+      "expected_first_action": "v0.9.3 public story stays inside honest boundaries"
     }
   ],
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "files": [
     "benchmarks/ai-adoption/scenarios/control-catalog.json",
     "benchmarks/ai-adoption/scenarios/change-intent.json",

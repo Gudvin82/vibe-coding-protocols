@@ -1,0 +1,16 @@
+{
+  "version": "v0.9.3",
+  "bundle_sections": [
+    "route recommendation",
+    "change intent",
+    "control charter",
+    "trust-check summary",
+    "proof counts",
+    "proof snapshot",
+    "release decision",
+    "limitations",
+    "next actions"
+  ],
+  "portable": true,
+  "notes": "Local evidence pack only. No automatic PR creation."
+}

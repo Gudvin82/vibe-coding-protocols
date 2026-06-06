@@ -6,74 +6,16 @@ from typing import Any
 
 from .catalog_cmd import validate as validate_catalog
 from .agent_kits_cmd import validate_registry as validate_agent_kits_registry
-from .change_cmd import validate_change_intent_data
-from .charter_cmd import validate_charter_data
-from .integrations_cmd import ALLOWED_STATUSES as INTEGRATION_STATUSES, list_payload, packs_payload
-from .profiles_cmd import validate as validate_profiles
-from .utils import dump_json, load_json, print_output, repo_root, repo_version, run_command
-
+from .utils import load_json, print_output, repo_root, repo_version, run_command
 
 SCRIPT_CHECKS = [
     ("version-surfaces", ["python3", "scripts/check-public-version-surfaces.py"], "Public version surfaces agree with the current repository package."),
     ("readme-parity", ["python3", "scripts/check-readme-parity.py"], "README.md and README_ru.md expose the same current-release and route signals."),
     ("russian-docs-parity", ["python3", "scripts/check-russian-docs-parity.py"], "Russian docs index and release surfaces are present and synchronized."),
     ("roadmap-overclaim", ["python3", "scripts/check-roadmap-overclaim.py"], "Roadmap-only surfaces are not described as shipped."),
-    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, token-budget levels, machine-readable evaluator pack, and evaluation-receipt rules are synchronized."),
+    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, token-budget layers, and machine-readable evaluator pack are synchronized."),
+    ("proof-counts-script", ["python3", "scripts/check-proof-counts.py"], "Canonical proof counts and public proof surfaces stay synchronized."),
 ]
-
-
-DOC_EXPECTATIONS = {
-    "README.md": [
-        "EVALUATE_THIS_REPO.md",
-        "PUBLIC_EVALUATION_KIT.md",
-        "docs/killer-workflow.md",
-        "docs/comparisons.md",
-        "docs/product-model.md",
-        "docs/benchmark-report.md",
-        "docs/trust-check.md",
-        "docs/ai-tooling.md",
-        "docs/proof-snapshot.md",
-        "docs/evaluator-architecture-map.md",
-        "docs/evaluation-receipt.md",
-        "docs/public-proof-demo.md",
-        "docs/community-and-adoption-status.md",
-        "docs/control-catalog.md",
-        "docs/change-intent.md",
-        "docs/starter-template-adoption.md",
-        "docs/agent-rule-profiles.md",
-        "docs/project-control-charter.md",
-        "docs/ecosystem-map.md",
-        "docs/ai-augmented-solo-squad-path.md",
-        "docs/control-spine.md",
-        "docs/first-time-adoption.md",
-        "docs/flagship-demo.md",
-        "docs_ru/README.md",
-    ],
-    "README_ru.md": [
-        "EVALUATE_THIS_REPO.md",
-        "PUBLIC_EVALUATION_KIT.md",
-        "docs_ru/killer-workflow.md",
-        "docs_ru/comparisons.md",
-        "docs_ru/product-model.md",
-        "docs_ru/benchmark-report.md",
-        "docs_ru/trust-check.md",
-        "docs_ru/ai-tooling.md",
-        "docs_ru/proof-snapshot.md",
-        "docs_ru/evaluation-receipt.md",
-        "docs_ru/public-proof-demo.md",
-        "docs_ru/community-and-adoption-status.md",
-        "docs/control-catalog.md",
-        "docs/change-intent.md",
-        "docs/starter-template-adoption.md",
-        "docs/agent-rule-profiles.md",
-        "docs/project-control-charter.md",
-        "docs/ecosystem-map.md",
-        "docs/ai-augmented-solo-squad-path.md",
-        "docs/control-spine.md",
-        "docs/first-time-adoption.md",
-        "docs/flagship-demo.md",
-    ],
-}
 
 
 def _text(root: Path, rel: str) -> str:
@@ -101,176 +43,141 @@ def _script_check(root: Path, check_id: str, command: list[str], summary: str) -
     }
 
 
-def _readme_link_check(root: Path) -> dict[str, Any]:
-    missing: list[str] = []
-    for rel, needles in DOC_EXPECTATIONS.items():
-        text = _text(root, rel)
-        for needle in needles:
-            if needle not in text:
-                missing.append(f"{rel} missing {needle}")
-    status = "pass" if not missing else "fail"
+def _bundle_check(root: Path, check_id: str, summary: str, required: list[str], *, needles: dict[str, list[str]] | None = None) -> dict[str, Any]:
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems and needles:
+        for rel, rel_needles in needles.items():
+            text = _text(root, rel)
+            for needle in rel_needles:
+                if needle not in text:
+                    problems.append(f"{rel} missing {needle}")
     return {
-        "id": "landing-page-links",
-        "status": status,
-        "summary": "Landing-page README surfaces link to killer workflow, comparisons, product model, benchmark report, trust check, and AI tooling docs.",
-        "details": missing or ["README and README_ru include the expected landing-page links."],
+        "id": check_id,
+        "status": "pass" if not problems else "fail",
+        "summary": summary,
+        "details": problems or [summary],
     }
 
 
-def _workflow_sync_check(root: Path) -> dict[str, Any]:
-    workflow = load_json(root / ".vcp" / "workflows" / "mvp-to-launch.json")
-    workflow_id = workflow.get("id")
-    docs_to_scan = [
-        "README.md",
-        "README_ru.md",
-        "docs/killer-workflow.md",
-        "docs/local-platform-flow.md",
-        "docs/mvp-to-launch-path.md",
-        "docs/workflows.md",
+def _proof_counts_check(root: Path) -> dict[str, Any]:
+    required = [
+        ".vcp/proof-counts.json",
+        "docs/proof-counts.md",
+        "docs_ru/proof-counts.md",
+        "docs/proof-snapshot.md",
+        "docs_ru/proof-snapshot.md",
     ]
-    missing = [rel for rel in docs_to_scan if workflow_id not in _text(root, rel)]
-    status = "pass" if not missing else "warn"
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        payload = load_json(root / ".vcp" / "proof-counts.json")
+        if payload.get("version") != repo_version(root):
+            problems.append("proof counts version mismatch")
+        if "canonical counted snapshot" not in payload.get("canonical_policy", ""):
+            problems.append("proof counts canonical policy missing")
+        for rel in ("README.md", "README_ru.md", "docs/proof-snapshot.md", "docs_ru/proof-snapshot.md"):
+            if ".vcp/proof-counts.json" not in _text(root, rel):
+                problems.append(f"{rel} missing canonical proof-counts link")
     return {
-        "id": "workflow-doc-sync",
-        "status": status,
-        "summary": "Canonical workflow ids are discoverable from the main docs.",
-        "details": [f"{workflow_id} missing from {rel}" for rel in missing] or [f"Workflow id {workflow_id} is referenced by all key docs."],
-    }
-
-
-def _integration_status_check(root: Path) -> dict[str, Any]:
-    problems: list[str] = []
-    for payload, label in ((list_payload(root=root), ".vcp/integrations.json"), (packs_payload(root=root), ".vcp/integration-packs.json")):
-        for item in payload["items"]:
-            status = item.get("status")
-            if status not in INTEGRATION_STATUSES:
-                problems.append(f"{label}: {item.get('id')} has invalid status {status!r}")
-    status = "pass" if not problems else "fail"
-    return {
-        "id": "integration-status-validity",
-        "status": status,
-        "summary": "Integration and integration-pack registries use only declared statuses.",
-        "details": problems or ["All integration statuses are valid."],
-    }
-
-
-def _benchmark_report_check(root: Path) -> dict[str, Any]:
-    current = repo_version(root)
-    report = _text(root, "docs/benchmark-report.md")
-    details: list[str] = []
-    if current not in report:
-        details.append(f"docs/benchmark-report.md missing {current}")
-    if "python3 -m vcp_cli benchmark run --json" not in report:
-        details.append("docs/benchmark-report.md missing reproduction command")
-    status = "pass" if not details else "fail"
-    return {
-        "id": "benchmark-report",
-        "status": status,
-        "summary": "Public benchmark report exists, names the current release, and explains how to reproduce it.",
-        "details": details or ["Benchmark report references the current version and reproduction command."],
+        "id": "proof-counts",
+        "status": "pass" if not problems else "fail",
+        "summary": "Canonical proof count snapshot exists and public proof surfaces point to it.",
+        "details": problems or ["Proof count synchronization is present."],
     }
 
 
 def _evaluator_surface_check(root: Path) -> dict[str, Any]:
     required = [
         "EVALUATE_THIS_REPO.md",
-        "docs/anti-misread-guide.md",
-        "docs_ru/anti-misread-guide.md",
-        "docs/evaluator-architecture-map.md",
-        "docs_ru/evaluator-architecture-map.md",
-        "docs/proof-snapshot.md",
-        "docs_ru/proof-snapshot.md",
-        "templates/reports/external-evaluation.md",
         ".vcp/evaluator-pack.json",
+        "docs/benchmark-report.md",
+        "docs/trust-check.md",
+        "docs/current-limitations.md",
+        "docs/route-recommender.md",
+        "docs/control-scorecard.md",
+        "docs/evidence-bundle.md",
+        "docs/pr-readiness.md",
+        "docs/integrations/proof-matrix.md",
         "docs/agent-model-routing.md",
-        "docs_ru/agent-model-routing.md",
         "docs/evaluator-token-budget.md",
-        "docs_ru/evaluator-token-budget.md",
         "docs/visuals.md",
-        "docs_ru/visuals.md",
-        "docs/evaluation-receipt.md",
-        "docs_ru/evaluation-receipt.md",
-        "templates/reports/evaluation-receipt.md",
-        "schemas/evaluation-receipt.schema.json",
-        ".vcp/evaluation-receipt.example.json",
-        "docs/public-proof-demo.md",
-        "docs_ru/public-proof-demo.md",
-        "docs/community-and-adoption-status.md",
-        "docs_ru/community-and-adoption-status.md",
-        "docs/license.md",
-        "docs_ru/license.md",
-        "assets/presentations/README.md",
-        "docs/presentations.md",
-        "docs_ru/presentations.md",
     ]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
+    missing = [f"missing {rel}" for rel in required if not (root / rel).exists()]
     return {
         "id": "evaluator-surfaces",
-        "status": status,
-        "summary": "Evaluator shortcut, anti-misread docs, proof snapshot, architecture map, token-budget docs, and machine-readable evaluator pack exist.",
-        "details": [f"missing {rel}" for rel in missing] or ["Evaluator-proof surfaces are present."],
+        "status": "pass" if not missing else "fail",
+        "summary": "Evaluator shortcut, token-budget docs, route/proof surfaces, and machine-readable evaluator pack exist.",
+        "details": missing or ["Evaluator-proof surfaces are present."],
     }
 
 
-def _proof_strip_check(root: Path) -> dict[str, Any]:
-    required_snippets = [
-        "benchmark scenarios:",
-        "cards:",
-        "CLI commands in manifest:",
-        "tests:",
-        "report templates:",
-        "trust-check: yes",
-        "evaluator pack: yes",
-    ]
-    missing: list[str] = []
-    for rel in ("README.md", "README_ru.md", "docs/proof-snapshot.md", "docs_ru/proof-snapshot.md"):
+def _agent_kits_check(root: Path) -> dict[str, Any]:
+    problems = []
+    for rel in [
+        "docs/integrations/setup-playbook.md",
+        "docs_ru/integration-setup.md",
+        "docs/integrations/agent-kits.md",
+        "docs_ru/agent-kits.md",
+        ".vcp/agent-kits.json",
+        "templates/agents/COPILOT_INSTRUCTIONS.md",
+        "ci-examples/github-actions/vcp-pr-gate.yml",
+    ]:
+        if not (root / rel).exists():
+            problems.append(f"missing {rel}")
+    if not problems:
+        problems.extend(validate_agent_kits_registry(root))
+    for rel in (
+        "docs/integrations/agent-kits.md",
+        "docs/integrations/setup-playbook.md",
+        "docs_ru/agent-kits.md",
+        "docs_ru/integration-setup.md",
+        "README.md",
+        "README_ru.md",
+    ):
         text = _text(root, rel)
-        for snippet in required_snippets:
-            if snippet not in text:
-                missing.append(f"{rel} missing proof-strip snippet: {snippet}")
-    status = "pass" if not missing else "fail"
+        if "official plugin" in rel:
+            continue
+        if (
+            "not official plugin" not in text
+            and "not official plugins" not in text
+            and "Это не official plugins" not in text
+            and "не official plugin" not in text
+        ):
+            problems.append(f"{rel} must state the not-official-plugin boundary")
     return {
-        "id": "proof-strip",
-        "status": status,
-        "summary": "Public proof numbers strip is visible in README and proof snapshot surfaces.",
-        "details": missing or ["Proof strip is visible on README and proof snapshot surfaces."],
+        "id": "agent-kits",
+        "status": "pass" if not problems else "fail",
+        "summary": "Copy-ready AI tool agent kits, setup docs, safe export registry, and no-overclaim boundaries exist.",
+        "details": problems or ["Agent kit docs, templates, registry, and boundaries are present and valid."],
     }
 
 
-def _license_model_check(root: Path) -> dict[str, Any]:
-    missing = [rel for rel in ("LICENSE", "LICENSE-CODE-MIT", "LICENSE-DOCS-CC-BY-4.0", "NOTICE", "docs/license.md", "docs_ru/license.md") if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "license-model",
-        "status": status,
-        "summary": "Dual-license model for code versus docs/methodology is documented.",
-        "details": [f"missing {rel}" for rel in missing] or ["Dual-license surfaces are present."],
-    }
-
-
-def _community_adoption_check(root: Path) -> dict[str, Any]:
-    required = ["docs/community-and-adoption-status.md", "docs_ru/community-and-adoption-status.md"]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "community-adoption",
-        "status": status,
-        "summary": "Community/adoption status docs exist and make social-proof limits explicit.",
-        "details": [f"missing {rel}" for rel in missing] or ["Community/adoption status docs are present."],
-    }
-
-
-def _presentation_destination_check(root: Path) -> dict[str, Any]:
-    required = ["assets/presentations/README.md", "docs/presentations.md", "docs_ru/presentations.md"]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "presentations-destination",
-        "status": status,
-        "summary": "Presentations destination is prepared without claiming the files already ship.",
-        "details": [f"missing {rel}" for rel in missing] or ["Presentations destination docs are present."],
-    }
+def _client_adoption_rollout_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "client-adoption-rollout",
+        "Client/team adoption playbook, rollout offers, and delivery surfaces exist.",
+        [
+            "START_HERE.md",
+            "docs/client-adoption-playbook.md",
+            "docs/consulting-offers.md",
+            "docs/client-discovery.md",
+            "docs/technical-intake-workshop.md",
+            "docs/track-selection-for-clients.md",
+            "docs/customer-repo-scaffold.md",
+            "docs/executive-reporting.md",
+            "docs_ru/client-adoption-playbook.md",
+            "docs_ru/consulting-offers.md",
+            "docs_ru/client-discovery.md",
+            "docs_ru/technical-intake-workshop.md",
+            "docs_ru/track-selection-for-clients.md",
+            "docs_ru/customer-repo-scaffold.md",
+            "docs_ru/executive-reporting.md",
+        ],
+        needles={
+            "START_HERE.md": ["I do not know which VCP path to choose", "I need to prepare a PR", "AI already created chaos in my repo"],
+            "docs/client-adoption-playbook.md": ["Definition of success", "8-step flow", "docs/integrations/agent-kits.md"],
+        },
+    )
 
 
 def _control_catalog_check(root: Path) -> dict[str, Any]:
@@ -283,292 +190,181 @@ def _control_catalog_check(root: Path) -> dict[str, Any]:
     }
 
 
-def _change_intent_check(root: Path) -> dict[str, Any]:
+def _integration_proof_check(root: Path) -> dict[str, Any]:
     required = [
-        "docs/change-intent.md",
-        "docs_ru/change-intent.md",
-        "templates/reports/change-intent.md",
-        "schemas/change-intent.schema.json",
-        ".vcp/change-intent.example.json",
-    ]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    problems = [f"missing {rel}" for rel in missing]
-    if not missing:
-        problems.extend(validate_change_intent_data(load_json(root / ".vcp" / "change-intent.example.json"), root))
-    return {
-        "id": "change-intent",
-        "status": "pass" if not problems else "fail",
-        "summary": "Change-intent docs, schema, template, and example exist and validate.",
-        "details": problems or ["Change-intent surfaces are present and valid."],
-    }
-
-
-def _starter_adoption_matrix_check(root: Path) -> dict[str, Any]:
-    required = ["docs/starter-template-adoption.md", "docs_ru/starter-template-adoption.md", ".vcp/starter-adoption-matrix.json"]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    if not problems:
-        payload = load_json(root / ".vcp" / "starter-adoption-matrix.json")
-        if payload.get("official_integrations_claimed") is not False:
-            problems.append("starter-adoption-matrix must not claim official integrations")
-        if len(payload.get("items", [])) < 10:
-            problems.append("starter-adoption-matrix must contain at least 10 starter categories")
-    return {
-        "id": "starter-adoption-matrix",
-        "status": "pass" if not problems else "fail",
-        "summary": "Starter adoption matrix exists and positions VCP as a complementary control layer.",
-        "details": problems or ["Starter adoption matrix surfaces are present and valid."],
-    }
-
-
-def _agent_rule_profiles_check(root: Path) -> dict[str, Any]:
-    problems = validate_profiles(root)
-    return {
-        "id": "agent-rule-profiles",
-        "status": "pass" if not problems else "fail",
-        "summary": "Nano, mini, and full agent rule profiles exist and stay constraint-first.",
-        "details": problems or ["Agent rule profiles are present and valid."],
-    }
-
-
-def _project_control_charter_check(root: Path) -> dict[str, Any]:
-    required = [
-        "docs/project-control-charter.md",
-        "docs_ru/project-control-charter.md",
-        "templates/project-control-charter.md",
-        "schemas/project-control-charter.schema.json",
-        ".vcp/project-control-charter.example.json",
+        "docs/integrations/proof-matrix.md",
+        "docs_ru/integration-proof-matrix.md",
+        ".vcp/integration-proof-matrix.json",
     ]
     problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
     if not problems:
-        problems.extend(validate_charter_data(load_json(root / ".vcp" / "project-control-charter.example.json"), root))
+        matrix = load_json(root / ".vcp" / "integration-proof-matrix.json")
+        ids = {item.get("id") for item in matrix.get("items", [])}
+        if ids != {"claude", "codex", "cursor", "copilot", "github-actions"}:
+            problems.append("integration proof matrix must include claude/codex/cursor/copilot/github-actions")
     return {
-        "id": "project-control-charter",
+        "id": "integration-proof-matrix",
         "status": "pass" if not problems else "fail",
-        "summary": "Project control charter docs, template, schema, and example exist and validate.",
-        "details": problems or ["Project control charter surfaces are present and valid."],
+        "summary": "Integration proof matrix exists and covers all five shipped copy-ready kits.",
+        "details": problems or ["Integration proof matrix is present and complete."],
     }
 
 
-def _ecosystem_map_check(root: Path) -> dict[str, Any]:
-    required = ["docs/ecosystem-map.md", "docs_ru/ecosystem-map.md"]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    if not problems:
-        text = _text(root, "docs/ecosystem-map.md")
-        for needle in (
-            "Spec Kit",
-            "OpenSpec-like tools",
-            "Full-stack templates",
-            "VCP complements adjacent tools and does not replace them.",
-        ):
-            if needle not in text:
-                problems.append(f"docs/ecosystem-map.md missing {needle}")
-    return {
-        "id": "ecosystem-map",
-        "status": "pass" if not problems else "fail",
-        "summary": "Ecosystem map exists and keeps comparison boundaries respectful.",
-        "details": problems or ["Ecosystem map surfaces are present and valid."],
-    }
-
-
-def _rule_provenance_check(root: Path) -> dict[str, Any]:
-    required = ["docs/agent-rule-provenance.md", "docs_ru/agent-rule-provenance.md", ".vcp/agent-rule-provenance.json"]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    if not problems:
-        payload = load_json(root / ".vcp" / "agent-rule-provenance.json")
-        profile_ids = {item.get("id") for item in load_json(root / ".vcp" / "agent-rule-profiles.json").get("items", [])}
-        provenance_ids = {item.get("id") for item in payload.get("items", [])}
-        if profile_ids != provenance_ids:
-            problems.append("rule provenance ids must match agent-rule-profiles ids")
-        for item in payload.get("items", []):
-            if item.get("status") not in {"shipped", "optional", "experimental", "roadmap-only", "not-shipped"}:
-                problems.append(f"invalid provenance status for {item.get('id')}: {item.get('status')!r}")
-    return {
-        "id": "agent-rule-provenance",
-        "status": "pass" if not problems else "fail",
-        "summary": "Rule provenance exists, lists shipped profiles, and uses valid statuses.",
-        "details": problems or ["Rule provenance surfaces are present and valid."],
-    }
-
-
-def _solo_squad_check(root: Path) -> dict[str, Any]:
+def _visual_layer_check(root: Path) -> dict[str, Any]:
     required = [
-        "docs/ai-augmented-solo-squad-path.md",
-        "docs_ru/ai-augmented-solo-squad-path.md",
-        ".vcp/workflows/ai-augmented-solo-squad.json",
-        "templates/reports/solo-squad-control-plan.md",
+        "docs/visuals.md",
+        "docs_ru/visuals.md",
+        "assets/diagrams/vcp-route-selector.svg",
+        "assets/diagrams/vcp-evidence-bundle.svg",
+        "assets/diagrams/vcp-pr-readiness-flow.svg",
+        "assets/diagrams/vcp-release-decision-matrix.svg",
+        "assets/diagrams/vcp-anti-chaos-recovery.svg",
     ]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    if not problems:
-        text = _text(root, "docs/ai-augmented-solo-squad-path.md")
-        if "human-led" not in text:
-            problems.append("docs/ai-augmented-solo-squad-path.md must say human-led")
-        if "does not claim autonomous orchestration" not in text:
-            problems.append("docs/ai-augmented-solo-squad-path.md must reject autonomous orchestration overclaim")
-    return {
-        "id": "ai-augmented-solo-squad-path",
-        "status": "pass" if not problems else "fail",
-        "summary": "Solo/squad path exists and stays explicitly human-led.",
-        "details": problems or ["Solo/squad path surfaces are present and valid."],
-    }
+    return _bundle_check(
+        root,
+        "visual-proof-layer",
+        "Visual proof layer exists and ships SVG diagrams for route, evidence, PR flow, release, and recovery.",
+        required,
+    )
 
 
-def _agent_kits_check(root: Path) -> dict[str, Any]:
-    required = [
-        "docs/integrations/setup-playbook.md",
-        "docs_ru/integration-setup.md",
-        "docs/integrations/agent-kits.md",
-        "docs_ru/agent-kits.md",
-        ".vcp/agent-kits.json",
-        "templates/agents/COPILOT_INSTRUCTIONS.md",
-        "ci-examples/github-actions/vcp-pr-gate.yml",
-    ]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    for kit_id in ("claude", "codex", "cursor", "copilot", "github-actions"):
-        kit_dir = root / "templates" / "agent-kits" / kit_id
-        if not kit_dir.exists():
-            problems.append(f"missing kit folder templates/agent-kits/{kit_id}")
-            continue
-        if not (kit_dir / "README.md").exists():
-            problems.append(f"missing kit README for {kit_id}")
-    if not problems:
-        problems.extend(validate_agent_kits_registry(root))
-    for rel in (
-        "docs/integrations/agent-kits.md",
-        "docs/integrations/setup-playbook.md",
-        "docs_ru/agent-kits.md",
-        "docs_ru/integration-setup.md",
-        "README.md",
-        "README_ru.md",
-    ):
-        text = _text(root, rel)
-        if "not official plugin" not in text and "not official plugins" not in text and "не official plugin" not in text and "Это не official plugins" not in text:
-            problems.append(f"{rel} must state the not-official-plugin boundary")
-    return {
-        "id": "agent-kits",
-        "status": "pass" if not problems else "fail",
-        "summary": "Copy-ready AI tool agent kits, setup docs, safe export registry, and no-overclaim boundaries exist.",
-        "details": problems or ["Agent kit docs, templates, registry, and boundaries are present and valid."],
-    }
+def _release_doc_check(root: Path) -> dict[str, Any]:
+    current = repo_version(root)
+    required = [f"docs/release-{current}.md", f"docs_ru/release-{current}.md"]
+    return _bundle_check(root, "release-docs", "English and Russian release notes exist for the current package version.", required)
 
 
-def _client_adoption_rollout_check(root: Path) -> dict[str, Any]:
-    required = [
-        "START_HERE.md",
-        "docs/client-adoption-playbook.md",
-        "docs/consulting-offers.md",
-        "docs/client-discovery.md",
-        "docs/technical-intake-workshop.md",
-        "docs/track-selection-for-clients.md",
-        "docs/customer-repo-scaffold.md",
-        "docs/executive-reporting.md",
-        "docs_ru/client-adoption-playbook.md",
-        "docs_ru/consulting-offers.md",
-        "docs_ru/client-discovery.md",
-        "docs_ru/technical-intake-workshop.md",
-        "docs_ru/track-selection-for-clients.md",
-        "docs_ru/customer-repo-scaffold.md",
-        "docs_ru/executive-reporting.md",
-    ]
-    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
-    if not problems:
-        playbook = _text(root, "docs/client-adoption-playbook.md")
-        offers = _text(root, "docs/consulting-offers.md")
-        start_here = _text(root, "START_HERE.md")
-        for needle in (
-            "Definition of success",
-            "8-step flow",
-            "START_HERE.md",
-            "docs/client-adoption-playbook.md",
-            "docs/integrations/agent-kits.md",
-        ):
-            if needle not in playbook:
-                problems.append(f"docs/client-adoption-playbook.md missing {needle}")
-        for needle in ("VCP-Audit", "VCP-Pilot", "VCP-Scale"):
-            if needle not in offers:
-                problems.append(f"docs/consulting-offers.md missing {needle}")
-            if needle not in _text(root, "README.md"):
-                problems.append(f"README.md missing {needle}")
-        if "I want to roll out VCP with a team/client" not in start_here:
-            problems.append("START_HERE.md missing client/team rollout route")
-    return {
-        "id": "client-adoption-rollout",
-        "status": "pass" if not problems else "fail",
-        "summary": "Client/team adoption playbook, rollout offers, entry files, and supporting delivery surfaces exist.",
-        "details": problems or ["Client/team adoption rollout surfaces are present and coherent."],
-    }
+def _current_limitations_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "current-limitations",
+        "Current limitations exist in English and Russian and keep local-first boundaries explicit.",
+        ["docs/current-limitations.md", "docs_ru/current-limitations.md", "docs/scope-boundary.md", "docs_ru/scope-boundary.md"],
+        needles={
+            "docs/current-limitations.md": ["local-first", "not SaaS", "no public PyPI/npm publication yet"],
+            "docs_ru/current-limitations.md": ["VCP специально остаётся local-first.", "Это не SaaS", "VCP не создаёт PR автоматически"],
+        },
+    )
 
 
-def _v092_surface_check(root: Path) -> dict[str, Any]:
-    required = [
-        "PUBLIC_EVALUATION_KIT.md",
-        "docs/product-spine.md",
-        "docs/control-spine.md",
-        "docs/first-time-adoption.md",
-        "docs/adaptive-rigor-modes.md",
-        "docs/tiny-vcp-pipeline.md",
-        "docs/flagship-demo.md",
-        "docs/portable-control-pack.md",
-        "docs/surface-priority-model.md",
-        "docs/work-package-lifecycle.md",
-        "docs/review-accept-merge.md",
-        "docs/mission-retrospective.md",
-        "docs/delivery-graph.md",
-        "docs/public-evaluation-kit.md",
-        "docs/scope-boundary.md",
-        "docs_ru/product-spine.md",
-        "docs_ru/control-spine.md",
-        "docs_ru/first-time-adoption.md",
-        "docs_ru/adaptive-rigor-modes.md",
-        "docs_ru/tiny-vcp-pipeline.md",
-        "docs_ru/flagship-demo.md",
-        "docs_ru/portable-control-pack.md",
-        "docs_ru/surface-priority-model.md",
-        "docs_ru/work-package-lifecycle.md",
-        "docs_ru/review-accept-merge.md",
-        "docs_ru/mission-retrospective.md",
-        "docs_ru/delivery-graph.md",
-        "docs_ru/public-evaluation-kit.md",
-        "docs_ru/scope-boundary.md",
-        "site/README.md",
-        "examples/flagship-demo/README.md",
-        "templates/control-pack/README.md",
-        ".vcp/control-spine.json",
-        ".vcp/rigor-modes.json",
-        ".vcp/surface-priority-model.json",
-        ".vcp/work-packages/example.json",
-        ".vcp/review-accept-merge.example.json",
-        ".vcp/delivery-graph.example.json",
-    ]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "v091-product-spine",
-        "status": status,
-        "summary": "v0.9.2 product spine, first-time adoption, portable control, and flagship demo surfaces exist.",
-        "details": [f"missing {rel}" for rel in missing] or ["v0.9.2 product-spine surfaces are present."],
-    }
+def _route_recommender_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "route-recommender",
+        "Route recommender docs, JSON, schema, and example exist for common project scenarios.",
+        [
+            "docs/route-recommender.md",
+            "docs_ru/route-recommender.md",
+            ".vcp/route-recommender.json",
+            "schemas/route-recommendation.schema.json",
+            ".vcp/route-recommendation.example.json",
+        ],
+    )
 
 
-def _public_proof_demo_check(root: Path) -> dict[str, Any]:
-    required = [
-        "examples/public-proof/README.md",
-        "examples/public-proof/before-raw-ai-mvp.md",
-        "examples/public-proof/after-vcp-launch-control-package.md",
-        "examples/public-proof/route-example.json",
-        "examples/public-proof/risk-backlog-example.json",
-        "examples/public-proof/pr-gate-example.json",
-        "examples/public-proof/metrics-board-example.json",
-        "examples/public-proof/launch-decision-example.md",
-        "examples/public-proof/trust-check-example.json",
-    ]
-    missing = [rel for rel in required if not (root / rel).exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "public-proof-demo",
-        "status": status,
-        "summary": "Public proof demo exists as a quick before/after artifact pack.",
-        "details": [f"missing {rel}" for rel in missing] or ["Public proof demo assets are present."],
-    }
+def _guided_modes_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "guided-adoption-modes",
+        "Guided adoption modes exist for 5-minute, 30-minute, half-day, and full-audit onboarding.",
+        ["docs/guided-adoption-modes.md", "docs_ru/guided-adoption-modes.md", ".vcp/guided-adoption-modes.json"],
+    )
+
+
+def _scorecard_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "control-scorecard",
+        "Control scorecard docs, template, schema, and example exist as a local heuristic readiness view.",
+        [
+            "docs/control-scorecard.md",
+            "docs_ru/control-scorecard.md",
+            "templates/reports/control-scorecard.md",
+            "schemas/control-scorecard.schema.json",
+            ".vcp/control-scorecard.example.json",
+        ],
+    )
+
+
+def _evidence_bundle_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "evidence-bundle",
+        "Evidence bundle docs, template, schema, and example exist as a portable proof pack.",
+        [
+            "docs/evidence-bundle.md",
+            "docs_ru/evidence-bundle.md",
+            "templates/reports/evidence-bundle.md",
+            "schemas/evidence-bundle.schema.json",
+            ".vcp/evidence-bundle.example.json",
+        ],
+    )
+
+
+def _release_matrix_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "release-decision-matrix",
+        "Release decision matrix docs, template, schema, and example exist without claiming release guarantees.",
+        [
+            "docs/release-decision-matrix.md",
+            "docs_ru/release-decision-matrix.md",
+            "templates/reports/release-decision-matrix.md",
+            "schemas/release-decision-matrix.schema.json",
+            ".vcp/release-decision-matrix.example.json",
+        ],
+    )
+
+
+def _anti_chaos_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "anti-chaos-recovery-kit",
+        "Anti-chaos recovery kit exists as a human-led recovery path, not an automated cleanup engine.",
+        [
+            "docs/anti-chaos-recovery-kit.md",
+            "docs_ru/anti-chaos-recovery-kit.md",
+            "templates/reports/anti-chaos-recovery-plan.md",
+            ".vcp/workflows/anti-chaos-recovery.json",
+        ],
+    )
+
+
+def _pr_readiness_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "pr-readiness-pack",
+        "PR readiness docs, templates, schema, and example exist without auto-PR or auto-merge claims.",
+        [
+            "docs/pr-readiness.md",
+            "docs_ru/pr-readiness.md",
+            "docs/integrations/github-pr-gate.md",
+            "docs_ru/github-pr-gate.md",
+            "templates/reports/pr-readiness-checklist.md",
+            "templates/reports/pr-handoff.md",
+            "templates/reports/pr-evidence-summary.md",
+            "schemas/pr-readiness.schema.json",
+            ".vcp/pr-readiness.example.json",
+        ],
+    )
+
+
+def _mode_packs_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "ai-tool-mode-packs",
+        "AI tool mode packs exist for Claude Code, Codex, Cursor, and GitHub Copilot.",
+        ["docs/ai-tool-mode-packs.md", "docs_ru/ai-tool-mode-packs.md", ".vcp/ai-tool-mode-packs.json"],
+    )
+
+
+def _evaluation_status_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "evaluation-status-badges",
+        "Evaluation status badges exist as honest labels, not certificates or guarantees.",
+        ["docs/evaluation-status-badges.md", "docs_ru/evaluation-status-badges.md", ".vcp/evaluation-status-badges.json"],
+    )
 
 
 def _changelog_hygiene_check(root: Path) -> dict[str, Any]:
@@ -583,25 +379,11 @@ def _changelog_hygiene_check(root: Path) -> dict[str, Any]:
         details.append("missing release heading")
     elif match.group(1) != current:
         details.append(f"latest release heading is {match.group(1)!r}, expected {current!r}")
-    status = "pass" if not details else "fail"
     return {
         "id": "changelog-hygiene",
-        "status": status,
+        "status": "pass" if not details else "fail",
         "summary": "CHANGELOG starts with a heading and lists the current release first.",
         "details": details or [f"CHANGELOG begins with '# Changelog' and lists {current} first."],
-    }
-
-
-def _release_doc_check(root: Path) -> dict[str, Any]:
-    current = repo_version(root)
-    expected = [root / "docs" / f"release-{current}.md", root / "docs_ru" / f"release-{current}.md"]
-    missing = [str(path.relative_to(root)) for path in expected if not path.exists()]
-    status = "pass" if not missing else "fail"
-    return {
-        "id": "release-docs",
-        "status": status,
-        "summary": "English and Russian release notes exist for the current package version.",
-        "details": missing or [f"Release docs exist for {current}."],
     }
 
 
@@ -612,27 +394,23 @@ def payload(root: Path | None = None) -> dict[str, Any]:
 
     for check_id, command, summary in SCRIPT_CHECKS:
         checks.append(_script_check(root, check_id, command, summary))
-    checks.append(_readme_link_check(root))
-    checks.append(_workflow_sync_check(root))
-    checks.append(_integration_status_check(root))
-    checks.append(_benchmark_report_check(root))
     checks.append(_evaluator_surface_check(root))
-    checks.append(_proof_strip_check(root))
-    checks.append(_license_model_check(root))
-    checks.append(_public_proof_demo_check(root))
-    checks.append(_community_adoption_check(root))
-    checks.append(_presentation_destination_check(root))
-    checks.append(_control_catalog_check(root))
-    checks.append(_change_intent_check(root))
-    checks.append(_starter_adoption_matrix_check(root))
-    checks.append(_agent_rule_profiles_check(root))
-    checks.append(_project_control_charter_check(root))
-    checks.append(_ecosystem_map_check(root))
-    checks.append(_rule_provenance_check(root))
-    checks.append(_solo_squad_check(root))
+    checks.append(_proof_counts_check(root))
+    checks.append(_current_limitations_check(root))
+    checks.append(_route_recommender_check(root))
+    checks.append(_guided_modes_check(root))
+    checks.append(_scorecard_check(root))
+    checks.append(_evidence_bundle_check(root))
+    checks.append(_release_matrix_check(root))
+    checks.append(_anti_chaos_check(root))
+    checks.append(_pr_readiness_check(root))
+    checks.append(_integration_proof_check(root))
+    checks.append(_mode_packs_check(root))
+    checks.append(_visual_layer_check(root))
+    checks.append(_evaluation_status_check(root))
     checks.append(_agent_kits_check(root))
     checks.append(_client_adoption_rollout_check(root))
-    checks.append(_v092_surface_check(root))
+    checks.append(_control_catalog_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

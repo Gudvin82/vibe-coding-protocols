@@ -1,0 +1,76 @@
+{
+  "id": "anti-chaos-recovery",
+  "name": "Anti-Chaos Recovery",
+  "trigger": "AI output expanded faster than repository control",
+  "route": "maintenance",
+  "version": "v0.9.3",
+  "required_artifacts": [
+    "docs/anti-chaos-recovery-kit.md",
+    "templates/reports/anti-chaos-recovery-plan.md",
+    "docs/evidence-bundle.md",
+    "docs/pr-readiness.md"
+  ],
+  "outputs": [
+    "recovery plan",
+    "risk register",
+    "audit backlog update",
+    "release or hold decision"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json",
+    "python3 -m vcp_cli pr readiness --json",
+    "python3 -m vcp_cli workflow validate --json"
+  ],
+  "stop_conditions": [
+    "repo state still changing without freeze",
+    "no owner for recovery"
+  ],
+  "related_cards": [
+    "anti-chaos-recovery-kit",
+    "pr-readiness"
+  ],
+  "steps": [
+    {
+      "id": "freeze",
+      "name": "Freeze changes",
+      "action": "review",
+      "notes": "Pause unreviewed AI edits and establish one recovery owner."
+    },
+    {
+      "id": "snapshot",
+      "name": "Snapshot current state",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli diagnose --json"
+    },
+    {
+      "id": "route",
+      "name": "Run route recommender",
+      "action": "route",
+      "command": "python3 -m vcp_cli route recommend --scenario ai-chaos-recovery --json"
+    },
+    {
+      "id": "risk-register",
+      "name": "Create risk register",
+      "action": "artifact",
+      "notes": "Capture active risks before cleanup or merge work starts."
+    },
+    {
+      "id": "audit-backlog",
+      "name": "Create audit backlog",
+      "action": "plan",
+      "notes": "Open or update the audit backlog with recovery items first."
+    },
+    {
+      "id": "evidence-bundle",
+      "name": "Build evidence bundle",
+      "action": "artifact",
+      "notes": "Assemble proof surfaces before any release or PR decision."
+    },
+    {
+      "id": "release-decision",
+      "name": "Make release or hold decision",
+      "action": "review",
+      "notes": "Use the release decision matrix after trust-check and PR readiness."
+    }
+  ]
+}

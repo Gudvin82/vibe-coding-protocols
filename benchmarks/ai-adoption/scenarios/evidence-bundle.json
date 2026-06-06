@@ -1,0 +1,13 @@
+{
+  "scenario_id": "evidence-bundle",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "README.md",
+    "docs/current-limitations.md",
+    ".vcp/proof-counts.json"
+  ],
+  "expected_first_safe_action": "evidence bundle stays local-first",
+  "expected_warnings": [
+    "do not overclaim hosted or automated behavior"
+  ]
+}

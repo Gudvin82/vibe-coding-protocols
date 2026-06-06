@@ -1037,6 +1037,59 @@
         "python3 -m vcp_cli agents kit --target claude --json",
         "python3 -m vcp_cli agents kit --target copilot --json"
       ]
+    },
+    {
+      "id": "route-list",
+      "command_name": "vcp route list",
+      "file": "docs/route-recommender.md",
+      "route": "intake",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "available route recommender scenarios",
+      "validation": [
+        "python3 -m vcp_cli route list --json"
+      ]
+    },
+    {
+      "id": "route-recommend",
+      "command_name": "vcp route recommend",
+      "file": "docs/route-recommender.md",
+      "route": "intake",
+      "inputs": [
+        "scenario id",
+        "optional --json"
+      ],
+      "output": "deterministic route recommendation",
+      "validation": [
+        "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json"
+      ]
+    },
+    {
+      "id": "scorecard",
+      "command_name": "vcp scorecard",
+      "file": "docs/control-scorecard.md",
+      "route": "governance",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "local heuristic readiness scorecard",
+      "validation": [
+        "python3 -m vcp_cli scorecard --json"
+      ]
+    },
+    {
+      "id": "pr-readiness",
+      "command_name": "vcp pr readiness",
+      "file": "docs/pr-readiness.md",
+      "route": "review",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "local PR readiness report",
+      "validation": [
+        "python3 -m vcp_cli pr readiness --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [
@@ -1051,5 +1104,5 @@
     "docs/evaluator-architecture-map.md",
     "docs/proof-snapshot.md"
   ],
-  "version": "v0.9.2"
+  "version": "v0.9.3"
 }

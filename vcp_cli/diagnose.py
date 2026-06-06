@@ -3,7 +3,14 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from .utils import load_json, methodology_version, print_output, repo_root, repo_version
+from .utils import (
+    load_json,
+    methodology_version,
+    print_output,
+    repo_root,
+    repo_version,
+    run_command,
+)
 
 
 def layers_path(root: Path | None = None) -> Path:
@@ -21,8 +28,7 @@ def _layer_result(root: Path, layer: dict[str, Any]) -> dict[str, Any]:
     likely_reason = ""
     evidence: list[str] = []
     if layer["id"] == "repository-state":
-        import subprocess
-        status = subprocess.run(["git", "status", "--short"], cwd=root, text=True, capture_output=True, check=False)
+        status = run_command(["git", "status", "--short"], root)
         dirty = bool(status.stdout.strip())
         result = "WARN" if dirty else "OK"
         likely_reason = "Uncommitted changes present." if dirty else "Repository is clean."

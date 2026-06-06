@@ -646,6 +646,115 @@
         "docs/spec-foundation.md",
         "docs/two-track-model.md"
       ]
+    },
+    {
+      "id": "route-recommender",
+      "name": "Route Recommender",
+      "route": "intake",
+      "domain": "adoption-routing",
+      "file": "docs/route-recommender.md",
+      "command": "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json",
+      "use_when": [
+        "you do not know which VCP path to choose"
+      ],
+      "do_not_use_when": [
+        "route is already explicit"
+      ],
+      "risk_level": "low",
+      "required_inputs": [
+        "scenario id"
+      ],
+      "validation": [
+        "python3 -m vcp_cli route list --json"
+      ],
+      "report_template": [
+        "templates/reports/control-scorecard.md"
+      ],
+      "related_docs": [
+        "docs/guided-adoption-modes.md"
+      ]
+    },
+    {
+      "id": "guided-adoption-modes",
+      "name": "Guided Adoption Modes",
+      "route": "intake",
+      "domain": "adoption-routing",
+      "file": "docs/guided-adoption-modes.md",
+      "command": "python3 -m vcp_cli route list --json",
+      "use_when": [
+        "you need a bounded first pass"
+      ],
+      "do_not_use_when": [
+        "team already chose a deeper path"
+      ],
+      "risk_level": "low",
+      "required_inputs": [
+        "available time"
+      ],
+      "validation": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "report_template": [
+        "templates/reports/control-scorecard.md"
+      ],
+      "related_docs": [
+        "docs/route-recommender.md"
+      ]
+    },
+    {
+      "id": "anti-chaos-recovery",
+      "name": "Anti-Chaos Recovery",
+      "route": "maintenance",
+      "domain": "recovery",
+      "file": "docs/anti-chaos-recovery-kit.md",
+      "command": "python3 -m vcp_cli pr readiness --json",
+      "use_when": [
+        "AI output already created repo chaos"
+      ],
+      "do_not_use_when": [
+        "repo is already stable and mapped"
+      ],
+      "risk_level": "high",
+      "required_inputs": [
+        "snapshot of current state"
+      ],
+      "validation": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "report_template": [
+        "templates/reports/anti-chaos-recovery-plan.md"
+      ],
+      "related_docs": [
+        "docs/evidence-bundle.md"
+      ]
+    },
+    {
+      "id": "pr-readiness-pack",
+      "name": "PR Readiness Pack",
+      "route": "review",
+      "domain": "review-and-release",
+      "file": "docs/pr-readiness.md",
+      "command": "python3 -m vcp_cli pr readiness --json",
+      "use_when": [
+        "changes are approaching PR"
+      ],
+      "do_not_use_when": [
+        "no meaningful change exists"
+      ],
+      "risk_level": "medium",
+      "required_inputs": [
+        "change intent",
+        "validation evidence"
+      ],
+      "validation": [
+        "python3 -m vcp_cli pr readiness --json"
+      ],
+      "report_template": [
+        "templates/reports/pr-readiness-checklist.md"
+      ],
+      "related_docs": [
+        "docs/integrations/github-pr-gate.md"
+      ]
     }
   ],
   "progressive_disclosure_entrypoints": [
@@ -653,7 +762,7 @@
     ".vcp/cards/",
     "docs/progressive-disclosure.md"
   ],
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "files": [
     "docs/control-catalog.md",
     "docs/change-intent.md",

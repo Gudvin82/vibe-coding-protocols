@@ -1,0 +1,12 @@
+{
+  "version": "v0.9.3",
+  "scenario": "raw-ai-mvp",
+  "recommended_track": "brownfield-rescue",
+  "recommended_rigor_mode": "half-day",
+  "agent_kit": "codex",
+  "required_surfaces": [
+    "docs/anti-chaos-recovery-kit.md",
+    "docs/current-limitations.md"
+  ],
+  "next_step": "Run trust-check and build an audit backlog before more code changes."
+}

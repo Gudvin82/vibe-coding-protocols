@@ -1,25 +1,18 @@
-# VCP на русском
 
-Текущий пакет репозитория: `v0.9.2`
-Методологический слой: `v1.4`
+# Русская навигация по VCP
 
-`docs_ru/README.md` — это guided русскоязычный слой, а не замена полного репозитория.
+Текущий пакет репозитория: `v0.9.3`
+Methodology: `v1.4`
 
-## Что такое VCP
+VCP — это local-first control/governance layer для AI-built и AI-assisted
+проектов.
 
-VCP — это local-first control/governance layer для AI-built и AI-assisted проектов.
+Если вы даёте VCP своему ИИ-агенту, сначала объясните ему, что это не SaaS, не
+hosted dashboard, не marketplace и не official IDE extension.
 
-Он помогает:
-- выбрать правильный маршрут до широких AI-изменений;
-- зафиксировать intent и контрольные границы;
-- добавить PR Gate, proof, trust-check и release evidence;
-- не называть локальный toolkit hosted платформой.
+## Как не дать ИИ неправильно оценить VCP
 
-## Если вы даёте VCP своему ИИ-агенту
-
-Не давайте ему только этот файл.
-
-Сначала дайте:
+Попросите агент открыть:
 - `AGENTS.md`
 - `AI_EVALUATION_GUIDE.md`
 - `EVALUATE_THIS_REPO.md`
@@ -32,58 +25,87 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 - `docs/benchmark-report.md`
 - `docs/trust-check.md`
 
-## Как не дать ИИ неправильно оценить VCP
+Оценка бывает разной глубины:
+- `shallow`
+- `partial`
+- `full`
 
-Если ИИ прочитал только README или только этот русскоязычный слой, помечайте такую оценку как `shallow`.
-Если он открыл часть entry surfaces, но пропустил CLI / `.vcp` / tests, это `partial`.
-Только inspection core docs, `.vcp`, workflows, manifests, benchmarks, `vcp_cli/`, tests и английских docs можно называть `full`.
+Русская навигация ведет в английских docs там, где source-of-truth уже закреплен
+на английском.
 
-Не оценивайте VCP по `README_ru.md` или `docs_ru/README.md` alone.
+## Если вы впервые смотрите VCP
 
-## Основные русскоязычные поверхности
+1. Начните с `START_HERE.md`
+2. Потом откройте `docs_ru/route-recommender.md`
+3. Затем выберите guided adoption mode
+4. Для PR/release смотрите `docs_ru/evidence-bundle.md` и
+   `docs_ru/pr-readiness.md`
+5. Для честных ограничений смотрите `docs_ru/current-limitations.md`
 
-- `docs_ru/comparisons.md`
-- `docs_ru/product-model.md`
-- `docs_ru/killer-workflow.md`
-- `docs_ru/anti-misread-guide.md`
-- `docs_ru/evaluator-architecture-map.md`
-- `docs_ru/proof-snapshot.md`
-- `docs_ru/benchmark-report.md`
-- `docs_ru/trust-check.md`
-- `docs_ru/agent-model-routing.md`
-- `docs_ru/evaluator-token-budget.md`
-- `docs/control-catalog.md`
-- `docs/change-intent.md`
-- `docs/starter-template-adoption.md`
-- `docs/agent-rule-profiles.md`
-- `docs/project-control-charter.md`
-- `docs/ecosystem-map.md`
-- `docs/ai-augmented-solo-squad-path.md`
-- `docs/control-spine.md`
-- `docs/first-time-adoption.md`
-- `docs/flagship-demo.md`
+## Новое в v0.9.3
 
-## Быстрый старт
+- Route Recommender: помогает выбрать маршрут для fast MVP, нового проекта,
+  текущего проекта, raw AI MVP, release decision или brownfield rescue.
+- Control Scorecard: показывает состояние clarity, control, proof, adoption
+  readiness, launch readiness и evaluator readiness.
+- Evidence Bundle: собирает proof-пакет для PR, release, handoff, consulting и
+  client review.
+- Release Decision Matrix: помогает честно решить, можно ли demo / private
+  test / merge / beta / public release или пока нельзя выпускать.
+- Anti-Chaos Recovery Kit: маршрут для ситуации, когда AI уже нагенерил хаос и
+  нужно восстановить контроль.
+- PR Readiness Pack: локальная подготовка PR без auto-PR и auto-merge.
+- Integration Proof Matrix: показывает, какие Claude Code / Codex / Cursor /
+  Copilot / GitHub Actions kits реально shipped.
+- Current Limitations: честно фиксирует, чего в VCP нет: SaaS, hosted
+  dashboard, public PyPI/npm, official VS Code extension, marketplace, auto-PR,
+  security scanner.
 
-1. Прочитайте `START_HERE.md`
-2. Запустите `python3 -m vcp_cli trust-check --json`
-3. Откройте `docs/control-spine.md`
-4. Откройте `docs/first-time-adoption.md`
-5. Для внешней оценки откройте `PUBLIC_EVALUATION_KIT.md`
+## Что shipped / optional / roadmap-only
 
-## Если вы внедряете VCP для client/team adoption
+Shipped:
+- route recommender docs/JSON/CLI;
+- evidence bundle docs/templates/JSON;
+- PR readiness docs/templates/CLI;
+- integration proof matrix;
+- agent kits;
+- trust-check;
 
-Начните с трех entry files:
-- `START_HERE.md`
-- `docs/client-adoption-playbook.md`
-- `docs/integrations/agent-kits.md`
+Optional:
+- local dashboard artifacts;
+- visual diagrams;
+- presentation assets;
 
+Roadmap-only:
+- hosted dashboard;
+- official VS Code extension;
+- marketplace;
+- public PyPI/npm;
+- auto-PR / auto-merge;
+- full security scanner.
 
-## Дополнительные client/team adoption surfaces
+## Русские ключевые surfaces
 
-- `docs/consulting-offers.md`
-- `docs/client-discovery.md`
-- `docs/technical-intake-workshop.md`
-- `docs/track-selection-for-clients.md`
-- `docs/customer-repo-scaffold.md`
-- `docs/executive-reporting.md`
+- `agent-model-routing.md`
+- `evaluator-token-budget.md`
+- `control-catalog.md`
+- `change-intent.md`
+- `starter-template-adoption.md`
+- `agent-rule-profiles.md`
+- `project-control-charter.md`
+- `ecosystem-map.md`
+- `ai-augmented-solo-squad-path.md`
+- `docs_ru/current-limitations.md`
+- `docs_ru/proof-counts.md`
+- `docs_ru/route-recommender.md`
+- `docs_ru/guided-adoption-modes.md`
+- `docs_ru/control-scorecard.md`
+- `docs_ru/evidence-bundle.md`
+- `docs_ru/release-decision-matrix.md`
+- `docs_ru/anti-chaos-recovery-kit.md`
+- `docs_ru/pr-readiness.md`
+- `docs_ru/github-pr-gate.md`
+- `docs_ru/integration-proof-matrix.md`
+- `docs_ru/ai-tool-mode-packs.md`
+- `docs_ru/visuals.md`
+- `docs_ru/evaluation-status-badges.md`

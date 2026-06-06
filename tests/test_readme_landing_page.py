@@ -28,8 +28,11 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('docs/control-spine.md', text)
         self.assertIn('docs/first-time-adoption.md', text)
         self.assertIn('docs/flagship-demo.md', text)
-        self.assertIn('assets/diagrams/vcp-control-layer-map.svg', text)
-        self.assertIn('v0.9.2', text)
+        self.assertIn('docs/route-recommender.md', text)
+        self.assertIn('docs/evidence-bundle.md', text)
+        self.assertIn('docs/current-limitations.md', text)
+        self.assertIn('assets/diagrams/vcp-route-selector.svg', text)
+        self.assertIn('v0.9.3', text)
         self.assertIn('Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/', text)
 
 

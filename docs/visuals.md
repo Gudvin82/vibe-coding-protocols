@@ -1,38 +1,13 @@
-# Visual Proof Layer
 
-Repository package: `v0.9.0`
+# Visuals
 
-VCP ships a lightweight visual proof layer for README, docs, evaluators, and website copy.
+VCP ships a light visual proof layer.
 
-## Assets
+Included in `v0.9.3`:
+- route selector diagram;
+- evidence bundle diagram;
+- PR readiness flow diagram;
+- release decision matrix diagram;
+- anti-chaos recovery diagram.
 
-- `assets/diagrams/vcp-control-layer-map.svg`
-- `assets/diagrams/vcp-product-model.svg`
-- `assets/diagrams/vcp-comparison-map.svg`
-
-PNG exports are optional.
-If deterministic local export is unavailable, SVG remains the canonical source asset.
-
-## Where these visuals are used
-
-- `README.md`
-- `README_ru.md`
-- `docs/evaluator-architecture-map.md`
-- `docs/product-model.md`
-- `docs/comparisons.md`
-- website source copy when available.
-
-## Related docs
-
-- `docs/visual-spec.md`
-- `docs/evaluator-architecture-map.md`
-- `docs/product-model.md`
-- `docs/comparisons.md`
-
-## Planned v0.9.0 visuals
-
-- control catalog map
-- change intent flow
-- starter adoption matrix diagram
-- ecosystem map diagram
-- solo/squad control path diagram
+Diagrams are SVG, light-background, local, and documentation-first.

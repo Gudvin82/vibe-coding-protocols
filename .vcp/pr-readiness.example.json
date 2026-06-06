@@ -1,0 +1,31 @@
+{
+  "version": "v0.9.3",
+  "status": "ready-with-human-review",
+  "checks": [
+    {
+      "id": "change-intent",
+      "ok": true
+    },
+    {
+      "id": "affected-surfaces",
+      "ok": true
+    },
+    {
+      "id": "tests-run-or-explicitly-not-run",
+      "ok": true
+    },
+    {
+      "id": "trust-check-status",
+      "ok": true
+    },
+    {
+      "id": "evidence-bundle-link",
+      "ok": true
+    },
+    {
+      "id": "release-decision-state",
+      "ok": true
+    }
+  ],
+  "note": "Local PR readiness only. No automatic PR creation."
+}

@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.9.2",
+  "version": "v0.9.3",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.2.md",
+    "docs/release-v0.9.3.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -65,7 +65,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.2.md",
+    "docs_ru/release-v0.9.3.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -115,7 +115,11 @@
     "docs_ru/technical-intake-workshop.md",
     "docs_ru/track-selection-for-clients.md",
     "docs_ru/customer-repo-scaffold.md",
-    "docs_ru/executive-reporting.md"
+    "docs_ru/executive-reporting.md",
+    "docs/current-limitations.md",
+    "docs/route-recommender.md",
+    "docs/evidence-bundle.md",
+    "docs/pr-readiness.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -169,7 +173,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.2.md",
+    "docs/release-v0.9.3.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -219,7 +223,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.2.md",
+    "docs_ru/release-v0.9.3.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -285,7 +289,43 @@
     "docs/integrations/setup-playbook.md",
     "docs/integrations/agent-kits.md",
     "docs_ru/integration-setup.md",
-    "docs_ru/agent-kits.md"
+    "docs_ru/agent-kits.md",
+    "docs/current-limitations.md",
+    "docs/proof-counts.md",
+    "docs/route-recommender.md",
+    "docs/guided-adoption-modes.md",
+    "docs/control-scorecard.md",
+    "docs/evidence-bundle.md",
+    "docs/release-decision-matrix.md",
+    "docs/anti-chaos-recovery-kit.md",
+    "docs/pr-readiness.md",
+    "docs/integrations/proof-matrix.md",
+    "docs/ai-tool-mode-packs.md",
+    "docs/evaluation-status-badges.md",
+    "docs/release-v0.9.3.md",
+    "docs_ru/current-limitations.md",
+    "docs_ru/proof-counts.md",
+    "docs_ru/route-recommender.md",
+    "docs_ru/guided-adoption-modes.md",
+    "docs_ru/control-scorecard.md",
+    "docs_ru/evidence-bundle.md",
+    "docs_ru/release-decision-matrix.md",
+    "docs_ru/anti-chaos-recovery-kit.md",
+    "docs_ru/pr-readiness.md",
+    "docs_ru/integration-proof-matrix.md",
+    "docs_ru/ai-tool-mode-packs.md",
+    "docs_ru/evaluation-status-badges.md",
+    "docs_ru/release-v0.9.3.md",
+    ".vcp/proof-counts.json",
+    ".vcp/route-recommender.json",
+    ".vcp/guided-adoption-modes.json",
+    ".vcp/control-scorecard.example.json",
+    ".vcp/evidence-bundle.example.json",
+    ".vcp/release-decision-matrix.example.json",
+    ".vcp/pr-readiness.example.json",
+    ".vcp/integration-proof-matrix.json",
+    ".vcp/ai-tool-mode-packs.json",
+    ".vcp/evaluation-status-badges.json"
   ],
   "routes": [
     "daily-error-triage",
@@ -369,7 +409,11 @@
     "batch-evaluate",
     "vcp-integrations-packs",
     "vcp-trust-check",
-    "vcp-evaluator-pack"
+    "vcp-evaluator-pack",
+    "python3 -m vcp_cli route list --json",
+    "python3 -m vcp_cli route recommend --scenario raw-ai-mvp --json",
+    "python3 -m vcp_cli scorecard --json",
+    "python3 -m vcp_cli pr readiness --json"
   ],
   "reports": [
     "adoption-tier-report",
@@ -716,15 +760,15 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.2. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.9.2",
+  "repository_package_version": "v0.9.3",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.2. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
   },
   "ai_release_naming": {
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.2. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
   }
 }

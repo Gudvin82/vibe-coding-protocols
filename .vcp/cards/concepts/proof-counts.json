@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need the documented surface"
+  ],
+  "do_not_use_when": [
+    "you want hosted automation"
+  ],
+  "entry_files": [
+    "docs/proof-counts.md",
+    ".vcp/proof-counts.json"
+  ],
+  "related_files": [
+    "docs/proof-snapshot.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "canonical proof snapshot"
+  ],
+  "stop_conditions": [
+    "stop if surface is treated as hosted automation"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.3",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "proof-counts",
+  "name": "Proof Counts",
+  "summary": "Canonical release proof counts and count-sync policy"
+}

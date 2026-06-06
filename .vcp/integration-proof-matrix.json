@@ -1,0 +1,117 @@
+{
+  "version": "v0.9.3",
+  "items": [
+    {
+      "id": "claude",
+      "title": "Claude Code kit",
+      "shipped_templates": [
+        "templates/agent-kits/claude/README.md",
+        "templates/agent-kits/claude/PR_GATE.md"
+      ],
+      "cli_commands": [
+        "python3 -m vcp_cli agents kit --target claude --json"
+      ],
+      "recommended_destination_paths": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ],
+      "tests": [
+        "tests/test_agent_kits.py"
+      ],
+      "trust_check_covered": true,
+      "official_integration": false,
+      "known_limitations": [
+        "copy-ready, not native vendor integration"
+      ]
+    },
+    {
+      "id": "codex",
+      "title": "Codex kit",
+      "shipped_templates": [
+        "templates/agent-kits/codex/README.md",
+        "templates/agent-kits/codex/PR_GATE.md"
+      ],
+      "cli_commands": [
+        "python3 -m vcp_cli agents kit --target codex --json"
+      ],
+      "recommended_destination_paths": [
+        "AGENTS.md",
+        "CODEX.md"
+      ],
+      "tests": [
+        "tests/test_agent_kits.py"
+      ],
+      "trust_check_covered": true,
+      "official_integration": false,
+      "known_limitations": [
+        "copy-ready, not native vendor integration"
+      ]
+    },
+    {
+      "id": "cursor",
+      "title": "Cursor kit",
+      "shipped_templates": [
+        "templates/agent-kits/cursor/README.md",
+        "templates/agent-kits/cursor/PR_GATE.md"
+      ],
+      "cli_commands": [
+        "python3 -m vcp_cli agents kit --target cursor --json"
+      ],
+      "recommended_destination_paths": [
+        "AGENTS.md",
+        "CURSOR_RULES.md"
+      ],
+      "tests": [
+        "tests/test_agent_kits.py"
+      ],
+      "trust_check_covered": true,
+      "official_integration": false,
+      "known_limitations": [
+        "copy-ready, not official IDE integration"
+      ]
+    },
+    {
+      "id": "copilot",
+      "title": "GitHub Copilot kit",
+      "shipped_templates": [
+        "templates/agents/COPILOT_INSTRUCTIONS.md"
+      ],
+      "cli_commands": [
+        "python3 -m vcp_cli agents template --agent copilot --json",
+        "python3 -m vcp_cli agents kit --target copilot --json"
+      ],
+      "recommended_destination_paths": [
+        ".github/copilot-instructions.md"
+      ],
+      "tests": [
+        "tests/test_agent_templates_cmd.py"
+      ],
+      "trust_check_covered": true,
+      "official_integration": false,
+      "known_limitations": [
+        "copy-ready, not official plugin"
+      ]
+    },
+    {
+      "id": "github-actions",
+      "title": "GitHub Actions PR Gate kit",
+      "shipped_templates": [
+        "ci-examples/github-actions/vcp-pr-gate.yml"
+      ],
+      "cli_commands": [
+        "python3 -m vcp_cli agents kit --target github-actions --json"
+      ],
+      "recommended_destination_paths": [
+        ".github/workflows/vcp-pr-gate.yml"
+      ],
+      "tests": [
+        "tests/test_agent_kits.py"
+      ],
+      "trust_check_covered": true,
+      "official_integration": false,
+      "known_limitations": [
+        "workflow example only"
+      ]
+    }
+  ]
+}
