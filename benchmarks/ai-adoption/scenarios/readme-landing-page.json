@@ -1,0 +1,8 @@
+{
+  "scenario_id": "readme-landing-page",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["landing page clarity"],
+  "required_files_to_inspect": ["README.md"],
+  "expected_first_safe_action": "Explain VCP from the landing page before diving into internal layers.",
+  "expected_warnings": ["do not describe the README as a hosted platform landing page"]
+}

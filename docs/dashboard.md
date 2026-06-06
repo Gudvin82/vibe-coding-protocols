@@ -1,6 +1,6 @@
 # Local Dashboard Artifact
 
-The VCP dashboard is a local static artifact, not a hosted dashboard.
+The VCP dashboard is a local dashboard artifact, not a hosted dashboard.
 
 ## Command
 

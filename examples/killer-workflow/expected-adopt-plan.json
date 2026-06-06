@@ -1,0 +1,10 @@
+{
+  "pack": "saas-ai-mvp-hardening",
+  "mode": "plan-only",
+  "focus": [
+    "route clarity",
+    "proof",
+    "review surfaces",
+    "launch decision"
+  ]
+}

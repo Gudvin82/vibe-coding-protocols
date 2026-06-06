@@ -89,6 +89,9 @@ def scan_stale_versions() -> None:
         "ai.txt",
         "PROJECT_MAP.md",
         "AGENTS.md",
+        "docs_ru/README.md",
+        "docs/benchmark-report.md",
+        "docs/trust-check.md",
         ".vcp/index.json",
         ".vcp/catalog.json",
         "vcp_cli/__init__.py",
@@ -135,12 +138,15 @@ require_exact("VERSION", CURRENT, "repository version")
 require_contains("README.md", f"repo-{CURRENT}", "README badge")
 require_contains("README.md", f"Repository package: `{CURRENT}`", "README package marker")
 require_contains("README_ru.md", f"Repository package: `{CURRENT}`", "README_ru package marker")
+require_contains("docs_ru/README.md", CURRENT, "docs_ru current version marker")
 require_contains("README.md", f"report the current GitHub repository release as `Vibe Coding Protocols {CURRENT}`", "README AI release naming guard")
 require_contains("README_ru.md", f"называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols {CURRENT}`", "README_ru AI release naming guard")
 require_contains("docs/versioning.md", f"Repository package `{CURRENT}`", "docs/versioning package marker")
 require_contains("docs/versioning.md", f"Stable methodology reference `{METHODOLOGY}`", "docs/versioning methodology reference marker")
 require_contains("docs/version-semantics.md", f"Current repository package version: `{CURRENT}`", "version semantics package marker")
 require_contains("docs/version-semantics.md", f"Internal stable methodology reference: `{METHODOLOGY}`", "version semantics methodology reference marker")
+require_contains("docs/benchmark-report.md", CURRENT, "benchmark report version marker")
+require_contains("docs/trust-check.md", CURRENT, "trust-check version marker")
 require_contains("llms.txt", CURRENT, "llms current version")
 require_contains("llms-full.txt", CURRENT, "llms-full current version")
 require_contains("CITATION.cff", f'version: "{CURRENT}"', "citation version")

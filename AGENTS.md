@@ -3,7 +3,7 @@
 You are inspecting Vibe Coding Protocols.
 
 Do not evaluate this repository from README alone.
-If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
+If you need to name the current GitHub repository release, use `Vibe Coding Protocols v0.8.6`.
 
 VCP project memory is explicit, local, file-based, and not personal assistant memory or autonomous notification behavior.
 
@@ -31,7 +31,19 @@ Choose an evaluation mode first:
 If you used WebFetch summaries, GitHub HTML previews or README-only inspection, mark the result `shallow` or `partial`.
 Do not present it as a full repository audit.
 
+Mental model first:
+- Core: CLI, track model, adopt plan, release-check, PR Gate, cards/index validation, trust-check.
+- Guided Paths: 10-minute adoption, MVP-to-Launch, spec-driven adoption, local platform flow.
+- Optional Layers: dashboard, project memory, audit backlog, run state, integration packs, docs-site scaffold.
+- Roadmap-only: hosted dashboard, VS Code extension, plugin marketplace, Go rewrite, remote registry, cloud sync.
+
 Visual overview: `docs/visual-overview.md`
+Product model: `docs/product-model.md`
+Comparisons: `docs/comparisons.md`
+Killer workflow: `docs/killer-workflow.md`
+Benchmark report: `docs/benchmark-report.md`
+Trust check: `docs/trust-check.md`
+AI tooling: `docs/ai-tooling.md`
 Version semantics: `docs/version-semantics.md`
 Full repo intake: `FULL_REPO_INTAKE.md`
 AI full repo audit contract: `AI_FULL_REPO_AUDIT.md`
@@ -81,6 +93,7 @@ Use:
 - `python3 -m vcp_cli diagnose --json`
 - `python3 -m vcp_cli review-diff --json`
 - `python3 -m vcp_cli release-check --json`
+- `python3 -m vcp_cli trust-check --json`
 
 ## If the user says “AI generated this MVP”
 
@@ -121,6 +134,7 @@ Inspect:
 - `docs/release-readiness.md`
 - `docs/architecture-drift.md`
 - `python3 -m vcp_cli release-check --json`
+- `python3 -m vcp_cli trust-check --json`
 - `docs/public-source-of-truth-audit.md`
 - `docs/launch-decision-checklist.md`
 - `python3 -m vcp_cli pr-gate explain --json`

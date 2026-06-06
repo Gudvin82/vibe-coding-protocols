@@ -10,6 +10,13 @@ python3 -m vcp_cli classify --json
 python3 -m vcp_cli adopt plan --json
 ```
 
+## Product model
+
+- Core: route, adopt, PR Gate, release-check, trust-check.
+- Guided Paths: 10-minute adoption, MVP-to-Launch, spec-driven adoption, local platform flow.
+- Optional Layers: dashboard, memory, backlog, run state, integration packs, docs-site scaffold.
+- Roadmap-only: hosted dashboard, VS Code extension, plugin marketplace, public publication claims.
+
 ## Tracks
 
 If the user asks for the fastest first path, start with `docs/10-minute-adoption-path.md` before expanding into deeper packs.
@@ -28,6 +35,12 @@ If the project is already an AI-generated MVP, inspect:
 - `docs/launch-decision-checklist.md`
 
 ## If the user asks about integrations or dashboard surfaces
+
+Also inspect:
+- `docs/product-model.md`
+- `docs/killer-workflow.md`
+- `docs/trust-check.md`
+
 
 Inspect:
 - `docs/integrations/status-model.md`

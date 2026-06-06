@@ -48,7 +48,7 @@
   "validation": [
     "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json"
   ],
-  "version": "v0.8.5",
+  "version": "v0.8.6",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

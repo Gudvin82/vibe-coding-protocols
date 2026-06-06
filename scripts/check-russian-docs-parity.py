@@ -9,23 +9,24 @@ CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 required = [
     'README_ru.md',
     'docs_ru/README.md',
-    'docs_ru/install.md',
-    'docs_ru/mvp-to-launch-path.md',
-    'docs_ru/dashboard.md',
-    'docs_ru/integration-packs.md',
-    'docs_ru/release-v0.8.5.md',
+    'docs_ru/comparisons.md',
+    'docs_ru/product-model.md',
+    'docs_ru/killer-workflow.md',
+    'docs_ru/demo-artifacts.md',
+    'docs_ru/benchmark-report.md',
+    'docs_ru/trust-check.md',
+    'docs_ru/ai-tooling.md',
+    'docs_ru/release-v0.8.6.md',
 ]
 issues = []
 for rel in required:
     path = ROOT / rel
-    if not path.exists():
-        issues.append(f'missing {rel}')
+    if not path.exists() or not path.read_text(encoding='utf-8').strip():
+        issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel.endswith('.md') and rel not in {'docs_ru/README.md', 'docs_ru/install.md', 'docs_ru/dashboard.md', 'docs_ru/integration-packs.md', 'docs_ru/mvp-to-launch-path.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.8.6.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
-if CURRENT not in (ROOT / 'README_ru.md').read_text(encoding='utf-8'):
-    issues.append('README_ru.md missing current version')
 if issues:
     print('Russian docs parity check failed:')
     for issue in issues:

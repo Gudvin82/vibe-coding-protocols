@@ -1,0 +1,8 @@
+{
+  "scenario_id": "killer-workflow",
+  "target_profile": "existing-mvp",
+  "target_signals": ["killer workflow", "mvp to launch"],
+  "required_files_to_inspect": ["docs/killer-workflow.md", "docs/mvp-to-launch-path.md"],
+  "expected_first_safe_action": "Use the canonical command flow from doctor to dashboard build.",
+  "expected_warnings": ["do not present the workflow as a hosted automation engine"]
+}

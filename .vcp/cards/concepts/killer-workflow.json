@@ -1,0 +1,22 @@
+{
+  "id": "killer-workflow",
+  "type": "concept",
+  "name": "Killer Workflow",
+  "summary": "The canonical route from raw AI MVP to reviewable launch-control package.",
+  "use_when": ["a user wants the shortest strong VCP aha flow"],
+  "do_not_use_when": ["the repository only needs historical reference docs"],
+  "risk_level": "medium",
+  "domains": ["concept", "workflow"],
+  "maps_to": {"sdlc_phase": ["review", "release"], "ai_failure_modes": ["route drift"], "project_state": ["existing MVP"], "risk_categories": ["launch confusion"]},
+  "entry_files": ["docs/killer-workflow.md"],
+  "related_files": ["docs/mvp-to-launch-path.md", "docs/local-platform-flow.md", "docs/launch-decision-checklist.md"],
+  "cli": ["python3 -m vcp_cli workflow plan --id mvp-to-launch --json", "python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json"],
+  "outputs": ["route", "risk", "dashboard", "launch-control packet"],
+  "stop_conditions": ["do not present this as a hosted workflow engine"],
+  "validation": ["python3 -m vcp_cli workflow plan --id mvp-to-launch --json"],
+  "version": "v0.8.6",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
+  "badges": ["workflow", "review"]
+}

@@ -12,16 +12,17 @@ CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 CHECKS = [
     ('repository package version', ['Repository package:', CURRENT], ['Repository package:', CURRENT]),
     ('ai release naming guard', ['report the current GitHub repository release as', CURRENT], ['называй текущий GitHub-релиз репозитория как', CURRENT]),
-    ('AI shallow evaluation warning', ['do not evaluate VCP from README alone'], ['не оценивайте VCP только по README']),
-    ('full repo intake marker', ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json'], ['FULL_REPO_INTAKE.md', '.vcp/ai-audit-manifest.json']),
-    ('v0.8.5 release block', ['New in v0.8.5'], ['Новое в v0.8.5']),
-    ('10-minute path', ['Start here in 10 minutes'], ['Старт за 10 минут']),
+    ('landing positioning', ['Build with AI. Choose the right track. Adopt safely. Ship with control.'], ['Build with AI. Choose the right track. Adopt safely. Ship with control.']),
+    ('problem statement', ['AI agents can generate MVPs quickly'], ['AI-агенты могут быстро генерировать MVP']),
+    ('5-minute demo', ['## 5-minute demo'], ['## Демонстрация за 5 минут']),
+    ('before after', ['## Before / after'], ['## До / после']),
+    ('ai tooling section', ['## Use with your AI tools'], ['## Использование с AI tools']),
+    ('comparison links', ['docs/comparisons.md', 'docs/product-model.md', 'docs/killer-workflow.md'], ['docs_ru/comparisons.md', 'docs_ru/product-model.md', 'docs_ru/killer-workflow.md']),
+    ('trust-check link', ['docs/trust-check.md'], ['docs_ru/trust-check.md']),
+    ('russian docs index', ['docs_ru/README.md'], ['docs_ru/README.md']),
     ('local platform flow', ['docs/local-platform-flow.md'], ['docs/local-platform-flow.md']),
-    ('integration packs', ['docs/integration-packs.md'], ['docs/integration-packs.md']),
-    ('russian docs', ['docs_ru/README.md'], ['docs_ru/README.md']),
-    ('mvp-to-launch', ['docs/mvp-to-launch-path.md'], ['docs/mvp-to-launch-path.md']),
+    ('mvp to launch', ['docs/mvp-to-launch-path.md'], ['docs/mvp-to-launch-path.md']),
     ('install and run', ['python3 -m pip install .'], ['python3 -m pip install .']),
-    ('pr gate workflow link', ['ci-examples/github-actions/vcp-pr-gate.yml'], ['ci-examples/github-actions/vcp-pr-gate.yml']),
 ]
 
 missing: list[str] = []

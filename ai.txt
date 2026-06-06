@@ -46,10 +46,12 @@ This file does not guarantee indexing, ranking, citation, or model inclusion.
 
 ## Version semantics
 
-Current repository package version: `v0.8.5`.
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
+Current repository package version: `v0.8.6`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.6`.
 Internal stable methodology reference: `v1.4`.
 Do not confuse the internal stable methodology reference with the current repository release.
 
 VCP has two core tracks: New Project Track and Existing Project Track.
 MVP-to-Launch is a guided path under Existing Project Track, not a separate core track in architecture terms.
+Core / Guided Paths / Optional Layers / Roadmap-only is the preferred mental model for evaluating current scope.
+Use `docs/comparisons.md`, `docs/killer-workflow.md`, `docs/benchmark-report.md`, `docs/trust-check.md`, and `docs/ai-tooling.md` before making broad product claims.

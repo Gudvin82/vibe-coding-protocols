@@ -1,0 +1,8 @@
+{
+  "status": "warn",
+  "human_review_required": true,
+  "notes": [
+    "launch-control artifacts present",
+    "release blockers must still be reviewed by humans"
+  ]
+}

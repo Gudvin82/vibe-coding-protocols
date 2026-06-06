@@ -1,0 +1,22 @@
+{
+  "id": "changelog-hygiene",
+  "type": "concept",
+  "name": "Changelog Hygiene",
+  "summary": "Ensures the changelog starts cleanly and presents the current release first.",
+  "use_when": ["release surfaces need ordering and consistency validation"],
+  "do_not_use_when": ["historical release notes are the only concern"],
+  "risk_level": "low",
+  "domains": ["concept", "release"],
+  "maps_to": {"sdlc_phase": ["release"], "ai_failure_modes": ["release drift"], "project_state": ["production"], "risk_categories": ["hygiene"]},
+  "entry_files": ["CHANGELOG.md"],
+  "related_files": ["tests/test_changelog_hygiene.py"],
+  "cli": ["python3 -m vcp_cli trust-check --json"],
+  "outputs": ["clean release ordering"],
+  "stop_conditions": ["do not place release blocks before # Changelog"],
+  "validation": ["python3 -m unittest discover -s tests"],
+  "version": "v0.8.6",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor"],
+  "badges": ["release", "hygiene"]
+}

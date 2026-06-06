@@ -1,0 +1,90 @@
+# Сравнения
+
+Repository package: `v0.8.6`
+
+VCP проще всего понять через честное сравнение с соседними классами инструментов.
+
+## Коротко
+
+- VCP — это local-first control layer для AI-built и AI-assisted проектов.
+- Spec-driven toolkits сильны в том, чтобы определить, что строить и как вести реализацию от спецификаций.
+- Full-stack templates сильны в быстром старте приложения с готовой архитектурой.
+- AI coding agents сильны в быстрой генерации и переработке кода.
+- CI-only gates сильны в pass/fail automation.
+
+VCP дополняет эти слои. Он не заменяет их все сразу.
+
+## Таблица сравнения
+
+| Потребность | VCP | Spec-driven toolkit | Full-stack template | CI-only gate |
+|---|---|---|---|---|
+| Выбрать project track | yes | partial | no | no |
+| Сгенерировать app scaffold | no | no/partial | yes | no |
+| Управлять adoption AI MVP | yes | partial | no | partial |
+| Иметь PR Gate model | yes | partial | no | yes |
+| Иметь proof/case-study layer | yes | no/partial | no | no |
+| Иметь local dashboard artifact | yes | no/partial | no | no |
+| Иметь launch decision aid | yes | no/partial | no | partial |
+
+## VCP vs spec-driven toolkits
+
+Spec-driven toolkits особенно полезны, когда команде нужен плотный planning/implementation loop вокруг briefs, PRD, feature specs и task breakdowns.
+
+Они помогают ответить:
+- что именно нужно строить;
+- как должен выглядеть implementation plan;
+- каких spec artifacts не хватает.
+
+VCP помогает ответить на соседние вопросы:
+- в каком мы треке;
+- как безопасно adopt/harden messy AI-generated MVP;
+- что должен сказать PR Gate перед релизом;
+- где находятся proof/backlog/dashboard surfaces;
+- какие launch-control artifacts уже есть.
+
+VCP может дополнять spec-driven workflow. Он его не заменяет.
+
+## VCP vs full-stack templates
+
+Full-stack templates полезны, когда главная задача — быстро стартовать продукт с готовой архитектурой, opinionated stack и prebuilt application scaffold.
+
+VCP — не app template.
+
+VCP помогает inspect, adopt, govern, prove и launch-control AI-built проекты, включая проекты, которые стартовали из template.
+
+## VCP vs AI coding agents напрямую
+
+AI coding agents сильны в генерации кода, быстрых итерациях и рефакторинге.
+
+VCP помогает держать их вывод:
+- routed;
+- reviewable;
+- benchmarked;
+- release-controlled;
+- менее склонным к overclaim.
+
+## VCP vs CI-only gates
+
+CI-only gates сильны в pass/fail automation.
+
+VCP добавляет:
+- выбор track;
+- adoption guidance;
+- proof и case-study surfaces;
+- интерпретацию PR Gate;
+- локальные dashboard/report artifacts;
+- framing для launch decision.
+
+## Границы
+
+VCP не утверждает, что он лучше во всем.
+
+Это не:
+- full-stack template;
+- hosted platform;
+- deployment engine;
+- plugin marketplace;
+- official IDE extension;
+- replacement for Spec Kit или других spec-driven toolkits.
+
+Практическое позиционирование простое: VCP — это control layer, который можно запускать рядом с AI agents, spec-driven planning, templates и CI gates.

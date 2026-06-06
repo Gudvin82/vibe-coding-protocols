@@ -65,7 +65,7 @@
     "index validate",
     "benchmark run"
   ],
-  "version": "v0.8.5",
+  "version": "v0.8.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -1,6 +1,5 @@
-<!-- vcp-version: v0.8.5 -->
+<!-- vcp-version: v0.8.6 -->
 <!-- methodology-version: v1.4 -->
-
 <!-- vcp-version: v0.8.4 -->
 
 # CLAUDE.md

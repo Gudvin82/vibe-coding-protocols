@@ -1,4 +1,14 @@
-## v0.8.5
+# Changelog
+
+## v0.8.6
+
+- rewrote README and README_ru first screens as landing pages with clearer problem/solution positioning;
+- added comparisons, product model, killer workflow, demo-artifact, benchmark-report, trust-check, and AI-tooling docs;
+- added a repository trust-check command and roadmap-overclaim consistency script;
+- improved Russian docs coverage for the new major public pages;
+- cleaned changelog hygiene and synced machine-readable current-version surfaces.
+
+## v0.8.6
 
 - local platform UX and dashboard polish
 - local platform flow doc
@@ -7,8 +17,6 @@
 - IDE roadmap hardening without extension overclaim
 - docs-site scaffold and AI-readable docs improvements
 - Russian documentation parity
-
-# Changelog
 
 ## v0.8.4
 

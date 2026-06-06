@@ -54,7 +54,7 @@
   "validation": [
     "python3 -m vcp_cli dashboard build --output /tmp/vcp-dashboard-test --json"
   ],
-  "version": "v0.8.5",
+  "version": "v0.8.6",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

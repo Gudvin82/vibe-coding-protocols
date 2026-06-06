@@ -1,0 +1,8 @@
+{
+  "scenario_id": "changelog-hygiene",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["changelog hygiene"],
+  "required_files_to_inspect": ["CHANGELOG.md"],
+  "expected_first_safe_action": "Confirm the changelog starts with a heading and the current release appears first.",
+  "expected_warnings": ["do not leave a release block above # Changelog"]
+}

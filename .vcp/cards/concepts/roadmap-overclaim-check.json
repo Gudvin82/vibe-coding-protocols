@@ -1,0 +1,22 @@
+{
+  "id": "roadmap-overclaim-check",
+  "type": "concept",
+  "name": "Roadmap Overclaim Check",
+  "summary": "A consistency check that catches roadmap-only surfaces described as shipped.",
+  "use_when": ["you need trustable wording around VS Code, hosted dashboard, marketplace, or publication claims"],
+  "do_not_use_when": ["a user expects feature implementation rather than consistency checking"],
+  "risk_level": "medium",
+  "domains": ["concept", "trust"],
+  "maps_to": {"sdlc_phase": ["review", "release"], "ai_failure_modes": ["roadmap overclaim"], "project_state": ["new", "existing MVP", "production"], "risk_categories": ["positioning drift"]},
+  "entry_files": ["scripts/check-roadmap-overclaim.py"],
+  "related_files": ["docs/roadmap/vscode-extension.md", "docs/dashboard.md", "docs/distribution.md"],
+  "cli": ["python3 scripts/check-roadmap-overclaim.py"],
+  "outputs": ["overclaim audit result"],
+  "stop_conditions": ["do not mark roadmap-only items as shipped"],
+  "validation": ["python3 scripts/check-roadmap-overclaim.py"],
+  "version": "v0.8.6",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],
+  "badges": ["trust", "release"]
+}

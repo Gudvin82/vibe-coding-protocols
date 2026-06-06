@@ -1,0 +1,22 @@
+{
+  "id": "product-model",
+  "type": "concept",
+  "name": "Product Model",
+  "summary": "A four-bucket model for understanding Core, Guided Paths, Optional Layers, and Roadmap-only surfaces.",
+  "use_when": ["someone is confused by VCP surface area"],
+  "do_not_use_when": ["a user already needs only a specific command reference"],
+  "risk_level": "low",
+  "domains": ["concept", "docs"],
+  "maps_to": {"sdlc_phase": ["intake", "planning"], "ai_failure_modes": ["framework confusion"], "project_state": ["new", "existing MVP", "production"], "risk_categories": ["scope confusion"]},
+  "entry_files": ["docs/product-model.md"],
+  "related_files": ["README.md", "REPO_CAPABILITIES_INDEX.md", "PROJECT_MAP.md"],
+  "cli": ["python3 -m vcp_cli trust-check --json"],
+  "outputs": ["clear mental model"],
+  "stop_conditions": ["do not describe roadmap-only items as shipped"],
+  "validation": ["python3 scripts/check-roadmap-overclaim.py"],
+  "version": "v0.8.6",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor"],
+  "badges": ["concept", "clarity"]
+}

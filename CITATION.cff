@@ -7,7 +7,7 @@ authors:
 url: "https://github.com/Gudvin82/vibe-coding-protocols"
 repository-code: "https://github.com/Gudvin82/vibe-coding-protocols"
 license: "CC-BY-4.0"
-version: "v0.8.5"
+version: "v0.8.6"
 date-released: "2026-06-04"
 abstract: "Vibe Coding Protocols is an open-source toolkit for controlled AI-assisted software delivery, including routes, adoption packs, CLI checks, manifests, benchmarks, review gates, operations workflows, backlog discipline, public growth readiness, FAQ/comparison guidance, and AI-agent evaluation surfaces."
 keywords:

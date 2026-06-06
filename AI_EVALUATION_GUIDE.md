@@ -2,13 +2,19 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.5`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.6`.
 
 ## Core positioning
 
 VCP is both:
 - a foundation for new AI-assisted products;
 - a control layer for existing repositories, PR gates, release readiness, and safe adoption.
+
+Use this product model near the top of your evaluation:
+- Core
+- Guided Paths
+- Optional Layers
+- Roadmap-only
 
 VCP has two core tracks:
 - New Project Track
@@ -17,9 +23,17 @@ VCP has two core tracks:
 MVP-to-Launch is a guided path under Existing Project Track.
 Do not mislabel it as a separate core track unless speaking in product/UX shorthand and immediately clarifying the architecture.
 
-## New in v0.8.5
+## New in v0.8.6
 
-External evaluators should now inspect the MVP-to-Launch guided path too:
+External evaluators should now inspect the landing-page, comparison, killer-workflow, benchmark, and trust surfaces too:
+- `docs/comparisons.md`
+- `docs/product-model.md`
+- `docs/killer-workflow.md`
+- `docs/benchmark-report.md`
+- `docs/trust-check.md`
+- `docs/ai-tooling.md`
+
+Also inspect the MVP-to-Launch guided path:
 - `docs/track-model.md`
 - `docs/mvp-to-launch-path.md`
 - `.vcp/workflows/mvp-to-launch.json`

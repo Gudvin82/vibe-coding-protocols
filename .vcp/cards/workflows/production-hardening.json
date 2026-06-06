@@ -54,7 +54,7 @@
     "python3 -m vcp_cli check --fast --json",
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.8.5",
+  "version": "v0.8.6",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

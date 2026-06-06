@@ -47,7 +47,7 @@
   "validation": [
     "python3 -m vcp_cli evaluate --json"
   ],
-  "version": "v0.8.5",
+  "version": "v0.8.6",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

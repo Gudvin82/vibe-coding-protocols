@@ -1,6 +1,5 @@
-<!-- vcp-version: v0.8.5 -->
+<!-- vcp-version: v0.8.6 -->
 <!-- methodology-version: v1.4 -->
-
 # Launch Decision Report
 
 This is a local launch decision aid and not a production certification.

@@ -924,6 +924,19 @@
       "validation": [
         "python3 -m vcp_cli integrations packs --json"
       ]
+    },
+    {
+      "id": "trust-check",
+      "command_name": "vcp trust-check",
+      "file": "docs/trust-check.md",
+      "route": "review",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "repository trust and consistency audit",
+      "validation": [
+        "python3 -m vcp_cli trust-check --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [

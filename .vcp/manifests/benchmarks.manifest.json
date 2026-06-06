@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.5.md"
+        "docs/release-v0.8.6.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2041,6 +2041,126 @@
         "do not overclaim hosted or official integration behavior"
       ],
       "expected_first_action": "Name the current release correctly and disclose local-only boundaries."
+    },
+    {
+      "id": "readme-landing-page",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/readme-landing-page.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "product-model-clarity",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/product-model-clarity.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/product-model.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "killer-workflow",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/killer-workflow.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/killer-workflow.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "demo-artifact-pack",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/demo-artifact-pack.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/demo-artifacts.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "benchmark-report",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/benchmark-report.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/benchmark-report.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "trust-check",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/trust-check.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/trust-check.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "comparison-positioning",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/comparison-positioning.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/comparisons.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "changelog-hygiene",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/changelog-hygiene.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "CHANGELOG.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "roadmap-overclaim-check",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/roadmap-overclaim-check.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "scripts/check-roadmap-overclaim.py"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "ai-tooling-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/ai-tooling-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/ai-tooling.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named control surfaces before making broader claims."
     }
   ]
 }

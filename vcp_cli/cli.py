@@ -39,6 +39,7 @@ from . import runs_cmd
 from . import safety_cmd
 from . import score as score_cmd
 from . import spec_cmd
+from . import trust_check_cmd
 from . import version as version_cmd
 from . import workflow_cmd
 from . import pr_gate_cmd
@@ -359,6 +360,9 @@ def build_parser() -> argparse.ArgumentParser:
     diagnose_p.add_argument("--profile")
     diagnose_p.add_argument("--json", action="store_true")
 
+    trust_check_p = sub.add_parser("trust-check")
+    trust_check_p.add_argument("--json", action="store_true")
+
     backlog_p = sub.add_parser("backlog")
     backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
     backlog_list = backlog_sub.add_parser("list")
@@ -626,6 +630,8 @@ def main(argv: list[str] | None = None) -> int:
             )
     if args.command == "diagnose":
         return diagnose_cmd.run(args.profile, getattr(args, "json", False))
+    if args.command == "trust-check":
+        return trust_check_cmd.run(getattr(args, "json", False))
     if args.command == "backlog":
         if args.backlog_command == "list":
             return backlog_cmd.list_items(
