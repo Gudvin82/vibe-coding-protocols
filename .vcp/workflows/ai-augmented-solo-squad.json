@@ -1,53 +1,87 @@
 {
   "id": "ai-augmented-solo-squad",
-  "title": "AI-Augmented Solo/Squad Control Path",
-  "version": "v0.9.0",
-  "status": "shipped",
-  "summary": "Human-led coordination path for one developer or small team using multiple AI agents.",
+  "name": "AI-Augmented Solo/Squad Control Path",
+  "trigger": "Human-led solo developer or small team wants structured multi-agent work without autonomous orchestration claims.",
+  "route": "ai-augmented-solo-squad",
   "steps": [
     {
       "id": "charter",
-      "title": "Project control charter",
-      "action": "define control boundaries"
+      "name": "Project control charter",
+      "action": "artifact",
+      "notes": "Define control boundaries before active AI work expands."
     },
     {
       "id": "change-intent",
-      "title": "Change intent",
-      "action": "capture what is changing and why"
+      "name": "Change intent",
+      "action": "artifact",
+      "notes": "Capture what is changing and why before implementation starts."
     },
     {
       "id": "routing",
-      "title": "Model routing",
-      "action": "choose context and cost level"
+      "name": "Model routing",
+      "action": "route",
+      "command": "python3 -m vcp_cli route --profile production --json"
     },
     {
       "id": "profile",
-      "title": "Rule profile",
-      "action": "select nano, mini, or full"
+      "name": "Rule profile",
+      "action": "plan",
+      "notes": "Choose nano, mini, or full instruction depth for the active agent."
     },
     {
       "id": "work",
-      "title": "Work session",
-      "action": "execute human-led AI work"
+      "name": "Work session",
+      "action": "plan",
+      "notes": "Execute human-led AI work with explicit review boundaries."
     },
     {
       "id": "proof",
-      "title": "Evaluation receipt and proof",
-      "action": "capture evidence and honesty"
+      "name": "Evaluation receipt and proof",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli evaluator receipt --json"
     },
     {
       "id": "pr-gate",
-      "title": "PR Gate",
-      "action": "review acceptability"
+      "name": "PR Gate",
+      "action": "review",
+      "command": "python3 -m vcp_cli pr-gate explain --json"
     },
     {
       "id": "trust-check",
-      "title": "Trust check",
-      "action": "run consistency audit"
+      "name": "Trust check",
+      "action": "artifact",
+      "command": "python3 -m vcp_cli trust-check --json"
     }
   ],
-  "notes": [
-    "human-led only",
-    "no autonomous orchestration claim"
-  ]
+  "required_artifacts": [
+    "templates/project-control-charter.md",
+    "templates/reports/change-intent.md",
+    "templates/reports/solo-squad-control-plan.md",
+    "templates/reports/evaluation-receipt.md"
+  ],
+  "outputs": [
+    "control charter",
+    "change intent",
+    "routing decision",
+    "evaluation receipt",
+    "trust-check evidence"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json",
+    "python3 -m vcp_cli evaluator receipt --json",
+    "python3 -m vcp_cli check --fast --json"
+  ],
+  "stop_conditions": [
+    "Human owner cannot review or approve the next step",
+    "Change intent or control charter is missing",
+    "Evidence trail is incomplete"
+  ],
+  "related_cards": [
+    "agent-model-routing",
+    "evaluator-token-budget",
+    "project-control-charter",
+    "change-intent",
+    "proof-snapshot"
+  ],
+  "version": "v0.9.0"
 }

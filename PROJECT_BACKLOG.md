@@ -1,5 +1,5 @@
 <!-- vcp-artifact: PROJECT_BACKLOG -->
-<!-- vcp-version: v0.8.0 -->
+<!-- vcp-version: v0.9.0 -->
 <!-- methodology-version: v1.4 -->
 
 # Project Backlog
