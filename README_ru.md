@@ -39,15 +39,18 @@ Methodology: `v1.4`
 - Только Level 3 можно называть full.
 
 Не оценивайте VCP только по `README_ru.md`.
+Если у вас на руках только этот файл, не оценивайте репозиторий как fully reviewed.
 
 Для честной оценки начните с:
 - [EVALUATE_THIS_REPO.md](./EVALUATE_THIS_REPO.md)
 - [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md)
 - [AGENTS.md](./AGENTS.md)
 - [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
+- [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
 - [docs_ru/anti-misread-guide.md](./docs_ru/anti-misread-guide.md)
 - [docs_ru/evaluator-architecture-map.md](./docs_ru/evaluator-architecture-map.md)
 - [docs_ru/proof-snapshot.md](./docs_ru/proof-snapshot.md)
+- [.vcp/ai-audit-manifest.json](./.vcp/ai-audit-manifest.json)
 - [.vcp/index.json](./.vcp/index.json)
 - [.vcp/catalog.json](./.vcp/catalog.json)
 - `.vcp/manifests/`

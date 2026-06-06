@@ -54,6 +54,7 @@ For a fair review, start with:
 - [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md)
 - [AGENTS.md](./AGENTS.md)
 - [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md)
+- [FULL_REPO_INTAKE.md](./FULL_REPO_INTAKE.md)
 - [docs/anti-misread-guide.md](./docs/anti-misread-guide.md)
 - [docs/evaluator-architecture-map.md](./docs/evaluator-architecture-map.md)
 - [docs/evaluator-token-budget.md](./docs/evaluator-token-budget.md)
