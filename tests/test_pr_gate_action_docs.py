@@ -9,7 +9,7 @@ class PrGateActionDocsTests(unittest.TestCase):
         path = Path("ci-examples/github-actions/vcp-pr-gate.yml")
         self.assertTrue(path.exists())
         text = path.read_text(encoding="utf-8")
-        self.assertIn("git+https://github.com/Gudvin82/vibe-coding-protocols.git@v0.8.8", text)
+        self.assertIn("git+https://github.com/Gudvin82/vibe-coding-protocols.git@v0.8.9", text)
         self.assertIn("vcp review-diff --json", text)
 
     def test_pr_gate_docs_exist(self) -> None:

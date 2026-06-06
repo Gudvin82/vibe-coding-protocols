@@ -27,6 +27,10 @@ class EvaluatorSurfacesTests(unittest.TestCase):
             'assets/diagrams/vcp-control-layer-map.svg',
             'assets/diagrams/vcp-product-model.svg',
             'assets/diagrams/vcp-comparison-map.svg',
+            'docs/evaluation-receipt.md',
+            'docs_ru/evaluation-receipt.md',
+            'schemas/evaluation-receipt.schema.json',
+            '.vcp/evaluation-receipt.example.json',
         ]
         for rel in required:
             self.assertTrue((ROOT / rel).exists(), rel)

@@ -6,8 +6,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
-PATH = ROOT / '.vcp' / 'evaluator-pack.json'
+CURRENT = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+PATH = ROOT / ".vcp" / "evaluator-pack.json"
 
 issues: list[str] = []
 
@@ -42,6 +42,29 @@ else:
     for item in levels:
         if not item.get('name') or not item.get('surfaces'):
             issues.append(f'incomplete token budget entry: {item!r}')
+    if payload.get('evaluation_receipt_required') is not True:
+        issues.append('evaluation_receipt_required must be true')
+    required_full = [
+        'EVALUATE_THIS_REPO.md',
+        '.vcp/evaluator-pack.json',
+        'vcp_cli/',
+        'tests/',
+        'docs/benchmark-report.md',
+        'docs/trust-check.md',
+    ]
+    if sorted(payload.get('full_evaluation_requires', [])) != sorted(required_full):
+        issues.append('full_evaluation_requires is incomplete or out of sync')
+    if 'If you read only README or GitHub summary, label the review as shallow.' != payload.get('shallow_review_warning'):
+        issues.append('shallow_review_warning is missing or changed')
+    license_model = payload.get('license_model', {})
+    if license_model.get('code') != 'MIT':
+        issues.append('license_model.code must be MIT')
+    if license_model.get('docs_methodology_diagrams_presentations') != 'CC BY 4.0':
+        issues.append('license_model docs/methodology license must be CC BY 4.0')
+    proof_numbers = payload.get('proof_numbers', {})
+    for key in ('benchmark_scenarios', 'cards', 'cli_commands_in_manifest', 'tests', 'report_templates'):
+        if key not in proof_numbers:
+            issues.append(f'missing proof number: {key}')
 
 if issues:
     print('Evaluator pack check failed:')

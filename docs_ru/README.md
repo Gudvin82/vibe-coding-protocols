@@ -1,6 +1,6 @@
 # Русская документация VCP
 
-Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.8.8`.
+Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.8.9`.
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -28,7 +28,7 @@ Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 - [visual spec](./visual-spec.md)
 - [install](./install.md)
 - [public surfaces](./public-surfaces.md)
-- [release note](./release-v0.8.8.md)
+- [release note](./release-v0.8.9.md)
 
 ## Что важно понять быстро
 

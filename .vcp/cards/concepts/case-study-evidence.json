@@ -1,0 +1,70 @@
+{
+  "id": "case-study-evidence",
+  "type": "concept",
+  "name": "Case Study Evidence",
+  "summary": "Structured case-study layer that distinguishes real, sanitized, synthetic, and template-only evidence.",
+  "use_when": [
+    "Structured case-study layer that distinguishes real, sanitized, synthetic, and template-only evidence."
+  ],
+  "do_not_use_when": [
+    "you are overclaiming this surface beyond what ships"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "proof underweighting"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "review quality",
+      "public proof"
+    ]
+  },
+  "entry_files": [
+    "docs/case-studies.md"
+  ],
+  "related_files": [
+    "docs_ru/case-studies.md",
+    "case-studies/README.md",
+    "case-studies/TEMPLATE.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "case study evidence"
+  ],
+  "stop_conditions": [
+    "do not overclaim shipped scope"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.9",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "case-study",
+    "evidence"
+  ]
+}

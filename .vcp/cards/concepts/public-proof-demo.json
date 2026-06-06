@@ -1,0 +1,69 @@
+{
+  "id": "public-proof-demo",
+  "type": "concept",
+  "name": "Public Proof Demo",
+  "summary": "Synthetic before/after artifact pack showing practical value in under two minutes.",
+  "use_when": [
+    "Synthetic before/after artifact pack showing practical value in under two minutes."
+  ],
+  "do_not_use_when": [
+    "you are overclaiming this surface beyond what ships"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "proof underweighting"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "review quality",
+      "public proof"
+    ]
+  },
+  "entry_files": [
+    "docs/public-proof-demo.md"
+  ],
+  "related_files": [
+    "docs_ru/public-proof-demo.md",
+    "examples/public-proof/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "public proof demo"
+  ],
+  "stop_conditions": [
+    "do not overclaim shipped scope"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.9",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "demo",
+    "proof"
+  ]
+}

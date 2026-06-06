@@ -1,6 +1,6 @@
 # Catalog UX
 
-Repository package: `v0.8.8`
+Repository package: `v0.8.9`
 
 The VCP catalog improves discovery over raw card folders.
 

@@ -1,0 +1,14 @@
+{
+  "metrics": [
+    {
+      "id": "trust-check",
+      "status": "pass"
+    },
+    {
+      "id": "benchmark",
+      "status": "pass"
+    }
+  ],
+  "status": "synthetic",
+  "version": "v0.8.9"
+}

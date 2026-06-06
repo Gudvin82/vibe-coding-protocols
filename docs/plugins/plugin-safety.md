@@ -1,6 +1,6 @@
 # Plugin Safety Boundary
 
-Plugin support in `v0.8.8` is metadata-first and safety-first.
+Plugin support in `v0.8.9` is metadata-first and safety-first.
 
 ## Safety rules
 
@@ -19,7 +19,7 @@ Suggested trust language:
 - `maintainer-reviewed`
 - `unknown`
 
-## What validation means in `v0.8.8`
+## What validation means in `v0.8.9`
 
 `plugins validate` checks metadata shape only.
 It does not:
@@ -32,4 +32,4 @@ This keeps the feature in scaffold territory instead of turning it into a hidden
 
 ## Fail-closed reminder
 
-Plugin metadata is scaffold-only in `v0.8.8`. No auto-execution, remote registry, or marketplace behavior is shipped. Write-capable or network-capable plugins must stay opt-in and human-reviewed.
+Plugin metadata is scaffold-only in `v0.8.9`. No auto-execution, remote registry, or marketplace behavior is shipped. Write-capable or network-capable plugins must stay opt-in and human-reviewed.

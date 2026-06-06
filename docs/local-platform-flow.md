@@ -1,6 +1,6 @@
 # Local Platform Flow
 
-VCP in `v0.8.8` should feel like a coherent local control platform without claiming hosted-platform behavior.
+VCP in `v0.8.9` should feel like a coherent local control platform without claiming hosted-platform behavior.
 
 ## Flow
 

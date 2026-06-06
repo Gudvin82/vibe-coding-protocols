@@ -1,0 +1,17 @@
+{
+  "scenario_id": "dual-license-model",
+  "target_profile": "external-evaluator",
+  "target_signals": [
+    "dual-license-model",
+    "v0.8.9"
+  ],
+  "required_files_to_inspect": [
+    "README.md",
+    "EVALUATE_THIS_REPO.md"
+  ],
+  "expected_first_safe_action": "inspect the declared proof/evaluator surfaces before scoring",
+  "expected_warnings": [
+    "do not describe the whole repository as a single CC BY codebase"
+  ],
+  "version": "v0.8.9"
+}

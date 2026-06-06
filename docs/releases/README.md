@@ -51,7 +51,7 @@ After publishing a release object:
 - [`../release-v0.6.5.md`](../release-v0.6.5.md)
 - [`../release-v0.6.7.md`](../release-v0.6.7.md)
 
-- [v0.8.8](../release-v0.8.8.md) — Cost-Aware Agent Routing and Visual Proof Layer
+- [v0.8.9](../release-v0.8.9.md) — Cost-Aware Agent Routing and Visual Proof Layer
 - [v0.8.3](../release-v0.8.3.md) — Agent Control, Project Memory, Spec Adoption, and Starter Packs
 - [v0.8.2](../release-v0.8.2.md) — Integration Scaffold, Local Dashboard Artifacts, and Plugin Architecture Prep
 - [v0.8.1](../release-v0.8.1.md) — 10-Minute Adoption Path, Killer Demo, and Product Narrative Sync

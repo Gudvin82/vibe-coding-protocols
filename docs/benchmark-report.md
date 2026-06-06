@@ -1,16 +1,16 @@
 # Benchmark Report
 
-Release: v0.8.8
-Methodology: v1.4
+Release: `v0.8.9`
+Methodology: `v1.4`
 
 ## Summary
 
 - source command: `python3 -m vcp_cli benchmark run --json`
-- release context: `v0.8.8`
-- routing/docs additions in this release: cost-aware model routing, evaluator token budget, visual proof layer
+- release context: `v0.8.9`
+- release focus: license clarity, evaluator path enforcement, public proof, and adoption evidence
 - status source: local repository benchmark output
-- scenarios: 140
-- status: pass
+- benchmark scenarios in manifest: `151`
+- status: `pass` when the benchmark suite passes locally
 
 ## Covered areas
 
@@ -19,10 +19,11 @@ Methodology: v1.4
 - dashboard
 - integration packs
 - evaluator shortcut and anti-misread surfaces
+- evaluation receipt and evaluator-pack rules
 - Russian docs parity
 - trust/no-overclaim checks
-- agent behavior checks
 - product-model and workflow clarity checks
+- public proof and adoption-evidence surfaces
 
 ## Limitations
 

@@ -1,6 +1,6 @@
 # Публичные surfaces
 
-Repository package: `v0.8.8`
+Repository package: `v0.8.9`
 Methodology: `v1.4`
 
 ## Карта публичных source-of-truth surfaces
@@ -17,4 +17,4 @@ Methodology: `v1.4`
 
 - старые toolkit versions не должны подаваться как current
 - старое Starter/Hardening-only framing не должно оставаться без новой track model
-- public pages `v0.8.8+` должны ссылаться на GitHub repo и русские docs
+- public pages `v0.8.9+` должны ссылаться на GitHub repo и русские docs

@@ -1,0 +1,17 @@
+{
+  "scenario_id": "public-proof-strip",
+  "target_profile": "external-evaluator",
+  "target_signals": [
+    "public-proof-strip",
+    "v0.8.9"
+  ],
+  "required_files_to_inspect": [
+    "README.md",
+    "EVALUATE_THIS_REPO.md"
+  ],
+  "expected_first_safe_action": "inspect the declared proof/evaluator surfaces before scoring",
+  "expected_warnings": [
+    "do not ignore proof counts and fall back to stars-only heuristics"
+  ],
+  "version": "v0.8.9"
+}

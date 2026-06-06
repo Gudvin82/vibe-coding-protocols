@@ -1,0 +1,5 @@
+{
+  "decision": "warn",
+  "reason": "control surfaces present but launch evidence still synthetic",
+  "version": "v0.8.9"
+}

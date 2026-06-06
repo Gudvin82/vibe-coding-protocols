@@ -2,7 +2,7 @@
 
 The proof layer is where VCP turns local control artifacts into inspectable evidence.
 
-## Good proof in v0.8.8
+## Good proof in v0.8.9
 
 - before/after launch-control example;
 - dashboard artifact snapshot;

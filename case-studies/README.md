@@ -1,44 +1,14 @@
 # Case Studies
 
-This directory contains proof-pack material for VCP.
-Every case must say what is real, sanitized, synthetic, or template-only.
+Repository package: `v0.8.9`
 
-## Required labels
+This directory holds adoption evidence and before/after project stories.
 
-- `real`
-- `sanitized`
-- `maintainer-known`
-- `synthetic`
-- `template`
+Rules:
+- mark synthetic examples clearly as synthetic;
+- do not imply real customer adoption unless the case is real and reviewable;
+- include commands run, produced artifacts, prevented risks, and limitations.
 
-## Required evidence shape
-
-Each substantial case should show:
-- `INITIAL_STATE.md`
-- `ROUTE_DECISION.md`
-- `FINDINGS.md`
-- `ARTIFACTS_CREATED.md`
-- `VALIDATION.md`
-- `LIMITATIONS.md`
-- `WHAT_IS_SYNTHETIC_OR_SANITIZED.md`
-
-## Current practical proof pack
-
-- `sanitized/new-project-from-idea/`
-- `sanitized/ai-mvp-hardening/`
-- `sanitized/public-growth-geo/`
-- `sanitized/vcp-retrofit-public-growth/`
-
-## Boundaries
-
-Do not infer:
-- independent adoption where none exists;
-- metrics that are not explicitly shown;
-- SEO/GEO/AI visibility guarantees;
-- security or compliance certification.
-
-
-Suggested first proof-reading path:
-- `docs/proof-layer.md`
-- `templates/reports/adoption-case-study.md`
-- `case-studies/raw-ai-mvp-synthetic.md`
+Start with:
+- `TEMPLATE.md`
+- `synthetic-vcp-public-proof.md`

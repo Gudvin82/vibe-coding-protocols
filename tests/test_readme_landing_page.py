@@ -20,8 +20,11 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('docs/proof-snapshot.md', text)
         self.assertIn('docs/agent-model-routing.md', text)
         self.assertIn('docs/evaluator-token-budget.md', text)
+        self.assertIn('docs/evaluation-receipt.md', text)
+        self.assertIn('docs/public-proof-demo.md', text)
+        self.assertIn('docs/community-and-adoption-status.md', text)
         self.assertIn('assets/diagrams/vcp-control-layer-map.svg', text)
-        self.assertIn('v0.8.8', text)
+        self.assertIn('v0.8.9', text)
         self.assertIn('Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/', text)
 
 

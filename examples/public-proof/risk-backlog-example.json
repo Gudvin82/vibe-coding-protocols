@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "id": "risk-001",
+      "title": "No PR gate before release",
+      "status": "open"
+    }
+  ],
+  "status": "synthetic",
+  "version": "v0.8.9"
+}

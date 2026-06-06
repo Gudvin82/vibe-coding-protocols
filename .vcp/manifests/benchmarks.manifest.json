@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.8.md"
+        "docs/release-v0.8.9.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"

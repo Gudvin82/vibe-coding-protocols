@@ -368,6 +368,12 @@ def build_parser() -> argparse.ArgumentParser:
     evaluator_sub = evaluator_p.add_subparsers(dest="evaluator_command")
     evaluator_pack = evaluator_sub.add_parser("pack")
     evaluator_pack.add_argument("--json", action="store_true")
+    evaluator_receipt = evaluator_sub.add_parser("receipt")
+    evaluator_receipt_sub = evaluator_receipt.add_subparsers(dest="evaluator_receipt_command")
+    evaluator_receipt.add_argument("--json", action="store_true")
+    evaluator_receipt_validate = evaluator_receipt_sub.add_parser("validate")
+    evaluator_receipt_validate.add_argument("path")
+    evaluator_receipt_validate.add_argument("--json", action="store_true")
 
     backlog_p = sub.add_parser("backlog")
     backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
@@ -641,6 +647,10 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "evaluator":
         if args.evaluator_command in {None, "pack"}:
             return evaluator_cmd.run_pack(getattr(args, "json", False))
+        if args.evaluator_command == "receipt":
+            if getattr(args, "evaluator_receipt_command", None) == "validate":
+                return evaluator_cmd.run_receipt_validate(args.path, getattr(args, "json", False))
+            return evaluator_cmd.run_receipt(getattr(args, "json", False))
     if args.command == "backlog":
         if args.backlog_command == "list":
             return backlog_cmd.list_items(

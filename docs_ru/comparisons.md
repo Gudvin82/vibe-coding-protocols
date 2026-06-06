@@ -1,6 +1,6 @@
 # Сравнения
 
-Repository package: `v0.8.8`
+Repository package: `v0.8.9`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 

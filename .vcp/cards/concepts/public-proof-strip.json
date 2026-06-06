@@ -1,0 +1,71 @@
+{
+  "id": "public-proof-strip",
+  "type": "concept",
+  "name": "Public Proof Strip",
+  "summary": "Compact proof-number strip that reduces star-bias and makes practical evidence visible quickly.",
+  "use_when": [
+    "Compact proof-number strip that reduces star-bias and makes practical evidence visible quickly."
+  ],
+  "do_not_use_when": [
+    "you are overclaiming this surface beyond what ships"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "shallow evaluation",
+      "proof underweighting"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "review quality",
+      "public proof"
+    ]
+  },
+  "entry_files": [
+    "docs/proof-snapshot.md"
+  ],
+  "related_files": [
+    "README.md",
+    "README_ru.md",
+    "docs_ru/proof-snapshot.md",
+    "docs/benchmark-report.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "public proof strip"
+  ],
+  "stop_conditions": [
+    "do not overclaim shipped scope"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.8.9",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "proof",
+    "counts"
+  ]
+}

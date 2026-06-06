@@ -13,13 +13,13 @@ SCRIPT_CHECKS = [
     ("readme-parity", ["python3", "scripts/check-readme-parity.py"], "README.md and README_ru.md expose the same current-release and route signals."),
     ("russian-docs-parity", ["python3", "scripts/check-russian-docs-parity.py"], "Russian docs index and release surfaces are present and synchronized."),
     ("roadmap-overclaim", ["python3", "scripts/check-roadmap-overclaim.py"], "Roadmap-only surfaces are not described as shipped."),
-    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, token-budget levels, and machine-readable evaluator pack are synchronized."),
+    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, token-budget levels, machine-readable evaluator pack, and evaluation-receipt rules are synchronized."),
 ]
 
 
 DOC_EXPECTATIONS = {
-    "README.md": ["EVALUATE_THIS_REPO.md", "docs/killer-workflow.md", "docs/comparisons.md", "docs/product-model.md", "docs/benchmark-report.md", "docs/trust-check.md", "docs/ai-tooling.md", "docs/proof-snapshot.md", "docs/evaluator-architecture-map.md", "docs_ru/README.md"],
-    "README_ru.md": ["EVALUATE_THIS_REPO.md", "docs_ru/killer-workflow.md", "docs_ru/comparisons.md", "docs_ru/product-model.md", "docs_ru/benchmark-report.md", "docs_ru/trust-check.md", "docs_ru/ai-tooling.md", "docs_ru/proof-snapshot.md"],
+    "README.md": ["EVALUATE_THIS_REPO.md", "docs/killer-workflow.md", "docs/comparisons.md", "docs/product-model.md", "docs/benchmark-report.md", "docs/trust-check.md", "docs/ai-tooling.md", "docs/proof-snapshot.md", "docs/evaluator-architecture-map.md", "docs/evaluation-receipt.md", "docs/public-proof-demo.md", "docs/community-and-adoption-status.md", "docs_ru/README.md"],
+    "README_ru.md": ["EVALUATE_THIS_REPO.md", "docs_ru/killer-workflow.md", "docs_ru/comparisons.md", "docs_ru/product-model.md", "docs_ru/benchmark-report.md", "docs_ru/trust-check.md", "docs_ru/ai-tooling.md", "docs_ru/proof-snapshot.md", "docs_ru/evaluation-receipt.md", "docs_ru/public-proof-demo.md", "docs_ru/community-and-adoption-status.md"],
 }
 
 
@@ -135,6 +135,20 @@ def _evaluator_surface_check(root: Path) -> dict[str, Any]:
         "docs_ru/evaluator-token-budget.md",
         "docs/visuals.md",
         "docs_ru/visuals.md",
+        "docs/evaluation-receipt.md",
+        "docs_ru/evaluation-receipt.md",
+        "templates/reports/evaluation-receipt.md",
+        "schemas/evaluation-receipt.schema.json",
+        ".vcp/evaluation-receipt.example.json",
+        "docs/public-proof-demo.md",
+        "docs_ru/public-proof-demo.md",
+        "docs/community-and-adoption-status.md",
+        "docs_ru/community-and-adoption-status.md",
+        "docs/license.md",
+        "docs_ru/license.md",
+        "assets/presentations/README.md",
+        "docs/presentations.md",
+        "docs_ru/presentations.md",
     ]
     missing = [rel for rel in required if not (root / rel).exists()]
     status = "pass" if not missing else "fail"
@@ -143,6 +157,88 @@ def _evaluator_surface_check(root: Path) -> dict[str, Any]:
         "status": status,
         "summary": "Evaluator shortcut, anti-misread docs, proof snapshot, architecture map, token-budget docs, and machine-readable evaluator pack exist.",
         "details": [f"missing {rel}" for rel in missing] or ["Evaluator-proof surfaces are present."],
+    }
+
+
+def _proof_strip_check(root: Path) -> dict[str, Any]:
+    required_snippets = [
+        "benchmark scenarios:",
+        "cards:",
+        "CLI commands in manifest:",
+        "tests:",
+        "report templates:",
+        "trust-check: yes",
+        "evaluator pack: yes",
+    ]
+    missing: list[str] = []
+    for rel in ("README.md", "README_ru.md", "docs/proof-snapshot.md", "docs_ru/proof-snapshot.md"):
+        text = _text(root, rel)
+        for snippet in required_snippets:
+            if snippet not in text:
+                missing.append(f"{rel} missing proof-strip snippet: {snippet}")
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "proof-strip",
+        "status": status,
+        "summary": "Public proof numbers strip is visible in README and proof snapshot surfaces.",
+        "details": missing or ["Proof strip is visible on README and proof snapshot surfaces."],
+    }
+
+
+def _license_model_check(root: Path) -> dict[str, Any]:
+    missing = [rel for rel in ("LICENSE", "LICENSE-CODE-MIT", "LICENSE-DOCS-CC-BY-4.0", "NOTICE", "docs/license.md", "docs_ru/license.md") if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "license-model",
+        "status": status,
+        "summary": "Dual-license model for code versus docs/methodology is documented.",
+        "details": [f"missing {rel}" for rel in missing] or ["Dual-license surfaces are present."],
+    }
+
+
+def _community_adoption_check(root: Path) -> dict[str, Any]:
+    required = ["docs/community-and-adoption-status.md", "docs_ru/community-and-adoption-status.md"]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "community-adoption",
+        "status": status,
+        "summary": "Community/adoption status docs exist and make social-proof limits explicit.",
+        "details": [f"missing {rel}" for rel in missing] or ["Community/adoption status docs are present."],
+    }
+
+
+def _presentation_destination_check(root: Path) -> dict[str, Any]:
+    required = ["assets/presentations/README.md", "docs/presentations.md", "docs_ru/presentations.md"]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "presentations-destination",
+        "status": status,
+        "summary": "Presentations destination is prepared without claiming the files already ship.",
+        "details": [f"missing {rel}" for rel in missing] or ["Presentations destination docs are present."],
+    }
+
+
+def _public_proof_demo_check(root: Path) -> dict[str, Any]:
+    required = [
+        "examples/public-proof/README.md",
+        "examples/public-proof/before-raw-ai-mvp.md",
+        "examples/public-proof/after-vcp-launch-control-package.md",
+        "examples/public-proof/route-example.json",
+        "examples/public-proof/risk-backlog-example.json",
+        "examples/public-proof/pr-gate-example.json",
+        "examples/public-proof/metrics-board-example.json",
+        "examples/public-proof/launch-decision-example.md",
+        "examples/public-proof/trust-check-example.json",
+    ]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "public-proof-demo",
+        "status": status,
+        "summary": "Public proof demo exists as a quick before/after artifact pack.",
+        "details": [f"missing {rel}" for rel in missing] or ["Public proof demo assets are present."],
     }
 
 
@@ -192,6 +288,11 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_integration_status_check(root))
     checks.append(_benchmark_report_check(root))
     checks.append(_evaluator_surface_check(root))
+    checks.append(_proof_strip_check(root))
+    checks.append(_license_model_check(root))
+    checks.append(_public_proof_demo_check(root))
+    checks.append(_community_adoption_check(root))
+    checks.append(_presentation_destination_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

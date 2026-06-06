@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/evaluation-receipt.schema.json",
+  "title": "VCP Evaluation Receipt",
+  "type": "object",
+  "required": [
+    "version",
+    "inspection_depth",
+    "claim_status",
+    "files_inspected",
+    "commands_run",
+    "files_not_inspected",
+    "path_checks",
+    "confidence",
+    "limitations"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "inspection_depth": {
+      "enum": [
+        "Level 0",
+        "Level 1",
+        "Level 2",
+        "Level 3"
+      ]
+    },
+    "claim_status": {
+      "enum": [
+        "shallow overview",
+        "partial evaluation",
+        "full evaluation"
+      ]
+    },
+    "files_inspected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands_run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "files_not_inspected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "path_checks": {
+      "type": "object",
+      "required": [
+        "read_evaluate_this_repo",
+        "read_evaluator_pack",
+        "inspected_vcp_cli",
+        "inspected_tests",
+        "ran_trust_check",
+        "ran_benchmark"
+      ],
+      "properties": {
+        "read_evaluate_this_repo": {
+          "type": "boolean"
+        },
+        "read_evaluator_pack": {
+          "type": "boolean"
+        },
+        "inspected_vcp_cli": {
+          "type": "boolean"
+        },
+        "inspected_tests": {
+          "type": "boolean"
+        },
+        "ran_trust_check": {
+          "type": "boolean"
+        },
+        "ran_benchmark": {
+          "type": "boolean"
+        }
+      }
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "score": {
+      "type": [
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "evaluator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

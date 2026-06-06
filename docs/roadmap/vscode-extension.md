@@ -2,7 +2,7 @@
 
 Status: roadmap, not shipped.
 
-`v0.8.8` does not ship a VS Code extension and does not claim a Marketplace listing.
+`v0.8.9` does not ship a VS Code extension and does not claim a Marketplace listing.
 
 ## Candidate future scope
 
@@ -17,7 +17,7 @@ Status: roadmap, not shipped.
 
 ## Boundaries
 
-- no extension code is shipped in `v0.8.8`;
+- no extension code is shipped in `v0.8.9`;
 - no Marketplace listing is claimed;
 - no extension package is published;
 - no official IDE integration claim should be presented as current availability.

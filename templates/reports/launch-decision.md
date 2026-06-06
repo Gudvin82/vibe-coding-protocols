@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.8.8 -->
+<!-- vcp-version: v0.8.9 -->
 <!-- methodology-version: v1.4 -->
 # Launch Decision Report
 

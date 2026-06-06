@@ -1,6 +1,6 @@
 # Visual proof layer
 
-Repository package: `v0.8.8`
+Repository package: `v0.8.9`
 
 VCP поставляет легкий visual proof layer для README, docs, evaluators и website copy.
 

@@ -53,7 +53,7 @@
   "validation": [
     "python3 scripts/check-evaluator-pack.py"
   ],
-  "version": "v0.8.8",
+  "version": "v0.8.9",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

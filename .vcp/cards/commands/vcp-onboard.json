@@ -47,7 +47,7 @@
   "validation": [
     "python3 -m vcp_cli onboard --json"
   ],
-  "version": "v0.8.8",
+  "version": "v0.8.9",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

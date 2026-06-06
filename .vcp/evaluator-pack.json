@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.8",
+  "version": "v0.8.9",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -84,5 +84,34 @@
         "website surfaces"
       ]
     }
-  ]
+  ],
+  "evaluation_receipt_required": true,
+  "full_evaluation_requires": [
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json",
+    "vcp_cli/",
+    "tests/",
+    "docs/benchmark-report.md",
+    "docs/trust-check.md"
+  ],
+  "minimum_fair_review": [
+    "README.md",
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json",
+    "docs/proof-snapshot.md"
+  ],
+  "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
+  "proof_numbers": {
+    "benchmark_scenarios": 151,
+    "cards": 270,
+    "cli_commands_in_manifest": 69,
+    "tests": 84,
+    "report_templates": 44,
+    "visual_diagrams": 3,
+    "russian_docs": true
+  },
+  "license_model": {
+    "code": "MIT",
+    "docs_methodology_diagrams_presentations": "CC BY 4.0"
+  }
 }

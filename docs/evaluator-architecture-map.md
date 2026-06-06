@@ -1,6 +1,6 @@
 # Evaluator Architecture Map
 
-Repository package: `v0.8.8`
+Repository package: `v0.8.9`
 
 Use this map when you need a quick structural reading of VCP.
 

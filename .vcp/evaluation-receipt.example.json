@@ -1,0 +1,34 @@
+{
+  "version": "v0.8.9",
+  "inspection_depth": "Level 1",
+  "claim_status": "partial evaluation",
+  "files_inspected": [
+    "README.md",
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json",
+    "docs/proof-snapshot.md"
+  ],
+  "commands_run": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "files_not_inspected": [
+    "vcp_cli/",
+    "tests/"
+  ],
+  "path_checks": {
+    "read_evaluate_this_repo": true,
+    "read_evaluator_pack": true,
+    "inspected_vcp_cli": false,
+    "inspected_tests": false,
+    "ran_trust_check": false,
+    "ran_benchmark": false
+  },
+  "confidence": "medium",
+  "limitations": [
+    "partial review only",
+    "CLI and tests not inspected"
+  ],
+  "score": "not-scored",
+  "evaluator": "example",
+  "date": "2026-06-06"
+}
