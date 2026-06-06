@@ -1,6 +1,6 @@
 # Visual Proof Layer
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 VCP ships a lightweight visual proof layer for README, docs, evaluators, and website copy.
 
@@ -28,3 +28,11 @@ If deterministic local export is unavailable, SVG remains the canonical source a
 - `docs/evaluator-architecture-map.md`
 - `docs/product-model.md`
 - `docs/comparisons.md`
+
+## Planned v0.9.0 visuals
+
+- control catalog map
+- change intent flow
+- starter adoption matrix diagram
+- ecosystem map diagram
+- solo/squad control path diagram

@@ -950,6 +950,77 @@
       "validation": [
         "python3 -m vcp_cli evaluator pack --json"
       ]
+    },
+    {
+      "id": "catalog-list",
+      "command_name": "vcp catalog list --json",
+      "file": "vcp_cli/catalog_cmd.py",
+      "route": "catalog",
+      "inputs": [],
+      "output": "catalog list JSON",
+      "validation": "tests/test_catalog_cmd.py"
+    },
+    {
+      "id": "catalog-explain",
+      "command_name": "vcp catalog explain --id <id> --json",
+      "file": "vcp_cli/catalog_cmd.py",
+      "route": "catalog",
+      "inputs": [
+        "id"
+      ],
+      "output": "catalog entry JSON",
+      "validation": "tests/test_catalog_cmd.py"
+    },
+    {
+      "id": "change-intent",
+      "command_name": "vcp change intent --json",
+      "file": "vcp_cli/change_cmd.py",
+      "route": "change",
+      "inputs": [],
+      "output": "change intent example JSON",
+      "validation": "tests/test_change_intent.py"
+    },
+    {
+      "id": "change-intent-validate",
+      "command_name": "vcp change intent validate <path> --json",
+      "file": "vcp_cli/change_cmd.py",
+      "route": "change",
+      "inputs": [
+        "path"
+      ],
+      "output": "validation JSON",
+      "validation": "tests/test_change_intent.py"
+    },
+    {
+      "id": "profiles-list",
+      "command_name": "vcp profiles list --json",
+      "file": "vcp_cli/profiles_cmd.py",
+      "route": "profiles",
+      "inputs": [],
+      "output": "profiles list JSON",
+      "validation": "tests/test_agent_rule_profiles.py"
+    },
+    {
+      "id": "profiles-show",
+      "command_name": "vcp profiles show --id mini --json",
+      "file": "vcp_cli/profiles_cmd.py",
+      "route": "profiles",
+      "inputs": [
+        "id"
+      ],
+      "output": "profile JSON",
+      "validation": "tests/test_agent_rule_profiles.py"
+    },
+    {
+      "id": "charter-validate",
+      "command_name": "vcp charter validate <path> --json",
+      "file": "vcp_cli/charter_cmd.py",
+      "route": "charter",
+      "inputs": [
+        "path"
+      ],
+      "output": "validation JSON",
+      "validation": "tests/test_project_control_charter.py"
     }
   ],
   "progressive_disclosure_docs": [
@@ -963,5 +1034,6 @@
     "docs/anti-misread-guide.md",
     "docs/evaluator-architecture-map.md",
     "docs/proof-snapshot.md"
-  ]
+  ],
+  "version": "v0.9.0"
 }

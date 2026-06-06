@@ -1,0 +1,68 @@
+{
+  "id": "local-ai-control-platform",
+  "type": "concept",
+  "name": "Local AI Control Platform",
+  "summary": "Local-first platform framing for VCP through files, CLI, manifests, rules, proofs, and dashboards.",
+  "use_when": [
+    "someone asks what platform means in VCP"
+  ],
+  "do_not_use_when": [
+    "hosted SaaS or managed service behavior is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "platform"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "hosted-platform overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "platform positioning"
+    ]
+  },
+  "entry_files": [
+    "docs/local-platform-flow.md",
+    "README.md"
+  ],
+  "related_files": [
+    "README_ru.md",
+    "docs/control-catalog.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "local platform framing"
+  ],
+  "stop_conditions": [
+    "do not claim cloud dashboard or marketplace behavior"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "platform"
+  ]
+}

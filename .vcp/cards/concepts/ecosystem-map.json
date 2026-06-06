@@ -1,0 +1,63 @@
+{
+  "id": "ecosystem-map",
+  "type": "concept",
+  "name": "Ecosystem Map",
+  "summary": "Respectful positioning of VCP among spec tools, starters, agent tools, and rules repos.",
+  "use_when": [
+    "a reader needs to understand what VCP complements and what it does not replace"
+  ],
+  "do_not_use_when": [
+    "official integration or endorsement is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "positioning"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "category confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "positioning"
+    ]
+  },
+  "entry_files": [
+    "docs/ecosystem-map.md"
+  ],
+  "related_files": [
+    "docs_ru/ecosystem-map.md",
+    "docs/comparisons.md"
+  ],
+  "cli": [],
+  "outputs": [
+    "comparison framing"
+  ],
+  "stop_conditions": [
+    "do not claim VCP replaces Spec Kit or template repos"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "positioning"
+  ]
+}

@@ -1,6 +1,6 @@
 # Trust Check
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Используй trust check, когда нужен локальный read-only audit на согласованность репозитория.
 
@@ -42,5 +42,5 @@ Trust Check не доказывает:
 
 ## Evaluator-proof note
 
-В `v0.8.9` trust-check также входит в public proof layer.
+В `v0.9.0` trust-check также входит в public proof layer.
 Он помогает внешним evaluators проверять, что evaluator shortcut surfaces, anti-misread docs и current release signals синхронизированы.

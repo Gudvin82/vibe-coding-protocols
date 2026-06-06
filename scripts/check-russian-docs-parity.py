@@ -32,7 +32,15 @@ required = [
     'docs_ru/evaluator-token-budget.md',
     'docs_ru/visuals.md',
     'docs_ru/visual-spec.md',
-    'docs_ru/release-v0.8.9.md',
+    'docs_ru/control-catalog.md',
+    'docs_ru/change-intent.md',
+    'docs_ru/starter-template-adoption.md',
+    'docs_ru/agent-rule-profiles.md',
+    'docs_ru/project-control-charter.md',
+    'docs_ru/ecosystem-map.md',
+    'docs_ru/agent-rule-provenance.md',
+    'docs_ru/ai-augmented-solo-squad-path.md',
+    'docs_ru/release-v0.9.0.md',
 ]
 issues = []
 for rel in required:
@@ -41,7 +49,7 @@ for rel in required:
         issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.8.9.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.0.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
     if rel == 'docs_ru/README.md':
         for needle in (
@@ -64,6 +72,13 @@ for rel in required:
             'английских docs',
             'agent-model-routing.md',
             'evaluator-token-budget.md',
+            'control-catalog.md',
+            'change-intent.md',
+            'starter-template-adoption.md',
+            'agent-rule-profiles.md',
+            'project-control-charter.md',
+            'ecosystem-map.md',
+            'ai-augmented-solo-squad-path.md',
         ):
             if needle not in text:
                 issues.append(f'docs_ru/README.md missing required guidance: {needle}')

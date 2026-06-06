@@ -1,0 +1,46 @@
+{
+  "version": "v0.9.0",
+  "project_name": "Vibe Coding Protocols",
+  "source_of_truth": [
+    "VERSION",
+    "README.md",
+    ".vcp/index.json"
+  ],
+  "agent_permissions": {
+    "default": "read-and-report",
+    "mutating_release_prep": "human-approved"
+  },
+  "human_approval_required": [
+    "release tags",
+    "destructive actions",
+    "public website deploy"
+  ],
+  "required_checks": [
+    "trust-check",
+    "unit-tests",
+    "benchmark",
+    "cards-validate",
+    "index-validate"
+  ],
+  "release_gates": [
+    "version-sync",
+    "release-docs",
+    "machine-readable-sync"
+  ],
+  "docs_and_proof_rules": [
+    "do not claim tests passed unless run",
+    "do not present roadmap as shipped"
+  ],
+  "risk_levels": [
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ],
+  "rollback_expectations": "Every release-prep change must be revertable with a single commit revert.",
+  "roadmap_boundaries": [
+    "hosted platform",
+    "plugin marketplace",
+    "public package registry publication"
+  ]
+}

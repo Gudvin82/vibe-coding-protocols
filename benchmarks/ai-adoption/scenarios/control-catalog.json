@@ -1,0 +1,10 @@
+{
+  "id": "control-catalog",
+  "summary": "Catalog explains shipped surfaces without overclaim.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

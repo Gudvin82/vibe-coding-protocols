@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.9",
+  "version": "v0.9.0",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -16,14 +16,32 @@
     "tests/",
     "docs/benchmark-report.md",
     "docs/trust-check.md",
-    "docs_ru/README.md"
+    "docs_ru/README.md",
+    "docs/control-catalog.md",
+    "docs/change-intent.md",
+    "docs/starter-template-adoption.md",
+    "docs/agent-rule-profiles.md",
+    "docs/project-control-charter.md",
+    "docs/ecosystem-map.md",
+    "docs/ai-augmented-solo-squad-path.md",
+    ".vcp/control-catalog.json",
+    ".vcp/agent-rule-profiles.json",
+    ".vcp/change-intent.example.json",
+    ".vcp/project-control-charter.example.json"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",
     "python3 -m vcp_cli benchmark run --json",
     "python3 -m vcp_cli cards validate --json",
     "python3 -m vcp_cli index validate --json",
-    "python3 -m vcp_cli evaluator pack --json"
+    "python3 -m vcp_cli evaluator pack --json",
+    "python3 -m vcp_cli catalog list --json",
+    "python3 -m vcp_cli catalog explain --id mvp-to-launch --json",
+    "python3 -m vcp_cli change intent --json",
+    "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json",
+    "python3 -m vcp_cli profiles list --json",
+    "python3 -m vcp_cli profiles show --id mini --json",
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
   ],
   "inspection_depths": [
     "shallow",
@@ -103,9 +121,9 @@
   "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
   "proof_numbers": {
     "benchmark_scenarios": 151,
-    "cards": 270,
-    "cli_commands_in_manifest": 69,
-    "tests": 84,
+    "cards": 287,
+    "cli_commands_in_manifest": 76,
+    "tests": 107,
     "report_templates": 44,
     "visual_diagrams": 3,
     "russian_docs": true

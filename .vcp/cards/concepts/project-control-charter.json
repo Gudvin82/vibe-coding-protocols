@@ -1,0 +1,71 @@
+{
+  "id": "project-control-charter",
+  "type": "concept",
+  "name": "Project Control Charter",
+  "summary": "Project-level local governance file for source-of-truth, approvals, checks, and rollback expectations.",
+  "use_when": [
+    "a repo wants explicit AI control boundaries and release gates"
+  ],
+  "do_not_use_when": [
+    "a legal constitution or compliance certification is expected"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "concept",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "approval drift",
+      "release confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "governance"
+    ]
+  },
+  "entry_files": [
+    "docs/project-control-charter.md",
+    ".vcp/project-control-charter.example.json",
+    "schemas/project-control-charter.schema.json"
+  ],
+  "related_files": [
+    "docs_ru/project-control-charter.md",
+    "templates/project-control-charter.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+  ],
+  "outputs": [
+    "project-control-charter validation result"
+  ],
+  "stop_conditions": [
+    "do not treat charter validation as compliance certification"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests",
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "charter"
+  ]
+}

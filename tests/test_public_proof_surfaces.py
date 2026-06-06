@@ -10,9 +10,9 @@ class PublicProofSurfacesTests(unittest.TestCase):
     def test_proof_strip_visible(self) -> None:
         required = [
             'benchmark scenarios: `151`',
-            'cards: `270`',
-            'CLI commands in manifest: `69`',
-            'tests: `84`',
+            'cards: `287`',
+            'CLI commands in manifest: `76`',
+            'tests: `107`',
             'report templates: `44`',
             'trust-check: yes',
             'evaluator pack: yes',

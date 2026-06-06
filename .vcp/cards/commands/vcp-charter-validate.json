@@ -1,0 +1,66 @@
+{
+  "id": "vcp-charter-validate",
+  "type": "command",
+  "name": "Charter Validate",
+  "summary": "Validates a project-control-charter payload.",
+  "use_when": [
+    "a repo wants to check that its local control charter is structurally complete"
+  ],
+  "do_not_use_when": [
+    "policy enforcement beyond validation is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "missing governance rules"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "governance"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/charter_cmd.py"
+  ],
+  "related_files": [
+    "schemas/project-control-charter.schema.json",
+    ".vcp/project-control-charter.example.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+  ],
+  "outputs": [
+    "charter validation result"
+  ],
+  "stop_conditions": [
+    "validation only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "charter"
+  ]
+}

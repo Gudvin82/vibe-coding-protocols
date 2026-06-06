@@ -1,6 +1,6 @@
 # Архитектурная карта для evaluators
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Используй эту карту, если нужно быстро понять структуру VCP.
 

@@ -1,0 +1,10 @@
+{
+  "id": "change-intent",
+  "summary": "Change-intent layer stays governance-first and validation-only.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

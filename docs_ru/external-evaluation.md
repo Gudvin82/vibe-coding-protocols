@@ -1,6 +1,6 @@
 # Внешняя оценка
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Используй `templates/reports/external-evaluation.md`, когда нужна честная и bounded внешняя оценка VCP.
 

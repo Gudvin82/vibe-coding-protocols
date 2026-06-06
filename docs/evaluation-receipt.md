@@ -1,6 +1,6 @@
 # Evaluation Receipt
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 An evaluation receipt makes it explicit what an AI or human reviewer actually inspected before making claims about VCP.
 

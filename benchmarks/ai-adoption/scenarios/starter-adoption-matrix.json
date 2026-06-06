@@ -1,0 +1,10 @@
+{
+  "id": "starter-adoption-matrix",
+  "summary": "Starter adoption matrix positions VCP as complementary control layer.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

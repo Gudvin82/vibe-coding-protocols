@@ -1,0 +1,66 @@
+{
+  "id": "vcp-change-intent-validate",
+  "type": "command",
+  "name": "Change Intent Validate",
+  "summary": "Validates a change-intent payload against VCP rules.",
+  "use_when": [
+    "a project wants to validate planned-change metadata before work starts"
+  ],
+  "do_not_use_when": [
+    "code mutation is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "cli",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "unsafe change planning"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change governance"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/change_cmd.py"
+  ],
+  "related_files": [
+    "schemas/change-intent.schema.json",
+    ".vcp/change-intent.example.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
+  ],
+  "outputs": [
+    "change-intent validation result"
+  ],
+  "stop_conditions": [
+    "validation only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "validation"
+  ]
+}

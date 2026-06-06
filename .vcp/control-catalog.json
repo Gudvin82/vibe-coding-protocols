@@ -1,0 +1,233 @@
+{
+  "version": "v0.9.0",
+  "title": "VCP Control Catalog",
+  "statuses": [
+    "shipped",
+    "optional",
+    "experimental",
+    "roadmap-only",
+    "not-shipped"
+  ],
+  "entries": [
+    {
+      "id": "mvp-to-launch",
+      "title": "MVP to Launch path",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Human-led launch hardening path for AI-built MVPs.",
+      "primary_files": [
+        "docs/mvp-to-launch-path.md",
+        ".vcp/workflows/mvp-to-launch.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli workflow plan --id mvp-to-launch --json"
+      ],
+      "when_to_use": "Existing MVP needs control before merge or launch.",
+      "not_for": "Hosted orchestration or deployment automation.",
+      "related_entries": [
+        "change-intent",
+        "project-control-charter",
+        "ai-augmented-solo-squad-path"
+      ],
+      "docs": "docs/mvp-to-launch-path.md",
+      "docs_ru": "docs_ru/mvp-to-launch-path.md"
+    },
+    {
+      "id": "control-catalog",
+      "title": "Control Catalog",
+      "category": "Core commands",
+      "status": "shipped",
+      "summary": "Browseable map of VCP capabilities and boundaries.",
+      "primary_files": [
+        "docs/control-catalog.md",
+        ".vcp/control-catalog.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli catalog list --json",
+        "python3 -m vcp_cli catalog explain --id control-catalog --json"
+      ],
+      "when_to_use": "Need a first map of shipped control surfaces.",
+      "not_for": "Marketplace discovery or remote registry browsing.",
+      "related_entries": [
+        "agent-rule-profiles",
+        "starter-adoption-matrix",
+        "ecosystem-map"
+      ],
+      "docs": "docs/control-catalog.md",
+      "docs_ru": "docs_ru/control-catalog.md"
+    },
+    {
+      "id": "change-intent",
+      "title": "Change Intent",
+      "category": "Report templates",
+      "status": "shipped",
+      "summary": "Spec-delta style governance layer for planned changes.",
+      "primary_files": [
+        "docs/change-intent.md",
+        ".vcp/change-intent.example.json",
+        "schemas/change-intent.schema.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli change intent --json",
+        "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
+      ],
+      "when_to_use": "Before an AI agent starts risky or cross-surface edits.",
+      "not_for": "Automatic code mutation or background orchestration.",
+      "related_entries": [
+        "project-control-charter",
+        "ai-augmented-solo-squad-path"
+      ],
+      "docs": "docs/change-intent.md",
+      "docs_ru": "docs_ru/change-intent.md"
+    },
+    {
+      "id": "starter-adoption-matrix",
+      "title": "Starter Adoption Matrix",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Maps common starter/project types to recommended VCP control paths.",
+      "primary_files": [
+        "docs/starter-template-adoption.md",
+        ".vcp/starter-adoption-matrix.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli classify --json"
+      ],
+      "when_to_use": "Adopting VCP on top of an existing starter or generated MVP.",
+      "not_for": "Claiming official integration with third-party starters.",
+      "related_entries": [
+        "ecosystem-map",
+        "mvp-to-launch"
+      ],
+      "docs": "docs/starter-template-adoption.md",
+      "docs_ru": "docs_ru/starter-template-adoption.md"
+    },
+    {
+      "id": "agent-rule-profiles",
+      "title": "Agent Rule Profiles",
+      "category": "Agent rule profiles",
+      "status": "shipped",
+      "summary": "Nano, mini, and full context profiles for AI coding sessions.",
+      "primary_files": [
+        "docs/agent-rule-profiles.md",
+        ".vcp/agent-rule-profiles.json",
+        "templates/agents/profiles/vcp-agent-rules.nano.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli profiles list --json",
+        "python3 -m vcp_cli profiles show --id mini --json"
+      ],
+      "when_to_use": "Need bounded AI instructions by context size and risk.",
+      "not_for": "Hidden provider automation or unattended work.",
+      "related_entries": [
+        "agent-rule-provenance",
+        "change-intent"
+      ],
+      "docs": "docs/agent-rule-profiles.md",
+      "docs_ru": "docs_ru/agent-rule-profiles.md"
+    },
+    {
+      "id": "project-control-charter",
+      "title": "Project Control Charter",
+      "category": "Report templates",
+      "status": "shipped",
+      "summary": "Project-level governance and release control file.",
+      "primary_files": [
+        "docs/project-control-charter.md",
+        ".vcp/project-control-charter.example.json",
+        "schemas/project-control-charter.schema.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+      ],
+      "when_to_use": "Need explicit approval, release, and rollback rules.",
+      "not_for": "Replacing a legal constitution or compliance framework.",
+      "related_entries": [
+        "change-intent",
+        "ai-augmented-solo-squad-path"
+      ],
+      "docs": "docs/project-control-charter.md",
+      "docs_ru": "docs_ru/project-control-charter.md"
+    },
+    {
+      "id": "ecosystem-map",
+      "title": "Ecosystem Map",
+      "category": "Proof and evidence surfaces",
+      "status": "shipped",
+      "summary": "Positions VCP among spec tools, templates, agents, and rules repos.",
+      "primary_files": [
+        "docs/ecosystem-map.md"
+      ],
+      "commands": [],
+      "when_to_use": "Need honest comparison boundaries.",
+      "not_for": "Official integration or endorsement claims.",
+      "related_entries": [
+        "starter-adoption-matrix",
+        "control-catalog"
+      ],
+      "docs": "docs/ecosystem-map.md",
+      "docs_ru": "docs_ru/ecosystem-map.md"
+    },
+    {
+      "id": "agent-rule-provenance",
+      "title": "Agent Rule Provenance",
+      "category": "Proof and evidence surfaces",
+      "status": "shipped",
+      "summary": "Tracks origin, intended use, and risk of shipped rule profiles.",
+      "primary_files": [
+        "docs/agent-rule-provenance.md",
+        ".vcp/agent-rule-provenance.json"
+      ],
+      "commands": [],
+      "when_to_use": "Need safe reuse and attribution for rule profiles.",
+      "not_for": "Third-party text mirroring without review.",
+      "related_entries": [
+        "agent-rule-profiles"
+      ],
+      "docs": "docs/agent-rule-provenance.md",
+      "docs_ru": "docs_ru/agent-rule-provenance.md"
+    },
+    {
+      "id": "ai-augmented-solo-squad-path",
+      "title": "AI-Augmented Solo/Squad Path",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Human-led control path for one developer coordinating multiple AI agents.",
+      "primary_files": [
+        "docs/ai-augmented-solo-squad-path.md",
+        ".vcp/workflows/ai-augmented-solo-squad.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli workflow show ai-augmented-solo-squad --json"
+      ],
+      "when_to_use": "Multiple agents or IDE copilots are touching the same project.",
+      "not_for": "Autonomous orchestration claims.",
+      "related_entries": [
+        "project-control-charter",
+        "change-intent",
+        "agent-rule-profiles"
+      ],
+      "docs": "docs/ai-augmented-solo-squad-path.md",
+      "docs_ru": "docs_ru/ai-augmented-solo-squad-path.md"
+    },
+    {
+      "id": "vscode-extension-roadmap",
+      "title": "VS Code extension roadmap",
+      "category": "Roadmap-only surfaces",
+      "status": "roadmap-only",
+      "summary": "Future placeholder for a possible extension without shipping it today.",
+      "primary_files": [
+        "docs/roadmap/vscode-extension.md"
+      ],
+      "commands": [],
+      "when_to_use": "Need roadmap boundary clarification.",
+      "not_for": "Current product capability claims.",
+      "related_entries": [
+        "control-catalog"
+      ],
+      "docs": "docs/roadmap/vscode-extension.md",
+      "docs_ru": "docs_ru/README.md",
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.0."
+    }
+  ]
+}

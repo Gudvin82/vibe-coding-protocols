@@ -4,7 +4,11 @@ import re
 from pathlib import Path
 from typing import Any
 
+from .catalog_cmd import validate as validate_catalog
+from .change_cmd import validate_change_intent_data
+from .charter_cmd import validate_charter_data
 from .integrations_cmd import ALLOWED_STATUSES as INTEGRATION_STATUSES, list_payload, packs_payload
+from .profiles_cmd import validate as validate_profiles
 from .utils import dump_json, load_json, print_output, repo_root, repo_version, run_command
 
 
@@ -18,8 +22,48 @@ SCRIPT_CHECKS = [
 
 
 DOC_EXPECTATIONS = {
-    "README.md": ["EVALUATE_THIS_REPO.md", "docs/killer-workflow.md", "docs/comparisons.md", "docs/product-model.md", "docs/benchmark-report.md", "docs/trust-check.md", "docs/ai-tooling.md", "docs/proof-snapshot.md", "docs/evaluator-architecture-map.md", "docs/evaluation-receipt.md", "docs/public-proof-demo.md", "docs/community-and-adoption-status.md", "docs_ru/README.md"],
-    "README_ru.md": ["EVALUATE_THIS_REPO.md", "docs_ru/killer-workflow.md", "docs_ru/comparisons.md", "docs_ru/product-model.md", "docs_ru/benchmark-report.md", "docs_ru/trust-check.md", "docs_ru/ai-tooling.md", "docs_ru/proof-snapshot.md", "docs_ru/evaluation-receipt.md", "docs_ru/public-proof-demo.md", "docs_ru/community-and-adoption-status.md"],
+    "README.md": [
+        "EVALUATE_THIS_REPO.md",
+        "docs/killer-workflow.md",
+        "docs/comparisons.md",
+        "docs/product-model.md",
+        "docs/benchmark-report.md",
+        "docs/trust-check.md",
+        "docs/ai-tooling.md",
+        "docs/proof-snapshot.md",
+        "docs/evaluator-architecture-map.md",
+        "docs/evaluation-receipt.md",
+        "docs/public-proof-demo.md",
+        "docs/community-and-adoption-status.md",
+        "docs/control-catalog.md",
+        "docs/change-intent.md",
+        "docs/starter-template-adoption.md",
+        "docs/agent-rule-profiles.md",
+        "docs/project-control-charter.md",
+        "docs/ecosystem-map.md",
+        "docs/ai-augmented-solo-squad-path.md",
+        "docs_ru/README.md",
+    ],
+    "README_ru.md": [
+        "EVALUATE_THIS_REPO.md",
+        "docs_ru/killer-workflow.md",
+        "docs_ru/comparisons.md",
+        "docs_ru/product-model.md",
+        "docs_ru/benchmark-report.md",
+        "docs_ru/trust-check.md",
+        "docs_ru/ai-tooling.md",
+        "docs_ru/proof-snapshot.md",
+        "docs_ru/evaluation-receipt.md",
+        "docs_ru/public-proof-demo.md",
+        "docs_ru/community-and-adoption-status.md",
+        "docs/control-catalog.md",
+        "docs/change-intent.md",
+        "docs/starter-template-adoption.md",
+        "docs/agent-rule-profiles.md",
+        "docs/project-control-charter.md",
+        "docs/ecosystem-map.md",
+        "docs/ai-augmented-solo-squad-path.md",
+    ],
 }
 
 
@@ -220,6 +264,145 @@ def _presentation_destination_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _control_catalog_check(root: Path) -> dict[str, Any]:
+    problems = validate_catalog(root)
+    return {
+        "id": "control-catalog",
+        "status": "pass" if not problems else "fail",
+        "summary": "Control catalog docs and machine-readable catalog exist and catalog entries validate.",
+        "details": problems or ["Control catalog surfaces are present and valid."],
+    }
+
+
+def _change_intent_check(root: Path) -> dict[str, Any]:
+    required = [
+        "docs/change-intent.md",
+        "docs_ru/change-intent.md",
+        "templates/reports/change-intent.md",
+        "schemas/change-intent.schema.json",
+        ".vcp/change-intent.example.json",
+    ]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    problems = [f"missing {rel}" for rel in missing]
+    if not missing:
+        problems.extend(validate_change_intent_data(load_json(root / ".vcp" / "change-intent.example.json"), root))
+    return {
+        "id": "change-intent",
+        "status": "pass" if not problems else "fail",
+        "summary": "Change-intent docs, schema, template, and example exist and validate.",
+        "details": problems or ["Change-intent surfaces are present and valid."],
+    }
+
+
+def _starter_adoption_matrix_check(root: Path) -> dict[str, Any]:
+    required = ["docs/starter-template-adoption.md", "docs_ru/starter-template-adoption.md", ".vcp/starter-adoption-matrix.json"]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        payload = load_json(root / ".vcp" / "starter-adoption-matrix.json")
+        if payload.get("official_integrations_claimed") is not False:
+            problems.append("starter-adoption-matrix must not claim official integrations")
+        if len(payload.get("items", [])) < 10:
+            problems.append("starter-adoption-matrix must contain at least 10 starter categories")
+    return {
+        "id": "starter-adoption-matrix",
+        "status": "pass" if not problems else "fail",
+        "summary": "Starter adoption matrix exists and positions VCP as a complementary control layer.",
+        "details": problems or ["Starter adoption matrix surfaces are present and valid."],
+    }
+
+
+def _agent_rule_profiles_check(root: Path) -> dict[str, Any]:
+    problems = validate_profiles(root)
+    return {
+        "id": "agent-rule-profiles",
+        "status": "pass" if not problems else "fail",
+        "summary": "Nano, mini, and full agent rule profiles exist and stay constraint-first.",
+        "details": problems or ["Agent rule profiles are present and valid."],
+    }
+
+
+def _project_control_charter_check(root: Path) -> dict[str, Any]:
+    required = [
+        "docs/project-control-charter.md",
+        "docs_ru/project-control-charter.md",
+        "templates/project-control-charter.md",
+        "schemas/project-control-charter.schema.json",
+        ".vcp/project-control-charter.example.json",
+    ]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        problems.extend(validate_charter_data(load_json(root / ".vcp" / "project-control-charter.example.json"), root))
+    return {
+        "id": "project-control-charter",
+        "status": "pass" if not problems else "fail",
+        "summary": "Project control charter docs, template, schema, and example exist and validate.",
+        "details": problems or ["Project control charter surfaces are present and valid."],
+    }
+
+
+def _ecosystem_map_check(root: Path) -> dict[str, Any]:
+    required = ["docs/ecosystem-map.md", "docs_ru/ecosystem-map.md"]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        text = _text(root, "docs/ecosystem-map.md")
+        for needle in (
+            "Spec Kit",
+            "OpenSpec-like tools",
+            "Full-stack templates",
+            "VCP complements adjacent tools and does not replace them.",
+        ):
+            if needle not in text:
+                problems.append(f"docs/ecosystem-map.md missing {needle}")
+    return {
+        "id": "ecosystem-map",
+        "status": "pass" if not problems else "fail",
+        "summary": "Ecosystem map exists and keeps comparison boundaries respectful.",
+        "details": problems or ["Ecosystem map surfaces are present and valid."],
+    }
+
+
+def _rule_provenance_check(root: Path) -> dict[str, Any]:
+    required = ["docs/agent-rule-provenance.md", "docs_ru/agent-rule-provenance.md", ".vcp/agent-rule-provenance.json"]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        payload = load_json(root / ".vcp" / "agent-rule-provenance.json")
+        profile_ids = {item.get("id") for item in load_json(root / ".vcp" / "agent-rule-profiles.json").get("items", [])}
+        provenance_ids = {item.get("id") for item in payload.get("items", [])}
+        if profile_ids != provenance_ids:
+            problems.append("rule provenance ids must match agent-rule-profiles ids")
+        for item in payload.get("items", []):
+            if item.get("status") not in {"shipped", "optional", "experimental", "roadmap-only", "not-shipped"}:
+                problems.append(f"invalid provenance status for {item.get('id')}: {item.get('status')!r}")
+    return {
+        "id": "agent-rule-provenance",
+        "status": "pass" if not problems else "fail",
+        "summary": "Rule provenance exists, lists shipped profiles, and uses valid statuses.",
+        "details": problems or ["Rule provenance surfaces are present and valid."],
+    }
+
+
+def _solo_squad_check(root: Path) -> dict[str, Any]:
+    required = [
+        "docs/ai-augmented-solo-squad-path.md",
+        "docs_ru/ai-augmented-solo-squad-path.md",
+        ".vcp/workflows/ai-augmented-solo-squad.json",
+        "templates/reports/solo-squad-control-plan.md",
+    ]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        text = _text(root, "docs/ai-augmented-solo-squad-path.md")
+        if "human-led" not in text:
+            problems.append("docs/ai-augmented-solo-squad-path.md must say human-led")
+        if "does not claim autonomous orchestration" not in text:
+            problems.append("docs/ai-augmented-solo-squad-path.md must reject autonomous orchestration overclaim")
+    return {
+        "id": "ai-augmented-solo-squad-path",
+        "status": "pass" if not problems else "fail",
+        "summary": "Solo/squad path exists and stays explicitly human-led.",
+        "details": problems or ["Solo/squad path surfaces are present and valid."],
+    }
+
+
 def _public_proof_demo_check(root: Path) -> dict[str, Any]:
     required = [
         "examples/public-proof/README.md",
@@ -293,6 +476,14 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_public_proof_demo_check(root))
     checks.append(_community_adoption_check(root))
     checks.append(_presentation_destination_check(root))
+    checks.append(_control_catalog_check(root))
+    checks.append(_change_intent_check(root))
+    checks.append(_starter_adoption_matrix_check(root))
+    checks.append(_agent_rule_profiles_check(root))
+    checks.append(_project_control_charter_check(root))
+    checks.append(_ecosystem_map_check(root))
+    checks.append(_rule_provenance_check(root))
+    checks.append(_solo_squad_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

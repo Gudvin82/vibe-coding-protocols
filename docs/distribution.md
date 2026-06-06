@@ -1,13 +1,13 @@
 # Distribution
 
-Shipped in `v0.8.9`:
+Shipped in `v0.9.0`:
 - local Python install from clone;
 - local `vcp` console command after install;
 - local npm wrapper;
 - local dashboard artifact;
 - local agent/control templates.
 
-Not claimed in `v0.8.9`:
+Not claimed in `v0.9.0`:
 - public PyPI publication;
 - public npm publication;
 - hosted dashboard;

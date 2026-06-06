@@ -49,7 +49,7 @@
   "validation": [
     "python3 -m vcp_cli plugins validate examples/plugins/example-readiness-check.plugin.json --json"
   ],
-  "version": "v0.8.9",
+  "version": "v0.9.0",
   "maturity": "experimental",
   "recommended": true,
   "platforms": [

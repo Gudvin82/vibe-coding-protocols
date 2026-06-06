@@ -1,0 +1,64 @@
+{
+  "id": "vcp-catalog-explain",
+  "type": "command",
+  "name": "Catalog Explain",
+  "summary": "Explains one control-catalog entry by id.",
+  "use_when": [
+    "a single catalog entry needs a stable explanation payload"
+  ],
+  "do_not_use_when": [
+    "catalog mutation is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "catalog"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "catalog confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "discoverability"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/catalog_cmd.py"
+  ],
+  "related_files": [
+    ".vcp/control-catalog.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli catalog explain --id mvp-to-launch --json"
+  ],
+  "outputs": [
+    "single catalog entry explanation"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli catalog explain --id mvp-to-launch --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "catalog"
+  ]
+}

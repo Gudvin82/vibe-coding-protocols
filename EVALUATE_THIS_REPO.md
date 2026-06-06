@@ -144,7 +144,7 @@ Use these proof surfaces in the first 2 minutes:
 - `docs/community-and-adoption-status.md`
 - `templates/reports/external-evaluation.md`
 
-## Key additions for v0.8.9
+## Key additions for v0.9.0
 
 - `docs/evaluation-receipt.md`
 - `docs/public-proof-demo.md`

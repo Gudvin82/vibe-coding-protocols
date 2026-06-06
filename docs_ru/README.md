@@ -1,6 +1,6 @@
 # Русская документация VCP
 
-Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.8.9`.
+Это стартовая точка для русскоязычного чтения `Vibe Coding Protocols v0.9.0`.
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -28,7 +28,7 @@ Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 - [visual spec](./visual-spec.md)
 - [install](./install.md)
 - [public surfaces](./public-surfaces.md)
-- [release note](./release-v0.8.9.md)
+- [release note](./release-v0.9.0.md)
 
 ## Что важно понять быстро
 
@@ -106,3 +106,11 @@ AI должен:
 
 Если не запускал команды, не пиши, что проверки пройдены.
 ```
+
+- [control-catalog.md](./control-catalog.md)
+- [change-intent.md](./change-intent.md)
+- [starter-template-adoption.md](./starter-template-adoption.md)
+- [agent-rule-profiles.md](./agent-rule-profiles.md)
+- [project-control-charter.md](./project-control-charter.md)
+- [ecosystem-map.md](./ecosystem-map.md)
+- [ai-augmented-solo-squad-path.md](./ai-augmented-solo-squad-path.md)

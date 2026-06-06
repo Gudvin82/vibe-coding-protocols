@@ -1,0 +1,29 @@
+{
+  "version": "v0.9.0",
+  "change_id": "change-20260606-control-catalog",
+  "intent": "Add control catalog and supporting local AI control surfaces for v0.9.0.",
+  "reason": "Make VCP browseable and governable as a local-first AI control platform.",
+  "project_stage": "release-prep",
+  "affected_surfaces": [
+    "docs",
+    "tests",
+    "cli",
+    "schemas",
+    "manifests"
+  ],
+  "risk_level": "medium",
+  "requires_human_approval": true,
+  "recommended_vcp_path": "mvp-to-launch",
+  "required_checks": [
+    "trust-check",
+    "tests",
+    "benchmark",
+    "pr-gate"
+  ],
+  "rollback_plan": "Revert the v0.9.0 release-prep commit and restore prior machine-readable surfaces.",
+  "not_in_scope": [
+    "hosted platform",
+    "marketplace",
+    "public PyPI publication"
+  ]
+}

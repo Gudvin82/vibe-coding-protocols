@@ -1,0 +1,67 @@
+{
+  "id": "starter-adoption-matrix",
+  "type": "concept",
+  "name": "Starter Adoption Matrix",
+  "summary": "Shows how VCP layers on top of common starters and generated project types without claiming official integration.",
+  "use_when": [
+    "an adopter needs the first safe VCP path for a starter-based project"
+  ],
+  "do_not_use_when": [
+    "official vendor integration or logos are expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "adoption"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "template confusion",
+      "integration overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "adoption clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/starter-template-adoption.md",
+    ".vcp/starter-adoption-matrix.json"
+  ],
+  "related_files": [
+    "docs_ru/starter-template-adoption.md",
+    "docs/ecosystem-map.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli classify --json"
+  ],
+  "outputs": [
+    "starter-to-path guidance"
+  ],
+  "stop_conditions": [
+    "do not imply official integration with third-party starters"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "adoption"
+  ]
+}

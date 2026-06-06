@@ -1,0 +1,10 @@
+{
+  "id": "ecosystem-map",
+  "summary": "Ecosystem map stays respectful and non-replacement framing.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VCP Project Control Charter",
+  "type": "object",
+  "required": [
+    "version",
+    "project_name",
+    "source_of_truth",
+    "agent_permissions",
+    "human_approval_required",
+    "required_checks",
+    "release_gates",
+    "docs_and_proof_rules",
+    "risk_levels",
+    "rollback_expectations",
+    "roadmap_boundaries"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "source_of_truth": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "agent_permissions": {
+      "type": "object"
+    },
+    "human_approval_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "release_gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "docs_and_proof_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_levels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback_expectations": {
+      "type": "string"
+    },
+    "roadmap_boundaries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

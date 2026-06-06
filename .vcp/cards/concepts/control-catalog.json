@@ -1,0 +1,70 @@
+{
+  "id": "control-catalog",
+  "type": "concept",
+  "name": "Control Catalog",
+  "summary": "Browseable map of shipped VCP control surfaces, boundaries, and usage signals.",
+  "use_when": [
+    "a human or AI agent needs a quick map of what VCP actually ships"
+  ],
+  "do_not_use_when": [
+    "marketplace discovery or remote registry behavior is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "catalog"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "scope drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "control clarity"
+    ]
+  },
+  "entry_files": [
+    "docs/control-catalog.md",
+    ".vcp/control-catalog.json"
+  ],
+  "related_files": [
+    "docs_ru/control-catalog.md",
+    ".vcp/catalog.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli catalog list --json",
+    "python3 -m vcp_cli catalog explain --id mvp-to-launch --json"
+  ],
+  "outputs": [
+    "machine-readable catalog listing",
+    "single catalog entry explanation"
+  ],
+  "stop_conditions": [
+    "do not describe the catalog as a hosted marketplace"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests",
+    "python3 -m vcp_cli catalog list --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "catalog"
+  ]
+}

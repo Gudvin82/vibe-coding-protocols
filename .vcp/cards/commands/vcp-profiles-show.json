@@ -1,0 +1,66 @@
+{
+  "id": "vcp-profiles-show",
+  "type": "command",
+  "name": "Profiles Show",
+  "summary": "Shows one shipped rule profile and its text.",
+  "use_when": [
+    "a specific VCP rule profile needs to be loaded"
+  ],
+  "do_not_use_when": [
+    "profile mutation is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "agent-rules"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "missing constraints"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "instruction quality"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/profiles_cmd.py"
+  ],
+  "related_files": [
+    "templates/agents/profiles/vcp-agent-rules.mini.md",
+    ".vcp/agent-rule-profiles.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli profiles show --id mini --json"
+  ],
+  "outputs": [
+    "profile metadata",
+    "profile text"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli profiles show --id mini --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "rules"
+  ]
+}

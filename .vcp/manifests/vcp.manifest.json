@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.8.9",
+  "package_version": "v0.9.0",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.9.md",
+    "docs/release-v0.9.0.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -109,7 +109,7 @@
     "docs_ru/evaluator-token-budget.md",
     "docs_ru/visuals.md",
     "docs_ru/visual-spec.md",
-    "docs_ru/release-v0.8.9.md"
+    "docs_ru/release-v0.9.0.md"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -165,7 +165,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.9.md",
+    "docs/release-v0.9.0.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",

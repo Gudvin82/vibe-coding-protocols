@@ -1,0 +1,10 @@
+{
+  "id": "ai-augmented-solo-squad-path",
+  "summary": "Solo/squad path is clearly human-led.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "agent-rule-profiles",
+  "summary": "Rule profiles stay constraint-first and bounded.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

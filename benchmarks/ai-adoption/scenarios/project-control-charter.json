@@ -1,0 +1,10 @@
+{
+  "id": "project-control-charter",
+  "summary": "Project control charter defines local release governance.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "ai-augmented-solo-squad",
+  "title": "AI-Augmented Solo/Squad Control Path",
+  "version": "v0.9.0",
+  "status": "shipped",
+  "summary": "Human-led coordination path for one developer or small team using multiple AI agents.",
+  "steps": [
+    {
+      "id": "charter",
+      "title": "Project control charter",
+      "action": "define control boundaries"
+    },
+    {
+      "id": "change-intent",
+      "title": "Change intent",
+      "action": "capture what is changing and why"
+    },
+    {
+      "id": "routing",
+      "title": "Model routing",
+      "action": "choose context and cost level"
+    },
+    {
+      "id": "profile",
+      "title": "Rule profile",
+      "action": "select nano, mini, or full"
+    },
+    {
+      "id": "work",
+      "title": "Work session",
+      "action": "execute human-led AI work"
+    },
+    {
+      "id": "proof",
+      "title": "Evaluation receipt and proof",
+      "action": "capture evidence and honesty"
+    },
+    {
+      "id": "pr-gate",
+      "title": "PR Gate",
+      "action": "review acceptability"
+    },
+    {
+      "id": "trust-check",
+      "title": "Trust check",
+      "action": "run consistency audit"
+    }
+  ],
+  "notes": [
+    "human-led only",
+    "no autonomous orchestration claim"
+  ]
+}

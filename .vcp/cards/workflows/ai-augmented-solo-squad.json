@@ -1,0 +1,68 @@
+{
+  "id": "workflow-ai-augmented-solo-squad",
+  "type": "workflow",
+  "name": "AI-Augmented Solo/Squad Workflow",
+  "summary": "Workflow card for the human-led multi-agent control path.",
+  "use_when": [
+    "one person or a small team coordinates multiple AI agents"
+  ],
+  "do_not_use_when": [
+    "an autonomous orchestration engine is expected"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "workflow",
+    "multi-agent"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "conflicting edits",
+      "stale context"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "coordination"
+    ]
+  },
+  "entry_files": [
+    ".vcp/workflows/ai-augmented-solo-squad.json"
+  ],
+  "related_files": [
+    "docs/ai-augmented-solo-squad-path.md",
+    "templates/reports/solo-squad-control-plan.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow show ai-augmented-solo-squad --json"
+  ],
+  "outputs": [
+    "workflow metadata"
+  ],
+  "stop_conditions": [
+    "workflow JSON is planning metadata only"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "workflow",
+    "multi-agent"
+  ]
+}

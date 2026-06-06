@@ -1,0 +1,10 @@
+{
+  "id": "agent-rule-provenance",
+  "summary": "Rule provenance tracks origin and risk honestly.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

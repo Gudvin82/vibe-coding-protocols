@@ -1,6 +1,6 @@
 # Community and Adoption Status
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 VCP пока ранний проект. Stars и публичный размер community — это ограничение, но не единственный maturity signal.
 

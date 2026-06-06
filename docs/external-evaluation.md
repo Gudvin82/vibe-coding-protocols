@@ -1,6 +1,6 @@
 # External Evaluation
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Use `templates/reports/external-evaluation.md` when you want a fair, bounded external review of VCP.
 

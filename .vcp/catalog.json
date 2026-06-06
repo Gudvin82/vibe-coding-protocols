@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.9",
+  "version": "v0.9.0",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -126,7 +126,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.9.md",
+    "docs/release-v0.9.0.md",
     "docs/roadmap/integrations.md",
     "docs/roadmap/vscode-extension.md",
     "docs/run-state.md",
@@ -146,7 +146,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.8.9.md",
+    "docs_ru/release-v0.9.0.md",
     "EVALUATE_THIS_REPO.md",
     "docs/anti-misread-guide.md",
     "docs/evaluator-architecture-map.md",
@@ -173,5 +173,20 @@
     "experimental",
     "roadmap",
     "not-shipped"
+  ],
+  "files": [
+    "docs/control-catalog.md",
+    "docs/change-intent.md",
+    "docs/starter-template-adoption.md",
+    "docs/agent-rule-profiles.md",
+    "docs/project-control-charter.md",
+    "docs/ecosystem-map.md",
+    "docs/ai-augmented-solo-squad-path.md",
+    ".vcp/control-catalog.json",
+    ".vcp/starter-adoption-matrix.json",
+    ".vcp/agent-rule-profiles.json",
+    ".vcp/agent-rule-provenance.json",
+    ".vcp/change-intent.example.json",
+    ".vcp/project-control-charter.example.json"
   ]
 }

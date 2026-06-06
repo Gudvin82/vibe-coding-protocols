@@ -1,13 +1,13 @@
 # Proof Snapshot
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 Methodology: `v1.4`
 
 This page is a compact proof surface for external evaluators.
 
 ## Current proof signals
 
-- release link: `https://github.com/Gudvin82/vibe-coding-protocols/releases/tag/v0.8.9`
+- release link: `https://github.com/Gudvin82/vibe-coding-protocols/releases/tag/v0.9.0`
 - trust-check command: `python3 -m vcp_cli trust-check --json`
 - benchmark command: `python3 -m vcp_cli benchmark run --json`
 - cards validation command: `python3 -m vcp_cli cards validate --json`
@@ -19,9 +19,9 @@ This page is a compact proof surface for external evaluators.
 
 Proof surfaces:
 - benchmark scenarios: `151`
-- cards: `270`
-- CLI commands in manifest: `69`
-- tests: `84`
+- cards: `287`
+- CLI commands in manifest: `76`
+- tests: `107`
 - report templates: `44`
 - trust-check: yes
 - evaluator pack: yes

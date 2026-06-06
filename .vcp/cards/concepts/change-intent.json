@@ -1,0 +1,72 @@
+{
+  "id": "change-intent",
+  "type": "concept",
+  "name": "Change Intent",
+  "summary": "Governance-first change planning layer that captures why a change exists before mutation starts.",
+  "use_when": [
+    "a project wants a bounded spec-delta style control layer before edits"
+  ],
+  "do_not_use_when": [
+    "automatic code mutation or unattended orchestration is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "scope drift",
+      "unsafe mutation"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change governance"
+    ]
+  },
+  "entry_files": [
+    "docs/change-intent.md",
+    ".vcp/change-intent.example.json",
+    "schemas/change-intent.schema.json"
+  ],
+  "related_files": [
+    "docs_ru/change-intent.md",
+    "templates/reports/change-intent.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli change intent --json",
+    "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
+  ],
+  "outputs": [
+    "example change-intent payload",
+    "validation result"
+  ],
+  "stop_conditions": [
+    "read-only and validation-only only"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests",
+    "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "governance"
+  ]
+}

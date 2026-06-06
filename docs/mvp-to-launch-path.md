@@ -1,6 +1,6 @@
 # MVP-to-Launch Path
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 The MVP-to-Launch Path is a short, guided path for a raw or semi-working AI-generated MVP that already exists but is not yet launch-controlled.
 

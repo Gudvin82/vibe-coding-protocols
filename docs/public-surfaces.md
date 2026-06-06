@@ -1,6 +1,6 @@
 # Public Surfaces
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 Methodology: `v1.4`
 
 ## Public source-of-truth map
@@ -17,4 +17,4 @@ The website should mention package version and methodology version separately.
 
 - no old toolkit versions as current
 - no old Starter/Hardening-only framing without the newer track model
-- `v0.8.9+` public pages should link to the GitHub repo and Russian docs
+- `v0.9.0+` public pages should link to the GitHub repo and Russian docs

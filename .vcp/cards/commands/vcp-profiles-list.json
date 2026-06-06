@@ -1,0 +1,65 @@
+{
+  "id": "vcp-profiles-list",
+  "type": "command",
+  "name": "Profiles List",
+  "summary": "Lists shipped nano, mini, and full rule profiles.",
+  "use_when": [
+    "you need a deterministic list of VCP rule profiles"
+  ],
+  "do_not_use_when": [
+    "provider-specific automation is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "agent-rules"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "profile confusion"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "instruction quality"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/profiles_cmd.py"
+  ],
+  "related_files": [
+    ".vcp/agent-rule-profiles.json",
+    "docs/agent-rule-profiles.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli profiles list --json"
+  ],
+  "outputs": [
+    "profiles list"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli profiles list --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "rules"
+  ]
+}

@@ -1,6 +1,6 @@
 # Token budget для внешней оценки VCP
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Этот guide нужен для внешних AI-агентов, browser AIs, IDE assistants, evaluators и журналистов, которые читают VCP впервые.
 

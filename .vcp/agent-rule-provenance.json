@@ -1,0 +1,44 @@
+{
+  "version": "v0.9.0",
+  "items": [
+    {
+      "id": "nano",
+      "source": "VCP local rule profile design",
+      "purpose": "Always-on bounded safety constraints",
+      "intended_use": "short coding sessions",
+      "risk_if_misapplied": "too little context for release work",
+      "compatible_tools": [
+        "codex",
+        "claude-code",
+        "cursor"
+      ],
+      "status": "shipped"
+    },
+    {
+      "id": "mini",
+      "source": "VCP local rule profile design",
+      "purpose": "Default working context",
+      "intended_use": "most AI-assisted project work",
+      "risk_if_misapplied": "may miss release-only checks",
+      "compatible_tools": [
+        "codex",
+        "claude-code",
+        "cursor"
+      ],
+      "status": "shipped"
+    },
+    {
+      "id": "full",
+      "source": "VCP local rule profile design",
+      "purpose": "Full audit and release inspection",
+      "intended_use": "release, evaluation, full-repo review",
+      "risk_if_misapplied": "too much context for tiny tasks",
+      "compatible_tools": [
+        "codex",
+        "claude-code",
+        "cursor"
+      ],
+      "status": "shipped"
+    }
+  ]
+}

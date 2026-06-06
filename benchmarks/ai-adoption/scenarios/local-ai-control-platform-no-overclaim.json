@@ -1,0 +1,10 @@
+{
+  "id": "local-ai-control-platform-no-overclaim",
+  "summary": "Platform framing stays local-first without hosted claims.",
+  "version": "v0.9.0",
+  "checks": [
+    "docs",
+    "machine-readable",
+    "no-overclaim"
+  ]
+}

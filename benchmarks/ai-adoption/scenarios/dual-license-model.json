@@ -3,7 +3,7 @@
   "target_profile": "external-evaluator",
   "target_signals": [
     "dual-license-model",
-    "v0.8.9"
+    "v0.9.0"
   ],
   "required_files_to_inspect": [
     "README.md",
@@ -13,5 +13,5 @@
   "expected_warnings": [
     "do not describe the whole repository as a single CC BY codebase"
   ],
-  "version": "v0.8.9"
+  "version": "v0.9.0"
 }

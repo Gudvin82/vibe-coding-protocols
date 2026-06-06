@@ -1,0 +1,5 @@
+# Starter Adoption Matrix
+
+Repository package: `v0.9.0`
+
+VCP не конкурирует со starter templates. Он контролирует проекты, построенные поверх них.

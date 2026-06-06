@@ -1,0 +1,65 @@
+{
+  "id": "vcp-change-intent",
+  "type": "command",
+  "name": "Change Intent",
+  "summary": "Prints the shipped change-intent example payload.",
+  "use_when": [
+    "you need the canonical VCP change-intent shape"
+  ],
+  "do_not_use_when": [
+    "automatic spec generation or code changes are expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "unclear change scope"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "change governance"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/change_cmd.py"
+  ],
+  "related_files": [
+    ".vcp/change-intent.example.json",
+    "docs/change-intent.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli change intent --json"
+  ],
+  "outputs": [
+    "change-intent example payload"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli change intent --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "governance"
+  ]
+}

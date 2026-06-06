@@ -15,6 +15,8 @@ from . import batch_cmd
 from . import benchmark as benchmark_cmd
 from . import check as check_cmd
 from . import classify as classify_cmd
+from . import change_cmd
+from . import charter_cmd
 from . import diagnose as diagnose_cmd
 from . import dashboard_cmd
 from . import demo as demo_cmd
@@ -30,6 +32,7 @@ from . import memory_cmd
 from . import metrics_cmd
 from . import onboard as onboard_cmd
 from . import plugins_cmd
+from . import profiles_cmd
 from . import preset_cmd
 from . import public_growth as public_growth_cmd
 from . import review as review_cmd
@@ -44,6 +47,7 @@ from . import trust_check_cmd
 from . import version as version_cmd
 from . import workflow_cmd
 from . import pr_gate_cmd
+from . import catalog_cmd
 from .utils import repo_root
 
 LEGACY_VIBE_CHECK = {"audit", "starter", "hardening", "init-report", "update-advice"}
@@ -134,6 +138,37 @@ def build_parser() -> argparse.ArgumentParser:
 
     classify_p = sub.add_parser("classify")
     classify_p.add_argument("--json", action="store_true")
+
+    catalog_p = sub.add_parser("catalog")
+    catalog_sub = catalog_p.add_subparsers(dest="catalog_command")
+    catalog_list = catalog_sub.add_parser("list")
+    catalog_list.add_argument("--json", action="store_true")
+    catalog_explain = catalog_sub.add_parser("explain")
+    catalog_explain.add_argument("--id", required=True)
+    catalog_explain.add_argument("--json", action="store_true")
+
+    change_p = sub.add_parser("change")
+    change_sub = change_p.add_subparsers(dest="change_command")
+    change_intent = change_sub.add_parser("intent")
+    change_intent_sub = change_intent.add_subparsers(dest="change_intent_command")
+    change_intent.add_argument("--json", action="store_true")
+    change_intent_validate = change_intent_sub.add_parser("validate")
+    change_intent_validate.add_argument("path")
+    change_intent_validate.add_argument("--json", action="store_true")
+
+    profiles_p = sub.add_parser("profiles")
+    profiles_sub = profiles_p.add_subparsers(dest="profiles_command")
+    profiles_list = profiles_sub.add_parser("list")
+    profiles_list.add_argument("--json", action="store_true")
+    profiles_show = profiles_sub.add_parser("show")
+    profiles_show.add_argument("--id", required=True)
+    profiles_show.add_argument("--json", action="store_true")
+
+    charter_p = sub.add_parser("charter")
+    charter_sub = charter_p.add_subparsers(dest="charter_command")
+    charter_validate = charter_sub.add_parser("validate")
+    charter_validate.add_argument("path")
+    charter_validate.add_argument("--json", action="store_true")
 
     index_p = sub.add_parser("index")
     index_sub = index_p.add_subparsers(dest="index_command")
@@ -493,6 +528,24 @@ def main(argv: list[str] | None = None) -> int:
         return onboard_cmd.run(args.json)
     if args.command == "classify":
         return classify_cmd.run(args.json)
+    if args.command == "catalog":
+        if args.catalog_command in {None, "list"}:
+            return catalog_cmd.run_list(getattr(args, "json", False))
+        if args.catalog_command == "explain":
+            return catalog_cmd.run_explain(args.id, getattr(args, "json", False))
+    if args.command == "change":
+        if args.change_command == "intent":
+            if getattr(args, "change_intent_command", None) == "validate":
+                return change_cmd.run_validate(args.path, getattr(args, "json", False))
+            return change_cmd.run_intent(getattr(args, "json", False))
+    if args.command == "profiles":
+        if args.profiles_command in {None, "list"}:
+            return profiles_cmd.run_list(getattr(args, "json", False))
+        if args.profiles_command == "show":
+            return profiles_cmd.run_show(args.id, getattr(args, "json", False))
+    if args.command == "charter":
+        if args.charter_command == "validate":
+            return charter_cmd.run_validate(args.path, getattr(args, "json", False))
     if args.command == "index":
         if args.index_command in {None, "show"}:
             return index_cmd.show(getattr(args, "json", False))

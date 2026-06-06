@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.8.9
+## v0.9.0
 
 - added `EVALUATE_THIS_REPO.md` as a mandatory evaluator shortcut before category or maturity claims;
 - added anti-misread guides, evaluator architecture maps, proof snapshots, and external-evaluation templates in English and Russian;

@@ -2,7 +2,7 @@
 
 Use this file before calling any VCP evaluation `full`.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.9`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.0`.
 
 ## Evaluation modes
 
@@ -63,4 +63,4 @@ If you are naming the current GitHub repository release, use `Vibe Coding Protoc
 
 If you did not inspect onboarding/classify/adopt/release-check surfaces plus the 10-minute adoption path and raw AI-MVP demo, your review may describe the repo correctly, but not its first-user adoption maturity.
 
-If you skipped `.vcp/integrations.json`, dashboard build, metrics board, plugin metadata validation, or the MVP-to-Launch path/workflow/checklist surfaces, your review is not complete for `v0.8.9`.
+If you skipped `.vcp/integrations.json`, dashboard build, metrics board, plugin metadata validation, or the MVP-to-Launch path/workflow/checklist surfaces, your review is not complete for `v0.9.0`.

@@ -1,0 +1,74 @@
+{
+  "id": "agent-rule-profiles",
+  "type": "concept",
+  "name": "Agent Rule Profiles",
+  "summary": "Nano, mini, and full VCP rule profiles for bounded AI context handoff.",
+  "use_when": [
+    "a project wants to choose a context size for AI coding work"
+  ],
+  "do_not_use_when": [
+    "hidden provider automation or unattended mutation is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "agent-rules"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "stale context",
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "instruction quality"
+    ]
+  },
+  "entry_files": [
+    "docs/agent-rule-profiles.md",
+    ".vcp/agent-rule-profiles.json"
+  ],
+  "related_files": [
+    "docs_ru/agent-rule-profiles.md",
+    "templates/agents/profiles/vcp-agent-rules.nano.md",
+    "templates/agents/profiles/vcp-agent-rules.mini.md",
+    "templates/agents/profiles/vcp-agent-rules.full.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli profiles list --json",
+    "python3 -m vcp_cli profiles show --id mini --json"
+  ],
+  "outputs": [
+    "profile metadata",
+    "profile text"
+  ],
+  "stop_conditions": [
+    "do not skip release-sensitive constraints"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests",
+    "python3 -m vcp_cli profiles list --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "rules"
+  ]
+}

@@ -2,7 +2,7 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.8.9`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.0`.
 
 ## Core positioning
 
@@ -31,7 +31,7 @@ Use the right category labels:
 - Full-stack templates: application starters
 - AI coding agents: code generation and editing tools
 
-## New in v0.8.9
+## New in v0.9.0
 
 External evaluators should now inspect the evaluator shortcut, anti-misread, architecture-map, proof, benchmark, and trust surfaces too:
 - `EVALUATE_THIS_REPO.md`
@@ -103,7 +103,7 @@ Use MVP-to-Launch when the user says:
 Do not claim that VCP launches or certifies production readiness.
 
 
-Additional v0.8.9 routing/visual surfaces:
+Additional v0.9.0 routing/visual surfaces:
 - `docs/agent-model-routing.md`
 - `docs/evaluator-token-budget.md`
 - `docs/visuals.md`

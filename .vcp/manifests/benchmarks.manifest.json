@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.9.md"
+        "docs/release-v0.9.0.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2305,5 +2305,17 @@
       "expected_warnings": [],
       "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
     }
+  ],
+  "version": "v0.9.0",
+  "files": [
+    "benchmarks/ai-adoption/scenarios/control-catalog.json",
+    "benchmarks/ai-adoption/scenarios/change-intent.json",
+    "benchmarks/ai-adoption/scenarios/starter-adoption-matrix.json",
+    "benchmarks/ai-adoption/scenarios/agent-rule-profiles.json",
+    "benchmarks/ai-adoption/scenarios/project-control-charter.json",
+    "benchmarks/ai-adoption/scenarios/ecosystem-map.json",
+    "benchmarks/ai-adoption/scenarios/agent-rule-provenance.json",
+    "benchmarks/ai-adoption/scenarios/ai-augmented-solo-squad-path.json",
+    "benchmarks/ai-adoption/scenarios/local-ai-control-platform-no-overclaim.json"
   ]
 }

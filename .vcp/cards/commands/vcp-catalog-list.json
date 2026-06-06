@@ -1,0 +1,65 @@
+{
+  "id": "vcp-catalog-list",
+  "type": "command",
+  "name": "Catalog List",
+  "summary": "Lists control-catalog entries in a deterministic read-only payload.",
+  "use_when": [
+    "you want the shipped control surfaces in one machine-readable list"
+  ],
+  "do_not_use_when": [
+    "mutation or remote fetch is expected"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "cli",
+    "catalog"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "catalog blindness"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "discoverability"
+    ]
+  },
+  "entry_files": [
+    "vcp_cli/catalog_cmd.py"
+  ],
+  "related_files": [
+    ".vcp/control-catalog.json",
+    "docs/control-catalog.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli catalog list --json"
+  ],
+  "outputs": [
+    "catalog listing"
+  ],
+  "stop_conditions": [
+    "read-only only"
+  ],
+  "validation": [
+    "python3 -m vcp_cli catalog list --json"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "command",
+    "catalog"
+  ]
+}

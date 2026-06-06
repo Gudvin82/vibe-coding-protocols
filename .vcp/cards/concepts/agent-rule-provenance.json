@@ -1,0 +1,65 @@
+{
+  "id": "agent-rule-provenance",
+  "type": "concept",
+  "name": "Agent Rule Provenance",
+  "summary": "Tracks origin, intent, and risk for shipped VCP rule profiles.",
+  "use_when": [
+    "a project wants safer reuse and auditability for rule profiles"
+  ],
+  "do_not_use_when": [
+    "blind copy-paste of third-party text is expected"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "rules"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "misapplied rules"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "provenance"
+    ]
+  },
+  "entry_files": [
+    "docs/agent-rule-provenance.md",
+    ".vcp/agent-rule-provenance.json"
+  ],
+  "related_files": [
+    "docs_ru/agent-rule-provenance.md",
+    ".vcp/agent-rule-profiles.json"
+  ],
+  "cli": [],
+  "outputs": [
+    "rule provenance registry"
+  ],
+  "stop_conditions": [
+    "do not hide profile origin or risk"
+  ],
+  "validation": [
+    "python3 -m unittest discover -s tests"
+  ],
+  "version": "v0.9.0",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "concept",
+    "provenance"
+  ]
+}

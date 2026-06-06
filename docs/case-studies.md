@@ -1,6 +1,6 @@
 # Case Studies
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 VCP does not claim broad public adoption it cannot show. Case studies exist to make evidence structure visible without inventing adopters.
 
@@ -20,3 +20,13 @@ VCP does not claim broad public adoption it cannot show. Case studies exist to m
 ## Rule
 
 Synthetic examples must stay clearly synthetic.
+
+
+## How to reproduce the demo
+
+- run `python3 -m vcp_cli trust-check --json`
+- run `python3 -m vcp_cli benchmark run --json`
+- run `python3 -m vcp_cli evaluator receipt --json`
+- inspect `examples/public-proof/`
+
+This demo is synthetic where explicitly labeled and is not a fake real-world adoption claim.

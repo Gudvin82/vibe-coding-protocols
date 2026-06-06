@@ -1,0 +1,35 @@
+{
+  "version": "v0.9.0",
+  "items": [
+    {
+      "id": "nano",
+      "title": "Nano",
+      "status": "shipped",
+      "summary": "Tiny always-on VCP constraints for any coding session.",
+      "file": "templates/agents/profiles/vcp-agent-rules.nano.md",
+      "file_ru": "templates/agents/profiles_ru/vcp-agent-rules.nano.md",
+      "when_to_use": "Any short AI coding session",
+      "not_for": "Full repo evaluation"
+    },
+    {
+      "id": "mini",
+      "title": "Mini",
+      "status": "shipped",
+      "summary": "Default VCP profile for most work sessions.",
+      "file": "templates/agents/profiles/vcp-agent-rules.mini.md",
+      "file_ru": "templates/agents/profiles_ru/vcp-agent-rules.mini.md",
+      "when_to_use": "Default daily work",
+      "not_for": "Shallow evaluation only"
+    },
+    {
+      "id": "full",
+      "title": "Full",
+      "status": "shipped",
+      "summary": "Audit, release, and full inspection profile.",
+      "file": "templates/agents/profiles/vcp-agent-rules.full.md",
+      "file_ru": "templates/agents/profiles_ru/vcp-agent-rules.full.md",
+      "when_to_use": "Release prep and evaluation",
+      "not_for": "Tiny prompt budgets"
+    }
+  ]
+}

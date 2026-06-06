@@ -1,6 +1,6 @@
 # Public Proof Demo
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 This is the 2-minute public proof artifact for evaluators who need to see practical value quickly.
 
@@ -29,3 +29,13 @@ A raw AI-generated MVP exists. VCP turns it into:
 ## Important label
 
 This demo is synthetic unless a file explicitly says otherwise.
+
+
+## How to reproduce the demo
+
+- run `python3 -m vcp_cli trust-check --json`
+- run `python3 -m vcp_cli benchmark run --json`
+- run `python3 -m vcp_cli evaluator receipt --json`
+- inspect `examples/public-proof/`
+
+This demo is synthetic where explicitly labeled and is not a fake real-world adoption claim.

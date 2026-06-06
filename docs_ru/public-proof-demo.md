@@ -1,6 +1,6 @@
 # Public Proof Demo
 
-Repository package: `v0.8.9`
+Repository package: `v0.9.0`
 
 Это 2-минутный public proof artifact для evaluators, которым нужно быстро увидеть практическую ценность.
 
@@ -29,3 +29,13 @@ Repository package: `v0.8.9`
 ## Важная пометка
 
 Этот demo synthetic, если какой-то файл явно не говорит иное.
+
+
+## How to reproduce the demo
+
+- run `python3 -m vcp_cli trust-check --json`
+- run `python3 -m vcp_cli benchmark run --json`
+- run `python3 -m vcp_cli evaluator receipt --json`
+- inspect `examples/public-proof/`
+
+This demo is synthetic where explicitly labeled and is not a fake real-world adoption claim.

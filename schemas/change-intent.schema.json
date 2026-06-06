@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VCP Change Intent",
+  "type": "object",
+  "required": [
+    "version",
+    "change_id",
+    "intent",
+    "reason",
+    "project_stage",
+    "affected_surfaces",
+    "risk_level",
+    "requires_human_approval",
+    "recommended_vcp_path",
+    "required_checks",
+    "rollback_plan",
+    "not_in_scope"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "change_id": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "project_stage": {
+      "enum": [
+        "new",
+        "existing",
+        "mvp-to-launch",
+        "release-prep",
+        "hotfix"
+      ]
+    },
+    "affected_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    },
+    "recommended_vcp_path": {
+      "type": "string"
+    },
+    "required_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback_plan": {
+      "type": "string"
+    },
+    "not_in_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

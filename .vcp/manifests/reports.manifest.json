@@ -526,5 +526,11 @@
     "docs/vcp-mappings.md",
     "docs/external-evaluation.md",
     "docs_ru/external-evaluation.md"
+  ],
+  "version": "v0.9.0",
+  "files": [
+    "templates/reports/change-intent.md",
+    "templates/project-control-charter.md",
+    "templates/reports/solo-squad-control-plan.md"
   ]
 }

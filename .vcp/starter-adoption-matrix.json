@@ -1,0 +1,206 @@
+{
+  "version": "v0.9.0",
+  "items": [
+    {
+      "starter_type": "bun-hono-react-astro",
+      "recommended_path": "mvp-to-launch",
+      "recommended_pack": "contracts-first-ai-mvp",
+      "main_risks": [
+        "api-contract-drift",
+        "auth-boundary",
+        "deployment-drift"
+      ],
+      "first_commands": [
+        "vcp classify --json",
+        "vcp workflow plan --id mvp-to-launch --json",
+        "vcp pr-gate explain --json"
+      ],
+      "pr_gate_focus": "contracts and release boundaries",
+      "proof_artifacts": [
+        "benchmark-report",
+        "trust-check",
+        "launch-decision"
+      ],
+      "dashboard_section": "launch-control"
+    },
+    {
+      "starter_type": "nextjs-react-saas-starter",
+      "recommended_path": "mvp-to-launch",
+      "recommended_pack": "saas-ai-mvp-hardening",
+      "main_risks": [
+        "billing-boundary",
+        "auth-sprawl",
+        "docs-drift"
+      ],
+      "first_commands": [
+        "vcp classify --json",
+        "vcp trust-check --json"
+      ],
+      "pr_gate_focus": "auth and billing boundaries",
+      "proof_artifacts": [
+        "evaluation-receipt",
+        "trust-check"
+      ],
+      "dashboard_section": "risk-overview"
+    },
+    {
+      "starter_type": "astro-marketing-site",
+      "recommended_path": "public-growth",
+      "recommended_pack": "public-site",
+      "main_risks": [
+        "public-claim-drift",
+        "schema-drift",
+        "content-staleness"
+      ],
+      "first_commands": [
+        "vcp public-growth check --json"
+      ],
+      "pr_gate_focus": "claim honesty and public metadata",
+      "proof_artifacts": [
+        "public-growth-check",
+        "proof-snapshot"
+      ],
+      "dashboard_section": "public-proof"
+    },
+    {
+      "starter_type": "python-backend-api",
+      "recommended_path": "production-hardening",
+      "recommended_pack": "production",
+      "main_risks": [
+        "api-contract-drift",
+        "ops-boundary",
+        "secret-handling"
+      ],
+      "first_commands": [
+        "vcp classify --json",
+        "vcp workflow plan --id production-hardening --json"
+      ],
+      "pr_gate_focus": "contracts and safety",
+      "proof_artifacts": [
+        "trust-check",
+        "benchmark-report"
+      ],
+      "dashboard_section": "ops-readiness"
+    },
+    {
+      "starter_type": "brownfield-monorepo",
+      "recommended_path": "existing-mvp-hardening",
+      "recommended_pack": "brownfield-rescue",
+      "main_risks": [
+        "context-fragmentation",
+        "stale-docs",
+        "cross-package-drift"
+      ],
+      "first_commands": [
+        "vcp adopt plan --pack brownfield-rescue --json"
+      ],
+      "pr_gate_focus": "scope and dependency drift",
+      "proof_artifacts": [
+        "adopt-plan",
+        "trust-check"
+      ],
+      "dashboard_section": "adoption"
+    },
+    {
+      "starter_type": "raw-ai-generated-mvp",
+      "recommended_path": "mvp-to-launch",
+      "recommended_pack": "contracts-first-ai-mvp",
+      "main_risks": [
+        "hallucinated-architecture",
+        "unrun-tests",
+        "launch-overclaim"
+      ],
+      "first_commands": [
+        "vcp classify --json",
+        "vcp workflow plan --id mvp-to-launch --json"
+      ],
+      "pr_gate_focus": "proof before launch",
+      "proof_artifacts": [
+        "public-proof-demo",
+        "launch-decision"
+      ],
+      "dashboard_section": "launch-control"
+    },
+    {
+      "starter_type": "spec-driven-project",
+      "recommended_path": "spec-driven-adoption",
+      "recommended_pack": "spec-first",
+      "main_risks": [
+        "spec-drift",
+        "implementation-gap",
+        "stale-acceptance-criteria"
+      ],
+      "first_commands": [
+        "vcp workflow plan --id spec-driven-adoption --json"
+      ],
+      "pr_gate_focus": "spec alignment",
+      "proof_artifacts": [
+        "spec-foundation-report"
+      ],
+      "dashboard_section": "spec-governance"
+    },
+    {
+      "starter_type": "mobile-expo-app",
+      "recommended_path": "mvp-to-launch",
+      "recommended_pack": "new-project",
+      "main_risks": [
+        "platform-drift",
+        "release-note-gaps",
+        "state-management-sprawl"
+      ],
+      "first_commands": [
+        "vcp classify --json"
+      ],
+      "pr_gate_focus": "release boundaries",
+      "proof_artifacts": [
+        "trust-check"
+      ],
+      "dashboard_section": "release-readiness"
+    },
+    {
+      "starter_type": "internal-tool-admin-panel",
+      "recommended_path": "existing-mvp-hardening",
+      "recommended_pack": "maintenance",
+      "main_risks": [
+        "permission-drift",
+        "quiet-regressions",
+        "missing-audit-trail"
+      ],
+      "first_commands": [
+        "vcp trust-check --json"
+      ],
+      "pr_gate_focus": "permission and audit surfaces",
+      "proof_artifacts": [
+        "evaluation-receipt"
+      ],
+      "dashboard_section": "audit-backlog"
+    },
+    {
+      "starter_type": "public-site-seo-geo-surface",
+      "recommended_path": "public-growth",
+      "recommended_pack": "public-growth",
+      "main_risks": [
+        "claim-overreach",
+        "stale-facts",
+        "schema-drift"
+      ],
+      "first_commands": [
+        "vcp public-growth check --json"
+      ],
+      "pr_gate_focus": "public evidence and honesty",
+      "proof_artifacts": [
+        "public-growth-check",
+        "proof-snapshot"
+      ],
+      "dashboard_section": "public-proof"
+    }
+  ],
+  "comparisons": [
+    "VCP + di-sukharev/vibe",
+    "VCP + bhvr",
+    "VCP + generic SaaS starter",
+    "VCP + Spec Kit",
+    "VCP + OpenSpec-like delta process"
+  ],
+  "official_integrations_claimed": false
+}
