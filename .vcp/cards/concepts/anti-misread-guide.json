@@ -1,0 +1,31 @@
+{
+  "id": "anti-misread-guide",
+  "type": "concept",
+  "name": "Anti-Misread Guide",
+  "summary": "Common wrong readings of VCP and the corrective evidence surfaces.",
+  "use_when": [
+    "external analysis keeps flattening VCP into the wrong category"
+  ],
+  "do_not_use_when": [
+    "you need implementation details instead of positioning guidance"
+  ],
+  "risk_level": "medium",
+  "domains": ["concept", "positioning"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "review"],
+    "ai_failure_modes": ["category confusion", "proof overclaim"],
+    "project_state": ["new", "existing MVP", "production"],
+    "risk_categories": ["public trust"]
+  },
+  "entry_files": ["docs/anti-misread-guide.md"],
+  "related_files": ["docs_ru/anti-misread-guide.md", "docs/comparisons.md"],
+  "cli": ["python3 -m vcp_cli trust-check --json"],
+  "outputs": ["bounded positioning correction"],
+  "stop_conditions": ["do not use to overclaim maturity"],
+  "validation": ["python3 scripts/check-evaluator-pack.py"],
+  "version": "v0.8.7",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
+  "badges": ["concept", "positioning"]
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "evaluator-pack",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["machine-readable evaluation guidance"],
+  "required_files_to_inspect": [
+    ".vcp/evaluator-pack.json",
+    "vcp_cli/evaluator_cmd.py"
+  ],
+  "expected_first_safe_action": "Read or run the evaluator pack before broad comparison claims.",
+  "expected_warnings": [
+    "do not skip required surfaces listed in the evaluator pack"
+  ]
+}

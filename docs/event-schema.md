@@ -1,6 +1,6 @@
 # Event Schema
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
 
 The VCP event schema is a normalized record format for findings, warnings, transitions and gate failures.
 

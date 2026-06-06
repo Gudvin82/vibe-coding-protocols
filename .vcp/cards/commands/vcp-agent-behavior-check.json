@@ -47,7 +47,7 @@
   "validation": [
     "python3 -m vcp_cli agent-behavior check --report tests/fixtures/agent-report.md --json"
   ],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

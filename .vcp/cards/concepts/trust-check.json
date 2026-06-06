@@ -14,7 +14,7 @@
   "outputs": ["trust summary", "pass/warn/fail checks"],
   "stop_conditions": ["do not present this as security or production certification"],
   "validation": ["python3 -m vcp_cli trust-check --json"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],

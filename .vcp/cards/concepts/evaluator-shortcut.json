@@ -1,0 +1,47 @@
+{
+  "id": "evaluator-shortcut",
+  "type": "concept",
+  "name": "Evaluator Shortcut",
+  "summary": "Single-file starting point for external evaluators to avoid shallow misreads of VCP.",
+  "use_when": [
+    "someone wants to evaluate VCP quickly but fairly"
+  ],
+  "do_not_use_when": [
+    "README-only judgment is being presented as full"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "evaluation"
+  ],
+  "maps_to": {
+    "sdlc_phase": ["intake", "review"],
+    "ai_failure_modes": ["shallow evaluation", "category confusion"],
+    "project_state": ["new", "existing MVP", "production"],
+    "risk_categories": ["external misread"]
+  },
+  "entry_files": [
+    "EVALUATE_THIS_REPO.md"
+  ],
+  "related_files": [
+    "docs/anti-misread-guide.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "outputs": [
+    "fair-evaluation starting point"
+  ],
+  "stop_conditions": [
+    "do not call README-only review full"
+  ],
+  "validation": [
+    "python3 scripts/check-evaluator-pack.py"
+  ],
+  "version": "v0.8.7",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
+  "badges": ["concept", "evaluation"]
+}

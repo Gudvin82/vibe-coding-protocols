@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity_labels": [
     "experimental",
     "local-stable",
@@ -126,7 +126,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.6.md",
+    "docs/release-v0.8.7.md",
     "docs/roadmap/integrations.md",
     "docs/roadmap/vscode-extension.md",
     "docs/run-state.md",
@@ -146,7 +146,18 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.8.6.md"
+    "docs_ru/release-v0.8.7.md",
+    "EVALUATE_THIS_REPO.md",
+    "docs/anti-misread-guide.md",
+    "docs/evaluator-architecture-map.md",
+    "docs/proof-snapshot.md",
+    "docs/external-evaluation.md",
+    "docs/public-surfaces.md",
+    "docs_ru/anti-misread-guide.md",
+    "docs_ru/evaluator-architecture-map.md",
+    "docs_ru/proof-snapshot.md",
+    "docs_ru/external-evaluation.md",
+    "docs_ru/public-surfaces.md"
   ],
   "integration_status_labels": [
     "shipped",

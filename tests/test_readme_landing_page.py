@@ -15,7 +15,11 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('## Use with your AI tools', text)
         self.assertIn('docs/comparisons.md', text)
         self.assertIn('docs/product-model.md', text)
-        self.assertIn('v0.8.6', text)
+        self.assertIn('EVALUATE_THIS_REPO.md', text)
+        self.assertIn('docs/anti-misread-guide.md', text)
+        self.assertIn('docs/proof-snapshot.md', text)
+        self.assertIn('v0.8.7', text)
+        self.assertIn('Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/', text)
 
 
 if __name__ == '__main__':

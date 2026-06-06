@@ -14,7 +14,7 @@
   "outputs": ["clear mental model"],
   "stop_conditions": ["do not describe roadmap-only items as shipped"],
   "validation": ["python3 scripts/check-roadmap-overclaim.py"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor"],

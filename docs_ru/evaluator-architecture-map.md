@@ -1,0 +1,46 @@
+# Архитектурная карта для evaluators
+
+Repository package: `v0.8.7`
+
+Используй эту карту, если нужно быстро понять структуру VCP.
+
+## Карта потока
+
+```text
+Raw AI MVP / Existing Project
+        |
+        v
+onboard -> classify -> workflow plan
+        |
+        v
+adopt plan -> PR Gate -> metrics board
+        |
+        v
+dashboard -> launch decision -> trust-check
+        |
+        v
+proof / benchmark / external evaluation
+```
+
+## Карта слоев
+
+```text
+Core:
+  CLI, version surfaces, trust-check, benchmark, manifests, tests
+
+Guided Paths:
+  10-minute path, MVP-to-Launch, spec-driven adoption, SaaS hardening
+
+Optional Layers:
+  dashboard, project memory, audit backlog, run history, integration packs, agent templates
+
+Roadmap-only:
+  hosted dashboard, VS Code extension, marketplace, PyPI/npm publication if not actually done
+```
+
+## Что читать дальше
+
+- `EVALUATE_THIS_REPO.md`
+- `docs_ru/product-model.md`
+- `docs_ru/killer-workflow.md`
+- `docs_ru/proof-snapshot.md`

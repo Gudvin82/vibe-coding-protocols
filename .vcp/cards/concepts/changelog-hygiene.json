@@ -14,7 +14,7 @@
   "outputs": ["clean release ordering"],
   "stop_conditions": ["do not place release blocks before # Changelog"],
   "validation": ["python3 -m unittest discover -s tests"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor"],

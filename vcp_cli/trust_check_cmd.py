@@ -13,12 +13,13 @@ SCRIPT_CHECKS = [
     ("readme-parity", ["python3", "scripts/check-readme-parity.py"], "README.md and README_ru.md expose the same current-release and route signals."),
     ("russian-docs-parity", ["python3", "scripts/check-russian-docs-parity.py"], "Russian docs index and release surfaces are present and synchronized."),
     ("roadmap-overclaim", ["python3", "scripts/check-roadmap-overclaim.py"], "Roadmap-only surfaces are not described as shipped."),
+    ("evaluator-pack", ["python3", "scripts/check-evaluator-pack.py"], "Evaluator shortcut, anti-misread surfaces, and machine-readable evaluator pack are synchronized."),
 ]
 
 
 DOC_EXPECTATIONS = {
-    "README.md": ["docs/killer-workflow.md", "docs/comparisons.md", "docs/product-model.md", "docs/benchmark-report.md", "docs/trust-check.md", "docs/ai-tooling.md", "docs_ru/README.md"],
-    "README_ru.md": ["docs_ru/killer-workflow.md", "docs_ru/comparisons.md", "docs_ru/product-model.md", "docs_ru/benchmark-report.md", "docs_ru/trust-check.md", "docs_ru/ai-tooling.md"],
+    "README.md": ["EVALUATE_THIS_REPO.md", "docs/killer-workflow.md", "docs/comparisons.md", "docs/product-model.md", "docs/benchmark-report.md", "docs/trust-check.md", "docs/ai-tooling.md", "docs/proof-snapshot.md", "docs/evaluator-architecture-map.md", "docs_ru/README.md"],
+    "README_ru.md": ["EVALUATE_THIS_REPO.md", "docs_ru/killer-workflow.md", "docs_ru/comparisons.md", "docs_ru/product-model.md", "docs_ru/benchmark-report.md", "docs_ru/trust-check.md", "docs_ru/ai-tooling.md", "docs_ru/proof-snapshot.md"],
 }
 
 
@@ -31,9 +32,13 @@ def _status_rank(value: str) -> int:
 
 
 def _script_check(root: Path, check_id: str, command: list[str], summary: str) -> dict[str, Any]:
-    result = run_command(command, root)
-    status = "pass" if result.returncode == 0 else "fail"
-    details = result.stdout.strip() or result.stderr.strip() or "no output"
+    try:
+        result = run_command(command, root)
+        status = "pass" if result.returncode == 0 else "fail"
+        details = result.stdout.strip() or result.stderr.strip() or "no output"
+    except OSError as exc:
+        status = "fail"
+        details = f"command could not start: {exc}"
     return {
         "id": check_id,
         "status": status,
@@ -113,6 +118,28 @@ def _benchmark_report_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _evaluator_surface_check(root: Path) -> dict[str, Any]:
+    required = [
+        "EVALUATE_THIS_REPO.md",
+        "docs/anti-misread-guide.md",
+        "docs_ru/anti-misread-guide.md",
+        "docs/evaluator-architecture-map.md",
+        "docs_ru/evaluator-architecture-map.md",
+        "docs/proof-snapshot.md",
+        "docs_ru/proof-snapshot.md",
+        "templates/reports/external-evaluation.md",
+        ".vcp/evaluator-pack.json",
+    ]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "evaluator-surfaces",
+        "status": status,
+        "summary": "Evaluator shortcut, anti-misread docs, proof snapshot, architecture map, and machine-readable evaluator pack exist.",
+        "details": [f"missing {rel}" for rel in missing] or ["Evaluator-proof surfaces are present."],
+    }
+
+
 def _changelog_hygiene_check(root: Path) -> dict[str, Any]:
     current = repo_version(root)
     text = _text(root, "CHANGELOG.md")
@@ -158,6 +185,7 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_workflow_sync_check(root))
     checks.append(_integration_status_check(root))
     checks.append(_benchmark_report_check(root))
+    checks.append(_evaluator_surface_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

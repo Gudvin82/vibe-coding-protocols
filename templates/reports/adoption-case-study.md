@@ -1,4 +1,4 @@
-<!-- vcp-version: v0.8.6 -->
+<!-- vcp-version: v0.8.7 -->
 <!-- methodology-version: v1.4 -->
 # Adoption Case Study
 

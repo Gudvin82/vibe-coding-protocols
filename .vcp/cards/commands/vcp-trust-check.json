@@ -14,7 +14,7 @@
   "outputs": ["trust-check summary"],
   "stop_conditions": ["does not certify production safety"],
   "validation": ["python3 -m vcp_cli trust-check --json"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],

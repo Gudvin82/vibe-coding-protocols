@@ -52,7 +52,7 @@
   "validation": [
     "templates/reports/launch-decision.md exists"
   ],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

@@ -1,0 +1,27 @@
+{
+  "id": "proof-snapshot",
+  "type": "concept",
+  "name": "Proof Snapshot",
+  "summary": "Single-page current proof surface for release, trust, benchmark, and evaluator signals.",
+  "use_when": ["an evaluator asks for current proof in one place"],
+  "do_not_use_when": ["proof would be fabricated or unrun"],
+  "risk_level": "medium",
+  "domains": ["concept", "proof"],
+  "maps_to": {
+    "sdlc_phase": ["review", "release"],
+    "ai_failure_modes": ["proof overclaim"],
+    "project_state": ["new", "existing MVP", "production"],
+    "risk_categories": ["public proof"]
+  },
+  "entry_files": ["docs/proof-snapshot.md"],
+  "related_files": ["docs_ru/proof-snapshot.md", "docs/benchmark-report.md", "docs/trust-check.md"],
+  "cli": ["python3 -m vcp_cli trust-check --json", "python3 -m vcp_cli benchmark run --json"],
+  "outputs": ["current proof summary"],
+  "stop_conditions": ["do not fake counts or command results"],
+  "validation": ["python3 scripts/check-evaluator-pack.py"],
+  "version": "v0.8.7",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": ["codex-cli", "claude-code", "cursor", "windsurf"],
+  "badges": ["concept", "proof"]
+}

@@ -14,13 +14,15 @@ class TrustCheckCommandTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         payload = json.loads(proc.stdout)
         self.assertIn(payload['status'], {'pass', 'warn', 'fail'})
-        self.assertEqual(payload['version'], 'v0.8.6')
+        self.assertEqual(payload['version'], 'v0.8.7')
         self.assertIn('checks', payload)
         self.assertIn('summary', payload)
         check_ids = {item['id'] for item in payload['checks']}
         self.assertIn('version-surfaces', check_ids)
         self.assertIn('roadmap-overclaim', check_ids)
         self.assertIn('changelog-hygiene', check_ids)
+        self.assertIn('evaluator-pack', check_ids)
+        self.assertIn('evaluator-surfaces', check_ids)
 
 
 if __name__ == '__main__':

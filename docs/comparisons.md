@@ -1,16 +1,23 @@
 # Comparisons
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
+
+Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
 VCP is easiest to understand when compared to adjacent tools honestly.
 
 ## Short version
 
-- VCP is a local-first control layer for AI-built and AI-assisted projects.
+- VCP is a local-first control/governance layer for AI-built and AI-assisted projects.
 - Spec-driven toolkits are strong at defining what to build and how to implement it from specs.
 - Full-stack templates are strong at bootstrapping an application architecture quickly.
 - AI coding agents are strong at producing code and refactors quickly.
 - CI-only gates are strong at pass/fail automation.
+
+Spec Kit defines what to build.
+Full-stack templates bootstrap where to build.
+AI coding agents generate and edit code.
+VCP controls what AI already built and what humans are about to adopt, merge, or launch.
 
 VCP is complementary to all of them. It is not a replacement for all of them.
 
@@ -74,6 +81,14 @@ VCP adds:
 - PR Gate interpretation;
 - local dashboard/report artifacts;
 - launch decision framing.
+
+## Why shallow comparisons underrate VCP
+
+Shallow comparisons underrate VCP because:
+- VCP is not app code, so README-only or stars-only reading misses the shipped control layer;
+- VCP is not only methodology, because CLI, tests, benchmarks, manifests, cards, and workflows are part of the shipped surface;
+- VCP value lives in governance, checks, benchmark, dashboard, and machine-readable surfaces;
+- evaluator must inspect more than README.
 
 ## Boundaries
 

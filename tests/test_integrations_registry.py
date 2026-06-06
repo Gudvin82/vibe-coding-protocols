@@ -28,7 +28,7 @@ class IntegrationRegistryTests(unittest.TestCase):
 
     def test_integration_packs_registry_exists(self) -> None:
         payload = json.loads((ROOT / '.vcp' / 'integration-packs.json').read_text(encoding='utf-8'))
-        self.assertEqual(payload['version'], 'v0.8.6')
+        self.assertEqual(payload['version'], 'v0.8.7')
         self.assertGreaterEqual(len(payload['items']), 8)
         self.assertTrue(all(item['status'] in ALLOWED for item in payload['items']))
 

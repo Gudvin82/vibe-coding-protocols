@@ -1,12 +1,12 @@
 # Changelog
 
-## v0.8.6
+## v0.8.7
 
-- rewrote README and README_ru first screens as landing pages with clearer problem/solution positioning;
-- added comparisons, product model, killer workflow, demo-artifact, benchmark-report, trust-check, and AI-tooling docs;
-- added a repository trust-check command and roadmap-overclaim consistency script;
-- improved Russian docs coverage for the new major public pages;
-- cleaned changelog hygiene and synced machine-readable current-version surfaces.
+- added `EVALUATE_THIS_REPO.md` as a mandatory evaluator shortcut before category or maturity claims;
+- added anti-misread guides, evaluator architecture maps, proof snapshots, and external-evaluation templates in English and Russian;
+- surfaced public proof through benchmark/trust-check references and a machine-readable `.vcp/evaluator-pack.json`;
+- hardened README, README_ru, AGENTS, AI evaluation surfaces, and Russian AI handoff copy against shallow browser misreads;
+- strengthened evaluator regression checks, benchmark scenarios, and trust-check coverage for evaluator-proof positioning.
 
 ## v0.8.6
 

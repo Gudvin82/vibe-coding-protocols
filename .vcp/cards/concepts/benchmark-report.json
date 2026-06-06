@@ -14,7 +14,7 @@
   "outputs": ["benchmark summary"],
   "stop_conditions": ["do not call local benchmark pass a production guarantee"],
   "validation": ["python3 -m vcp_cli benchmark run --json"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],

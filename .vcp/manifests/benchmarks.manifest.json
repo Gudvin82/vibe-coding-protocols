@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.8.6.md"
+        "docs/release-v0.8.7.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2161,6 +2161,84 @@
       ],
       "expected_warnings": [],
       "expected_first_action": "Inspect the named control surfaces before making broader claims."
+    },
+    {
+      "id": "external-evaluator-shortcut",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/external-evaluator-shortcut.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "EVALUATE_THIS_REPO.md",
+        ".vcp/evaluator-pack.json"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "anti-misread-guide",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/anti-misread-guide.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/anti-misread-guide.md",
+        "docs_ru/anti-misread-guide.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "russian-evaluator-guide",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/russian-evaluator-guide.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README_ru.md",
+        "docs_ru/README.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "proof-snapshot",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/proof-snapshot.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/proof-snapshot.md",
+        "docs_ru/proof-snapshot.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "evaluator-pack",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/evaluator-pack.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        ".vcp/evaluator-pack.json",
+        "EVALUATE_THIS_REPO.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
+    },
+    {
+      "id": "comparison-category-clarity",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/comparison-category-clarity.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/comparisons.md",
+        "docs_ru/comparisons.md"
+      ],
+      "expected_warnings": [],
+      "expected_first_action": "Inspect the named evaluator-proof surfaces before making category or maturity claims."
     }
   ]
 }

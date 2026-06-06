@@ -1,6 +1,6 @@
 # Vibe Coding Protocols v0.8.5 — Local Platform UX, Integration Packs, and Russian Docs Parity
 
-`v0.8.5` combines the planned `v0.8.5` and `v0.8.6` directions into one bounded release.
+`v0.8.5` combines the planned `v0.8.5` and `v0.8.7` directions into one bounded release.
 
 ## Included
 

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "external-evaluator-shortcut",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["external evaluation", "repo shortcut"],
+  "required_files_to_inspect": [
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "expected_first_safe_action": "Open the evaluator shortcut before making category claims.",
+  "expected_warnings": [
+    "do not call README-only review full"
+  ]
+}

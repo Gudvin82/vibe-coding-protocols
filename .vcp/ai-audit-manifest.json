@@ -1,5 +1,5 @@
 {
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {
@@ -52,7 +52,13 @@
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
     "docs/launch-decision-checklist.md",
-    ".vcp/workflows/mvp-to-launch.json"
+    ".vcp/workflows/mvp-to-launch.json",
+    "EVALUATE_THIS_REPO.md",
+    "docs/anti-misread-guide.md",
+    "docs/evaluator-architecture-map.md",
+    "docs/proof-snapshot.md",
+    ".vcp/evaluator-pack.json",
+    "docs_ru/README.md"
   ],
   "minimum_raw_files": [
     "README.md",
@@ -61,7 +67,9 @@
     "FULL_REPO_INTAKE.md",
     ".vcp/index.json",
     ".vcp/ai-audit-manifest.json",
-    ".vcp/integrations.json"
+    ".vcp/integrations.json",
+    "EVALUATE_THIS_REPO.md",
+    ".vcp/evaluator-pack.json"
   ],
   "must_report": [
     "access_method",

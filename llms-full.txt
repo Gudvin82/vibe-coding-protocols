@@ -7,16 +7,17 @@ It helps teams build from idea to production without losing control.
 
 ## Current version and methodology
 
-- Repository package: `v0.8.6`
-- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.6`.
+- Repository package: `v0.8.7`
+- Report the current GitHub repository release as `Vibe Coding Protocols v0.8.7`.
 - Internal stable methodology reference: `v1.4`
-- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.6`.
+- Do not confuse the internal stable methodology reference `v1.4` with repository package version `v0.8.7`.
 - Canonical repository: `https://github.com/Gudvin82/vibe-coding-protocols`
 
 ## Core evaluation path
 
 Do not evaluate VCP from `README.md` alone.
 Start with:
+- `EVALUATE_THIS_REPO.md`
 - `AGENTS.md`
 - `TAKE_THIS_FIRST.md`
 - `AI_EVALUATION_GUIDE.md`
@@ -27,6 +28,10 @@ Start with:
 - `FULL_REPO_INTAKE.md`
 - `START_HERE.md`
 - `docs/version-semantics.md`
+- `docs/anti-misread-guide.md`
+- `docs/evaluator-architecture-map.md`
+- `docs/proof-snapshot.md`
+- `templates/reports/external-evaluation.md`
 - `docs/two-track-model.md`
 - `docs/track-model.md`
 - `docs/mvp-to-launch-path.md`
@@ -47,6 +52,11 @@ Start with:
 - `docs/install.md`
 
 Then run:
+- `python3 -m vcp_cli trust-check --json`
+- `python3 -m vcp_cli benchmark run --json`
+- `python3 -m vcp_cli cards validate --json`
+- `python3 -m vcp_cli index validate --json`
+- `python3 -m vcp_cli evaluator pack --json`
 - `python3 -m vcp_cli evaluate --json`
 - `python3 -m vcp_cli index validate`
 - `python3 -m vcp_cli cards list --recommended`

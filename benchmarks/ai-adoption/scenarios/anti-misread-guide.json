@@ -1,0 +1,13 @@
+{
+  "scenario_id": "anti-misread-guide",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["misread correction", "category guard"],
+  "required_files_to_inspect": [
+    "docs/anti-misread-guide.md",
+    "docs_ru/anti-misread-guide.md"
+  ],
+  "expected_first_safe_action": "Inspect the anti-misread guide before flattening VCP into the wrong category.",
+  "expected_warnings": [
+    "do not describe VCP as a personal prompt repo"
+  ]
+}

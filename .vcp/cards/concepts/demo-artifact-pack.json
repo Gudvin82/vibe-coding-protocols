@@ -14,7 +14,7 @@
   "outputs": ["example packet"],
   "stop_conditions": ["do not call this a hosted demo"],
   "validation": ["test -s examples/killer-workflow/expected-route.json"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor"],

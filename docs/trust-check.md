@@ -1,6 +1,6 @@
 # Trust Check
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
 
 Use the trust check when you want a local, read-only repository consistency audit.
 
@@ -25,6 +25,7 @@ vcp trust-check --json
 - workflow/docs sync;
 - integration status validity;
 - benchmark report presence;
+- evaluator shortcut, anti-misread guide, proof snapshot, and evaluator-pack presence;
 - changelog hygiene;
 - release note presence.
 
@@ -37,3 +38,8 @@ Trust Check does not prove:
 - hosted platform readiness.
 
 It is a repository trust and consistency check.
+
+## Evaluator-proof note
+
+In `v0.8.7`, trust-check is also part of the public proof layer.
+It helps external evaluators verify that evaluator shortcut surfaces, anti-misread docs, and current release signals are synchronized.

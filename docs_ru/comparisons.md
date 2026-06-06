@@ -1,16 +1,23 @@
 # Сравнения
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
+
+Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
 VCP проще всего понять через честное сравнение с соседними классами инструментов.
 
 ## Коротко
 
-- VCP — это local-first control layer для AI-built и AI-assisted проектов.
+- VCP — это local-first control/governance layer для AI-built и AI-assisted проектов.
 - Spec-driven toolkits сильны в том, чтобы определить, что строить и как вести реализацию от спецификаций.
 - Full-stack templates сильны в быстром старте приложения с готовой архитектурой.
 - AI coding agents сильны в быстрой генерации и переработке кода.
 - CI-only gates сильны в pass/fail automation.
+
+Spec Kit определяет, что строить.
+Full-stack templates помогают понять, где строить.
+AI coding agents генерируют и редактируют код.
+VCP контролирует то, что AI уже построил и что люди собираются adopt, merge или launch.
 
 VCP дополняет эти слои. Он не заменяет их все сразу.
 
@@ -74,6 +81,14 @@ VCP добавляет:
 - интерпретацию PR Gate;
 - локальные dashboard/report artifacts;
 - framing для launch decision.
+
+## Почему shallow comparisons занижают VCP
+
+Shallow comparisons занижают VCP, потому что:
+- VCP не app code, поэтому README-only или stars-only reading пропускает shipped control layer;
+- VCP — это не только methodology, потому что CLI, tests, benchmarks, manifests, cards и workflows входят в shipped surface;
+- ценность VCP лежит в governance, checks, benchmark, dashboard и machine-readable surfaces;
+- evaluator должен inspect не только README.
 
 ## Границы
 

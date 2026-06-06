@@ -14,7 +14,7 @@
   "outputs": ["safe agent guidance"],
   "stop_conditions": ["do not imply official vendor partnerships"],
   "validation": ["python3 scripts/check-roadmap-overclaim.py"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot", "gemini-cli"],

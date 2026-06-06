@@ -1,12 +1,12 @@
 # Benchmark Report
 
-Release: v0.8.6
+Release: v0.8.7
 Methodology: v1.4
 
 ## Summary
 
 - source command: `python3 -m vcp_cli benchmark run --json`
-- release context: `v0.8.6`
+- release context: `v0.8.7`
 - status source: local repository benchmark output
 - scenarios: 140
 - status: pass
@@ -17,6 +17,7 @@ Methodology: v1.4
 - PR Gate
 - dashboard
 - integration packs
+- evaluator shortcut and anti-misread surfaces
 - Russian docs parity
 - trust/no-overclaim checks
 - agent behavior checks

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "russian-evaluator-guide",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["russian docs", "ai handoff"],
+  "required_files_to_inspect": [
+    "README_ru.md",
+    "docs_ru/README.md"
+  ],
+  "expected_first_safe_action": "Use the Russian evaluator guidance when the audience is Russian-speaking.",
+  "expected_warnings": [
+    "do not evaluate VCP only from the website or README_ru"
+  ]
+}

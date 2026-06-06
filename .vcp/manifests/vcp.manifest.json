@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.8.6",
+  "package_version": "v0.8.7",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.6.md",
+    "docs/release-v0.8.7.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -87,7 +87,20 @@
     "docs/project-map.md",
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
-    "docs/launch-decision-checklist.md"
+    "docs/launch-decision-checklist.md",
+    "EVALUATE_THIS_REPO.md",
+    "docs/anti-misread-guide.md",
+    "docs/evaluator-architecture-map.md",
+    "docs/proof-snapshot.md",
+    "docs/external-evaluation.md",
+    "docs/public-surfaces.md",
+    "docs_ru/README.md",
+    "docs_ru/anti-misread-guide.md",
+    "docs_ru/evaluator-architecture-map.md",
+    "docs_ru/proof-snapshot.md",
+    "docs_ru/external-evaluation.md",
+    "docs_ru/public-surfaces.md",
+    ".vcp/evaluator-pack.json"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -143,7 +156,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.8.6.md",
+    "docs/release-v0.8.7.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
@@ -188,7 +201,20 @@
     "docs/project-map.md",
     "docs/track-model.md",
     "docs/mvp-to-launch-path.md",
-    "docs/launch-decision-checklist.md"
+    "docs/launch-decision-checklist.md",
+    "EVALUATE_THIS_REPO.md",
+    "docs/anti-misread-guide.md",
+    "docs/evaluator-architecture-map.md",
+    "docs/proof-snapshot.md",
+    "docs/external-evaluation.md",
+    "docs/public-surfaces.md",
+    "docs_ru/README.md",
+    "docs_ru/anti-misread-guide.md",
+    "docs_ru/evaluator-architecture-map.md",
+    "docs_ru/proof-snapshot.md",
+    "docs_ru/external-evaluation.md",
+    "docs_ru/public-surfaces.md",
+    ".vcp/evaluator-pack.json"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",
@@ -250,7 +276,9 @@
     "agent-behavior",
     "safety",
     "pr-gate",
-    "batch"
+    "batch",
+    "evaluator",
+    "evaluator pack"
   ],
   "validation_scripts": [
     "schemas/vcp-event.schema.json",
@@ -288,7 +316,10 @@
     "python3 -m vcp_cli batch evaluate --targets /tmp/vcp-targets.txt --json",
     "python3 -m vcp_cli agents template --agent codex --json",
     "python3 -m vcp_cli backlog validate .vcp/audit-backlog.example.json --json",
-    "python3 -m vcp_cli backlog summarize .vcp/audit-backlog.example.json --json"
+    "python3 -m vcp_cli backlog summarize .vcp/audit-backlog.example.json --json",
+    "scripts/check-evaluator-pack.py",
+    "tests/test_evaluator_surfaces.py",
+    "python3 -m vcp_cli evaluator pack --json"
   ],
   "known_limitations": [
     "docs/known-limitations.md"

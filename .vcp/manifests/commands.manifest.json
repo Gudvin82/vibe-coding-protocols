@@ -937,6 +937,19 @@
       "validation": [
         "python3 -m vcp_cli trust-check --json"
       ]
+    },
+    {
+      "id": "evaluator-pack",
+      "command_name": "vcp evaluator pack",
+      "file": "EVALUATE_THIS_REPO.md",
+      "route": "review",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "machine-readable evaluator shortcut pack",
+      "validation": [
+        "python3 -m vcp_cli evaluator pack --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [
@@ -946,6 +959,9 @@
     "docs/project-memory.md",
     "docs/agent-instructions.md",
     "docs/run-state.md",
-    "docs/audit-backlog.md"
+    "docs/audit-backlog.md",
+    "docs/anti-misread-guide.md",
+    "docs/evaluator-architecture-map.md",
+    "docs/proof-snapshot.md"
   ]
 }

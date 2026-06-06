@@ -1,0 +1,13 @@
+{
+  "scenario_id": "comparison-category-clarity",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["comparison framing", "category clarity"],
+  "required_files_to_inspect": [
+    "docs/comparisons.md",
+    "docs_ru/comparisons.md"
+  ],
+  "expected_first_safe_action": "Separate VCP, Spec Kit, app templates, and AI coding agents by category before comparing them.",
+  "expected_warnings": [
+    "do not compare VCP by stars alone"
+  ]
+}

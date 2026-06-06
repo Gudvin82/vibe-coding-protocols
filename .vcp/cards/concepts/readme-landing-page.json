@@ -14,7 +14,7 @@
   "outputs": ["clear positioning", "short demo route"],
   "stop_conditions": ["do not let README become a fake hosted-platform claim"],
   "validation": ["python3 scripts/check-readme-parity.py"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],

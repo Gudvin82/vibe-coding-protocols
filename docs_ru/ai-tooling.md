@@ -1,6 +1,8 @@
 # AI Tooling
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
+
+Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
 VCP предназначен для использования рядом с AI coding agents, а не как заявление об official integrations.
 

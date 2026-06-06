@@ -1,6 +1,6 @@
-# Vibe Coding Protocols v0.8.6 — Framework Clarity, Killer Workflow, and Trust Check
+# Vibe Coding Protocols v0.8.7 — Framework Clarity, Killer Workflow, and Trust Check
 
-`v0.8.6` is a bounded clarity-and-trust release for the `0.8.x` line.
+`v0.8.7` is a bounded clarity-and-trust release for the `0.8.x` line.
 
 ## Included
 

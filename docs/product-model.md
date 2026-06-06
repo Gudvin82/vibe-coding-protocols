@@ -1,6 +1,6 @@
 # Product Model
 
-Repository package: `v0.8.6`
+Repository package: `v0.8.7`
 
 Use this mental model to understand VCP quickly.
 

@@ -19,6 +19,7 @@ from . import diagnose as diagnose_cmd
 from . import dashboard_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
+from . import evaluator_cmd
 from . import evaluate as evaluate_cmd
 from . import init_cmd
 from . import index_cmd
@@ -363,6 +364,11 @@ def build_parser() -> argparse.ArgumentParser:
     trust_check_p = sub.add_parser("trust-check")
     trust_check_p.add_argument("--json", action="store_true")
 
+    evaluator_p = sub.add_parser("evaluator")
+    evaluator_sub = evaluator_p.add_subparsers(dest="evaluator_command")
+    evaluator_pack = evaluator_sub.add_parser("pack")
+    evaluator_pack.add_argument("--json", action="store_true")
+
     backlog_p = sub.add_parser("backlog")
     backlog_sub = backlog_p.add_subparsers(dest="backlog_command")
     backlog_list = backlog_sub.add_parser("list")
@@ -632,6 +638,9 @@ def main(argv: list[str] | None = None) -> int:
         return diagnose_cmd.run(args.profile, getattr(args, "json", False))
     if args.command == "trust-check":
         return trust_check_cmd.run(getattr(args, "json", False))
+    if args.command == "evaluator":
+        if args.evaluator_command in {None, "pack"}:
+            return evaluator_cmd.run_pack(getattr(args, "json", False))
     if args.command == "backlog":
         if args.backlog_command == "list":
             return backlog_cmd.list_items(

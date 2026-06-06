@@ -14,7 +14,7 @@
   "outputs": ["route", "risk", "dashboard", "launch-control packet"],
   "stop_conditions": ["do not present this as a hosted workflow engine"],
   "validation": ["python3 -m vcp_cli workflow plan --id mvp-to-launch --json"],
-  "version": "v0.8.6",
+  "version": "v0.8.7",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli", "claude-code", "cursor", "github-copilot"],

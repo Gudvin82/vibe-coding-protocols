@@ -1,0 +1,39 @@
+{
+  "version": "v0.8.7",
+  "purpose": "Evaluator shortcut for external AI and human reviewers",
+  "category": "local-first AI project control/governance layer",
+  "required_surfaces": [
+    "README.md",
+    "EVALUATE_THIS_REPO.md",
+    "AGENTS.md",
+    "AI_EVALUATION_GUIDE.md",
+    ".vcp/index.json",
+    ".vcp/catalog.json",
+    ".vcp/manifests/",
+    ".vcp/cards/",
+    ".vcp/workflows/",
+    "vcp_cli/",
+    "tests/",
+    "docs/benchmark-report.md",
+    "docs/trust-check.md",
+    "docs_ru/README.md"
+  ],
+  "required_commands": [
+    "python3 -m vcp_cli trust-check --json",
+    "python3 -m vcp_cli benchmark run --json",
+    "python3 -m vcp_cli cards validate --json",
+    "python3 -m vcp_cli index validate --json",
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "inspection_depths": [
+    "shallow",
+    "partial",
+    "full"
+  ],
+  "comparison_category": {
+    "vcp": "control/governance layer",
+    "spec_kit": "spec-driven development toolkit",
+    "full_stack_templates": "application starters",
+    "ai_agents": "code generation/editing tools"
+  }
+}

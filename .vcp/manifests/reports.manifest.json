@@ -497,11 +497,34 @@
         "Next action",
         "Boundaries"
       ]
+    },
+    {
+      "id": "external-evaluation",
+      "file": "templates/reports/external-evaluation.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Evaluator name/tool",
+        "Date",
+        "Inspected URLs/files",
+        "Inspection depth",
+        "Execution performed",
+        "Commands run",
+        "Category assigned to VCP",
+        "Shipped features verified",
+        "Optional layers verified",
+        "Roadmap-only features recognized",
+        "Comparison targets",
+        "Known limitations",
+        "Confidence level",
+        "Corrections needed"
+      ]
     }
   ],
   "related_docs": [
     "docs/progressive-disclosure.md",
     "docs/vcp-cards.md",
-    "docs/vcp-mappings.md"
+    "docs/vcp-mappings.md",
+    "docs/external-evaluation.md",
+    "docs_ru/external-evaluation.md"
   ]
 }
