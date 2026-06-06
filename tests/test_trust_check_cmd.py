@@ -24,8 +24,10 @@ class TrustCheckCommandTests(unittest.TestCase):
         self.assertIn('evaluator-pack', check_ids)
         self.assertIn('evaluator-surfaces', check_ids)
         self.assertIn('v091-product-spine', check_ids)
+        self.assertIn('agent-kits', check_ids)
         details = {item['id']: item for item in payload['checks']}
         self.assertIn('token-budget', details['evaluator-surfaces']['summary'])
+        self.assertIn('Copy-ready AI tool agent kits', details['agent-kits']['summary'])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,27 @@
+{
+  "id": "github-actions-kit",
+  "type": "platform",
+  "name": "GitHub Actions PR Gate Kit",
+  "summary": "Copy-ready GitHub Actions workflow example for repository-side PR Gate usage.",
+  "use_when": ["a repository wants a local-first GitHub Actions PR Gate example"],
+  "do_not_use_when": ["marketplace or hosted governance claims are required"],
+  "risk_level": "medium",
+  "domains": ["platform-compatibility", "ci"],
+  "maps_to": {
+    "sdlc_phase": ["review", "release"],
+    "ai_failure_modes": ["marketplace overclaim", "auto-merge assumption"],
+    "project_state": ["existing-repo", "production"],
+    "risk_categories": ["ci boundaries", "release honesty"]
+  },
+  "entry_files": ["docs/integrations/agent-kits.md", "templates/agent-kits/github-actions/README.md"],
+  "related_files": ["templates/agent-kits/github-actions/vcp-pr-gate.yml", ".vcp/agent-kits.json"],
+  "cli": ["python3 -m vcp_cli agents kit --target github-actions --json"],
+  "outputs": ["GitHub Actions PR Gate bundle"],
+  "stop_conditions": ["do not call this a marketplace action"],
+  "validation": ["python3 -m vcp_cli agents kit --target github-actions --json"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["github-copilot"],
+  "badges": ["kit", "ci"]
+}

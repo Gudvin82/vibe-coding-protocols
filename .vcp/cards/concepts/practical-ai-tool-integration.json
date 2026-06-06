@@ -1,0 +1,32 @@
+{
+  "id": "practical-ai-tool-integration",
+  "type": "concept",
+  "name": "Practical AI Tool Integration",
+  "summary": "Local-first adoption layer for real AI coding tools through copy-ready docs, templates, and safe CLI export.",
+  "use_when": [
+    "a team wants to adopt VCP inside a real AI coding environment",
+    "an evaluator needs proof that integration claims stay local and honest"
+  ],
+  "do_not_use_when": [
+    "official vendor integration or marketplace install is required"
+  ],
+  "risk_level": "medium",
+  "domains": ["concept", "ai-tooling", "adoption"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "implementation", "review"],
+    "ai_failure_modes": ["integration overclaim", "blind template copying"],
+    "project_state": ["new-project", "existing-repo"],
+    "risk_categories": ["adoption scope", "tooling honesty"]
+  },
+  "entry_files": ["docs/integrations/setup-playbook.md", "docs/integrations/agent-kits.md"],
+  "related_files": ["docs_ru/integration-setup.md", "docs_ru/agent-kits.md", ".vcp/agent-kits.json"],
+  "cli": ["python3 -m vcp_cli agents kit --target copilot --json"],
+  "outputs": ["copy-ready setup path", "safe exportable kit map"],
+  "stop_conditions": ["do not call the kits official plugins or native integrations"],
+  "validation": ["python3 -m vcp_cli trust-check --json"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],
+  "badges": ["integration", "copy-ready"]
+}

@@ -1,0 +1,130 @@
+{
+  "version": "v0.9.1",
+  "statuses": [
+    "shipped",
+    "optional",
+    "manual",
+    "roadmap-only"
+  ],
+  "items": [
+    {
+      "id": "claude",
+      "title": "Claude Code agent kit",
+      "target": "claude-code",
+      "status": "shipped",
+      "summary": "Copy-ready VCP rules and control files for Claude Code.",
+      "files": [
+        {"source": "templates/agent-kits/claude/AGENTS.md", "recommended_destination": "AGENTS.md", "required": true},
+        {"source": "templates/agent-kits/claude/CLAUDE.md", "recommended_destination": "CLAUDE.md", "required": true},
+        {"source": "templates/agent-kits/claude/PROJECT_CONTROL_CHARTER.md", "recommended_destination": "PROJECT_CONTROL_CHARTER.md", "required": false},
+        {"source": "templates/agent-kits/claude/CHANGE_INTENT.md", "recommended_destination": "CHANGE_INTENT.md", "required": false},
+        {"source": "templates/agent-kits/claude/PR_GATE.md", "recommended_destination": "PR_GATE.md", "required": false}
+      ],
+      "default_output": "./vcp-claude-kit",
+      "safe_write_rules": {"requires_output": true, "requires_confirm": true, "overwrite_requires_force": true},
+      "commands": [
+        "python3 -m vcp_cli agents template --agent claude --output ./CLAUDE.md --confirm",
+        "python3 -m vcp_cli agents kit --target claude --json"
+      ],
+      "docs": "docs/integrations/agent-kits.md",
+      "docs_ru": "docs_ru/agent-kits.md",
+      "not_official_plugin": true,
+      "roadmap_boundary": "Local-first rules export only. No official plugin, marketplace, or auto-install."
+    },
+    {
+      "id": "codex",
+      "title": "Codex agent kit",
+      "target": "codex-cli",
+      "status": "shipped",
+      "summary": "Copy-ready VCP rules and control files for Codex.",
+      "files": [
+        {"source": "templates/agent-kits/codex/AGENTS.md", "recommended_destination": "AGENTS.md", "required": true},
+        {"source": "templates/agent-kits/codex/CODEX.md", "recommended_destination": "CODEX.md", "required": true},
+        {"source": "templates/agent-kits/codex/PROJECT_CONTROL_CHARTER.md", "recommended_destination": "PROJECT_CONTROL_CHARTER.md", "required": false},
+        {"source": "templates/agent-kits/codex/CHANGE_INTENT.md", "recommended_destination": "CHANGE_INTENT.md", "required": false},
+        {"source": "templates/agent-kits/codex/PR_GATE.md", "recommended_destination": "PR_GATE.md", "required": false}
+      ],
+      "default_output": "./vcp-codex-kit",
+      "safe_write_rules": {"requires_output": true, "requires_confirm": true, "overwrite_requires_force": true},
+      "commands": [
+        "python3 -m vcp_cli agents template --agent codex --output ./CODEX.md --confirm",
+        "python3 -m vcp_cli agents kit --target codex --json"
+      ],
+      "docs": "docs/integrations/agent-kits.md",
+      "docs_ru": "docs_ru/agent-kits.md",
+      "not_official_plugin": true,
+      "roadmap_boundary": "Local-first rules export only. No official plugin, marketplace, or auto-install."
+    },
+    {
+      "id": "cursor",
+      "title": "Cursor agent kit",
+      "target": "cursor",
+      "status": "shipped",
+      "summary": "Copy-ready VCP rules and control files for Cursor.",
+      "files": [
+        {"source": "templates/agent-kits/cursor/AGENTS.md", "recommended_destination": "AGENTS.md", "required": true},
+        {"source": "templates/agent-kits/cursor/CURSOR_RULES.md", "recommended_destination": "CURSOR_RULES.md", "required": true},
+        {"source": "templates/agent-kits/cursor/cursorrules.example", "recommended_destination": ".cursorrules", "required": false},
+        {"source": "templates/agent-kits/cursor/PROJECT_CONTROL_CHARTER.md", "recommended_destination": "PROJECT_CONTROL_CHARTER.md", "required": false},
+        {"source": "templates/agent-kits/cursor/CHANGE_INTENT.md", "recommended_destination": "CHANGE_INTENT.md", "required": false},
+        {"source": "templates/agent-kits/cursor/PR_GATE.md", "recommended_destination": "PR_GATE.md", "required": false}
+      ],
+      "default_output": "./vcp-cursor-kit",
+      "safe_write_rules": {"requires_output": true, "requires_confirm": true, "overwrite_requires_force": true},
+      "commands": [
+        "python3 -m vcp_cli agents template --agent cursor --output ./CURSOR_RULES.md --confirm",
+        "python3 -m vcp_cli agents kit --target cursor --json"
+      ],
+      "docs": "docs/integrations/agent-kits.md",
+      "docs_ru": "docs_ru/agent-kits.md",
+      "not_official_plugin": true,
+      "roadmap_boundary": "Local-first rules export only. No official plugin, marketplace, or auto-install."
+    },
+    {
+      "id": "copilot",
+      "title": "GitHub Copilot instructions kit",
+      "target": "github-copilot",
+      "status": "shipped",
+      "summary": "Copy-ready VCP instructions and PR Gate example for GitHub Copilot.",
+      "files": [
+        {"source": "templates/agent-kits/copilot/AGENTS.md", "recommended_destination": "AGENTS.md", "required": false},
+        {"source": "templates/agent-kits/copilot/copilot-instructions.md", "recommended_destination": ".github/copilot-instructions.md", "required": true},
+        {"source": "templates/agent-kits/copilot/PROJECT_CONTROL_CHARTER.md", "recommended_destination": "PROJECT_CONTROL_CHARTER.md", "required": false},
+        {"source": "templates/agent-kits/copilot/CHANGE_INTENT.md", "recommended_destination": "CHANGE_INTENT.md", "required": false},
+        {"source": "templates/agent-kits/copilot/PR_GATE.md", "recommended_destination": "PR_GATE.md", "required": false},
+        {"source": "templates/agent-kits/copilot/github-workflow-vcp-pr-gate.yml", "recommended_destination": ".github/workflows/vcp-pr-gate.yml", "required": false}
+      ],
+      "default_output": "./vcp-copilot-kit",
+      "safe_write_rules": {"requires_output": true, "requires_confirm": true, "overwrite_requires_force": true},
+      "commands": [
+        "python3 -m vcp_cli agents template --agent copilot --output ./.github/copilot-instructions.md --confirm",
+        "python3 -m vcp_cli agents kit --target copilot --json"
+      ],
+      "docs": "docs/integrations/agent-kits.md",
+      "docs_ru": "docs_ru/agent-kits.md",
+      "not_official_plugin": true,
+      "roadmap_boundary": "Local-first rules export only. No official plugin, marketplace, or auto-install."
+    },
+    {
+      "id": "github-actions",
+      "title": "GitHub Actions PR Gate kit",
+      "target": "github-actions",
+      "status": "shipped",
+      "summary": "Copy-ready workflow example and hand-off docs for GitHub Actions PR Gate usage.",
+      "files": [
+        {"source": "templates/agent-kits/github-actions/vcp-pr-gate.yml", "recommended_destination": ".github/workflows/vcp-pr-gate.yml", "required": true},
+        {"source": "templates/agent-kits/github-actions/PR_GATE.md", "recommended_destination": "PR_GATE.md", "required": false},
+        {"source": "templates/agent-kits/github-actions/LAUNCH_DECISION.md", "recommended_destination": "LAUNCH_DECISION.md", "required": false}
+      ],
+      "default_output": "./vcp-github-actions-kit",
+      "safe_write_rules": {"requires_output": true, "requires_confirm": true, "overwrite_requires_force": true},
+      "commands": [
+        "python3 -m vcp_cli agents kit --target github-actions --json"
+      ],
+      "docs": "docs/integrations/agent-kits.md",
+      "docs_ru": "docs_ru/agent-kits.md",
+      "not_official_plugin": true,
+      "roadmap_boundary": "Workflow example only. No marketplace action, hosted sync, or native GitHub governance."
+    }
+  ]
+}

@@ -8,7 +8,8 @@ Use this page when you want to adopt VCP into another repository with:
 - GitHub Copilot;
 - GitHub Actions.
 
-This is a repository integration workflow, not an official plugin suite.
+This is a repository integration workflow, not an official plugin suite and not official plugin integration.
+If you want exact copy-ready bundles, continue with `docs/integrations/agent-kits.md`.
 
 ## Shared pattern
 
@@ -122,3 +123,13 @@ If the target repository is not a production repo, replace the route profile wit
 - not automatic PR creation;
 - not automatic merge/deploy approval;
 - not native slash-command support unless the tool actually supports it.
+
+## Copy-ready kit discovery
+
+```bash
+python3 -m vcp_cli agents kit --target claude --json
+python3 -m vcp_cli agents kit --target codex --json
+python3 -m vcp_cli agents kit --target cursor --json
+python3 -m vcp_cli agents kit --target copilot --json
+python3 -m vcp_cli agents kit --target github-actions --json
+```

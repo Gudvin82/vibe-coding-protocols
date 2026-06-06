@@ -9,6 +9,7 @@
 - GitHub Actions.
 
 Это repository integration workflow, а не official plugin suite.
+Если нужны exact copy-ready bundles, переходите к `docs_ru/agent-kits.md`.
 
 ## Общий принцип
 
@@ -98,3 +99,13 @@ python3 -m vcp_cli check --fast --json
 - это не automatic PR creation;
 - это не automatic merge/deploy approval;
 - это не native slash-command support, если сам инструмент этого не умеет.
+
+## Discovery для copy-ready kits
+
+```bash
+python3 -m vcp_cli agents kit --target claude --json
+python3 -m vcp_cli agents kit --target codex --json
+python3 -m vcp_cli agents kit --target cursor --json
+python3 -m vcp_cli agents kit --target copilot --json
+python3 -m vcp_cli agents kit --target github-actions --json
+```

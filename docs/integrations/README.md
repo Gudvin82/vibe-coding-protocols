@@ -11,6 +11,7 @@ Current status:
 ## Guides
 
 - [setup-playbook.md](./setup-playbook.md)
+- [agent-kits.md](./agent-kits.md)
 - [claude-code.md](./claude-code.md)
 - [codex.md](./codex.md)
 - [cursor.md](./cursor.md)
@@ -38,3 +39,4 @@ Treat them as named workflows,
 not as proof of built-in IDE support.
 
 If you want the fastest practical installation path, start with [setup-playbook.md](./setup-playbook.md).
+If you want copy-ready kit exports and exact file-to-file adoption paths, continue with [agent-kits.md](./agent-kits.md).

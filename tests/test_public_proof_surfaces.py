@@ -13,11 +13,12 @@ class PublicProofSurfacesTests(unittest.TestCase):
         reports = json.loads((ROOT / '.vcp/manifests/reports.manifest.json').read_text(encoding='utf-8'))
         commands = json.loads((ROOT / '.vcp/manifests/commands.manifest.json').read_text(encoding='utf-8'))
         cards_count = len(list((ROOT / '.vcp/cards').rglob('*.json')))
+        tests_count = unittest.defaultTestLoader.discover(str(ROOT / 'tests')).countTestCases()
         required = [
             f"benchmark scenarios: `{len(bench['items'])}`",
             f"cards: `{cards_count}`",
             f"CLI commands in manifest: `{len(commands['items'])}`",
-            'tests: `107`',
+            f"tests: `{tests_count}`",
             f"report templates: `{len(reports['items'])}`",
             'trust-check: yes',
             'evaluator pack: yes',

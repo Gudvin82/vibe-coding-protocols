@@ -1,0 +1,27 @@
+{
+  "id": "copy-ready-setup",
+  "type": "concept",
+  "name": "Copy-Ready Setup",
+  "summary": "Small, explicit, local-first setup bundles for adopting VCP into practical AI coding tools.",
+  "use_when": ["you need the smallest safe adoption path for an AI coding tool"],
+  "do_not_use_when": ["you want to mirror the entire VCP repository into another repo"],
+  "risk_level": "low",
+  "domains": ["concept", "adoption"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "implementation"],
+    "ai_failure_modes": ["over-copying", "context bloat"],
+    "project_state": ["new-project", "existing-repo"],
+    "risk_categories": ["scope control", "token discipline"]
+  },
+  "entry_files": ["docs/integrations/setup-playbook.md"],
+  "related_files": ["docs/integrations/agent-kits.md", "START_HERE.md"],
+  "cli": ["python3 -m vcp_cli agents kit --target codex --json"],
+  "outputs": ["small adoption bundle"],
+  "stop_conditions": ["do not copy root AGENTS.md blindly"],
+  "validation": ["python3 scripts/check-readme-parity.py"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],
+  "badges": ["copy-ready"]
+}

@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 from .catalog_cmd import validate as validate_catalog
+from .agent_kits_cmd import validate_registry as validate_agent_kits_registry
 from .change_cmd import validate_change_intent_data
 from .charter_cmd import validate_charter_data
 from .integrations_cmd import ALLOWED_STATUSES as INTEGRATION_STATUSES, list_payload, packs_payload
@@ -411,6 +412,45 @@ def _solo_squad_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _agent_kits_check(root: Path) -> dict[str, Any]:
+    required = [
+        "docs/integrations/setup-playbook.md",
+        "docs_ru/integration-setup.md",
+        "docs/integrations/agent-kits.md",
+        "docs_ru/agent-kits.md",
+        ".vcp/agent-kits.json",
+        "templates/agents/COPILOT_INSTRUCTIONS.md",
+        "ci-examples/github-actions/vcp-pr-gate.yml",
+    ]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    for kit_id in ("claude", "codex", "cursor", "copilot", "github-actions"):
+        kit_dir = root / "templates" / "agent-kits" / kit_id
+        if not kit_dir.exists():
+            problems.append(f"missing kit folder templates/agent-kits/{kit_id}")
+            continue
+        if not (kit_dir / "README.md").exists():
+            problems.append(f"missing kit README for {kit_id}")
+    if not problems:
+        problems.extend(validate_agent_kits_registry(root))
+    for rel in (
+        "docs/integrations/agent-kits.md",
+        "docs/integrations/setup-playbook.md",
+        "docs_ru/agent-kits.md",
+        "docs_ru/integration-setup.md",
+        "README.md",
+        "README_ru.md",
+    ):
+        text = _text(root, rel)
+        if "not official plugin" not in text and "not official plugins" not in text and "не official plugin" not in text and "Это не official plugins" not in text:
+            problems.append(f"{rel} must state the not-official-plugin boundary")
+    return {
+        "id": "agent-kits",
+        "status": "pass" if not problems else "fail",
+        "summary": "Copy-ready AI tool agent kits, setup docs, safe export registry, and no-overclaim boundaries exist.",
+        "details": problems or ["Agent kit docs, templates, registry, and boundaries are present and valid."],
+    }
+
+
 def _v091_surface_check(root: Path) -> dict[str, Any]:
     required = [
         "PUBLIC_EVALUATION_KIT.md",
@@ -543,6 +583,7 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_ecosystem_map_check(root))
     checks.append(_rule_provenance_check(root))
     checks.append(_solo_squad_check(root))
+    checks.append(_agent_kits_check(root))
     checks.append(_v091_surface_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))

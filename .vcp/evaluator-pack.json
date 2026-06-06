@@ -34,7 +34,12 @@
     "docs/control-spine.md",
     "docs/first-time-adoption.md",
     "docs/flagship-demo.md",
-    "docs/public-evaluation-kit.md"
+    "docs/public-evaluation-kit.md",
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    "docs_ru/integration-setup.md",
+    "docs_ru/agent-kits.md",
+    ".vcp/agent-kits.json"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",
@@ -48,7 +53,9 @@
     "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json",
     "python3 -m vcp_cli profiles list --json",
     "python3 -m vcp_cli profiles show --id mini --json",
-    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json"
+    "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json",
+    "python3 -m vcp_cli agents template --agent copilot --json",
+    "python3 -m vcp_cli agents kit --target copilot --json"
   ],
   "inspection_depths": [
     "shallow",
@@ -127,10 +134,10 @@
   ],
   "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
   "proof_numbers": {
-    "benchmark_scenarios": 162,
-    "cards": 302,
-    "cli_commands_in_manifest": 76,
-    "tests": 107,
+    "benchmark_scenarios": 167,
+    "cards": 311,
+    "cli_commands_in_manifest": 77,
+    "tests": 118,
     "report_templates": 48,
     "visual_diagrams": 3,
     "russian_docs": true

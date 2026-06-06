@@ -80,7 +80,10 @@
     "docs/scope-boundary.md",
     "site/README.md",
     "examples/flagship-demo/README.md",
-    "templates/control-pack/README.md"
+    "templates/control-pack/README.md",
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    ".vcp/agent-kits.json"
   ],
   "minimum_raw_files": [
     "README.md",
@@ -98,7 +101,9 @@
     "START_HERE.md",
     "PUBLIC_EVALUATION_KIT.md",
     "docs/control-spine.md",
-    "docs/flagship-demo.md"
+    "docs/flagship-demo.md",
+    "docs/integrations/agent-kits.md",
+    ".vcp/agent-kits.json"
   ],
   "must_report": [
     "access_method",

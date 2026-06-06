@@ -34,11 +34,14 @@ VCP предназначен для использования рядом с AI 
 Для практического внедрения в другой репозиторий начните с:
 
 - `docs_ru/integration-setup.md`
+- `docs_ru/agent-kits.md`
 - `templates/AGENTS.claude.md`
 - `templates/agents/CODEX.md`
 - `templates/AGENTS.cursor.md`
 - `templates/agents/COPILOT_INSTRUCTIONS.md`
 - `ci-examples/github-actions/vcp-pr-gate.yml`
+
+Это не official plugins. Это local-first, copy-ready templates и export paths.
 
 ## Общие правила
 

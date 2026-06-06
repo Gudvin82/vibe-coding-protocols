@@ -29,6 +29,7 @@ required = [
     'docs_ru/trust-check.md',
     'docs_ru/ai-tooling.md',
     'docs_ru/integration-setup.md',
+    'docs_ru/agent-kits.md',
     'docs_ru/agent-model-routing.md',
     'docs_ru/evaluator-token-budget.md',
     'docs_ru/visuals.md',

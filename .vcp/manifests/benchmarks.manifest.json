@@ -2480,6 +2480,83 @@
         "do not overclaim hosted/cloud/autonomous functionality"
       ],
       "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "agent-kits",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/agent-kits.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/agent-kits.md",
+        ".vcp/agent-kits.json"
+      ],
+      "expected_warnings": [
+        "do not call the kits official plugins"
+      ],
+      "expected_first_action": "Inspect the kit registry and docs before making integration claims."
+    },
+    {
+      "id": "copilot-template-export",
+      "profile": "existing-repo",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/copilot-template-export.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "templates/agents/COPILOT_INSTRUCTIONS.md",
+        "docs/integrations/setup-playbook.md"
+      ],
+      "expected_warnings": [
+        "do not call the export path an official plugin"
+      ],
+      "expected_first_action": "Inspect the Copilot template and export path before broader claims."
+    },
+    {
+      "id": "github-actions-pr-gate-kit",
+      "profile": "production",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/github-actions-pr-gate-kit.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "templates/agent-kits/github-actions/vcp-pr-gate.yml",
+        "docs/pr-gate.md"
+      ],
+      "expected_warnings": [
+        "do not call the workflow a marketplace action"
+      ],
+      "expected_first_action": "Treat the workflow as a local example with explicit human review."
+    },
+    {
+      "id": "integration-setup-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/integration-setup-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/integrations/setup-playbook.md",
+        "docs/integrations/agent-kits.md",
+        "docs/scope-boundary.md"
+      ],
+      "expected_warnings": [
+        "do not claim native IDE integration"
+      ],
+      "expected_first_action": "Check the boundary language before any maturity claim."
+    },
+    {
+      "id": "copy-ready-setup-path",
+      "profile": "existing-repo",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/copy-ready-setup-path.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "README.md",
+        "START_HERE.md",
+        "docs/integrations/agent-kits.md"
+      ],
+      "expected_warnings": [
+        "do not copy the entire toolkit into the target repository"
+      ],
+      "expected_first_action": "Choose the smallest matching kit instead of broad copying."
     }
   ],
   "version": "v0.9.1",

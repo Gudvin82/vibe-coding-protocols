@@ -5,6 +5,9 @@
 - added a clearer product spine and control spine for first-contact understanding;
 - added first-time adoption guidance, adaptive rigor modes, and a tiny VCP pipeline;
 - added a flagship demo pack, portable control pack, work-package lifecycle, review-accept-merge, mission retrospective, delivery graph, and public evaluation kit surfaces;
+- added practical AI tool setup playbooks plus copy-ready agent kits for Claude Code, Codex, Cursor, GitHub Copilot, and GitHub Actions;
+- added the `vcp agents kit` read-only/safe-export flow and machine-readable `.vcp/agent-kits.json` registry;
+- made the no-official-plugin boundary explicit across README, AI-tooling docs, trust-check, and evaluation surfaces;
 - synced cards, benchmark scenarios, control catalog entries, README surfaces, and machine-readable manifests for the new product spine story.
 
 ## v0.9.0

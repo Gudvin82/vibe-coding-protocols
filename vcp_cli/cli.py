@@ -8,6 +8,7 @@ from pathlib import Path
 
 from . import adopt as adopt_cmd
 from . import agent_behavior_cmd
+from . import agent_kits_cmd
 from . import agent_templates_cmd
 from . import audit_plan as audit_plan_cmd
 from . import backlog as backlog_cmd
@@ -367,6 +368,13 @@ def build_parser() -> argparse.ArgumentParser:
     agents_template.add_argument("--output")
     agents_template.add_argument("--confirm", action="store_true")
     agents_template.add_argument("--json", action="store_true")
+    agents_kit = agents_sub.add_parser("kit")
+    agents_kit.add_argument("--target", required=True, choices=["claude", "codex", "cursor", "copilot", "github-actions"])
+    agents_kit.add_argument("--output")
+    agents_kit.add_argument("--confirm", action="store_true")
+    agents_kit.add_argument("--force", action="store_true")
+    agents_kit.add_argument("--dry-run", action="store_true")
+    agents_kit.add_argument("--json", action="store_true")
 
     agent_behavior_p = sub.add_parser("agent-behavior")
     agent_behavior_sub = agent_behavior_p.add_subparsers(dest="agent_behavior_command")
@@ -674,6 +682,15 @@ def main(argv: list[str] | None = None) -> int:
                 args.agent,
                 output=getattr(args, "output", None),
                 confirm=getattr(args, "confirm", False),
+                json_mode=getattr(args, "json", False),
+            )
+        if args.agents_command == "kit":
+            return agent_kits_cmd.run_kit(
+                args.target,
+                output=getattr(args, "output", None),
+                confirm=getattr(args, "confirm", False),
+                force=getattr(args, "force", False),
+                dry_run=getattr(args, "dry_run", False),
                 json_mode=getattr(args, "json", False),
             )
     if args.command == "agent-behavior":

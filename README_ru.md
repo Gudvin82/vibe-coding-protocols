@@ -113,10 +113,10 @@ Methodology: `v1.4`
 ## Proof surfaces
 
 Proof surfaces:
-- benchmark scenarios: `162`
-- cards: `302`
-- CLI commands in manifest: `76`
-- tests: `107`
+- benchmark scenarios: `167`
+- cards: `311`
+- CLI commands in manifest: `77`
+- tests: `118`
 - report templates: `48`
 - trust-check: yes
 - evaluator pack: yes
@@ -164,6 +164,17 @@ python3 -m vcp_cli evaluator pack --json
 
 ## Использование с AI tools
 
+Copy-ready настройка для AI-инструментов
+
+VCP включает практические setup kits для:
+- Claude Code
+- Codex
+- Cursor
+- GitHub Copilot
+- GitHub Actions
+
+Это не official plugins. Это local-first шаблоны, playbook и CLI export для внедрения VCP-контроля в реальные AI coding окружения.
+
 Используйте VCP вместе с:
 - Cursor;
 - Claude Code;
@@ -184,6 +195,7 @@ python3 -m vcp_cli evaluator pack --json
 - [docs_ru/proof-snapshot.md](./docs_ru/proof-snapshot.md)
 - [docs_ru/ai-tooling.md](./docs_ru/ai-tooling.md)
 - [docs_ru/integration-setup.md](./docs_ru/integration-setup.md)
+- [docs_ru/agent-kits.md](./docs_ru/agent-kits.md)
 - [docs_ru/evaluation-receipt.md](./docs_ru/evaluation-receipt.md)
 - [docs_ru/public-proof-demo.md](./docs_ru/public-proof-demo.md)
 - [docs_ru/community-and-adoption-status.md](./docs_ru/community-and-adoption-status.md)

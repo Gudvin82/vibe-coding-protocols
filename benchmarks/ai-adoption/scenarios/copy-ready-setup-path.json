@@ -1,0 +1,12 @@
+{
+  "scenario_id": "copy-ready-setup-path",
+  "target_profile": "existing-repo",
+  "target_signals": ["small adoption bundle", "exact copy paths"],
+  "required_files_to_inspect": [
+    "README.md",
+    "START_HERE.md",
+    "docs/integrations/agent-kits.md"
+  ],
+  "expected_first_safe_action": "Choose the smallest matching kit instead of copying the root toolkit blindly.",
+  "expected_warnings": ["do not copy the entire toolkit into the target repository"]
+}

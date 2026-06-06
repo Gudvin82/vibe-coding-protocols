@@ -56,3 +56,4 @@ Each platform page should tell you:
 If a page does not state official integration explicitly, assume the answer is no.
 
 For the fastest copy/paste setup path across Claude Code, Codex, Cursor, GitHub Copilot, and GitHub Actions, use [../integrations/setup-playbook.md](../integrations/setup-playbook.md).
+For copy-ready kit bundles and safe export paths, continue with [../integrations/agent-kits.md](../integrations/agent-kits.md).

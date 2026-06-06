@@ -132,10 +132,10 @@ See:
 ## Proof surfaces
 
 Proof surfaces:
-- benchmark scenarios: `162`
-- cards: `302`
-- CLI commands in manifest: `76`
-- tests: `107`
+- benchmark scenarios: `167`
+- cards: `311`
+- CLI commands in manifest: `77`
+- tests: `118`
 - report templates: `48`
 - trust-check: yes
 - evaluator pack: yes
@@ -193,6 +193,17 @@ After:
 
 ## Use with your AI tools
 
+Copy-ready AI tool setup
+
+VCP now includes practical setup kits for:
+- Claude Code
+- Codex
+- Cursor
+- GitHub Copilot
+- GitHub Actions
+
+These are not official plugins. They are local-first, copy-ready templates and CLI export paths for adopting VCP control rules into real AI coding environments.
+
 Use VCP alongside:
 - Cursor;
 - Claude Code;
@@ -213,6 +224,7 @@ Use `templates/AGENTS.md` or the agent templates that match your target environm
 See:
 - [docs/ai-tooling.md](./docs/ai-tooling.md)
 - [docs/integrations/setup-playbook.md](./docs/integrations/setup-playbook.md)
+- [docs/integrations/agent-kits.md](./docs/integrations/agent-kits.md)
 - [docs/comparisons.md](./docs/comparisons.md)
 - [docs/product-model.md](./docs/product-model.md)
 - [docs/killer-workflow.md](./docs/killer-workflow.md)

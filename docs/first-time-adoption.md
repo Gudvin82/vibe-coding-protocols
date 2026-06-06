@@ -20,6 +20,7 @@ Start:
 3. Choose a path: new / existing / MVP-to-Launch / launch / deep hardening
 4. Open the Control Catalog
 5. Run the flagship demo
+6. If you are adopting VCP into Claude Code, Codex, Cursor, GitHub Copilot, or GitHub Actions, use the copy-ready agent kits instead of copying random root files.
 
 ## What is required first
 
@@ -34,6 +35,8 @@ Recommended:
 - `docs/flagship-demo.md`
 - `docs/control-catalog.md`
 - `docs/adaptive-rigor-modes.md`
+- `docs/integrations/setup-playbook.md`
+- `docs/integrations/agent-kits.md`
 
 Optional:
 - dashboard artifact

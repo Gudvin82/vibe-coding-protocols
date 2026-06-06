@@ -34,11 +34,14 @@ VCP is meant to be used alongside AI coding agents, not as a claim of official i
 For practical adoption into another repository, start with:
 
 - `docs/integrations/setup-playbook.md`
+- `docs/integrations/agent-kits.md`
 - `templates/AGENTS.claude.md`
 - `templates/agents/CODEX.md`
 - `templates/AGENTS.cursor.md`
 - `templates/agents/COPILOT_INSTRUCTIONS.md`
 - `ci-examples/github-actions/vcp-pr-gate.yml`
+
+These are not official plugins. They are local-first, copy-ready templates and export paths.
 
 ## Generic guidance
 

@@ -1021,6 +1021,22 @@
       ],
       "output": "validation JSON",
       "validation": "tests/test_project_control_charter.py"
+    },
+    {
+      "id": "agents-kit",
+      "command_name": "vcp agents kit",
+      "file": "docs/integrations/agent-kits.md",
+      "route": "governance",
+      "inputs": [
+        "target id",
+        "optional output path",
+        "confirm/force/dry-run"
+      ],
+      "output": "copy-ready kit registry or safe exported kit directory",
+      "validation": [
+        "python3 -m vcp_cli agents kit --target claude --json",
+        "python3 -m vcp_cli agents kit --target copilot --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [

@@ -1,0 +1,27 @@
+{
+  "id": "codex-kit",
+  "type": "platform",
+  "name": "Codex Kit",
+  "summary": "Copy-ready Codex adoption kit for VCP.",
+  "use_when": ["Codex is the active repository coding tool"],
+  "do_not_use_when": ["official plugin support is required"],
+  "risk_level": "low",
+  "domains": ["platform-compatibility", "ai-tooling"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "implementation", "review"],
+    "ai_failure_modes": ["overclaim", "unsafe rewrite"],
+    "project_state": ["new-project", "existing-repo"],
+    "risk_categories": ["adoption scope", "rules drift"]
+  },
+  "entry_files": ["docs/integrations/agent-kits.md", "templates/agent-kits/codex/README.md"],
+  "related_files": ["templates/agent-kits/codex/CODEX.md", ".vcp/agent-kits.json"],
+  "cli": ["python3 -m vcp_cli agents kit --target codex --json"],
+  "outputs": ["Codex setup bundle"],
+  "stop_conditions": ["do not call this an official plugin"],
+  "validation": ["python3 -m vcp_cli agents kit --target codex --json"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["codex-cli"],
+  "badges": ["kit"]
+}

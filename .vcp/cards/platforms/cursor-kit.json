@@ -1,0 +1,27 @@
+{
+  "id": "cursor-kit",
+  "type": "platform",
+  "name": "Cursor Kit",
+  "summary": "Copy-ready Cursor adoption kit for VCP.",
+  "use_when": ["Cursor is the active repository coding tool"],
+  "do_not_use_when": ["official plugin support is required"],
+  "risk_level": "low",
+  "domains": ["platform-compatibility", "ai-tooling"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "implementation", "review"],
+    "ai_failure_modes": ["composer drift", "unclear changed-files plan"],
+    "project_state": ["new-project", "existing-repo"],
+    "risk_categories": ["adoption scope", "rules drift"]
+  },
+  "entry_files": ["docs/integrations/agent-kits.md", "templates/agent-kits/cursor/README.md"],
+  "related_files": ["templates/agent-kits/cursor/CURSOR_RULES.md", ".vcp/agent-kits.json"],
+  "cli": ["python3 -m vcp_cli agents kit --target cursor --json"],
+  "outputs": ["Cursor setup bundle"],
+  "stop_conditions": ["do not call this an official plugin"],
+  "validation": ["python3 -m vcp_cli agents kit --target cursor --json"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["cursor"],
+  "badges": ["kit"]
+}

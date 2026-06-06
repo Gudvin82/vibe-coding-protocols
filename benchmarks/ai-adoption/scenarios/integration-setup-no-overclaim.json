@@ -1,0 +1,12 @@
+{
+  "scenario_id": "integration-setup-no-overclaim",
+  "target_profile": "repository-evaluation",
+  "target_signals": ["boundary honesty", "setup docs"],
+  "required_files_to_inspect": [
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    "docs/scope-boundary.md"
+  ],
+  "expected_first_safe_action": "Check whether the setup docs clearly reject official plugin and native integration overclaims.",
+  "expected_warnings": ["do not claim native IDE integration"]
+}

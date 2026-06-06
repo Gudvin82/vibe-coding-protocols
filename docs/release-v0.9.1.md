@@ -20,6 +20,11 @@ Included:
 - product/docs site source scaffold RU/EN;
 - trust-check coverage for new surfaces;
 - Russian docs parity.
+- practical AI tool integration/adoption layer;
+- copy-ready agent kits for Claude Code, Codex, Cursor, GitHub Copilot, and GitHub Actions;
+- `vcp agents kit` safe export flow;
+- machine-readable `.vcp/agent-kits.json` registry;
+- explicit no-official-plugin boundary for setup kits.
 
 Not included:
 - hosted dashboard;

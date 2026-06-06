@@ -20,7 +20,12 @@ VCP — локальный слой контроля для AI-built проек�
 3. Выберите путь: new / existing / MVP-to-Launch / launch / deep hardening
 4. Откройте Control Catalog
 5. Запустите flagship demo
+6. Если вы внедряете VCP в Claude Code, Codex, Cursor, GitHub Copilot или GitHub Actions, используйте copy-ready agent kits, а не случайное копирование root-файлов.
 
 ## Не начинайте с полного чтения
 
 Не начинайте с чтения всего репозитория. Сначала используйте route selector, control catalog и token-budgeted evaluator path.
+
+Рекомендуемые next steps:
+- `docs_ru/integration-setup.md`
+- `docs_ru/agent-kits.md`

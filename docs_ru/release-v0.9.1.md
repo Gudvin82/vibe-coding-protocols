@@ -20,3 +20,8 @@ Included:
 - локальный site scaffold RU/EN;
 - trust-check coverage;
 - Russian docs parity.
+- practical AI tool integration/adoption layer;
+- copy-ready agent kits для Claude Code, Codex, Cursor, GitHub Copilot и GitHub Actions;
+- safe export flow `vcp agents kit`;
+- machine-readable registry `.vcp/agent-kits.json`;
+- явная boundary: это не official plugin suite.

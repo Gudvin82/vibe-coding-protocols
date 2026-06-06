@@ -7,10 +7,10 @@ Repository package: `v0.9.1`
 Methodology: `v1.4`
 
 Proof surfaces:
-- benchmark scenarios: `162`
-- cards: `302`
-- CLI commands in manifest: `76`
-- tests: `107`
+- benchmark scenarios: `167`
+- cards: `311`
+- CLI commands in manifest: `77`
+- tests: `118`
 - report templates: `48`
 - trust-check: yes
 - evaluator pack: yes

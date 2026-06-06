@@ -1,0 +1,27 @@
+{
+  "id": "not-official-plugin-boundary",
+  "type": "concept",
+  "name": "Not Official Plugin Boundary",
+  "summary": "Explicit guardrail that VCP setup kits are not official plugins, extensions, marketplaces, or native vendor integrations.",
+  "use_when": ["documentation or evaluation risks overstating integration maturity"],
+  "do_not_use_when": ["an official plugin really exists and is shipped in the repository"],
+  "risk_level": "medium",
+  "domains": ["concept", "trust", "boundaries"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "review", "release"],
+    "ai_failure_modes": ["marketplace overclaim", "native integration overclaim"],
+    "project_state": ["repository-evaluation", "existing-repo"],
+    "risk_categories": ["trust", "scope honesty"]
+  },
+  "entry_files": ["docs/scope-boundary.md", "docs/integrations/agent-kits.md"],
+  "related_files": ["docs_ru/scope-boundary.md", "README.md", "README_ru.md"],
+  "cli": ["python3 -m vcp_cli trust-check --json"],
+  "outputs": ["safe wording boundary"],
+  "stop_conditions": ["do not call copy-ready kits official plugins"],
+  "validation": ["python3 scripts/check-roadmap-overclaim.py"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],
+  "badges": ["boundary", "trust"]
+}

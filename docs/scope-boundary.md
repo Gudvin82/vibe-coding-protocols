@@ -18,5 +18,7 @@ VCP does not own:
 - deployment
 - cloud orchestration
 - IDE marketplace
+- official plugin suite
+- native IDE integration
 - autonomous agent execution
 - production certification

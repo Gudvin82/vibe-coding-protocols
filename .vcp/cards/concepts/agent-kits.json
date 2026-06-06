@@ -1,0 +1,32 @@
+{
+  "id": "agent-kits",
+  "type": "concept",
+  "name": "Agent Kits",
+  "summary": "Machine-readable registry and copy-ready folders for Claude, Codex, Cursor, GitHub Copilot, and GitHub Actions adoption.",
+  "use_when": [
+    "you need exact file-to-file adoption paths",
+    "you want a safe export bundle instead of ad-hoc copying"
+  ],
+  "do_not_use_when": [
+    "you need auto-install into the target repository root"
+  ],
+  "risk_level": "low",
+  "domains": ["concept", "registry", "adoption"],
+  "maps_to": {
+    "sdlc_phase": ["intake", "implementation"],
+    "ai_failure_modes": ["random root file copying", "unsafe overwrite"],
+    "project_state": ["new-project", "existing-repo"],
+    "risk_categories": ["safe write", "adoption clarity"]
+  },
+  "entry_files": ["docs/integrations/agent-kits.md", ".vcp/agent-kits.json"],
+  "related_files": ["templates/agent-kits/claude/README.md", "templates/agent-kits/copilot/README.md"],
+  "cli": ["python3 -m vcp_cli agents kit --target claude --json"],
+  "outputs": ["kit registry", "safe export plan"],
+  "stop_conditions": ["do not overwrite existing files without force"],
+  "validation": ["python3 -m unittest discover -s tests"],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],
+  "badges": ["registry", "kit"]
+}

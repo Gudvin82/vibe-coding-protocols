@@ -114,7 +114,12 @@
     "docs/product-spine.md",
     "docs/control-spine.md",
     "docs/first-time-adoption.md",
-    "docs/flagship-demo.md"
+    "docs/flagship-demo.md",
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    "docs_ru/integration-setup.md",
+    "docs_ru/agent-kits.md",
+    ".vcp/agent-kits.json"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -246,7 +251,11 @@
     "docs/mission-retrospective.md",
     "docs/delivery-graph.md",
     "docs/public-evaluation-kit.md",
-    "docs/scope-boundary.md"
+    "docs/scope-boundary.md",
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    "docs_ru/integration-setup.md",
+    "docs_ru/agent-kits.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",

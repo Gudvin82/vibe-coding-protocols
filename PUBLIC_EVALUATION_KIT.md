@@ -13,6 +13,7 @@ Required files:
 - `START_HERE.md`
 - `EVALUATE_THIS_REPO.md`
 - `.vcp/evaluator-pack.json`
+- `docs/integrations/agent-kits.md`
 - `docs/proof-snapshot.md`
 - `docs/control-spine.md`
 - `docs/flagship-demo.md`
@@ -32,3 +33,5 @@ Rubric:
 - CLI/tooling
 - adoption value
 - limitations
+
+Do not call the AI-tooling layer an official plugin suite unless the repository explicitly ships one.

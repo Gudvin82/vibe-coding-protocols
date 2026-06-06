@@ -28,6 +28,12 @@ class IntegrationSetupDocsTests(unittest.TestCase):
         for needle in ('Claude Code', 'Codex', 'Cursor', 'GitHub Copilot', 'GitHub Actions'):
             self.assertIn(needle, text)
 
+    def test_agent_kit_docs_state_boundary(self) -> None:
+        en = (ROOT / 'docs' / 'integrations' / 'agent-kits.md').read_text(encoding='utf-8')
+        ru = (ROOT / 'docs_ru' / 'agent-kits.md').read_text(encoding='utf-8')
+        self.assertIn('not official plugins', en)
+        self.assertIn('Это не official plugins', ru)
+
 
 if __name__ == '__main__':
     unittest.main()

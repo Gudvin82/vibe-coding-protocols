@@ -51,6 +51,7 @@ npm run vcp -- evaluate
 | I want the fastest end-to-end walkthrough | [docs/flagship-demo.md](./docs/flagship-demo.md) |
 | I need to know which surfaces matter first | [docs/surface-priority-model.md](./docs/surface-priority-model.md) |
 | I need a copyable local governance starter | [docs/portable-control-pack.md](./docs/portable-control-pack.md) |
+| I need copy-ready AI tool setup kits | [docs/integrations/agent-kits.md](./docs/integrations/agent-kits.md) |
 | I need the work unit / review / release chain | [docs/work-package-lifecycle.md](./docs/work-package-lifecycle.md) |
 | I am evaluating VCP itself | [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md) |
 | I want the classic route chooser | [AI_INTAKE.md](./AI_INTAKE.md) |
@@ -69,6 +70,8 @@ Recommended next:
 - `docs/control-catalog.md`
 - `docs/adaptive-rigor-modes.md`
 - `PUBLIC_EVALUATION_KIT.md`
+- `docs/integrations/setup-playbook.md`
+- `docs/integrations/agent-kits.md`
 
 When you adopt VCP into another repo, do not copy root `AGENTS.md` blindly.
 Prefer `templates/AGENTS.md` or the more specific agent templates first.

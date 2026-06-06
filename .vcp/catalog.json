@@ -194,7 +194,11 @@
     "docs_ru/delivery-graph.md",
     "docs_ru/public-evaluation-kit.md",
     "docs_ru/scope-boundary.md",
-    "PUBLIC_EVALUATION_KIT.md"
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/integrations/setup-playbook.md",
+    "docs/integrations/agent-kits.md",
+    "docs_ru/integration-setup.md",
+    "docs_ru/agent-kits.md"
   ],
   "integration_status_labels": [
     "shipped",
@@ -222,6 +226,9 @@
     ".vcp/surface-priority-model.json",
     ".vcp/work-packages/example.json",
     ".vcp/review-accept-merge.example.json",
-    ".vcp/delivery-graph.example.json"
+    ".vcp/delivery-graph.example.json",
+    ".vcp/agent-kits.json",
+    "templates/agent-kits/copilot/copilot-instructions.md",
+    "templates/agent-kits/github-actions/vcp-pr-gate.yml"
   ]
 }
