@@ -52,7 +52,7 @@
   "validation": [
     "python3 -m vcp_cli benchmark run --scenario first-impression-audit"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

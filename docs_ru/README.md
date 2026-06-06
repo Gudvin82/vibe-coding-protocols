@@ -1,6 +1,6 @@
 # VCP на русском
 
-Текущий пакет репозитория: `v0.9.1`
+Текущий пакет репозитория: `v0.9.2`
 Методологический слой: `v1.4`
 
 `docs_ru/README.md` — это guided русскоязычный слой, а не замена полного репозитория.
@@ -70,3 +70,20 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 3. Откройте `docs/control-spine.md`
 4. Откройте `docs/first-time-adoption.md`
 5. Для внешней оценки откройте `PUBLIC_EVALUATION_KIT.md`
+
+## Если вы внедряете VCP для client/team adoption
+
+Начните с трех entry files:
+- `START_HERE.md`
+- `docs/client-adoption-playbook.md`
+- `docs/integrations/agent-kits.md`
+
+
+## Дополнительные client/team adoption surfaces
+
+- `docs/consulting-offers.md`
+- `docs/client-discovery.md`
+- `docs/technical-intake-workshop.md`
+- `docs/track-selection-for-clients.md`
+- `docs/customer-repo-scaffold.md`
+- `docs/executive-reporting.md`

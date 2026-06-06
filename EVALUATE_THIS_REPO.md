@@ -53,6 +53,10 @@ Inspect at least:
 - `docs/community-and-adoption-status.md`
 - `docs/license.md`
 - `docs/presentations.md`
+- `docs/client-adoption-playbook.md`
+- `docs/consulting-offers.md`
+- `docs/customer-repo-scaffold.md`
+- `docs/executive-reporting.md`
 - `.vcp/index.json`
 - `.vcp/catalog.json`
 - `.vcp/evaluator-pack.json`
@@ -144,10 +148,21 @@ Use these proof surfaces in the first 2 minutes:
 - `docs/community-and-adoption-status.md`
 - `templates/reports/external-evaluation.md`
 
-## Key additions for v0.9.0
+## Earlier evaluator/proof additions
 
 - `docs/evaluation-receipt.md`
 - `docs/public-proof-demo.md`
 - `docs/community-and-adoption-status.md`
 - `docs/license.md`
 - `docs/presentations.md`
+- `docs/client-adoption-playbook.md`
+- `docs/consulting-offers.md`
+- `docs/customer-repo-scaffold.md`
+- `docs/executive-reporting.md`
+
+## Key additions for v0.9.2
+
+- `docs/client-adoption-playbook.md`
+- `docs/consulting-offers.md`
+- `docs/customer-repo-scaffold.md`
+- `docs/executive-reporting.md`

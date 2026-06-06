@@ -53,7 +53,7 @@
   "validation": [
     "bash scripts/vibe-check.sh --hardening"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "stable",
   "recommended": false,
   "platforms": [

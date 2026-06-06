@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "title": "VCP Control Catalog",
   "statuses": [
     "shipped",
@@ -227,7 +227,7 @@
       ],
       "docs": "docs/roadmap/vscode-extension.md",
       "docs_ru": "docs_ru/README.md",
-      "roadmap_boundary": "No official VS Code extension ships in v0.9.1."
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.2."
     },
     {
       "id": "product-spine",
@@ -557,7 +557,7 @@
         "public-evaluation-kit"
       ],
       "docs": "docs/docs-site.md",
-      "docs_ru": "docs_ru/release-v0.9.1.md"
+      "docs_ru": "docs_ru/release-v0.9.2.md"
     },
     {
       "id": "agent-kits",
@@ -582,6 +582,38 @@
       ],
       "docs": "docs/integrations/agent-kits.md",
       "docs_ru": "docs_ru/agent-kits.md"
+    },
+    {
+      "id": "client-adoption-rollout",
+      "title": "Client adoption rollout playbook",
+      "category": "adoption",
+      "status": "shipped",
+      "summary": "Client/team rollout guidance with a definition of success, canonical flow, adoption offers, and local-first boundaries.",
+      "primary_files": [
+        "docs/client-adoption-playbook.md",
+        "docs/consulting-offers.md",
+        "docs/customer-repo-scaffold.md",
+        "docs/executive-reporting.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json",
+        "python3 -m vcp_cli onboard --json",
+        "python3 -m vcp_cli agents kit --target copilot --json"
+      ],
+      "when_to_use": [
+        "when rolling VCP out with a real team or client",
+        "when converting repo-local guidance into a pilot or governance rollout story"
+      ],
+      "not_for": [
+        "hosted governance overclaim",
+        "compliance certification claims",
+        "telemetry or automatic monitoring claims"
+      ],
+      "related_entries": [
+        "agent-kits"
+      ],
+      "docs": "docs/client-adoption-playbook.md",
+      "docs_ru": "docs_ru/client-adoption-playbook.md"
     }
   ]
 }

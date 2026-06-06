@@ -1,9 +1,9 @@
 # Versioning
 
-- Repository package `v0.9.1` — the current GitHub toolkit release: local CLI, npm wrapper, manifests, cards, benchmarks, tests, examples, CI, and docs.
+- Repository package `v0.9.2` — the current GitHub toolkit release: local CLI, npm wrapper, manifests, cards, benchmarks, tests, examples, CI, and docs.
 - Stable methodology reference `v1.4` — the internal methodology layer used across versions.
 
-Current repository package: `v0.9.1`.
+Current repository package: `v0.9.2`.
 
-When citing the current GitHub release, use `Vibe Coding Protocols v0.9.1`.
+When citing the current GitHub release, use `Vibe Coding Protocols v0.9.2`.
 Do not present methodology version `v1.4` as the current repository release.

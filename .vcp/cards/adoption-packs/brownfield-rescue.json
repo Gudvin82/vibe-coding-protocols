@@ -60,7 +60,7 @@
   "validation": [
     "python3 -m vcp_cli release-check --json"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

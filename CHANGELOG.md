@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.9.2
+
+- turned VCP from a repo/toolkit entrypoint into a client-ready AI governance rollout method;
+- added the Client Adoption Playbook with a definition of success, canonical 8-step client flow, and three client/team entry files;
+- added VCP-Audit / VCP-Pilot / VCP-Scale consulting/adoption packaging guidance;
+- added client discovery, technical intake, track-selection-for-clients, customer repo scaffold, and executive reporting docs in English and Russian;
+- synced README, START_HERE, evaluator surfaces, machine-readable indexes, and release narrative for client/team adoption;
+- preserved the no-hosted-platform, no-compliance-certification, no-telemetry, and no-automatic-monitoring boundary;
+
 ## v0.9.1
 
 - added a clearer product spine and control spine for first-contact understanding;

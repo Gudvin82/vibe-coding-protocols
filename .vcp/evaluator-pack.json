@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -39,7 +39,15 @@
     "docs/integrations/agent-kits.md",
     "docs_ru/integration-setup.md",
     "docs_ru/agent-kits.md",
-    ".vcp/agent-kits.json"
+    ".vcp/agent-kits.json",
+    "docs/client-adoption-playbook.md",
+    "docs/consulting-offers.md",
+    "docs/customer-repo-scaffold.md",
+    "docs/executive-reporting.md",
+    "docs_ru/client-adoption-playbook.md",
+    "docs_ru/consulting-offers.md",
+    "docs_ru/customer-repo-scaffold.md",
+    "docs_ru/executive-reporting.md"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",

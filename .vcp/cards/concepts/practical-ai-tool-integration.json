@@ -24,7 +24,7 @@
   "outputs": ["copy-ready setup path", "safe exportable kit map"],
   "stop_conditions": ["do not call the kits official plugins or native integrations"],
   "validation": ["python3 -m vcp_cli trust-check --json"],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],

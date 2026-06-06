@@ -1,7 +1,7 @@
 # Repo Capabilities Index
 
 This is the compact capability map for VCP practical adoption.
-Name the current GitHub repository release as `Vibe Coding Protocols v0.9.1`.
+Name the current GitHub repository release as `Vibe Coding Protocols v0.9.2`.
 
 | Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|
@@ -24,4 +24,5 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.9.1`.
 | Launch decision aid | `docs/launch-decision-checklist.md`, `templates/reports/launch-decision.md`, `docs/pr-gate-approval-model.md` | that local launch review equals production certification |
 | Plugin contract draft | `docs/plugins/plugin-contract-draft.md`, `docs/plugins/plugin-safety.md`, `examples/plugins/example-readiness-check.plugin.json` | stable official plugin API or remote plugin execution |
 | Version semantics | `docs/version-semantics.md`, `vcp_cli/version.py`, `README.md` | that methodology layer equals the repo release |
+| Client adoption rollout | `docs/client-adoption-playbook.md`, `docs/consulting-offers.md`, `docs/customer-repo-scaffold.md`, `docs/executive-reporting.md` | that VCP is only a repo-local toolkit with no team/client rollout method |
 | Unit-tested CLI logic | `tests/`, `python3 -m unittest discover -s tests` | that CLI logic is only smoke-tested |

@@ -1,6 +1,6 @@
 # Project Map
 
-- Current repository package: `v0.9.1`
+- Current repository package: `v0.9.2`
 - Methodology version: `v1.4`
 - Main routing surfaces: `AGENTS.md`, `TAKE_THIS_FIRST.md`, `FULL_REPO_INTAKE.md`, `.vcp/index.json`
 - Core tracks: New Project Track, Existing Project Track

@@ -17,7 +17,7 @@ class SoloSquadPathTests(unittest.TestCase):
         self.assertIn('human-led', text)
         self.assertIn('does not claim autonomous orchestration', text)
         payload = json.loads((ROOT / '.vcp/workflows/ai-augmented-solo-squad.json').read_text(encoding='utf-8'))
-        self.assertEqual(payload['version'], 'v0.9.1')
+        self.assertEqual(payload['version'], 'v0.9.2')
 
 
 if __name__ == '__main__':

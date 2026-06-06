@@ -2,7 +2,7 @@
 
 [English version](./README.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.9.1-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.9.2-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -16,10 +16,10 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
-> Текущий пакет репозитория: `v0.9.1`  
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.1`.
+> Текущий пакет репозитория: `v0.9.2`  
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.2`.
 
-Repository package: `v0.9.1`
+Repository package: `v0.9.2`
 
 VCP — это local-first AI control platform для AI-built и AI-assisted проектов.
 
@@ -70,15 +70,17 @@ Methodology: `v1.4`
 - не заменяет Spec Kit;
 - не является personal prompt repository.
 
-## Новое в v0.9.1
+## Новое в v0.9.2
 
-`v0.9.1` добавляет более ясный product spine и first-time adoption layer:
-- product spine и control spine;
-- first-time adoption и чистый route selector;
-- adaptive rigor modes и tiny VCP pipeline;
-- flagship demo и public evaluation kit;
-- portable control pack;
-- work package, review-accept-merge, mission retrospective и delivery graph surfaces.
+`v0.9.2` превращает VCP из repo/toolkit в client-ready AI governance rollout method.
+
+Добавлено:
+- Client Adoption Playbook;
+- definition of success для teams and clients;
+- canonical 8-step client flow;
+- VCP-Audit / VCP-Pilot / VCP-Scale framing;
+- customer repo scaffold и executive reporting guidance;
+- client/team adoption entry surfaces, синхронизированные с copy-ready agent kits.
 
 ## Platform Surfaces
 
@@ -174,6 +176,23 @@ VCP включает практические setup kits для:
 - GitHub Actions
 
 Это не official plugins. Это local-first шаблоны, playbook и CLI export для внедрения VCP-контроля в реальные AI coding окружения.
+
+## For teams and clients
+
+Если вы хотите внедрять VCP с реальной командой или клиентом, начните здесь:
+- [Start Here](./START_HERE.md)
+- [Client Adoption Playbook](./docs/client-adoption-playbook.md)
+- [Agent Kits](./docs/integrations/agent-kits.md)
+- [Consulting Offers](./docs/consulting-offers.md)
+- [Customer Repo Scaffold](./docs/customer-repo-scaffold.md)
+- [Executive Reporting](./docs/executive-reporting.md)
+
+Используйте для:
+- VCP-Audit: быстрый аудит AI-разработки и рисков;
+- VCP-Pilot: пилот на одной команде;
+- VCP-Scale: масштабирование AI-governance на несколько команд.
+
+Это не hosted compliance platform. Это local-first operating model, шаблоны, CLI-проверки, agent kits, proof artifacts и rollout reports.
 
 Используйте VCP вместе с:
 - Cursor;

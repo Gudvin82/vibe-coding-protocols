@@ -451,7 +451,54 @@ def _agent_kits_check(root: Path) -> dict[str, Any]:
     }
 
 
-def _v091_surface_check(root: Path) -> dict[str, Any]:
+def _client_adoption_rollout_check(root: Path) -> dict[str, Any]:
+    required = [
+        "START_HERE.md",
+        "docs/client-adoption-playbook.md",
+        "docs/consulting-offers.md",
+        "docs/client-discovery.md",
+        "docs/technical-intake-workshop.md",
+        "docs/track-selection-for-clients.md",
+        "docs/customer-repo-scaffold.md",
+        "docs/executive-reporting.md",
+        "docs_ru/client-adoption-playbook.md",
+        "docs_ru/consulting-offers.md",
+        "docs_ru/client-discovery.md",
+        "docs_ru/technical-intake-workshop.md",
+        "docs_ru/track-selection-for-clients.md",
+        "docs_ru/customer-repo-scaffold.md",
+        "docs_ru/executive-reporting.md",
+    ]
+    problems = [f"missing {rel}" for rel in required if not (root / rel).exists()]
+    if not problems:
+        playbook = _text(root, "docs/client-adoption-playbook.md")
+        offers = _text(root, "docs/consulting-offers.md")
+        start_here = _text(root, "START_HERE.md")
+        for needle in (
+            "Definition of success",
+            "8-step flow",
+            "START_HERE.md",
+            "docs/client-adoption-playbook.md",
+            "docs/integrations/agent-kits.md",
+        ):
+            if needle not in playbook:
+                problems.append(f"docs/client-adoption-playbook.md missing {needle}")
+        for needle in ("VCP-Audit", "VCP-Pilot", "VCP-Scale"):
+            if needle not in offers:
+                problems.append(f"docs/consulting-offers.md missing {needle}")
+            if needle not in _text(root, "README.md"):
+                problems.append(f"README.md missing {needle}")
+        if "I want to roll out VCP with a team/client" not in start_here:
+            problems.append("START_HERE.md missing client/team rollout route")
+    return {
+        "id": "client-adoption-rollout",
+        "status": "pass" if not problems else "fail",
+        "summary": "Client/team adoption playbook, rollout offers, entry files, and supporting delivery surfaces exist.",
+        "details": problems or ["Client/team adoption rollout surfaces are present and coherent."],
+    }
+
+
+def _v092_surface_check(root: Path) -> dict[str, Any]:
     required = [
         "PUBLIC_EVALUATION_KIT.md",
         "docs/product-spine.md",
@@ -497,8 +544,8 @@ def _v091_surface_check(root: Path) -> dict[str, Any]:
     return {
         "id": "v091-product-spine",
         "status": status,
-        "summary": "v0.9.1 product spine, first-time adoption, portable control, and flagship demo surfaces exist.",
-        "details": [f"missing {rel}" for rel in missing] or ["v0.9.1 product-spine surfaces are present."],
+        "summary": "v0.9.2 product spine, first-time adoption, portable control, and flagship demo surfaces exist.",
+        "details": [f"missing {rel}" for rel in missing] or ["v0.9.2 product-spine surfaces are present."],
     }
 
 
@@ -584,7 +631,8 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_rule_provenance_check(root))
     checks.append(_solo_squad_check(root))
     checks.append(_agent_kits_check(root))
-    checks.append(_v091_surface_check(root))
+    checks.append(_client_adoption_rollout_check(root))
+    checks.append(_v092_surface_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

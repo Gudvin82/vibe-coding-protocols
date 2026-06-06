@@ -42,7 +42,7 @@ required = [
     'docs_ru/ecosystem-map.md',
     'docs_ru/agent-rule-provenance.md',
     'docs_ru/ai-augmented-solo-squad-path.md',
-    'docs_ru/release-v0.9.1.md',
+    'docs_ru/release-v0.9.2.md',
 ]
 issues = []
 for rel in required:
@@ -51,7 +51,7 @@ for rel in required:
         issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.1.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.2.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
     if rel == 'docs_ru/README.md':
         for needle in (

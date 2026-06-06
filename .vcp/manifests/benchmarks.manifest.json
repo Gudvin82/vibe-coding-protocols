@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.9.1.md"
+        "docs/release-v0.9.2.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2442,7 +2442,7 @@
       "required_inspected_files": [
         "docs/scope-boundary.md",
         "docs/control-spine.md",
-        "docs/release-v0.9.1.md"
+        "docs/release-v0.9.2.md"
       ],
       "expected_warnings": [
         "do not overclaim hosted/cloud/autonomous functionality"
@@ -2472,7 +2472,7 @@
       "expected_route": null,
       "expected_pack": null,
       "required_inspected_files": [
-        "docs/release-v0.9.1.md",
+        "docs/release-v0.9.2.md",
         "docs/scope-boundary.md",
         "docs/public-evaluation-kit.md"
       ],
@@ -2559,7 +2559,7 @@
       "expected_first_action": "Choose the smallest matching kit instead of broad copying."
     }
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "files": [
     "benchmarks/ai-adoption/scenarios/control-catalog.json",
     "benchmarks/ai-adoption/scenarios/change-intent.json",

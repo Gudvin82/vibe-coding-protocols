@@ -51,7 +51,7 @@
   "validation": [
     "python3 -m vcp_cli adopt apply --pack brownfield-rescue --target /tmp/vcp-adopt-test --dry-run --json"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

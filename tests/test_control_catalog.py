@@ -19,7 +19,7 @@ class ControlCatalogTests(unittest.TestCase):
 
     def test_catalog_payload(self) -> None:
         payload = catalog_cmd.list_payload(ROOT)
-        self.assertEqual(payload['version'], 'v0.9.1')
+        self.assertEqual(payload['version'], 'v0.9.2')
         self.assertGreaterEqual(payload['count'], 5)
 
     def test_catalog_explain_payload(self) -> None:

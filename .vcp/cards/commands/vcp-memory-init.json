@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli memory validate .vcp/project-memory.example.json --json"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

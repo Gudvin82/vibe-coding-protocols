@@ -576,7 +576,7 @@
     "docs/review-accept-merge.md",
     "docs/mission-retrospective.md"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "files": [
     "templates/reports/change-intent.md",
     "templates/project-control-charter.md",

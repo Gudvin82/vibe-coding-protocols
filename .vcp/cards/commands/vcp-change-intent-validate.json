@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
   ],
-  "version": "v0.9.1",
+  "version": "v0.9.2",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [
