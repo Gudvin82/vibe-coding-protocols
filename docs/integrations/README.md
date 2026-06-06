@@ -10,6 +10,7 @@ Current status:
 
 ## Guides
 
+- [setup-playbook.md](./setup-playbook.md)
 - [claude-code.md](./claude-code.md)
 - [codex.md](./codex.md)
 - [cursor.md](./cursor.md)
@@ -35,3 +36,5 @@ VCP command names such as `/care-refactoring` and `/ui-refactoring`
 are documentation conventions unless your IDE supports native slash commands.
 Treat them as named workflows,
 not as proof of built-in IDE support.
+
+If you want the fastest practical installation path, start with [setup-playbook.md](./setup-playbook.md).

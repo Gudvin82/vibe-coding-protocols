@@ -7,6 +7,7 @@ from .utils import print_output, repo_root
 TEMPLATES = {
     "claude": "templates/agents/CLAUDE.md",
     "codex": "templates/agents/CODEX.md",
+    "copilot": "templates/agents/COPILOT_INSTRUCTIONS.md",
     "cursor": "templates/agents/CURSOR_RULES.md",
     "agents": "templates/agents/AGENTS.md",
 }

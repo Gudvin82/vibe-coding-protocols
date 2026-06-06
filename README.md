@@ -212,12 +212,14 @@ Use `templates/AGENTS.md` or the agent templates that match your target environm
 
 See:
 - [docs/ai-tooling.md](./docs/ai-tooling.md)
+- [docs/integrations/setup-playbook.md](./docs/integrations/setup-playbook.md)
 - [docs/comparisons.md](./docs/comparisons.md)
 - [docs/product-model.md](./docs/product-model.md)
 - [docs/killer-workflow.md](./docs/killer-workflow.md)
 - [templates/agents/CLAUDE.md](./templates/agents/CLAUDE.md)
 - [templates/agents/CODEX.md](./templates/agents/CODEX.md)
 - [templates/agents/CURSOR_RULES.md](./templates/agents/CURSOR_RULES.md)
+- [templates/agents/COPILOT_INSTRUCTIONS.md](./templates/agents/COPILOT_INSTRUCTIONS.md)
 
 ## Save AI tokens
 

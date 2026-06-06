@@ -183,6 +183,7 @@ python3 -m vcp_cli evaluator pack --json
 - [docs_ru/evaluator-architecture-map.md](./docs_ru/evaluator-architecture-map.md)
 - [docs_ru/proof-snapshot.md](./docs_ru/proof-snapshot.md)
 - [docs_ru/ai-tooling.md](./docs_ru/ai-tooling.md)
+- [docs_ru/integration-setup.md](./docs_ru/integration-setup.md)
 - [docs_ru/evaluation-receipt.md](./docs_ru/evaluation-receipt.md)
 - [docs_ru/public-proof-demo.md](./docs_ru/public-proof-demo.md)
 - [docs_ru/community-and-adoption-status.md](./docs_ru/community-and-adoption-status.md)

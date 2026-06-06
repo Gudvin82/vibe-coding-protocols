@@ -1,6 +1,6 @@
 # AI Tooling
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.1`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -28,6 +28,17 @@ VCP предназначен для использования рядом с AI 
 
 - используй VCP как repository control layer;
 - не называй это official Copilot integration.
+
+## Быстрый путь внедрения
+
+Для практического внедрения в другой репозиторий начните с:
+
+- `docs_ru/integration-setup.md`
+- `templates/AGENTS.claude.md`
+- `templates/agents/CODEX.md`
+- `templates/AGENTS.cursor.md`
+- `templates/agents/COPILOT_INSTRUCTIONS.md`
+- `ci-examples/github-actions/vcp-pr-gate.yml`
 
 ## Общие правила
 

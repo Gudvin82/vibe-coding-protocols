@@ -36,6 +36,12 @@ class ControlLayerCommandTests(unittest.TestCase):
         payload = json.loads(proc.stdout)
         self.assertEqual(payload['agent'], 'codex')
 
+    def test_agents_template_copilot_json(self) -> None:
+        proc = subprocess.run(['python3', '-m', 'vcp_cli', 'agents', 'template', '--agent', 'copilot', '--json'], cwd=ROOT, text=True, capture_output=True, check=False)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        payload = json.loads(proc.stdout)
+        self.assertEqual(payload['agent'], 'copilot')
+
     def test_agent_behavior_check(self) -> None:
         report = ROOT / 'tests' / 'fixtures' / 'agent-report.md'
         proc = subprocess.run(['python3', '-m', 'vcp_cli', 'agent-behavior', 'check', '--report', str(report), '--json'], cwd=ROOT, text=True, capture_output=True, check=False)

@@ -363,7 +363,7 @@ def build_parser() -> argparse.ArgumentParser:
     agents_p = sub.add_parser("agents")
     agents_sub = agents_p.add_subparsers(dest="agents_command")
     agents_template = agents_sub.add_parser("template")
-    agents_template.add_argument("--agent", required=True, choices=["claude", "codex", "cursor", "agents"])
+    agents_template.add_argument("--agent", required=True, choices=["claude", "codex", "copilot", "cursor", "agents"])
     agents_template.add_argument("--output")
     agents_template.add_argument("--confirm", action="store_true")
     agents_template.add_argument("--json", action="store_true")
