@@ -1,0 +1,66 @@
+{
+  "id": "product-docs-site-scaffold",
+  "type": "template",
+  "name": "Product Docs Site Scaffold",
+  "summary": "Static RU/EN docs-site source scaffold only.",
+  "use_when": [
+    "you need product docs site scaffold as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "docs-site",
+    "template"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "proof"
+    ],
+    "ai_failure_modes": [
+      "docs not productized"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "docs packaging"
+    ]
+  },
+  "entry_files": [
+    "docs/docs-site.md"
+  ],
+  "related_files": [
+    "site/README.md",
+    "site/en/index.md",
+    "site/ru/index.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "docs site scaffold"
+  ],
+  "stop_conditions": [
+    "do not present this scaffold as a hosted docs platform"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "site",
+    "scaffold"
+  ]
+}

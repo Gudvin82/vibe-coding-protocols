@@ -1,5 +1,5 @@
 {
-  "package_version": "v0.9.0",
+  "package_version": "v0.9.1",
   "methodology_version": "v1.4",
   "manifest_schema_version": "v1",
   "repo_name": "vibe-coding-protocols",
@@ -51,7 +51,7 @@
     "docs/public-source-of-truth-audit.md",
     "docs/pypi-publishing.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.0.md",
+    "docs/release-v0.9.1.md",
     "docs/roadmap/vscode-extension.md",
     "docs/site-version-sync-checklist.md",
     "docs/spec-foundation.md",
@@ -109,7 +109,12 @@
     "docs_ru/evaluator-token-budget.md",
     "docs_ru/visuals.md",
     "docs_ru/visual-spec.md",
-    "docs_ru/release-v0.9.0.md"
+    "docs_ru/release-v0.9.1.md",
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/flagship-demo.md"
   ],
   "core_docs": [
     "AI_FULL_REPO_AUDIT.md",
@@ -165,7 +170,7 @@
     "docs/question-engine.md",
     "docs/quickstart-walkthrough.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.0.md",
+    "docs/release-v0.9.1.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/route-map.md",
@@ -227,7 +232,21 @@
     "docs/agent-model-routing.md",
     "docs/evaluator-token-budget.md",
     "docs/visuals.md",
-    "assets/diagrams/vcp-control-layer-map.svg"
+    "assets/diagrams/vcp-control-layer-map.svg",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/adaptive-rigor-modes.md",
+    "docs/tiny-vcp-pipeline.md",
+    "docs/flagship-demo.md",
+    "docs/portable-control-pack.md",
+    "docs/surface-priority-model.md",
+    "docs/work-package-lifecycle.md",
+    "docs/review-accept-merge.md",
+    "docs/mission-retrospective.md",
+    "docs/delivery-graph.md",
+    "docs/public-evaluation-kit.md",
+    "docs/scope-boundary.md"
   ],
   "route_docs": [
     "protocols/ai-project-hardening-protocol.md",

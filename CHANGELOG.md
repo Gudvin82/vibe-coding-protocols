@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.9.1
+
+- added a clearer product spine and control spine for first-contact understanding;
+- added first-time adoption guidance, adaptive rigor modes, and a tiny VCP pipeline;
+- added a flagship demo pack, portable control pack, work-package lifecycle, review-accept-merge, mission retrospective, delivery graph, and public evaluation kit surfaces;
+- synced cards, benchmark scenarios, control catalog entries, README surfaces, and machine-readable manifests for the new product spine story.
+
 ## v0.9.0
 
 - added `EVALUATE_THIS_REPO.md` as a mandatory evaluator shortcut before category or maturity claims;

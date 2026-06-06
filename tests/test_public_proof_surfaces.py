@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import unittest
 from pathlib import Path
 
@@ -8,12 +9,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class PublicProofSurfacesTests(unittest.TestCase):
     def test_proof_strip_visible(self) -> None:
+        bench = json.loads((ROOT / '.vcp/manifests/benchmarks.manifest.json').read_text(encoding='utf-8'))
+        reports = json.loads((ROOT / '.vcp/manifests/reports.manifest.json').read_text(encoding='utf-8'))
+        commands = json.loads((ROOT / '.vcp/manifests/commands.manifest.json').read_text(encoding='utf-8'))
+        cards_count = len(list((ROOT / '.vcp/cards').rglob('*.json')))
         required = [
-            'benchmark scenarios: `151`',
-            'cards: `287`',
-            'CLI commands in manifest: `76`',
+            f"benchmark scenarios: `{len(bench['items'])}`",
+            f"cards: `{cards_count}`",
+            f"CLI commands in manifest: `{len(commands['items'])}`",
             'tests: `107`',
-            'report templates: `44`',
+            f"report templates: `{len(reports['items'])}`",
             'trust-check: yes',
             'evaluator pack: yes',
         ]

@@ -1,0 +1,65 @@
+{
+  "id": "tiny-vcp-pipeline",
+  "type": "concept",
+  "name": "Tiny VCP Pipeline",
+  "summary": "Smallest reusable control loop for low-to-medium risk work.",
+  "use_when": [
+    "you need tiny vcp pipeline as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "concept",
+    "pipeline"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "oversized process"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "adoption friction"
+    ]
+  },
+  "entry_files": [
+    "docs/tiny-vcp-pipeline.md"
+  ],
+  "related_files": [
+    "docs_ru/tiny-vcp-pipeline.md",
+    "docs/control-spine.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "tiny pipeline"
+  ],
+  "stop_conditions": [
+    "do not present the tiny pipeline as sufficient for launch-critical work"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "pipeline",
+    "entry"
+  ]
+}

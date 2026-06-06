@@ -1,0 +1,66 @@
+{
+  "id": "scope-boundary",
+  "type": "concept",
+  "name": "Scope Boundary",
+  "summary": "Explicit shipped / optional / roadmap-only / not-shipped boundary.",
+  "use_when": [
+    "you need scope boundary as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "high",
+  "domains": [
+    "safety",
+    "boundary"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "overclaim"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "scope confusion"
+    ]
+  },
+  "entry_files": [
+    "docs/scope-boundary.md"
+  ],
+  "related_files": [
+    "docs_ru/scope-boundary.md",
+    "docs/control-spine.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "scope boundary"
+  ],
+  "stop_conditions": [
+    "do not claim hosted/cloud/autonomous layers as shipped"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "scope",
+    "boundary"
+  ]
+}

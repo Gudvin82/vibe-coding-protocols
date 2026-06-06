@@ -1,0 +1,66 @@
+{
+  "id": "surface-priority-model",
+  "type": "concept",
+  "name": "Surface Priority Model",
+  "summary": "Which surfaces matter first for adopters and evaluators.",
+  "use_when": [
+    "you need surface priority model as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "evaluation",
+    "prioritization"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "reading low-value files first"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "inspection waste"
+    ]
+  },
+  "entry_files": [
+    "docs/surface-priority-model.md"
+  ],
+  "related_files": [
+    "docs_ru/surface-priority-model.md",
+    "PUBLIC_EVALUATION_KIT.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli evaluator pack --json"
+  ],
+  "outputs": [
+    "surface priority model"
+  ],
+  "stop_conditions": [
+    "do not confuse minimum fair review with full review"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "evaluation",
+    "priority"
+  ]
+}

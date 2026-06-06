@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.0.md",
+    "docs/release-v0.9.1.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -65,7 +65,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.0.md",
+    "docs_ru/release-v0.9.1.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -91,7 +91,12 @@
     "docs_ru/agent-model-routing.md",
     "docs_ru/evaluator-token-budget.md",
     "docs_ru/visuals.md",
-    "docs_ru/visual-spec.md"
+    "docs_ru/visual-spec.md",
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/flagship-demo.md"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -145,7 +150,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.0.md",
+    "docs/release-v0.9.1.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -195,7 +200,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.0.md",
+    "docs_ru/release-v0.9.1.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -229,7 +234,35 @@
     "docs_ru/agent-model-routing.md",
     "docs_ru/evaluator-token-budget.md",
     "docs_ru/visuals.md",
-    "docs_ru/visual-spec.md"
+    "docs_ru/visual-spec.md",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/adaptive-rigor-modes.md",
+    "docs/tiny-vcp-pipeline.md",
+    "docs/flagship-demo.md",
+    "docs/portable-control-pack.md",
+    "docs/surface-priority-model.md",
+    "docs/work-package-lifecycle.md",
+    "docs/review-accept-merge.md",
+    "docs/mission-retrospective.md",
+    "docs/delivery-graph.md",
+    "docs/public-evaluation-kit.md",
+    "docs/scope-boundary.md",
+    "docs_ru/product-spine.md",
+    "docs_ru/control-spine.md",
+    "docs_ru/first-time-adoption.md",
+    "docs_ru/adaptive-rigor-modes.md",
+    "docs_ru/tiny-vcp-pipeline.md",
+    "docs_ru/flagship-demo.md",
+    "docs_ru/portable-control-pack.md",
+    "docs_ru/surface-priority-model.md",
+    "docs_ru/work-package-lifecycle.md",
+    "docs_ru/review-accept-merge.md",
+    "docs_ru/mission-retrospective.md",
+    "docs_ru/delivery-graph.md",
+    "docs_ru/public-evaluation-kit.md",
+    "docs_ru/scope-boundary.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -441,7 +474,22 @@
     "visual-proof-layer",
     "vcp-control-layer-map",
     "vcp-product-model-diagram",
-    "vcp-comparison-map"
+    "vcp-comparison-map",
+    "product-spine",
+    "control-spine",
+    "first-time-adoption",
+    "adaptive-rigor-modes",
+    "tiny-vcp-pipeline",
+    "flagship-demo",
+    "portable-control-pack",
+    "surface-priority-model",
+    "work-package-lifecycle",
+    "review-accept-merge",
+    "mission-retrospective",
+    "delivery-graph",
+    "public-evaluation-kit",
+    "scope-boundary",
+    "product-docs-site-scaffold"
   ],
   "benchmarks_list": [
     "adoption-tiers",
@@ -539,7 +587,18 @@
     "evaluator-token-budget",
     "visual-proof-layer",
     "visual-assets-links",
-    "model-routing-no-overclaim"
+    "model-routing-no-overclaim",
+    "control-spine",
+    "adaptive-rigor-modes",
+    "flagship-demo",
+    "portable-control-pack",
+    "surface-priority-model",
+    "work-package-lifecycle",
+    "delivery-graph",
+    "public-evaluation-kit",
+    "scope-boundary",
+    "first-time-adoption-no-overload",
+    "v091-no-overclaim"
   ],
   "recommended_ai_flow": [
     "AGENTS.md",
@@ -559,7 +618,10 @@
     "docs/spec-foundation.md",
     "docs/release-readiness.md",
     ".vcp/ai-audit-manifest.json",
-    "REPO_CAPABILITIES_INDEX.md"
+    "REPO_CAPABILITIES_INDEX.md",
+    "Read START_HERE.md and docs/first-time-adoption.md before broad repository reading.",
+    "Use PUBLIC_EVALUATION_KIT.md for minimum fair external review.",
+    "Inspect docs/control-spine.md before describing VCP as a control platform."
   ],
   "not": [
     "Not a destructive preset engine",
@@ -631,15 +693,15 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.1. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.9.0",
+  "repository_package_version": "v0.9.1",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.1. Do not present v1.4 as the current repository release."
   },
   "ai_release_naming": {
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.0. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.1. Do not present v1.4 as the current repository release."
   }
 }

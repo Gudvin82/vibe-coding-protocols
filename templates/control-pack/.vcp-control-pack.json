@@ -1,0 +1,13 @@
+{
+  "version": "v0.9.1",
+  "methodology_version": "v1.4",
+  "files": [
+    "PROJECT_CONTROL_CHARTER.md",
+    "CHANGE_INTENT.md",
+    "AGENT_RULES.nano.md",
+    "AGENT_RULES.mini.md",
+    "PR_GATE.md",
+    "LAUNCH_DECISION.md"
+  ],
+  "status": "portable-local-scaffold"
+}

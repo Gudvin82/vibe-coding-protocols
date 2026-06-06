@@ -1,0 +1,65 @@
+{
+  "id": "mission-retrospective",
+  "type": "report",
+  "name": "Mission Retrospective",
+  "summary": "Post-task learning surface without pretending autonomous memory.",
+  "use_when": [
+    "you need mission retrospective as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "retro",
+    "maintenance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "maintain",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "no learning loop"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "post-task drift"
+    ]
+  },
+  "entry_files": [
+    "docs/mission-retrospective.md"
+  ],
+  "related_files": [
+    "docs_ru/mission-retrospective.md",
+    "templates/reports/mission-retrospective.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli backlog report --json"
+  ],
+  "outputs": [
+    "mission retrospective"
+  ],
+  "stop_conditions": [
+    "do not present retrospective as autonomous memory"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "retro",
+    "learning"
+  ]
+}

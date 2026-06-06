@@ -1,0 +1,184 @@
+{
+  "version": "v0.9.1",
+  "methodology_version": "v1.4",
+  "tiny_spine": [
+    "charter",
+    "intent",
+    "plan",
+    "gate",
+    "proof"
+  ],
+  "full_spine": [
+    "intake",
+    "charter",
+    "intent",
+    "route",
+    "plan",
+    "work-package",
+    "gate",
+    "proof",
+    "release-decision",
+    "maintain"
+  ],
+  "stages": [
+    {
+      "stage": "intake",
+      "purpose": "Classify the situation before AI work expands",
+      "input": "user request / repo state",
+      "output": "route or intake notes",
+      "command": "python3 -m vcp_cli classify --json",
+      "required_for": [
+        "brownfield",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast"
+      ]
+    },
+    {
+      "stage": "charter",
+      "purpose": "Define project control rules",
+      "input": "governance expectations",
+      "output": ".vcp/project-control-charter.example.json",
+      "command": "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json",
+      "required_for": [
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast",
+        "standard"
+      ]
+    },
+    {
+      "stage": "intent",
+      "purpose": "Capture what changes and why before AI edits code",
+      "input": "user request / product need",
+      "output": ".vcp/change-intent.example.json",
+      "command": "python3 -m vcp_cli change intent --json",
+      "required_for": [
+        "standard",
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast"
+      ]
+    },
+    {
+      "stage": "route",
+      "purpose": "Select the right guided path",
+      "input": "repo/project state",
+      "output": "route recommendation",
+      "command": "python3 -m vcp_cli route --profile production --json",
+      "required_for": [
+        "standard",
+        "controlled",
+        "launch",
+        "deep-hardening",
+        "brownfield"
+      ],
+      "optional_for": [
+        "fast"
+      ]
+    },
+    {
+      "stage": "plan",
+      "purpose": "Shape the next safe work slice",
+      "input": "route + intent + charter",
+      "output": "workflow or adoption plan",
+      "command": "python3 -m vcp_cli workflow plan --id mvp-to-launch --json",
+      "required_for": [
+        "standard",
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast"
+      ]
+    },
+    {
+      "stage": "work-package",
+      "purpose": "Define the auditable execution unit",
+      "input": "plan + affected surfaces",
+      "output": ".vcp/work-packages/example.json",
+      "command": "docs/work-package-lifecycle.md",
+      "required_for": [
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast",
+        "standard"
+      ]
+    },
+    {
+      "stage": "gate",
+      "purpose": "Define what must pass before merge/release",
+      "input": "work package + diff + risks",
+      "output": ".vcp/review-accept-merge.example.json",
+      "command": "python3 -m vcp_cli pr-gate explain --json",
+      "required_for": [
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast",
+        "standard"
+      ]
+    },
+    {
+      "stage": "proof",
+      "purpose": "Make claims auditable",
+      "input": "validation outputs + receipt + trust-check",
+      "output": "evaluation receipt / proof snapshot",
+      "command": "python3 -m vcp_cli evaluator receipt --json",
+      "required_for": [
+        "standard",
+        "controlled",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast"
+      ]
+    },
+    {
+      "stage": "release-decision",
+      "purpose": "Decide if exposure is acceptable",
+      "input": "gate + proof + limitations",
+      "output": "launch decision",
+      "command": "docs/launch-decision-checklist.md",
+      "required_for": [
+        "launch"
+      ],
+      "optional_for": [
+        "fast",
+        "standard",
+        "brownfield"
+      ]
+    },
+    {
+      "stage": "maintain",
+      "purpose": "Keep control surfaces current after release",
+      "input": "backlog + retro + incidents",
+      "output": "backlog or retro follow-up",
+      "command": "python3 -m vcp_cli backlog report --json",
+      "required_for": [
+        "brownfield",
+        "launch",
+        "deep-hardening"
+      ],
+      "optional_for": [
+        "fast",
+        "standard"
+      ]
+    }
+  ]
+}

@@ -46,7 +46,7 @@
   "validation": [
     "docs mention roadmap only"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

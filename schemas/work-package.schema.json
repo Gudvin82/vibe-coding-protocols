@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VCP Work Package",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "owner",
+    "role",
+    "related_change_intent",
+    "affected_surfaces",
+    "status",
+    "evidence_required",
+    "review_checklist",
+    "approval_status",
+    "merge_release_note",
+    "retrospective_link"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "related_change_intent": {
+      "type": "string"
+    },
+    "affected_surfaces": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "in_progress",
+        "for_review",
+        "approved",
+        "done"
+      ]
+    },
+    "evidence_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_checklist": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approval_status": {
+      "type": "string"
+    },
+    "merge_release_note": {
+      "type": "string"
+    },
+    "retrospective_link": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "adaptive-rigor-modes",
+  "type": "concept",
+  "name": "Adaptive Rigor Modes",
+  "summary": "Manual rigor ladder for low, standard, and launch-critical work.",
+  "use_when": [
+    "you need adaptive rigor modes as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "rigor"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "over-process",
+      "under-control"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "rigor mismatch"
+    ]
+  },
+  "entry_files": [
+    "docs/adaptive-rigor-modes.md"
+  ],
+  "related_files": [
+    "docs_ru/adaptive-rigor-modes.md",
+    "docs/scope-boundary.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli route --profile production --json"
+  ],
+  "outputs": [
+    "rigor mode selection"
+  ],
+  "stop_conditions": [
+    "do not claim automatic rigor switching"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "control",
+    "rigor"
+  ]
+}

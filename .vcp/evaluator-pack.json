@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -27,7 +27,14 @@
     ".vcp/control-catalog.json",
     ".vcp/agent-rule-profiles.json",
     ".vcp/change-intent.example.json",
-    ".vcp/project-control-charter.example.json"
+    ".vcp/project-control-charter.example.json",
+    "START_HERE.md",
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/flagship-demo.md",
+    "docs/public-evaluation-kit.md"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",
@@ -120,11 +127,11 @@
   ],
   "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
   "proof_numbers": {
-    "benchmark_scenarios": 151,
-    "cards": 287,
+    "benchmark_scenarios": 162,
+    "cards": 302,
     "cli_commands_in_manifest": 76,
     "tests": 107,
-    "report_templates": 44,
+    "report_templates": 48,
     "visual_diagrams": 3,
     "russian_docs": true
   },

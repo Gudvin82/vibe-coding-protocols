@@ -1,0 +1,66 @@
+{
+  "id": "delivery-graph",
+  "type": "concept",
+  "name": "Delivery Graph",
+  "summary": "Static local map of evidence and dependency flow.",
+  "use_when": [
+    "you need delivery graph as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "delivery",
+    "mapping"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "invisible dependency chain"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "delivery mapping"
+    ]
+  },
+  "entry_files": [
+    "docs/delivery-graph.md"
+  ],
+  "related_files": [
+    "docs_ru/delivery-graph.md",
+    "schemas/delivery-graph.schema.json",
+    ".vcp/delivery-graph.example.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "delivery graph"
+  ],
+  "stop_conditions": [
+    "do not present the graph as live hosted telemetry"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "delivery",
+    "graph"
+  ]
+}

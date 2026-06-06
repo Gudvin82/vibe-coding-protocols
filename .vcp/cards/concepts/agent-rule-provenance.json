@@ -49,7 +49,7 @@
   "validation": [
     "python3 -m unittest discover -s tests"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

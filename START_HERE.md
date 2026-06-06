@@ -1,61 +1,86 @@
 # Start Here
 
-Use this file to choose the correct VCP route before copying artifacts or writing code.
+Use this file to choose the correct VCP path before copying artifacts or writing code.
+
+## VCP in 60 seconds
+
+VCP is a local-first control layer for AI-built and AI-assisted projects.
+
+It helps teams:
+- choose the right route before AI edits expand;
+- define intent and control boundaries;
+- add PR Gate, proof, trust-check, and release evidence;
+- avoid pretending a local toolkit is a hosted platform.
 
 ## Fast path
 
-If you want the shortest guided start:
+If you want the shortest honest start:
 
 ```bash
-python3 -m vcp_cli init
-python3 -m vcp_cli route --profile production
-python3 -m vcp_cli adopt --pack production --dry-run
-python3 -m vcp_cli workflow list
+python3 -m vcp_cli doctor --json
+python3 -m vcp_cli onboard --json
+python3 -m vcp_cli route --profile production --json
+python3 -m vcp_cli catalog list --json
+python3 -m vcp_cli trust-check --json
 ```
 
 If you are evaluating the repository itself:
 
 ```bash
 python3 -m vcp_cli evaluate --json
-python3 -m vcp_cli benchmark run
+python3 -m vcp_cli evaluator pack --json
+python3 -m vcp_cli benchmark run --json
+python3 -m vcp_cli trust-check --json
 ```
 
-Node-first local option:
+Node wrapper from this same repo:
 
 ```bash
-npm run vcp -- init
-npm run vcp -- route --profile production
+npm run vcp -- doctor
 npm run vcp -- evaluate
 ```
 
-## Route chooser
+## Route selector
 
 | If this is your situation | Start here |
 |---|---|
-| I am starting a new project | [Starter Protocol](./protocols/ai-project-starter-protocol.md) |
-| I have an idea or feature request but requirements are still fuzzy | [Spec-first Feature](./protocols/spec-driven/README.md) |
-| I already have an AI-generated project and need production readiness or security work | [Hardening Protocol](./protocols/ai-project-hardening-protocol.md) |
-| The project already works but is getting risky or messy to change | [Maintenance Refactoring](./protocols/maintenance/care-refactoring.md) |
-| The main problem is frontend styling or component ownership drift | [UI Component Ownership](./protocols/maintenance/ui-refactoring.md) |
-| A feature depends on an external API, SDK, webhook, or SaaS | [Third-party API Intake](./protocols/integrations/third-party-api-intake.md) |
-| I need a read-only production error capture loop and daily triage | [Operations Feedback Loop](./protocols/operations/production-error-capture.md) |
-| I need a shared project kanban before implementation starts | [Project Backlog](./docs/project-backlog.md) |
-| The active diff needs acceptance before merge or release | [Post-Task Code Review](./protocols/review/post-task-code-review.md) |
-| The main surface is a public docs/marketing site | [Public Site Readiness](./docs/public-site-readiness.md) |
-| I am evaluating VCP itself | [AI_EVALUATION_GUIDE.md](./AI_EVALUATION_GUIDE.md) |
-| I am not sure yet | [AI_INTAKE.md](./AI_INTAKE.md) |
+| I am brand new to VCP | [docs/first-time-adoption.md](./docs/first-time-adoption.md) |
+| I need the product spine first | [docs/product-spine.md](./docs/product-spine.md) |
+| I want the core control chain | [docs/control-spine.md](./docs/control-spine.md) |
+| I already have an AI-built MVP and need control before release | [docs/mvp-to-launch-path.md](./docs/mvp-to-launch-path.md) |
+| I want the fastest end-to-end walkthrough | [docs/flagship-demo.md](./docs/flagship-demo.md) |
+| I need to know which surfaces matter first | [docs/surface-priority-model.md](./docs/surface-priority-model.md) |
+| I need a copyable local governance starter | [docs/portable-control-pack.md](./docs/portable-control-pack.md) |
+| I need the work unit / review / release chain | [docs/work-package-lifecycle.md](./docs/work-package-lifecycle.md) |
+| I am evaluating VCP itself | [PUBLIC_EVALUATION_KIT.md](./PUBLIC_EVALUATION_KIT.md) |
+| I want the classic route chooser | [AI_INTAKE.md](./AI_INTAKE.md) |
 
-## Adoption Packs
+## Required / recommended / optional
 
-After route selection, use an Adoption Pack dry-run instead of copying everything blindly.
-If you need agent rules, prefer [templates/AGENTS.md](./templates/AGENTS.md) over copying root `AGENTS.md`.
-Start with [docs/adoption-packs.quickstart.md](./docs/adoption-packs.quickstart.md).
+Required first:
+- `README.md`
+- `docs/first-time-adoption.md`
+- `docs/control-spine.md`
+- `docs/scope-boundary.md`
+- `python3 -m vcp_cli trust-check --json`
 
-Useful next commands:
+Recommended next:
+- `docs/flagship-demo.md`
+- `docs/control-catalog.md`
+- `docs/adaptive-rigor-modes.md`
+- `PUBLIC_EVALUATION_KIT.md`
 
-```bash
-python3 -m vcp_cli route --profile spec-first --json
-python3 -m vcp_cli workflow show spec-first-feature --json
-python3 -m vcp_cli diagnose --profile production --json
-```
-See also: [docs/product-delivery-lifecycle.md](./docs/product-delivery-lifecycle.md) and [docs/flagship-workflows.md](./docs/flagship-workflows.md).
+When you adopt VCP into another repo, do not copy root `AGENTS.md` blindly.
+Prefer `templates/AGENTS.md` or the more specific agent templates first.
+
+Optional layers:
+- dashboard artifact
+- docs-site scaffold
+- presentations destination
+- public proof demo
+
+Roadmap-only, not shipped:
+- hosted dashboard
+- marketplace
+- cloud sync
+- autonomous orchestration

@@ -1,0 +1,65 @@
+{
+  "id": "portable-control-pack",
+  "type": "template",
+  "name": "Portable Control Pack",
+  "summary": "Copyable local control-pack starter, not a plugin or marketplace product.",
+  "use_when": [
+    "you need portable control pack as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "template",
+    "control-pack"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "copy-paste governance drift"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "portability"
+    ]
+  },
+  "entry_files": [
+    "docs/portable-control-pack.md"
+  ],
+  "related_files": [
+    "docs_ru/portable-control-pack.md",
+    "templates/control-pack/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli profiles list --json"
+  ],
+  "outputs": [
+    "portable control pack"
+  ],
+  "stop_conditions": [
+    "do not present it as an official IDE plugin"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "template",
+    "portable"
+  ]
+}

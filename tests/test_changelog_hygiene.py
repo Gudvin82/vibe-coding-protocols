@@ -14,7 +14,7 @@ class ChangelogHygieneTests(unittest.TestCase):
         self.assertEqual(lines[0], '# Changelog')
         match = re.search(r'^##\s+(v\d+\.\d+\.\d+)\b', text, re.MULTILINE)
         self.assertIsNotNone(match)
-        self.assertEqual(match.group(1), 'v0.9.0')
+        self.assertEqual(match.group(1), 'v0.9.1')
 
 
 if __name__ == '__main__':

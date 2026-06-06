@@ -1,0 +1,17 @@
+{
+  "scenario_id": "public-evaluation-kit",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "v0.9.1",
+    "public evaluation kit"
+  ],
+  "required_files_to_inspect": [
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/public-evaluation-kit.md",
+    ".vcp/evaluator-pack.json"
+  ],
+  "expected_first_safe_action": "Inspect the shipped local files before making category or maturity claims.",
+  "expected_warnings": [
+    "do not overclaim hosted/cloud/autonomous functionality"
+  ]
+}

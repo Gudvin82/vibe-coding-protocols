@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Review Accept Merge",
+  "type": "object",
+  "required": [
+    "review_status",
+    "accept_status",
+    "merge_ready_status",
+    "evidence"
+  ],
+  "properties": {
+    "review_status": {
+      "type": "string"
+    },
+    "accept_status": {
+      "type": "string"
+    },
+    "merge_ready_status": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

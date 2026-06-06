@@ -1,0 +1,26 @@
+{
+  "id": "WP-001",
+  "title": "Flagship demo release-pack wiring",
+  "owner": "maintainer",
+  "role": "human-led with AI assistance",
+  "related_change_intent": "CI-001",
+  "affected_surfaces": [
+    "README.md",
+    "START_HERE.md",
+    "docs/flagship-demo.md"
+  ],
+  "status": "planned",
+  "evidence_required": [
+    "trust-check",
+    "benchmark summary",
+    "proof sync"
+  ],
+  "review_checklist": [
+    "story matches shipped surfaces",
+    "no roadmap overclaim",
+    "Russian docs updated if linked"
+  ],
+  "approval_status": "pending human approval",
+  "merge_release_note": "merge when proof and trust-check are green",
+  "retrospective_link": "templates/reports/mission-retrospective.md"
+}

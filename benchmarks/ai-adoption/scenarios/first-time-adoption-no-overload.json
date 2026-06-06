@@ -1,0 +1,17 @@
+{
+  "scenario_id": "first-time-adoption-no-overload",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "v0.9.1",
+    "first time adoption no overload"
+  ],
+  "required_files_to_inspect": [
+    "START_HERE.md",
+    "docs/first-time-adoption.md",
+    "docs/surface-priority-model.md"
+  ],
+  "expected_first_safe_action": "Inspect the shipped local files before making category or maturity claims.",
+  "expected_warnings": [
+    "do not overclaim hosted/cloud/autonomous functionality"
+  ]
+}

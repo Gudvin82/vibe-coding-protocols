@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.9.0.md"
+        "docs/release-v0.9.1.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2304,9 +2304,185 @@
       ],
       "expected_warnings": [],
       "expected_first_action": "Inspect the named routing and visual-proof surfaces before making broader claims."
+    },
+    {
+      "id": "control-spine",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/control-spine.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/control-spine.md",
+        "docs_ru/control-spine.md",
+        "docs/product-spine.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "adaptive-rigor-modes",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/adaptive-rigor-modes.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/adaptive-rigor-modes.md",
+        "docs_ru/adaptive-rigor-modes.md",
+        "docs/scope-boundary.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "flagship-demo",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/flagship-demo.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/flagship-demo.md",
+        "examples/flagship-demo/README.md",
+        "examples/flagship-demo/08-trust-check.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "portable-control-pack",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/portable-control-pack.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/portable-control-pack.md",
+        "templates/control-pack/README.md",
+        "templates/control-pack/.vcp-control-pack.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "surface-priority-model",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/surface-priority-model.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/surface-priority-model.md",
+        "PUBLIC_EVALUATION_KIT.md",
+        ".vcp/evaluator-pack.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "work-package-lifecycle",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/work-package-lifecycle.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/work-package-lifecycle.md",
+        "schemas/work-package.schema.json",
+        ".vcp/work-packages/example.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "delivery-graph",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/delivery-graph.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/delivery-graph.md",
+        "schemas/delivery-graph.schema.json",
+        ".vcp/delivery-graph.example.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "public-evaluation-kit",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/public-evaluation-kit.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "PUBLIC_EVALUATION_KIT.md",
+        "docs/public-evaluation-kit.md",
+        ".vcp/evaluator-pack.json"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "scope-boundary",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/scope-boundary.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/scope-boundary.md",
+        "docs/control-spine.md",
+        "docs/release-v0.9.1.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "first-time-adoption-no-overload",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/first-time-adoption-no-overload.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "START_HERE.md",
+        "docs/first-time-adoption.md",
+        "docs/surface-priority-model.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
+    },
+    {
+      "id": "v091-no-overclaim",
+      "profile": "repository-evaluation",
+      "scenario_file": "benchmarks/ai-adoption/scenarios/v091-no-overclaim.json",
+      "expected_route": null,
+      "expected_pack": null,
+      "required_inspected_files": [
+        "docs/release-v0.9.1.md",
+        "docs/scope-boundary.md",
+        "docs/public-evaluation-kit.md"
+      ],
+      "expected_warnings": [
+        "do not overclaim hosted/cloud/autonomous functionality"
+      ],
+      "expected_first_action": "Inspect the local docs and machine-readable surfaces before broad claims."
     }
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "files": [
     "benchmarks/ai-adoption/scenarios/control-catalog.json",
     "benchmarks/ai-adoption/scenarios/change-intent.json",
@@ -2316,6 +2492,17 @@
     "benchmarks/ai-adoption/scenarios/ecosystem-map.json",
     "benchmarks/ai-adoption/scenarios/agent-rule-provenance.json",
     "benchmarks/ai-adoption/scenarios/ai-augmented-solo-squad-path.json",
-    "benchmarks/ai-adoption/scenarios/local-ai-control-platform-no-overclaim.json"
+    "benchmarks/ai-adoption/scenarios/local-ai-control-platform-no-overclaim.json",
+    "benchmarks/ai-adoption/scenarios/control-spine.json",
+    "benchmarks/ai-adoption/scenarios/adaptive-rigor-modes.json",
+    "benchmarks/ai-adoption/scenarios/flagship-demo.json",
+    "benchmarks/ai-adoption/scenarios/portable-control-pack.json",
+    "benchmarks/ai-adoption/scenarios/surface-priority-model.json",
+    "benchmarks/ai-adoption/scenarios/work-package-lifecycle.json",
+    "benchmarks/ai-adoption/scenarios/delivery-graph.json",
+    "benchmarks/ai-adoption/scenarios/public-evaluation-kit.json",
+    "benchmarks/ai-adoption/scenarios/scope-boundary.json",
+    "benchmarks/ai-adoption/scenarios/first-time-adoption-no-overload.json",
+    "benchmarks/ai-adoption/scenarios/v091-no-overclaim.json"
   ]
 }

@@ -1,12 +1,12 @@
 # Benchmark Report
 
-Release: `v0.9.0`
+Release: `v0.9.1`
 Methodology: `v1.4`
 
 ## Summary
 
 - source command: `python3 -m vcp_cli benchmark run --json`
-- release context: `v0.9.0`
+- release context: `v0.9.1`
 - release focus: control catalog, change intent, starter adoption matrix, rule profiles, and adoption evidence
 - status source: local repository benchmark output
 - benchmark scenarios in manifest: `151`

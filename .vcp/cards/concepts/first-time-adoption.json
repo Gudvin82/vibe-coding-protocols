@@ -1,0 +1,67 @@
+{
+  "id": "first-time-adoption",
+  "type": "concept",
+  "name": "First-Time Adoption",
+  "summary": "Shortest honest first-contact path for new adopters.",
+  "use_when": [
+    "you need first-time adoption as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "low",
+  "domains": [
+    "adoption",
+    "guidance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "planning"
+    ],
+    "ai_failure_modes": [
+      "repo overload",
+      "wrong first step"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP"
+    ],
+    "risk_categories": [
+      "adoption friction"
+    ]
+  },
+  "entry_files": [
+    "docs/first-time-adoption.md"
+  ],
+  "related_files": [
+    "docs_ru/first-time-adoption.md",
+    "START_HERE.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli onboard --json",
+    "python3 -m vcp_cli catalog list --json"
+  ],
+  "outputs": [
+    "first adoption path"
+  ],
+  "stop_conditions": [
+    "do not start by reading everything blindly"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "adoption",
+    "entry"
+  ]
+}

@@ -518,6 +518,52 @@
         "Confidence level",
         "Corrections needed"
       ]
+    },
+    {
+      "id": "work-package",
+      "file": "templates/reports/work-package.md",
+      "intended_route": "execution",
+      "required_sections": [
+        "Work package id",
+        "Intent",
+        "Owner",
+        "Validation",
+        "Stop conditions"
+      ]
+    },
+    {
+      "id": "review-accept-merge",
+      "file": "templates/reports/review-accept-merge.md",
+      "intended_route": "review",
+      "required_sections": [
+        "Change summary",
+        "Review evidence",
+        "Acceptance decision",
+        "Merge decision"
+      ]
+    },
+    {
+      "id": "mission-retrospective",
+      "file": "templates/reports/mission-retrospective.md",
+      "intended_route": "maintain",
+      "required_sections": [
+        "Mission",
+        "What changed",
+        "What held",
+        "What drifted",
+        "Follow-ups"
+      ]
+    },
+    {
+      "id": "github-issue-draft",
+      "file": "templates/reports/github-issue-draft.md",
+      "intended_route": "backlog",
+      "required_sections": [
+        "Title",
+        "Problem",
+        "Impact",
+        "Suggested next step"
+      ]
     }
   ],
   "related_docs": [
@@ -525,12 +571,19 @@
     "docs/vcp-cards.md",
     "docs/vcp-mappings.md",
     "docs/external-evaluation.md",
-    "docs_ru/external-evaluation.md"
+    "docs_ru/external-evaluation.md",
+    "docs/work-package-lifecycle.md",
+    "docs/review-accept-merge.md",
+    "docs/mission-retrospective.md"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "files": [
     "templates/reports/change-intent.md",
     "templates/project-control-charter.md",
-    "templates/reports/solo-squad-control-plan.md"
+    "templates/reports/solo-squad-control-plan.md",
+    "templates/reports/work-package.md",
+    "templates/reports/review-accept-merge.md",
+    "templates/reports/mission-retrospective.md",
+    "templates/reports/github-issue-draft.md"
   ]
 }

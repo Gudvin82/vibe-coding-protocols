@@ -24,6 +24,7 @@ SCRIPT_CHECKS = [
 DOC_EXPECTATIONS = {
     "README.md": [
         "EVALUATE_THIS_REPO.md",
+        "PUBLIC_EVALUATION_KIT.md",
         "docs/killer-workflow.md",
         "docs/comparisons.md",
         "docs/product-model.md",
@@ -42,10 +43,14 @@ DOC_EXPECTATIONS = {
         "docs/project-control-charter.md",
         "docs/ecosystem-map.md",
         "docs/ai-augmented-solo-squad-path.md",
+        "docs/control-spine.md",
+        "docs/first-time-adoption.md",
+        "docs/flagship-demo.md",
         "docs_ru/README.md",
     ],
     "README_ru.md": [
         "EVALUATE_THIS_REPO.md",
+        "PUBLIC_EVALUATION_KIT.md",
         "docs_ru/killer-workflow.md",
         "docs_ru/comparisons.md",
         "docs_ru/product-model.md",
@@ -63,6 +68,9 @@ DOC_EXPECTATIONS = {
         "docs/project-control-charter.md",
         "docs/ecosystem-map.md",
         "docs/ai-augmented-solo-squad-path.md",
+        "docs/control-spine.md",
+        "docs/first-time-adoption.md",
+        "docs/flagship-demo.md",
     ],
 }
 
@@ -403,6 +411,57 @@ def _solo_squad_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _v091_surface_check(root: Path) -> dict[str, Any]:
+    required = [
+        "PUBLIC_EVALUATION_KIT.md",
+        "docs/product-spine.md",
+        "docs/control-spine.md",
+        "docs/first-time-adoption.md",
+        "docs/adaptive-rigor-modes.md",
+        "docs/tiny-vcp-pipeline.md",
+        "docs/flagship-demo.md",
+        "docs/portable-control-pack.md",
+        "docs/surface-priority-model.md",
+        "docs/work-package-lifecycle.md",
+        "docs/review-accept-merge.md",
+        "docs/mission-retrospective.md",
+        "docs/delivery-graph.md",
+        "docs/public-evaluation-kit.md",
+        "docs/scope-boundary.md",
+        "docs_ru/product-spine.md",
+        "docs_ru/control-spine.md",
+        "docs_ru/first-time-adoption.md",
+        "docs_ru/adaptive-rigor-modes.md",
+        "docs_ru/tiny-vcp-pipeline.md",
+        "docs_ru/flagship-demo.md",
+        "docs_ru/portable-control-pack.md",
+        "docs_ru/surface-priority-model.md",
+        "docs_ru/work-package-lifecycle.md",
+        "docs_ru/review-accept-merge.md",
+        "docs_ru/mission-retrospective.md",
+        "docs_ru/delivery-graph.md",
+        "docs_ru/public-evaluation-kit.md",
+        "docs_ru/scope-boundary.md",
+        "site/README.md",
+        "examples/flagship-demo/README.md",
+        "templates/control-pack/README.md",
+        ".vcp/control-spine.json",
+        ".vcp/rigor-modes.json",
+        ".vcp/surface-priority-model.json",
+        ".vcp/work-packages/example.json",
+        ".vcp/review-accept-merge.example.json",
+        ".vcp/delivery-graph.example.json",
+    ]
+    missing = [rel for rel in required if not (root / rel).exists()]
+    status = "pass" if not missing else "fail"
+    return {
+        "id": "v091-product-spine",
+        "status": status,
+        "summary": "v0.9.1 product spine, first-time adoption, portable control, and flagship demo surfaces exist.",
+        "details": [f"missing {rel}" for rel in missing] or ["v0.9.1 product-spine surfaces are present."],
+    }
+
+
 def _public_proof_demo_check(root: Path) -> dict[str, Any]:
     required = [
         "examples/public-proof/README.md",
@@ -484,6 +543,7 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_ecosystem_map_check(root))
     checks.append(_rule_provenance_check(root))
     checks.append(_solo_squad_check(root))
+    checks.append(_v091_surface_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

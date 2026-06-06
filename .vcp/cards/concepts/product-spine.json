@@ -1,0 +1,70 @@
+{
+  "id": "product-spine",
+  "type": "concept",
+  "name": "Product Spine",
+  "summary": "Canonical category and product-spine framing for VCP.",
+  "use_when": [
+    "you need product spine as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "concept",
+    "product"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "planning",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "category confusion",
+      "missing control chain"
+    ],
+    "project_state": [
+      "new",
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "governance",
+      "release-readiness"
+    ]
+  },
+  "entry_files": [
+    "docs/product-spine.md"
+  ],
+  "related_files": [
+    "docs_ru/product-spine.md",
+    "docs/control-spine.md",
+    "docs/scope-boundary.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "product spine map"
+  ],
+  "stop_conditions": [
+    "do not describe VCP as a hosted platform"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "control-layer",
+    "spine"
+  ]
+}

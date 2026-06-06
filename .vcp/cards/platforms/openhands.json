@@ -60,7 +60,7 @@
     "python3 -m vcp_cli cards validate",
     "python3 -m vcp_cli check --fast --json"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "maturity": "experimental",
   "recommended": false,
   "platforms": [

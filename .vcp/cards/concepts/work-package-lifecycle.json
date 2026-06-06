@@ -1,0 +1,67 @@
+{
+  "id": "work-package-lifecycle",
+  "type": "report",
+  "name": "Work Package Lifecycle",
+  "summary": "Auditable execution unit with schema, example, and template.",
+  "use_when": [
+    "you need work package lifecycle as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "execution",
+    "work-package"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "planning",
+      "implementation",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "unowned execution slice"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "execution traceability"
+    ]
+  },
+  "entry_files": [
+    "docs/work-package-lifecycle.md"
+  ],
+  "related_files": [
+    "docs_ru/work-package-lifecycle.md",
+    "schemas/work-package.schema.json",
+    ".vcp/work-packages/example.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "work package record"
+  ],
+  "stop_conditions": [
+    "do not present a work package as automated task dispatch"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "execution",
+    "lifecycle"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "evaluation_mode": "strong",
+  "files_inspected": [
+    "README.md",
+    "START_HERE.md",
+    "docs/control-spine.md",
+    "docs/flagship-demo.md"
+  ],
+  "commands_run": [
+    "python3 -m vcp_cli trust-check --json",
+    "python3 -m vcp_cli benchmark run --json"
+  ],
+  "limitations": [
+    "synthetic demo",
+    "local-first only"
+  ]
+}

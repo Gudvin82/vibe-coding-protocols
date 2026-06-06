@@ -653,7 +653,7 @@
     ".vcp/cards/",
     "docs/progressive-disclosure.md"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "files": [
     "docs/control-catalog.md",
     "docs/change-intent.md",

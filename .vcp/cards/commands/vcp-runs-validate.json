@@ -48,7 +48,7 @@
   "validation": [
     "python3 -m vcp_cli runs validate .vcp/runs/example-run-state.json --json"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

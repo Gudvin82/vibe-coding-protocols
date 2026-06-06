@@ -1,0 +1,17 @@
+{
+  "scenario_id": "work-package-lifecycle",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "v0.9.1",
+    "work package lifecycle"
+  ],
+  "required_files_to_inspect": [
+    "docs/work-package-lifecycle.md",
+    "schemas/work-package.schema.json",
+    ".vcp/work-packages/example.json"
+  ],
+  "expected_first_safe_action": "Inspect the shipped local files before making category or maturity claims.",
+  "expected_warnings": [
+    "do not overclaim hosted/cloud/autonomous functionality"
+  ]
+}

@@ -56,7 +56,7 @@
     "python3 -m unittest discover -s tests",
     "python3 -m vcp_cli change intent validate .vcp/change-intent.example.json --json"
   ],
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

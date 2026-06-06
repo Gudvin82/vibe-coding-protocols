@@ -1,0 +1,12 @@
+{
+  "id": "CI-001",
+  "summary": "Prepare the raw AI MVP for controlled demo/launch review.",
+  "why_now": "public exposure risk increased",
+  "affected_surfaces": [
+    "README.md",
+    "PR Gate",
+    "proof snapshot",
+    "launch decision"
+  ],
+  "writes_source_code": false
+}

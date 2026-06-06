@@ -14,7 +14,7 @@ class TrustCheckCommandTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         payload = json.loads(proc.stdout)
         self.assertIn(payload['status'], {'pass', 'warn', 'fail'})
-        self.assertEqual(payload['version'], 'v0.9.0')
+        self.assertEqual(payload['version'], 'v0.9.1')
         self.assertIn('checks', payload)
         self.assertIn('summary', payload)
         check_ids = {item['id'] for item in payload['checks']}
@@ -23,6 +23,7 @@ class TrustCheckCommandTests(unittest.TestCase):
         self.assertIn('changelog-hygiene', check_ids)
         self.assertIn('evaluator-pack', check_ids)
         self.assertIn('evaluator-surfaces', check_ids)
+        self.assertIn('v091-product-spine', check_ids)
         details = {item['id']: item for item in payload['checks']}
         self.assertIn('token-budget', details['evaluator-surfaces']['summary'])
 

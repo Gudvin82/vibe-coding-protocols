@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "title": "VCP Control Catalog",
   "statuses": [
     "shipped",
@@ -227,7 +227,337 @@
       ],
       "docs": "docs/roadmap/vscode-extension.md",
       "docs_ru": "docs_ru/README.md",
-      "roadmap_boundary": "No official VS Code extension ships in v0.9.0."
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.1."
+    },
+    {
+      "id": "product-spine",
+      "title": "Product Spine",
+      "category": "Core concepts",
+      "status": "shipped",
+      "summary": "Canonical VCP category and product-spine framing.",
+      "primary_files": [
+        "docs/product-spine.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need the shortest honest explanation of what VCP is.",
+      "not_for": "Hosted platform, cloud sync, or autonomous claims.",
+      "related_entries": [
+        "control-spine",
+        "first-time-adoption"
+      ],
+      "docs": "docs/product-spine.md",
+      "docs_ru": "docs_ru/product-spine.md"
+    },
+    {
+      "id": "control-spine",
+      "title": "Control Spine",
+      "category": "Core concepts",
+      "status": "shipped",
+      "summary": "Canonical control chain from intent to proof.",
+      "primary_files": [
+        "docs/control-spine.md",
+        ".vcp/control-spine.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need the auditable control chain before AI work expands.",
+      "not_for": "Hosted orchestration or automatic task dispatch.",
+      "related_entries": [
+        "product-spine",
+        "work-package-lifecycle"
+      ],
+      "docs": "docs/control-spine.md",
+      "docs_ru": "docs_ru/control-spine.md"
+    },
+    {
+      "id": "first-time-adoption",
+      "title": "First-Time Adoption",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Shortest honest first-contact path for new adopters.",
+      "primary_files": [
+        "docs/first-time-adoption.md",
+        "START_HERE.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli onboard --json"
+      ],
+      "when_to_use": "You are new to VCP and want the minimum safe starting path.",
+      "not_for": "Full repo archaeology before route selection.",
+      "related_entries": [
+        "control-spine",
+        "surface-priority-model"
+      ],
+      "docs": "docs/first-time-adoption.md",
+      "docs_ru": "docs_ru/first-time-adoption.md"
+    },
+    {
+      "id": "adaptive-rigor-modes",
+      "title": "Adaptive Rigor Modes",
+      "category": "Core concepts",
+      "status": "shipped",
+      "summary": "Manual rigor ladder for low, standard, and launch-critical work.",
+      "primary_files": [
+        "docs/adaptive-rigor-modes.md",
+        ".vcp/rigor-modes.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli route --profile production --json"
+      ],
+      "when_to_use": "Need to scale VCP up or down honestly.",
+      "not_for": "Automatic rigor switching claims.",
+      "related_entries": [
+        "control-spine",
+        "scope-boundary"
+      ],
+      "docs": "docs/adaptive-rigor-modes.md",
+      "docs_ru": "docs_ru/adaptive-rigor-modes.md"
+    },
+    {
+      "id": "tiny-vcp-pipeline",
+      "title": "Tiny VCP Pipeline",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Smallest reusable control loop for low-to-medium risk work.",
+      "primary_files": [
+        "docs/tiny-vcp-pipeline.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need a minimal pipeline without pretending it covers launch risk.",
+      "not_for": "Launch-critical work without stronger gates.",
+      "related_entries": [
+        "adaptive-rigor-modes",
+        "control-spine"
+      ],
+      "docs": "docs/tiny-vcp-pipeline.md",
+      "docs_ru": "docs_ru/tiny-vcp-pipeline.md"
+    },
+    {
+      "id": "flagship-demo",
+      "title": "Flagship Demo",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Canonical before/after example pack for VCP adoption.",
+      "primary_files": [
+        "docs/flagship-demo.md",
+        "examples/flagship-demo/README.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli workflow plan --id mvp-to-launch --json"
+      ],
+      "when_to_use": "Need one demo that explains the repo quickly.",
+      "not_for": "Hosted demo environment claims.",
+      "related_entries": [
+        "first-time-adoption",
+        "public-evaluation-kit"
+      ],
+      "docs": "docs/flagship-demo.md",
+      "docs_ru": "docs_ru/flagship-demo.md"
+    },
+    {
+      "id": "portable-control-pack",
+      "title": "Portable Control Pack",
+      "category": "Optional layers",
+      "status": "shipped",
+      "summary": "Copyable local control-pack starter, not a plugin or marketplace product.",
+      "primary_files": [
+        "docs/portable-control-pack.md",
+        "templates/control-pack/README.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli profiles list --json"
+      ],
+      "when_to_use": "Need a lightweight local control starter.",
+      "not_for": "Marketplace, IDE extension, or remote registry claims.",
+      "related_entries": [
+        "agent-rule-profiles",
+        "project-control-charter"
+      ],
+      "docs": "docs/portable-control-pack.md",
+      "docs_ru": "docs_ru/portable-control-pack.md"
+    },
+    {
+      "id": "surface-priority-model",
+      "title": "Surface Priority Model",
+      "category": "Core concepts",
+      "status": "shipped",
+      "summary": "Which surfaces matter first for adopters and evaluators.",
+      "primary_files": [
+        "docs/surface-priority-model.md",
+        ".vcp/surface-priority-model.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli evaluator pack --json"
+      ],
+      "when_to_use": "Need to reduce inspection overload.",
+      "not_for": "README-only evaluation.",
+      "related_entries": [
+        "first-time-adoption",
+        "public-evaluation-kit"
+      ],
+      "docs": "docs/surface-priority-model.md",
+      "docs_ru": "docs_ru/surface-priority-model.md"
+    },
+    {
+      "id": "work-package-lifecycle",
+      "title": "Work Package Lifecycle",
+      "category": "Report templates",
+      "status": "shipped",
+      "summary": "Auditable execution unit with schema, example, and template.",
+      "primary_files": [
+        "docs/work-package-lifecycle.md",
+        "schemas/work-package.schema.json",
+        ".vcp/work-packages/example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need explicit ownership and proof target per work slice.",
+      "not_for": "Autonomous task-dispatch claims.",
+      "related_entries": [
+        "review-accept-merge",
+        "delivery-graph"
+      ],
+      "docs": "docs/work-package-lifecycle.md",
+      "docs_ru": "docs_ru/work-package-lifecycle.md"
+    },
+    {
+      "id": "review-accept-merge",
+      "title": "Review / Accept / Merge",
+      "category": "Report templates",
+      "status": "shipped",
+      "summary": "Acceptance chain between PR Gate output and merge decision.",
+      "primary_files": [
+        "docs/review-accept-merge.md",
+        "schemas/review-accept-merge.schema.json",
+        ".vcp/review-accept-merge.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli pr-gate explain --json"
+      ],
+      "when_to_use": "Need a visible human acceptance point.",
+      "not_for": "Auto-merge claims.",
+      "related_entries": [
+        "work-package-lifecycle",
+        "mission-retrospective"
+      ],
+      "docs": "docs/review-accept-merge.md",
+      "docs_ru": "docs_ru/review-accept-merge.md"
+    },
+    {
+      "id": "mission-retrospective",
+      "title": "Mission Retrospective",
+      "category": "Report templates",
+      "status": "shipped",
+      "summary": "Post-task learning surface without pretending autonomous memory.",
+      "primary_files": [
+        "docs/mission-retrospective.md",
+        "templates/reports/mission-retrospective.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli backlog report --json"
+      ],
+      "when_to_use": "Need a disciplined close-out loop.",
+      "not_for": "Personal assistant memory claims.",
+      "related_entries": [
+        "review-accept-merge",
+        "delivery-graph"
+      ],
+      "docs": "docs/mission-retrospective.md",
+      "docs_ru": "docs_ru/mission-retrospective.md"
+    },
+    {
+      "id": "delivery-graph",
+      "title": "Delivery Graph",
+      "category": "Optional layers",
+      "status": "shipped",
+      "summary": "Static local map of evidence and dependency flow.",
+      "primary_files": [
+        "docs/delivery-graph.md",
+        "schemas/delivery-graph.schema.json",
+        ".vcp/delivery-graph.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need to map what supports a release decision.",
+      "not_for": "Hosted telemetry graph claims.",
+      "related_entries": [
+        "work-package-lifecycle",
+        "scope-boundary"
+      ],
+      "docs": "docs/delivery-graph.md",
+      "docs_ru": "docs_ru/delivery-graph.md"
+    },
+    {
+      "id": "public-evaluation-kit",
+      "title": "Public Evaluation Kit",
+      "category": "Guided paths",
+      "status": "shipped",
+      "summary": "Minimum fair review kit for external evaluators.",
+      "primary_files": [
+        "PUBLIC_EVALUATION_KIT.md",
+        "docs/public-evaluation-kit.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli evaluator pack --json"
+      ],
+      "when_to_use": "Need a fair and short external review path.",
+      "not_for": "README-only or website-only judgment.",
+      "related_entries": [
+        "surface-priority-model",
+        "flagship-demo"
+      ],
+      "docs": "docs/public-evaluation-kit.md",
+      "docs_ru": "docs_ru/public-evaluation-kit.md"
+    },
+    {
+      "id": "scope-boundary",
+      "title": "Scope Boundary",
+      "category": "Safety boundaries",
+      "status": "shipped",
+      "summary": "Explicit shipped / optional / roadmap-only / not-shipped boundary.",
+      "primary_files": [
+        "docs/scope-boundary.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need to keep VCP claims honest.",
+      "not_for": "Hosted, autonomous, or publication overclaim.",
+      "related_entries": [
+        "control-spine",
+        "adaptive-rigor-modes"
+      ],
+      "docs": "docs/scope-boundary.md",
+      "docs_ru": "docs_ru/scope-boundary.md"
+    },
+    {
+      "id": "product-docs-site-scaffold",
+      "title": "Product Docs Site Scaffold",
+      "category": "Optional layers",
+      "status": "optional",
+      "summary": "Static RU/EN docs-site source scaffold only.",
+      "primary_files": [
+        "site/README.md",
+        "docs/docs-site.md"
+      ],
+      "commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "when_to_use": "Need a local product/docs packaging layer.",
+      "not_for": "Hosted docs platform claims.",
+      "related_entries": [
+        "portable-control-pack",
+        "public-evaluation-kit"
+      ],
+      "docs": "docs/docs-site.md",
+      "docs_ru": "docs_ru/release-v0.9.1.md"
     }
   ]
 }

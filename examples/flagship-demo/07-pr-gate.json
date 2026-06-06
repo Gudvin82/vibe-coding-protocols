@@ -1,0 +1,8 @@
+{
+  "status": "needs-review",
+  "required_before_merge": [
+    "human approval",
+    "trust-check",
+    "proof sync"
+  ]
+}

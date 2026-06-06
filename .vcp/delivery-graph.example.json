@@ -1,0 +1,66 @@
+{
+  "nodes": [
+    {
+      "id": "request-001",
+      "type": "request"
+    },
+    {
+      "id": "intent-001",
+      "type": "change-intent"
+    },
+    {
+      "id": "wp-001",
+      "type": "work-package"
+    },
+    {
+      "id": "issue-draft-001",
+      "type": "issue-placeholder"
+    },
+    {
+      "id": "gate-001",
+      "type": "pr-gate"
+    },
+    {
+      "id": "proof-001",
+      "type": "evidence"
+    },
+    {
+      "id": "release-001",
+      "type": "release-decision"
+    },
+    {
+      "id": "retro-001",
+      "type": "retrospective"
+    }
+  ],
+  "edges": [
+    [
+      "request-001",
+      "intent-001"
+    ],
+    [
+      "intent-001",
+      "wp-001"
+    ],
+    [
+      "wp-001",
+      "issue-draft-001"
+    ],
+    [
+      "issue-draft-001",
+      "gate-001"
+    ],
+    [
+      "gate-001",
+      "proof-001"
+    ],
+    [
+      "proof-001",
+      "release-001"
+    ],
+    [
+      "release-001",
+      "retro-001"
+    ]
+  ]
+}

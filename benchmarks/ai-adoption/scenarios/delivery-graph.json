@@ -1,0 +1,17 @@
+{
+  "scenario_id": "delivery-graph",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "v0.9.1",
+    "delivery graph"
+  ],
+  "required_files_to_inspect": [
+    "docs/delivery-graph.md",
+    "schemas/delivery-graph.schema.json",
+    ".vcp/delivery-graph.example.json"
+  ],
+  "expected_first_safe_action": "Inspect the shipped local files before making category or maturity claims.",
+  "expected_warnings": [
+    "do not overclaim hosted/cloud/autonomous functionality"
+  ]
+}

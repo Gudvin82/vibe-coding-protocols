@@ -1,6 +1,6 @@
 # Trust Check
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.1`
 
 Use the trust check when you want a local, read-only repository consistency audit.
 
@@ -42,5 +42,5 @@ It is a repository trust and consistency check.
 
 ## Evaluator-proof note
 
-In `v0.9.0`, trust-check is also part of the public proof layer.
+In `v0.9.1`, trust-check is also part of the public proof layer.
 It helps external evaluators verify that evaluator shortcut surfaces, anti-misread docs, and current release signals are synchronized.

@@ -1,0 +1,40 @@
+{
+  "version": "v0.9.1",
+  "required": [
+    "README.md",
+    "START_HERE.md",
+    "docs/control-spine.md",
+    "docs/change-intent.md",
+    "docs/trust-check.md",
+    "docs/proof-snapshot.md"
+  ],
+  "recommended": [
+    "docs/control-catalog.md",
+    "docs/project-control-charter.md",
+    "docs/starter-template-adoption.md",
+    "docs/agent-rule-profiles.md",
+    "docs/flagship-demo.md"
+  ],
+  "optional": [
+    "docs/dashboard.md",
+    "docs/public-proof-demo.md",
+    "docs/case-studies.md",
+    "docs/presentations.md",
+    "docs/integration-packs.md"
+  ],
+  "advanced": [
+    "docs/evaluation-receipt.md",
+    "docs/benchmark-report.md",
+    "docs/ai-augmented-solo-squad-path.md",
+    "docs/agent-rule-provenance.md",
+    "docs/adaptive-rigor-modes.md"
+  ],
+  "roadmap_only": [
+    "hosted dashboard",
+    "plugin marketplace",
+    "official VS Code extension",
+    "cloud sync",
+    "remote registry",
+    "agent orchestration"
+  ]
+}

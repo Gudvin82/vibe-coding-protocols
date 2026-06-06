@@ -20,7 +20,7 @@ class ChangeIntentTests(unittest.TestCase):
 
     def test_intent_payload(self) -> None:
         payload = change_cmd.example_payload(ROOT)
-        self.assertEqual(payload['version'], 'v0.9.0')
+        self.assertEqual(payload['version'], 'v0.9.1')
 
     def test_validation_payload(self) -> None:
         payload = json.loads((ROOT / '.vcp/change-intent.example.json').read_text(encoding='utf-8'))

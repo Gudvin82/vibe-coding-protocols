@@ -15,7 +15,9 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('## Use with your AI tools', text)
         self.assertIn('docs/comparisons.md', text)
         self.assertIn('docs/product-model.md', text)
+        self.assertIn('docs/killer-workflow.md', text)
         self.assertIn('EVALUATE_THIS_REPO.md', text)
+        self.assertIn('PUBLIC_EVALUATION_KIT.md', text)
         self.assertIn('docs/anti-misread-guide.md', text)
         self.assertIn('docs/proof-snapshot.md', text)
         self.assertIn('docs/agent-model-routing.md', text)
@@ -23,8 +25,11 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('docs/evaluation-receipt.md', text)
         self.assertIn('docs/public-proof-demo.md', text)
         self.assertIn('docs/community-and-adoption-status.md', text)
+        self.assertIn('docs/control-spine.md', text)
+        self.assertIn('docs/first-time-adoption.md', text)
+        self.assertIn('docs/flagship-demo.md', text)
         self.assertIn('assets/diagrams/vcp-control-layer-map.svg', text)
-        self.assertIn('v0.9.0', text)
+        self.assertIn('v0.9.1', text)
         self.assertIn('Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/', text)
 
 

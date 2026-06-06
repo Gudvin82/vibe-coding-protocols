@@ -1,0 +1,66 @@
+{
+  "id": "review-accept-merge",
+  "type": "report",
+  "name": "Review Accept Merge",
+  "summary": "Acceptance chain between PR Gate output and merge decision.",
+  "use_when": [
+    "you need review accept merge as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "review",
+    "gate"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "review",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "merge without explicit acceptance"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "acceptance gate"
+    ]
+  },
+  "entry_files": [
+    "docs/review-accept-merge.md"
+  ],
+  "related_files": [
+    "docs_ru/review-accept-merge.md",
+    "schemas/review-accept-merge.schema.json",
+    ".vcp/review-accept-merge.example.json"
+  ],
+  "cli": [
+    "python3 -m vcp_cli pr-gate explain --json"
+  ],
+  "outputs": [
+    "review accept merge record"
+  ],
+  "stop_conditions": [
+    "do not describe PR Gate as auto-merge"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "review",
+    "merge"
+  ]
+}

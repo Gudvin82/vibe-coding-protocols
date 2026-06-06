@@ -1,0 +1,17 @@
+{
+  "scenario_id": "flagship-demo",
+  "target_profile": "repository-evaluation",
+  "target_signals": [
+    "v0.9.1",
+    "flagship demo"
+  ],
+  "required_files_to_inspect": [
+    "docs/flagship-demo.md",
+    "examples/flagship-demo/README.md",
+    "examples/flagship-demo/08-trust-check.json"
+  ],
+  "expected_first_safe_action": "Inspect the shipped local files before making category or maturity claims.",
+  "expected_warnings": [
+    "do not overclaim hosted/cloud/autonomous functionality"
+  ]
+}

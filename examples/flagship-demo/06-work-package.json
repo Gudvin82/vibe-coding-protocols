@@ -1,0 +1,10 @@
+{
+  "id": "WP-flagship-001",
+  "title": "Flagship demo release packaging",
+  "status": "for_review",
+  "evidence_required": [
+    "trust-check",
+    "benchmark summary",
+    "launch decision"
+  ]
+}

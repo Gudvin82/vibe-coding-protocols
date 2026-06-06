@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.0",
+  "version": "v0.9.1",
   "methodology_version": "v1.4",
   "purpose": "Required inspection manifest for AI agents evaluating VCP.",
   "evaluation_modes": {
@@ -61,7 +61,26 @@
     "docs_ru/README.md",
     "docs/agent-model-routing.md",
     "docs/evaluator-token-budget.md",
-    "assets/diagrams/vcp-control-layer-map.svg"
+    "assets/diagrams/vcp-control-layer-map.svg",
+    "START_HERE.md",
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/product-spine.md",
+    "docs/control-spine.md",
+    "docs/first-time-adoption.md",
+    "docs/adaptive-rigor-modes.md",
+    "docs/tiny-vcp-pipeline.md",
+    "docs/flagship-demo.md",
+    "docs/portable-control-pack.md",
+    "docs/surface-priority-model.md",
+    "docs/work-package-lifecycle.md",
+    "docs/review-accept-merge.md",
+    "docs/mission-retrospective.md",
+    "docs/delivery-graph.md",
+    "docs/public-evaluation-kit.md",
+    "docs/scope-boundary.md",
+    "site/README.md",
+    "examples/flagship-demo/README.md",
+    "templates/control-pack/README.md"
   ],
   "minimum_raw_files": [
     "README.md",
@@ -75,7 +94,11 @@
     ".vcp/evaluator-pack.json",
     "docs/agent-model-routing.md",
     "docs/evaluator-token-budget.md",
-    "assets/diagrams/vcp-control-layer-map.svg"
+    "assets/diagrams/vcp-control-layer-map.svg",
+    "START_HERE.md",
+    "PUBLIC_EVALUATION_KIT.md",
+    "docs/control-spine.md",
+    "docs/flagship-demo.md"
   ],
   "must_report": [
     "access_method",

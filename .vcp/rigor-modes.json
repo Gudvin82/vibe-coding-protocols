@@ -1,0 +1,136 @@
+{
+  "version": "v0.9.1",
+  "methodology_version": "v1.4",
+  "modes": [
+    {
+      "id": "fast",
+      "when_to_use": "tiny changes / quick triage",
+      "required_artifacts": [
+        "trust-check if public/release surface changed"
+      ],
+      "optional_artifacts": [
+        "change intent"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "agent_rule_profile": "nano",
+      "minimum_proof": "limitation statement",
+      "stop_conditions": [
+        "public or risky surface changed without more control"
+      ]
+    },
+    {
+      "id": "standard",
+      "when_to_use": "default project work",
+      "required_artifacts": [
+        "change intent",
+        "route",
+        "basic proof"
+      ],
+      "optional_artifacts": [
+        "charter"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli change intent --json",
+        "python3 -m vcp_cli route --profile production --json"
+      ],
+      "agent_rule_profile": "mini",
+      "minimum_proof": "route + validation summary",
+      "stop_conditions": [
+        "scope or gate unclear"
+      ]
+    },
+    {
+      "id": "controlled",
+      "when_to_use": "important changes",
+      "required_artifacts": [
+        "charter",
+        "intent",
+        "work package",
+        "PR Gate",
+        "proof"
+      ],
+      "optional_artifacts": [
+        "evaluation receipt"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli charter validate .vcp/project-control-charter.example.json --json",
+        "python3 -m vcp_cli pr-gate explain --json",
+        "python3 -m vcp_cli trust-check --json"
+      ],
+      "agent_rule_profile": "mini/full",
+      "minimum_proof": "gate + evidence",
+      "stop_conditions": [
+        "human approval absent"
+      ]
+    },
+    {
+      "id": "brownfield",
+      "when_to_use": "existing repo / unclear state",
+      "required_artifacts": [
+        "classify",
+        "control catalog",
+        "starter adoption matrix",
+        "backlog awareness"
+      ],
+      "optional_artifacts": [
+        "charter"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli classify --json",
+        "python3 -m vcp_cli catalog list --json",
+        "python3 -m vcp_cli backlog report --json"
+      ],
+      "agent_rule_profile": "mini",
+      "minimum_proof": "route justification",
+      "stop_conditions": [
+        "repo state still unknown"
+      ]
+    },
+    {
+      "id": "launch",
+      "when_to_use": "before demo/release/customer exposure",
+      "required_artifacts": [
+        "PR Gate",
+        "trust-check",
+        "benchmark",
+        "launch decision"
+      ],
+      "optional_artifacts": [
+        "evaluation receipt"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli pr-gate explain --json",
+        "python3 -m vcp_cli trust-check --json",
+        "python3 -m vcp_cli benchmark run --json"
+      ],
+      "agent_rule_profile": "full",
+      "minimum_proof": "release decision + trust-check + limitations",
+      "stop_conditions": [
+        "evidence or gate incomplete"
+      ]
+    },
+    {
+      "id": "deep-hardening",
+      "when_to_use": "safety/security/high-risk",
+      "required_artifacts": [
+        "full profile",
+        "evidence receipt",
+        "human approval"
+      ],
+      "optional_artifacts": [
+        "delivery graph"
+      ],
+      "recommended_commands": [
+        "python3 -m vcp_cli trust-check --json",
+        "python3 -m vcp_cli benchmark run --json"
+      ],
+      "agent_rule_profile": "full",
+      "minimum_proof": "explicit human acceptance",
+      "stop_conditions": [
+        "independent human approval unavailable"
+      ]
+    }
+  ]
+}

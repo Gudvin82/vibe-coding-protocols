@@ -1,0 +1,66 @@
+{
+  "id": "flagship-demo",
+  "type": "concept",
+  "name": "Flagship Demo",
+  "summary": "Canonical before/after example pack for VCP adoption.",
+  "use_when": [
+    "you need flagship demo as part of controlled AI delivery"
+  ],
+  "do_not_use_when": [
+    "you need hosted, cloud, marketplace, or autonomous orchestration claims"
+  ],
+  "risk_level": "medium",
+  "domains": [
+    "demo",
+    "proof"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "release"
+    ],
+    "ai_failure_modes": [
+      "demo without proof"
+    ],
+    "project_state": [
+      "existing MVP",
+      "production"
+    ],
+    "risk_categories": [
+      "proof gap"
+    ]
+  },
+  "entry_files": [
+    "docs/flagship-demo.md"
+  ],
+  "related_files": [
+    "docs_ru/flagship-demo.md",
+    "examples/flagship-demo/README.md"
+  ],
+  "cli": [
+    "python3 -m vcp_cli workflow plan --id mvp-to-launch --json",
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "outputs": [
+    "flagship demo pack"
+  ],
+  "stop_conditions": [
+    "do not imply a hosted demo environment exists"
+  ],
+  "validation": [
+    "python3 -m vcp_cli cards validate --json"
+  ],
+  "version": "v0.9.1",
+  "maturity": "local-stable",
+  "recommended": true,
+  "platforms": [
+    "codex-cli",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "badges": [
+    "demo",
+    "proof"
+  ]
+}

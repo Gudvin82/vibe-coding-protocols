@@ -1,0 +1,11 @@
+{
+  "review_status": "complete",
+  "accept_status": "human-approved",
+  "merge_ready_status": "evidence-complete",
+  "evidence": [
+    "trust-check",
+    "PR Gate",
+    "proof snapshot"
+  ],
+  "notes": "No automatic merge. Human decides final merge."
+}
