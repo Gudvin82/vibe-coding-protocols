@@ -20,3 +20,7 @@ surfaces, evidence bundle и rollout playbooks внутри репозитори
 - community signals пока ранние;
 - `.vcp/` — canonical machine-readable folder;
 - основной CLI: `python3 -m vcp_cli`.
+- VCP не поставляет внешние models/tools;
+- нет автоматического GitHub/Hugging Face scanning;
+- нет legal/compliance certification для AI dependencies;
+- нет claim, что VCP автоматически настраивает GitHub-native controls.

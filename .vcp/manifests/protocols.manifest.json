@@ -762,7 +762,7 @@
     ".vcp/cards/",
     "docs/progressive-disclosure.md"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "files": [
     "docs/control-catalog.md",
     "docs/change-intent.md",

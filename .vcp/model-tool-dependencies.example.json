@@ -1,0 +1,31 @@
+{
+  "version": "v0.9.4",
+  "methodology_version": "v1.4",
+  "items": [
+    {
+      "name": "Example local coding model",
+      "type": "model",
+      "source_provider": "example-provider",
+      "deployment_mode": "local",
+      "license": "review required",
+      "terms_usage_notes": "demo-only until approved",
+      "data_sensitivity": "internal-code",
+      "approved_usage": [
+        "sandbox experiments",
+        "internal prototype review"
+      ],
+      "prohibited_usage": [
+        "regulated production data",
+        "external client launch without review"
+      ],
+      "review_owner": "maintainer",
+      "risk_level": "medium",
+      "fallback_option": "manual human review only",
+      "last_reviewed": "2026-06-08",
+      "evidence_links": [
+        "docs/model-tool-governance.md"
+      ]
+    }
+  ],
+  "note": "Example governance record only. Not legal advice or compliance certification."
+}

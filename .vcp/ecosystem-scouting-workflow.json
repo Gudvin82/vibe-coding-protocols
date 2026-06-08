@@ -1,0 +1,19 @@
+{
+  "version": "v0.9.4",
+  "steps": [
+    "discover",
+    "classify",
+    "license/risk review",
+    "demo suitability",
+    "VCP route mapping",
+    "approved/watch/blocked/roadmap-only"
+  ],
+  "references": [
+    "docs/ai-ecosystem-watchlist.md",
+    "docs/model-tool-governance.md",
+    "docs/ai-stack-adoption-checklist.md",
+    "docs/evidence-bundle.md",
+    "docs/current-limitations.md"
+  ],
+  "note": "Workflow only. Not an automated crawler or scanner."
+}

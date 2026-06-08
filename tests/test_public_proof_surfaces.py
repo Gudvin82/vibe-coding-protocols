@@ -9,17 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class PublicProofSurfacesTests(unittest.TestCase):
     def test_proof_strip_visible(self) -> None:
-        bench = json.loads((ROOT / '.vcp/manifests/benchmarks.manifest.json').read_text(encoding='utf-8'))
-        reports = json.loads((ROOT / '.vcp/manifests/reports.manifest.json').read_text(encoding='utf-8'))
-        commands = json.loads((ROOT / '.vcp/manifests/commands.manifest.json').read_text(encoding='utf-8'))
-        cards_count = len(list((ROOT / '.vcp/cards').rglob('*.json')))
-        tests_count = unittest.defaultTestLoader.discover(str(ROOT / 'tests')).countTestCases()
+        proof = json.loads((ROOT / '.vcp/proof-counts.json').read_text(encoding='utf-8'))['counts']
         required = [
-            f"benchmark scenarios: `{len(bench['items'])}`",
-            f"cards: `{cards_count}`",
-            f"CLI commands in manifest: `{len(commands['items'])}`",
-            f"tests: `{tests_count}`",
-            f"report templates: `{len(reports['items'])}`",
+            f"benchmark scenarios: `{proof['benchmark_scenarios']}`",
+            f"cards: `{proof['cards']}`",
+            f"CLI commands in manifest: `{proof['cli_commands_in_manifest']}`",
+            f"tests: `{proof['tests']}`",
+            f"report templates: `{proof['report_templates']}`",
             'trust-check: yes',
             'evaluator pack: yes',
         ]

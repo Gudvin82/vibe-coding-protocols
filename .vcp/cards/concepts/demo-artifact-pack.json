@@ -48,7 +48,7 @@
   "validation": [
     "test -s examples/killer-workflow/expected-route.json"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

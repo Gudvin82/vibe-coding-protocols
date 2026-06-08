@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need a governance-first surface"
+  ],
+  "do_not_use_when": [
+    "you need hosted automation"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented governance decision"
+  ],
+  "stop_conditions": [
+    "stop if boundary is overclaimed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "model-tool-governance",
+  "name": "Model / Tool Governance",
+  "entry_files": [
+    "docs/model-tool-governance.md",
+    "docs_ru/model-tool-governance.md"
+  ],
+  "related_files": [
+    "schemas/model-tool-dependency.schema.json",
+    ".vcp/model-tool-dependencies.example.json"
+  ],
+  "summary": "Dependency-style governance for AI models and tools"
+}

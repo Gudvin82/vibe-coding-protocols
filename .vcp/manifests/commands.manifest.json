@@ -1090,6 +1090,45 @@
       "validation": [
         "python3 -m vcp_cli pr readiness --json"
       ]
+    },
+    {
+      "id": "ecosystem-watchlist",
+      "command_name": "vcp ecosystem watchlist",
+      "file": "docs/ai-ecosystem-watchlist.md",
+      "route": "governance",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "governance-oriented ecosystem watchlist",
+      "validation": [
+        "python3 -m vcp_cli ecosystem watchlist --json"
+      ]
+    },
+    {
+      "id": "ecosystem-scout",
+      "command_name": "vcp ecosystem scout",
+      "file": "docs/ecosystem-scouting-workflow.md",
+      "route": "governance",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "ecosystem scouting workflow payload",
+      "validation": [
+        "python3 -m vcp_cli ecosystem scout --json"
+      ]
+    },
+    {
+      "id": "model-tools-example",
+      "command_name": "vcp model-tools example",
+      "file": "docs/model-tool-governance.md",
+      "route": "governance",
+      "inputs": [
+        "optional --json"
+      ],
+      "output": "example model/tool dependency review payload",
+      "validation": [
+        "python3 -m vcp_cli model-tools example --json"
+      ]
     }
   ],
   "progressive_disclosure_docs": [
@@ -1104,5 +1143,5 @@
     "docs/evaluator-architecture-map.md",
     "docs/proof-snapshot.md"
   ],
-  "version": "v0.9.3"
+  "version": "v0.9.4"
 }

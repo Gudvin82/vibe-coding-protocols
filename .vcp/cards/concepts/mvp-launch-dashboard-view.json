@@ -50,7 +50,7 @@
   "validation": [
     "generated dashboard includes MVP-to-Launch section"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

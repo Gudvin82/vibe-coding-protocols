@@ -640,6 +640,48 @@
         "Proof counts",
         "Release decision"
       ]
+    },
+    {
+      "id": "model-tool-dependency-review",
+      "file": "templates/reports/model-tool-dependency-review.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Dependency",
+        "License and usage notes",
+        "Data and risk",
+        "Governance",
+        "Decision"
+      ]
+    },
+    {
+      "id": "github-native-control-checklist",
+      "file": "templates/reports/github-native-control-checklist.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Repository",
+        "Controls",
+        "Gaps"
+      ]
+    },
+    {
+      "id": "ai-stack-adoption-checklist",
+      "file": "templates/reports/ai-stack-adoption-checklist.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Proposed stack",
+        "Review",
+        "Decision"
+      ]
+    },
+    {
+      "id": "ecosystem-scouting-note",
+      "file": "templates/reports/ecosystem-scouting-note.md",
+      "intended_route": "governance",
+      "required_sections": [
+        "Candidate",
+        "Review",
+        "Decision"
+      ]
     }
   ],
   "related_docs": [
@@ -652,7 +694,7 @@
     "docs/review-accept-merge.md",
     "docs/mission-retrospective.md"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "files": [
     "templates/reports/change-intent.md",
     "templates/project-control-charter.md",

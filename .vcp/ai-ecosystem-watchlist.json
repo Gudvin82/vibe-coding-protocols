@@ -1,0 +1,30 @@
+{
+  "version": "v0.9.4",
+  "methodology_version": "v1.4",
+  "status_values": [
+    "watch",
+    "candidate",
+    "approved-for-demo",
+    "approved-for-client-review",
+    "blocked",
+    "roadmap-only"
+  ],
+  "items": [
+    {
+      "id": "awesome-open-source-ai",
+      "name": "Awesome Open Source AI",
+      "category": "documentation",
+      "source_reference_type": "curated catalog",
+      "why_it_matters": "broad map of open-source AI building blocks",
+      "possible_vcp_use": "ecosystem scanning and stack comparison",
+      "license_reuse_notes": "reference only; do not copy curated content blindly",
+      "maturity_signal": "large curated list with sustained public visibility",
+      "risk_notes": "broad catalog can encourage blind tool adoption",
+      "recommended_vcp_review_path": "watchlist -> stack adoption checklist -> evidence bundle",
+      "status": "candidate",
+      "last_reviewed": "2026-06-08",
+      "not_shipped_by_vcp": true
+    }
+  ],
+  "note": "Governance watchlist only. VCP does not ship, host, endorse, or maintain these external tools."
+}

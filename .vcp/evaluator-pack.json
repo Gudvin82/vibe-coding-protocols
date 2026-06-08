@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "purpose": "Evaluator shortcut for external AI and human reviewers",
   "category": "local-first AI project control/governance layer",
   "required_surfaces": [
@@ -55,7 +55,14 @@
     "docs/evidence-bundle.md",
     "docs/pr-readiness.md",
     "docs/integrations/proof-matrix.md",
-    "docs/visuals.md"
+    "docs/visuals.md",
+    "docs/ai-ecosystem-watchlist.md",
+    "docs/model-tool-governance.md",
+    "docs/secure-agent-training-pack.md",
+    "docs/github-native-control-checklist.md",
+    "docs/ai-stack-adoption-checklist.md",
+    "docs/team-enablement-pack.md",
+    "docs/ecosystem-scouting-workflow.md"
   ],
   "required_commands": [
     "python3 -m vcp_cli trust-check --json",
@@ -150,15 +157,22 @@
     "README.md",
     "EVALUATE_THIS_REPO.md",
     ".vcp/evaluator-pack.json",
-    "docs/proof-snapshot.md"
+    "docs/proof-snapshot.md",
+    "docs/ai-ecosystem-watchlist.md",
+    "docs/model-tool-governance.md",
+    "docs/secure-agent-training-pack.md",
+    "docs/github-native-control-checklist.md",
+    "docs/ai-stack-adoption-checklist.md",
+    "docs/team-enablement-pack.md",
+    "docs/ecosystem-scouting-workflow.md"
   ],
   "shallow_review_warning": "If you read only README or GitHub summary, label the review as shallow.",
   "proof_numbers": {
-    "benchmark_scenarios": 179,
-    "cards": 323,
-    "cli_commands_in_manifest": 81,
-    "tests": 132,
-    "report_templates": 55,
+    "benchmark_scenarios": 203,
+    "cards": 331,
+    "cli_commands_in_manifest": 84,
+    "tests": 81,
+    "report_templates": 63,
     "visual_diagrams": 8,
     "agent_kits": 5,
     "russian_docs": true

@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class ChangelogHygieneTests(unittest.TestCase):
@@ -14,7 +15,7 @@ class ChangelogHygieneTests(unittest.TestCase):
         self.assertEqual(lines[0], '# Changelog')
         match = re.search(r'^##\s+(v\d+\.\d+\.\d+)\b', text, re.MULTILINE)
         self.assertIsNotNone(match)
-        self.assertEqual(match.group(1), 'v0.9.3')
+        self.assertEqual(match.group(1), CURRENT)
 
 
 if __name__ == '__main__':

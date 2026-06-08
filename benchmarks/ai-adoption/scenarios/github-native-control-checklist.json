@@ -1,0 +1,12 @@
+{
+  "scenario_id": "github-native-control-checklist",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "docs/github-native-control-checklist.md",
+    "templates/reports/github-native-control-checklist.md"
+  ],
+  "expected_first_safe_action": "checklist for github-native controls around vcp adoption",
+  "expected_warnings": [
+    "do not overclaim hosted, official, legal, or compliance behavior"
+  ]
+}

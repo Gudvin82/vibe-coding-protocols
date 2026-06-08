@@ -7,6 +7,7 @@ from pathlib import Path
 from vcp_cli import catalog_cmd
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class ControlCatalogTests(unittest.TestCase):
@@ -19,7 +20,7 @@ class ControlCatalogTests(unittest.TestCase):
 
     def test_catalog_payload(self) -> None:
         payload = catalog_cmd.list_payload(ROOT)
-        self.assertEqual(payload['version'], 'v0.9.3')
+        self.assertEqual(payload['version'], CURRENT)
         self.assertGreaterEqual(payload['count'], 5)
 
     def test_catalog_explain_payload(self) -> None:

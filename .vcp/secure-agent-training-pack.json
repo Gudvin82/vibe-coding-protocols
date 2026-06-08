@@ -1,0 +1,107 @@
+{
+  "version": "v0.9.4",
+  "methodology_version": "v1.4",
+  "scenarios": [
+    {
+      "id": "auth-without-review",
+      "scenario": "AI wants to change auth code without review.",
+      "risky_behavior": "safety-critical auth change without scoped approval",
+      "correct_vcp_response": "stop and require change-intent plus review gate",
+      "required_artifact": "change intent",
+      "required_check": "trust-check",
+      "stop_condition": "stop if auth boundary is unclear",
+      "reflection_question": "Why is auth change never a casual edit?"
+    },
+    {
+      "id": "dependency-without-review",
+      "scenario": "Agent adds dependency without license/security review.",
+      "risky_behavior": "new dependency lands without governance",
+      "correct_vcp_response": "run dependency review before adoption",
+      "required_artifact": "model/tool dependency review",
+      "required_check": "ai stack adoption checklist",
+      "stop_condition": "stop if license or data path is unknown",
+      "reflection_question": "What must be reviewed before adding an external AI dependency?"
+    },
+    {
+      "id": "claim-without-evidence",
+      "scenario": "AI writes public claim without evidence.",
+      "risky_behavior": "marketing or release overclaim",
+      "correct_vcp_response": "replace with evidence-backed claim or remove",
+      "required_artifact": "evidence bundle",
+      "required_check": "roadmap overclaim check",
+      "stop_condition": "stop if evidence does not exist",
+      "reflection_question": "What turns a claim into a trustworthy statement?"
+    },
+    {
+      "id": "multi-agent-conflict",
+      "scenario": "Multi-agent reviews conflict.",
+      "risky_behavior": "conflicting approvals without decision owner",
+      "correct_vcp_response": "escalate to decision log and owner",
+      "required_artifact": "decision log",
+      "required_check": "pr readiness",
+      "stop_condition": "stop if no human owner is assigned",
+      "reflection_question": "Who resolves conflicting agent judgments?"
+    },
+    {
+      "id": "secret-in-prompt",
+      "scenario": "Secret appears in prompt/code.",
+      "risky_behavior": "secret exposure",
+      "correct_vcp_response": "stop, sanitize, rotate if needed",
+      "required_artifact": "incident note",
+      "required_check": "security policy/manual review",
+      "stop_condition": "stop if secret remains in repo",
+      "reflection_question": "Why is deletion alone not enough after exposure?"
+    },
+    {
+      "id": "pr-without-checks",
+      "scenario": "PR is prepared without tests/trust-check.",
+      "risky_behavior": "merge-ready claim without validation",
+      "correct_vcp_response": "run required checks before PR readiness",
+      "required_artifact": "pr readiness checklist",
+      "required_check": "tests and trust-check",
+      "stop_condition": "stop if required checks did not run",
+      "reflection_question": "What is the difference between code written and code ready?"
+    },
+    {
+      "id": "broad-rewrite",
+      "scenario": "Agent tries broad rewrite outside scope.",
+      "risky_behavior": "unbounded rewrite drift",
+      "correct_vcp_response": "narrow scope or stop",
+      "required_artifact": "change intent or scoped task note",
+      "required_check": "review-diff or manual review",
+      "stop_condition": "stop if touched surface exceeds approved scope",
+      "reflection_question": "How do you recognize scope drift early?"
+    },
+    {
+      "id": "production-ready-without-evidence",
+      "scenario": "AI marks release as production-ready without evidence.",
+      "risky_behavior": "unsupported release claim",
+      "correct_vcp_response": "use release decision matrix",
+      "required_artifact": "release decision",
+      "required_check": "evidence bundle",
+      "stop_condition": "stop if proof path is incomplete",
+      "reflection_question": "Why does release confidence require explicit evidence?"
+    },
+    {
+      "id": "ci-files-without-approval",
+      "scenario": "Agent modifies CI/release files without approval.",
+      "risky_behavior": "workflow/release mutation without governance",
+      "correct_vcp_response": "require explicit approval and review",
+      "required_artifact": "change intent",
+      "required_check": "pr readiness",
+      "stop_condition": "stop if workflow impact is unclear",
+      "reflection_question": "Why are CI/release files high-risk even when diff is small?"
+    },
+    {
+      "id": "dangerous-shell",
+      "scenario": "AI suggests dangerous shell command.",
+      "risky_behavior": "destructive command execution",
+      "correct_vcp_response": "refuse broad/destructive action and propose safe audit path",
+      "required_artifact": "review note",
+      "required_check": "human confirmation",
+      "stop_condition": "stop if action is destructive or irreversible",
+      "reflection_question": "When is a shell command too risky to follow automatically?"
+    }
+  ],
+  "note": "Training/onboarding resource only. Not a security game product."
+}

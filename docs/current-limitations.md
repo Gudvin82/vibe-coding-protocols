@@ -32,3 +32,7 @@ surfaces, evidence bundle, and rollout playbooks inside the repository.
 - locally installed `vcp` is supported when packaging is installed.
 - code/CLI are MIT.
 - docs/methodology are CC BY 4.0.
+- no external model/tool shipping by VCP;
+- no automated GitHub/Hugging Face scanning;
+- no legal or compliance certification for AI dependencies;
+- no claim that VCP configures GitHub-native controls automatically.

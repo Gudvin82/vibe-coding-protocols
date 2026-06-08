@@ -1,0 +1,116 @@
+{
+  "version": "v0.9.4",
+  "modules": [
+    {
+      "id": "vcp-basics",
+      "target_audience": "all contributors",
+      "duration": "30m",
+      "required_reading": [
+        "START_HERE.md",
+        "README.md"
+      ],
+      "exercise": "route selection dry run",
+      "output_artifact": "route note",
+      "success_criteria": "can explain what VCP is and is not"
+    },
+    {
+      "id": "route-selection",
+      "target_audience": "maintainers and PM",
+      "duration": "30m",
+      "required_reading": [
+        "docs/route-recommender.md"
+      ],
+      "exercise": "map one real project to a route",
+      "output_artifact": "route decision",
+      "success_criteria": "route chosen with rationale"
+    },
+    {
+      "id": "agent-kits",
+      "target_audience": "AI-heavy contributors",
+      "duration": "30m",
+      "required_reading": [
+        "docs/integrations/agent-kits.md"
+      ],
+      "exercise": "inspect one kit",
+      "output_artifact": "kit selection note",
+      "success_criteria": "team understands copy-ready not official boundary"
+    },
+    {
+      "id": "secure-ai-behavior",
+      "target_audience": "all contributors",
+      "duration": "45m",
+      "required_reading": [
+        "docs/secure-agent-training-pack.md"
+      ],
+      "exercise": "complete two risky scenarios",
+      "output_artifact": "training note",
+      "success_criteria": "unsafe behavior is recognized and stopped"
+    },
+    {
+      "id": "pr-readiness",
+      "target_audience": "reviewers",
+      "duration": "30m",
+      "required_reading": [
+        "docs/pr-readiness.md"
+      ],
+      "exercise": "prepare PR readiness checklist",
+      "output_artifact": "pr readiness report",
+      "success_criteria": "no PR-ready claim without checks"
+    },
+    {
+      "id": "evidence-bundle",
+      "target_audience": "maintainers",
+      "duration": "30m",
+      "required_reading": [
+        "docs/evidence-bundle.md"
+      ],
+      "exercise": "assemble demo evidence",
+      "output_artifact": "evidence bundle note",
+      "success_criteria": "evidence chain is explicit"
+    },
+    {
+      "id": "release-decision",
+      "target_audience": "maintainers",
+      "duration": "30m",
+      "required_reading": [
+        "docs/release-decision-matrix.md"
+      ],
+      "exercise": "decide no-release vs demo",
+      "output_artifact": "release decision",
+      "success_criteria": "release claim matches proof"
+    },
+    {
+      "id": "anti-chaos-recovery",
+      "target_audience": "rescue team",
+      "duration": "45m",
+      "required_reading": [
+        "docs/anti-chaos-recovery-kit.md"
+      ],
+      "exercise": "triage messy repo",
+      "output_artifact": "recovery plan",
+      "success_criteria": "repo rescue path is bounded"
+    },
+    {
+      "id": "model-tool-governance",
+      "target_audience": "maintainers and product",
+      "duration": "45m",
+      "required_reading": [
+        "docs/model-tool-governance.md"
+      ],
+      "exercise": "review one AI dependency",
+      "output_artifact": "dependency review",
+      "success_criteria": "dependency boundaries are documented"
+    },
+    {
+      "id": "github-native-controls",
+      "target_audience": "maintainers",
+      "duration": "30m",
+      "required_reading": [
+        "docs/github-native-control-checklist.md"
+      ],
+      "exercise": "audit repo controls",
+      "output_artifact": "github control checklist",
+      "success_criteria": "team knows what is configured vs missing"
+    }
+  ]
+}

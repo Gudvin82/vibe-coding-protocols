@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class SoloSquadPathTests(unittest.TestCase):
@@ -17,7 +18,7 @@ class SoloSquadPathTests(unittest.TestCase):
         self.assertIn('human-led', text)
         self.assertIn('does not claim autonomous orchestration', text)
         payload = json.loads((ROOT / '.vcp/workflows/ai-augmented-solo-squad.json').read_text(encoding='utf-8'))
-        self.assertEqual(payload['version'], 'v0.9.3')
+        self.assertEqual(payload['version'], CURRENT)
 
 
 if __name__ == '__main__':

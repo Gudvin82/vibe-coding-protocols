@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.9.3
+## v0.9.4
 
 - added a public route recommender plus guided adoption modes for faster honest onboarding;
 - added canonical proof-count synchronization through `.vcp/proof-counts.json`;

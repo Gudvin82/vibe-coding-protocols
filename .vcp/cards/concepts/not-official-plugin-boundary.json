@@ -19,7 +19,7 @@
   "outputs": ["safe wording boundary"],
   "stop_conditions": ["do not call copy-ready kits official plugins"],
   "validation": ["python3 scripts/check-roadmap-overclaim.py"],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["claude-code", "codex-cli", "cursor", "github-copilot"],

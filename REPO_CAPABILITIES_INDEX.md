@@ -1,7 +1,7 @@
 # Repo Capabilities Index
 
 This is the compact capability map for VCP practical adoption.
-Name the current GitHub repository release as `Vibe Coding Protocols v0.9.3`.
+Name the current GitHub repository release as `Vibe Coding Protocols v0.9.4`.
 
 | Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|
@@ -28,7 +28,7 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.9.3`.
 | Unit-tested CLI logic | `tests/`, `python3 -m unittest discover -s tests` | that CLI logic is only smoke-tested |
 
 
-## v0.9.3 capability additions
+## v0.9.4 capability additions
 
 - Route Recommender
 - Guided Adoption Modes
@@ -42,3 +42,9 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.9.3`.
 - Evaluation Status Badges
 
 Canonical proof-count snapshot: `.vcp/proof-counts.json`.
+
+| Ecosystem governance | `docs/ai-ecosystem-watchlist.md`, `docs/model-tool-governance.md`, `docs/ecosystem-scouting-workflow.md` | that VCP ships or hosts external AI tools |
+| Secure agent training | `docs/secure-agent-training-pack.md`, `templates/training/secure-agent-exercises.md` | that VCP is a game engine or security certification |
+| GitHub-native controls | `docs/github-native-control-checklist.md`, `templates/reports/github-native-control-checklist.md` | that VCP auto-configures GitHub protections |
+| AI stack adoption review | `docs/ai-stack-adoption-checklist.md`, `.vcp/ai-stack-adoption-checklist.example.json` | that VCP recommends one canonical stack |
+| Team enablement | `docs/team-enablement-pack.md`, `templates/training/team-enablement-plan.md` | that only one maintainer can operate VCP |

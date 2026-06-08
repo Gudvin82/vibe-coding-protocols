@@ -1,0 +1,12 @@
+{
+  "scenario_id": "team-enablement-pack",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "docs/team-enablement-pack.md",
+    "templates/training/team-enablement-plan.md"
+  ],
+  "expected_first_safe_action": "training plan for vcp-pilot and vcp-scale",
+  "expected_warnings": [
+    "do not overclaim hosted, official, legal, or compliance behavior"
+  ]
+}

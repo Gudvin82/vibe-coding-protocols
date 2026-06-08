@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli workflow run --id production-hardening --interactive --dry-run --json"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

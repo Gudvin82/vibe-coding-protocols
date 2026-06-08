@@ -19,7 +19,7 @@
   "outputs": ["Codex setup bundle"],
   "stop_conditions": ["do not call this an official plugin"],
   "validation": ["python3 -m vcp_cli agents kit --target codex --json"],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["codex-cli"],

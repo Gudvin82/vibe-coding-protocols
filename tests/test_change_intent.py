@@ -7,6 +7,7 @@ from pathlib import Path
 from vcp_cli import change_cmd
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class ChangeIntentTests(unittest.TestCase):
@@ -20,7 +21,7 @@ class ChangeIntentTests(unittest.TestCase):
 
     def test_intent_payload(self) -> None:
         payload = change_cmd.example_payload(ROOT)
-        self.assertEqual(payload['version'], 'v0.9.3')
+        self.assertEqual(payload['version'], CURRENT)
 
     def test_validation_payload(self) -> None:
         payload = json.loads((ROOT / '.vcp/change-intent.example.json').read_text(encoding='utf-8'))

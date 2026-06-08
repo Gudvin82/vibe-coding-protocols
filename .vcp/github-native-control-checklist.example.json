@@ -1,0 +1,20 @@
+{
+  "version": "v0.9.4",
+  "repo": "owner/example-repo",
+  "controls": {
+    "github_actions_pr_gate": "present",
+    "branch_protection": "review",
+    "required_reviews": "review",
+    "codeowners": "missing",
+    "issue_templates": "optional",
+    "pr_templates": "present",
+    "release_notes": "present",
+    "dependabot": "review",
+    "codeql": "not-enabled",
+    "secret_scanning": "not-enabled",
+    "security_policy": "present",
+    "topics_about_description": "review",
+    "discussions": "optional"
+  },
+  "note": "Checklist/report example only. VCP does not enable GitHub controls automatically."
+}

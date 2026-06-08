@@ -1,0 +1,61 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need a governance-first surface"
+  ],
+  "do_not_use_when": [
+    "you need hosted automation"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented governance decision"
+  ],
+  "stop_conditions": [
+    "stop if boundary is overclaimed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "v094-no-overclaim",
+  "name": "v0.9.4 No-overclaim Boundary",
+  "entry_files": [
+    "docs/release-v0.9.4.md",
+    "docs/current-limitations.md"
+  ],
+  "related_files": [
+    "docs/scope-boundary.md"
+  ],
+  "summary": "v0.9.4 keeps VCP governance-first and does not claim external tool shipping"
+}

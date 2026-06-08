@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "title": "VCP Control Catalog",
   "statuses": [
     "shipped",
@@ -227,7 +227,7 @@
       ],
       "docs": "docs/roadmap/vscode-extension.md",
       "docs_ru": "docs_ru/README.md",
-      "roadmap_boundary": "No official VS Code extension ships in v0.9.3."
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.4."
     },
     {
       "id": "product-spine",
@@ -557,7 +557,7 @@
         "public-evaluation-kit"
       ],
       "docs": "docs/docs-site.md",
-      "docs_ru": "docs_ru/release-v0.9.3.md"
+      "docs_ru": "docs_ru/release-v0.9.4.md"
     },
     {
       "id": "agent-kits",
@@ -819,6 +819,159 @@
       ],
       "docs": "docs/integrations/proof-matrix.md",
       "docs_ru": "docs_ru/integration-proof-matrix.md"
+    },
+    {
+      "id": "ai-ecosystem-watchlist",
+      "title": "AI Ecosystem Watchlist",
+      "category": "Governance references",
+      "status": "shipped",
+      "summary": "Governance-oriented watchlist for external AI tools and ecosystem references.",
+      "primary_files": [
+        "docs/ai-ecosystem-watchlist.md",
+        ".vcp/ai-ecosystem-watchlist.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli ecosystem watchlist --json"
+      ],
+      "when_to_use": "Need to review a new AI repo/tool before adoption.",
+      "not_for": "Claiming VCP ships or hosts the external tool.",
+      "related_entries": [
+        "model-tool-governance",
+        "ai-stack-adoption-checklist",
+        "ecosystem-scouting-workflow"
+      ],
+      "docs": "docs/ai-ecosystem-watchlist.md",
+      "docs_ru": "docs_ru/ai-ecosystem-watchlist.md"
+    },
+    {
+      "id": "model-tool-governance",
+      "title": "Model / Tool Governance",
+      "category": "Governance references",
+      "status": "shipped",
+      "summary": "Dependency-style review surface for AI models, tools, datasets, endpoints, and related components.",
+      "primary_files": [
+        "docs/model-tool-governance.md",
+        "schemas/model-tool-dependency.schema.json",
+        ".vcp/model-tool-dependencies.example.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli model-tools example --json"
+      ],
+      "when_to_use": "Need to document or review AI dependencies before adoption.",
+      "not_for": "Legal or compliance certification.",
+      "related_entries": [
+        "ai-stack-adoption-checklist",
+        "ai-ecosystem-watchlist"
+      ],
+      "docs": "docs/model-tool-governance.md",
+      "docs_ru": "docs_ru/model-tool-governance.md"
+    },
+    {
+      "id": "secure-agent-training-pack",
+      "title": "Secure Agent Training Pack",
+      "category": "Training",
+      "status": "shipped",
+      "summary": "Training layer for safer AI-assisted contribution behavior.",
+      "primary_files": [
+        "docs/secure-agent-training-pack.md",
+        "templates/training/secure-agent-exercises.md",
+        ".vcp/secure-agent-training-pack.json"
+      ],
+      "commands": [],
+      "when_to_use": "Need team onboarding for safe AI contribution patterns.",
+      "not_for": "A game engine or security certification.",
+      "related_entries": [
+        "team-enablement-pack",
+        "pr-readiness"
+      ],
+      "docs": "docs/secure-agent-training-pack.md",
+      "docs_ru": "docs_ru/secure-agent-training-pack.md"
+    },
+    {
+      "id": "github-native-control-checklist",
+      "title": "GitHub-native Control Checklist",
+      "category": "Governance references",
+      "status": "shipped",
+      "summary": "Checklist/report for GitHub-side controls around VCP adoption.",
+      "primary_files": [
+        "docs/github-native-control-checklist.md",
+        "templates/reports/github-native-control-checklist.md",
+        ".vcp/github-native-control-checklist.example.json"
+      ],
+      "commands": [],
+      "when_to_use": "Need to verify GitHub controls around PR and release flow.",
+      "not_for": "Automatic GitHub configuration.",
+      "related_entries": [
+        "pr-readiness",
+        "team-enablement-pack"
+      ],
+      "docs": "docs/github-native-control-checklist.md",
+      "docs_ru": "docs_ru/github-native-control-checklist.md"
+    },
+    {
+      "id": "ai-stack-adoption-checklist",
+      "title": "AI Stack Adoption Checklist",
+      "category": "Governance references",
+      "status": "shipped",
+      "summary": "Review path for local/cloud/hybrid AI stack adoption.",
+      "primary_files": [
+        "docs/ai-stack-adoption-checklist.md",
+        "templates/reports/ai-stack-adoption-checklist.md",
+        ".vcp/ai-stack-adoption-checklist.example.json"
+      ],
+      "commands": [],
+      "when_to_use": "Need to assess a proposed AI stack before adoption.",
+      "not_for": "Declaring one canonical stack.",
+      "related_entries": [
+        "model-tool-governance",
+        "ai-ecosystem-watchlist"
+      ],
+      "docs": "docs/ai-stack-adoption-checklist.md",
+      "docs_ru": "docs_ru/ai-stack-adoption-checklist.md"
+    },
+    {
+      "id": "team-enablement-pack",
+      "title": "Team Enablement Pack",
+      "category": "Training",
+      "status": "shipped",
+      "summary": "Training plan for VCP-Pilot and VCP-Scale rollouts.",
+      "primary_files": [
+        "docs/team-enablement-pack.md",
+        "templates/training/team-enablement-plan.md",
+        ".vcp/team-enablement-pack.json"
+      ],
+      "commands": [],
+      "when_to_use": "Need repeatable team rollout and onboarding.",
+      "not_for": "Hosted LMS or certification platform.",
+      "related_entries": [
+        "secure-agent-training-pack",
+        "client-adoption-rollout"
+      ],
+      "docs": "docs/team-enablement-pack.md",
+      "docs_ru": "docs_ru/team-enablement-pack.md"
+    },
+    {
+      "id": "ecosystem-scouting-workflow",
+      "title": "Ecosystem Scouting Workflow",
+      "category": "Governance references",
+      "status": "shipped",
+      "summary": "Workflow for PM/AI product/R&D teams to evaluate external AI repos and tools without blind adoption.",
+      "primary_files": [
+        "docs/ecosystem-scouting-workflow.md",
+        "templates/reports/ecosystem-scouting-note.md",
+        ".vcp/ecosystem-scouting-workflow.json"
+      ],
+      "commands": [
+        "python3 -m vcp_cli ecosystem scout --json"
+      ],
+      "when_to_use": "Need a lightweight governance workflow for ecosystem scouting.",
+      "not_for": "Automated crawling or ranking.",
+      "related_entries": [
+        "ai-ecosystem-watchlist",
+        "model-tool-governance"
+      ],
+      "docs": "docs/ecosystem-scouting-workflow.md",
+      "docs_ru": "docs_ru/ecosystem-scouting-workflow.md"
     }
   ]
 }

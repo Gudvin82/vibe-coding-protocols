@@ -1,15 +1,15 @@
 
 # Proof Snapshot
 
-Current repository package: `v0.9.3`
+Current repository package: `v0.9.4`
 
 Canonical proof numbers live in [.vcp/proof-counts.json](../.vcp/proof-counts.json).
 
-- benchmark scenarios: `179`
-- cards: `323`
-- CLI commands in manifest: `81`
-- tests: `132`
-- report templates: `55`
+- benchmark scenarios: `203`
+- cards: `331`
+- CLI commands in manifest: `84`
+- tests: `81`
+- report templates: `63`
 - trust-check: yes
 - evaluator pack: yes
 

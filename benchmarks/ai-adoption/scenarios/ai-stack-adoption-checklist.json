@@ -1,0 +1,12 @@
+{
+  "scenario_id": "ai-stack-adoption-checklist",
+  "target_profile": "repository-evaluation",
+  "required_files_to_inspect": [
+    "docs/ai-stack-adoption-checklist.md",
+    "templates/reports/ai-stack-adoption-checklist.md"
+  ],
+  "expected_first_safe_action": "checklist for reviewing ai stack adoption before rollout",
+  "expected_warnings": [
+    "do not overclaim hosted, official, legal, or compliance behavior"
+  ]
+}

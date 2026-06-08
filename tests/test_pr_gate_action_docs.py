@@ -3,13 +3,15 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
+CURRENT = Path("VERSION").read_text(encoding="utf-8").strip()
+
 
 class PrGateActionDocsTests(unittest.TestCase):
     def test_pr_gate_workflow_template_exists(self) -> None:
         path = Path("ci-examples/github-actions/vcp-pr-gate.yml")
         self.assertTrue(path.exists())
         text = path.read_text(encoding="utf-8")
-        self.assertIn("git+https://github.com/Gudvin82/vibe-coding-protocols.git@v0.9.3", text)
+        self.assertIn(f"git+https://github.com/Gudvin82/vibe-coding-protocols.git@{CURRENT}", text)
         self.assertIn("vcp review-diff --json", text)
 
     def test_pr_gate_docs_exist(self) -> None:

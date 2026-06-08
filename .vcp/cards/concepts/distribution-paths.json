@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli doctor"
   ],
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "maturity": "stable",
   "recommended": true,
   "platforms": [

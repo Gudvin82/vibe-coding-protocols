@@ -1,7 +1,7 @@
 
 # Русская навигация по VCP
 
-Текущий пакет репозитория: `v0.9.3`
+Текущий пакет репозитория: `v0.9.4`
 Methodology: `v1.4`
 
 VCP — это local-first control/governance layer для AI-built и AI-assisted
@@ -42,7 +42,7 @@ hosted dashboard, не marketplace и не official IDE extension.
    `docs_ru/pr-readiness.md`
 5. Для честных ограничений смотрите `docs_ru/current-limitations.md`
 
-## Новое в v0.9.3
+## Новое в v0.9.4
 
 - Route Recommender: помогает выбрать маршрут для fast MVP, нового проекта,
   текущего проекта, raw AI MVP, release decision или brownfield rescue.
@@ -109,3 +109,16 @@ Roadmap-only:
 - `docs_ru/ai-tool-mode-packs.md`
 - `docs_ru/visuals.md`
 - `docs_ru/evaluation-status-badges.md`
+
+## AI ecosystem governance в VCP
+
+VCP помогает не просто выбрать AI tool, а безопасно его проверить перед внедрением. Для этого в `v0.9.4` добавлены:
+- `docs_ru/ai-ecosystem-watchlist.md` для governance-оценки внешних AI tools;
+- `docs_ru/model-tool-governance.md` для документирования model/tool dependencies;
+- `docs_ru/secure-agent-training-pack.md` для обучения команды безопасному AI behavior;
+- `docs_ru/github-native-control-checklist.md` для проверки GitHub-native controls;
+- `docs_ru/ai-stack-adoption-checklist.md` для review local/cloud/hybrid AI-стека;
+- `docs_ru/team-enablement-pack.md` для rollout и обучения;
+- `docs_ru/ecosystem-scouting-workflow.md` для PM / AI product / R&D scouting.
+
+Это не означает, что VCP поставляет внешние модели или tools. Он помогает командам проверять, документировать и контролировать их внедрение без overclaim.

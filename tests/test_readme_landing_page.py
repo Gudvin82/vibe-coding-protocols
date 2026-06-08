@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class ReadmeLandingPageTests(unittest.TestCase):
@@ -32,7 +33,7 @@ class ReadmeLandingPageTests(unittest.TestCase):
         self.assertIn('docs/evidence-bundle.md', text)
         self.assertIn('docs/current-limitations.md', text)
         self.assertIn('assets/diagrams/vcp-route-selector.svg', text)
-        self.assertIn('v0.9.3', text)
+        self.assertIn(CURRENT, text)
         self.assertIn('Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/', text)
 
 

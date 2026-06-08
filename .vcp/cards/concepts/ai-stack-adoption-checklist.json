@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need a governance-first surface"
+  ],
+  "do_not_use_when": [
+    "you need hosted automation"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented governance decision"
+  ],
+  "stop_conditions": [
+    "stop if boundary is overclaimed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "ai-stack-adoption-checklist",
+  "name": "AI Stack Adoption Checklist",
+  "entry_files": [
+    "docs/ai-stack-adoption-checklist.md",
+    "docs_ru/ai-stack-adoption-checklist.md"
+  ],
+  "related_files": [
+    "templates/reports/ai-stack-adoption-checklist.md",
+    ".vcp/ai-stack-adoption-checklist.example.json"
+  ],
+  "summary": "Checklist for reviewing AI stack adoption before rollout"
+}

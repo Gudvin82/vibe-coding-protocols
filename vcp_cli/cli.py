@@ -22,6 +22,7 @@ from . import diagnose as diagnose_cmd
 from . import dashboard_cmd
 from . import demo as demo_cmd
 from . import doctor as doctor_cmd
+from . import ecosystem_cmd
 from . import evaluator_cmd
 from . import evaluate as evaluate_cmd
 from . import init_cmd
@@ -31,6 +32,7 @@ from . import cards as cards_cmd
 from . import manifest as manifest_cmd
 from . import memory_cmd
 from . import metrics_cmd
+from . import model_tools_cmd
 from . import onboard as onboard_cmd
 from . import plugins_cmd
 from . import profiles_cmd
@@ -232,6 +234,18 @@ def build_parser() -> argparse.ArgumentParser:
     run_p = benchmark_sub.add_parser("run")
     run_p.add_argument("--scenario")
     run_p.add_argument("--json", action="store_true")
+
+    ecosystem_p = sub.add_parser("ecosystem")
+    ecosystem_sub = ecosystem_p.add_subparsers(dest="ecosystem_command")
+    ecosystem_watchlist = ecosystem_sub.add_parser("watchlist")
+    ecosystem_watchlist.add_argument("--json", action="store_true")
+    ecosystem_scout = ecosystem_sub.add_parser("scout")
+    ecosystem_scout.add_argument("--json", action="store_true")
+
+    model_tools_p = sub.add_parser("model-tools")
+    model_tools_sub = model_tools_p.add_subparsers(dest="model_tools_command")
+    model_tools_example = model_tools_sub.add_parser("example")
+    model_tools_example.add_argument("--json", action="store_true")
 
     review_p = sub.add_parser("review")
     review_sub = review_p.add_subparsers(dest="review_command")
@@ -612,6 +626,16 @@ def main(argv: list[str] | None = None) -> int:
             return benchmark_cmd.list_scenarios()
         if args.benchmark_command == "run":
             return benchmark_cmd.run(args.scenario, args.json)
+    if args.command == "ecosystem":
+        if args.ecosystem_command == "watchlist":
+            return ecosystem_cmd.run_watchlist(getattr(args, "json", False))
+        if args.ecosystem_command == "scout":
+            return ecosystem_cmd.run_scout(getattr(args, "json", False))
+        parser.error("ecosystem requires watchlist or scout")
+    if args.command == "model-tools":
+        if args.model_tools_command == "example":
+            return model_tools_cmd.run_example(getattr(args, "json", False))
+        parser.error("model-tools requires example")
     if args.command == "spec":
         if args.spec_command == "template":
             return spec_cmd.template(args.kind, args.write, args.output, getattr(args, "json", False))

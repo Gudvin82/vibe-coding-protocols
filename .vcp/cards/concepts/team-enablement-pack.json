@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need a governance-first surface"
+  ],
+  "do_not_use_when": [
+    "you need hosted automation"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented governance decision"
+  ],
+  "stop_conditions": [
+    "stop if boundary is overclaimed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "team-enablement-pack",
+  "name": "Team Enablement Pack",
+  "entry_files": [
+    "docs/team-enablement-pack.md",
+    "docs_ru/team-enablement-pack.md"
+  ],
+  "related_files": [
+    "templates/training/team-enablement-plan.md",
+    ".vcp/team-enablement-pack.json"
+  ],
+  "summary": "Training plan for VCP-Pilot and VCP-Scale"
+}

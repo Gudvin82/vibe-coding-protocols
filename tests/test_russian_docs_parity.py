@@ -29,6 +29,10 @@ class RussianDocsParityTests(unittest.TestCase):
         self.assertIn('docs_ru/route-recommender.md', text)
         self.assertIn('docs_ru/evidence-bundle.md', text)
         self.assertIn('docs_ru/pr-readiness.md', text)
+        self.assertIn('AI ecosystem governance в VCP', text)
+        self.assertIn('docs_ru/ai-ecosystem-watchlist.md', text)
+        self.assertIn('docs_ru/model-tool-governance.md', text)
+        self.assertIn('docs_ru/team-enablement-pack.md', text)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,62 @@
+{
+  "type": "concept",
+  "risk_level": "medium",
+  "domains": [
+    "governance"
+  ],
+  "maps_to": {
+    "sdlc_phase": [
+      "intake",
+      "review"
+    ],
+    "ai_failure_modes": [
+      "overclaim",
+      "drift"
+    ],
+    "project_state": [
+      "new",
+      "existing"
+    ],
+    "risk_categories": [
+      "clarity",
+      "control",
+      "proof"
+    ]
+  },
+  "use_when": [
+    "you need a governance-first surface"
+  ],
+  "do_not_use_when": [
+    "you need hosted automation"
+  ],
+  "cli": [],
+  "outputs": [
+    "documented governance decision"
+  ],
+  "stop_conditions": [
+    "stop if boundary is overclaimed"
+  ],
+  "validation": [
+    "python3 -m vcp_cli trust-check --json"
+  ],
+  "version": "v0.9.4",
+  "maturity": "stable",
+  "recommended": true,
+  "platforms": [
+    "local"
+  ],
+  "badges": [
+    "local-first"
+  ],
+  "id": "secure-agent-training-pack",
+  "name": "Secure Agent Training Pack",
+  "entry_files": [
+    "docs/secure-agent-training-pack.md",
+    "docs_ru/secure-agent-training-pack.md"
+  ],
+  "related_files": [
+    "templates/training/secure-agent-exercises.md",
+    ".vcp/secure-agent-training-pack.json"
+  ],
+  "summary": "Training pack for safer AI-assisted contribution"
+}

@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.9.3",
+  "version": "v0.9.4",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.3.md",
+    "docs/release-v0.9.4.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -65,7 +65,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.3.md",
+    "docs_ru/release-v0.9.4.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -119,7 +119,30 @@
     "docs/current-limitations.md",
     "docs/route-recommender.md",
     "docs/evidence-bundle.md",
-    "docs/pr-readiness.md"
+    "docs/pr-readiness.md",
+    "docs/release-v0.9.4.md",
+    "docs_ru/release-v0.9.4.md",
+    "docs/ai-ecosystem-watchlist.md",
+    "docs/model-tool-governance.md",
+    "docs/secure-agent-training-pack.md",
+    "docs/github-native-control-checklist.md",
+    "docs/ai-stack-adoption-checklist.md",
+    "docs/team-enablement-pack.md",
+    "docs/ecosystem-scouting-workflow.md",
+    "docs_ru/ai-ecosystem-watchlist.md",
+    "docs_ru/model-tool-governance.md",
+    "docs_ru/secure-agent-training-pack.md",
+    "docs_ru/github-native-control-checklist.md",
+    "docs_ru/ai-stack-adoption-checklist.md",
+    "docs_ru/team-enablement-pack.md",
+    "docs_ru/ecosystem-scouting-workflow.md",
+    ".vcp/ai-ecosystem-watchlist.json",
+    ".vcp/model-tool-dependencies.example.json",
+    ".vcp/secure-agent-training-pack.json",
+    ".vcp/github-native-control-checklist.example.json",
+    ".vcp/ai-stack-adoption-checklist.example.json",
+    ".vcp/team-enablement-pack.json",
+    ".vcp/ecosystem-scouting-workflow.json"
   ],
   "cards": {
     "root": ".vcp/cards/",
@@ -173,7 +196,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.3.md",
+    "docs/release-v0.9.4.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -223,7 +246,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.3.md",
+    "docs_ru/release-v0.9.4.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -302,7 +325,7 @@
     "docs/integrations/proof-matrix.md",
     "docs/ai-tool-mode-packs.md",
     "docs/evaluation-status-badges.md",
-    "docs/release-v0.9.3.md",
+    "docs/release-v0.9.4.md",
     "docs_ru/current-limitations.md",
     "docs_ru/proof-counts.md",
     "docs_ru/route-recommender.md",
@@ -315,7 +338,7 @@
     "docs_ru/integration-proof-matrix.md",
     "docs_ru/ai-tool-mode-packs.md",
     "docs_ru/evaluation-status-badges.md",
-    "docs_ru/release-v0.9.3.md",
+    "docs_ru/release-v0.9.4.md",
     ".vcp/proof-counts.json",
     ".vcp/route-recommender.json",
     ".vcp/guided-adoption-modes.json",
@@ -325,7 +348,23 @@
     ".vcp/pr-readiness.example.json",
     ".vcp/integration-proof-matrix.json",
     ".vcp/ai-tool-mode-packs.json",
-    ".vcp/evaluation-status-badges.json"
+    ".vcp/evaluation-status-badges.json",
+    "docs/release-v0.9.4.md",
+    "docs_ru/release-v0.9.4.md",
+    "docs/ai-ecosystem-watchlist.md",
+    "docs/model-tool-governance.md",
+    "docs/secure-agent-training-pack.md",
+    "docs/github-native-control-checklist.md",
+    "docs/ai-stack-adoption-checklist.md",
+    "docs/team-enablement-pack.md",
+    "docs/ecosystem-scouting-workflow.md",
+    "docs_ru/ai-ecosystem-watchlist.md",
+    "docs_ru/model-tool-governance.md",
+    "docs_ru/secure-agent-training-pack.md",
+    "docs_ru/github-native-control-checklist.md",
+    "docs_ru/ai-stack-adoption-checklist.md",
+    "docs_ru/team-enablement-pack.md",
+    "docs_ru/ecosystem-scouting-workflow.md"
   ],
   "routes": [
     "daily-error-triage",
@@ -760,15 +799,15 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.9.3",
+  "repository_package_version": "v0.9.4",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
   },
   "ai_release_naming": {
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.3. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
   }
 }

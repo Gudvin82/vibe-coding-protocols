@@ -190,6 +190,63 @@ def _control_catalog_check(root: Path) -> dict[str, Any]:
     }
 
 
+def _ecosystem_governance_check(root: Path) -> dict[str, Any]:
+    return _bundle_check(
+        root,
+        "ecosystem-governance",
+        "AI ecosystem watchlist, model/tool governance, stack adoption, training, and scouting workflow surfaces exist.",
+        [
+            "docs/ai-ecosystem-watchlist.md",
+            "docs_ru/ai-ecosystem-watchlist.md",
+            ".vcp/ai-ecosystem-watchlist.json",
+            "docs/model-tool-governance.md",
+            "docs_ru/model-tool-governance.md",
+            "schemas/model-tool-dependency.schema.json",
+            ".vcp/model-tool-dependencies.example.json",
+            "templates/reports/model-tool-dependency-review.md",
+            "docs/secure-agent-training-pack.md",
+            "docs_ru/secure-agent-training-pack.md",
+            "templates/training/secure-agent-exercises.md",
+            ".vcp/secure-agent-training-pack.json",
+            "docs/github-native-control-checklist.md",
+            "docs_ru/github-native-control-checklist.md",
+            "templates/reports/github-native-control-checklist.md",
+            ".vcp/github-native-control-checklist.example.json",
+            "docs/ai-stack-adoption-checklist.md",
+            "docs_ru/ai-stack-adoption-checklist.md",
+            "templates/reports/ai-stack-adoption-checklist.md",
+            ".vcp/ai-stack-adoption-checklist.example.json",
+            "docs/team-enablement-pack.md",
+            "docs_ru/team-enablement-pack.md",
+            "templates/training/team-enablement-plan.md",
+            ".vcp/team-enablement-pack.json",
+            "docs/ecosystem-scouting-workflow.md",
+            "docs_ru/ecosystem-scouting-workflow.md",
+            "templates/reports/ecosystem-scouting-note.md",
+            ".vcp/ecosystem-scouting-workflow.json",
+        ],
+        needles={
+            "README.md": [
+                "AI Ecosystem Watchlist",
+                "Model / Tool Dependency Governance",
+                "VCP does not ship external models/tools",
+            ],
+            "README_ru.md": [
+                "AI Ecosystem Watchlist",
+                "Model / Tool Dependency Governance",
+                "VCP не поставляет внешние модели/tools",
+            ],
+            "START_HERE.md": [
+                "I want to evaluate an AI tool/model/stack before adopting it",
+                "I want to train my team for safer AI coding",
+            ],
+            "docs_ru/README.md": [
+                "AI ecosystem governance в VCP",
+            ],
+        },
+    )
+
+
 def _integration_proof_check(root: Path) -> dict[str, Any]:
     required = [
         "docs/integrations/proof-matrix.md",
@@ -411,6 +468,7 @@ def payload(root: Path | None = None) -> dict[str, Any]:
     checks.append(_agent_kits_check(root))
     checks.append(_client_adoption_rollout_check(root))
     checks.append(_control_catalog_check(root))
+    checks.append(_ecosystem_governance_check(root))
     checks.append(_changelog_hygiene_check(root))
     checks.append(_release_doc_check(root))
 

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Model Tool Dependency Review",
+  "type": "object",
+  "required": [
+    "name",
+    "type",
+    "source_provider",
+    "deployment_mode",
+    "license",
+    "data_sensitivity",
+    "approved_usage",
+    "prohibited_usage",
+    "review_owner",
+    "risk_level",
+    "last_reviewed"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "model",
+        "dataset",
+        "agent tool",
+        "inference endpoint",
+        "UI tool",
+        "evaluation tool",
+        "vector store",
+        "automation tool"
+      ]
+    },
+    "source_provider": {
+      "type": "string"
+    },
+    "deployment_mode": {
+      "type": "string",
+      "enum": [
+        "local",
+        "cloud",
+        "hybrid"
+      ]
+    },
+    "license": {
+      "type": "string"
+    },
+    "terms_usage_notes": {
+      "type": "string"
+    },
+    "data_sensitivity": {
+      "type": "string"
+    },
+    "approved_usage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_usage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "fallback_option": {
+      "type": "string"
+    },
+    "last_reviewed": {
+      "type": "string"
+    },
+    "evidence_links": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

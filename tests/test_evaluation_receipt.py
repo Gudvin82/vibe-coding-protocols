@@ -8,6 +8,7 @@ from pathlib import Path
 from vcp_cli import evaluator_cmd
 
 ROOT = Path(__file__).resolve().parents[1]
+CURRENT = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
 
 
 class EvaluationReceiptTests(unittest.TestCase):
@@ -23,7 +24,7 @@ class EvaluationReceiptTests(unittest.TestCase):
         proc = subprocess.run(['python3', '-m', 'vcp_cli', 'evaluator', 'receipt', '--json'], cwd=ROOT, text=True, capture_output=True, check=False)
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         payload = json.loads(proc.stdout)
-        self.assertEqual(payload['version'], 'v0.9.3')
+        self.assertEqual(payload['version'], CURRENT)
 
     def test_cli_receipt_validate_json(self) -> None:
         proc = subprocess.run(['python3', '-m', 'vcp_cli', 'evaluator', 'receipt', 'validate', '.vcp/evaluation-receipt.example.json', '--json'], cwd=ROOT, text=True, capture_output=True, check=False)

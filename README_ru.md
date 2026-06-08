@@ -3,7 +3,7 @@
 
 [English version](./README.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.9.3-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.9.4-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -22,10 +22,10 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
-> Текущий пакет репозитория: `v0.9.3`
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.3`.
+> Текущий пакет репозитория: `v0.9.4`
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.4`.
 
-Repository package: `v0.9.3`
+Repository package: `v0.9.4`
 
 VCP — это local-first AI control platform для AI-built и AI-assisted проектов.
 
@@ -78,25 +78,22 @@ reviewed.
 - не заменяет Spec Kit;
 - не является personal prompt repository.
 
-## Новое в v0.9.3
+## Новое в v0.9.4
 
-Новое в v0.9.3:
-- Route Recommender: помогает выбрать маршрут для fast MVP, нового проекта,
-  текущего проекта, raw AI MVP, release decision или brownfield rescue.
-- Control Scorecard: показывает состояние clarity, control, proof, adoption
-  readiness, launch readiness и evaluator readiness.
-- Evidence Bundle: собирает proof-пакет для PR, release, handoff, consulting и
-  client review.
-- Release Decision Matrix: помогает честно решить, можно ли demo / private
-  test / merge / beta / public release или пока нельзя выпускать.
-- Anti-Chaos Recovery Kit: маршрут для ситуации, когда AI уже нагенерил хаос и
-  нужно восстановить контроль.
-- PR Readiness Pack: локальная подготовка PR без auto-PR и auto-merge.
-- Integration Proof Matrix: показывает, какие Claude Code / Codex / Cursor /
-  Copilot / GitHub Actions kits реально shipped.
-- Current Limitations: честно фиксирует, чего в VCP нет: SaaS, hosted
-  dashboard, public PyPI/npm, official VS Code extension, marketplace, auto-PR,
-  security scanner.
+Новое в v0.9.4:
+- AI Ecosystem Watchlist для governance-оценки AI tools и моделей.
+- Model / Tool Dependency Governance для моделей, datasets, endpoints, agent
+  tools и AI-зависимостей.
+- Secure Agent Training Pack для безопасной AI-assisted работы и onboarding.
+- GitHub-native Control Checklist для PR Gate, branch protection, reviews,
+  CodeQL, Dependabot и secret-scanning readiness.
+- AI Stack Adoption Checklist для проверки local / cloud / hybrid AI-стека
+  перед внедрением.
+- Team Enablement Pack для VCP-Pilot и VCP-Scale.
+- Ecosystem Scouting Workflow для PM / AI product / R&D команд.
+
+VCP не поставляет внешние модели/tools. Он помогает командам проверять,
+документировать и контролировать их внедрение.
 
 ## Основные маршруты
 
@@ -143,11 +140,11 @@ templates.
 ## Proof surfaces
 
 Proof surfaces:
-- benchmark scenarios: `179`
-- cards: `323`
-- CLI commands in manifest: `81`
-- tests: `132`
-- report templates: `55`
+- benchmark scenarios: `203`
+- cards: `331`
+- CLI commands in manifest: `84`
+- tests: `81`
+- report templates: `63`
 - trust-check: yes
 - evaluator pack: yes
 - visual diagrams: yes

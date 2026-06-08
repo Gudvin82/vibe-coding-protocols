@@ -48,6 +48,10 @@ python3 -m vcp_cli trust-check --json
   [docs/portable-control-pack.md](./docs/portable-control-pack.md)
 - I need copy-ready AI tool setup kits:
   [docs/integrations/agent-kits.md](./docs/integrations/agent-kits.md)
+- I want to evaluate an AI tool/model/stack before adopting it:
+  [docs/ai-ecosystem-watchlist.md](./docs/ai-ecosystem-watchlist.md)
+- I want to train my team for safer AI coding:
+  [docs/secure-agent-training-pack.md](./docs/secure-agent-training-pack.md)
 - I want to roll out VCP with a team/client:
   [docs/client-adoption-playbook.md](./docs/client-adoption-playbook.md)
 - I need to prepare a PR:
@@ -68,6 +72,12 @@ Required first:
 - `python3 -m vcp_cli trust-check --json`
 
 Recommended next:
+- `docs/ai-ecosystem-watchlist.md`
+- `docs/model-tool-governance.md`
+- `docs/ai-stack-adoption-checklist.md`
+- `docs/github-native-control-checklist.md`
+- `docs/team-enablement-pack.md`
+- `docs/ecosystem-scouting-workflow.md`
 - `docs/flagship-demo.md`
 - `docs/control-catalog.md`
 - `docs/route-recommender.md`

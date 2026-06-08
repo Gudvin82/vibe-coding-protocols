@@ -1,0 +1,32 @@
+{
+  "version": "v0.9.4",
+  "stack_name": "example hybrid AI stack",
+  "mode": "hybrid",
+  "components": [
+    "local coding model",
+    "cloud inference endpoint",
+    "vector store"
+  ],
+  "data_sent_out": [
+    "selected prompts",
+    "non-production examples"
+  ],
+  "generated_code_scope": "internal prototype only",
+  "tests_present": true,
+  "evaluation_present": true,
+  "licenses_to_review": [
+    "model license",
+    "endpoint terms"
+  ],
+  "dependencies_added": [
+    "example vector SDK"
+  ],
+  "github_controls_needed": [
+    "PR Gate",
+    "required reviews"
+  ],
+  "vcp_route": "mvp-to-launch",
+  "required_evidence_bundle": "demo evidence bundle",
+  "launch_approver": "maintainer",
+  "note": "Checklist example only. Not a recommendation of one canonical stack."
+}

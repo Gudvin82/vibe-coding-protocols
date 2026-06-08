@@ -160,7 +160,7 @@ Use these proof surfaces in the first 2 minutes:
 - `docs/customer-repo-scaffold.md`
 - `docs/executive-reporting.md`
 
-## Key additions for v0.9.3
+## Key additions for v0.9.4
 
 - `docs/client-adoption-playbook.md`
 - `docs/consulting-offers.md`
@@ -170,3 +170,10 @@ Use these proof surfaces in the first 2 minutes:
 - inspect `docs/current-limitations.md`, `docs/route-recommender.md`, `docs/proof-counts.md`, `docs/control-scorecard.md`, `docs/evidence-bundle.md`, `docs/pr-readiness.md`, and `docs/integrations/proof-matrix.md` before high-confidence public claims.
 
 Canonical proof-count snapshot: `.vcp/proof-counts.json`.
+
+- `docs/ai-ecosystem-watchlist.md`
+- `docs/model-tool-governance.md`
+- `docs/github-native-control-checklist.md`
+- `docs/ai-stack-adoption-checklist.md`
+- `docs/team-enablement-pack.md`
+- `docs/ecosystem-scouting-workflow.md`

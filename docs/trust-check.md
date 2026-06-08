@@ -1,7 +1,7 @@
 
 # Trust Check
 
-Current repository package: `v0.9.3`
+Current repository package: `v0.9.4`
 
 `trust-check` validates public version surfaces, README/RU parity, Russian
 docs parity, evaluator pack coherence, route recommender surfaces, proof

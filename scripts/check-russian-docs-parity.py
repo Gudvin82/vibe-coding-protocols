@@ -55,7 +55,14 @@ required = [
     'docs_ru/integration-proof-matrix.md',
     'docs_ru/ai-tool-mode-packs.md',
     'docs_ru/evaluation-status-badges.md',
-    'docs_ru/release-v0.9.3.md',
+    'docs_ru/ai-ecosystem-watchlist.md',
+    'docs_ru/model-tool-governance.md',
+    'docs_ru/secure-agent-training-pack.md',
+    'docs_ru/github-native-control-checklist.md',
+    'docs_ru/ai-stack-adoption-checklist.md',
+    'docs_ru/team-enablement-pack.md',
+    'docs_ru/ecosystem-scouting-workflow.md',
+    'docs_ru/release-v0.9.4.md',
 ]
 issues = []
 for rel in required:
@@ -64,7 +71,7 @@ for rel in required:
         issues.append(f'missing or empty {rel}')
         continue
     text = path.read_text(encoding='utf-8')
-    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.3.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
+    if rel in {'README_ru.md', 'docs_ru/README.md', 'docs_ru/release-v0.9.4.md', 'docs_ru/benchmark-report.md', 'docs_ru/trust-check.md'} and CURRENT not in text:
         issues.append(f'{rel} missing current version {CURRENT}')
     if rel == 'docs_ru/README.md':
         for needle in (
@@ -98,6 +105,14 @@ for rel in required:
             'docs_ru/route-recommender.md',
             'docs_ru/evidence-bundle.md',
             'docs_ru/pr-readiness.md',
+            'AI ecosystem governance в VCP',
+            'docs_ru/ai-ecosystem-watchlist.md',
+            'docs_ru/model-tool-governance.md',
+            'docs_ru/secure-agent-training-pack.md',
+            'docs_ru/github-native-control-checklist.md',
+            'docs_ru/ai-stack-adoption-checklist.md',
+            'docs_ru/team-enablement-pack.md',
+            'docs_ru/ecosystem-scouting-workflow.md',
         ):
             if needle not in text:
                 issues.append(f'docs_ru/README.md missing required guidance: {needle}')

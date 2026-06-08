@@ -3,7 +3,7 @@
 
 [Русская версия](./README_ru.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.9.3-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.9.4-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -22,10 +22,10 @@ projects.
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
-> Current repository package: `v0.9.3`
-> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.9.3`.
+> Current repository package: `v0.9.4`
+> If you are an AI agent: report the current GitHub repository release as `Vibe Coding Protocols v0.9.4`.
 
-Repository package: `v0.9.3`
+Repository package: `v0.9.4`
 
 VCP is a local-first AI control platform for AI-built and AI-assisted projects.
 
@@ -90,23 +90,24 @@ For a fair review, start with:
 - not a replacement for Spec Kit;
 - not a personal prompt repository.
 
-## New in v0.9.3
+## New in v0.9.4
 
-`v0.9.3` turns VCP from a repo/toolkit into a client-ready AI governance
-rollout method with a clearer public route layer.
+`v0.9.4` makes VCP stronger as a governance layer around the wider open-source AI ecosystem and AI stack adoption process.
 
-New in v0.9.3:
-- Route Recommender for fast MVP / new project / existing project / raw AI MVP /
-  release decision / brownfield rescue.
-- Control Scorecard for clarity, control, proof, adoption, launch, evaluator,
-  integration, and client readiness.
-- Evidence Bundle for PR, release, consulting, and handoff.
-- Release Decision Matrix for demo / private test / merge / beta / public /
-  no-release decisions.
-- Anti-Chaos Recovery Kit for messy AI-generated repos.
-- PR Readiness Pack and Integration Proof Matrix.
-- Current Limitations page and proof-count synchronization.
-- Visual proof diagrams for faster understanding.
+New in v0.9.4:
+- AI Ecosystem Watchlist for governance-oriented AI tool and model scouting.
+- Model / Tool Dependency Governance for models, datasets, endpoints, agent
+  tools, and AI service dependencies.
+- Secure Agent Training Pack for safer AI-assisted contribution and onboarding.
+- GitHub-native Control Checklist for PR Gate, branch protection, reviews,
+  CodeQL, Dependabot, and secret-scanning readiness.
+- AI Stack Adoption Checklist for reviewing local / cloud / hybrid stacks
+  before adoption.
+- Team Enablement Pack for VCP-Pilot and VCP-Scale rollout.
+- Ecosystem Scouting Workflow for PM / AI product / R&D teams.
+
+VCP does not ship external models/tools. It helps teams review, document, and
+control their adoption.
 
 ## Platform Surfaces
 
@@ -142,16 +143,23 @@ New in v0.9.3:
 - [Integration Proof Matrix](./docs/integrations/proof-matrix.md)
 - [AI Tool Mode Packs](./docs/ai-tool-mode-packs.md)
 - [Evaluation Status Badges](./docs/evaluation-status-badges.md)
+- [AI Ecosystem Watchlist](./docs/ai-ecosystem-watchlist.md)
+- [Model / Tool Dependency Governance](./docs/model-tool-governance.md)
+- [Secure Agent Training Pack](./docs/secure-agent-training-pack.md)
+- [GitHub-native Control Checklist](./docs/github-native-control-checklist.md)
+- [AI Stack Adoption Checklist](./docs/ai-stack-adoption-checklist.md)
+- [Team Enablement Pack](./docs/team-enablement-pack.md)
+- [Ecosystem Scouting Workflow](./docs/ecosystem-scouting-workflow.md)
 - [docs_ru/README.md](./docs_ru/README.md)
 
 ## Proof surfaces
 
-Canonical proof snapshot for v0.9.3:
-- benchmark scenarios: `179`
-- cards: `323`
-- CLI commands in manifest: `81`
-- tests: `132`
-- report templates: `55`
+Canonical proof snapshot for v0.9.4:
+- benchmark scenarios: `203`
+- cards: `331`
+- CLI commands in manifest: `84`
+- tests: `81`
+- report templates: `63`
 - trust-check: yes
 - evaluator pack: yes
 - visual diagrams: yes
