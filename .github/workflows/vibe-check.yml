@@ -10,6 +10,8 @@ env:
 jobs:
   vibe-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v7
         with:
@@ -182,6 +184,8 @@ jobs:
 
   vibe-check-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -199,6 +203,8 @@ jobs:
 
   windows-cli-parity:
     runs-on: windows-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
