@@ -1,0 +1,36 @@
+# Baseline ownership map for critical repository surfaces.
+# Start simple: establish clear review ownership first, then tighten
+# branch protection later if the team wants mandatory code owner reviews.
+
+# Default fallback owner
+* @Gudvin82
+
+# CI / automation
+.github/workflows/ @Gudvin82
+.github/dependabot.yml @Gudvin82
+
+# Core CLI and package surfaces
+vcp_cli/ @Gudvin82
+pyproject.toml @Gudvin82
+package.json @Gudvin82
+
+# Machine-readable control layer
+.vcp/ @Gudvin82
+schemas/ @Gudvin82
+benchmarks/ @Gudvin82
+
+# Public documentation and release surfaces
+README.md @Gudvin82
+README_ru.md @Gudvin82
+START_HERE.md @Gudvin82
+CHANGELOG.md @Gudvin82
+docs/ @Gudvin82
+docs_ru/ @Gudvin82
+
+# Copy-ready templates and integration kits
+templates/ @Gudvin82
+ci-examples/ @Gudvin82
+
+# Tests and validation scripts
+tests/ @Gudvin82
+scripts/ @Gudvin82
