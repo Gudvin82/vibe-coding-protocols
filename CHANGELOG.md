@@ -1,6 +1,13 @@
 # Changelog
 
-## v0.9.4
+## v0.9.5
+
+- added AI review-engine positioning surfaces so VCP is compared honestly against OpenCodeReview-style tools;
+- strengthened evaluator category guards, README framing, AI tooling guidance, and current limitations around dedicated review-engine boundaries;
+- clarified the “complement, not replacement” relationship between VCP, review-diff, PR Gate, trust-check, and external AI review tools;
+- synced current release/version markers across evaluator, adopter, and Russian documentation surfaces for a clean public release state.
+
+## v0.9.5
 
 - added a public route recommender plus guided adoption modes for faster honest onboarding;
 - added canonical proof-count synchronization through `.vcp/proof-counts.json`;

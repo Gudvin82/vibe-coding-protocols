@@ -170,12 +170,12 @@ Use these proof surfaces in the first 2 minutes:
 - `docs/customer-repo-scaffold.md`
 - `docs/executive-reporting.md`
 
-## Key additions for v0.9.4
+## Key additions for v0.9.5
 
-- `docs/client-adoption-playbook.md`
-- `docs/consulting-offers.md`
-- `docs/customer-repo-scaffold.md`
-- `docs/executive-reporting.md`
+- `docs/ai-review-engines.md`
+- strengthened `docs/comparisons.md`
+- strengthened `docs/ai-tooling.md`
+- stronger dedicated-review-engine boundary in `docs/current-limitations.md`
 
 - inspect `docs/current-limitations.md`, `docs/route-recommender.md`, `docs/proof-counts.md`, `docs/control-scorecard.md`, `docs/evidence-bundle.md`, `docs/pr-readiness.md`, and `docs/integrations/proof-matrix.md` before high-confidence public claims.
 

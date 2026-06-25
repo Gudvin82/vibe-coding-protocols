@@ -1,6 +1,6 @@
 # Agent Rule Provenance
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Every shipped rule profile should explain where it came from, what it is for, and what can go wrong if it is misapplied.
 

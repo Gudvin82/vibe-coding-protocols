@@ -1,6 +1,6 @@
 # Visual spec
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Используйте этот spec, если Codex-generated SVG получился недостаточно сильным визуально или если позже нужен отдельный ChatGPT image generation pass.
 

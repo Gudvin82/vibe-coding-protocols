@@ -1,6 +1,6 @@
 # GitHub-native Control Checklist
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 This checklist helps teams review GitHub-native controls around VCP adoption.
 It does not claim that VCP enables these controls automatically.

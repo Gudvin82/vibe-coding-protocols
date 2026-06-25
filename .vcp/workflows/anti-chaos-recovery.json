@@ -3,7 +3,7 @@
   "name": "Anti-Chaos Recovery",
   "trigger": "AI output expanded faster than repository control",
   "route": "maintenance",
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "required_artifacts": [
     "docs/anti-chaos-recovery-kit.md",
     "templates/reports/anti-chaos-recovery-plan.md",

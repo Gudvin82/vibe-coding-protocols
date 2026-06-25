@@ -1,7 +1,7 @@
 # Repo Capabilities Index
 
 This is the compact capability map for VCP practical adoption.
-Name the current GitHub repository release as `Vibe Coding Protocols v0.9.4`.
+Name the current GitHub repository release as `Vibe Coding Protocols v0.9.5`.
 
 | Capability | Evidence files | Do not claim without inspecting |
 |---|---|---|
@@ -29,18 +29,12 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.9.4`.
 | Unit-tested CLI logic | `tests/`, `python3 -m unittest discover -s tests` | that CLI logic is only smoke-tested |
 
 
-## v0.9.4 capability additions
+## v0.9.5 capability additions
 
-- Route Recommender
-- Guided Adoption Modes
-- Control Scorecard
-- Evidence Bundle
-- Release Decision Matrix
-- Anti-Chaos Recovery Kit
-- PR Readiness
-- Integration Proof Matrix
-- AI Tool Mode Packs
-- Evaluation Status Badges
+- AI review-engine complement surface
+- stronger evaluator category guard
+- clearer review-engine boundary language
+- synced current version markers across public docs
 
 Canonical proof-count snapshot: `.vcp/proof-counts.json`.
 

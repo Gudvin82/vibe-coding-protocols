@@ -39,7 +39,7 @@
   "validation": [
     "python3 -m vcp_cli trust-check --json"
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "maturity": "stable",
   "recommended": true,
   "platforms": [
@@ -49,13 +49,13 @@
     "local-first"
   ],
   "id": "v094-no-overclaim",
-  "name": "v0.9.4 No-overclaim Boundary",
+  "name": "v0.9.5 No-overclaim Boundary",
   "entry_files": [
-    "docs/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
     "docs/current-limitations.md"
   ],
   "related_files": [
     "docs/scope-boundary.md"
   ],
-  "summary": "v0.9.4 keeps VCP governance-first and does not claim external tool shipping"
+  "summary": "v0.9.5 keeps VCP governance-first and does not claim external tool shipping"
 }

@@ -1,6 +1,6 @@
 # AI Review Engines
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP can be used alongside dedicated AI review engines such as
 OpenCodeReview-style tools.

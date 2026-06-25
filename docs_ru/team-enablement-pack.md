@@ -1,6 +1,6 @@
 # Team Enablement Pack
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 Этот pack поддерживает VCP-Pilot и VCP-Scale, превращая ключевые control
 surfaces в командный training plan.

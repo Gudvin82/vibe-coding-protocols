@@ -1,6 +1,6 @@
 # Secure Agent Training Pack
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 This pack is a lightweight onboarding layer for safer AI-assisted contribution.
 It is not a game engine and not a security certification.

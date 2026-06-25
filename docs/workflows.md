@@ -1,6 +1,6 @@
 # Workflows
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP workflow JSON files are machine-readable planning and governance artifacts.
 They are **not** an execution engine.

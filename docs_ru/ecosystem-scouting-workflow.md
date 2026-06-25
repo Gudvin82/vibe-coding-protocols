@@ -1,6 +1,6 @@
 # Ecosystem Scouting Workflow
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 Этот workflow помогает PM, AI product и R&D-командам проверять новые AI-repos
 и tools без слепого внедрения.

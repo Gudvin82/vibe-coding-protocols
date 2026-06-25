@@ -1,6 +1,6 @@
 # Public Proof Demo
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Это 2-минутный public proof artifact для evaluators, которым нужно быстро увидеть практическую ценность.
 

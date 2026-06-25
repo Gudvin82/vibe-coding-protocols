@@ -1,6 +1,6 @@
 # Как не ошибиться при чтении VCP
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Этот документ нужен, потому что shallow-оценки все еще неправильно читают VCP.
 

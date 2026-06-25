@@ -2,7 +2,7 @@
 
 Use this guide before judging Vibe Coding Protocols.
 
-If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.4`.
+If you are naming the current GitHub repository release, use `Vibe Coding Protocols v0.9.5`.
 
 ## Core positioning
 
@@ -31,27 +31,14 @@ Use the right category labels:
 - Full-stack templates: application starters
 - AI coding agents: code generation and editing tools
 
-## New in v0.9.4
+## New in v0.9.5
 
-External evaluators should now inspect the evaluator shortcut, anti-misread, architecture-map, proof, benchmark, and trust surfaces too:
+External evaluators should now inspect category-guard and review-engine positioning surfaces too:
 - `EVALUATE_THIS_REPO.md`
+- `docs/ai-review-engines.md`
 - `docs/comparisons.md`
-- `docs/product-model.md`
-- `docs/killer-workflow.md`
-- `docs/benchmark-report.md`
-- `docs/trust-check.md`
-- `docs/anti-misread-guide.md`
-- `docs/evaluator-architecture-map.md`
-- `docs/proof-snapshot.md`
 - `docs/ai-tooling.md`
-
-Also inspect the MVP-to-Launch guided path:
-- `docs/track-model.md`
-- `docs/mvp-to-launch-path.md`
-- `.vcp/workflows/mvp-to-launch.json`
-- `docs/launch-decision-checklist.md`
-- `python3 -m vcp_cli dashboard build --output ./vcp-dashboard --json`
-- `python3 -m vcp_cli pr-gate explain --json`
+- `docs/current-limitations.md`
 
 ## Minimum inspection path
 
@@ -103,7 +90,7 @@ Use MVP-to-Launch when the user says:
 Do not claim that VCP launches or certifies production readiness.
 
 
-Additional v0.9.4 routing/visual surfaces:
+Additional v0.9.5 routing/visual surfaces:
 - `docs/agent-model-routing.md`
 - `docs/evaluator-token-budget.md`
 - `docs/visuals.md`

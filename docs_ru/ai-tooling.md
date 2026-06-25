@@ -1,6 +1,6 @@
 # AI Tooling
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 

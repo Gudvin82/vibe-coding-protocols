@@ -1,6 +1,6 @@
 # Presentations
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Presentations are optional public proof assets, not required runtime features.
 

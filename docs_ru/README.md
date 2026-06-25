@@ -1,7 +1,7 @@
 
 # Русская навигация по VCP
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 Methodology: `v1.4`
 
 VCP — это local-first control/governance layer для AI-built и AI-assisted
@@ -42,24 +42,16 @@ hosted dashboard, не marketplace и не official IDE extension.
    `docs_ru/pr-readiness.md`
 5. Для честных ограничений смотрите `docs_ru/current-limitations.md`
 
-## Новое в v0.9.4
+## Новое в v0.9.5
 
-- Route Recommender: помогает выбрать маршрут для fast MVP, нового проекта,
-  текущего проекта, raw AI MVP, release decision или brownfield rescue.
-- Control Scorecard: показывает состояние clarity, control, proof, adoption
-  readiness, launch readiness и evaluator readiness.
-- Evidence Bundle: собирает proof-пакет для PR, release, handoff, consulting и
-  client review.
-- Release Decision Matrix: помогает честно решить, можно ли demo / private
-  test / merge / beta / public release или пока нельзя выпускать.
-- Anti-Chaos Recovery Kit: маршрут для ситуации, когда AI уже нагенерил хаос и
-  нужно восстановить контроль.
-- PR Readiness Pack: локальная подготовка PR без auto-PR и auto-merge.
-- Integration Proof Matrix: показывает, какие Claude Code / Codex / Cursor /
-  Copilot / GitHub Actions kits реально shipped.
-- Current Limitations: честно фиксирует, чего в VCP нет: SaaS, hosted
-  dashboard, public PyPI/npm, official VS Code extension, marketplace, auto-PR,
-  security scanner.
+- AI review-engine comparison surface: помогает честно сравнивать VCP с
+  OpenCodeReview-style tools, не смешивая governance layer и review engine.
+- Evaluator category guard: снижает риск shallow misread, будто VCP это только
+  review bot или только docs repo.
+- Complement story: явнее объясняет, как VCP работает рядом с dedicated
+  diff/file review tools, PR Gate, trust-check и release evidence.
+- Version-surface sync: вычищает stale current-version markers в public,
+  evaluator и adopter surfaces.
 
 ## Что shipped / optional / roadmap-only
 
@@ -112,7 +104,7 @@ Roadmap-only:
 
 ## AI ecosystem governance в VCP
 
-VCP помогает не просто выбрать AI tool, а безопасно его проверить перед внедрением. Для этого в `v0.9.4` добавлены:
+VCP помогает не просто выбрать AI tool, а безопасно его проверить перед внедрением. Для этого в `v0.9.4` были добавлены:
 - `docs_ru/ai-ecosystem-watchlist.md` для governance-оценки внешних AI tools;
 - `docs_ru/model-tool-governance.md` для документирования model/tool dependencies;
 - `docs_ru/secure-agent-training-pack.md` для обучения команды безопасному AI behavior;

@@ -1,7 +1,7 @@
 
 # Proof Snapshot
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 Canonical proof numbers лежат в [.vcp/proof-counts.json](../.vcp/proof-counts.json).
 

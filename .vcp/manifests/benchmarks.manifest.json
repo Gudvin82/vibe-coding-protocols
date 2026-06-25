@@ -985,7 +985,7 @@
         "README.md",
         "README_ru.md",
         "AGENTS.md",
-        "docs/release-v0.9.4.md"
+        "docs/release-v0.9.5.md"
       ],
       "expected_warnings": [
         "do not flatten VCP into a vague prompt pack or everything-framework story"
@@ -2442,7 +2442,7 @@
       "required_inspected_files": [
         "docs/scope-boundary.md",
         "docs/control-spine.md",
-        "docs/release-v0.9.4.md"
+        "docs/release-v0.9.5.md"
       ],
       "expected_warnings": [
         "do not overclaim hosted/cloud/autonomous functionality"
@@ -2472,7 +2472,7 @@
       "expected_route": null,
       "expected_pack": null,
       "required_inspected_files": [
-        "docs/release-v0.9.4.md",
+        "docs/release-v0.9.5.md",
         "docs/scope-boundary.md",
         "docs/public-evaluation-kit.md"
       ],
@@ -2748,10 +2748,10 @@
       "expected_warnings": [
         "do not overclaim hosted or automated behavior"
       ],
-      "expected_first_action": "v0.9.4 public story stays inside honest boundaries"
+      "expected_first_action": "v0.9.5 public story stays inside honest boundaries"
     }
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "files": [
     "benchmarks/ai-adoption/scenarios/control-catalog.json",
     "benchmarks/ai-adoption/scenarios/change-intent.json",

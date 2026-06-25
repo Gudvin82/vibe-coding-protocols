@@ -1,6 +1,6 @@
 # AI Stack Adoption Checklist
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 Команды часто принимают local/cloud/hybrid AI stack до того, как понимают,
 как его нужно проверять. Этот checklist создаёт governance-first intake path.

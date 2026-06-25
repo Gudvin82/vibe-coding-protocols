@@ -53,7 +53,7 @@
   "validation": [
     "python3 -m vcp_cli review plan --json"
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "maturity": "stable",
   "recommended": false,
   "platforms": [

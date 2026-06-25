@@ -694,7 +694,7 @@
     "docs/review-accept-merge.md",
     "docs/mission-retrospective.md"
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "files": [
     "templates/reports/change-intent.md",
     "templates/project-control-charter.md",

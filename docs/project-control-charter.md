@@ -1,6 +1,6 @@
 # Project Control Charter
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Project Control Charter is VCP's local governance document for a repo that wants explicit control over AI work.
 

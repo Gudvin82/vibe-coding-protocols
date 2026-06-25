@@ -22,7 +22,7 @@ VCP does not own:
 - native IDE integration
 - autonomous agent execution
 - production certification
-## v0.9.4 ecosystem boundary
+## v0.9.5 ecosystem boundary
 
 - VCP does not ship external AI tools or models.
 - It does not act as a model registry, crawler, or hosted discovery service.

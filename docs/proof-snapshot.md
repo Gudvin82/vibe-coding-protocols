@@ -1,7 +1,7 @@
 
 # Proof Snapshot
 
-Current repository package: `v0.9.4`
+Current repository package: `v0.9.5`
 
 Canonical proof numbers live in [.vcp/proof-counts.json](../.vcp/proof-counts.json).
 

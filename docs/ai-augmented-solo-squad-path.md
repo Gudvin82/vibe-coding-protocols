@@ -1,6 +1,6 @@
 # AI-Augmented Solo/Squad Path
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 This guided path is for one human coordinating multiple AI agents or IDE copilots without losing control.
 

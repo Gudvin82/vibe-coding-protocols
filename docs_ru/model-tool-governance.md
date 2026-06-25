@@ -1,6 +1,6 @@
 # Model / Tool Governance
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 AI models, datasets, agent tools, inference endpoints, UI tools и evaluation
 components должны рассматриваться как зависимости проекта.

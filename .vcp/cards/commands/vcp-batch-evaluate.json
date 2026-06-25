@@ -47,7 +47,7 @@
   "validation": [
     "python3 -m vcp_cli batch evaluate --targets /tmp/vcp-targets.txt --json"
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

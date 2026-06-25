@@ -50,7 +50,7 @@
   "validation": [
     "python3 -m vcp_cli metrics board --json"
   ],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": [

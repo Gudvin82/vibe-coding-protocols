@@ -1,6 +1,6 @@
 # Case Studies
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP не заявляет broad public adoption без видимых доказательств. Case studies нужны, чтобы показать структуру evidence без выдумывания adopters.
 

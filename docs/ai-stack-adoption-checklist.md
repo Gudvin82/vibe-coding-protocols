@@ -1,6 +1,6 @@
 # AI Stack Adoption Checklist
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Teams often adopt a local/cloud/hybrid AI stack before they know how it should
 be reviewed. This checklist creates a governance-first intake path.

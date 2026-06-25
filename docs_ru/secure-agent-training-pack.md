@@ -1,6 +1,6 @@
 # Secure Agent Training Pack
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 Это lightweight onboarding layer для более безопасной AI-assisted работы.
 Это не game engine и не security certification.

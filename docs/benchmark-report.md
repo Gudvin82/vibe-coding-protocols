@@ -1,7 +1,7 @@
 
 # Benchmark Report
 
-Current repository package: `v0.9.4`
+Current repository package: `v0.9.5`
 
 Benchmark counts for this release follow the canonical snapshot in
 `.vcp/proof-counts.json`.

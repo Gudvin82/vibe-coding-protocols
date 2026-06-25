@@ -1,9 +1,9 @@
 {
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "methodology_version": "v1.4",
   "canonical_policy": "When counts differ, `.vcp/proof-counts.json` is the canonical counted snapshot for the release.",
   "counts": {
-    "repository_package_version": "v0.9.4",
+    "repository_package_version": "v0.9.5",
     "benchmark_scenarios": 203,
     "cards": 331,
     "cli_commands_in_manifest": 84,

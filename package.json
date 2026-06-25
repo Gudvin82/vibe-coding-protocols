@@ -1,6 +1,6 @@
 {
   "name": "vibe-coding-protocols",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Local npm wrapper and metadata for Vibe Coding Protocols",
   "license": "MIT",
   "private": false,

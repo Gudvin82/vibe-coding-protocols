@@ -22,7 +22,7 @@ class AIEcosystemWatchlistTests(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
         payload = json.loads(proc.stdout)
         self.assertTrue(payload['ok'])
-        self.assertEqual(payload['version'], 'v0.9.4')
+        self.assertEqual(payload['version'], 'v0.9.5')
         self.assertGreaterEqual(payload['count'], 1)
 
 

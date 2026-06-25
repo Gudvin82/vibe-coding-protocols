@@ -1,6 +1,6 @@
 # Team Enablement Pack
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 This pack supports VCP-Pilot and VCP-Scale by turning key control surfaces into
 a team training plan.

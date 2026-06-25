@@ -1,6 +1,6 @@
 # Ecosystem Scouting Workflow
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 This workflow helps PM, AI product, and R&D teams review new AI repos and tools
 without adopting them blindly.

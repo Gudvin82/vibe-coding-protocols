@@ -1,6 +1,6 @@
 # Agent Rule Profiles
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP ships three context profiles for AI coding sessions:
 

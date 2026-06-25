@@ -1,7 +1,7 @@
 
 # Trust Check
 
-Текущий пакет репозитория: `v0.9.4`
+Текущий пакет репозитория: `v0.9.5`
 
 `trust-check` проверяет version surfaces, README/RU parity, Russian docs
 parity, evaluator pack coherence, route recommender surfaces, proof counts,

@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "title": "VCP Control Catalog",
   "statuses": [
     "shipped",
@@ -227,7 +227,7 @@
       ],
       "docs": "docs/roadmap/vscode-extension.md",
       "docs_ru": "docs_ru/README.md",
-      "roadmap_boundary": "No official VS Code extension ships in v0.9.4."
+      "roadmap_boundary": "No official VS Code extension ships in v0.9.5."
     },
     {
       "id": "product-spine",
@@ -557,7 +557,7 @@
         "public-evaluation-kit"
       ],
       "docs": "docs/docs-site.md",
-      "docs_ru": "docs_ru/release-v0.9.4.md"
+      "docs_ru": "docs_ru/release-v0.9.5.md"
     },
     {
       "id": "agent-kits",

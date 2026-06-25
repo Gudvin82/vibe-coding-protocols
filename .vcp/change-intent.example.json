@@ -1,5 +1,5 @@
 {
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "change_id": "change-20260606-control-catalog",
   "intent": "Add control catalog and supporting local AI control surfaces for v0.9.0.",
   "reason": "Make VCP browseable and governable as a local-first AI control platform.",

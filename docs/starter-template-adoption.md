@@ -1,6 +1,6 @@
 # Starter Adoption Matrix
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP does not compete with starter templates. It controls projects built with them.
 

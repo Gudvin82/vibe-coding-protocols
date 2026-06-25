@@ -1,6 +1,6 @@
 # Demo Artifacts
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 Используй `examples/killer-workflow/`, если нужен компактный before/after snapshot без чтения всего репозитория.
 

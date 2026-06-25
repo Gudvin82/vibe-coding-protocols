@@ -1,6 +1,6 @@
 # Model / Tool Governance
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 AI models, datasets, agent tools, inference endpoints, UI tools, and evaluation
 components behave like project dependencies.

@@ -1,6 +1,6 @@
 # AI Ecosystem Watchlist
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP uses this watchlist as a governance surface for reviewing external AI tools,
 models, developer tooling, training resources, and ecosystem references.
@@ -24,7 +24,7 @@ The watchlist creates a slower, safer path:
 
 ## What already existed
 
-Before `v0.9.4`, VCP already had:
+Before `v0.9.5`, VCP already had:
 - [Ecosystem Map](./ecosystem-map.md) for positioning VCP inside the broader AI tooling landscape;
 - [AI Tooling](./ai-tooling.md) for practical coexistence with AI coding tools;
 - [Integration Proof Matrix](./integrations/proof-matrix.md) for shipped copy-ready kit evidence;

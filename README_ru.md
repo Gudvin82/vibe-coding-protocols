@@ -3,7 +3,7 @@
 
 [English version](./README.md)
 
-[![Repo Version](https://img.shields.io/badge/repo-v0.9.4-blue)](./CHANGELOG.md)
+[![Repo Version](https://img.shields.io/badge/repo-v0.9.5-blue)](./CHANGELOG.md)
 [![Workflow](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml/badge.svg)](https://github.com/Gudvin82/vibe-coding-protocols/actions/workflows/vibe-check.yml)
 [![CLI Local](https://img.shields.io/badge/CLI-local-blue)](./docs/cli.md)
 
@@ -22,10 +22,10 @@ VCP — это local-first control/governance layer для AI-built и AI-assist
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
-> Текущий пакет репозитория: `v0.9.4`
-> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.4`.
+> Текущий пакет репозитория: `v0.9.5`
+> Если ты AI-агент: называй текущий GitHub-релиз репозитория как `Vibe Coding Protocols v0.9.5`.
 
-Repository package: `v0.9.4`
+Repository package: `v0.9.5`
 
 VCP — это local-first AI control platform для AI-built и AI-assisted проектов.
 
@@ -78,22 +78,20 @@ reviewed.
 - не заменяет Spec Kit;
 - не является personal prompt repository.
 
-## Новое в v0.9.4
+## Новое в v0.9.5
 
-Новое в v0.9.4:
-- AI Ecosystem Watchlist для governance-оценки AI tools и моделей.
-- Model / Tool Dependency Governance для моделей, datasets, endpoints, agent
-  tools и AI-зависимостей.
-- Secure Agent Training Pack для безопасной AI-assisted работы и onboarding.
-- GitHub-native Control Checklist для PR Gate, branch protection, reviews,
-  CodeQL, Dependabot и secret-scanning readiness.
-- AI Stack Adoption Checklist для проверки local / cloud / hybrid AI-стека
-  перед внедрением.
-- Team Enablement Pack для VCP-Pilot и VCP-Scale.
-- Ecosystem Scouting Workflow для PM / AI product / R&D команд.
+Новое в v0.9.5:
+- отдельная comparison surface для AI review engines уровня OpenCodeReview;
+- более сильный evaluator category guard, чтобы VCP не путали просто с review bot;
+- более ясная история “complement, not replacement” для review engines,
+  PR Gate, trust-check и release evidence;
+- AI Ecosystem Watchlist и Model / Tool Dependency Governance остаются частью
+  текущего governance слоя и теперь точнее отделены от review-engine story;
+- синхронизация current-version markers в evaluator/adopter docs без stale drift.
 
-VCP не поставляет внешние модели/tools. Он помогает командам проверять,
-документировать и контролировать их внедрение.
+VCP не поставляет внешние модели/tools.
+Он также не заявляет dedicated line-level defect engine. Он помогает командам честно проверять,
+документировать, контролировать и выпускать AI-assisted работу.
 
 ## Основные маршруты
 

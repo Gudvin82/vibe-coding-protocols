@@ -1,6 +1,6 @@
 {
   "name": "Vibe Coding Protocols",
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "methodology_version": "v1.4",
   "schema_version": "v1",
   "status": "maintained",
@@ -34,7 +34,7 @@
     "docs/public-growth/seo-geo-ai-structure-evaluation.md",
     "docs/public-source-of-truth-audit.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
     "docs/spec-foundation.md",
     "docs/spec-quality-gate.md",
     "docs/two-track-model.md",
@@ -65,7 +65,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.4.md",
+    "docs_ru/release-v0.9.5.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -120,8 +120,8 @@
     "docs/route-recommender.md",
     "docs/evidence-bundle.md",
     "docs/pr-readiness.md",
-    "docs/release-v0.9.4.md",
-    "docs_ru/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
+    "docs_ru/release-v0.9.5.md",
     "docs/ai-ecosystem-watchlist.md",
     "docs/model-tool-governance.md",
     "docs/secure-agent-training-pack.md",
@@ -196,7 +196,7 @@
     "docs/pypi-publishing.md",
     "docs/question-engine.md",
     "docs/release-readiness.md",
-    "docs/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
     "docs/review-diff.md",
     "docs/roadmap/vscode-extension.md",
     "docs/score-badge.md",
@@ -246,7 +246,7 @@
     "docs/local-platform-flow.md",
     "docs/integration-packs.md",
     "docs_ru/README.md",
-    "docs_ru/release-v0.9.4.md",
+    "docs_ru/release-v0.9.5.md",
     "docs/comparisons.md",
     "docs/product-model.md",
     "docs/killer-workflow.md",
@@ -325,7 +325,7 @@
     "docs/integrations/proof-matrix.md",
     "docs/ai-tool-mode-packs.md",
     "docs/evaluation-status-badges.md",
-    "docs/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
     "docs_ru/current-limitations.md",
     "docs_ru/proof-counts.md",
     "docs_ru/route-recommender.md",
@@ -338,7 +338,7 @@
     "docs_ru/integration-proof-matrix.md",
     "docs_ru/ai-tool-mode-packs.md",
     "docs_ru/evaluation-status-badges.md",
-    "docs_ru/release-v0.9.4.md",
+    "docs_ru/release-v0.9.5.md",
     ".vcp/proof-counts.json",
     ".vcp/route-recommender.json",
     ".vcp/guided-adoption-modes.json",
@@ -349,8 +349,8 @@
     ".vcp/integration-proof-matrix.json",
     ".vcp/ai-tool-mode-packs.json",
     ".vcp/evaluation-status-badges.json",
-    "docs/release-v0.9.4.md",
-    "docs_ru/release-v0.9.4.md",
+    "docs/release-v0.9.5.md",
+    "docs_ru/release-v0.9.5.md",
     "docs/ai-ecosystem-watchlist.md",
     "docs/model-tool-governance.md",
     "docs/secure-agent-training-pack.md",
@@ -799,15 +799,15 @@
       ".vcp/index.json",
       ".vcp/cards/"
     ],
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.5. Do not present v1.4 as the current repository release."
   },
-  "repository_package_version": "v0.9.4",
+  "repository_package_version": "v0.9.5",
   "version_semantics": {
     "repository_package_version_meaning": "GitHub toolkit packaging, CLI, docs, templates, manifests, cards, benchmarks and release package.",
     "methodology_version_meaning": "Internal stable methodology reference for method/protocol continuity across package releases.",
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.5. Do not present v1.4 as the current repository release."
   },
   "ai_release_naming": {
-    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.4. Do not present v1.4 as the current repository release."
+    "ai_instruction": "When naming the current GitHub repository release, use Vibe Coding Protocols v0.9.5. Do not present v1.4 as the current repository release."
   }
 }

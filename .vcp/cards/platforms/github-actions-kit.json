@@ -19,7 +19,7 @@
   "outputs": ["GitHub Actions PR Gate bundle"],
   "stop_conditions": ["do not call this a marketplace action"],
   "validation": ["python3 -m vcp_cli agents kit --target github-actions --json"],
-  "version": "v0.9.4",
+  "version": "v0.9.5",
   "maturity": "local-stable",
   "recommended": true,
   "platforms": ["github-copilot"],
