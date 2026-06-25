@@ -1,6 +1,6 @@
 # License
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 VCP uses a dual-license model so teams can reuse the code surfaces easily without weakening attribution expectations for the methodology.
 

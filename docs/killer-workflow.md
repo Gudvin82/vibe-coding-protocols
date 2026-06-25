@@ -1,6 +1,6 @@
 # Killer Workflow
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 ## One-minute explanation
 

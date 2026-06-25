@@ -1,6 +1,6 @@
 # Change Intent
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Change Intent — это локальный control-layer VCP для planned change.
 

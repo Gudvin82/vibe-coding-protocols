@@ -20,6 +20,7 @@ Name the current GitHub repository release as `Vibe Coding Protocols v0.9.4`.
 | Workflow planning | `docs/workflows.md`, `.vcp/workflows/`, `vcp_cli/workflow_cmd.py` | that workflow JSON is an execution engine |
 | Integration roadmap | `docs/roadmap/integrations.md`, `docs/roadmap/vscode-extension.md`, `docs/distribution.md` | that roadmap-only integrations are already shipped or official |
 | Integration status model | `docs/integrations/status-model.md`, `.vcp/integrations.json`, `docs/dashboard.md` | that VCP already has hosted integrations or a marketplace |
+| AI review-engine complement | `docs/ai-review-engines.md`, `docs/review-diff.md`, `docs/pr-gate.md` | that VCP itself is already a line-level review-comment engine or a replacement for dedicated AI review tools |
 | Local dashboard artifact | `vcp_cli/dashboard_cmd.py`, `docs/dashboard.md`, `docs/metrics-board.md` | that dashboard means hosted SaaS or telemetry-backed control plane |
 | Launch decision aid | `docs/launch-decision-checklist.md`, `templates/reports/launch-decision.md`, `docs/pr-gate-approval-model.md` | that local launch review equals production certification |
 | Plugin contract draft | `docs/plugins/plugin-contract-draft.md`, `docs/plugins/plugin-safety.md`, `examples/plugins/example-readiness-check.plugin.json` | stable official plugin API or remote plugin execution |

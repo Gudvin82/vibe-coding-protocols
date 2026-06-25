@@ -1,6 +1,6 @@
 # Evaluation Receipt
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Evaluation receipt явно показывает, что именно AI или human reviewer реально inspected перед выводами о VCP.
 

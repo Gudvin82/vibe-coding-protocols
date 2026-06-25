@@ -1,6 +1,6 @@
 # Case Studies
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 VCP does not claim broad public adoption it cannot show. Case studies exist to make evidence structure visible without inventing adopters.
 

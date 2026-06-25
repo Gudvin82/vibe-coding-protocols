@@ -1,6 +1,6 @@
 # Product Model
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Используй эту модель, чтобы быстро понять VCP.
 

@@ -112,6 +112,11 @@ VCP включает практические setup kits для:
 - GitHub Copilot
 - GitHub Actions
 
+VCP также может работать рядом с AI review engines уровня OpenCodeReview.
+Такие инструменты в первую очередь анализируют diff или файл и дают review
+comments. VCP же отвечает за route selection, PR Gate, trust-check, adoption
+control, proof surfaces и release evidence вокруг более широкого delivery flow.
+
 Это не official plugins. Это local-first шаблоны, playbook и CLI export для
 внедрения VCP-контроля в реальные AI coding окружения.
 
@@ -200,6 +205,7 @@ python3 -m vcp_cli pr readiness --json
 - [docs_ru/killer-workflow.md](./docs_ru/killer-workflow.md)
 - [docs_ru/trust-check.md](./docs_ru/trust-check.md)
 - [docs_ru/ai-tooling.md](./docs_ru/ai-tooling.md)
+- [docs_ru/ai-review-engines.md](./docs_ru/ai-review-engines.md)
 - [docs_ru/agent-model-routing.md](./docs_ru/agent-model-routing.md)
 - [docs_ru/evaluator-token-budget.md](./docs_ru/evaluator-token-budget.md)
 - [docs_ru/visuals.md](./docs_ru/visuals.md)

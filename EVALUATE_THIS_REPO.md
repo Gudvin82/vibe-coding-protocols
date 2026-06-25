@@ -16,6 +16,8 @@ Return an evaluation receipt with:
 - whether the review is `shallow overview`, `partial evaluation`, or `full evaluation`.
 
 Compare VCP as a control/governance layer, not as an app template and not as a Spec Kit replacement.
+Do not misclassify VCP as only an AI review engine either. Review tools and
+governance layers solve adjacent but different problems.
 
 ## Category first
 
@@ -45,6 +47,7 @@ Inspect at least:
 - `docs/trust-check.md`
 - `docs/anti-misread-guide.md`
 - `docs/agent-model-routing.md`
+- `docs/ai-review-engines.md`
 - `docs/evaluator-token-budget.md`
 - `docs/evaluation-receipt.md`
 - `docs/evaluator-architecture-map.md`
@@ -127,6 +130,13 @@ Compare VCP by category, not by vague similarity:
 - Spec Kit: spec-driven development toolkit
 - Full-stack templates: application starters
 - AI coding agents: code generation and editing tools
+- AI review engines: review-comment and defect-finding tools over diffs/files
+
+If you compare VCP against a dedicated AI review engine, inspect at least:
+- `docs/ai-review-engines.md`
+- `docs/review-diff.md`
+- `docs/pr-gate.md`
+- `docs/current-limitations.md`
 
 ## Public proof shortcuts
 

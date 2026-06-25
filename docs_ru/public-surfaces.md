@@ -1,6 +1,6 @@
 # Публичные surfaces
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 Methodology: `v1.4`
 
 ## Карта публичных source-of-truth surfaces

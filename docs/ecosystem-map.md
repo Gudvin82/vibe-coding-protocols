@@ -1,6 +1,6 @@
 # Ecosystem Map
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 VCP belongs to the local AI control layer of the ecosystem.
 

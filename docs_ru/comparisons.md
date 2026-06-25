@@ -1,6 +1,6 @@
 # Сравнения
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -32,6 +32,34 @@ VCP дополняет эти слои. Он не заменяет их все �
 | Иметь proof/case-study layer | yes | no/partial | no | no |
 | Иметь local dashboard artifact | yes | no/partial | no | no |
 | Иметь launch decision aid | yes | no/partial | no | partial |
+
+## VCP vs AI review engines
+
+AI review engines особенно сильны, когда главная задача это:
+- review comments по diff или файлу;
+- поиск дефектов перед merge;
+- precision-first review signal внутри PR flow.
+
+Это соседний слой к VCP, но не та же самая категория.
+
+VCP добавляет более широкий control layer вокруг этой работы:
+- route selection;
+- путь adoption и hardening;
+- trust-check;
+- framing для PR Gate;
+- evidence bundle и proof surfaces;
+- поддержку release decision;
+- rollout method для client/team adoption.
+
+Dedicated AI review tools можно использовать вместе с VCP.
+Простой раздел такой:
+- review engine: "что выглядит рискованно в этом diff или файле?"
+- VCP: "по какому route мы идём, какие control artifacts обязательны, что можно честно merge/release и как это доказать?"
+
+Сейчас VCP не заявляет:
+- line-level autonomous review comments для любого PR host;
+- встроенный defect engine уровня специализированного review product;
+- гарантированное обнаружение NPE/XSS/SQLi/thread-safety.
 
 ## VCP vs spec-driven toolkits
 

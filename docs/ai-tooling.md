@@ -1,6 +1,6 @@
 # AI Tooling
 
-Repository package: `v0.9.1`
+Repository package: `v0.9.4`
 
 Public Russian methodology hub: https://anmalishev.ru/expert/vibe-coding/
 
@@ -28,6 +28,15 @@ VCP is meant to be used alongside AI coding agents, not as a claim of official i
 
 - use VCP as a repository control layer;
 - do not describe this as an official Copilot integration.
+
+## AI review engines
+
+If you already use a dedicated AI review engine, keep the roles separate:
+- let the review engine inspect diffs/files and emit review findings;
+- let VCP handle route selection, trust-check, PR Gate, evidence bundle, and
+  release framing.
+
+VCP complements AI review engines. It does not pretend to replace them.
 
 ## Fast setup path
 

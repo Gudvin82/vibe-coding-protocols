@@ -1,6 +1,6 @@
 # Agent Model Routing
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Use this guide when you adopt VCP inside your own repository and want to spend AI tokens deliberately.
 

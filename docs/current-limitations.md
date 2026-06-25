@@ -8,6 +8,7 @@ official IDE extension.
 
 VCP does not create PRs automatically, does not auto-merge, and is not a
 full end-to-end security scanner.
+VCP is also not a dedicated line-level AI review-comment engine.
 
 VCP gives teams local artifacts, CLI checks, agent kits, PR Gate, proof
 surfaces, evidence bundle, and rollout playbooks inside the repository.
@@ -19,6 +20,7 @@ surfaces, evidence bundle, and rollout playbooks inside the repository.
 - no official VS Code extension;
 - no automatic PR creation;
 - no auto-merge;
+- no built-in line-level review engine across all PR surfaces;
 - no compliance certification;
 - no launch guarantee;
 - no production safety guarantee;

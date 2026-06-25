@@ -1,6 +1,6 @@
 # Anti-Misread Guide
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 This guide exists because shallow evaluations still misread VCP.
 

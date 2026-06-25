@@ -218,6 +218,11 @@ VCP includes practical setup kits for:
 - GitHub Copilot
 - GitHub Actions
 
+VCP can also sit alongside AI review engines such as OpenCodeReview-style
+tools. Those tools focus on review comments over diffs or files. VCP focuses
+on route selection, PR Gate, trust-check, adoption control, proof surfaces,
+and release evidence around the wider delivery flow.
+
 These are not official plugins. They are local-first, copy-ready templates and
 CLI export paths for adopting VCP control rules into real AI coding
 environments.
@@ -231,6 +236,7 @@ See:
 - [docs/integrations/proof-matrix.md](./docs/integrations/proof-matrix.md)
 - [docs/ai-tool-mode-packs.md](./docs/ai-tool-mode-packs.md)
 - [docs/ai-tooling.md](./docs/ai-tooling.md)
+- [docs/ai-review-engines.md](./docs/ai-review-engines.md)
 
 ## For teams and clients
 

@@ -1,6 +1,6 @@
 # Evaluator Token Budget
 
-Repository package: `v0.9.0`
+Repository package: `v0.9.4`
 
 Use this guide when an external AI agent, browser AI, IDE assistant, evaluator, or journalist is reading VCP for the first time.
 
